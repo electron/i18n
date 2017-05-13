@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "del": "^2.2.2",
+    "electron-docs": "^3.0.1",
+    "make-dir": "^1.0.0"
+  }
+}

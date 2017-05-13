@@ -1,0 +1,21 @@
+{
+  "name": "electron-i18n",
+  "version": "1.0.0",
+  "description": "The home of all of Electron's translateable content",
+  "main": "index.js",
+  "repository": "https://github.com/electron/electron-i18n",
+  "author": "zeke",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^7.0.18",
+    "electron-api-docs": "^1.6.2",
+    "electron-docs": "^3.0.0",
+    "flat": "^2.0.1",
+    "ora": "^1.2.0",
+    "ts-node": "^3.0.4",
+    "typescript": "^2.3.2"
+  },
+  "scripts": {
+    "fetch-guides": "script/guides.ts"
+  }
+}
