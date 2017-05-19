@@ -7,6 +7,8 @@
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18",
     "chai": "^3.5.0",
     "electron-api-docs": "^1.6.2",
@@ -17,9 +19,11 @@
     "standard": "^10.0.2",
     "standard-markdown": "^2.3.0",
     "ts-node": "^3.0.4",
-    "typescript": "^2.3.2"
+    "typescript": "^2.3.2",
+    "walk-sync": "^0.3.1"
   },
   "scripts": {
-    "fetch-guides": "script/guides.ts"
+    "fetch-guides": "script/guides.ts",
+    "test": "mocha -r ts-node/register test/**/*.ts"
   }
 }
