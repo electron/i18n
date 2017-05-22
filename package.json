@@ -1,7 +1,7 @@
 {
   "name": "electron-i18n",
   "version": "1.0.0",
-  "description": "The home of all of Electron's translateable content",
+  "description": "The home of Electron's translateable content",
   "main": "index.js",
   "repository": "https://github.com/electron/electron-i18n",
   "author": "zeke",
@@ -11,11 +11,16 @@
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18",
     "chai": "^3.5.0",
-    "electron-api-docs": "^1.6.2",
-    "electron-docs": "^3.0.0",
-    "flat": "^2.0.1",
+    "del": "^2.2.2",
+    "electron-docs": "^3.0.1",
+    "got": "^6.7.1",
+    "js-yaml": "^3.8.4",
+    "json": "^9.0.6",
+    "make-dir": "^1.0.0",
     "mocha": "^3.3.0",
+    "objectify-array": "^1.0.1",
     "ora": "^1.2.0",
+    "shake-tree": "^1.0.0",
     "standard": "^10.0.2",
     "standard-markdown": "^2.3.0",
     "ts-node": "^3.0.4",
@@ -23,7 +28,11 @@
     "walk-sync": "^0.3.1"
   },
   "scripts": {
-    "fetch-guides": "script/guides.ts",
-    "test": "mocha -r ts-node/register test/**/*.ts"
+    "build": "script/build.ts",
+    "test": "mocha -r ts-node/register test/**/*.ts",
+    "release": "script/release.sh"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }
