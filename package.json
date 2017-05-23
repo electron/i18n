@@ -9,6 +9,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "del": "^2.2.2",
+    "dotenv-safe": "^4.0.4",
     "electron-docs": "^3.0.1",
     "got": "^6.7.1",
     "js-yaml": "^3.8.4",
