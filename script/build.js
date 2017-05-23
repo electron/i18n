@@ -5,15 +5,18 @@ require('dotenv-safe').load()
 const del = require('del')
 const electronDocs = require('electron-docs')
 const fs = require('fs')
-const mkdir = require('make-dir').sync
-const path = require('path')
 const got = require('got')
+const mkdir = require('make-dir').sync
+const objectifyArray = require('objectify-array')
+const path = require('path')
+const shakeTree = require('shake-tree')
+const YAML = require('js-yaml')
 
 const LOCALE = 'en'
 const docsBasepath = path.join(__dirname, '..', 'docs', LOCALE)
 const GitHub = require('github')
 const github = new GitHub({
-  // debug: true,
+  debug: false,
   Promise: Promise,
   token: process.env.GITHUB_TOKEN
 })
@@ -21,7 +24,7 @@ const github = new GitHub({
 let release
 
 del(docsBasepath)
-  .then(fetchLatestRelease)
+  .then(fetchRelease)
   .then(fetchDocs)
   .then(writeDocs)
   .then(fetchApiData)
@@ -29,18 +32,20 @@ del(docsBasepath)
   .then(fetchWebsiteContent)
   .then(writeWebsiteContent)
 
-function fetchLatestRelease () {
-  console.log('Fetching the latest release of Electron')
+function fetchRelease (tag) {
+  let fetcher
+  let repo = {owner: 'electron', repo: 'electron'}
 
-  // return github.repos.getReleaseByTag({
-  //   owner: 'electron',
-  //   repo: 'electron',
-  //   tag: 'v1.6.10'
+  if (tag && tag.length) {
+    console.log(`Fetching Electron ${tag}`)
+    fetcher = github.repos.getReleaseByTag(Object.assign(repo, {tag: tag}))
+  } else {
+    console.log('Fetching the latest release of Electron')
+    fetcher = github.repos.getLatestRelease(repo)
+  }
 
-  return github.repos.getLatestRelease({
-    owner: 'electron',
-    repo: 'electron'
-  }).catch(err => {
+  return fetcher
+  .catch(err => {
     console.error(`Unable to fetch latest Electron release`)
     throw err
   }).then(r => {
@@ -69,7 +74,7 @@ function writeDocs (docs) {
     const filename = path.join(docsBasepath, doc.filename)
     mkdir(path.dirname(filename))
     fs.writeFileSync(filename, doc.markdown_content)
-    console.log(' - ' + path.relative(process.cwd(), filename))
+    console.log('   ' + path.relative(process.cwd(), filename))
   })
 
   return Promise.resolve()
@@ -94,19 +99,16 @@ function fetchApiData () {
 }
 
 function writeApiDescriptions (apis) {
-  const objectifyArray = require('objectify-array')
-  const shakeTree = require('shake-tree')
-  const YAML = require('js-yaml')
   const tree = objectifyArray(apis)
   const descriptions = shakeTree(tree, 'description')
 
   
   const apiYmlPath = path.join(docsBasepath, 'api.yml')
-  console.log(`Writing ${path.resolve(process.cwd(), apiYmlPath)}`)
+  console.log(`Writing ${path.relative(process.cwd(), apiYmlPath)}`)
   fs.writeFileSync(apiYmlPath, YAML.safeDump(apis))
 
   const descriptionsYmlPath = path.join(docsBasepath, 'api-descriptions.yml')
-  console.log(`Writing ${path.resolve(process.cwd(), descriptionsYmlPath)}`)
+  console.log(`Writing ${path.relative(process.cwd(), descriptionsYmlPath)}`)
   fs.writeFileSync(descriptionsYmlPath, YAML.safeDump(descriptions))
 
   return Promise.resolve()
@@ -126,9 +128,10 @@ function fetchWebsiteContent () {
     })
 }
 
-function writeWebsiteContent () {
-  const websiteFile = path.join(docsBasepath, 'website', `${LOCALE}.yml`)
-  console.log(`Writing ${path.resolve(process.cwd(), websiteFile)}`)
-  fs.writeFileSync(websiteFile, YAML.safeDump(descriptions))
+function writeWebsiteContent (content) {
+  const websiteFile = path.join(docsBasepath, 'website', `locale.yml`)
+  mkdir(path.dirname(websiteFile))
+  console.log(`Writing ${path.relative(process.cwd(), websiteFile)}`)
+  fs.writeFileSync(websiteFile, YAML.safeDump(content))
   return Promise.resolve()
 }
