@@ -99,15 +99,13 @@ function fetchApiData () {
 }
 
 function writeApiDescriptions (apis) {
+  const apiJsonPath = path.join(docsBasepath, 'api', 'electron-api.json')
+  console.log(`Writing ${path.relative(process.cwd(), apiJsonPath)} (without changes)`)
+  fs.writeFileSync(apiJsonPath, JSON.stringify(apis, null, 2))
+
   const tree = objectifyArray(apis)
   const descriptions = shakeTree(tree, 'description')
-
-  
-  const apiYmlPath = path.join(docsBasepath, 'api.yml')
-  console.log(`Writing ${path.relative(process.cwd(), apiYmlPath)}`)
-  fs.writeFileSync(apiYmlPath, YAML.safeDump(apis))
-
-  const descriptionsYmlPath = path.join(docsBasepath, 'api-descriptions.yml')
+  const descriptionsYmlPath = path.join(docsBasepath, 'api', 'api-descriptions.yml')
   console.log(`Writing ${path.relative(process.cwd(), descriptionsYmlPath)}`)
   fs.writeFileSync(descriptionsYmlPath, YAML.safeDump(descriptions))
 
