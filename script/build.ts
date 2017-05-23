@@ -8,23 +8,39 @@ const path = require('path')
 const ora = require('ora')
 const got = require('got')
 
-const DEFAULT_LOCALE = 'en'
-const docsPath = path.join(__dirname, '..', 'docs', DEFAULT_LOCALE)
+const LOCALE = 'en'
+const docsBasepath = path.join(__dirname, '..', 'docs', LOCALE)
 const spinner = ora('Loading unicorns').start()
-
 const GitHub = require('github')
 const github = new GitHub({
   debug: true,
   Promise: Promise
 })
 
-del(docsPath)
-  .then(fetchElectronDocs)
-  .then(writeElectronDocs)
+let release
+let version
+
+del(docsBasepath)
+  .then(fetchLatestRelease)
+  .then(fetchDocs)
+  .then(writeDocs)
   .then(fetchApiDescriptions)
   .then(writeApiDescriptions)
 
-function fetchElectronDocs () {
+function fetchLatestRelease () {
+  return github.repos.getLatestRelease({
+    owner: 'electron',
+    repo: 'electron'
+  }).catch(err => {
+    console.error(`Unable to fetch latest Electron release`)
+    throw err
+  }).then(r => {
+    release = r.data
+    return Promise.resolve()
+  })
+}
+
+function fetchDocs () {
   spinner.text = 'Fetching docs from electron/electron'
 
   return electronDocs(version)
@@ -37,11 +53,11 @@ function fetchElectronDocs () {
   })
 }
 
-function writeElectronDocs (docs: Doc[]) {
+function writeDocs (docs: Doc[]) {
   // console.log(docs.map(doc => doc.filename))
 
   docs.forEach(doc => {
-    const filename = path.join(docsPath, doc.filename)
+    const filename = path.join(docsBasepath, doc.filename)
     mkdir(path.dirname(filename))
     fs.writeFileSync(filename, doc.markdown_content)
     spinner.text = `Writing ${filename}`
@@ -51,15 +67,50 @@ function writeElectronDocs (docs: Doc[]) {
 }
 
 function fetchApiDescriptions () {
-  return github.files.
 
+  const apiJson = release.assets.find(asset => asset.filename === 'electron.d.ts')
+
+  return github.repos.getAsset({
+    owner: 'electron',
+    repo: 'electron',
+    id: apiJson.id,
+  })
+}
+
+function writeApiDescriptions (apiJson) {
   const objectifyArray = require('objectify-array')
   const shakeTree = require('shake-tree')
-  const tree = objectifyArray()
+  const YAML = require('js-yaml')
+  const apis = new Buffer(apiJson.data.content, 'base64').toString('utf8')
+  const tree = objectifyArray(apis)
+  const output = shakeTree(tree, 'description')
+
+  fs.writeFileSync(
+    path.join(docsBasepath, 'api-descriptions.yml'),
+    YAML.safeDump(...............)
+  )
+  JSON.stringify(output, null, 2)
+}
   return shake
 // const YAML = require('js-yaml')
-// const output = shakeTree(tree, 'description')
+// const output = 
 // process.stdout.write(JSON.stringify(output, null, 2))
+}
+
+function fetchWebsiteContent () {
+  const url = 'https://cdn.rawgit.com/electron/electron.atom.io/gh-pages/_data/locale.yml'
+  return got(url)
+    .catch(err => {
+      console.error(`Unable to fetch ${url}`)
+      throw err
+    })
+    .then(response => {
+      return Promise.resolve(response.body)
+    })
+}
+
+function writeWebsiteContent () {
+
 }
 
 
