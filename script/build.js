@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 
 const del = require('del')
 const electronDocs = require('electron-docs')
