@@ -192,10 +192,10 @@ $ .\node_modules\.bin\electron .
 If you downloaded Electron manually, you can also use the included
 binary to execute your app directly.
 
-#### macOS
+#### Windows
 
 ```bash
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ .\electron\electron.exe your-app\
 ```
 
 #### Linux
@@ -204,10 +204,10 @@ $ ./Electron.app/Contents/MacOS/Electron your-app/
 $ ./electron/electron your-app/
 ```
 
-#### Windows
+#### macOS
 
 ```bash
-$ .\electron\electron.exe your-app\
+$ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 `Electron.app` here is part of the Electron's release package, you can download

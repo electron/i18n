@@ -11,9 +11,9 @@ Following `gyp` files contain the main rules for building Electron:
 * `electron.gyp` defines how Electron itself is built.
 * `common.gypi` adjusts the build configurations of Node to make it build
   together with Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and
+* `vendor/brightray/brightray.gyp` defines how `brightray` is built and
   includes the default configurations for linking with Chromium.
-* `brightray/brightray.gypi` includes general build configurations about
+* `vendor/brightray/brightray.gypi` includes general build configurations about
   building.
 
 ## Component Build
