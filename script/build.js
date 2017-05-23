@@ -12,7 +12,7 @@ const path = require('path')
 const shakeTree = require('shake-tree')
 const YAML = require('js-yaml')
 
-const englishBasepath = path.join(__dirname, '..', 'docs', 'en')
+const englishBasepath = path.join(__dirname, '..', 'content', 'en')
 const GitHub = require('github')
 const github = new GitHub({
   debug: false,
