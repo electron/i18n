@@ -12,8 +12,7 @@ const path = require('path')
 const shakeTree = require('shake-tree')
 const YAML = require('js-yaml')
 
-const LOCALE = 'en'
-const docsBasepath = path.join(__dirname, '..', 'docs', LOCALE)
+const englishBasepath = path.join(__dirname, '..', 'docs', 'en')
 const GitHub = require('github')
 const github = new GitHub({
   debug: false,
@@ -23,11 +22,12 @@ const github = new GitHub({
 
 let release
 
-del(docsBasepath)
+del(englishBasepath)
   .then(fetchRelease)
   .then(fetchDocs)
   .then(writeDocs)
   .then(fetchApiData)
+  .then(writeApiData)
   .then(writeApiDescriptions)
   .then(fetchWebsiteContent)
   .then(writeWebsiteContent)
@@ -36,7 +36,7 @@ function fetchRelease (tag) {
   let fetcher
   let repo = {owner: 'electron', repo: 'electron'}
 
-  if (tag && tag.length) {
+  if (false && tag && tag.length) {
     console.log(`Fetching Electron ${tag}`)
     fetcher = github.repos.getReleaseByTag(Object.assign(repo, {tag: tag}))
   } else {
@@ -71,10 +71,10 @@ function writeDocs (docs) {
   console.log(`Writing ${docs.length} markdown docs`)
 
   docs.forEach(doc => {
-    const filename = path.join(docsBasepath, doc.filename)
+    const filename = path.join(englishBasepath, 'docs', doc.filename)
     mkdir(path.dirname(filename))
     fs.writeFileSync(filename, doc.markdown_content)
-    console.log('   ' + path.relative(process.cwd(), filename))
+    console.log('   ' + path.relative(englishBasepath, filename))
   })
 
   return Promise.resolve()
@@ -98,16 +98,21 @@ function fetchApiData () {
     })
 }
 
-function writeApiDescriptions (apis) {
-  const apiJsonPath = path.join(docsBasepath, 'api', 'electron-api.json')
-  console.log(`Writing ${path.relative(process.cwd(), apiJsonPath)} (without changes)`)
-  fs.writeFileSync(apiJsonPath, JSON.stringify(apis, null, 2))
+function writeApiData (apis) {
+  const filename = path.join(englishBasepath, 'api', 'electron-api.json')
+  mkdir(path.dirname(filename))
+  console.log(`Writing ${path.relative(englishBasepath, filename)} (without changes)`)
+  fs.writeFileSync(filename, JSON.stringify(apis, null, 2))
+  return Promise.resolve(apis)
+}
 
+function writeApiDescriptions (apis) {
   const tree = objectifyArray(apis)
   const descriptions = shakeTree(tree, 'description')
-  const descriptionsYmlPath = path.join(docsBasepath, 'api', 'api-descriptions.yml')
-  console.log(`Writing ${path.relative(process.cwd(), descriptionsYmlPath)}`)
-  fs.writeFileSync(descriptionsYmlPath, YAML.safeDump(descriptions))
+  const filename = path.join(englishBasepath, 'api', 'api-descriptions.yml')
+  mkdir(path.dirname(filename))
+  console.log(`Writing ${path.relative(englishBasepath, filename)}`)
+  fs.writeFileSync(filename, YAML.safeDump(descriptions))
 
   return Promise.resolve()
 }
@@ -127,9 +132,9 @@ function fetchWebsiteContent () {
 }
 
 function writeWebsiteContent (content) {
-  const websiteFile = path.join(docsBasepath, 'website', `locale.yml`)
+  const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)
   mkdir(path.dirname(websiteFile))
-  console.log(`Writing ${path.relative(process.cwd(), websiteFile)}`)
+  console.log(`Writing ${path.relative(englishBasepath, websiteFile)}`)
   fs.writeFileSync(websiteFile, YAML.safeDump(content))
   return Promise.resolve()
 }
