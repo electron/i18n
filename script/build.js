@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+require('dotenv-safe').load()
+
 const del = require('del')
 const electronDocs = require('electron-docs')
 const fs = require('fs')
