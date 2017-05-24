@@ -1,17 +1,11 @@
 files:
-
-  # Docs (Guides)
   - source: /content/en/docs/*.md
     translation: /content/%locale%/docs/%original_file_name%
   - source: /content/en/docs/development/*.md
     translation: /content/%locale%/docs/development/%original_file_name%
   - source: /content/en/docs/tutorial/*.md
     translation: /content/%locale%/docs/tutorial/%original_file_name%
-
-  # Website Content
   - source: /content/en/website/*.yml
     translation: /content/%locale%/website/%original_file_name%
-  
-  # API Content
   - source: /content/en/api/*.yml
     translation: /content/%locale%/api/%original_file_name%
