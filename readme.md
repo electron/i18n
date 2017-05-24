@@ -1,4 +1,4 @@
-# electron-i18n 
+# electron-i18n
 
 A home for Electron's translated documentation.
 
@@ -32,7 +32,7 @@ content
         └── locale.yml
 ```
 
-To get a sense of how content is organized, see [crowdin.yaml](crowdin.yaml)
+To get a sense of how content is organized, see [crowdin.yml](crowdin.yml)
 
 ## License
 
