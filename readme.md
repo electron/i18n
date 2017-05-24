@@ -6,12 +6,11 @@ A home for Electron's translated documentation.
 
 The `content` directory contains a subdirectory for each locale.
 
-The source locale is English (en). Its content is derived from a few sources:
+The source content (in English) is collected from a few places:
 
-- [markdown docs](https://github.com/electron/electron/tree/master/docs) from the electron/electron repo.
-- localizable YML strings from the electron.atom.io website
-- API class/module/method/argument descriptions derived from Electron's [electron-api.json](https://electron.atom.io/blog/2016/09/27/api-docs-json-schema) release asset.
-
+- Markdown docs from the electron/electron repo.
+- YML strings from the electron.atom.io website
+- YML `description` strings for classes, modules, methods, arguments, etc from Electron's [structured API docs](https://electron.atom.io/blog/2016/09/27/api-docs-json-schema).
 
 Here's the directory structure:
 
@@ -32,6 +31,8 @@ content
     └── website
         └── locale.yml
 ```
+
+To get a sense of how content is organized, see [crowdin.yaml](crowdin.yaml)
 
 ## License
 
