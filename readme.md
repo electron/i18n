@@ -1,10 +1,8 @@
 # electron-i18n 
 
-The home of Electron's translateable content
+A home for Electron's translated documentation.
 
-This repository is a collection of Electron documentation from various sources.
-
-## Contents
+## Content
 
 The `content` directory contains a subdirectory for each locale.
 
