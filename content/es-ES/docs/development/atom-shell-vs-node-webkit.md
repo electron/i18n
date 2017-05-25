@@ -12,7 +12,7 @@ En NW.js el punto de entrada principal de una aplicación es una página web. Es
 
 En Electron, el punto de entrada es un script de JavaScript. En lugar de proporcionar directamente un URL, manualmente crear una ventana del navegador y cargar un archivo HTML utilizando la API. También necesita escuchar a eventos de ventana para decidir cuando salga de la aplicación.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Electron son inferiores por lo que puede utilizar para navegador de pruebas en lugar de [PhantomJS](http://phantomjs.org/).
 
 **2. Build System**
 
