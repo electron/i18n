@@ -1,6 +1,14 @@
 # electron-i18n
 
-A home for Electron's translated documentation.
+> A home for Electron's translated documentation.
+
+🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹
+
+## Contributing
+
+Do you speak multiple languages? We need your help! 
+
+Visit **[crowdin.com/project/electron](https://crowdin.com/project/electron)** and log in with your GitHub account to help translate.
 
 ## Source Content
 
