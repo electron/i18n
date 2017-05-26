@@ -7,7 +7,7 @@ app:
         Spróbuj zamknąć wszystkie okna. Najpierw zostanie wyemitowane zdarzenie "before-quit". Jeżeli wszystkie okna zostaną zamknięte poprawnie, zostanie wyemitowane zdarzenie "will-quit", a aplikacja zostanie zamknięta. Ta metoda gwarantuje, że wszystkie zdarzenia "beforeunload" oraz "unload" wykonały się poprawnie. Jest możliwe, żeby okno odrzuciło proces wychodzenie przez zwrócenie "false" w zdarzeniu "beforeunload".
     exit:
       description: >-
-        Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
+        Natychmiastowe wyjście jest możliwe z exitCode. exitCode jest domyślnie równe 0. Wszystkie okna zostaną natychmiast zamknięte, bez pytania użytkownika i emitowania zdarzeń.
     relaunch:
       description: >-
         Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
@@ -15,7 +15,7 @@ app:
         options:
           properties:
             args:
-              description: (optional)
+              description: (opcjonalnie)
     isReady:
       returns:
         description: 'true if Electron has finished initializing, false otherwise.'
@@ -878,7 +878,7 @@ BrowserWindow:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (opcjonalnie)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
@@ -1864,9 +1864,9 @@ MenuItem:
           - 
             description: Can be , , , or .
           - 
-            description: (optional)
+            description: (opcjonalnie)
           - 
-            description: (optional)
+            description: (opcjonalnie)
           - null
           - null
           - 
@@ -2909,11 +2909,11 @@ Tray:
         options:
           properties:
             icon:
-              description: (optional)
+              description: (opcjonalnie)
             title:
-              description: (optional)
+              description: (opcjonalnie)
             content:
-              description: (optional)
+              description: (opcjonalnie)
     popUpContextMenu:
       description: >-
         Pops up the context menu of the tray icon. When menu is passed, the menu will be shown instead of the tray icon's context menu. The position is only available on Windows, and it is (0, 0) by default.
@@ -3043,7 +3043,7 @@ WebContents:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (opcjonalnie)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
@@ -3827,7 +3827,7 @@ webviewTag:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (opcjonalnie)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
