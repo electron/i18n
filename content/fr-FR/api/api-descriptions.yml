@@ -15,10 +15,10 @@ app:
         options:
           properties:
             args:
-              description: (optional)
+              description: (facultatif)
     isReady:
       returns:
-        description: 'true if Electron has finished initializing, false otherwise.'
+        description: 'true is Electron a terminé l''initialisation, sinon false.'
     focus:
       description: >-
         On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
@@ -878,7 +878,7 @@ BrowserWindow:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (facultatif)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
@@ -1864,9 +1864,9 @@ MenuItem:
           - 
             description: Can be , , , or .
           - 
-            description: (optional)
+            description: (facultatif)
           - 
-            description: (optional)
+            description: (facultatif)
           - null
           - null
           - 
@@ -2909,11 +2909,11 @@ Tray:
         options:
           properties:
             icon:
-              description: (optional)
+              description: (facultatif)
             title:
-              description: (optional)
+              description: (facultatif)
             content:
-              description: (optional)
+              description: (facultatif)
     popUpContextMenu:
       description: >-
         Pops up the context menu of the tray icon. When menu is passed, the menu will be shown instead of the tray icon's context menu. The position is only available on Windows, and it is (0, 0) by default.
@@ -3043,7 +3043,7 @@ WebContents:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (facultatif)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
@@ -3827,7 +3827,7 @@ webviewTag:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (facultatif)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
