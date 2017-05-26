@@ -45,18 +45,18 @@ Pour les références de l’API, ce sont des exceptions à cette règle.
 * Utilisez `bash` au lieu de `cmd` dans les blocs de code (en raison du surligneur de syntaxe).
 * La longueur des lignes ne devrait pas dépasser 80 caractères.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Orthographie
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Utilisez « sera » au lieu de « devrait » pour décrire des résultats.
+* Préférez « dans le processus de ___ » au lieu de « sur ».
 
-## API references
+## Références de l'API
 
-The following rules only apply to the documentation of APIs.
+Les règles suivantes s’appliquent uniquement à la documentation des APIs.
 
-### Page title
+### Titre de la page
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
