@@ -1,6 +1,6 @@
-# Glossary
+# Glossaire
 
-This page defines some terminology that is commonly used in Electron development.
+Cette page définit certaines terminologies qui sont couramment utilisées dans le développement d'Electron.
 
 ### ASAR
 
@@ -26,19 +26,19 @@ IPC stands for Inter-Process Communication. Electron uses IPC to send serialized
 
 A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
 
-### main process
+### processus principal
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Le processus principal (main process), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
+Acronyme pour Mac App Store d'Apple. Pour plus d’informations sur la soumission de votre application pour le MAS, consultez le [Guide de soumission sur le Mac App Store](tutorials/mac-app-store-submission-guide.md).
 
-### native modules
+### modules natifs
 
 Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
@@ -50,21 +50,21 @@ See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
-### process
+### processus
 
 A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Voir aussi : [processus principal](#main-process), [processus de rendu](#renderer-process)
 
-### renderer process
+### processus de rendu
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-See also: [process](#process), [main process](#main-process)
+Voir aussi : [processus](#process), [processus principal](#main-process)
 
 ### Squirrel
 
