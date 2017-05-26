@@ -1,4 +1,4 @@
-# Règles de style pour la documentation d'Electron
+# Styleguide Documentation d'Electron
 
 Ce sont les lignes directrices pour la rédaction de la documentation d'Electron.
 
@@ -7,42 +7,42 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 * Chaque page doit avoir un seul `#`-niveau de titre au début.
 * Les chapitres dans la même pages doit avoir `##`-niveau de titre.
 * Les sous-chapitres doivent voir le nombre de `#` augmenter dans le titre selon leur niveau d'imbrication.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Tous les mots dans le titre de la page doivent être capitalisés, à l'exception des conjonctions comme « de » et « et ».
+* Seul le premier mot d’un titre de chapitre doit être capitalisé.
 
-Using `Quick Start` as example:
+Utilisez `Démarrage Rapide` comme exemple :
 
 ```markdown
-# Quick Start
+# Démarrage Rapide
 
 ...
 
-## Main process
+## Principal processus
 
 ...
 
-## Renderer process
+## Processus de rendu
 
 ...
 
-## Run your app
+## Exécuter votre application
 
 ...
 
-### Run as a distribution
+### Exécuter en tant que distribution
 
 ...
 
-### Manually downloaded Electron binary
+### Executable d'Electron téléchargé manuellement
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Pour les références de l’API, ce sont des exceptions à cette règle.
 
-## Markdown rules
+## Règles pour le markdown
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Utilisez `bash` au lieu de `cmd` dans les blocs de code (en raison du surligneur de syntaxe).
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
