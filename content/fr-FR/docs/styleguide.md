@@ -43,8 +43,8 @@ Pour les références de l’API, ce sont des exceptions à cette règle.
 ## Règles pour le markdown
 
 * Utilisez `bash` au lieu de `cmd` dans les blocs de code (en raison du surligneur de syntaxe).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* La longueur des lignes ne devrait pas dépasser 80 caractères.
+* Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
 ## Picking words
