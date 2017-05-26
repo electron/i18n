@@ -1,44 +1,44 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Veuillez vous assurer d’utiliser la documentation qui correspond à votre version d'Electron. Le numéro de version doit être une partie de l’URL de la page. Si ce n’est pas le cas, vous utilisez probablement la documentation d’une branche de développement pouvant contenir des modifications de l’API qui ne sont pas compatibles avec votre version d'Electron. Pour consulter les anciennes versions de la documentation, vous pouvez [Parcourir par tag](https://github.com/electron/electron/tree/v1.4.0) sur GitHub en ouvrant la liste déroulante « Switch branches/tags » et sélectionnez le tag qui correspond à votre version.
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa réponse dans la FAQ:
 
 * [Electron FAQ](faq.md)
 
 ## Guides
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
+* [Glossaire des termes](glossary.md)
+* [Plateformes supportées](tutorial/supported-platforms.md)
+* [Sécurité](tutorial/security.md)
+* [Versioning d'Electron](tutorial/electron-versioning.md)
+* [Distribution de l'Application](tutorial/application-distribution.md)
+* [Guide de Soumission Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Guide Windows Store](tutorial/windows-store-guide.md)
+* [Créer une archive](tutorial/application-packaging.md)
+* [Utiliser Modules Natifs de Node](tutorial/using-native-node-modules.md)
+* [Debugger Processus Principal](tutorial/debugging-main-process.md)
 * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
+* [Extension DevTools](tutorial/devtools-extension.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Tutoriels
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Démarrage Rapide](tutorial/quick-start.md)
+* [Intégration de l’environnement de bureau](tutorial/desktop-environment-integration.md)
+* [Détection des événements en ligne/hors ligne](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
 
-## API References
+## Références de l'API
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Variables d'environnement](api/environment-variables.md)
 
 ### Custom DOM Elements:
 
@@ -46,7 +46,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
-### Modules for the Main Process:
+### Modules pour le processus principal :
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -66,7 +66,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Modules pour le processus de rendu (Page Web) :
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
