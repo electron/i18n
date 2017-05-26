@@ -1,4 +1,4 @@
-# Coding Style
+# Style de Code
 
 These are the style guidelines for coding in Electron.
 
