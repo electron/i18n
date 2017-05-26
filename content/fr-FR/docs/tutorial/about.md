@@ -22,11 +22,11 @@ La version de Chromium dans Electron est généralement mis à jour une ou deux 
 
 Quand une nouvelle version de Node.js est disponible, Electron attend habituellement environ un mois avant d'être mis à jour dans le but d'avoir une version plus stable.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Dans Electron, Node.js et Chromium partagent une instance unique de la V8 — habituellement la version qu'utilise Chromium. La plupart du temps cela *fonctionne correctement*, mais parfois il faut patcher Node.js.
 
 ### Versioning
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+En raison de la dépendance dure sur Node.js et Chromeium, Electron est dans une position délicate concernant le versioning et [ne suit pas `semver`](http://semver.org). Vous devriez donc toujours faire référence à une version spécifique d’Electron. [En savoir plus sur la gestion des versions d'Electron](https://electron.atom.io/docs/tutorial/electron-versioning/) ou voir les [versions actuellement en utilisation](https://electron.atom.io/#electron-versions).
 
 ### LTS
 
