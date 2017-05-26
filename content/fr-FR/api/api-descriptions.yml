@@ -241,15 +241,15 @@ app:
         options:
           properties:
             applicationName:
-              description: The app's name.
+              description: Nom de l’application.
             applicationVersion:
-              description: The app's version.
+              description: Version de l’application.
             copyright:
-              description: Copyright information.
+              description: Informations sur les droits d'auteur.
             credits:
               description: Credit information.
             version:
-              description: The app's build version number.
+              description: Numéro de version de l’application.
   events:
     will-finish-launching:
       description: >-
@@ -299,7 +299,7 @@ app:
         Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).
       returns:
         error:
-          description: The error code
+          description: Le code d’erreur
         callback:
           parameters:
             isTrusted:
@@ -3482,7 +3482,7 @@ WebContents:
         Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.
       returns:
         error:
-          description: The error code
+          description: Le code d’erreur
         callback:
           parameters:
             isTrusted:
