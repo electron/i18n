@@ -1,4 +1,4 @@
-# Build Instructions (Windows)
+# Instructions de Build (Windows)
 
 Follow the guidelines below for building Electron on Windows.
 
