@@ -4143,18 +4143,18 @@ webviewTag:
     destroyed:
       description: Fired when the WebContents is destroyed.
     media-started-playing:
-      description: Emitted when media starts playing.
+      description: Émis lorsqu'un média se démarre.
     media-paused:
-      description: Emitted when media is paused or done playing.
+      description: Émis lorsque le média est suspendu ou terminé.
     did-change-theme-color:
       description: >-
         Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
     update-target-url:
       description: >-
-        Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+        Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
     devtools-opened:
       description: Émis lorsque le DevTools est ouvert.
     devtools-closed:
       description: Émis lorsque le DevTools est fermé.
     devtools-focused:
-      description: Emitted when DevTools is focused / opened.
+      description: Émis lorsque le DevTools est actif / ouvert.
