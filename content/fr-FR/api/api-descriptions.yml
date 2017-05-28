@@ -1,6 +1,6 @@
 ---
 app:
-  description: Control your application's event lifecycle.
+  description: Contrôle le cycle de vie des événements de votre application.
   methods:
     quit:
       description: >-
