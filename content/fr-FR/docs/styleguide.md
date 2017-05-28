@@ -58,34 +58,34 @@ Les règles suivantes s’appliquent uniquement à la documentation des APIs.
 
 ### Titre de la page
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Chaque page doivent utiliser le nom de l'objet retourné par `require('electron')` comme titre, par exemple `BrowserWindow`, `autoUpdater` et `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Il doit y avoir une ligne de description commençant par `>` en dessous du titre de la page.
 
-Using `session` as example:
+Si l'on utilise `session` par exemple, cela donne :
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Gère les sessions du navigateur, les cookies, le cache, les paramètres de proxy, etc..
 ```
 
-### Module methods and events
+### Événements et méthodes des modules
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Pour les modules qui ne sont pas des classes, leurs méthodes et événements doivent figurer sous le sous-titre `## méthodes` et les chapitres `## événements`.
 
-Using `autoUpdater` as an example:
+Si l'on utilise `autoUpdater` comme exemple :
 
 ```markdown
 # autoUpdater
 
-## Events
+## Événements
 
-### Event: 'error'
+### Événement: 'error'
 
-## Methods
+## Méthodes
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL(url[, requestHeaders])
 ```
 
 ### Classes
