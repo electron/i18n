@@ -23,15 +23,15 @@ app:
       description: >-
         On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
     hide:
-      description: Hides all application windows without minimizing them.
+      description: Masque toutes les fenêtres d’application sans les minimiser.
     show:
       description: >-
         Shows application windows after they were hidden. Does not automatically focus them.
     getAppPath:
       returns:
-        description: The current application directory.
+        description: Le répertoire de l’application actuelle.
     getPath:
-      description: 'You can request the following paths by the name:'
+      description: 'Vous pouvez demander les chemins suivants sous le nom :'
       returns:
         description: >-
           A path to a special directory or file associated with name. On failure an Error is thrown.
