@@ -1,10 +1,10 @@
-# Styleguide Documentation d'Electron
+# Règles de style pour la documentation d'Electron
 
 Ce sont les lignes directrices pour la rédaction de la documentation d'Electron.
 
 ## Titres
 
-* Chaque page doit avoir un seul `#`-niveau de titre au début.
+* Chaque page doit avoir un seul titre de niveau `#` au début de la page.
 * Les chapitres dans la même pages doit avoir un niveau de titre `##`.
 * Les sous-chapitres doivent voir le nombre de `#` augmenter dans le titre selon leur niveau d'imbrication.
 * Tous les mots dans le titre de la page doivent être capitalisés, à l'exception des conjonctions comme « de » et « et ».
