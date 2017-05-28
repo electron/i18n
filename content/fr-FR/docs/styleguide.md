@@ -95,8 +95,8 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Méthodes Statiques`.
 * [Les méthodes d’instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### méthodes d’Instance`.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
+* Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
+  * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l’aide d’un signe deux-points suivi d’un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
   * Instance properties must start with "A [Property Type] ..."
