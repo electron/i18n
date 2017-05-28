@@ -93,7 +93,7 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Les classes de l'API ou les classes faisant partie des modules doivent être listés sous un chapitre `## Classe: NomDeLaClasse`.
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Méthodes Statiques`.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Méthodes
 
 The methods chapter must be in the following form:
 
@@ -161,7 +161,7 @@ The optional arguments are notated by square brackets `[]` surrounding the optio
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Chaîne de caractères`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
@@ -178,27 +178,27 @@ If an argument or a method is unique to certain platforms, those platforms are d
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### Événements
 
-The events chapter must be in following form:
+Le chapitre des événements doit être sous la forme suivante :
 
 ```markdown
-### Event: 'wake-up'
+### Événement: 'wake-up'
 
-Returns:
+Retourne:
 
-* `time` String
+* `time` Chaîne de caractères
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Ce titre peut être au niveau `###` ou `####` si c'est un événement d'un module ou d'une classes.
 
-The arguments of an event follow the same rules as methods.
+Les arguments d’un événement suivent les mêmes règles que les méthodes.
 
-### Properties
+### Propriétés
 
-The properties chapter must be in following form:
+Le chapitre des propriétés doit être sous la forme suivante :
 
 ```markdown
 ### session.defaultSession
@@ -206,17 +206,17 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Ce titre peut être au niveau `###` ou `####` si c'est une propriété d’une classe ou d'un module.
 
-## Documentation Translations
+## Traductions de la documentation
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Les traductions de la documentation d'Electron se situent dans le répertoire `docs-translations`.
 
-To add another set (or partial set):
+Pour ajouter une autre langue (ou partiellement) :
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* Créez un sous-répertoire nommé par l'abréviation de la langue.
+* Traduisez les fichiers.
+* Mettez à jour le `README.md` avec votre langue pour ajouter un lien redirigeant vers le répertoire contenant les traductions.
+* Ajouter un lien vers votre répertoire de traduction sur le[README](https://github.com/electron/electron#documentation-translations) principal d'Electron.
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+Notez que les fichiers dans le répertoire `docs-translations` doivent inclure uniquement les fichiers traduits, les fichiers d’origine ne doivent pas être copiées là.
