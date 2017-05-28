@@ -30,9 +30,9 @@ En raison de la dépendance dure sur Node.js et Chromeium, Electron est dans une
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Le support à long terme pour les anciennes versions d'Electron n'existe pas actuellement. Si votre version d'Electron fonctionne pour vous, vous pouvez y rester dessus aussi longtemps que vous le désirez. Si vous voulez utiliser de nouvelles fonctionnalités, vous devrez alors mettre à jour votre projet vers une version plus récente.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+Une mise à jour majeure est venu avec la version `v1.0.0`. Si vous n’utilisez pas encore cette version, vous devriez [en savoir plus sur les modifications de la `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
 ## Philosophie
 
