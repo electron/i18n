@@ -84,7 +84,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 ## Développement
 
 * [Style de Code](development/coding-style.md)
-* [Utilisation du clang-format pour du code C++](development/clang-format.md)
+* [Utilisation du clang-format sur du code C++](development/clang-format.md)
 * [Hiérarchie du Code Source](development/source-code-directory-structure.md)
 * [Différences Techniques de NW.js (anciennement node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Aperçu du Système de Build](development/build-system-overview.md)
