@@ -4121,7 +4121,7 @@ webviewTag:
             The options which should be used for creating the new `BrowserWindow`.
     will-navigate:
       description: >-
-        Emitted when a user or the page wants to start navigation. It can happen when the window.location object is changed or a user clicks a link in the page. This event will not emit when the navigation is started programmatically with APIs like <webview>.loadURL and <webview>.back. It is also not emitted during in-page navigation, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose. Calling event.preventDefault() does NOT have any effect.
+        Émis lorsqu’un utilisateur ou une page veut commencer la navigation. Cela peut arriver quand l’objet window.location est modifié ou qu'un utilisateur clique sur un lien dans la page. Cet événement n’émettra pas lorsque la navigation est démarrée via API comme <webview>.loadURL et <webview>.back. Il n’est également pas émis durant la navigation sur la page, par exemple en cliquant sur les liens d’ancrage ou d'une mise à jour du window.location.hash, utilisez l'événement did-navigate-in-page à la place. Appeler event.preventDefault() n’a PAS d’effet.
     did-navigate:
       description: >-
         Emitted when a navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose.
@@ -4137,18 +4137,18 @@ webviewTag:
     crashed:
       description: Fired when the renderer process is crashed.
     gpu-crashed:
-      description: Fired when the gpu process is crashed.
+      description: Déclenché lorsque le processus du gpu crash.
     plugin-crashed:
-      description: Fired when a plugin process is crashed.
+      description: Déclenché lorsqu’un processus de plugin crash.
     destroyed:
-      description: Fired when the WebContents is destroyed.
+      description: Déclenché lorsque le WebContents est détruit.
     media-started-playing:
       description: Émis lorsqu'un média se démarre.
     media-paused:
       description: Émis lorsque le média est suspendu ou terminé.
     did-change-theme-color:
       description: >-
-        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+        Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
     update-target-url:
       description: >-
         Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
