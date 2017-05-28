@@ -34,11 +34,11 @@ Le support à long terme pour les anciennes versions d'Electron n'existe pas act
 
 Une mise à jour majeure est venu avec la version `v1.0.0`. Si vous n’utilisez pas encore cette version, vous devriez [en savoir plus sur les modifications de la `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
-## Philosophie
+## Notre Philosophie
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Afin de garder Electron léger (taille des fichiers) et durable (la propagation des dépendances et APIs), le projet se limite au scope du projet mère.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Par exemple, Electron utilise seulement la bibliothèque de rendu de Chromium plutôt qu'utiliser l'ensemble de Chromium. Cela permet de mettre à jour Chromium plus facilement, mais cela veut aussi dire que certaines fonctionnalités de Google Chrome n'existe pas dans Electron.
 
 New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
 
