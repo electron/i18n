@@ -14,9 +14,9 @@ Suivez ces étapes pour changer votre code :
   2. Exécutez `git add votre_fichier.cc`.
   3. Exécutez `git-clang-format` et vous verrez problablement des modifications dans `votre_fichier.cc`, ces modifications sont générées à partir de `clang-format`.
   4. Exécutez `git add votre_fichier.cc` et commiter vos modifications.
-  5. Now the branch is ready to be opened as a pull request.
+  5. Maintenant la branche est prête pour être en pull request.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Si vous voulez formater le code changé sur votre dernier git commit (HEAD), vous pouvez exécuter `git-clang-format HEAD~1`. Voir `git-clang-format-h` pour plus de détails.
 
 ## Intégration dans l’éditeur
 
