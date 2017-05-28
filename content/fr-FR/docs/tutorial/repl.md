@@ -10,14 +10,14 @@ Le module `repl` fournit une implémentation de REPL qui est accessibles via :
 ./node_modules/.bin/electron --interactive
 ```
 
-* Assuming you have `electron` or `electron-prebuilt` installed globally:
+* En supposant que vous avez `electron` ou `electron-prebuild` installé en global :
     
     ```sh
 electron --interactive
 ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Cela crée un REPL seulement pour le processus principal. Vous pouvez utiliser l’onglet de la Console du DevTools pour avoir un REPL pour les processus de rendu.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Remarque :** `electron --interactive` n’est pas disponible sous Windows.
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+Plus d’informations se trouvent dans les [docs de Node.js REPL](https://nodejs.org/dist/latest/docs/api/repl.html).
