@@ -4153,8 +4153,8 @@ webviewTag:
       description: >-
         Emitted when mouse moves over a link or the keyboard moves the focus to a link.
     devtools-opened:
-      description: Emitted when DevTools is opened.
+      description: Émis lorsque le DevTools est ouvert.
     devtools-closed:
-      description: Emitted when DevTools is closed.
+      description: Émis lorsque le DevTools est fermé.
     devtools-focused:
       description: Emitted when DevTools is focused / opened.
