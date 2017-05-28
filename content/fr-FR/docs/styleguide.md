@@ -98,8 +98,8 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
   * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l’aide d’un signe deux-points suivi d’un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Les événements d'instance doivent être listés sous un chapitre `### Événements d'instance`.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Les propriétés d'instance doivent être listés sous un chapitre `### Propriétés d'instance` . 
+  * Les propriétés d'instance doivent commencer par "[Type de la propriété] ..."
 
 Using the `Session` and `Cookies` classes as an example:
 
