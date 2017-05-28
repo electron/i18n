@@ -174,9 +174,9 @@ Si un argument ou une méthode est propre à certaines plateformes, ces platefor
 * `animate` Booléen (facultatif) _macOS_ _Windows_ - Permet d'animer.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Les arguments de type `Tableau` doivent spécifier quels éléments le tableau peut inclure en dessous de sa description.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+La description des arguments de type de `fonction` devrait clairement expliquer comment il peut être appelé et lister les types des paramètres qui lui seront transmis.
 
 ### Événements
 
