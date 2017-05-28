@@ -5,7 +5,7 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 ## Titres
 
 * Chaque page doit avoir un seul `#`-niveau de titre au début.
-* Les chapitres dans la même pages doit avoir `##`-niveau de titre.
+* Les chapitres dans la même pages doit avoir un niveau de titre `##`.
 * Les sous-chapitres doivent voir le nombre de `#` augmenter dans le titre selon leur niveau d'imbrication.
 * Tous les mots dans le titre de la page doivent être capitalisés, à l'exception des conjonctions comme « de » et « et ».
 * Seul le premier mot d’un titre de chapitre doit être capitalisé.
@@ -90,9 +90,9 @@ Si l'on utilise `autoUpdater` comme exemple :
 
 ### Classes
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
+* Les classes de l'API ou les classes faisant partie des modules doivent être listés sous un chapitre `## Classe: NomDeLaClasse`.
+* Une page peut avoir plusieurs classes.
+* Les constructeurs doivent être listés avec un titre de niveau `###`.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
