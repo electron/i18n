@@ -40,7 +40,7 @@ Afin de garder Electron léger (taille des fichiers) et durable (la propagation 
 
 Par exemple, Electron utilise seulement la bibliothèque de rendu de Chromium plutôt qu'utiliser l'ensemble de Chromium. Cela permet de mettre à jour Chromium plus facilement, mais cela veut aussi dire que certaines fonctionnalités de Google Chrome n'existe pas dans Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Les nouvelles fonctionnalités ajoutées dans Electron devraient être principalement les APIs natives. Si une fonctionnalité peut être dans un module Node.js, il devrait probablement l'être. Voir les [outils pour Electron développés par la communauté](https://electron.atom.io/community).
 
 ## Historique
 
