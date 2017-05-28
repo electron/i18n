@@ -1,10 +1,10 @@
 # Utilisation du clang-format sur du code C++
 
-[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) is a tool to automatically format C/C++/Objective-C code, so that developers don't need to worry about style issues during code reviews.
+[`Clang-format`](http://clang.llvm.org/docs/ClangFormat.html) est un outil pour formater le code C/C++/Objective-C, afin que les développeurs n’aient pas à se soucier des problèmes de style au cours de la révision du code.
 
 It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
 
-You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
+Vous pouvez installer `clang-format` et `git-clang-format` via `npm install -g clang-format`.
 
 To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
@@ -18,9 +18,9 @@ The workflow to format your changed code:
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
-## Editor Integration
+## Intégration dans l’éditeur
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+Vous pouvez également intégrer `clang-format` directement dans vos éditeurs préférés. Pour plus d’informations sur l’intégration, consultez ces pages :
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
