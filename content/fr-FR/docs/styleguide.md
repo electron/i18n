@@ -94,7 +94,7 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Méthodes Statiques`.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* [Les méthodes d’instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### méthodes d’Instance`.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
