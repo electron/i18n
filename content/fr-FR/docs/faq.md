@@ -2,11 +2,11 @@
 
 ## Quand est-ce qu'Electron aura la dernière mise à jour de Chrome ?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+La version Chrome d'Electron est généralement mise à jour entre une et deux semaines après qu'une nouvelle mise à jour stable de Chrome soit disponible. Cette estimation n'est toutefois pas garantie et dépend de l'effort nécessaire pour faire la mise à jour.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Pour plus d'informations, veuillez voir [l'introduction à la sécurité](tutorial/security.md).
 
 ## Quand est-ce qu'Electron aura la dernière mise à jour de Node.js?
 
@@ -14,7 +14,7 @@ When a new version of Node.js gets released, we usually wait for about a month b
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
-## How to share data between web pages?
+## Comment partager les données entre les pages web ?
 
 To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
@@ -67,7 +67,7 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Je ne peux pas utiliser jQuery/RequireJS/Meteor/AngularJS avec Electron.
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
