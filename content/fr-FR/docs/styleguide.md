@@ -150,16 +150,16 @@ Le chapitre sur les méthodes doit être sous la forme suivante :
 
 Le titre peut être de niveau `###` ou `#####` si c'est une méthode d'un module ou d'une classe.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Pour les modules, le `nomObjet` est le nom du module. Pour les classes, cela doit être le nom de l'instance de la classe et ne doit pas être le même que celui du module.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Par exemple, les méthodes de la classe `Session` sous le module `session` doivent utiliser `ses` pour le `nomObjet`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Les arguments optionnels sont notées par les crochets `[]` entourant l’argument facultatif ainsi que la virgule nécessaire si cet argument facultatif suit un autre argument :
 
     requis[, optionnel]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+En-dessous de la méthode, chaque argument est détaillé avec son type. Celui-ci peut être un type générique :
 
 * [`Chaîne de caractères`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Nombre`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
