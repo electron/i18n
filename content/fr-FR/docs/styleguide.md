@@ -72,7 +72,7 @@ Si l'on utilise `session` par exemple, cela donne :
 
 ### Événements et méthodes des modules
 
-Pour les modules qui ne sont pas des classes, leurs méthodes et événements doivent figurer sous le sous-titre `## méthodes` et les chapitres `## événements`.
+Pour les modules qui ne sont pas des classes, leurs méthodes et événements doivent figurer sous le sous-titre `## Methods` et les chapitres `## Events`.
 
 Si l'on utilise `autoUpdater` comme exemple :
 
@@ -97,7 +97,7 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Les [Méthodes d’instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Instance Methods`.
 * Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
   * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l’aide d’un signe deux-points suivi d’un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
-* Les événements d'instances doivent être listés sous un chapitre `### Événements d'instances`.
+* Les événements d'instances doivent être listés sous un chapitre `### Instance Events`.
 * Les propriétés d'instances doivent être listés sous un chapitre `### Instance Properties` . 
   * Les propriétés d'instances doivent commencer par "[Type de la propriété] ..."
 
@@ -174,20 +174,20 @@ Si un argument ou une méthode est propre à certaines plateformes, ces platefor
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-Les arguments de type `Tableau` doivent spécifier quels éléments le tableau peut inclure en dessous de sa description.
+Les arguments de type `Array` doivent spécifier quels éléments le tableau peut inclure en dessous de sa description.
 
-La description des arguments de type de `fonction` devrait clairement expliquer comment il peut être appelé et lister les types des paramètres qui lui seront transmis.
+La description des arguments de type `Function` devrait clairement expliquer comment il peut être appelé et lister les types des paramètres qui lui seront transmis.
 
 ### Événements
 
 Le chapitre sur les événements doit être sous la forme suivante :
 
 ```markdown
-### Événement: 'wake-up'
+### Event: 'wake-up'
 
-Retourne:
+Returns:
 
-* `time` Chaîne de caractères
+* `time` String
 
 ...
 ```
