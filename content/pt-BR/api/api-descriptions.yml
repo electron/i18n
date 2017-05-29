@@ -1,10 +1,10 @@
 ---
 app:
-  description: Control your application's event lifecycle.
+  description: Controle os eventos do ciclo de vida da sua aplicação.
   methods:
     quit:
       description: >-
-        Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+        Quando você tentar fechar todas as janelas. O evento "before-quit" será disparado primeiro. Se todas as janelas forem fechadas com sucesso, o evento "will-quit" irá ser chamado e por padrão a aplicação será finalizada. Este método garante que todos os eventos não carregados antes serão executados corretamente. É possível que uma janela cancele a saída retornando falso em um evento não carregado antes.
     exit:
       description: >-
         Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
