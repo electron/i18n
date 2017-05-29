@@ -4,7 +4,7 @@ app:
   methods:
     quit:
       description: >-
-        Quando você tentar fechar todas as janelas. O evento "before-quit" será disparado primeiro. Se todas as janelas forem fechadas com sucesso, o evento "will-quit" irá ser chamado e por padrão a aplicação será finalizada. Este método garante que todos os eventos não carregados antes serão executados corretamente. É possível que uma janela cancele a saída retornando falso em um evento não carregado antes.
+        Tentativa para fechar todas as janelas. O evento "before-quit" será disparado primeiro. Se todas as janelas forem fechadas com sucesso, o evento "will-quit" irá ser chamado e por padrão a aplicação será finalizada. Este método garante que todos os eventos não carregados antes serão executados corretamente. É possível que uma janela cancele a saída retornando falso em um evento não carregado antes.
     exit:
       description: >-
         Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
