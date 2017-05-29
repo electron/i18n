@@ -94,61 +94,61 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Méthodes Statiques`.
-* [Les méthodes d’instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Méthodes d’Instance`.
+* Les [Méthodes d’instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Méthodes d’Instances`.
 * Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
   * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l’aide d’un signe deux-points suivi d’un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
-* Les événements d'instance doivent être listés sous un chapitre `### Événements d'instance`.
-* Les propriétés d'instance doivent être listés sous un chapitre `### Propriétés d'instance` . 
-  * Les propriétés d'instance doivent commencer par "[Type de la propriété] ..."
+* Les événements d'instances doivent être listés sous un chapitre `### Événements d'instances`.
+* Les propriétés d'instances doivent être listés sous un chapitre `### Propriétés d'instances` . 
+  * Les propriétés d'instances doivent commencer par "[Type de la propriété] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Si l'on utilise les classes `Session` et `Cookies` comme exemple :
 
 ```markdown
 # session
 
-## Methods
+## Méthodes
 
 ### session.fromPartition(partition)
 
-## Properties
+## Propriétés
 
 ### session.defaultSession
 
-## Class: Session
+## Classe: Session
 
-### Instance Events
+### Événements d'instances
 
-#### Event: 'will-download'
+#### Événement : 'will-download'
 
-### Instance Methods
+### Méthodes d'instances
 
 #### `ses.getCacheSize(callback)`
 
-### Instance Properties
+### Propriétés d'instances
 
 #### `ses.cookies`
 
-## Class: Cookies
+## Classe: Cookies
 
-### Instance Methods
+### Méthodes d'instances
 
-#### `cookies.get(filter, callback)`
+#### `cookies.get(filtre, callback)`
 ```
 
 ### Méthodes
 
-The methods chapter must be in the following form:
+Le chapitre sur les méthodes doit être sous la forme suivante :
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `nomObjet.nomMethode(requis[, optionnel]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `requis` Chaîne de caractère - Une description du paramètre.
+* `optionnel` Nombre (optionnel) - Une autre description du paramètre.
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Le titre peut être de niveau `###` ou `#####` si c'est une méthode d'un module ou d'une classe.
 
 For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
@@ -156,7 +156,7 @@ For example, the methods of the `Session` class under the `session` module must 
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-    required[, optional]
+    requis[, optionnel]
     
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
@@ -180,7 +180,7 @@ La description des arguments de type de `fonction` devrait clairement expliquer 
 
 ### Événements
 
-Le chapitre des événements doit être sous la forme suivante :
+Le chapitre sur les événements doit être sous la forme suivante :
 
 ```markdown
 ### Événement: 'wake-up'
