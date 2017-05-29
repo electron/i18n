@@ -79,26 +79,26 @@ Si l'on utilise `autoUpdater` comme exemple :
 ```markdown
 # autoUpdater
 
-## Événements
+## Events
 
-### Événement: 'error'
+### Event: 'error'
 
-## Méthodes
+## Methods
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])
+### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
 ### Classes
 
-* Les classes de l'API ou les classes faisant partie des modules doivent être listés sous un chapitre `## Classe: NomDeLaClasse`.
+* Les classes de l'API ou les classes faisant partie des modules doivent être listés sous un chapitre `## Class: TheClassName`.
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
-* Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Méthodes Statiques`.
-* Les [Méthodes d’instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Méthodes d’Instances`.
+* Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Static Methods`.
+* Les [Méthodes d’instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Instance Methods`.
 * Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
   * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l’aide d’un signe deux-points suivi d’un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Les événements d'instances doivent être listés sous un chapitre `### Événements d'instances`.
-* Les propriétés d'instances doivent être listés sous un chapitre `### Propriétés d'instances` . 
+* Les propriétés d'instances doivent être listés sous un chapitre `### Instance Properties` . 
   * Les propriétés d'instances doivent commencer par "[Type de la propriété] ..."
 
 Si l'on utilise les classes `Session` et `Cookies` comme exemple :
@@ -106,33 +106,33 @@ Si l'on utilise les classes `Session` et `Cookies` comme exemple :
 ```markdown
 # session
 
-## Méthodes
+## Methods
 
 ### session.fromPartition(partition)
 
-## Propriétés
+## Properties
 
 ### session.defaultSession
 
-## Classe: Session
+## Class: Session
 
-### Événements d'instances
+### Instance Events
 
-#### Événement : 'will-download'
+#### Event: 'will-download'
 
-### Méthodes d'instances
+### Instance Methods
 
 #### `ses.getCacheSize(callback)`
 
-### Propriétés d'instances
+### Instance Properties
 
 #### `ses.cookies`
 
-## Classe: Cookies
+## Class: Cookies
 
-### Méthodes d'instances
+### Instance Methods
 
-#### `cookies.get(filtre, callback)`
+#### `cookies.get(filter, callback)`
 ```
 
 ### Méthodes
@@ -140,38 +140,38 @@ Si l'on utilise les classes `Session` et `Cookies` comme exemple :
 Le chapitre sur les méthodes doit être sous la forme suivante :
 
 ```markdown
-### `nomObjet.nomMethode(requis[, optionnel]))`
+### `objectName.methodName(required[, optional]))`
 
-* `requis` Chaîne de caractère - Une description du paramètre.
-* `optionnel` Nombre (optionnel) - Une autre description du paramètre.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 Le titre peut être de niveau `###` ou `#####` si c'est une méthode d'un module ou d'une classe.
 
-Pour les modules, le `nomObjet` est le nom du module. Pour les classes, cela doit être le nom de l'instance de la classe et ne doit pas être le même que celui du module.
+Pour les modules, le `objectName` est le nom du module. Pour les classes, cela doit être le nom de l'instance de la classe et ne doit pas être le même que celui du module.
 
-Par exemple, les méthodes de la classe `Session` sous le module `session` doivent utiliser `ses` pour le `nomObjet`.
+Par exemple, les méthodes de la classe `Session` sous le module `session` doivent utiliser `ses` pour le `objectName`.
 
 Les arguments optionnels sont notées par les crochets `[]` entourant l’argument facultatif ainsi que la virgule nécessaire si cet argument facultatif suit un autre argument :
 
-    requis[, optionnel]
+    required[, optional]
     
 
 En-dessous de la méthode, chaque argument est détaillé avec son type. Celui-ci peut être un type générique :
 
-* [`Chaîne de caractères`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Nombre`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Objet`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Tableau`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Booléen`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Ou un type personnalisé comme [`WebContent`](api/web-contents.md) venant d'Electron
 
 Si un argument ou une méthode est propre à certaines plateformes, ces plateformes sont listés en italique après le type de données. Les valeurs peuvent être `macOS`, `Windows` ou `Linux`.
 
 ```markdown
-* `animate` Booléen (facultatif) _macOS_ _Windows_ - Permet d'animer.
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
 Les arguments de type `Tableau` doivent spécifier quels éléments le tableau peut inclure en dessous de sa description.
