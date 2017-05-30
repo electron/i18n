@@ -27,11 +27,6 @@ app:
         be started after current instance exited. An example of restarting
         current instance immediately and adding a new command line argument to
         the new instance:
-      parameters:
-        options:
-          properties:
-            args:
-              description: (optional)
     isReady:
       returns:
         description: 'true if Electron has finished initializing, false otherwise.'
@@ -178,11 +173,11 @@ app:
               The minimum number of items that will be shown in the Jump List
               (for a more detailed description of this value see the ).
           - description: >-
-              Array of objects that correspond to items that the user has
-              explicitly removed from custom categories in the Jump List. These
-              items must not be re-added to the Jump List in the call to ,
-              Windows will not display any custom category that contains any of
-              the removed items.
+              Array of JumpListItem objects that correspond to items that the
+              user has explicitly removed from custom categories in the Jump
+              List. These items must not be re-added to the Jump List in the
+              call to app.setJumpList(), Windows will not display any custom
+              category that contains any of the removed items.
     setJumpList:
       description: >-
         Sets or removes a custom Jump List for the application, and returns one
@@ -231,6 +226,8 @@ app:
               description: An array of the second instance's command line arguments
             workingDirectory:
               description: The second instance's working directory
+      returns:
+        description: .
     releaseSingleInstance:
       description: >-
         Releases all locks that were created by makeSingleInstance. This will
@@ -275,6 +272,11 @@ app:
       description: >-
         Disables hardware acceleration for current app. This method can only be
         called before app is ready.
+    getAppMemoryInfo:
+      description: >-
+        Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that
+        correspond to memory usage statistics of all the processes associated
+        with the app.
     setBadgeCount:
       description: >-
         Sets the counter badge for current app. Setting the count to 0 will hide
@@ -299,7 +301,9 @@ app:
         options:
           properties:
             path:
-              description: The executable path to compare against. Defaults to .
+              description: >-
+                The executable path to compare against. Defaults to
+                process.execPath.
             args:
               description: >-
                 The command-line arguments to compare against. Defaults to an
@@ -307,23 +311,25 @@ app:
       returns:
         properties:
           - properties:
-              - description: The executable path to compare against. Defaults to .
+              - description: >-
+                  The executable path to compare against. Defaults to
+                  process.execPath.
               - description: >-
                   The command-line arguments to compare against. Defaults to an
                   empty array.
-          - description: if the app is set to open at login.
+          - description: true if the app is set to open at login.
           - description: >-
-              if the app is set to open as hidden at login. This setting is only
-              supported on macOS.
-          - description: >-
-              if the app was opened at login automatically. This setting is only
-              supported on macOS.
-          - description: >-
-              if the app was opened as a hidden login item. This indicates that
-              the app should not open any windows at startup. This setting is
+              true if the app is set to open as hidden at login. This setting is
               only supported on macOS.
           - description: >-
-              if the app was opened as a login item that should restore the
+              true if the app was opened at login automatically. This setting is
+              only supported on macOS.
+          - description: >-
+              true if the app was opened as a hidden login item. This indicates
+              that the app should not open any windows at startup. This setting
+              is only supported on macOS.
+          - description: >-
+              true if the app was opened as a login item that should restore the
               state from the previous session. This indicates that the app
               should restore the windows that were open the last time the app
               was closed. This setting is only supported on macOS.
@@ -338,14 +344,15 @@ app:
           properties:
             openAtLogin:
               description: >-
-                to open the app at login, to remove the app as a login item.
-                Defaults to .
+                true to open the app at login, false to remove the app as a
+                login item. Defaults to false.
             openAsHidden:
               description: >-
-                to open the app as hidden. Defaults to . The user can edit this
-                setting from the System Preferences so should be checked when
-                the app is opened to know the current value. This setting is
-                only supported on macOS.
+                true to open the app as hidden. Defaults to false. The user can
+                edit this setting from the System Preferences so
+                app.getLoginItemStatus().wasOpenedAsHidden should be checked
+                when the app is opened to know the current value. This setting
+                is only supported on macOS.
         path:
           description: The executable to launch at login. Defaults to `process.execPath`.
         args:
@@ -612,8 +619,14 @@ BrowserView:
       parameters:
         options:
           properties:
-            'false':
-              description: default.
+            width:
+              description: >-
+                If true, the view's width will grow and shrink together with the
+                window. false by default.
+            height:
+              description: >-
+                If true, the view's height will grow and shrink together with
+                the window. false by default.
     setBounds:
       description: >-
         Resizes and moves the view to the supplied bounds relative to the
@@ -624,7 +637,7 @@ BrowserView:
           description: 'Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.'
   instanceProperties:
     webContents:
-      description: A webContents object owned by this view.
+      description: A WebContents object owned by this view.
     id:
       description: A Integer representing the unique ID of the view.
 BrowserWindow:
@@ -669,8 +682,8 @@ BrowserWindow:
   constructorMethod:
     parameters:
       - properties:
-          - description: Window's width in pixels. Default is .
-          - description: Window's height in pixels. Default is .
+          - description: Window's width in pixels. Default is 800.
+          - description: Window's height in pixels. Default is 600.
           - description: >-
               ( if y is used) Window's left offset from screen. Default is to
               center the window.
@@ -678,76 +691,83 @@ BrowserWindow:
               ( if x is used) Window's top offset from screen. Default is to
               center the window.
           - description: >-
-              The and would be used as web page's size, which means the actual
-              window's size will include window frame's size and be slightly
-              larger. Default is .
+              The width and height would be used as web page's size, which means
+              the actual window's size will include window frame's size and be
+              slightly larger. Default is false.
           - description: Show window in the center of the screen.
-          - description: Window's minimum width. Default is .
-          - description: Window's minimum height. Default is .
+          - description: Window's minimum width. Default is 0.
+          - description: Window's minimum height. Default is 0.
           - description: Window's maximum width. Default is no limit.
           - description: Window's maximum height. Default is no limit.
-          - description: Whether window is resizable. Default is .
+          - description: Whether window is resizable. Default is true.
           - description: >-
               Whether window is movable. This is not implemented on Linux.
-              Default is .
+              Default is true.
           - description: >-
               Whether window is minimizable. This is not implemented on Linux.
-              Default is .
+              Default is true.
           - description: >-
               Whether window is maximizable. This is not implemented on Linux.
-              Default is .
+              Default is true.
           - description: >-
               Whether window is closable. This is not implemented on Linux.
-              Default is .
+              Default is true.
           - description: >-
-              Whether the window can be focused. Default is . On Windows setting
-              also implies setting . On Linux setting makes the window stop
+              Whether the window can be focused. Default is true. On Windows
+              setting focusable: false also implies setting skipTaskbar: true.
+              On Linux setting focusable: false makes the window stop
               interacting with wm, so the window will always stay on top in all
               workspaces.
           - description: >-
               Whether the window should always stay on top of other windows.
-              Default is .
+              Default is false.
           - description: >-
               Whether the window should show in fullscreen. When explicitly set
-              to the fullscreen button will be hidden or disabled on macOS.
-              Default is .
+              to false the fullscreen button will be hidden or disabled on
+              macOS. Default is false.
           - description: >-
               Whether the window can be put into fullscreen mode. On macOS, also
               whether the maximize/zoom button should toggle full screen mode or
-              maximize window. Default is .
-          - description: Whether to show the window in taskbar. Default is .
-          - description: The kiosk mode. Default is .
-          - description: Default window title. Default is .
+              maximize window. Default is true.
+          - description: Whether to show the window in taskbar. Default is false.
+          - description: The kiosk mode. Default is false.
+          - description: Default window title. Default is "Electron".
           - description: >-
-              The window icon. On Windows it is recommended to use icons to get
-              best visual effects, you can also leave it undefined so the
+              The window icon. On Windows it is recommended to use ICO icons to
+              get best visual effects, you can also leave it undefined so the
               executable's icon will be used.
-          - description: Whether window should be shown when created. Default is .
-          - description: Specify to create a . Default is .
-          - description: Specify parent window. Default is .
+          - description: Whether window should be shown when created. Default is true.
+          - description: Specify false to create a . Default is true.
+          - description: Specify parent window. Default is null.
           - description: >-
               Whether this is a modal window. This only works when the window is
-              a child window. Default is .
+              a child window. Default is false.
           - description: >-
               Whether the web view accepts a single mouse-down event that
-              simultaneously activates the window. Default is .
-          - description: Whether to hide cursor when typing. Default is .
-          - description: Auto hide the menu bar unless the key is pressed. Default is .
-          - description: Enable the window to be resized larger than screen. Default is .
+              simultaneously activates the window. Default is false.
+          - description: Whether to hide cursor when typing. Default is false.
           - description: >-
-              Window's background color as Hexadecimal value, like or or (alpha
-              is supported). Default is (white).
+              Auto hide the menu bar unless the Alt key is pressed. Default is
+              false.
+          - description: >-
+              Enable the window to be resized larger than screen. Default is
+              false.
+          - description: >-
+              Window's background color as Hexadecimal value, like #66CD00 or
+              #FFF or #80FFFFFF (alpha is supported). Default is #FFF (white).
           - description: >-
               Whether window should have a shadow. This is only implemented on
-              macOS. Default is .
+              macOS. Default is true.
           - description: >-
               Forces using dark theme for the window, only works on some GTK+3
-              desktop environments. Default is .
-          - description: Makes the window . Default is .
+              desktop environments. Default is false.
+          - description: Makes the window . Default is false.
           - description: >-
               The type of window, default is normal window. See more about this
               below.
-          - description: 'The style of window title bar. Default is . Possible values are:'
+          - description: >-
+              The style of window title bar. Default is default. Possible values
+              are:
             possibleValues:
               - description: Results in the standard gray opaque Mac title bar.
               - description: >-
@@ -759,19 +779,20 @@ BrowserWindow:
                   the traffic light buttons are slightly more inset from the
                   window edge.
           - description: >-
-              Use style for frameless windows on Windows, which adds standard
-              window frame. Setting it to will remove window shadow and window
-              animations. Default is .
+              Use WS_THICKFRAME style for frameless windows on Windows, which
+              adds standard window frame. Setting it to false will remove window
+              shadow and window animations. Default is true.
           - description: >-
               Add a type of vibrancy effect to the window, only on macOS. Can be
-              , , , , , , , , or .
+              appearance-based, light, dark, titlebar, selection, menu, popover,
+              sidebar, medium-light or ultra-dark.
           - description: >-
               Controls the behavior on macOS when option-clicking the green
               stoplight button on the toolbar or by clicking the Window > Zoom
-              menu item. If , the window will grow to the preferred width of the
-              web page when zoomed, will cause it to zoom to the width of the
-              screen. This will also affect the behavior when calling directly.
-              Default is .
+              menu item. If true, the window will grow to the preferred width of
+              the web page when zoomed, false will cause it to zoom to the width
+              of the screen. This will also affect the behavior when calling
+              maximize() directly. Default is false.
           - description: >-
               Tab group name, allows opening the window as a native tab on macOS
               10.12+. Windows with the same tabbing identifier will be grouped
@@ -779,12 +800,13 @@ BrowserWindow:
           - description: Settings of web page's features.
             properties:
               - description: >-
-                  Whether to enable DevTools. If it is set to , can not use to
-                  open DevTools. Default is .
-              - description: Whether node integration is enabled. Default is .
+                  Whether to enable DevTools. If it is set to false, can not use
+                  BrowserWindow.webContents.openDevTools() to open DevTools.
+                  Default is true.
+              - description: Whether node integration is enabled. Default is true.
               - description: >-
                   Whether node integration is enabled in web workers. Default is
-                  . More about this can be found in .
+                  false. More about this can be found in .
               - description: >-
                   Specifies a script that will be loaded before other scripts
                   run in the page. This script will always have access to node
@@ -797,83 +819,91 @@ BrowserWindow:
                   If set, this will sandbox the renderer associated with the
                   window, making it compatible with the Chromium OS-level
                   sandbox and disabling the Node.js engine. This is not the same
-                  as the option and the APIs available to the preload script are
-                  more limited. Read more about the option . This option is
-                  currently experimental and may change or be removed in future
-                  Electron releases.
+                  as the nodeIntegration option and the APIs available to the
+                  preload script are more limited. Read more about the option .
+                  This option is currently experimental and may change or be
+                  removed in future Electron releases.
               - description: >-
                   Sets the session used by the page. Instead of passing the
-                  Session object directly, you can also choose to use the option
-                  instead, which accepts a partition string. When both and are
-                  provided, will be preferred. Default is the default session.
+                  Session object directly, you can also choose to use the
+                  partition option instead, which accepts a partition string.
+                  When both session and partition are provided, session will be
+                  preferred. Default is the default session.
               - description: >-
                   Sets the session used by the page according to the session's
-                  partition string. If starts with , the page will use a
-                  persistent session available to all pages in the app with the
-                  same . If there is no prefix, the page will use an in-memory
-                  session. By assigning the same , multiple pages can share the
-                  same session. Default is the default session.
-              - description: 'The default zoom factor of the page, represents . Default is .'
-              - description: Enables JavaScript support. Default is .
+                  partition string. If partition starts with persist:, the page
+                  will use a persistent session available to all pages in the
+                  app with the same partition. If there is no persist: prefix,
+                  the page will use an in-memory session. By assigning the same
+                  partition, multiple pages can share the same session. Default
+                  is the default session.
               - description: >-
-                  When , it will disable the same-origin policy (usually using
-                  testing websites by people), and set to if this options has
-                  not been set by user. Default is .
+                  The default zoom factor of the page, 3.0 represents 300%.
+                  Default is 1.0.
+              - description: Enables JavaScript support. Default is true.
+              - description: >-
+                  When false, it will disable the same-origin policy (usually
+                  using testing websites by people), and set
+                  allowRunningInsecureContent to true if this options has not
+                  been set by user. Default is true.
               - description: >-
                   Allow an https page to run JavaScript, CSS or plugins from
-                  http URLs. Default is .
-              - description: Enables image support. Default is .
-              - description: Make TextArea elements resizable. Default is .
-              - description: Enables WebGL support. Default is .
-              - description: Enables WebAudio support. Default is .
-              - description: Whether plugins should be enabled. Default is .
-              - description: Enables Chromium's experimental features. Default is .
-              - description: Enables Chromium's experimental canvas features. Default is .
+                  http URLs. Default is false.
+              - description: Enables image support. Default is true.
+              - description: Make TextArea elements resizable. Default is true.
+              - description: Enables WebGL support. Default is true.
+              - description: Enables WebAudio support. Default is true.
+              - description: Whether plugins should be enabled. Default is false.
+              - description: Enables Chromium's experimental features. Default is false.
+              - description: >-
+                  Enables Chromium's experimental canvas features. Default is
+                  false.
               - description: >-
                   Enables scroll bounce (rubber banding) effect on macOS.
-                  Default is .
+                  Default is false.
               - description: >-
-                  A list of feature strings separated by , like to enable. The
-                  full list of supported feature strings can be found in the
-                  file.
+                  A list of feature strings separated by ,, like
+                  CSSVariables,KeyboardEventKey to enable. The full list of
+                  supported feature strings can be found in the file.
               - description: >-
-                  A list of feature strings separated by , like to disable. The
-                  full list of supported feature strings can be found in the
-                  file.
+                  A list of feature strings separated by ,, like
+                  CSSVariables,KeyboardEventKey to disable. The full list of
+                  supported feature strings can be found in the file.
               - description: Sets the default font for the font-family.
                 properties:
-                  - description: Defaults to .
-                  - description: Defaults to .
-                  - description: Defaults to .
-                  - description: Defaults to .
-                  - description: Defaults to .
-                  - description: Defaults to .
-              - description: Defaults to .
-              - description: Defaults to .
-              - description: Defaults to .
-              - description: Defaults to .
+                  - description: Defaults to Times New Roman.
+                  - description: Defaults to Times New Roman.
+                  - description: Defaults to Arial.
+                  - description: Defaults to Courier New.
+                  - description: Defaults to Script.
+                  - description: Defaults to Impact.
+              - description: Defaults to 16.
+              - description: Defaults to 13.
+              - description: Defaults to 0.
+              - description: Defaults to ISO-8859-1.
               - description: >-
                   Whether to throttle animations and timers when the page
-                  becomes background. Defaults to .
+                  becomes background. Defaults to true.
               - description: >-
                   Whether to enable offscreen rendering for the browser window.
-                  Defaults to . See the for more details.
+                  Defaults to false. See the for more details.
               - description: >-
-                  Whether to run Electron APIs and the specified script in a
-                  separate JavaScript context. Defaults to . The context that
-                  the script runs in will still have full access to the and
-                  globals but it will use its own set of JavaScript builtins (,
-                  , , etc.) and will be isolated from any changes made to the
-                  global environment by the loaded page. The Electron API will
-                  only be available in the script and not the loaded page. This
+                  Whether to run Electron APIs and the specified preload script
+                  in a separate JavaScript context. Defaults to false. The
+                  context that the preload script runs in will still have full
+                  access to the document and window globals but it will use its
+                  own set of JavaScript builtins (Array, Object, JSON, etc.) and
+                  will be isolated from any changes made to the global
+                  environment by the loaded page. The Electron API will only be
+                  available in the preload script and not the loaded page. This
                   option should be used when loading potentially untrusted
                   remote content to ensure the loaded content cannot tamper with
-                  the script and any Electron APIs being used. This option uses
-                  the same technique used by . You can access this context in
-                  the dev tools by selecting the 'Electron Isolated Context'
-                  entry in the combo box at the top of the Console tab. This
-                  option is currently experimental and may change or be removed
-                  in future Electron releases.
+                  the preload script and any Electron APIs being used. This
+                  option uses the same technique used by . You can access this
+                  context in the dev tools by selecting the 'Electron Isolated
+                  Context' entry in the combo box at the top of the Console tab.
+                  This option is currently experimental and may change or be
+                  removed in future Electron releases.
   instanceMethods:
     destroy:
       description: >-
@@ -1139,13 +1169,11 @@ BrowserWindow:
               description: A user agent originating the request.
             extraHeaders:
               description: Extra headers separated by "\n"
-            postData:
-              description: (optional)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded
-                by the data url. This is needed only if the specified is a data
-                url and needs to load other files.
+                by the data url. This is needed only if the specified url is a
+                data url and needs to load other files.
     reload:
       description: Same as webContents.reload.
     setMenu:
@@ -1167,7 +1195,9 @@ BrowserWindow:
         options:
           properties:
             mode:
-              description: 'Mode for the progress bar. Can be , , , , or .'
+              description: >-
+                Mode for the progress bar. Can be none, normal, indeterminate,
+                error, or paused.
     setOverlayIcon:
       description: >-
         Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used
@@ -1229,7 +1259,9 @@ BrowserWindow:
             appIconPath:
               description: Window's .
             appIconIndex:
-              description: Index of the icon in . Ignored when is not set. Default is .
+              description: >-
+                Index of the icon in appIconPath. Ignored when appIconPath is
+                not set. Default is 0.
             relaunchCommand:
               description: Window's .
             relaunchDisplayName:
@@ -1645,7 +1677,7 @@ clipboard:
         data:
           properties:
             bookmark:
-              description: The title of the url at .
+              description: The title of the url at text.
 contentTracing:
   description: |-
     Collect tracing data from Chromium's content module for finding performance
@@ -1749,14 +1781,16 @@ Cookies:
           properties:
             url:
               description: >-
-                Retrieves cookies which are associated with . Empty implies
+                Retrieves cookies which are associated with url. Empty implies
                 retrieving cookies of all urls.
             name:
               description: Filters cookies by name.
             domain:
-              description: Retrieves cookies whose domains match or are subdomains of
+              description: >-
+                Retrieves cookies whose domains match or are subdomains of
+                domains
             path:
-              description: Retrieves cookies whose path matches .
+              description: Retrieves cookies whose path matches path.
             secure:
               description: Filters cookies by their Secure property.
             session:
@@ -1814,6 +1848,16 @@ Cookies:
           description: 'The cause of the change with one of the following values:'
         removed:
           description: '`true` if the cookie was removed, `false` otherwise.'
+CPUUsage:
+  properties:
+    percentCPUUsage:
+      description: >-
+        Percentage of CPU used since the last call to getCPUUsage. First call
+        returns 0.
+    idleWakeupsPerSecond:
+      description: >-
+        The number of average idle cpu wakeups per second since the last call to
+        getCPUUsage. First call returns 0.
 crashReporter:
   description: Submit crash reports to a remote server.
   methods:
@@ -1850,11 +1894,13 @@ crashReporter:
             submitURL:
               description: URL that crash reports will be sent to as POST.
             productName:
-              description: Defaults to .
+              description: Defaults to app.getName().
             uploadToServer:
-              description: Whether crash reports should be sent to the server Default is .
+              description: >-
+                Whether crash reports should be sent to the server Default is
+                true.
             ignoreSystemCrashHandler:
-              description: Default is .
+              description: Default is false.
             extra:
               description: >-
                 An object you can define that will be sent along with the
@@ -1964,27 +2010,29 @@ desktopCapturer:
             types:
               description: >-
                 An array of Strings that lists the types of desktop sources to
-                be captured, available types are and .
+                be captured, available types are screen and window.
             thumbnailSize:
               description: >-
                 The size that the media source thumbnail should be scaled to.
-                Default is x .
+                Default is 150 x 150.
 DesktopCapturerSource:
   properties:
     id:
       description: >-
-        The identifier of a window or screen that can be used as a constraint
-        when calling []. The format of the identifier will be or , where is a
-        random generated number.
+        The identifier of a window or screen that can be used as a
+        chromeMediaSourceId constraint when calling
+        [navigator.webkitGetUserMedia]. The format of the identifier will be
+        window:XX or screen:XX, where XX is a random generated number.
     name:
       description: >-
-        A screen source will be named either or , while the name of a window
-        source will match the window title.
+        A screen source will be named either Entire Screen or Screen <index>,
+        while the name of a window source will match the window title.
     thumbnail:
       description: >-
         A thumbnail image. There is no guarantee that the size of the thumbnail
-        is the same as the specified in the passed to . The actual size depends
-        on the scale of the screen or window.
+        is the same as the thumbnailSize specified in the options passed to
+        desktopCapturer.getSources. The actual size depends on the scale of the
+        screen or window.
 dialog:
   description: 'Display native system dialogs for opening and saving files, alerting, etc.'
   methods:
@@ -2043,7 +2091,7 @@ dialog:
                 Custom label for the text displayed in front of the filename
                 text field.
             showsTagField:
-              description: 'Show the tags input box, defaults to .'
+              description: 'Show the tags input box, defaults to true.'
       returns:
         description: >-
           , the path of the file chosen by the user, if a callback is provided
@@ -2060,9 +2108,10 @@ dialog:
           properties:
             type:
               description: >-
-                Can be , , , or . On Windows, displays the same icon as , unless
-                you set an icon using the option. On macOS, both and display the
-                same warning icon.
+                Can be "none", "info", "error", "question" or "warning". On
+                Windows, "question" displays the same icon as "info", unless you
+                set an icon using the "icon" option. On macOS, both "warning"
+                and "error" display the same warning icon.
             buttons:
               description: >-
                 Array of texts for buttons. On Windows, an empty array will
@@ -2081,39 +2130,41 @@ dialog:
               description: >-
                 If provided, the message box will include a checkbox with the
                 given label. The checkbox state can be inspected only when using
-                .
+                callback.
             checkboxChecked:
-              description: Initial checked state of the checkbox. by default.
+              description: Initial checked state of the checkbox. false by default.
             cancelId:
               description: >-
                 The index of the button to be used to cancel the dialog, via the
-                key. By default this is assigned to the first button with
+                Esc key. By default this is assigned to the first button with
                 "cancel" or "no" as the label. If no such labeled buttons exist
-                and this option is not set, will be used as the return value or
-                callback response. This option is ignored on Windows.
+                and this option is not set, 0 will be used as the return value
+                or callback response. This option is ignored on Windows.
             noLink:
               description: >-
-                On Windows Electron will try to figure out which one of the are
-                common buttons (like "Cancel" or "Yes"), and show the others as
-                command links in the dialog. This can make the dialog appear in
-                the style of modern Windows apps. If you don't like this
-                behavior, you can set to .
+                On Windows Electron will try to figure out which one of the
+                buttons are common buttons (like "Cancel" or "Yes"), and show
+                the others as command links in the dialog. This can make the
+                dialog appear in the style of modern Windows apps. If you don't
+                like this behavior, you can set noLink to true.
             normalizeAccessKeys:
               description: >-
                 Normalize the keyboard access keys across platforms. Default is
-                . Enabling this assumes is used in the button labels for the
-                placement of the keyboard shortcut access key and labels will be
-                converted so they work correctly on each platform, characters
-                are removed on macOS, converted to on Linux, and left untouched
-                on Windows. For example, a button label of will be converted to
-                on Linux and on macOS and can be selected via on Windows and
-                Linux.
+                false. Enabling this assumes & is used in the button labels for
+                the placement of the keyboard shortcut access key and labels
+                will be converted so they work correctly on each platform, &
+                characters are removed on macOS, converted to _ on Linux, and
+                left untouched on Windows. For example, a button label of Vie&w
+                will be converted to Vie_w on Linux and View on macOS and can be
+                selected via Alt-W on Windows and Linux.
         callback:
           parameters:
             response:
               description: The index of the button that was clicked
             checkboxChecked:
-              description: The checked state of the checkbox if was set. Otherwise .
+              description: >-
+                The checked state of the checkbox if checkboxLabel was set.
+                Otherwise false.
       returns:
         description: >-
           , the index of the clicked button, if a callback is provided it
@@ -2132,10 +2183,12 @@ dialog:
           description: The text content to display in the error box
     showCertificateTrustDialog:
       description: >-
-        Displays a modal dialog that shows a message and certificate
-        information, and gives the user the option of trusting/importing the
-        certificate. The browserWindow argument allows the dialog to attach
-        itself to a parent window, making it modal.
+        On macOS, this displays a modal dialog that shows a message and
+        certificate information, and gives the user the option of
+        trusting/importing the certificate. If you provide a browserWindow
+        argument the dialog will be attached to the parent window, making it
+        modal. On Windows the options are more limited, due to the Win32 APIs
+        used:
       parameters:
         options:
           properties:
@@ -2154,7 +2207,7 @@ Display:
     scaleFactor:
       description: Output device's pixel scale factor.
     touchSupport:
-      description: 'Can be , , .'
+      description: 'Can be available, unavailable, unknown.'
 DownloadItem:
   description: Control file downloads from remote sources.
   instanceMethods:
@@ -2310,6 +2363,20 @@ IncomingMessage:
         response is still streaming, an error event will be emitted on the
         response object and a close event will subsequently follow on the
         request object.
+IOCounters:
+  properties:
+    readOperationCount:
+      description: The number of I/O read operations.
+    writeOperationCount:
+      description: The number of I/O write operations.
+    otherOperationCount:
+      description: Then number of I/O other operations.
+    readTransferCount:
+      description: The number of I/O read transfers.
+    writeTransferCount:
+      description: The number of I/O write transfers.
+    otherTransferCount:
+      description: Then number of I/O other transfers.
 ipcMain:
   description: Communicate asynchronously from the main process to renderer processes.
   methods:
@@ -2371,40 +2438,64 @@ JumpListCategory:
     type:
       description: 'One of the following:'
     name:
-      description: 'Must be set if is , otherwise it should be omitted.'
+      description: 'Must be set if type is custom, otherwise it should be omitted.'
     items:
-      description: 'Array of objects if is or , otherwise it should be omitted.'
+      description: >-
+        Array of objects if type is tasks or custom, otherwise it should be
+        omitted.
 JumpListItem:
   properties:
     type:
       description: 'One of the following:'
     path:
-      description: 'Path of the file to open, should only be set if is .'
+      description: 'Path of the file to open, should only be set if type is file.'
     program:
       description: >-
-        Path of the program to execute, usually you should specify which opens
-        the current program. Should only be set if is .
+        Path of the program to execute, usually you should specify
+        process.execPath which opens the current program. Should only be set if
+        type is task.
     args:
-      description: The command line arguments when is executed. Should only be set if is .
+      description: >-
+        The command line arguments when program is executed. Should only be set
+        if type is task.
     title:
       description: >-
         The text to be displayed for the item in the Jump List. Should only be
-        set if is .
+        set if type is task.
     description:
       description: >-
         Description of the task (displayed in a tooltip). Should only be set if
-        is .
+        type is task.
     iconPath:
       description: >-
         The absolute path to an icon to be displayed in a Jump List, which can
-        be an arbitrary resource file that contains an icon (e.g. , , ). You can
-        usually specify to show the program icon.
+        be an arbitrary resource file that contains an icon (e.g. .ico, .exe,
+        .dll). You can usually specify process.execPath to show the program
+        icon.
     iconIndex:
       description: >-
         The index of the icon in the resource file. If a resource file contains
         multiple icons this value can be used to specify the zero-based index of
         the icon that should be displayed for this task. If a resource file
         contains only one icon, this property should be set to zero.
+MemoryInfo:
+  properties:
+    pid:
+      description: Process id of the process.
+    workingSetSize:
+      description: The amount of memory currently pinned to actual physical RAM.
+    peakWorkingSetSize:
+      description: >-
+        The maximum amount of memory that has ever been pinned to actual
+        physical RAM.
+    privateBytes:
+      description: >-
+        The amount of memory not shared by other processes, such as JS heap or
+        HTML content.
+    sharedBytes:
+      description: >-
+        The amount of memory shared between processes, typically memory consumed
+        by the Electron code itself
 Menu:
   description: Create native application menus and context menus.
   staticMethods:
@@ -2444,11 +2535,12 @@ Menu:
             x:
               description: Default is the current mouse cursor position.
             'y':
-              description: ( if is used) Default is the current mouse cursor position.
+              description: ( if x is used) Default is the current mouse cursor position.
             async:
               description: >-
-                Set to to have this method return immediately called, to return
-                after the menu has been selected or closed. Defaults to .
+                Set to true to have this method return immediately called, false
+                to return after the menu has been selected or closed. Defaults
+                to false.
             positioningItem:
               description: >-
                 The index of the menu item to be positioned under the mouse
@@ -2472,22 +2564,25 @@ MenuItem:
   constructorMethod:
     parameters:
       - properties:
-          - description: Will be called with when the menu item is clicked.
           - description: >-
-              Define the action of the menu item, when specified the property
-              will be ignored. See .
-          - description: 'Can be , , , or .'
-          - description: (optional)
-          - description: (optional)
+              Will be called with click(menuItem, browserWindow, event) when the
+              menu item is clicked.
+          - description: >-
+              Define the action of the menu item, when specified the click
+              property will be ignored. See .
+          - description: 'Can be normal, separator, submenu, checkbox or radio.'
+          - null
+          - null
           - null
           - null
           - description: 'If false, the menu item will be greyed out and unclickable.'
           - description: 'If false, the menu item will be entirely hidden.'
-          - description: Should only be specified for or type menu items.
+          - description: Should only be specified for checkbox or radio type menu items.
           - description: >-
-              Should be specified for type menu items. If is specified, the can
-              be omitted. If the value is not a then it will be automatically
-              converted to one using .
+              Should be specified for submenu type menu items. If submenu is
+              specified, the type: 'submenu' can be omitted. If the value is not
+              a Menu then it will be automatically converted to one using
+              Menu.buildFromTemplate.
           - description: >-
               Unique within a single menu. If defined then it can be used as a
               reference to this item by the position attribute.
@@ -2521,6 +2616,29 @@ MimeTypedBuffer:
       description: The mimeType of the Buffer that you are sending
     data:
       description: The actual Buffer content
+nativeImage:
+  description: 'Create tray, dock, and application icons using PNG or JPG files.'
+  methods:
+    createEmpty:
+      description: Creates an empty NativeImage instance.
+    createFromPath:
+      description: >-
+        Creates a new NativeImage instance from a file located at path. This
+        method returns an empty image if the path does not exist, cannot be
+        read, or is not a valid image.
+    createFromBuffer:
+      description: Creates a new NativeImage instance from buffer.
+      parameters:
+        options:
+          properties:
+            width:
+              description: Required for bitmap buffers.
+            height:
+              description: Required for bitmap buffers.
+            scaleFactor:
+              description: Defaults to 1.0.
+    createFromDataURL:
+      description: Creates a new NativeImage instance from dataURL.
 NativeImage:
   description: 'Natively wrap images such as tray, dock, and application icons.'
   instanceMethods:
@@ -2603,9 +2721,9 @@ NativeImage:
               description: Defaults to the image's height
             quality:
               description: >-
-                The desired quality of the resize image. Possible values are ,
-                or . The default is . These values express a desired
-                quality/speed tradeoff. They are translated into an
+                The desired quality of the resize image. Possible values are
+                good, better or best. The default is best. These values express
+                a desired quality/speed tradeoff. They are translated into an
                 algorithm-specific method that depends on the capabilities (CPU,
                 GPU) of the underlying platform. It is possible for all three
                 methods to be mapped to the same algorithm on a given platform.
@@ -2625,38 +2743,19 @@ NativeImage:
             scaleFactor:
               description: The scale factor to add the image representation for.
             width:
-              description: Defaults to 0. Required if a bitmap buffer is specified as .
+              description: >-
+                Defaults to 0. Required if a bitmap buffer is specified as
+                buffer.
             height:
-              description: Defaults to 0. Required if a bitmap buffer is specified as .
+              description: >-
+                Defaults to 0. Required if a bitmap buffer is specified as
+                buffer.
             buffer:
               description: The buffer containing the raw image data.
             dataURL:
               description: >-
                 The data URL containing either a base 64 encoded PNG or JPEG
                 image.
-nativeImage:
-  description: 'Create tray, dock, and application icons using PNG or JPG files.'
-  methods:
-    createEmpty:
-      description: Creates an empty NativeImage instance.
-    createFromPath:
-      description: >-
-        Creates a new NativeImage instance from a file located at path. This
-        method returns an empty image if the path does not exist, cannot be
-        read, or is not a valid image.
-    createFromBuffer:
-      description: Creates a new NativeImage instance from buffer.
-      parameters:
-        options:
-          properties:
-            width:
-              description: Required for bitmap buffers.
-            height:
-              description: Required for bitmap buffers.
-            scaleFactor:
-              description: Defaults to 1.0.
-    createFromDataURL:
-      description: Creates a new NativeImage instance from dataURL.
 net:
   description: Issue HTTP/HTTPS requests using Chromium's native networking library
   methods:
@@ -2792,6 +2891,12 @@ process:
           description: A String representing Electron's version string.
         chrome:
           description: A String representing Chrome's version string.
+ProcessMemoryInfo:
+  properties:
+    pid:
+      description: Process id of the process.
+    memory:
+      description: Memory information of the process.
 protocol:
   description: Register a custom protocol and intercept existing protocol requests.
   methods:
@@ -2819,7 +2924,7 @@ protocol:
         options:
           properties:
             secure:
-              description: to register the scheme as secure. Default .
+              description: true to register the scheme as secure. Default false.
     registerServiceWorkerSchemes:
       parameters:
         schemes:
@@ -2947,7 +3052,7 @@ remote:
 RemoveClientCertificate:
   properties:
     type:
-      description: .
+      description: clientCertificate.
     origin:
       description: >-
         Origin of the server whose associated client certificate must be removed
@@ -2955,21 +3060,25 @@ RemoveClientCertificate:
 RemovePassword:
   properties:
     type:
-      description: .
+      description: password.
     origin:
       description: >-
         When provided, the authentication info related to the origin will only
         be removed otherwise the entire cache will be cleared.
     scheme:
       description: >-
-        Scheme of the authentication. Can be , , , . Must be provided if
-        removing by .
+        Scheme of the authentication. Can be basic, digest, ntlm, negotiate.
+        Must be provided if removing by origin.
     realm:
-      description: Realm of the authentication. Must be provided if removing by .
+      description: Realm of the authentication. Must be provided if removing by origin.
     username:
-      description: Credentials of the authentication. Must be provided if removing by .
+      description: >-
+        Credentials of the authentication. Must be provided if removing by
+        origin.
     password:
-      description: Credentials of the authentication. Must be provided if removing by .
+      description: >-
+        Credentials of the authentication. Must be provided if removing by
+        origin.
 screen:
   description: 'Retrieve information about screen size, displays, cursor position, etc.'
   methods:
@@ -3000,17 +3109,17 @@ screen:
 ScrubberItem:
   properties:
     label:
-      description: (Optional) The text to appear in this item
+      description: The text to appear in this item
     icon:
-      description: (Optional) The image to appear in this item
+      description: The image to appear in this item
 SegmentedControlSegment:
   properties:
     label:
-      description: (Optional) The text to appear in this segment
+      description: The text to appear in this segment
     icon:
-      description: (Optional) The image to appear in this segment
+      description: The image to appear in this segment
     enabled:
-      description: '(Optional) Whether this segment is selectable. Default: true'
+      description: 'Whether this segment is selectable. Default: true'
 session:
   description: 'Manage browser sessions, cookies, cache, proxy settings, etc.'
   methods:
@@ -3057,11 +3166,18 @@ Session:
         options:
           properties:
             origin:
-              description: Should follow ’s representation .
+              description: >-
+                Should follow window.location.origin’s representation
+                scheme://host:port.
             storages:
-              description: 'The types of storages to clear, can contain: , , , , , , ,'
+              description: >-
+                The types of storages to clear, can contain: appcache, cookies,
+                filesystem, indexdb, localstorage, shadercache, websql,
+                serviceworkers
             quotas:
-              description: 'The types of quotas to clear, can contain: , , .'
+              description: >-
+                The types of quotas to clear, can contain: temporary,
+                persistent, syncable.
         callback:
           description: Called when operation is done.
     flushStorageData:
@@ -3253,8 +3369,8 @@ shell:
           properties:
             activate:
               description: >-
-                to bring the opened application to the foreground. The default
-                is .
+                true to bring the opened application to the foreground. The
+                default is true.
         callback:
           description: If specified will perform the open asynchronously.
       returns:
@@ -3288,16 +3404,16 @@ ShortcutDetails:
       description: The working directory. Default is empty.
     args:
       description: >-
-        The arguments to be applied to when launching from this shortcut.
+        The arguments to be applied to target when launching from this shortcut.
         Default is empty.
     description:
       description: The description of the shortcut. Default is empty.
     icon:
       description: >-
-        The path to the icon, can be a DLL or EXE. and have to be set together.
-        Default is empty, which uses the target's icon.
+        The path to the icon, can be a DLL or EXE. icon and iconIndex have to be
+        set together. Default is empty, which uses the target's icon.
     iconIndex:
-      description: The resource ID of icon when is a DLL or EXE. Default is 0.
+      description: The resource ID of icon when icon is a DLL or EXE. Default is 0.
     appUserModelId:
       description: The Application User Model ID. Default is empty.
 systemPreferences:
@@ -3398,10 +3514,10 @@ Task:
   properties:
     program:
       description: >-
-        Path of the program to execute, usually you should specify which opens
-        the current program.
+        Path of the program to execute, usually you should specify
+        process.execPath which opens the current program.
     arguments:
-      description: The command line arguments when is executed.
+      description: The command line arguments when program is executed.
     title:
       description: The string to be displayed in a JumpList.
     description:
@@ -3410,7 +3526,7 @@ Task:
       description: >-
         The absolute path to an icon to be displayed in a JumpList, which can be
         an arbitrary resource file that contains an icon. You can usually
-        specify to show the icon of the program.
+        specify process.execPath to show the icon of the program.
     iconIndex:
       description: >-
         The icon index in the icon file. If an icon file consists of two or more
@@ -3423,7 +3539,9 @@ ThumbarButton:
     tooltip:
       description: The text of the button's tooltip.
     flags:
-      description: 'Control specific states and behaviors of the button. By default, it is .'
+      description: >-
+        Control specific states and behaviors of the button. By default, it is
+        ['enabled'].
 TouchBar:
   description: Create TouchBar layouts for native macOS applications
   staticProperties:
@@ -3433,9 +3551,9 @@ TouchBar:
         parameters:
           - properties:
               - description: Button text.
-              - description: 'Button background color in hex format, i.e .'
+              - description: 'Button background color in hex format, i.e #ABCDEF.'
               - description: Button icon.
-              - description: 'Can be , or .'
+              - description: 'Can be left, right or overlay.'
               - description: Function to call when the button is clicked.
       instanceProperties:
         label:
@@ -3459,7 +3577,7 @@ TouchBar:
               - description: >-
                   Array of hex color strings to appear as possible colors to
                   select.
-              - description: 'The selected hex color in the picker, i.e .'
+              - description: 'The selected hex color in the picker, i.e #ABCDEF.'
               - description: Function to call when a color is selected.
                 parameters:
                   - description: The color that the user selected from the picker
@@ -3486,7 +3604,7 @@ TouchBar:
         parameters:
           - properties:
               - description: Text to display.
-              - description: 'Hex color of text, i.e .'
+              - description: 'Hex color of text, i.e #ABCDEF.'
       instanceProperties:
         label:
           description: >-
@@ -3505,8 +3623,8 @@ TouchBar:
               - description: Popover button icon.
               - description: Items to display in the popover.
               - description: >-
-                  to display a close button on the left of the popover, to not
-                  show it. Default is .
+                  true to display a close button on the left of the popover,
+                  false to not show it. Default is true.
       instanceProperties:
         label:
           description: >-
@@ -3531,11 +3649,11 @@ TouchBar:
               - description: Called when the user taps any item
                 parameters:
                   - description: The index of the item the user touched
-              - description: Selected item style. Defaults to .
-              - description: Selected overlay item style. Defaults to .
-              - description: Defaults to .
-              - description: Defaults to .
-              - description: Defaults to .
+              - description: Selected item style. Defaults to null.
+              - description: Selected overlay item style. Defaults to null.
+              - description: Defaults to false.
+              - description: Defaults to free.
+              - description: Defaults to true.
       instanceProperties:
         items:
           description: >-
@@ -3575,7 +3693,7 @@ TouchBar:
       constructorMethod:
         parameters:
           - properties:
-              - description: '(Optional) Style of the segments:'
+              - description: 'Style of the segments:'
                 possibleValues:
                   - description: >-
                       Default. The appearance of the segmented control is
@@ -3591,13 +3709,26 @@ TouchBar:
                   - description: >-
                       The segments in the control are displayed very close to
                       each other but not touching.
-              - description: An array of segments to place in this control
+              - description: 'The selection mode of the control:'
+                possibleValues:
+                  - description: >-
+                      Default. One item selected at a time, selecting one
+                      deselects the previously selected item.
+                  - description: Multiple items can be selected at a time.
+                  - description: >-
+                      Make the segments act as buttons, each segment can be
+                      pressed and released but never marked as active.
+              - description: An array of segments to place in this control.
               - description: >-
                   The index of the currently selected segment, will update
-                  automatically with user interaction
+                  automatically with user interaction. When the mode is multiple
+                  it will be the last selected item.
               - description: Called when the user selects a new segment
                 parameters:
-                  - description: The index of the segment the user selected
+                  - description: The index of the segment the user selected.
+                  - description: >-
+                      Whether as a result of user selection the segment is
+                      selected or not.
       instanceProperties:
         segmentStyle:
           description: >-
@@ -3684,15 +3815,6 @@ Tray:
           description: 'Highlight mode with one of the following values:'
     displayBalloon:
       description: Displays a tray balloon.
-      parameters:
-        options:
-          properties:
-            icon:
-              description: (optional)
-            title:
-              description: (optional)
-            content:
-              description: (optional)
     popUpContextMenu:
       description: >-
         Pops up the context menu of the tray icon. When menu is passed, the menu
@@ -3755,7 +3877,7 @@ Tray:
 UploadBlob:
   properties:
     type:
-      description: .
+      description: blob.
     blobUUID:
       description: UUID of blob data to upload.
 UploadData:
@@ -3769,31 +3891,31 @@ UploadData:
 UploadFile:
   properties:
     type:
-      description: .
+      description: file.
     filePath:
       description: Path of file to be uploaded.
     offset:
-      description: Defaults to .
+      description: Defaults to 0.
     length:
-      description: Number of bytes to read from . Defaults to .
+      description: Number of bytes to read from offset. Defaults to 0.
     modificationTime:
       description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadFileSystem:
   properties:
     type:
-      description: .
+      description: fileSystem.
     filsSystemURL:
       description: FileSystem url to read data for upload.
     offset:
-      description: Defaults to .
+      description: Defaults to 0.
     length:
-      description: Number of bytes to read from . Defaults to .
+      description: Number of bytes to read from offset. Defaults to 0.
     modificationTime:
       description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadRawData:
   properties:
     type:
-      description: .
+      description: rawData.
     bytes:
       description: Data to be uploaded.
 webContents:
@@ -3830,13 +3952,11 @@ WebContents:
               description: A user agent originating the request.
             extraHeaders:
               description: Extra headers separated by "\n"
-            postData:
-              description: (optional)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded
-                by the data url. This is needed only if the specified is a data
-                url and needs to load other files.
+                by the data url. This is needed only if the specified url is a
+                data url and needs to load other files.
     downloadURL:
       description: >-
         Initiates a download of the resource at url without navigating. The
@@ -3993,25 +4113,21 @@ WebContents:
         options:
           properties:
             forward:
-              description: '(optional) Whether to search forward or backward, defaults to .'
+              description: 'Whether to search forward or backward, defaults to true.'
             findNext:
               description: >-
-                (optional) Whether the operation is first request or a follow
-                up, defaults to .
+                Whether the operation is first request or a follow up, defaults
+                to false.
             matchCase:
-              description: >-
-                (optional) Whether search should be case-sensitive, defaults to
-                .
+              description: 'Whether search should be case-sensitive, defaults to false.'
             wordStart:
-              description: >-
-                (optional) Whether to look only at the start of words. defaults
-                to .
+              description: Whether to look only at the start of words. defaults to false.
             medialCapitalAsWordStart:
               description: >-
-                (optional) When combined with , accepts a match in the middle of
-                a word if the match begins with an uppercase letter followed by
-                a lowercase or non-letter. Accepts several other intra-word
-                matches, defaults to .
+                When combined with wordStart, accepts a match in the middle of a
+                word if the match begins with an uppercase letter followed by a
+                lowercase or non-letter. Accepts several other intra-word
+                matches, defaults to false.
     stopFindInPage:
       description: >-
         Stops any findInPage request for the webContents with the provided
@@ -4050,11 +4166,11 @@ WebContents:
         options:
           properties:
             silent:
-              description: Don't ask user for print settings. Default is .
+              description: Don't ask user for print settings. Default is false.
             printBackground:
               description: >-
                 Also prints the background color and image of the web page.
-                Default is .
+                Default is false.
     printToPDF:
       description: >-
         Prints window's web page as PDF with Chromium's preview printing custom
@@ -4069,18 +4185,19 @@ WebContents:
           properties:
             marginsType:
               description: >-
-                (optional) Specifies the type of margins to use. Uses 0 for
-                default margin, 1 for no margin, and 2 for minimum margin.
+                Specifies the type of margins to use. Uses 0 for default margin,
+                1 for no margin, and 2 for minimum margin.
             pageSize:
               description: >-
-                (optional) Specify page size of the generated PDF. Can be , , ,
-                , , or an Object containing and in microns.
+                Specify page size of the generated PDF. Can be A3, A4, A5,
+                Legal, Letter, Tabloid or an Object containing height and width
+                in microns.
             printBackground:
-              description: (optional) Whether to print CSS backgrounds.
+              description: Whether to print CSS backgrounds.
             printSelectionOnly:
-              description: (optional) Whether to print selection only.
+              description: Whether to print selection only.
             landscape:
-              description: '(optional) for landscape, for portrait.'
+              description: 'true for landscape, false for portrait.'
     addWorkSpace:
       description: >-
         Adds the specified path to DevTools workspace. Must be used after
@@ -4094,9 +4211,10 @@ WebContents:
           properties:
             mode:
               description: >-
-                Opens the devtools with specified dock state, can be , , , .
-                Defaults to last used dock state. In mode it's possible to dock
-                back. In mode it's not.
+                Opens the devtools with specified dock state, can be right,
+                bottom, undocked, detach. Defaults to last used dock state. In
+                undocked mode it's possible to dock back. In detach mode it's
+                not.
     closeDevTools:
       description: Closes the devtools.
     isDevToolsOpened:
@@ -4125,31 +4243,31 @@ WebContents:
         parameters:
           properties:
             screenPosition:
-              description: 'Specify the screen type to emulate (default: )'
+              description: 'Specify the screen type to emulate (default: desktop)'
             screenSize:
               description: Set the emulated screen size (screenPosition == mobile)
             viewPosition:
               description: >-
                 Position the view on the screen (screenPosition == mobile)
-                (default: )
+                (default: {x: 0, y: 0})
             deviceScaleFactor:
               description: >-
                 Set the device scale factor (if zero defaults to original device
-                scale factor) (default: )
+                scale factor) (default: 0)
             viewSize:
               description: Set the emulated view size (empty means no override)
             fitToView:
               description: >-
                 Whether emulated view should be scaled down if necessary to fit
-                into available space (default: )
+                into available space (default: false)
             offset:
               description: >-
                 Offset of the emulated view inside available space (not in fit
-                to view mode) (default: )
+                to view mode) (default: {x: 0, y: 0})
             scale:
               description: >-
                 Scale of emulated view inside available space (not in fit to
-                view mode) (default: )
+                view mode) (default: 1)
     disableDeviceEmulation:
       description: Disable device emulation enabled by webContents.enableDeviceEmulation.
     sendInputEvent:
@@ -4162,11 +4280,16 @@ WebContents:
         event:
           properties:
             type:
-              description: '() The type of the event, can be , , , , , , , , , .'
+              description: >-
+                () The type of the event, can be mouseDown, mouseUp, mouseEnter,
+                mouseLeave, contextMenu, mouseWheel, mouseMove, keyDown, keyUp,
+                char.
             modifiers:
               description: >-
-                An array of modifiers of the event, can include , , , , , , , ,
-                , , , , .
+                An array of modifiers of the event, can include shift, control,
+                alt, meta, isKeypad, isAutoRepeat, leftButtonDown,
+                middleButtonDown, rightButtonDown, capsLock, numLock, left,
+                right.
     beginFrameSubscription:
       description: >-
         Begin subscribing for presentation events and captured frames, the
@@ -4194,7 +4317,7 @@ WebContents:
         item:
           properties:
             file:
-              description: or Array The path(s) to the file(s) being dragged.
+              description: or files Array The path(s) to the file(s) being dragged.
             icon:
               description: The image must be non-empty on macOS.
     savePage:
@@ -4359,7 +4482,7 @@ WebContents:
           description: Input properties
           properties:
             type:
-              description: Either or
+              description: Either keyUp or keyDown
             key:
               description: Equivalent to
             code:
@@ -4474,8 +4597,8 @@ WebContents:
                 Elements with source URLs are images, audio and video.
             mediaType:
               description: >-
-                Type of the node the context menu was invoked on. Can be , , , ,
-                , or .
+                Type of the node the context menu was invoked on. Can be none,
+                image, audio, video, canvas, file or plugin.
             hasImageContents:
               description: >-
                 Whether the context menu was invoked on an image which has
@@ -4497,9 +4620,12 @@ WebContents:
             inputFieldType:
               description: >-
                 If the context menu was invoked on an input field, the type of
-                that field. Possible values are , , , .
+                that field. Possible values are none, plainText, password,
+                other.
             menuSourceType:
-              description: 'Input source that invoked the context menu. Can be , , , , .'
+              description: >-
+                Input source that invoked the context menu. Can be none, mouse,
+                keyboard, touch, touchMenu.
             mediaFlags:
               description: The flags for the media element the context menu was invoked on.
               properties:
@@ -4614,7 +4740,7 @@ webFrame:
         provider:
           properties:
             spellCheck:
-              description: Returns
+              description: Returns Boolean
     registerURLSchemeAsSecure:
       description: >-
         Registers the scheme as secure scheme. Secure schemes do not trigger
@@ -4635,15 +4761,15 @@ webFrame:
         options:
           properties:
             secure:
-              description: (optional) Default true.
+              description: Default true.
             bypassCSP:
-              description: (optional) Default true.
+              description: Default true.
             allowServiceWorkers:
-              description: (optional) Default true.
+              description: Default true.
             supportFetchAPI:
-              description: (optional) Default true.
+              description: Default true.
             corsEnabled:
-              description: (optional) Default true.
+              description: Default true.
     insertText:
       description: Inserts text to the focused element.
     executeJavaScript:
@@ -4816,13 +4942,11 @@ webviewTag:
               description: A user agent originating the request.
             extraHeaders:
               description: Extra headers separated by "\n"
-            postData:
-              description: (optional)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded
-                by the data url. This is needed only if the specified is a data
-                url and needs to load other files.
+                by the data url. This is needed only if the specified url is a
+                data url and needs to load other files.
     getURL:
       returns:
         description: The URL of guest page.
@@ -4939,21 +5063,21 @@ webviewTag:
         options:
           properties:
             forward:
-              description: 'Whether to search forward or backward, defaults to .'
+              description: 'Whether to search forward or backward, defaults to true.'
             findNext:
               description: >-
                 Whether the operation is first request or a follow up, defaults
-                to .
+                to false.
             matchCase:
-              description: 'Whether search should be case-sensitive, defaults to .'
+              description: 'Whether search should be case-sensitive, defaults to false.'
             wordStart:
-              description: Whether to look only at the start of words. defaults to .
+              description: Whether to look only at the start of words. defaults to false.
             medialCapitalAsWordStart:
               description: >-
-                When combined with , accepts a match in the middle of a word if
-                the match begins with an uppercase letter followed by a
+                When combined with wordStart, accepts a match in the middle of a
+                word if the match begins with an uppercase letter followed by a
                 lowercase or non-letter. Accepts several other intra-word
-                matches, defaults to .
+                matches, defaults to false.
     stopFindInPage:
       description: Stops any findInPage request for the webview with the provided action.
       parameters:
@@ -4965,11 +5089,11 @@ webviewTag:
         options:
           properties:
             silent:
-              description: Don't ask user for print settings. Default is .
+              description: Don't ask user for print settings. Default is false.
             printBackground:
               description: >-
                 Also prints the background color and image of the web page.
-                Default is .
+                Default is false.
     printToPDF:
       description: >-
         Prints webview's web page as PDF, Same as
@@ -4979,18 +5103,19 @@ webviewTag:
           properties:
             marginsType:
               description: >-
-                (optional) Specifies the type of margins to use. Uses 0 for
-                default margin, 1 for no margin, and 2 for minimum margin.
+                Specifies the type of margins to use. Uses 0 for default margin,
+                1 for no margin, and 2 for minimum margin.
             pageSize:
               description: >-
-                (optional) Specify page size of the generated PDF. Can be , , ,
-                , , or an Object containing and in microns.
+                Specify page size of the generated PDF. Can be A3, A4, A5,
+                Legal, Letter, Tabloid or an Object containing height and width
+                in microns.
             printBackground:
-              description: (optional) Whether to print CSS backgrounds.
+              description: Whether to print CSS backgrounds.
             printSelectionOnly:
-              description: (optional) Whether to print selection only.
+              description: Whether to print selection only.
             landscape:
-              description: '(optional) for landscape, for portrait.'
+              description: 'true for landscape, false for portrait.'
     capturePage:
       description: >-
         Captures a snapshot of the webview's page. Same as
