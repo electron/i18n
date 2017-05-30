@@ -32,7 +32,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Intégration de l’environnement de bureau](tutorial/desktop-environment-integration.md)
 * [Détection des événements en ligne/hors ligne](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Notifications natives](tutorial/notifications.md)
 
 ## Références de l'API
 
