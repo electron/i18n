@@ -1,16 +1,16 @@
-# Supported Platforms
+# サポートされているプラットフォーム
 
-Following platforms are supported by Electron:
+Electronは以下のプラットフォームをサポートしています。
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+macOS向けには64bitバイナリのみが提供されます。対応するmacOSのバージョンは10.9以降です。
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7以降に対応しています。Vista以前のOSはサポートされておらず、動作もしません。
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
+Windows向けにはIA-32(x86)および64bit(AMD64)のいずれのバイナリも提供されます。現時点ではARM版のWindowsに対応していない点にご注意ください。
 
 ### Linux
 
