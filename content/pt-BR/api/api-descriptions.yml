@@ -45,7 +45,7 @@ app:
     getVersion:
       returns:
         description: >-
-          The version of the loaded application. If no version is found in the application's package.json file, the version of the current bundle or executable is returned.
+          A versão da aplicação. Se nenhuma versão for encontrada no arquivo package.json do aplicativo, será retornado a versão atual do pacote (bundle), ou do executável. 
     getName:
       description: >-
         Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
