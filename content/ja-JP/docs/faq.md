@@ -1,6 +1,6 @@
 # Electron FAQ
 
-## When will Electron upgrade to latest Chrome?
+## Electronはいつ最新版のChromeにアップグレードされるのですか？
 
 The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
@@ -8,7 +8,7 @@ Only the stable channel of Chrome is used. If an important fix is in beta or dev
 
 For more information, please see the [security introduction](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Electronはいつ最新版のNode.jsにアップグレードされるのですか？
 
 When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
@@ -67,7 +67,7 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## jQuery/RequireJS/Meteor/AngularJSがElectronで使えません
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
