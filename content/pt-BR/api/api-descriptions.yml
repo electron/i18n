@@ -26,15 +26,16 @@ app:
       description: Oculta todas as janelas do aplicativo sem minimizar-las. 
     show:
       description: >-
-        Shows application windows after they were hidden. Does not automatically focus them.
+        Mostra as janelas do aplicativo depois que elas foram ocultadas. Não foca automaticamente
+        nelas.
     getAppPath:
       returns:
-        description: The current application directory.
+        description: Diretório atual da aplicação.
     getPath:
-      description: 'You can request the following paths by the name:'
+      description: 'Você pode solicitar os seguintes caminhos pelo o nome:'
       returns:
         description: >-
-          A path to a special directory or file associated with name. On failure an Error is thrown.
+          Um caminho para um diretório especial ou associado com o nome de arquivo. Em caso de alguma falha um erro é mostrado.
     getFileIcon:
       description: >-
         Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
