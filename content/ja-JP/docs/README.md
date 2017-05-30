@@ -2,17 +2,17 @@
 
 ## FAQ
 
-頻繁に聞かれる質問がありますので、issueを作成する前にこれをチェックしてください。
+よくある質問（FAQ）のページがありますので、issueを作成する前にこれをチェックしてください。
 
 * [Electron FAQ](faq.md)
 
 ## ガイド
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
+* [用語集](glossary.md)
+* [サポートされているプラットフォーム](tutorial/supported-platforms.md)
+* [セキュリティ](tutorial/security.md)
 * [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
+* [アプリケーションの配布](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store Guide](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
@@ -24,16 +24,16 @@
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## チュートリアル
 
 * [Quick Start](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
 * [Online/Offline Event Detection](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
 
-## API References
+## API リファレンス
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
