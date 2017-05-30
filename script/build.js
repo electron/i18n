@@ -135,6 +135,6 @@ function writeWebsiteContent (content) {
   const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)
   mkdir(path.dirname(websiteFile))
   console.log(`Writing ${path.relative(englishBasepath, websiteFile)}`)
-  fs.writeFileSync(websiteFile, YAML.safeDump(content))
+  fs.writeFileSync(websiteFile, content)
   return Promise.resolve()
 }
