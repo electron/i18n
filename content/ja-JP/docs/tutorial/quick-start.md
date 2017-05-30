@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+`package.json` の形式はNode.jsのモジュールのものと同一であり、`main` フィールドで指定されたスクリプトが、アプリのメインプロセスを走らせるスタートアップスクリプトになります。 is exactly the same as that of Node's modules, and the script specified by the <0>main</0> field is the startup script of your app, which will run the main process. `package.json` の例を以下に示します。
 
 ```json
 {
@@ -45,7 +45,7 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Note**: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は `index.js` の読み込みを試みます。
 
 The `main.js` should create windows and handle system events, a typical example being:
 
@@ -56,20 +56,18 @@ const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
-
 function createWindow () {
-  // Create the browser window.
+  // browser window を生成
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // アプリの index.html を読み込む
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // DevToolsを開く
   win.webContents.openDevTools()
 
   // Emitted when the window is closed.
