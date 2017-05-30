@@ -1,4 +1,4 @@
-# Diferentes Técnicas entre Electron e NW.JS (formalmente node-webkit)
+# Diferentes Técnicas entre o Electron e NW.js (formalmente node-webkit)
 
 **Nota: Anteriormente o Electron era chamado de Atom Shell.**
 
@@ -8,13 +8,13 @@ Mas existe também uma diferença fundamental entre os dois projetos que faz com
 
 **Ponto de entrada da aplicação**
 
-In NW.js the main entry point of an application is a web page. You specify a main page URL in the `package.json` and it is opened in a browser window as the application's main window.
+No NW.js o ponto de entrada principal da aplicação é uma página web. Você especifica uma URL da página principal no arquivo package.json e a mesma é aberta em um navegador como a janela principal da aplicação.
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+No Electron, o ponto de entrada é um arquivo JavaScript. Em vez de fornecer uma URL, você cria uma janela do navegador e carrega um arquivo HTML usando a API. Você também pode "ouvir" eventos das janelas para decidir quando parar a aplicação.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron funciona como o Node.js em tempo de execução. As APIs do Electron são de níveis baixo, você pode usa-las em um navegador no lugar do PhantomJS.
 
-**2. Build System**
+**Build Aplicação**
 
 In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
 
