@@ -32,6 +32,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
 * [Online/Offline Event Detection](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
+* [Native Notifications](tutorial/notifications.md)
 
 ## API References
 
