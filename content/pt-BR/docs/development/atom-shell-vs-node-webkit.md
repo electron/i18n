@@ -14,7 +14,7 @@ No Electron, o ponto de entrada é um arquivo JavaScript. Ao invés de fornecer 
 
 Electron funciona como o Node.js em tempo de execução. As APIs do Electron são de níveis baixo, você pode usa-las em um navegador no lugar do PhantomJS.
 
-**2. Build Aplicação**
+**2. Compilar a Aplicação**
 
 Para evitar uma complexidade de compilação do Chromium, o Electron utiliza a biblioteca [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) para acessar todas as APIs do Chromium. `libchromiumcontent` é uma biblioteca única que inclui todo os módulos do Chromium e as suas dependências. Não há a necessidade de ser administrador do sistema para que possa fazer um build do Electron.
 
