@@ -6,15 +6,15 @@ This doesn't mean Electron is a JavaScript binding to graphical user interface (
 
 ### メインプロセス
 
-Electronにおいて、`package.json` の `main` で指定されたスクリプトを実行するプロセスを メインプロセス (**main process**) と呼びます。 メインプロセスで実行されるスクリプトは、web ページを生成することで GUI を表示できます。
+Electronにおいて、`package.json` の `main` で指定されたスクリプトを実行するプロセスを **メインプロセス** (main process) と呼びます。 メインプロセスで実行されるスクリプトは、web ページを生成することで GUI を表示できます。
 
 ### レンダラプロセス
 
-Electron は Web ページを表示するために Chromium を使用しているため、 Chromium のマルチプロセス・アーキテクチャも使用されます。 Each web page in Electron runs in its own process, which is called **the renderer process**.
+Electron は Web ページを表示するために Chromium を使用しているため、 Chromium のマルチプロセス・アーキテクチャも使用されます。 Electronにおける各 Web ページはそれぞれのプロセスとして動作します。これを**レンダラプロセス** (renderer process) と呼びます。
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-### Differences Between Main Process and Renderer Process
+### メインプロセスとレンダラプロセスの違い
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
@@ -24,9 +24,9 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## はじめての Electron アプリ
 
-Generally, an Electron app is structured like this:
+一般的に、 Electron のアプリケーションは以下のような構成になっています：
 
 ```text
 your-app/
