@@ -15,7 +15,7 @@ app:
         options:
           properties:
             args:
-              description: (optional)
+              description: (Opcional)
     isReady:
       returns:
         description: 'verdadeiro se o Electron concluiu a inicialização, falso caso contrário.'
@@ -41,7 +41,7 @@ app:
         Busca o ícone associado a um caminho. No Windows, há dois tipos de ícones. No Linux e macOS, os ícones dependem de um arquivo mime type associado na aplicação.
     setPath:
       description: >-
-        Overrides the path to a special directory or file associated with name. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an Error is thrown. You can only override paths of a name defined in app.getPath. By default, web pages' cookies and caches will be stored under the userData directory. If you want to change this location, you have to override the userData path before the ready event of the app module is emitted.
+        Substitui o caminho para um diretório especial ou arquivo associado com nome. Se o caminho informado com um diretório que não existe, o diretório será criado por este método. Em caso de alguma falha um erro será gerado. Você pode substituir caminho de um nome definido em app.getPath. Por padrão, as páginas web, cookies e caches serão armazenados no diretório userData. Caso você deseja mudar, é necessário substituir o caminho do userData antes que o evento "ready" seja executado.
     getVersion:
       returns:
         description: >-
@@ -879,7 +879,7 @@ BrowserWindow:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (Opcional)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
@@ -1865,9 +1865,9 @@ MenuItem:
           - 
             description: Can be , , , or .
           - 
-            description: (optional)
+            description: (Opcional)
           - 
-            description: (optional)
+            description: (Opcional)
           - null
           - null
           - 
@@ -2910,11 +2910,11 @@ Tray:
         options:
           properties:
             icon:
-              description: (optional)
+              description: (Opcional)
             title:
-              description: (optional)
+              description: (Opcional)
             content:
-              description: (optional)
+              description: (Opcional)
     popUpContextMenu:
       description: >-
         Pops up the context menu of the tray icon. When menu is passed, the menu will be shown instead of the tray icon's context menu. The position is only available on Windows, and it is (0, 0) by default.
@@ -3044,7 +3044,7 @@ WebContents:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (Opcional)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
@@ -3828,7 +3828,7 @@ webviewTag:
             extraHeaders:
               description: Extra headers separated by "\n"
             postData:
-              description: (optional)
+              description: (Opcional)
             baseURLForDataURL:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified is a data url and needs to load other files.
