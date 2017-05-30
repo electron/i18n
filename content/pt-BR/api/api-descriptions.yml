@@ -18,12 +18,12 @@ app:
               description: (optional)
     isReady:
       returns:
-        description: 'true if Electron has finished initializing, false otherwise.'
+        description: 'verdadeiro se o Electron concluiu a inicialização, falso caso contrário.'
     focus:
       description: >-
-        On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+        No Linux, concentra-se na primeira janela visível. No macOS, faz torna o aplicativo ativo. No Windows, o foco é na primeira janela do aplicativo. 
     hide:
-      description: Hides all application windows without minimizing them.
+      description: Oculta todas as janelas do aplicativo sem minimizar-las. 
     show:
       description: >-
         Shows application windows after they were hidden. Does not automatically focus them.
