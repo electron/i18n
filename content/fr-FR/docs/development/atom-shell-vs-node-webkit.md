@@ -1,14 +1,14 @@
-# Technique de différences entre l’électron et de NW.js (anciennement nœud-webkit)
+# Différence technique entre Electron et NW.js (anciennement node-webkit)
 
-**Remarque : Électron s’appelait précédemment Shell de l’atome.**
+**Remarque : Electron s’appelait avant Atom Shell.**
 
-Comme NW.js, électron fournit une plate-forme pour écrire des applications de bureau avec JavaScript et HTML et a intégration de nœud pour accorder l’accès au système de bas niveau de pages web.
+Comme NW.js, Electron fournit une plate-forme pour écrire des applications desktop avec JavaScript et HTML et a une intégration Node pour avoir accès au système de bas niveau depuis une pages web.
 
-Mais il y a aussi des différences fondamentales entre les deux projets qui rendent des électrons un produit complètement distinct de NW.js :
+Mais il y a aussi des différences fondamentales entre les deux projets qui rendent Electron complètement distinct de NW.js :
 
-**1. entrée de l’Application**
+**1. Point d'entrée**
 
-En NW.js le point d’entrée principal d’une application est une page web. Vous spécifiez une URL de page d’accueil dans le `package.json` et il est ouvert dans une fenêtre de navigateur comme fenêtre principale de l’application.
+Avec NW.js, le point d’entrée principal d’une application est une page web. Vous spécifiez une URL de page d’accueil dans le `package.json` et il est ouvert dans une fenêtre de navigateur comme fenêtre principale de l’application.
 
 En électronique, le point d’entrée est un script JavaScript. Au lieu de fournir une URL directement, vous créez une fenêtre de navigateur manuellement et chargez un fichier HTML à l’aide de l’API. Vous devez aussi écouter les événements de fenêtre à décider du moment pour quitter l’application.
 
