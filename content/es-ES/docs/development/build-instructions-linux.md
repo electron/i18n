@@ -1,6 +1,6 @@
-# Construir instrucciones (Linux)
+# Instrucciones para compilación (Linux)
 
-Siga las pautas a continuación para la construcción de electrón en Linux.
+Siga las pautas a continuación para la construcción de Electron en Linux.
 
 ## Requisitos previos
 
@@ -38,15 +38,15 @@ $ git clone https://github.com/electron/electron.git
 
 ## De arranque
 
-El script bootstrap descargará todas las dependencias es necesario construir y crear la estructura de archivos de proyecto. Debe tener Python 2.7 para la escritura tener éxito. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando`ninja` para construir electrón no hay `Makefile` generado.
+El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Debe tener Python 2.7 para la escritura tener éxito. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando`ninja` para compilar Electron no hay `Makefile` generado.
 
 ```bash
-$ cd electrónico $./script/bootstrap.py - v
+$ cd Electronico $./script/bootstrap.py - v
 ```
 
 ### Cruz de compilación
 
-Si usted quiere construir para un objetivo de `arm` también debe instalar las siguientes dependencias:
+Si usted quiere compilar para un objetivo de `arm` también debe instalar las siguientes dependencias:
 
 ```bash
 $ sudo apt-get instala libc6-dev-armhf-cross linux-libc-dev-armhf-Cruz \ g ++-arm-linux-gnueabihf
@@ -60,13 +60,13 @@ $./script/bootstrap.py - v--target_arch = brazo
 
 ## Edificio
 
-Si desea construir metas `Release` y `Debug`:
+Si desea compilar metas `Release` y `Debug`:
 
 ```bash
 $./script/build.py
 ```
 
-Este script hará que un electrón muy grande ejecutable en el directorio `out/R`. El tamaño del archivo es superior a 1,3 gigabytes. Esto sucede porque el objetivo de lanzamiento binario contiene símbolos de depuración. Para reducir el tamaño del archivo, ejecute el script `create-dist.py`:
+Este script hará que un Electron muy grande ejecutable en el directorio `out/R`. El tamaño del archivo es superior a 1,3 gigabytes. Esto sucede porque el objetivo de lanzamiento binario contiene símbolos de depuración. Para reducir el tamaño del archivo, ejecute el script `create-dist.py`:
 
 ```bash
 $./script/create-dist.py
@@ -124,7 +124,7 @@ Para evitar el uso de los binarios pre-compilados de la `libchromiumcontent`, pu
 $./script/bootstrap.py - v--build_libchromiumcontent
 ```
 
-Tenga en cuenta que por defecto no se construye la configuración de `shared_library`, por lo que sólo se puede construir `Release` versión del electrón Si utilizas este modo:
+Tenga en cuenta que por defecto no se construye la configuración de `shared_library`, por lo que sólo se puede compilar `Release` versión del Electron Si utilizas este modo:
 
 ```bash
 $./script/build.py - c R
@@ -132,7 +132,7 @@ $./script/build.py - c R
 
 ### Uso de sistema `clang` en lugar de binarios descargado `clang`
 
-Por defecto el electrón está construido con binarios precompilados `clang` proporcionados de cromo. Si por alguna razón quiere construir con el `clang` instalado en su sistema, puede llamar al `bootstrap.py` con ` - clang_dir = interruptor de<path>`. Aprobando el build script asumirá que los binarios de `clang` residen en `<path>/bin/`.
+Por defecto el Electron está construido con binarios precompilados `clang` proporcionados de cromo. Si por alguna razón quiere compilar con el `clang` instalado en su sistema, puede llamar al `bootstrap.py` con ` - clang_dir = interruptor de<path>`. Aprobando el build script asumirá que los binarios de `clang` residen en `<path>/bin/`.
 
 Por ejemplo Si instalaste `clang` en `/usuario/local/bin/clang`:
 
@@ -142,7 +142,7 @@ $./script/bootstrap.py - v--build_libchromiumcontent--clang_dir/usr/local $./scr
 
 ### Usar otros compiladores que no sean `clang`
 
-Construir electrónica con compiladores como `g ++`, primera necesidad para desactivar el `clang` con ` - disable_clang` interruptor primero y luego establecer variables de entorno `CC` y `CXX` a los que desee.
+Compilar Electron con compiladores como `g ++`, primera necesidad para desactivar el `clang` con ` - disable_clang` interruptor primero y luego establecer variables de entorno `CC` y `CXX` a los que desee.
 
 Edificio por ejemplo con cadena de herramientas GCC:
 
