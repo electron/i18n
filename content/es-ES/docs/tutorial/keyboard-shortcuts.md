@@ -1,78 +1,43 @@
-# Keyboard Shortcuts
+# Métodos abreviados de teclado
 
-> Configure local and global keyboard shortcuts
+> Configurar atajos de teclado globales y locales
 
-## Local Shortcuts
+## Accesos directos locales
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Puede utilizar el módulo de [Menu](../api/menu.md) para configurar atajos de teclado que se activará solamente cuando la aplicación está enfocada. Para ello, especifique una propiedad [`accelerator`] al crear un [MenuItem](../api/menu-item.md).
 
 ```js
-const {Menu, MenuItem} = require('electron')
-const menu = new Menu()
-
-menu.append(new MenuItem({
-  label: 'Print',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
-}))
+const {Menu, MenuItem} = menú const require('electron') = new Menu() menu.append (new MenuItem ({etiqueta: 'Imprimir', el acelerador de: ' CmdOrCtrl + P', haga clic en: () => {console.log ('tiempo para imprimir cosas')}}))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Es fácil de configurar combinaciones de teclas diferentes basadas en sistema operativo del usuario.
 
 ```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
+¿{Acelerador: process.platform === 'darwin'? 'Alt + Cmd + I': 'Ctrl + Mayús + I'}
 ```
 
-## Global Shortcuts
+## Accesos directos globales
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Puede utilizar el módulo de [globalShortcut](../api/global-shortcut.md) para detectar eventos de teclado, incluso cuando la aplicación tiene el foco de teclado.
 
 ```js
-const {app, globalShortcut} = require('electron')
-
-app.on('ready', () => {
-  globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
-  })
-})
+const {app, globalShortcut} = require('electron') app.on ('listo', () => {globalShortcut.register ('CommandOrControl + X', () = > {console.log ('CommandOrControl + X se presiona')})})
 ```
 
-## Shortcuts within a BrowserWindow
+## Accesos directos dentro de un BrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Si usted desea manejar los atajos de teclado para un [BrowserWindow](../api/browser-window.md), puede utilizar los detectores de eventos `keyup` y `keydown` en el objeto de ventana dentro del proceso de renderizado.
 
 ```js
-window.addEventListener('keyup', doSomething, true)
+window.addEventListener ('keyup', HacerAlgo, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Tenga en cuenta el tercer `true` parámetro que significa que el oyente recibirá siempre pulsaciones de teclas antes de otros oyentes por lo que no tienen `stopPropagation () ` llamado sobre ellos.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Si no quieres hacer acceso directo manual análisis hay librerías que hacen avanzaron detección de clave como [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
-Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
-
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
-
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
-
-  // return false to prevent default behavior and stop event from bubbling
-  return false
-})
-
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
-
-// konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
-  console.log('konami code')
-})
+Mousetrap.BIND ('4,' () => {console.log('4')}) Mousetrap.bind ('? ', () = > {console.log ('Mostrar atajos!')})
+Mousetrap.BIND ('esc', () = > {console.log('escape')}, 'keyup') / / combinaciones Mousetrap.bind ('Comando + Mayús + k', () = > {console.log ('comando shift k')}) / / mapa múltiples combinaciones para el mismo callback Mousetrap.bind (['comando + k', ' ctrl + k'], () = > {console.log (' comando k o control') / / return false para evitar que el comportamiento predeterminado y parada burbujeante devolver false}) / / estilo gmail secuencias Mousetrap.bind ('g i' () = > {console.log ('ir a bandeja de entrada')}) Mousetrap.bind ('* a', () = > {console.log ('seleccionar todos')}) / / código de konami!
+Mousetrap.BIND ('hasta hasta abajo abajo izquierda derecha izquierda derecha b a enter', () => {console.log ('konami code')})
 ```
