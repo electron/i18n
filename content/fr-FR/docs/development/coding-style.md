@@ -1,34 +1,34 @@
-# Style de Code
+# Style de codage
 
-These are the style guidelines for coding in Electron.
+Ce sont les règles de style pour le codage en électrons.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Vous pouvez exécuter `npm exécuter lint` pour montrer des problèmes de style détectés par `cpplint` et `eslint`.
 
-## C++ and Python
+## C++ et Python
 
-For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Pour C++ et Python, nous suivons [Coding Style](http://www.chromium.org/developers/coding-style) de chrome. Vous pouvez utiliser[clang-format](clang-format.md) pour mettre en forme le code C++ automatiquement. Il y a aussi une `script/cpplint.py` de script pour vérifier si tous les fichiers sont conformes.
 
-The Python version we are using now is Python 2.7.
+La version de Python que nous utilisons aujourd'hui est Python 2.7.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Le code C++ utilise beaucoup d’abstractions de chrome et de types, donc il est recommandé de se familiariser avec eux. Un bon endroit pour commencer est de chrome [Important Abstractions et données Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. Le document mentionne certains types spéciaux, les types de portée limitées (qui libère automatiquement leur mémoire en allant hors de portée), mécanismes de journalisation etc..
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+* Écrire [standard](http://npm.im/standard) JavaScript style.
+* Noms de fichiers doivent être concaténées avec `-` au lieu de `_`, p. ex. `file-name.js` plutôt que `file_name.js`, parce que dans le module[github/atom](https://github.com/github/atom), les noms sont généralement sous la forme `module-name`. Cette règle ne s’applique qu’aux fichiers de `.js`.
+* Utilisez la syntaxe de ES6/ES2015 nouvelle cas échéant 
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) pour exige et autres constantes
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) pour la définition des variables
+  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) au lieu de `function () { }`
+  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) au lieu de concaténation de chaîne à l’aide `+`
 
-## Naming Things
+## Nommer les choses
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Électron API utilise le même système de capitalisation comme Node.js :
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Lorsque le module lui-même est une classe telle que `BrowserWindow`, utilisez `CamelCase`.
+* Lorsque le module est un ensemble d’API, comme `globalShortcut`, utilisez `mixedCase`.
+* Lorsque l’API est une propriété d’objet, et c’est assez complexe pour être dans un autre chapitre comme `win.webContents`, utilisez `mixedCase`.
+* D’autres API non-module, utilisez des titres naturels, tels que `<webview> Tag` ou `Process Object`.
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Lorsque vous créez une nouvelle API, il est préférable d’utiliser des getters et setters au lieu de style d’une fonction de jQuery. Par exemple, `.getText ()` et `.setText (texte) ` sont préférés aux </code> .text ([text]). Il y a un<a href="https://github.com/electron/electron/issues/46">discussion</a> là-dessus.</p>
