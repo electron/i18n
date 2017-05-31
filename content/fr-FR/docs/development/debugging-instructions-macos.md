@@ -1,92 +1,64 @@
-# Debugging on macOS
+# Débogage sur macOS
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Si vous rencontrez des plantages ou questions en électron que vous croyiez ne sont pas causées par votre application JavaScript, mais plutôt par l’électron lui-même, débogage peut être un peu difficile, surtout pour les développeurs pas utilisé pour le débogage natif/C++. Toutefois, à l’aide de base et le code source de l’électron, il est assez facile activer le débogage avec points d’arrêt dans le code source de l’électron.
 
-## Requirements
+## Exigences en matière
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* Version de debug de **A de Electron** : le plus simple est généralement il construire vous-même, en utilisant les outils et composants requis énumérés dans les instructions de[build pour macOS](build-instructions-osx.md). Alors que vous pouvez facilement fixer à et déboguer les électrons comme vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le débogage sensiblement plus difficile : le débogueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’in-Lining, queue d’appels et autres optimisations du compilateur.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode** : en plus de Xcode, également installer les outils de ligne de commande de Xcode. Ils incluent de base, le débogueur par défaut dans Xcode sur Mac OS X. Il prend en charge le débogage C, Objective-C et C++ sur les appareils iOS et bureau et simulateur.
 
-## Attaching to and Debugging Electron
+## Fixation au et le débogage des électrons
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
-
-```bash
-$ lldb ./out/D/Electron.app
-(lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
-```
-
-### Setting Breakpoints
-
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
-
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./vendor/brightray/browser` and `./vendor/brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
-
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Pour démarrer une session de débogage, ouvrez terminal et lancez `lldb`, passant d’une version debug de l’électron en tant que paramètre.
 
 ```bash
-(lldb) breakpoint set --file browser.cc --line 117
-Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
+cible de./out/D/Electron.app (base) $ base créer «. / out/D/Electron.app » fichier exécutable actuel, la valeur '. / out/D/Electron.app' (x86_64).
 ```
 
-Then, start Electron:
+### Définition de points d’arrêt
+
+BASE est un outil puissant et prend en charge plusieurs stratégies pour inspection de code. Pour cette initiation, supposons que vous appelez une commande de JavaScript qui n’est pas se comporter correctement - si vous souhaitez briser sur homologue C++ de la commande à l’intérieur de la source d’électrons.
+
+Les fichiers de code correspondant se trouvent dans `./atom/` ainsi que dans Brightray, dans `./vendor/brightray/browser` et `./vendor/brightray/common`. Si vous êtes hardcore, vous pouvez également déboguer chrome directement, qui se trouve évidemment dans `chromium_src`.
+
+Supposons que vous souhaitez déboguer `app.setName ()`, qui est définie dans `browser.cc` comme `Browser::SetName () `. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et couper sur ligne :
 
 ```bash
-(lldb) run
+(base) point d’arrêt défini--browser.cc--ligne 117 du fichier 1 point d’arrêt : où = électrons Framework'atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 à browser.cc:118, adresse = 0x000000000015fdb4
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Ensuite, démarrez électron :
 
 ```bash
-(lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115  }
-   116
-   117  void Browser::SetName(const std::string& name) {
--> 118    name_override_ = name;
-   119  }
-   120
-   121  int Browser::GetBadgeCount() {
-(lldb)
+run (base)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+L’app sera immédiatement suspendu, puisque l’électron définit le nom de l’application au lancement :
 
 ```bash
-(lldb) frame variable
-(atom::Browser *) this = 0x0000000108b14f20
-(const string &) name = "Electron": {
-    [...]
-}
+(base) exécution processus 25244 lancé : ' / Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64) processus 25244 arrêté * fil #1 : tid = 0x839a4c, 0x0000000100162db4 Electron Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 à browser.cc:118, en file d’attente = ' com.apple.main-fil ', arrêter la raison = point d’arrêt 1.1 cadre #0 : 0x0000000100162db4 électronique Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 à browser.cc:118 115} 116 117 void navigateur :: SetName(const std::string& name) {-> 118 name_override_ = nom ;
+   119} 120 121 int navigateur :: GetBadgeCount() {(base)
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Pour afficher les arguments et les variables locales pour le frame en cours, exécution `frame variable` (ou `fr v`), qui vous montrera que le soft est en train de mettre le nom de « Électron ».
 
 ```bash
-(lldb) step
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
-    frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119
-   116
-   117  void Browser::SetName(const std::string& name) {
-   118    name_override_ = name;
--> 119  }
-   120
-   121  int Browser::GetBadgeCount() {
-   122    return badge_count_;
+variable d’armature (base) (atom::Browser *) Ceci = 0x0000000108b14f20 (const string &) nom = « Electron » : {[...]}
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+Pour faire une étape unique niveau de source dans le thread actuellement sélectionné, exécutez `step` (ou `s`). Cela vous en tiendrait `name_override_.empty ()`. Pour aller de l’avant et refaire une étape, exécutez `next` (ou `n`).
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+```bash
+(base) étape 25244 processus arrêté * fil #1 : tid = 0x839a4c, 0x0000000100162dcc Electron Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 à browser.cc:119, en file d’attente = ' com.apple.main-thread ", arrêter la raison = étape en image #0 : 0x0000000100162dcc Electron Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 au browser.cc:119 116 117 Sub Browser::SetName (const std::string& nom) {118 name_override_ = nom ; -> 119} int 120 121 navigateur :: GetBadgeCount() {badge_count_ retour 122 ;
+```
 
-### Further Reading
+Pour terminer de déboguer à ce stade, exécutez `process continue`. Vous pouvez continuer jusqu'à ce que la ligne est frappée dans ce fil (`thread jusqu’au 100`). Cette commande exécutera le thread dans le frame actif jusqu'à ce qu’il atteigne la ligne 100 dans cette trame ou s’arrête si elle laisse le frame en cours.
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+Maintenant, si vous ouvrez outils de développement et les `setName` de l’appel de l’électron, vous frapperez une fois de plus le point d’arrêt.
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+### Autres lectures
+
+BASE est un outil puissant, avec une excellente documentation. Pour en savoir plus à ce sujet, examiner la documentation de débogage de Apple, par exemple le Reference</a> de Structure de commande de LLDB ou l’introduction à base de [Using comme un Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).</p> 
+
+Vous pouvez également consulter [manual fantastique de base et tutorial](http://lldb.llvm.org/tutorial.html), qui vous expliquera les scénarios de débogage plus complexes.
