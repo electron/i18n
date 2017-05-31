@@ -1,62 +1,46 @@
-# Utilisation du plugin Widevine CDM
+# L’utilisation du MDP Widevine Plugin
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+En électronique, vous pouvez utiliser le plugin Widevine CDM livré avec le navigateur Chrome.
 
-## Getting the plugin
+## Obtenir le plugin
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Électron n’est pas livré avec le plugin Widevine CDM pour des raisons de licence, pour l’obtenir, vous devez installer le navigateur Chrome officiel tout d’abord, qui doit correspondre à l’architecture et la version de Chrome de la génération d’électrons que vous utilisez.
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**Note:** que la version principale du navigateur Chrome doit être la même chose avec la version de Chrome utilisée par électron, sinon le plugin ne fonctionne pas même si`navigator.plugins` montrerait qu’il a été chargé.
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
+Ouvrez ` chrome://components/` dans le navigateur Chrome, trouver `WidevineCdm` et assurez-vous que c’est à jour, alors vous pouvez trouver tous les binaires de plugin dans le répertoire `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/`.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` emplacement de système de stockage des données de l’app, sous Windows, il est `%LOCALAPPDATA%`, sur macOS c’est ` ~ / Bibliothèque/Application Support`. `VERSION` est la chaîne de version du plugin Widevine CDM, comme `1.4.8.866`. `PLATFORM` est `mac` ou `win`. `ARCH` est `x86` ou `x64`.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+Sous Windows, les fichiers binaires requis sont `widevinecdm.dll` et `widevinecdmadapter.dll`, sur Mac OS, ils sont `libwidevinecdm.dylib` et `widevinecdmadapter.plugin`. Vous pouvez les copier à où que vous voulez, mais ils doivent être mis en place.
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+Sur Linux, que les fichiers binaires de plugin sont expédiés avec le navigateur Chrome, vous pouvez les trouver sous `/opt/google/chrome`, les noms de fichiers sont `libwidevinecdm.so` et `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## En utilisant le plugin
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+Après avoir obtenu les fichiers du plugin, vous devez passer le chemin d’accès de la `widevinecdmadapter` électronique avec `--commutateur de ligne de commande widevine-cdm-path` et la version du plugin avec `--widevine-cdm-version` commutateur.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**Note:** bien que seulement le `widevinecdmadapter` binaire est passée à l’électron, le `widevinecdm` binaire doit être mis de côté il.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+Les commutateurs de ligne de commande doivent être passés avant que l’événement `ready` du module `app` obtient émis, et la page qui utilise ce plugin doit avoir le plugin activé.
 
-Example code:
+Exemple de code :
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
-app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
-app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
-
-let win = null
-app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      // The `plugins` have to be enabled.
-      plugins: true
-    }
-  })
-  win.show()
-})
+const {app, BrowserWindow} = require('electron') / / vous devez passer le nom de fichier de « widevinecdmadapter » ici, c’est / / * « widevinecdmadapter.plugin » sur macOS, / / * « libwidevinecdmadapter.so » sous Linux, / / * « widevinecdmadapter.dll » sous Windows.
+app.commandLine.appendSwitch ('widevine-cdm-path', ' / path/to/widevinecdmadapter.plugin') / / la version du plugin peut être obtenue de « chrome://plugins » page en Chrome.
+app.commandLine.appendSwitch ('widevine-cdm-version', '1.4.8.866') laisser gagner = null app.on ("prêt", () => {gagner = new BrowserWindow ({webPreferences : {/ / les "plugins" doivent être activées.
+      plugins : true}}) win.show()})
 ```
 
-## Verifying the plugin
+## Vérifier le plugin
 
-To verify whether the plugin works, you can use following ways:
+Pour vérifier que si le plugin fonctionne, vous pouvez utiliser à la suite des moyens :
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Ouvrez devtools et vérifiez si `navigator.plugins` contient le plugin Widevine CDM.
+* Ouvrez https://shaka-player-demo.appspot.com/ et charger un manifeste qui utilise`Widevine`.
+* Ouvrez http://www.dash-player.com/demo/drm-test-area/, vérifier si la page indique `bitdash utilise Widevine dans votre browser`, puis lire la vidéo.
