@@ -1,41 +1,41 @@
-# Versioning d'Electron
+# Versioning des électrons
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+Si vous avez été à nœud et NGP pendant un certain temps, vous êtes probablement au courant de la [Semantic Versioning](http://semver.org), ou SemVer en abrégé. Il s’agit d’une convention pour les numéros de version pour le logiciel qui permet de communiquer les intentions pour les utilisateurs de votre logiciel.
 
-## Overview of Semantic Versioning
+## Vue d’ensemble du versionnage sémantique
 
-Semantic versions are always made up of three numbers:
+Les versions sémantiques sont toujours constituées de trois nombres :
 
-    major.minor.patch
+    Major.minor.patch
     
 
-Semantic version numbers are bumped (incremented) using the following rules:
+Numéros de version sémantiques sont cognés (incrémenté) en utilisant les règles suivantes :
 
-* **Major** is for changes that break backwards compatibility.
-* **Minor** is for new features that don't break backwards compatibility.
-* **Patch** is for bug fixes and other minor changes.
+* **Major** est pour les modifications qui casser la compatibilité en arrière.
+* **Minor** est pour les nouvelles fonctionnalités qui ne cassent la compatibilité en arrière.
+* **Patch** est pour les corrections de bugs et autres modifications mineures.
 
-A simple mnemonic for remembering this scheme is as follows:
+Un simple mnémonique pour se rappeler de ce régime est comme suit :
 
-    breaking.feature.fix
+    Breaking.Feature.Fix
     
 
-## Versioning d'Electron
+## Versioning des électrons
 
-Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **You should therefore always reference a specific version of Electron.**
+En raison de sa dépendance sur le nœud et le chrome, il n’est pas possible pour le projet d’électrons à adhérer à une politique de SemVer. **You doit donc toujours faire référence à une version spécifique du Electron.**
 
-Electron version numbers are bumped using the following rules:
+Numéros de version des électrons sont heurtés en utilisant les règles suivantes :
 
-* **Major** is for breaking changes in Electron's API. If you upgrade from `0.37.0` to `1.0.0`, you will have to make changes to your app.
-* **Minor** is for major Chrome and minor Node upgrades, or significant Electron changes. If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
-* **Patch** is for new features and bug fixes. If you upgrade from `1.6.2` to `1.6.3`, your app will continue to work as-is.
+* **Major** est pour briser les changements dans l’API de l’électron. Si vous mettez à niveau `0.37.0` à `1.0.0`, vous devrez apporter des modifications à votre application.
+* **Minor** de Chrome majeur et mineurs mises à niveau de nœud, ou électron significatif change. Si vous mettez à niveau `1.5.0` à `1.6.0`, votre application est supposée fonctionne toujours, mais vous devrez peut-être travailler autour de petits changements.
+* **Patch** est pour les nouvelles fonctionnalités et corrections de bugs. Si vous mettez à niveau `1.6.2` à `1.6.3`, votre application continuera à travailler en tant que-est.
 
-We recommend that you set a fixed version when installing Electron from npm:
+Nous vous recommandons de définir une version fixe lors de l’installation électronique de NGP :
 
 ```sh
-npm install electron --save-exact --save-dev
+NGP installer électrons--save-exact--save-dev
 ```
 
-The `--save-exact` flag will add `electron` to your `package.json` file without using a `^` or `~`, e.g. `1.6.2` instead of `^1.6.2`. This practice ensures that all upgrades of Electron are a manual operation made by you, the developer.
+La `--save-exact` drapeau va ajouter `electron` à votre fichier `package.json` sans utiliser un ` ^ ` ou ` ~ `, par exemple `1.6.2` au lieu de ` ^ 1.6.2`. Cette pratique garantit que toutes les mises à niveau des électrons sont une opération manuelle effectuée par vous, le développeur.
 
-Alternatively, you can use the `~` prefix in your SemVer range, like `~1.6.2`. This will lock your major and minor version, but allow new patch versions to be installed.
+Vous pouvez également utiliser le ` ~` préfixe dans votre gamme de SemVer, comme ` ~ 1.6.2`. Cela va verrouiller votre version principale et secondaire, mais permettent de nouvelles versions de correctif doit être installé.
