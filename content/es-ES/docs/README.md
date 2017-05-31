@@ -1,4 +1,4 @@
-Por favor, asegúrese de que utilizar los documentos que coinciden con su versión electrónica. El número de versión debe ser parte de la URL de la página. Si no es así, probablemente está utilizando la documentación de una rama de desarrollo que puede contener cambios de API que no son compatibles con su versión electrónica. Para ver las versiones más antiguas de la documentación, usted puede[browse tag](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable "Interruptor ramas/etiquetas" y seleccionar la etiqueta que coincida con su versión.
+Por favor, asegúrese de que utilizar los documentos que coinciden con su versión de Electron. El número de versión debe ser parte de la URL de la página. Si no es así, probablemente está utilizando la documentación de una rama de desarrollo que puede contener cambios de API que no son compatibles con su versión Electron. Para ver las versiones más antiguas de la documentación, usted puede[browse tag](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable "Interruptor ramas/etiquetas" y seleccionar la etiqueta que coincida con su versión.
 
 ## Preguntas más frecuentes
 
@@ -11,7 +11,7 @@ Hay preguntas que se hacen a menudo. Mira bien antes de crear un tema:
 * [Glosario de términos](glossary.md)
 * [Plataformas soportadas](tutorial/supported-platforms.md)
 * [Seguridad](tutorial/security.md)
-* [Versión electrónica](tutorial/electron-versioning.md)
+* [Versión Electron](tutorial/electron-versioning.md)
 * [Distribución de aplicaciones](tutorial/application-distribution.md)
 * [Guía de presentación de Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guía de Windows Store](tutorial/windows-store-guide.md)
@@ -88,14 +88,14 @@ Hay preguntas que se hacen a menudo. Mira bien antes de crear un tema:
 * [Clang-formato en código C++](development/clang-format.md)
 * [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
 * [Diferencias técnicas a NW.js (antes nodo-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Construir sistemas](development/build-system-overview.md)
-* [Construir instrucciones (macOS)](development/build-instructions-osx.md)
-* [Construir instrucciones (Windows)](development/build-instructions-windows.md)
-* [Construir instrucciones (Linux)](development/build-instructions-linux.md)
+* [Compilar sistemas](development/build-system-overview.md)
+* [Compilar instrucciones (macOS)](development/build-instructions-osx.md)
+* [Compilar instrucciones (Windows)](development/build-instructions-windows.md)
+* [Compilar instrucciones (Linux)](development/build-instructions-linux.md)
 * [Depurar instrucciones (macOS)](development/debugging-instructions-macos.md)
 * [Depurar instrucciones (Windows)](development/debug-instructions-windows.md)
 * [Configuración por servidor de símbolos en el depurador](development/setting-up-symbol-server.md)
-* [Styleguide de documentación](styleguide.md)
+* [Manual de estilo de documentación](styleguide.md)
 * [Actualización de Chrome](development/upgrading-chrome.md)
 * [Desarrollo de cromo](development/chromium-development.md)
 * [Desarrollo de V8](development/v8-development.md)
