@@ -1,6 +1,6 @@
-# Styleguide de documentación electrónica
+# Manual de estilo de documentación de Electron
 
-Estas son las directrices para la documentación electrónica de la escritura.
+Estas son las directrices para la documentación de Electron de la escritura.
 
 ## Títulos
 
@@ -12,7 +12,7 @@ Estas son las directrices para la documentación electrónica de la escritura.
 
 Uso de Start</code> de `Quick como ejemplo:</p>
 
-<pre><code class="markdown"># Inicio rápido... ## proceso principal... ## proceso Renderer... ## ejecutar tu aplicación... ### ejecutar como una distribución... ### manualmente descargar electrónica binaria...
+<pre><code class="markdown"># Inicio rápido... ## proceso principal... ## proceso Renderer... ## ejecutar tu aplicación... ### ejecutar como una distribución... ### manualmente descargar Electron binaria...
 `</pre> 
 
 Para referencias de API, hay excepciones a esta regla.
@@ -35,7 +35,7 @@ Las siguientes reglas sólo se aplican a la documentación del API.
 
 ### Título de la página
 
-Cada página debe usar el nombre real del objeto devuelto por `require` ('electrón') como el título, como `BrowserWindow`, `autoUpdater` y `session`.
+Cada página debe usar el nombre real del objeto devuelto por `require` ('Electron') como el título, como `BrowserWindow`, `autoUpdater` y `session`.
 
 En la página de azulejo debe ser una descripción de una línea a partir de `>`.
 
@@ -103,7 +103,7 @@ A continuación el método es la información más detallada sobre cada uno de l
 * [`Objeto`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Arreglo de discos`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* O un tipo personalizado como [`WebContent`](api/web-contents.md) del electrón
+* O un tipo personalizado como [`WebContent`](api/web-contents.md) del Electron
 
 Si un argumento o un método es único en ciertas plataformas, las plataformas se denotaron usando una lista en cursiva delimitado siguiendo el tipo de datos. Valores pueden ser `macOS`, `Windows` o `Linux`.
 
@@ -139,7 +139,7 @@ El título puede ser `` ### ` ### `-niveles o dependiendo de si es una propiedad
 
 ## Traducciones de documentación
 
-Las traducciones de la documentación electrónica se encuentra dentro del directorio `docs-translations`.
+Las traducciones de la documentación de Electron se encuentra dentro del directorio `docs-translations`.
 
 Para agregar otro sistema (o conjunto parcial):
 
