@@ -22,10 +22,10 @@ Afin d’éviter la complexité du développement de tout chrome, Electron utili
 
 Avec NW.js, l’intégration de Node dans les pages web nécessite de patcher Chromium pour fonctionner, alors qu’avec Electron nous avons choisi une autre façon d’intégrer la boucle libuv avec chaque boucle message de plateforme pour éviter le "hack" Chromium. Voir le code [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) pour comprendre comment cela a été fait.
 
-**4. Multi-contextes**
+**4. Multi-contexte**
 
-Si vous êtes un utilisateur expérimenté de NW.js, vous devez être familiarisé avec le concept du nœud de contexte et web. Ces concepts ont été inventés en raison de comment NW.js a été mis en place.
+Si vous êtes un utilisateur expérimenté de NW.js, vous devez être familiarisé avec le concept de contexte Node et contexte web. Ces concepts ont été inventés lors de l'implémentation de NW.js.
 
-En utilisant la fonctionnalité de [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) du nœud, les électrons n’introduit un nouveau contexte de JavaScript dans les pages web.
+En utilisant la fonctionnalité [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) de Node, Electron n’introduit pas de nouveau contexte JavaScript dans les pages web.
 
-Remarque : NW.js éventuellement soutient multi contexte depuis 0,13.
+Remarque : NW.js supporte éventuellement le multi-contexte depuis la v0.13.
