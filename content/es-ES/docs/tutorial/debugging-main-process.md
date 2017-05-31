@@ -1,26 +1,26 @@
-# Debugging the Main Process
+# Los principales procesos de depuración
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--debug` or `--debug-brk` switch.
+Las DevTools en una ventana del navegador del electrón sólo puede depurar JavaScript que se ejecuta en la ventana (es decir, las páginas web). Para depurar JavaScript que se ejecuta en el proceso principal que usted necesitará utilizar un depurador externo y lanzar electrones con el ` - debug` o `--debug-brk` interruptor.
 
-## Command Line Switches
+## Línea de comandos
 
-Use one of the following command line switches to enable debugging of the main process:
+Utilice uno de los siguientes modificadores de línea de comandos para habilitar la depuración del proceso principal:
 
-### `--debug=[port]`
+### `--debug =[port]`
 
-Electron will listen for V8 debugger protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electrón se escucha mensajes de protocolo de depurador de V8 en el `port` especificado, un depurador externo necesitará conectarse a este puerto. El `port` por defecto es `5858`.
 
 ```shell
-electron --debug=5858 your/app
+electrónica--debug = 5858 su / app
 ```
 
-### `--debug-brk=[port]`
+### `--debug-brk =[port]`
 
-Like `--debug` but pauses execution on the first line of JavaScript.
+Como `--debug` pero detiene temporalmente la ejecución de la primera línea de JavaScript.
 
-## External Debuggers
+## Depuradores externos
 
-You will need to use a debugger that supports the V8 debugger protocol, the following guides should help you to get started:
+Usted necesitará utilizar un depurador que soporta el protocolo del debugger de V8, las siguientes guías le ayudarán a empezar:
 
-- [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
-- [Debugging the Main Process in node-inspector](debugging-main-process-node-inspector.md)
+- [Depurar el proceso principal en VSCode](debugging-main-process-vscode.md)
+- [Depurar el proceso del principal inspector de nodo](debugging-main-process-node-inspector.md)
