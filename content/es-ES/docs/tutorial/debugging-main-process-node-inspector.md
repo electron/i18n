@@ -1,106 +1,105 @@
-# Debugging the Main Process in node-inspector
+# Depurar el proceso del principal inspector de nodo
 
-[`node-inspector`](https://github.com/node-inspector/node-inspector) provides a familiar DevTools GUI that can be used in Chrome to debug Electron's main process, however, because `node-inspector` relies on some native Node modules they must be rebuilt to target the version of Electron you wish to debug. You can either rebuild the `node-inspector` dependencies yourself, or let [`electron-inspector`](https://github.com/enlight/electron-inspector) do it for you, both approaches are covered in this document.
+[`node-inspector`](https://github.com/node-inspector/node-inspector) proporciona una GUI DevTools familiar que puede utilizarse en cromo para depurar el proceso principal del electrón, sin embargo, porque `node-inspector` se basa en algunos módulos nativos de nodo que debe ser reconstruidos para la versión de electrón que desea depurar. Puede reconstruir las dependencias `node-inspector` a ti mismo, o que[`electron-inspector`](https://github.com/enlight/electron-inspector) hacer por usted, ambos enfoques están cubiertos en este documento.
 
-**Note**: At the time of writing the latest release of `node-inspector` (0.12.8) can't be rebuilt to target Electron 1.3.0 or later without patching one of its dependencies. If you use `electron-inspector` it will take care of this for you.
+**Note**: en el momento de escribir la última versión de `node-inspector` (0.12.8) no puede reconstruirse destino electrón 1.3.0 o posterior sin parchear una de sus dependencias. Si utilizas `electron inspector` se encargará de esto para usted.
 
-## Use `electron-inspector` for Debugging
+## Uso `electron-inspector` para la depuración
 
-### 1. Install the [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
+### 1. instalar el tools</a> de node-gyp necesaria</h3> 
 
-### 2. Install [`electron-rebuild`](https://github.com/electron/electron-rebuild), if you haven't done so already.
-
-```shell
-npm install electron-rebuild --save-dev
-```
-
-### 3. Install [`electron-inspector`](https://github.com/enlight/electron-inspector)
+### 2. Instale el [`electron-rebuild`](https://github.com/electron/electron-rebuild), si no has hecho ya.
 
 ```shell
-npm install electron-inspector --save-dev
+MNP instalar electrónica-reconstrucción--save-dev
 ```
 
-### 4. Start Electron
-
-Launch Electron with the `--debug` switch:
+### 3. instalar [`electron-inspector`](https://github.com/enlight/electron-inspector)
 
 ```shell
-electron --debug=5858 your/app
+MNP instalar inspector del electrón--save-dev
 ```
 
-or, to pause execution on the first line of JavaScript:
+### 4. arranque electrónico
+
+Lanzamiento de electrón con el ` - debug` conmutador:
 
 ```shell
-electron --debug-brk=5858 your/app
+electrónica--debug = 5858 su / app
 ```
 
-### 5. Start electron-inspector
-
-On macOS / Linux:
+o para pausar la ejecución de la primera línea de JavaScript:
 
 ```shell
-node_modules/.bin/electron-inspector
+electrónica--debug-brk = 5858 su / app
 ```
 
-On Windows:
+### 5. arranque electrónico-inspector
+
+En macOS / Linux:
+
+```shell
+node_modules/.bin/Electron-inspector
+```
+
+En Windows:
 
 ```shell
 node_modules\\.bin\\electron-inspector
 ```
 
-`electron-inspector` will need to rebuild `node-inspector` dependencies on the first run, and any time you change your Electron version. The rebuild process may require an internet connection to download Node headers and libs, and may take a few minutes.
+`electron-inspector` será necesario reconstruir las dependencias `node-inspector` en la primera carrera, y cualquier momento cambiar su versión electrónica. El proceso de reconstrucción puede requerir una conexión a internet para descargar librerías y cabeceras del nodo y puede tardar unos minutos.
 
-### 6. Load the debugger UI
+### 6. Cargue el interfaz de usuario de depurador
 
-Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome browser. You may have to click pause if starting with `--debug-brk` to force the UI to update.
+Abra http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 en el navegador Chrome. Que tenga que hacer clic en pausa si a partir de `--debug-brk` a la interfaz de usuario para actualizar la fuerza.
 
-## Use `node-inspector` for Debugging
+## Uso `node-inspector` para la depuración
 
-### 1. Install the [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
+### 1. instalar el tools</a> de node-gyp necesaria</h3> 
 
-### 2. Install [`node-inspector`](https://github.com/node-inspector/node-inspector)
-
-```bash
-$ npm install node-inspector
-```
-
-### 3. Install [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)
+### 2. Instale el [`node-inspector`](https://github.com/node-inspector/node-inspector)
 
 ```bash
-$ npm install node-pre-gyp
+$ MNP instalar nodo-inspector
 ```
 
-### 4. Recompile the `node-inspector` `v8` modules for Electron
-
-**Note:** Update the target argument to be your Electron version number
+### 3. instalar [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)
 
 ```bash
-$ node_modules/.bin/node-pre-gyp --target=1.2.5 --runtime=electron --fallback-to-build --directory node_modules/v8-debug/ --dist-url=https://atom.io/download/atom-shell reinstall
-$ node_modules/.bin/node-pre-gyp --target=1.2.5 --runtime=electron --fallback-to-build --directory node_modules/v8-profiler/ --dist-url=https://atom.io/download/atom-shell reinstall
+$ MNP instalar nodo-pre-gyp
 ```
 
-See also [How to install native modules](using-native-node-modules.md#how-to-install-native-modules).
+### 4. compilar los módulos de `v8` de `node-inspector` de electrónica
 
-### 5. Enable debug mode for Electron
-
-You can either start Electron with a debug flag like:
+**Note:** actualizar el argumento objetivo a ser el número de versión electrónica
 
 ```bash
-$ electron --debug=5858 your/app
+$ node_modules/.bin/node-pre-gyp--objetivo = 1.2.5--tiempo de ejecución = electrón--respaldo para construir--directorio node_modules/v8-debug /--dist-url = https://atom.io/download/atom-shell reinstalar $ node_modules/.bin/node-pre-gyp--objetivo = 1.2.5--tiempo de ejecución = electrón--respaldo para construir--directorio node_modules/v8-profiler / url--dist = https://atom.io/download/atom-shell vuelva a instalar
 ```
 
-or, to pause your script on the first line:
+Véase también [How para instalar el modules](using-native-node-modules.md#how-to-install-native-modules) nativo.
+
+### 5. activar el modo debug para electrónica
+
+Usted puede cualquier salida como el electrón con una bandera de la depuración:
 
 ```bash
-$ electron --debug-brk=5858 your/app
+electrónica $--debug = 5858 su / app
 ```
 
-### 6. Start the [`node-inspector`](https://github.com/node-inspector/node-inspector) server using Electron
+o bien, para hacer una pausa en la secuencia de comandos en la primera línea:
 
 ```bash
-$ ELECTRON_RUN_AS_NODE=true path/to/electron.exe node_modules/node-inspector/bin/inspector.js
+electrónica $--debug-brk = 5858 su / app
 ```
 
-### 7. Load the debugger UI
+### 6. iniciar el servidor de [`node-inspector`](https://github.com/node-inspector/node-inspector) con electrones
 
-Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome browser. You may have to click pause if starting with `--debug-brk` to see the entry line.
+```bash
+$ ELECTRON_RUN_AS_NODE = true path/to/electron.exe node_modules/node-inspector/bin/inspector.js
+```
+
+### 7. carga el interfaz de usuario de depurador
+
+Abra http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 en el navegador Chrome. Quizás tenga que haga clic en Pausar si a partir de `--debug-brk` ver la línea de entrada.
