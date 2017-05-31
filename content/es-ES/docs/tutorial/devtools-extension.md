@@ -1,46 +1,48 @@
-# DevTools Extension
+# DevTools extensión
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Electrónica compatible con la [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), que puede utilizarse para ampliar la capacidad de devtools para la depuración de frameworks web popular.
 
-## How to load a DevTools Extension
+## Cómo cargar una DevTools extensión
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Este documento describe el proceso para cargar manualmente la extensión. También puede tratar devtools-[electron-installer](https://github.com/GPMDP/electron-devtools-installer), una herramienta de terceros que descarga extensiones directamente desde la Chrome WebStore.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Para cargar una extensión en electrón, necesita descargar en navegador Chrome, localizar su ruta de sistema de archivos y luego cargar llamando la</code> API de`BrowserWindow.addDevToolsExtension (extensión).</p>
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+<p>Usando el Tools</a> de desarrollador de <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React como ejemplo:</p>
 
-  1. Install it in Chrome browser.
-  2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-  3. Find out filesystem location used by Chrome for storing extensions: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
-        * `~/.config/google-chrome/Default/Extensions/`
-        * `~/.config/google-chrome-beta/Default/Extensions/`
-        * `~/.config/google-chrome-canary/Default/Extensions/`
-        * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-  4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+<ol>
+<li>Instalar en el navegador Chrome.</li>
+<li>Vaya a <code> chrome://extensions` y encontrar su ID de la extensión, que es una cadena de hash como `fmkadmapgofadopljbjfkapdkoienihi`.</li> 
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+* Averiguar ubicación de sistema de archivos utilizado por cromo para almacenar las extensiones: 
+    * en Windows es `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * en Linux puede ser: 
+        * `~/.config/Google-Chrome/default/Extensions/`
+        * `~/.config/Google-Chrome-Beta/default/Extensions/`
+        * `~/.config/Google-Chrome-Canary/default/Extensions/`
+        * `~/.config/Chromium/default/Extensions/`
+    * macOS es ` ~ / Library/Application apoyo/Google/Chrome/Default/Extensions`.
+* Pasar la ubicación de la extensión a `BrowserWindow.addDevToolsExtension` API, para las herramientas de desarrollador de reaccionar, es algo así como: ` ~ / Library/Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0` aplicación</ol> 
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+**Note:** la `BrowserWindow.addDevToolsExtension` API no se puede llamar antes del evento ready del módulo de la aplicación se emite.
 
-## Supported DevTools Extensions
+`BrowserWindow.addDevToolsExtension` devuelve el nombre de la extensión, y puede pasar el nombre de la extensión de la `BrowserWindow.removeDevToolsExtension` API para descargarlo.
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+## Extensiones compatibles DevTools
 
-* [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-* [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-* [Backbone Debugger](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
-* [jQuery Debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
-* [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
+Electrón sólo admite un conjunto limitado de `chrome.*` APIs, para que no funcionen algunas extensiones con `chrome.*` sin soporte API para características de la extensión de chrome. Siguientes Devtools extensiones son probadas y garantizadas para trabajar en electrónica:
+
+* [Inspector de Ember](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+* [Herramientas para desarrolladores de reaccionar](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+* [Depurador de la columna vertebral](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
+* [jQuery depurador](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
+* [Batman AngularJS](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-* [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)
-* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [Depurador de cerebral](http://www.cerebraljs.com/documentation/the_debugger)
+* [Extensión de DevTools Redux](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-### What should I do if a DevTools Extension is not working?
+### ¿Qué debo hacer si no funciona una DevTools extensión?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Primero por favor asegúrese de que la extensión se se mantiene, algunas extensiones no pueden trabajar incluso para las versiones recientes de navegador Chrome, y no somos capaces de hacer cualquier cosa por ellos.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Entonces un error de archivo en la lista de problemas del electrón y describir que parte de la extensión no funciona como se esperaba.
