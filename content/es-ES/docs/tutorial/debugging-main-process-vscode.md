@@ -1,34 +1,21 @@
-# Debugging the Main Process in VSCode
+# Depurar el proceso principal en VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Abra un proyecto de electrónica en VSCode.
 
 ```bash
-$ git clone git@github.com:electron/electron-quick-start.git
-$ code electron-quick-start
+$ git clone git@github.com:electron / electrón-rápido-start.git $ código electrón-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Añadir un archivo `.vscode/launch.json` con la siguiente configuración:
 
 ```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Debug Main Process",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-      "program": "${workspaceRoot}/main.js"
-    }
-  ]
-}
+{"versión": "0.2.0", "configuraciones": [{"name": "Debug proceso principal", "tipo": "nodo", "solicitud": "lanzar", "cwd": "${workspaceRoot}", "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", "programa": "${workspaceRoot}/main.js"}]}
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Note:** para Windows, utilice `"${workspaceRoot}/node_modules/.bin/electron.cmd"` para `runtimeExecutable`.
 
-### 3. Debugging
+### 3. depuración
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Establecer algunos puntos de interrupción en `main.js` y empezar a depurar en el View</a> de Debug. Usted debe ser capaz de golpear los puntos de desempate.</p> 
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Aquí está un proyecto preconfigurado que puede descargar y depurar directamente en VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
