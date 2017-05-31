@@ -1,34 +1,35 @@
-# Coding Style
+# Estilo de codificación
 
-These are the style guidelines for coding in Electron.
+Estas son las directrices de estilo de codificación en el electrón.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Puede ejecutar `npm ejecutar lint` para mostrar los problemas de estilo detectados por `cpplint` y `eslint`.
 
-## C++ and Python
+## C++ y Python
 
-For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Para C++ y Python, seguimos [Coding Style](http://www.chromium.org/developers/coding-style) de cromo. Puede utilizar[clang-format](clang-format.md) para formatear automáticamente el código de C++. También hay un script `script/cpplint.py` para comprobar si se ajustan todos los archivos.
 
-The Python version we are using now is Python 2.7.
+La versión de Python que estamos utilizando ahora es Python 2.7.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+El código C++ utiliza un montón de abstracciones y de cromo, por lo que se recomienda familiarizarse con ellos. Un buen lugar para empezar es de cromo [Important abstracciones y datos Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) documento. El documento menciona algunos tipos especiales, tipos con ámbito (que liberan automáticamente la memoria cuando van fuera de alcance), mecanismos de registro etcetera.
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
-
-## Naming Things
-
-Electron APIs uses the same capitalization scheme as Node.js:
-
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
-
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+* Escriba [standard](http://npm.im/standard) JavaScript estilo.
+* Nombres de archivo deben ser concatenados con `-` en lugar de `_`, por ejemplo `file-name.js` en lugar de `file_name.js`, porque en el módulo[github/atom](https://github.com/github/atom) nombres son generalmente en forma de `module-name`. Esta regla sólo se aplica a los archivos de `.js`.
+* Uso de sintaxis ES6/ES2015 nuevas necesarias 
+  * requiere [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) para y otras constantes
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) para la definición de variables
+  * Functions</a> de Arrow en lugar de `function () { }`</li> 
+    
+    * Literals</a> de Template en vez de usar de concatenación de cadena `+`</li> </ul></li> </ul> 
+      
+      ## Nombrar las cosas
+      
+      Electrónica API utiliza el mismo esquema de capitalización como Node.js:
+      
+      * Cuando el módulo en sí es una clase como `BrowserWindow`, use `CamelCase`.
+      * Cuando el módulo es un conjunto de APIs, como `globalShortcut`, use `mixedCase`.
+      * Cuando el API es una propiedad del objeto, y es lo suficientemente complejo como para estar en un capítulo aparte como el `win.webContents`, use `mixedCase`.
+      * Otras API de módulo de no usar títulos naturales, como `<webview> Tag` o `Process Object`.
+      
+      Cuando se crea una nueva API, se prefiere utilizar getters y setters en lugar de estilo de una función de jQuery. Por ejemplo, `.getText ()` y `.setText (texto) ` se prefiere a </code> .text ([text]). Hay un<a href="https://github.com/electron/electron/issues/46">discussion</a> en esto.</p>
