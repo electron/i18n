@@ -1,4 +1,4 @@
-# Technical Differences Between Electron and NW.js (formerly node-webkit)
+# Técnico las diferencias entre electrón y NW.js (antes nodo-webkit)
 
 **Nota: Electron fue nombrado anteriormente "Atom Shell".**
 
@@ -14,18 +14,18 @@ En Electron, el punto de entrada es un script de JavaScript. En lugar de proporc
 
 Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Electron son inferiores por lo que puede utilizar para navegador de pruebas en lugar de [PhantomJS](http://phantomjs.org/).
 
-**2. Build System**
+**2. construir el sistema**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Con el fin de evitar la complejidad de la construcción de todos los de cromo, electrón utiliza [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) para tener acceso API contenido de cromo. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de cromo y todas sus dependencias. Los usuarios no necesitan una máquina potente para construir electrónica.
 
-**3. Node Integration**
+**3. nodos integración**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+En NW.js, la integración de nodos en las páginas web requiere parches de cromo para trabajar, mientras que en electrónica optamos por una forma diferente de integrar el circuito de libuv con bucle de mensajes de la plataforma para evitar piratería de cromo. Ver el código de[`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) por lo fue hecho.
 
-**4. Multi-context**
+**4. multi-contexto**
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+Si eres un usuario experimentado de NW.js, debe estar familiarizado con el concepto de nodo contexto y contexto de la web. Estos conceptos fueron inventados por cómo fue implementado NW.js.
 
-By using the [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Mediante la función [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) del nodo, electrón no introduce un nuevo contexto de JavaScript en páginas web.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Nota: NW.js ha apoyado opcionalmente contexto múltiples desde 0.13.
