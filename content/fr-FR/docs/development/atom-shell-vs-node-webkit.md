@@ -10,13 +10,13 @@ Mais il y a aussi des différences fondamentales entre les deux projets qui rend
 
 Avec NW.js, le point d’entrée principal d’une application est une page web. Vous spécifiez une URL de page d’accueil dans le `package.json` et il est ouvert dans une fenêtre de navigateur comme fenêtre principale de l’application.
 
-En électronique, le point d’entrée est un script JavaScript. Au lieu de fournir une URL directement, vous créez une fenêtre de navigateur manuellement et chargez un fichier HTML à l’aide de l’API. Vous devez aussi écouter les événements de fenêtre à décider du moment pour quitter l’application.
+Avec Electron, le point d’entrée est un script JavaScript. Au lieu de fournir une URL directement, vous créez une fenêtre de navigateur manuellement et chargez un fichier HTML à l’aide de l’API. Vous devez aussi écouter les événements de fenêtre pour décider quand quitter l’application.
 
-Électron fonctionne plus comme le runtime de Node.js. API de l’électron est niveau inférieur, donc vous pouvez l’utiliser pour tester à la place de [PhantomJS](http://phantomjs.org/) le navigateur.
+Electron fonctionne plus comme le runtime de Node.js. L'API d'Electron est de niveau bas, donc vous pouvez l’utiliser pour tester le navigateur à la place de [PhantomJS](http://phantomjs.org/).
 
-**2. construire le système**
+**2. Développement Système**
 
-Afin d’éviter la complexité de la construction tout chrome, électrons utilise [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) pour accéder aux API contenu de chrome. `libchromiumcontent` est une bibliothèque partagée unique qui inclut le module chrome contenu et toutes ses dépendances. Utilisateurs n’ont besoin d’une machine puissante pour construire des électrons.
+Afin d’éviter la complexité du développement de tout chrome, Electron utilise [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) pour accéder à l'API Chromium Content. `libchromiumcontent` est une bibliothèque partagée et unique qui inclut le module Chromium Content et de toutes ses dépendances. Les utilisateurs n’ont pas besoin d’une machine puissante pour compiler Electron.
 
 **3. intégration de noeud**
 
