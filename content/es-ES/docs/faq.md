@@ -1,6 +1,6 @@
-# Electrónica FAQ
+# Preguntas Frecuentes Electron
 
-## ¿Cuando se actualiza el electrón a Chrome última?
+## ¿Cuando se actualizará Electron a la más reciente versión de Chrome?
 
 La versión del cromo del electrón se golpea generalmente dentro de una o dos semanas después llega una nueva versión estable de Chrome. Esta estimación no está garantizada y depende de la cantidad de trabajo que con la actualización.
 
