@@ -12,118 +12,99 @@ Pour plus d'informations, veuillez voir [l'introduction à la sécurité](tutori
 
 Quand une nouvelle version de Node.js est disponible, nous attendons généralement un mois avant de faire la mise à jour du Node.js d'Electron. Ainsi nous évitons d'être affectés par des bugs introduits dans les nouvelles versions de Node.js, ce qui arrive très souvent.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Nouvelles fonctionnalités de Node.js sont généralement amenées par V8 mises à niveau, puisque électronique utilise le V8 expédiés par navigateur Chrome, le JavaScript nouveau brillant caractéristique d’une nouvelle version de Node.js est généralement déjà en électrons.
 
 ## Comment partager les données entre les pages web ?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Pour partager des données entre les pages web (les processus de rendu) le moyen le plus simple est d’utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Bons candidats sont[Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage),[`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) et [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Ou vous pouvez utiliser le système de la CIB, qui est spécifique aux électrons, pour stocker des objets dans le processus principal comme une variable globale, puis d’y accéder depuis les moteurs de rendu via la propriété `remote` du module `electron` :
 
 ```javascript
-// In the main process.
+Dans le processus principal.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
+Dans la page 1.
+require('electron').Remote.getGlobal (« sharedObject") .someProperty = « nouvelle valeur »
 ```
 
 ```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+En page 2.
+Console.log(require('electron').Remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Fenêtre/plateau mon application a disparu au bout de quelques minutes.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Cela se produit lorsque la variable qui sert à stocker le bac/fenêtre obtient le garbage collector.
 
-If you encounter this problem, the following articles may prove helpful:
+Si vous rencontrez ce problème, les articles suivants peuvent s’avérer utiles :
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gestion de la mémoire](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Portée des variables](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Si vous voulez une solution rapide, vous pouvez faire les variables globales en changeant votre code de ceci :
 
 ```javascript
-const {app, Tray} = require('electron')
-app.on('ready', () => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
-})
+const {app, Tray} = require('electron') app.on ("prêt", () => {const plateau = new Tray('/path/to/icon.png') tray.setTitle ('hello world')})
 ```
 
-to this:
+pour cela :
 
 ```javascript
-const {app, Tray} = require('electron')
-let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
-})
+const {app, Tray} = plateau let require('electron') = null app.on ("prêt", () => {plateau = new Tray('/path/to/icon.png') tray.setTitle ('hello world')})
 ```
 
 ## Je ne peux pas utiliser jQuery/RequireJS/Meteor/AngularJS avec Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+En raison de l’intégration de Node.js des électrons, il y a quelques symboles supplémentaires insérés dans le DOM comme `module`, `exports`, `require`. Cela pose des problèmes pour certaines bibliothèques puisqu’ils veulent insérer les symboles avec les mêmes noms.
 
-To solve this, you can turn off node integration in Electron:
+Pour résoudre ce problème, vous pouvez désactiver l’intégration de nœud en électrons :
 
 ```javascript
-// In the main process.
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({
-  webPreferences: {
+Dans le processus principal.
+const {BrowserWindow} = require('electron') laisser gagner = new BrowserWindow ({webPreferences : {
     nodeIntegration: false
-  }
-})
-win.show()
+  }}) win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Mais si vous voulez garder les capacités d’utilisation de Node.js et électrons API, vous devez renommer les symboles dans la page avant d’inclure d’autres bibliothèques :
 
 ```html
-<head>
-<script>
-window.nodeRequire = require;
-delete window.require;
-delete window.exports;
-delete window.module;
-</script>
-<script type="text/javascript" src="jquery.js"></script>
-</head>
+<head><script> window.nodeRequire = exiger ;
+supprimer window.require ;
+supprimer window.exports ;
+supprimer window.module ;
+</script><script type="text/javascript" src="jquery.js"></script></head>
 ```
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Lorsque vous utilisez le module intégré de l’électron, vous pouvez obtenir une erreur comme ceci :
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+    > require('electron').webFrame.setZoomFactor(1.0) Uncaught TypeError : impossible de lire la propriété « setZoomLevel » undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+C’est parce que vous avez la module</a> de `electron` de npm installé localement ou dans le monde, qui remplace le module intégré de l’électron.</p> 
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Pour vérifier si vous utilisez le module intégré correct, vous pouvez imprimer le chemin d’accès du module `electron` :
 
 ```javascript
-console.log(require.resolve('electron'))
+Console.log(Require.Resolve('electron'))
 ```
 
-and then check if it is in the following form:
+et ensuite vérifier si elle est sous la forme suivante :
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+    « / path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js »
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Si c’est quelque chose comme `node_modules/electron/index.js`, puis vous devez retirer le module de `electron` du Musée, ou renommez-le.
 
 ```bash
-npm uninstall electron
-npm uninstall -g electron
+NGP désinstaller électron NGP désinstaller électron -g
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Cependant si vous utilisez le module intégré, mais toujours obtenir cette erreur, il est très probable, vous utilisez le module dans le processus de mal. Par exemple`electron.app` seulement peut être utilisé dans le processus principal, tandis que `electron.webFrame` n’est disponible que dans les processus de rendu.
