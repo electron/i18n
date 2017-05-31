@@ -1,4 +1,4 @@
-# Développement V8
+# Développement de V8
 
 > Une collection de ressources pour l’apprentissage et à l'utilisation de V8
 
