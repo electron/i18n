@@ -1,155 +1,81 @@
-# Utilisation de Selenium et WebDriver
+# À l’aide de sélénium et WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+De [ChromeDriver - WebDriver de Chrome](https://sites.google.com/a/chromium.org/chromedriver/) :
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver est un outil open source pour les tests automatisés des applications web sur plusieurs navigateurs. Il fournit des fonctions pour naviguer vers les pages web, l’entrée d’utilisateur, l’exécution de JavaScript et plus. ChromeDriver est un serveur autonome qui implémente fil protocole de WebDriver pour le chrome. Il est développé par des membres des équipes chrome et WebDriver.
 
-## Setting up Spectron
+## Mise en place Spectron
 
-[Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electron.atom.io/spectron) est l’infrastructure de test de ChromeDriver bénéficiant d’un soutien pour les électrons. Il est basé sur [WebdriverIO](http://webdriver.io/) et a des aides pour accéder aux API d’électron dans vos épreuves et de faisceaux ChromeDriver.
 
 ```bash
-$ npm install --save-dev spectron
+NGP $ installer--save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-var Application = require('spectron').Application
-var assert = require('assert')
-
-var app = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
-})
-
-app.start().then(function () {
-  // Check if the window is visible
-  return app.browserWindow.isVisible()
-}).then(function (isVisible) {
-  // Verify the window is visible
-  assert.equal(isVisible, true)
-}).then(function () {
-  // Get the window's title
-  return app.client.getTitle()
-}).then(function (title) {
-  // Verify the window's title
-  assert.equal(title, 'My App')
-}).catch(function (error) {
-  // Log any failures
-  console.error('Test failed', error.message)
-}).then(function () {
-  // Stop the application
-  return app.stop()
-})
+Un test simple pour vérifier une fenêtre visible est ouvert avec un titre var Application = require('spectron'). Assert var application = require('assert') var app = nouvelle Application ({chemin : ' / Applications/MyApp.app/Contents/MacOS/MyApp'}) app.start () .then(function () {/ / vérifier si la fenêtre est visible return app.browserWindow.isVisible()}) .then(function (isvisible) {/ / vérifier que la fenêtre est visible assert.equal (isVisible, vrai)}) .then(function () {/ / Get app.client.getTitle() retour de titre de la fenêtre}) .then(function (title) {/ / vérifier titre assert.equal la fenêtre (titre, "Mon App")}) .catch(function (error) {/ / Log tout console.error échecs ("Test a échoué" , Error.message)}) .then(function () {/ / stop le app.stop() retour demande})
 ```
 
-## Setting up with WebDriverJs
+## Mise en place avec WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) fournit un ensemble de nœuds pour tester avec pilote de web, nous l’utiliserons comme exemple.
 
-### 1. Start ChromeDriver
+### 1. Lancez ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Tout d’abord vous devez télécharger le binaire `chromedriver` et exécutez-le :
 
 ```bash
-$ npm install electron-chromedriver
-$ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+NGP $ installer électron-chromedriver $./node_modules/.bin/chromedriver à partir ChromeDriver (v2.10.291558) sur les connexions locales seulement 9515 port sont autorisés.
 ```
 
-Remember the port number `9515`, which will be used later
+N’oubliez pas du `9515` numéro de port, qui seront utilisés ultérieurement
 
-### 2. Install WebDriverJS
+### 2. installer WebDriverJS
 
 ```bash
-$ npm install selenium-webdriver
+NGP $ installer sélénium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. se connecter à ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+L’utilisation de `selenium-webdriver` avec l’électron est fondamentalement la même chose avec en amont, sauf que vous devez manuellement spécifier comment connecter le conducteur chrome et où trouver le fichier binaire de l’électron :
 
 ```javascript
-const webdriver = require('selenium-webdriver')
-
-const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
-  .usingServer('http://localhost:9515')
-  .withCapabilities({
-    chromeOptions: {
-      // Here is the path to your Electron binary.
-      binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
-    }
-  })
-  .forBrowser('electron')
-  .build()
-
-driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
-driver.wait(() => {
-  return driver.getTitle().then((title) => {
-    return title === 'webdriver - Google Search'
-  })
-}, 1000)
-
-driver.quit()
+const webdriver = driver const require('selenium-webdriver') = nouveau webdriver. Builder() / / le « 9515 » est le port ouvert par pilote de chrome.
+  .usingServer ('http://localhost:9515 ') .withCapabilities ({chromeOptions : {/ / Voici le chemin d’accès vers votre binaire de l’électron.
+      binaire : ' / Path-to-Your-App.app/Contents/MacOS/Electron'}}) .forBrowser('electron') .build() driver.get (« http://www.google.com') driver.findElement (webdriver. By.Name('q')).SendKeys('webdriver') driver.findElement (webdriver. By.Name('btnG')).Click() driver.wait(() => {return driver.getTitle().then((title) = > {retour titre === « webdriver - recherche Google »})}, 1000) driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## Mise en place avec WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) fournit un ensemble de nœuds pour tester avec le pilote de la web.
 
-### 1. Start ChromeDriver
+### 1. Lancez ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Tout d’abord vous devez télécharger le binaire `chromedriver` et exécutez-le :
 
 ```bash
-$ npm install electron-chromedriver
-$ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+NGP $ installer électron-chromedriver $./node_modules/.bin/chromedriver--base-url = wd/moyeu--port = 9515 à partir ChromeDriver (v2.10.291558) sur le port 9515, seules les connexions locales sont autorisées.
 ```
 
-Remember the port number `9515`, which will be used later
+N’oubliez pas du `9515` numéro de port, qui seront utilisés ultérieurement
 
-### 2. Install WebdriverIO
+### 2. installer WebdriverIO
 
 ```bash
-$ npm install webdriverio
+$ NGP install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. se connecter au pilote de chrome
 
 ```javascript
-const webdriverio = require('webdriverio')
-const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
-  desiredCapabilities: {
-    browserName: 'chrome',
-    chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
-    }
-  }
-}
-
-let client = webdriverio.remote(options)
-
-client
-  .init()
-  .url('http://google.com')
-  .setValue('#q', 'webdriverio')
-  .click('#btnG')
-  .getTitle().then((title) => {
-    console.log('Title was: ' + title)
-  })
-  .end()
+const webdriverio = options const require('webdriverio') = {hôte : « localhost », / / utiliser localhost comme port de serveur pour le pilote chrome : 9515, / / « 9515 » est le port ouvert par pilote de chrome.
+  desiredCapabilities : {browserName : « chrome », chromeOptions : {binaire : « / chemin-de-votre-App/electron », / / chemin d’accès vers votre binaire de l’électron.
+      args : [/ * arguments cli * /] / / facultatif, peut-être ' app =' + /path/to/your/app /}}} laisser le client = webdriverio.remote(options) client .init() .url ('http://google.com') .setValue ('#q ', 'webdriverio') .click('#btng').getTitle().then((title) => {console.log ("titre était :" + titre)}) .end()
 ```
 
-## Workflow
+## Flux de travail
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Pour tester votre application sans reconstruire Electron,[place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) simplement votre source app dans l’annuaire des ressources de l’électron.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Vous pouvez également passer un argument à courir avec votre binaire d’électron qui pointe vers le dossier de votre application. Cela évite d’avoir à copier-coller votre application dans le répertoire des ressources de l’électron.
