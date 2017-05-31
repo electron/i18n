@@ -1,85 +1,85 @@
-# Glossary
+# Glosario
 
-This page defines some terminology that is commonly used in Electron development.
+Esta página define algunos términos que comúnmente se utilizan en el desarrollo de la electrónica.
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar](https://github.com/electron/asar) es un simple formato de`tar`-como que concatena archivos en un solo archivo. Electrón puede leer archivos arbitrarios de él sin desempacar el archivo entero.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows... TODO
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray) is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications. It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
+[Brightray](https://github.com/electron/brightray) es una biblioteca estática que hace que [libchromiumcontent](#libchromiumcontent) más fácil de usar en aplicaciones. Fue creado específicamente para el electrón, pero puede utilizarse para habilitar a renderer del cromo en aplicaciones nativas que no están basadas en la electrónica.
 
-Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
+Brightray es una dependencia bajo nivel del electrón que no se refiere a la mayoría de los usuarios de la electrónica.
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Una imagen de disco de Apple es un formato de embalaje utilizado por macOS. Archivos DMG se utilizan comúnmente para la distribución de aplicaciones "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) soporta `dmg` como objetivo construir.
 
-### IPC
+### CIP
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC está parado para la comunicación entre procesos. Electrónica usa IPC para enviar serializado JSON mensajes entre los procesos de [main](#main-process) y [renderer](#renderer-process).
 
 ### libchromiumcontent
 
-A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
+Una biblioteca única, compartida que incluye el módulo de contenido de cromo y todas sus dependencias (por ejemplo, Blink, [V8](#v8), etcetera).
 
-### main process
+### proceso principal
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+El proceso principal, comúnmente un archivo llamado `main.js`, es el punto de entrada a la aplicación de cada electrón. Controla la vida de la aplicación, de abrir a cerrar. También maneja elementos nativos como el menú, barra de menú, muelle, bandeja, etcetera. El proceso principal es responsable de crear cada nuevo proceso de renderizado de la aplicación. Todo el nodo API está construido.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Archivo de proceso principal de cada aplicación se especifica en la propiedad `main` en `package.json`. Esto es cómo `electron .` sabe qué archivo a ejecutar al inicio.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Vea también: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
+Acrónimo de Mac App Store de Apple. Para obtener más información sobre cómo enviar su aplicación a las MAS, vea la Guide</a> de presentación Mac App Store.</p> 
 
-### native modules
+### módulos nativos
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Los módulos nativos (también llamados [addons](https://nodejs.org/api/addons.html) en Node.js) son módulos escritos en C o C++ que puede ser cargado en Node.js o electrónica mediante la función include() y utilizado como si fueran un módulo ordinario de Node.js. Se utilizan principalmente para proporcionar una interfaz entre en Node.js y C/C++ bibliotecas JavaScript.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Nativo nodo módulos están soportados por el electrón, pero puesto que el electrón es muy probable que utilice una versión V8 del nodo binario instalada en su sistema, usted tiene que especificar manualmente la ubicación de cabeceras del electrón al construir los módulos nativos.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Véase también [Using Modules](tutorial/using-native-node-modules.md) nativa de nodo.
 
 ## NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System es un instalador basada en secuencias de comandos de herramienta de edición para Microsoft Windows. Está liberado bajo una combinación de licencias de software libre y es una alternativa ampliamente utilizado a productos comerciales como InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) soporta NSIS como objetivo construir.
 
-### process
+### proceso
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Un proceso es una instancia de un programa informático que está siendo ejecutado. Aplicaciones de electrónica que hacen usan de la [main](#main-process) y uno o muchos procesos [renderer](#renderer-process) están ejecutando varios programas simultáneamente.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+En Node.js y electrón, cada proceso en ejecución tiene un objeto de `process`. Este objeto es un global que proporciona información sobre y control sobre, el proceso actual. Como una global, está siempre disponible para aplicaciones sin utilizar require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Vea también: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### proceso de renderizado
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+El proceso de renderizado es una ventana del navegador en su aplicación. A diferencia del proceso principal, pueden existir varios de estos y cada uno se ejecutan en un proceso separado. También pueden ser ocultadas.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+En los navegadores normales, páginas web generalmente se ejecutan en un entorno de espacio aislado y no se permite el acceso a recursos nativos. Los usuarios de la electrónica, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
-See also: [process](#process), [main process](#main-process)
+Vea también: [process](#process), [main process](#main-process)
 
-### Squirrel
+### Ardilla
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Ardilla es un marco de código abierto que permite a aplicaciones de electrónica actualizar automáticamente como se liberan nuevas versiones. Consulte la API de [autoUpdater](api/auto-updater.md) para información sobre cómo empezar a ardilla.
 
-### userland
+### entorno de usuario
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Este término que se originó en la comunidad Unix, donde "userland" o "userspace" que se refiere a programas que se ejecutan fuera del núcleo del sistema operativo. Más recientemente, el término ha sido popularizado en la comunidad nodo y MNP para distinguir entre las funciones disponibles en el "Nodo central" versus paquetes publicado en el registro de la nueva gestión pública de la comunidad de "el usuario" mucho más grande.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Como nodo, electrón se centra en tener un pequeño conjunto de APIs que proporcionan a todas las primitivas necesarias para el desarrollo de aplicaciones de escritorio multiplataformas. Esta filosofía de diseño permite electrón a seguir siendo una herramienta flexible sin ser excesivamente prescriptivas sobre cómo deben utilizarse. Modo de usuario permite a los usuarios crear y compartir herramientas que proporcionan funcionalidad adicional sobre lo que está disponible en "core".
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 es el motor de JavaScript de código abierto de Google. Está escrito en C++ y utiliza en Google Chrome. V8 puede funcionar independiente, o puede ser embebido en cualquier aplicación C++.
 
-### webview
+### WebView
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` etiquetas se utilizan para incrustar contenido de 'guest' (como páginas web externas) en su aplicación electrónica. Son similares a `iframe`s, pero se diferencian en que cada vista Web se ejecuta en un proceso separado. No tiene los mismos permisos que su página web y todas las interacciones entre su aplicación y contenido incrustado será asincrónicas. Esto protege a su aplicación de contenido incrustado.
