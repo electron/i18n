@@ -1,6 +1,6 @@
 # Distribución de aplicaciones
 
-Para distribuir tu aplicación con electrones, es necesario descargar [prebuilt binaries](https://github.com/electron/electron/releases) del electrón. A continuación, la carpeta que contiene su aplicación debe ser nombrada `app` y colocada en el directorio de recursos de electrones como se muestra en los ejemplos siguientes. Tenga en cuenta que la ubicación de los binarios precompilados del electrón se indica con `electron/` en los siguientes ejemplos.
+Para distribuir tu aplicación con electrones, es necesario descargar [prebuilt binaries](https://github.com/electron/electron/releases) del Electron. A continuación, la carpeta que contiene su aplicación debe ser nombrada `app` y colocada en el directorio de recursos de electrones como se muestra en los ejemplos siguientes. Tenga en cuenta que la ubicación de los binarios precompilados del Electron se indica con `electron/` en los siguientes ejemplos.
 
 En macOS:
 
@@ -11,16 +11,16 @@ electron/Electron.app/Contents/Resources/app/ ├── package.json ├── m
 En Windows y Linux:
 
 ```text
-aplicación de recursos de electrón ├── package.json ├── main.js └── index.html
+aplicación de recursos de Electron ├── package.json ├── main.js └── index.html
 ```
 
-Luego ejecuta `Electron.app` (o `electron` en Linux, `electron.exe` en Windows), y electrónica comenzará su aplicación. El directorio de `electron` será su distribución a usuarios finales.
+Luego ejecuta `Electron.app` (o `electron` en Linux, `electron.exe` en Windows), y Electron comenzará su aplicación. El directorio de `electron` será su distribución a usuarios finales.
 
 ## Su aplicación de empaquetado en un archivo
 
 Aparte de enviar su aplicación por copiar todos sus archivos fuente, también puede empaquetar su aplicación en un archivo [asar](https://github.com/electron/asar) para evitar exponer el código fuente de la aplicación de los usuarios.
 
-Para utilizar un archivo `asar` para reemplazar la carpeta de `app`, necesita renombrar el archivo a `app.asar` y poner bajo directorio de recursos del electrón como a continuación, y electrón entonces intentar leer el archivo e iniciar desde él.
+Para utilizar un archivo `asar` para reemplazar la carpeta de `app`, necesita renombrar el archivo a `app.asar` y poner bajo directorio de recursos del Electron como a continuación, y Electron entonces intentar leer el archivo e iniciar desde él.
 
 En macOS:
 
@@ -31,14 +31,14 @@ electron/Electron.app/Contents/Resources/ └── app.asar
 En Windows y Linux:
 
 ```text
-electrón/recursos/app.asar └──
+Electron/recursos/app.asar └──
 ```
 
 Más detalles pueden encontrarse en [Application packaging](application-packaging.md).
 
 ## Rebranding con binarios descargados
 
-Después de empaquetar su aplicación en electrónica, tienes que rebrand electrón antes de distribuirlo a los usuarios.
+Después de empaquetar su aplicación en Electron, tienes que rebrand Electron antes de distribuirlo a los usuarios.
 
 ### Windows
 
@@ -66,24 +66,24 @@ Puedes renombrar el ejecutable `electron` a cualquier nombre que desee.
 
 Aparte de empaquetando la aplicación manualmente, también puede optar por utilizar herramientas de empaquetado de terceros para hacer el trabajo para usted:
 
-* [electrón-builder](https://github.com/electron-userland/electron-builder)
-* [Empaquetador de electrón](https://github.com/electron-userland/electron-packager)
+* [Electron-builder](https://github.com/electron-userland/electron-builder)
+* [Empaquetador de Electron](https://github.com/electron-userland/electron-packager)
 
-## Rebranding de reconstrucción electrónica de la fuente de
+## Rebranding de reconstrucción Electron de la fuente de
 
-También es posible marca electrón cambiando el nombre del producto y compilar desde las fuentes. Para ello necesitará modificar el archivo `atom.gyp` y tienen una limpia reconstrucción.
+También es posible marca Electron cambiando el nombre del producto y compilar desde las fuentes. Para ello necesitará modificar el archivo `atom.gyp` y tienen una limpia reconstrucción.
 
-### Ronco-construir-átomo-shell
+### Ronco-compilar-átomo-shell
 
-Marcando manualmente código del electrón y la reconstrucción pueden ser complicados, por lo que se ha creado una tarea de Grunt, que se encargará de esto automáticamente:[grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
+Marcando manualmente código del Electron y la reconstrucción pueden ser complicados, por lo que se ha creado una tarea de Grunt, que se encargará de esto automáticamente:[grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
 
-Esta tarea encargará automáticamente de editar el archivo `.gyp`, compilar desde las fuentes, y luego reconstruir nativa nodo módulos de su aplicación para coincidir con el nuevo nombre del archivo ejecutable.
+Esta tarea encargará automáticamente de editar el archivo `.gyp`, compilar desde las fuentes, y luego recompilar nativa nodo módulos de su aplicación para coincidir con el nuevo nombre del archivo ejecutable.
 
-### Crear un tenedor electrónico personalizado
+### Crear un tenedor Electronico personalizado
 
-Creando un tenedor personalizado de electrón seguramente no es algo que tendrá que hacer para construir su aplicación, incluso para aplicaciones de "Nivel de producción". Utilizando una herramienta como `electron-packager` o `electron-builder` le permitirá "Rebrand" electrón sin tener que hacer estos pasos.
+Creando un tenedor personalizado de Electron seguramente no es algo que tendrá que hacer para compilar su aplicación, incluso para aplicaciones de "Nivel de producción". Utilizando una herramienta como `electron-packager` o `electron-builder` le permitirá "Rebrand" Electron sin tener que hacer estos pasos.
 
-Necesita horquilla electrón cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de electrón, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de electrón, será mucho más fácil en usted, y apreciamos su ayuda.
+Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.
 
 #### Crear una versión Custom con estructura de surf
 
