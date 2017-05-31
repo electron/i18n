@@ -1,33 +1,29 @@
-# Accessibility
+# Accesibilidad
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+Aplicaciones accesibles es importante y estamos encantados de introducir nuevas funciones [Devtron](https://electron.atom.io/devtron) y [Spectron](https://electron.atom.io/spectron) que da a los desarrolladores la oportunidad de mejorar sus aplicaciones para todo el mundo.
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Problemas de accesibilidad en aplicaciones de electrónica son similares a los de sitios web porque ambos son, en definitiva, HTML. Con aplicaciones de la electrónica, sin embargo, se pueden utilizar los recursos en línea para las auditorías de accesibilidad ya que su aplicación no tiene una dirección URL para el auditor.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) for more information.
+Estas nuevas características traen esas herramientas de auditoría para su aplicación electrónica. Usted puede elegir agregar auditorías a sus pruebas con Spectron o utilizarlos en DevTools con Devtron. Sigue leyendo para un resumen de las herramientas o retirada nuestra documentation</a> de accessibility para obtener más información.</p> 
 
 ### Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+En el marco de pruebas Spectron, ahora puede auditar cada etiqueta de la ventana y `<webview>` en su aplicación. Por ejemplo:
 
 ```javascript
-app.client.auditAccessibility().then(function (audit) {
-  if (audit.failed) {
-    console.error(audit.message)
-  }
-})
+app.client.auditAccessibility () .then(function (audit) {si (audit.failed) {console.error(audit.message)}})
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Usted puede leer más acerca de esta característica en documentation</a> de Spectron.</p> 
 
 ### Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+En Devtron, hay una nueva pestaña de accesibilidad que le permitirá auditar una página en su aplicación, ordenar y filtrar los resultados.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![captura de pantalla de devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Estas dos herramientas están utilizando la biblioteca de Tools</a> de desarrollador de [Accessibility construida por Google para Chrome. Usted puede aprender más acerca de las normas de auditoría de accesibilidad que esta biblioteca se utiliza en wiki](https://github.com/GoogleChrome/accessibility-developer-tools) de repository.</p> 
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) with a pull request.
+Si usted sabe de otras herramientas de gran accesibilidad para electrón, agregar a la documentation</a> de accessibility con una solicitud de extracción.</p>
