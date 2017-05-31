@@ -1,77 +1,31 @@
 # Détection des événements en ligne/hors ligne
 
-Online and offline event detection can be implemented in the renderer process using standard HTML5 APIs, as shown in the following example.
+Détection des événements en ligne et hors ligne peut être implémentée dans le processus de rendu en utilisant les API HTML5 standard, comme illustré dans l’exemple suivant.
 
 *main.js*
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-
-let onlineStatusWindow
-
-app.on('ready', () => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
-})
+const {app, BrowserWindow} = require('electron') onlineStatusWindow let app.on ("prêt", () => {onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false }) onlineStatusWindow.loadURL ('file://${__dirname}/online-status.html')})
 ```
 
-*online-status.html*
+*en ligne-status.html*
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const alertOnlineStatus = () => {
-    window.alert(navigator.onLine ? 'online' : 'offline')
-  }
-
-  window.addEventListener('online',  alertOnlineStatus)
-  window.addEventListener('offline',  alertOnlineStatus)
-
-  alertOnlineStatus()
-</script>
-</body>
-</html>
+< ! DOCTYPE html><html><body><script> const alertOnlineStatus = () = > {window.alert (navigator.onLine ? "en ligne" : "hors ligne")} window.addEventListener ('en ligne', alertOnlineStatus) window.addEventListener ("hors ligne", alertOnlineStatus) alertOnlineStatus()</script></body></html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+Il peut y avoir des cas où vous souhaitez répondre à ces événements dans le processus principal aussi bien. Toutefois, le processus principal n’a pas un`navigator` objet et donc ne peut pas détecter ces événements directement. À l’aide des utilitaires de communication interprocessus de l’électron, les événements peuvent être transmis à la procédure principale et manipulés selon les besoins, comme illustré dans l’exemple suivant.
 
 *main.js*
 
 ```javascript
-const {app, BrowserWindow, ipcMain} = require('electron')
-let onlineStatusWindow
-
-app.on('ready', () => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
-})
-
-ipcMain.on('online-status-changed', (event, status) => {
-  console.log(status)
-})
+const {app, BrowserWindow, ipcMain} = require('electron') onlineStatusWindow let app.on ("prêt", () => {onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false }) onlineStatusWindow.loadURL ('file://${__dirname}/online-status.html')}) ipcMain.on (' en ligne-état-passé ', (événement, statut) = > {console.log(status)})
 ```
 
-*online-status.html*
+*en ligne-status.html*
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const {ipcRenderer} = require('electron')
-  const updateOnlineStatus = () => {
-    ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
-  }
-
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
-
-  updateOnlineStatus()
-</script>
-</body>
-</html>
+< ! DOCTYPE html><html><body><script> const {ipcRenderer} = require('electron') const updateOnlineStatus = () = > {ipcRenderer.send (' en ligne-état-passé ', navigator.onLine ? "en ligne" : "hors ligne")} window.addEventListener ('en ligne', updateOnlineStatus) window.addEventListener ("hors ligne", updateOnlineStatus) updateOnlineStatus()</script></body></html>
 ```
 
-**NOTE:** If Electron is not able to connect to a local area network (LAN) or a router, it is considered offline; all other conditions return `true`. So while you can assume that Electron is offline when `navigator.onLine` returns a `false` value, you cannot assume that a `true` value necessarily means that Electron can access the internet. You could be getting false positives, such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always "connected." Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+**NOTE:** si électron n’est pas capable de se connecter à un réseau local (LAN) ou un routeur, il est considéré comme hors ligne ; toutes les autres conditions de retour `true`. Ainsi alors que vous pouvez supposer que l’électron est hors ligne lorsque `navigator.onLine` renvoie une valeur de `false`, vous ne pouvez pas supposer qu’une valeur de `true` signifie nécessairement qu’électrons peuvent accéder à internet. Vous pourriez obtenir de faux positifs, comme dans les cas où l’ordinateur exécute un logiciel de virtualisation qui a des cartes ethernet virtuelles qui sont toujours « connectés ». Par conséquent, si vous voulez vraiment déterminer le statut d’accès internet d’électron, vous devez développer des moyens supplémentaires pour la vérification.
