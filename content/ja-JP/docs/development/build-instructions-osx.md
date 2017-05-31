@@ -1,8 +1,8 @@
-# Build Instructions (macOS)
+# ビルド手順 (macOS)
 
 Follow the guidelines below for building Electron on macOS.
 
-## Prerequisites
+## 必要な環境
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
