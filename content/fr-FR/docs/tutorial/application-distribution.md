@@ -1,137 +1,111 @@
-# Distribution de l'Application
+# Distribution de l’application
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Pour distribuer votre application avec électronique, vous devez télécharger binaries</a> prebuilt de l’électron. Ensuite, le dossier qui contient votre application devrait être nommé `app` et placé dans le répertoire de ressources de l’électron, comme illustré dans les exemples suivants. Notez que l’emplacement des binaires précompilés de l’électron est indiquée par `electron/` dans les exemples ci-dessous.</p> 
 
-On macOS:
-
-```text
-electron/Electron.app/Contents/Resources/app/
-├── package.json
-├── main.js
-└── index.html
-```
-
-On Windows and Linux:
+Sur macOS :
 
 ```text
-electron/resources/app
-├── package.json
-├── main.js
-└── index.html
+electron/Electron.app/Contents/Resources/app/ ├── package.json ├── main.js └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
-
-## Packaging Your App into a File
-
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
-
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
-
-On macOS:
+Sur Windows et Linux :
 
 ```text
-electron/Electron.app/Contents/Resources/
-└── app.asar
+électron/ressources/app ├── package.json ├── main.js └── index.html
 ```
 
-On Windows and Linux:
+Puis exécutez `Electron.app` (ou `electron` sous Linux, `electron.exe` sous Windows), et électron va commencer dans votre application. Le répertoire `electron` sera alors votre distribution pour fournir aux utilisateurs finaux.
+
+## Empaqueter votre application dans un fichier
+
+En dehors de votre application d’expédition en copiant tous les fichiers source, vous pouvez également empaqueter votre application dans une archive de [asar](https://github.com/electron/asar) pour éviter d’exposer le code source de votre application aux utilisateurs.
+
+Pour utiliser une archive `asar` pour remplacer le dossier `app`, vous devez renommer l’archive à `app.asar` et placez-la sous le répertoire de ressources de l’électron comme ci-dessous, et électrons tentera à lire les archives et commencer à partir de celui-ci.
+
+Sur macOS :
 
 ```text
-electron/resources/
-└── app.asar
+electron/Electron.app/Contents/Resources/ └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Sur Windows et Linux :
 
-## Rebranding with Downloaded Binaries
+```text
+électron/ressources/└── app.asar
+```
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+On trouvera plus de détails dans [Application packaging](application-packaging.md).
+
+## Rebranding avec binaires téléchargés
+
+Après groupement votre application en électronique, vous voudrez rebaptiser électronique avant de le distribuer aux utilisateurs.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Vous pouvez renommer `electron.exe` à n’importe quel nom que vous aimez et modifier son icône et autres informations avec des outils comme [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Vous pouvez renommer `Electron.app` à n’importe quel nom que vous voulez, et vous devrez également renommer les champs `CFBundleDisplayName`, `CFBundleIdentifier` et `CFBundleName` dans les fichiers suivants :
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Vous pouvez également renommer l’application d’assistance pour éviter de montrer `Electron Helper` dans le moniteur d’activité, mais assurez-vous que vous avez renommé le nom du fichier exécutable de l’application d’assistance.
 
-The structure of a renamed app would be like:
+La structure d’une application de renommé serait comme :
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
+    MyApp.app/Contents ├── Info.plist ├── MacOS / │ └── MyApp └── cadres / ├── MyApp Helper EH.app |   ├── Info.plist |   └── MacOS / |       └── MyApp Helper hein ├── MyApp Helper NP.app |   ├── Info.plist |   └── MacOS / |       └── MyApp Helper NP └── MyApp Helper.app ├── Info.plist └── MacOS / └── MyApp Helper
     
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Vous pouvez renommer l’exécutable `electron` au nom de que votre choix.
 
-## Packaging Tools
+## Outils d’empaquetage
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+En dehors de l’emballage de votre app manuellement, vous pouvez également choisir d’utiliser des outils d’empaquetage de tierce partie pour faire le travail pour vous :
 
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
+* [électron-builder](https://github.com/electron-userland/electron-builder)
+* [électron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Rebranding en reconstruisant l’électron de la Source
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Il est également possible de rebaptiser électron en changeant le nom du produit et en construisant de source. Pour ce faire, vous devrez modifier le fichier `atom.gyp` et avoir une propre régénération.
 
-### grunt-build-atom-shell
+### grunt-construire-atom-shell
 
-Manually checking out Electron's code and rebuilding could be complicated, so a Grunt task has been created that will handle this automatically: [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
+Vérifier manuellement le code de l’électron et la reconstruction pourraient être compliqués, donc une tâche Grunt a été créée qui gérera cela automatiquement :[grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
 
-This task will automatically handle editing the `.gyp` file, building from source, then rebuilding your app's native Node modules to match the new executable name.
+Cette tâche se chargera automatiquement en modifiant le fichier `.gyp`, bâtiment de la source, puis reconstruire des modules de nœud natifs de votre application pour correspondre au nouveau nom du fichier exécutable.
 
-### Creating a Custom Electron Fork
+### Créer une fourchette électronique personnalisée
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-builder` will allow you to "Rebrand" Electron without having to do these steps.
+Créant une fourche personnalisée d’électron n’est certainement pas quelque chose que vous devez faire pour construire votre application, même pour les applications de « Niveau de Production ». À l’aide d’un outil tel que `electron-packager` ou `electron-builder` vous permettra d’électrons « Rebaptiser » sans avoir à faire ces étapes.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Vous avez besoin à la table des électrons quand vous avez un code C++ personnalisé que vous avez raccordé directement dans les électrons, qui ne peut pas être upstreamed, ou qui a été rejeté de la version officielle. Mainteneurs d’électron, nous sommes très beaucoup souhaiterait faire votre scénario de travailler, alors essayez aussi dur que vous pouvez pour entrer vos modifications dans la version officielle d’électron, il sera beaucoup plus facile sur vous, et nous apprécions votre aide.
 
-#### Creating a Custom Release with surf-build
+#### Création d’une version Custom avec surf-build
 
-  1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+  1. Installer [Surf](https://github.com/surf-build/surf), par l’intermédiaire du Musée :`npm installer surf-build@latest` -g
 
-  2. Create a new S3 bucket and create the following empty directory structure:
+  2. Créez un nouveau seau de S3 et créez la structure de répertoire vide suivante :
     
-        - atom-shell/
-          - symbols/
-          - dist/
+        -atom-shell / - symboles / - dist /
         
 
-  3. Set the following Environment Variables:
+  3. Définir les Variables d’environnement suivantes :
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64` 
+* `ELECTRON_GITHUB_TOKEN` - un jeton qui peut créer des communiqués sur GitHub
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - l’endroit où vous allez télécharger en-têtes node.js ainsi que des symboles
+* `ELECTRON_RELEASE` - la valeur `true` et l’upload partie s’exécutera, congé non définie et `surf-build` vont juste faire des contrôles de type CI, adaptés à exécuter pour chaque demande de tirer.
+* `CI` - la valeur `true` ou sinon il échouera
+* `GITHUB_TOKEN` - mettre à la même chose que `ELECTRON_GITHUB_TOKEN`
+* `SURF_TEMP` - la valeur `C:\Temp` sur Windows pour empêcher les problèmes de chemin d’accès trop long
+* `TARGET_ARCH` - la valeur `ia32` ou `x64` 
 
-  1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+  1. Dans `script/upload.py`, vous *must* la valeur `ELECTRON_REPO` à la fourche (`MYORG/electron`), surtout si vous êtes un contributeur à électron approprié.
 
-  2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+  2. `Surf-construction - r https://github.com/MYORG/electron -s YOUR_COMMIT - n « surf-plate-forme-ARCH »`
 
-  3. Wait a very, very long time for the build to complete.
+  3. Attendre très, très longtemps pour la build terminer.
