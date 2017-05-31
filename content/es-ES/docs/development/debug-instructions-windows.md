@@ -1,18 +1,18 @@
 # Depuración en Windows
 
-Si tiene accidentes o problemas en electrónica que usted crea que no son causados por la aplicación de JavaScript, pero en cambio por el electrón sí mismo, de depuración puede ser un poco difícil, especialmente para los desarrolladores no se utiliza para depuración nativo c/c ++. Sin embargo, usando Visual Studio, GitHub había alojado el servidor de símbolos de electrónica y el código de fuente de electrones, es bastante fácil habilitar paso por depurar con puntos de interrupción en código de fuente del electrón.
+Si tiene accidentes o problemas en Electron que usted crea que no son causados por la aplicación de JavaScript, pero en cambio por el Electron sí mismo, de depuración puede ser un poco difícil, especialmente para los desarrolladores no se utiliza para depuración nativo c/c ++. Sin embargo, usando Visual Studio, GitHub había alojado el servidor de símbolos de Electron y el código de fuente de electrones, es bastante fácil habilitar paso por depurar con puntos de interrupción en código de fuente del Electron.
 
 ## Requisitos
 
-* Versión de depuración de **A de Electron**: la forma más fácil es generalmente construir usted mismo, utilizando las herramientas y requisitos enumerados en las instrucciones de[build de Windows](build-instructions-windows.md). Mientras que fácilmente puede conectar a y depuración electrónica como se puede descargar directamente, usted encontrará que está muy optimizado, dificultando la depuración substancialmente más: el depurador no será capaz de mostrarte el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a la inclusión, cola de llamadas y otras optimizaciones del compilador.
+* Versión de depuración de **A de Electron**: la forma más fácil es generalmente compilar usted mismo, utilizando las herramientas y requisitos enumerados en las instrucciones de[build de Windows](build-instructions-windows.md). Mientras que fácilmente puede conectar a y depuración Electron como se puede descargar directamente, usted encontrará que está muy optimizado, dificultando la depuración substancialmente más: el depurador no será capaz de mostrarte el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a la inclusión, cola de llamadas y otras optimizaciones del compilador.
 
-* **Visual Studio, con C++ Tools**: las ediciones de la comunidad libre de Visual Studio 2013 y 2015 de Studio Visual tanto trabajan. Una vez instalado,[configure Visual Studio para usar símbolo electrón server](setting-up-symbol-server.md) de GitHub. Permitirá a Visual Studio obtener un mejor entendimiento de lo que sucede dentro de electrón, haciéndolo más fácil de presentar las variables en un formato legible.
+* **Visual Studio, con C++ Tools**: las ediciones de la comunidad libre de Visual Studio 2013 y 2015 de Studio Visual tanto trabajan. Una vez instalado,[configure Visual Studio para usar símbolo Electron server](setting-up-symbol-server.md) de GitHub. Permitirá a Visual Studio obtener un mejor entendimiento de lo que sucede dentro de Electron, haciéndolo más fácil de presentar las variables en un formato legible.
 
 * **ProcMon**: el tool</a> de SysInternals free le permite inspeccionar un parámetros de procesos, manijas y las operaciones de registro de archivo.</p></li> </ul> 
     
-    ## A y depuración electrónica
+    ## A y depuración Electron
     
-    Para iniciar una sesión de depuración, abrir PowerShell/CMD y ejecutar la versión de depuración del electrón, usando la aplicación para abrir como un parámetro.
+    Para iniciar una sesión de depuración, abrir PowerShell/CMD y ejecutar la versión de depuración del Electron, usando la aplicación para abrir como un parámetro.
     
     ```powershell
 $./out/D/electron.exe ~/my-electron-app/
@@ -28,7 +28,7 @@ Archivos de código relevante pueden encontrarse en `./atom/`, así como en Brig
 
 Puede adjuntar al depurador de Visual Studio a un proceso en ejecución en un equipo local o remoto. Después de que el proceso se está ejecutando, haga clic en Debug / sujete a proceso (o pulse `CTRL + ALT + P`) para abrir el cuadro de diálogo "Conectar a proceso". Puede utilizar esta capacidad para depurar aplicaciones que se ejecutan en un equipo local o remoto, depurar múltiples procesos simultáneamente.
 
-Si el electrón está ejecutando bajo una cuenta de usuario diferente, seleccione los procesos`Show de todos users` casilla. Tenga en cuenta que dependiendo de cuántas BrowserWindows el app abierto, verá varios procesos. Una típica aplicación de ventana uno resultará en Visual Studio que te presenta con dos entradas de`Electron.exe` - uno de los principales procesos y para el proceso de renderizado. Puesto que la lista sólo le da nombres, actualmente no hay ninguna forma fiable de averiguar cuál es cuál.
+Si el Electron está ejecutando bajo una cuenta de usuario diferente, seleccione los procesos`Show de todos users` casilla. Tenga en cuenta que dependiendo de cuántas BrowserWindows el app abierto, verá varios procesos. Una típica aplicación de ventana uno resultará en Visual Studio que te presenta con dos entradas de`Electron.exe` - uno de los principales procesos y para el proceso de renderizado. Puesto que la lista sólo le da nombres, actualmente no hay ninguna forma fiable de averiguar cuál es cuál.
 
 ### ¿Que procesos debo conectar a?
 
