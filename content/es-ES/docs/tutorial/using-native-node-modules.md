@@ -1,78 +1,65 @@
-# Using Native Node Modules
+# Mediante módulos de nodo nativo
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Los módulos nativos de nodo son apoyados por electrón, pero puesto que el electrón es muy probable que utilice una versión V8 del nodo binario instalada en su sistema, usted tiene que especificar manualmente la ubicación de cabeceras del electrón al construir los módulos nativos.
 
-## How to install native modules
+## Cómo instalar módulos nativos
 
-Three ways to install native modules:
+Tres formas de instalar módulos nativos:
 
-### Using `npm`
+### Utilizando `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Ajustando algunas variables de entorno, puede utilizar `npm` para instalar los módulos directamente.
 
-An example of installing all dependencies for Electron:
-
-```bash
-# Electron's version.
-export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
-export npm_config_arch=x64
-export npm_config_target_arch=x64
-# Download headers for Electron.
-export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
-export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
-export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
-HOME=~/.electron-gyp npm install
-```
-
-### Installing modules and rebuilding for Electron
-
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
-
-An example of installing `electron-rebuild` and then rebuild modules with it:
+Un ejemplo de instalación de todas las dependencias para el electrón:
 
 ```bash
-npm install --save-dev electron-rebuild
-
-# Every time you run "npm install", run this:
-./node_modules/.bin/electron-rebuild
-
-# On Windows if you have trouble, try:
-.\node_modules\.bin\electron-rebuild.cmd
+# Versión del electrón.
+Export npm_config_target = 1.2.3 # arquitectura de electrón, puede ser ia32 o x64.
+Export npm_config_arch = x64 npm_config_target_arch de exportación = x64 cabeceras de descarga # de electrones.
+Export npm_config_disturl = https://atom.io/download/electron # Tell nodo-pre-gyp que estamos construyendo para el electrón.
+Export npm_config_runtime = nodo-pre-gyp electrón # Tell para construir el módulo de código fuente.
+Export npm_config_build_from_source = true # instalar todos las dependencias y el almacén de caché a ~ / .electron-gyp.
+Inicio = ~ / .electron-gyp MNP instalar
 ```
 
-### Manually building for Electron
+### Instalación de módulos y reconstrucción para el electrón
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Puede también optar por instalar módulos como otros proyectos del nodo y luego reconstruir los módulos de electrónica con el paquete [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Este módulo puede obtener la versión de electrón y controlar los pasos manual de descargar encabezados y construir módulos nativos para su aplicación.
+
+Un ejemplo de instalación `electron-rebuild` y reconstrucción de módulos con él:
 
 ```bash
-cd /path-to-module/
-HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+MNP instalar--save-dev electrón reconstrucción # cada vez que ejecutar "install del MNP", ejecutar esto:./node_modules/.bin/electron-rebuild # en Windows si tienes problemas, probar:.\node_modules\.bin\electron-rebuild.cmd
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+### Manual de construcción para electrón
 
-## Troubleshooting
+Si usted es un desarrollador de desarrollo de un módulo nativo y quiere probar contra el electrón, puede reconstruir manualmente el módulo de electrónica. Puede utilizar `node-gyp` directamente a construir para el electrón:
 
-If you installed a native module and found it was not working, you need to check following things:
+```bash
+/path-to-module CD / Inicio = ~ / .electron-gyp nodo-gyp reconstruir--target = 1.2.3--arco = x64--dist-url = https://atom.io/download/electron
+```
 
-* The architecture of module has to match Electron's architecture (ia32 or x64).
-* After you upgraded Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+El `HOME = ~ / .electron-gyp` cambios donde encontrar cabeceras de desarrollo. `--target = 1.2.3` es la versión del electrón. ` - dist-url =...` especifica dónde descargar los encabezados. ` - arco = x64` dice que el módulo está construido para sistema de 64 bits.
 
-## Modules that rely on `prebuild`
+## Problemas
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+Si instala un módulo nativo y encontró que no estaba trabajando, usted necesita comprobar a raíz de las cosas:
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+* La arquitectura del módulo tiene que coincidir con la arquitectura del electrón (ia32 o x64).
+* Después de actualizar electrónica, generalmente necesitan para reconstruir los módulos.
+* En caso de duda, ejecute primero `electron rebuild`.
 
-## Modules that rely on `node-pre-gyp`
+## Módulos que dependen de `prebuild`
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+[`prebuild`](https://github.com/mafintosh/prebuild) proporciona una manera de publicar fácilmente nativos módulos de nodo con binarios precompilados para varias versiones de nodo y electrón.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+Si los módulos proporcionan binarios para el uso en electrónica, asegúrese de omitir`--fabricación de source` y la variable de entorno `npm_config_build_from_source` con el fin de aprovechar al máximo los binarios pre-compilados.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+## Módulos que dependen `node-pre-gyp`
+
+El tool</a> de `node-pre-gyp` proporciona una manera nativa nodo módulos con binarios pre-compilados y muchos módulos populares están usando.</p> 
+
+Generalmente los módulos funcionan bien en electrónica, pero a veces cuando electrón utiliza una nueva versión del V8 de nodo, y hay cambios ABI, pueden suceder cosas malas. Así que en general se recomienda siempre crear módulos nativos desde el código fuente.
+
+Si usted está siguiendo el camino de la `npm` de la instalación de módulos, entonces esto se hace por defecto, si no, tienes que pasar `--generación de source` a `npm`, o establecer la variable de entorno `npm_config_build_from_source`.
