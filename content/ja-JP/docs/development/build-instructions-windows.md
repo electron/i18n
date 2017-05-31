@@ -1,8 +1,8 @@
-# Build Instructions (Windows)
+# ビルド手順 (Windows)
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## 必要な環境
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
