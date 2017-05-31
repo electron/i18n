@@ -18,11 +18,11 @@ Electron fonctionne plus comme le runtime de Node.js. L'API d'Electron est de ni
 
 Afin d’éviter la complexité du développement de tout chrome, Electron utilise [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) pour accéder à l'API Chromium Content. `libchromiumcontent` est une bibliothèque partagée et unique qui inclut le module Chromium Content et de toutes ses dépendances. Les utilisateurs n’ont pas besoin d’une machine puissante pour compiler Electron.
 
-**3. intégration de noeud**
+**3. Intégration de Node**
 
-Dans NW.js, l’intégration de nœud dans les pages web nécessite patcher chrome à travailler, alors qu’en électronique, nous avons choisi une autre façon d’intégrer la boucle de libuv avec la boucle de message de chaque plate-forme pour éviter le piratage de chrome. Voir le code[`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) pour la façon dont cela a été fait.
+Avec NW.js, l’intégration de Node dans les pages web nécessite de patcher Chromium pour fonctionner, alors qu’avec Electron nous avons choisi une autre façon d’intégrer la boucle libuv avec chaque boucle message de plateforme pour éviter le "hack" Chromium. Voir le code [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) pour comprendre comment cela a été fait.
 
-**4. multi-contexte**
+**4. Multi-contextes**
 
 Si vous êtes un utilisateur expérimenté de NW.js, vous devez être familiarisé avec le concept du nœud de contexte et web. Ces concepts ont été inventés en raison de comment NW.js a été mis en place.
 
