@@ -1,36 +1,31 @@
-# Multithreading
+# Subprocesamiento múltiple
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+Con [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), es posible ejecutar JavaScript en hilos de nivel de sistema operativo.
 
 ## Multi-threaded Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Es posible utilizar Node.js características en trabajadores de la Web de electrónica, para ello debe establecerse la opción de `nodeIntegrationInWorker` en `true` en `webPreferences`.
 
 ```javascript
-let win = new BrowserWindow({
-  webPreferences: {
+dejó de ganar = new BrowserWindow ({webPreferences: {
     nodeIntegrationInWorker: true
-  }
-})
+  }})
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+La `nodeIntegrationInWorker` puede ser utilizado independiente de `nodeIntegration`, pero `sandbox` debe establecerse no en `true`.
 
-## Available APIs
+## APIs disponibles
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Todos los módulos integrados de Node.js son compatibles con Web Workers y `asar` archivos se pueden leer todavía con Node.js APIs. Sin embargo ninguno de los módulos incorporados del electrón puede utilizarse en un entorno multiproceso.
 
-## Native Node.js modules
+## Módulos nativos de Node.js
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+Cualquier módulo de Node.js nativo puede ser cargado directamente en los trabajadores Web, pero se recomienda encarecidamente no hacerlo. Mayoría de los módulos nativa existente ha sido escrito asumiendo subprocesos ambiente, utilizando en los trabajadores Web llevará a choques y corrupciones de memoria.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+Tenga en cuenta que aunque un módulo nativo de Node.js es seguro para subprocesos es todavía no segura para cargar en un trabajador de la Web porque la función de `process.dlopen` no es seguro para subprocesos.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+La única manera de cargar un módulo nativo con seguridad por el momento, es para asegurarse de que la aplicación no carga módulos nativos después de empezar los trabajadores Web.
 
 ```javascript
-process.dlopen = () => {
-  throw new Error('Load native module is not safe')
-}
-let worker = new Worker('script.js')
+Process.dlopen = () => {tira Error nuevo ('módulo nativo de carga no es seguro')} que trabajador = Worker('script.js') nuevo
 ```
