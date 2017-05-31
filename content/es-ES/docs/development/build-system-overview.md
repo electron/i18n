@@ -1,85 +1,82 @@
-# Build System Overview
+# Construir sistemas
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electrónica utiliza [gyp](https://gyp.gsrc.io/) para la generación de proyectos y[ninja](https://ninja-build.org/) para la construcción. Configuraciones de proyecto pueden encontrarse en los archivos `.gyp` y `.gypi`.
 
-## Gyp Files
+## Archivos de GYP
 
-Following `gyp` files contain the main rules for building Electron:
+Después de `gyp` los archivos contienen las principales normas para la construcción de electrones:
 
-* `electron.gyp` defines how Electron itself is built.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `vendor/brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `vendor/brightray/brightray.gypi` includes general build configurations about building.
+* `electron.gyp` define cómo se construye el electrón sí mismo.
+* `common.gypi` ajusta las configuraciones de compilación de nodo para construir junto con cromo.
+* `vendor/brightray/brightray.gyp` define cómo `brightray` está construido e incluye las configuraciones predeterminadas para enlazar con el cromo.
+* `vendor/brightray/brightray.gypi` incluye configuraciones de generación general sobre edificio.
 
-## Component Build
+## Construir componente
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Puesto que el cromo es bastante un gran proyecto, la etapa final de la liga puede tomar unos cuantos minutos, que hace que sea difícil para el desarrollo. Para solucionar esto, cromo introdujo la "construcción del componente", que construye cada componente como una librería compartida independiente, que enlazan a rendimiento y tamaño de archivo muy rápido pero sacrificar.
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+En electrónica tomó un enfoque muy similar: para estructuras de `Debug`, el binario está ligado a una versión de la biblioteca compartida de los componentes de cromo para lograr tiempo enlace rápido; compilaciones de `Release`, el binario se vinculará a las versiones de biblioteca estática, para que podamos tener el mejor posible binario tamaño y rendimiento.
 
-## Minimal Bootstrapping
+## Mínimo de arranque
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+Todos los binarios pre-compilados de cromo (`libchromiumcontent`) se descargan al ejecutar el script bootstrap. Por defecto se descargará las bibliotecas estáticas y las bibliotecas compartidas y el tamaño final debe estar entre 800MB y 2GB dependiendo de la plataforma.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+De forma predeterminada, `libchromiumcontent` está bajado de Amazon Web Services. Si se establece la variable de entorno `LIBCHROMIUMCONTENT_MIRROR`, el script bootstrap descargará de él. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) es un espejo para `libchromiumcontent`. Si tiene problemas en el acceso a AWS, puede cambiar la dirección a ella via`export LIBCHROMIUMCONTENT_MIRROR = http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
-
-```bash
-$ ./script/bootstrap.py --dev
-$ ./script/build.py -c D
-```
-
-## Two-Phase Project Generation
-
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
-
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
-
-## Target Names
-
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
-
-This only affects developers, if you are just building Electron for rebranding you are not affected.
-
-## Tests
-
-Test your changes conform to the project coding style using:
+Si desea construir el electrón rápidamente para pruebas o desarrollo, puede descargar sólo las versiones de biblioteca compartida pasando el `--parámetro dev`:
 
 ```bash
-$ npm run lint
+$./script/bootstrap.py - dev $./script/build.py - c D
 ```
 
-Test functionality using:
+## Generación de dos fases del proyecto
+
+Construye enlaces de electrónica con diferentes conjuntos de bibliotecas de `Release` y `Debug`. `gyp`, sin embargo, no soporta configuración de enlace diferentes para diferentes configuraciones.
+
+Para evitar este electrón utiliza un `libchromiumcontent_component` variable de `gyp` al control que enlace configuración utilizar y sólo genera un objetivo cuando se ejecuta `gyp`.
+
+## Nombres de destino
+
+A diferencia de la mayoría de los proyectos que utilizan `Release` y `Debug` como nombres de destino, electrón utiliza `R` y `D` en su lugar. Esto es porque `gyp` se bloquea al azar si hay solamente un `Release` o `Debug` construir configuración definida y electrón sólo tiene que generar un objetivo a la vez como se indicó anteriormente.
+
+Este sólo afecta a desarrolladores, si apenas están construyendo electrón para rebranding te no son afectados.
+
+## Pruebas de
+
+Prueba de que los cambios se ajustan al proyecto de codificación de estilo usando:
 
 ```bash
-$ npm test
+$ MNP ejecutar pelusa
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Prueba de funcionalidad utilizando:
 
 ```bash
-$ npm run build && npm test
+$ MNP test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+Cada vez que realiza cambios en código de fuente de electrones, debe volver a ejecutar la construcción antes de las pruebas:
+
+```bash
+$ MNP ejecutar build && npm test
+```
+
+Usted puede hacer el paquete de pruebas correr más rápido al aislar la prueba específica o bloque que actualmente está trabajando con función de tests</a> deexclusive de Mocha. Añadir a`.only` a cualquier llamada de función `describe` o `it`:</p> 
 
 ```js
-describe.only('some feature', function () {
-  // ... only tests in this block will be run
-})
+describe.Only ('algunos cuentan', function () {/ /... solo las pruebas en este bloque se ejecutará})
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Como alternativa, puede utilizar opción de `grep` de mocha para sólo ejecutar pruebas de emparejar el patrón de expresión regular dada:
 
 ```sh
-$ npm test -- --grep child_process
+$ MNP test--child_process--grep
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Pruebas que incluyen módulos nativos (por ejemplo, `runas`) no se puede ejecutar con el debug construir (véase [ #2558](https://github.com/electron/electron/issues/2558) para los detalles), pero se trabajará con la versión de lanzamiento.
 
-To run the tests with the release build use:
+Para ejecutar que las pruebas con el lanzamiento de construcción de uso:
 
 ```bash
-$ npm test -- -R
+$ MNP test---R
 ```
