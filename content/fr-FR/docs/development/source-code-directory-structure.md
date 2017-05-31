@@ -1,76 +1,63 @@
-# Hiérarchie du Code Source
+# Structure du répertoire source Code
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Le code source d’électron est séparé en quelques parties, surtout après le chrome sur les conventions de séparation.
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Vous devrez peut-être vous familiariser avec architecture</a> multiprocessus de Chromium à comprendre le code source mieux.</p> 
 
-## Structure of Source Code
+## Structure du Code Source
 
-    Electron
-    ├── atom/ - C++ source code.
-    |   ├── app/ - System entry code.
-    |   ├── browser/ - The frontend including the main window, UI, and all of the
-    |   |   main process things. This talks to the renderer to manage web pages.
-    |   |   ├── ui/ - Implementation of UI stuff for different platforms.
-    |   |   |   ├── cocoa/ - Cocoa specific source code.
-    |   |   |   ├── win/ - Windows GUI specific source code.
-    |   |   |   └── x/ - X11 specific source code.
-    |   |   ├── api/ - The implementation of the main process APIs.
-    |   |   ├── net/ - Network related code.
-    |   |   ├── mac/ - Mac specific Objective-C source code.
-    |   |   └── resources/ - Icons, platform-dependent files, etc.
-    |   ├── renderer/ - Code that runs in renderer process.
-    |   |   └── api/ - The implementation of renderer process APIs.
-    |   └── common/ - Code that used by both the main and renderer processes,
-    |       including some utility functions and code to integrate node's message
-    |       loop into Chromium's message loop.
-    |       └── api/ - The implementation of common APIs, and foundations of
-    |           Electron's built-in modules.
-    ├── chromium_src/ - Source code that copied from Chromium.
-    ├── default_app/ - The default page to show when Electron is started without
-    |   providing an app.
-    ├── docs/ - Documentations.
-    ├── lib/ - JavaScript source code.
-    |   ├── browser/ - Javascript main process initialization code.
-    |   |   └── api/ - Javascript API implementation.
-    |   ├── common/ - JavaScript used by both the main and renderer processes
-    |   |   └── api/ - Javascript API implementation.
-    |   └── renderer/ - Javascript renderer process initialization code.
-    |       └── api/ - Javascript API implementation.
-    ├── spec/ - Automatic tests.
-    ├── electron.gyp - Building rules of Electron.
-    └── common.gypi - Compiler specific settings and building rules for other
-        components like `node` and `breakpad`.
+    Atom ├── électron / - C++ du code source.
+    |   ├── app / - code d’accès système.
+    |   Navigateur ├── / - l’interface dont la fenêtre principale, UI et tous les |   |   choses de processus principal. Cela s’entretient avec le moteur de rendu pour gérer les pages web.
+    |   |   ├── ui / - mise en œuvre de l’interface utilisateur trucs pour différentes plates-formes.
+    |   |   |   ├── cacao / - cacao spécifique du code source.
+    |   |   |   Victoire ├── / - GUI Windows spécifique du code source.
+    |   |   |   └── x / - X11 spécifique du code source.
+    |   |   ├── api / - la mise en œuvre des principaux processus API.
+    |   |   ├── net / - réseau code correspondant.
+    |   |   Mac ├── / - Mac spécifique Objective-C du code source.
+    |   |   Ressources └── / - icônes, fichiers dépendant de la plateforme, etc..
+    |   Moteur de rendu ├── / - Code qui s’exécute dans le processus de rendu.
+    |   |   └── api / - la mise en œuvre du convertisseur processus API.
+    |   └── commune / - Code utilisé par les processus le principal et le moteur de rendu, |       y compris le code pour intégrer le message du nœud et quelques fonctions utilitaires |       boucle dans boucle de message de chrome.
+    |       └── api / - la mise en oeuvre des API commun et des fondations de |           Modules intégrés de l’électron.
+    ├── chromium_src / - Source code que copié à partir de chrome.
+    ├── default_app / - par défaut la page à afficher lorsque l’électron est démarré sans |   fourniture d’une application.
+    Docs ├── / - Documentations.
+    Lib ├── / - JavaScript code source.
+    |   Navigateur ├── / - Javascript principal processus de code d’initialisation.
+    |   |   └── api / - implémentation de l’API Javascript.
+    |   ├── commune / - JavaScript utilisé par les processus le principal et le moteur de rendu |   |   └── api / - implémentation de l’API Javascript.
+    |   Moteur de rendu └── / - moteur de rendu Javascript code d’initialisation du processus.
+    |       └── api / - implémentation de l’API Javascript.
+    Spec ├── / - automatique tests.
+    ├── electron.gyp - règles de construction des électrons.
+    └── common.gypi - paramètres spécifiques du compilateur et les règles de construction pour les autres composants tels que « noeud » et « breakpad ».
     
 
-## Structure of Other Directories
+## Structure des autres annuaires
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **script** - Scripts utilisés comme la construction, emballage, tests, etc. à des fins de développement.
+* **tools** - Helper scripts utilisés par les fichiers de gyp, contrairement à `script`, scripts mis ici ne devrait jamais être invoquée par les utilisateurs directement.
+* **vendor** - code Source de dépendances de tierce partie, nous ne pas utiliser`third_party` comme nom parce qu’il pourrait le confondre avec le même répertoire dans l’arborescence de code source de chrome.
+* **node_modules** - modules de nœud de tiers utilisés pour la construction.
+* **out** - répertoire de sortie temporaire de `ninja`.
+* **dist** - répertoire temporaire créé par le script `script/créer-dist.py` lors de la création d’une distribution.
+* **external_binaries** - binaires téléchargés des cadres de tiers qui ne supportent pas de bâtiment avec `gyp`.
 
-## Keeping Git Submodules Up to Date
+## Garder les sous-modules Git à jour
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Le référentiel de l’électron a quelques dépendances vendored, trouvés dans le répertoire[/vendor](https://github.com/electron/electron/tree/master/vendor). Parfois, vous pourriez voir un message comme celui-ci lors de l’exécution des status</code> de `git :</p>
 
-```sh
-$ git status
+<pre><code class="sh">$ git status modifiée : vendeur/brightray (nouvelles validations) modifiée : vendeur/nœud (nouvelle est validée)
+`</pre> 
 
-    modified:   vendor/brightray (new commits)
-    modified:   vendor/node (new commits)
-```
-
-To update these vendored dependencies, run the following command:
+Pour mettre à jour ces dépendances vendored, exécutez la commande suivante :
 
 ```sh
-git submodule update --init --recursive
+mise à jour de sous-module git init----recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Si vous vous retrouvez souvent l’exécution de cette commande, vous pouvez créer un alias pour elle dans votre ` ~ / .gitconfig` fichier :
 
-    [alias]
-        su = submodule update --init --recursive
+    [alias] su = sous-module mise à jour--init--recursive
