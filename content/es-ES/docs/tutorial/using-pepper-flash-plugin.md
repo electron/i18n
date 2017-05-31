@@ -1,68 +1,40 @@
-# Using Pepper Flash Plugin
+# Usando el Plugin de Flash de pimienta
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Electrón es compatible con el plugin de Flash de pimienta. Para utilizar el plugin de Flash de pimienta en electrón, debe especificar manualmente la ubicación del plugin Flash de pimienta y habilítelo en su aplicación.
 
-## Prepare a Copy of Flash Plugin
+## Preparar una copia del Plugin de Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+En macOS y Linux, los detalles del plugin Flash de pimiento pueden encontrarse navegando a ` chrome://plugins` en el navegador Chrome. Su ubicación y su versión son útiles para soporte Flash de pimienta del electrón. También puede copiar a otra ubicación.
 
-## Add Electron Switch
+## Añadir interruptor electrónico
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Puede agregar directamente `--ppapi-flash-path` y `--ppapi-flash-version` a la línea de comando electrónica o mediante el método `app.commandLine.appendSwitch` antes del evento ready de la aplicación. Además, activar la opción de `plugins` de `BrowserWindow`.
 
-For example:
+Por ejemplo:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-
-// Specify flash path, supposing it is placed in the same directory with main.js.
-let pluginName
-switch (process.platform) {
-  case 'win32':
-    pluginName = 'pepflashplayer.dll'
-    break
-  case 'darwin':
-    pluginName = 'PepperFlashPlayer.plugin'
-    break
-  case 'linux':
-    pluginName = 'libpepflashplayer.so'
-    break
-}
-app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
-
-// Optional: Specify flash version, for example, v17.0.0.169
-app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
-
-app.on('ready', () => {
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+const {app, BrowserWindow} = ruta const require('electron') = require('path') / / especificar ruta flash, lo suponiendo que esté en el mismo directorio con main.js.
+pluginName deje interruptor (process.platform) {caso 'win32': pluginName = 'pepflashplayer.dll' break case 'darwin': pluginName = 'PepperFlashPlayer.plugin' break case 'linux': pluginName = 'libpepflashplayer.so' break} app.commandLine.appendSwitch ('ppapi-flash-path', path.join (__dirname, pluginName)) / opcional: especificar la versión de flash, por ejemplo, v17.0.0.169 app.commandLine.appendSwitch ('ppapi-flash-versión ', '17.0.0.169') app.on ('listo', () => {dejó ganar = BrowserWindow nuevo ({ancho: 800, altura: 600, webPreferences: {
       plugins: true
-    }
-  })
-  win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
-})
+    }}) win.loadURL ('file://${__dirname}/index.html') / / algo más})
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+También puedes cargar el plugin de Flash pimienta amplia de sistema en lugar de los plugins del envío usted mismo, su trayectoria puede ser recibida por llamar a</code>`app.getPath ('pepperFlashSystemPlugin').</p>
 
-## Enable Flash Plugin in a `<webview>` Tag
+<h2>Activar el Plugin de Flash en una etiqueta de <code><webview>`</h2> 
 
-Add `plugins` attribute to `<webview>` tag.
+Agregue el atributo de `plugins` etiqueta de `<webview>`.
 
 ```html
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Troubleshooting
+## Problemas
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Usted puede chequear si pimienta Flash plugin fue cargado por inspección`navigator.plugins` en la consola de devtools (aunque no se sabe si la ruta del plugin es correcta).
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+La arquitectura de plugin de destello de la pimienta tiene que coincidir con uno del electrón. En Windows, un error común es usar la versión de 32 bits del plugin de Flash contra la versión de 64 bits de electrónica.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+En Windows la ruta pasa a `--ppapi-flash-path` tiene que utilizar `` como delimitador, con rutas de estilo POSIX no funcionará.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Para algunas operaciones, como transmisiones en tiempo real usando RTMP, es necesario conceder más permisos a los archivos de `.swf` de los jugadores. Una forma de lograr esto, es usar flash-[nw-trust](https://github.com/szwacz/nw-flash-trust).
