@@ -1,97 +1,87 @@
-# Releasing
+# Liberación
 
-This document describes the process for releasing a new version of Electron.
+Este documento describe el proceso para lanzar una nueva versión del electrón.
 
-## Compile release notes
+## Notas de la versión de compilación
 
-The current process is to maintain a local file, keeping track of notable changes as pull requests are merged. For examples of how to format the notes, see previous releases on [the releases page](https://github.com/electron/electron/releases).
+El proceso actual es mantener un archivo local, hacer el seguimiento de cambios notables como tirar las solicitudes se fusionan. Ejemplos de cómo dar formato a las notas, ver las versiones anteriores de [the lanza page](https://github.com/electron/electron/releases).
 
-## Create a temporary branch
+## Crear una rama temporal
 
-Create a new branch from `master` named `release`.
-
-```sh
-git checkout master
-git pull
-git checkout -b release
-```
-
-This branch is created as a precaution to prevent any merged PRs from sneaking into a release between the time the temporary release branch is created and the CI builds are complete.
-
-## Bump the version
-
-Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
+Crear una nueva rama de `master` llamado `release`.
 
 ```sh
-npm run bump-version -- patch
-git push origin HEAD
+lanzamiento de Git checkout master git pull git checkout -b
 ```
 
-This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
+Esta rama se crea como una precaución para evitar que cualquier combinados bandas escondidas en un lanzamiento entre el momento en la rama temporal se crea y las estructuras del CI son completas.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+## La versión
 
-## Edit the release draft
-
-  1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-  2. Edit the release and add release notes.
-  3. Click 'Save draft'. **Do not click 'Publish release'!**
-  4. Wait for all the builds to pass. :hourglass_flowing_sand:
-
-## Merge temporary branch
-
-Merge the temporary back into master, without creating a merge commit:
+Ejecute el script `bump-version`, `major` paso, `minor` o `patch` como argumento:
 
 ```sh
-git merge release master --no-commit
-git push origin master
+MNP ejecutar bump-versión - origen de parche git push cabeza
 ```
 
-If this fails, rebase with master and rebuild:
+Esto va topetón el número de versión en varios archivos. Ver [this tope commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) para un ejemplo.
+
+Comunicados de la mayoría será a nivel de `patch`. Actualizaciones de Chrome u otros cambios importantes deben usar `minor`. Para obtener más información, consulte [electron versioning](/docs/tutorial/electron-versioning.md).
+
+## Editar el proyecto de liberación
+
+  1. Visite [the lanza page](https://github.com/electron/electron/releases) y verás un nuevo proyecto de liberación con notas de la versión de marcador de posición.
+  2. El lanzamiento de editar y añadir notas.
+  3. Haga clic en 'guardar borrador'. **Do no, haga clic en 'Publicar comunicado'!**
+  4. Espere a que todas las estructuras pasar. :hourglass_flowing_sand:
+
+## Fusionar la rama temporal
+
+Combinar el reverso temporal en master, sin crear un commit de combinación:
 
 ```sh
-git pull
-git checkout release
-git rebase master
-git push origin HEAD
+git fusión liberación maestro--no-commit git push origen
 ```
 
-## Run local debug build
-
-Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
+Si esto falla, rebase con master y reconstruir:
 
 ```sh
-npm run build
-npm start
+comprobación de git git pull lanzar origen de git rebase master git push cabeza
 ```
 
-Verify the window is displaying the current updated version.
+## Ejecutar la versión de depuración local
 
-## Set environment variables
+Ejecute la versión de depuración local para verificar que usted realmente está construyendo la versión que desea. A veces creías que estabas haciendo un lanzamiento para una nueva versión, pero no estás realmente.
 
-You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
+```sh
+nueva gestión pública ejecute build MNP start
+```
+
+Verifique que la ventana muestra la versión actual.
+
+## Variables de entorno del sistema
+
+Usted necesitará configurar las siguientes variables de entorno para publicar un comunicado. Pida a otro miembro del equipo estas credenciales.
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - A personal access token with "repo" scope.
+- `ELECTRON_GITHUB_TOKEN` - un token de acceso de personal con alcance "repo".
 
-You will only need to do this once.
+Sólo necesita hacer esto una vez.
 
-## Publish the release
+## Publicar la versión
 
-This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
+Este script será descargar los binarios y generar los encabezados de nodo y el vinculador .lib utilizado en Windows por nodo-gyp para construir módulos nativos.
 
 ```sh
-npm run release
+ejecutar lanzamiento de NGP
 ```
 
-Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
+Nota: Muchas distribuciones de Python nave aún con los viejos certificados HTTPS. Se puede ver un `InsecureRequestWarning`, pero puede tenerse en cuenta.
 
-## Delete the temporary branch
+## Eliminar la rama temporal
 
 ```sh
-git checkout master
-git branch -D release # delete local branch
-git push origin :release # delete remote branch
+liberar git checkout master git branch -D origen de empuje de # eliminar sucursal git: # eliminar rama remota
 ```
