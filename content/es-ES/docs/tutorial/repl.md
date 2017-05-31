@@ -1,23 +1,23 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
+Leer-Eval-Print Loop (sust) es un entorno de programación de computadora simple, interactivo que entradas del usuario (es decir, solos expresiones), evalúa y devuelve el resultado al usuario.
 
-The `repl` module provides a REPL implementation that can be accessed using:
+El módulo de `repl` proporciona una implementación de sust que puede accederse mediante:
 
-* Assuming you have `electron` or `electron-prebuilt` installed as a local project dependency:
+* Suponiendo que ha `electron` o `electron-prebuilt` instalado como una dependencia local del proyecto:
     
     ```sh
-./node_modules/.bin/electron --interactive
+./node_modules/.bin/Electron - interactivo
 ```
 
-* Assuming you have `electron` or `electron-prebuilt` installed globally:
+* Suponiendo que ha `electron` o `electron-prebuilt` instalado a nivel mundial:
     
     ```sh
-electron --interactive
+electrón - interactivo
 ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Esto sólo crea una sust para el proceso principal. Puede utilizar la pestaña consola de las herramientas de desarrollo para obtener un sust para los procesos de renderizado.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Note:** `electron - interactive` no está disponible en Windows.
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+Puede encontrar más información en el docs</a> de Node.js sust.</p>
