@@ -1,10 +1,10 @@
-# Build Instructions (Linux)
+# ビルド手順 (Linux)
 
 Follow the guidelines below for building Electron on Linux.
 
-## Prerequisites
+## 必要な環境
 
-* At least 25GB disk space and 8GB RAM.
+* 最低 25 GB のストレージ空き容量と 8 GB以上の RAM。
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 * Node.js. There are various ways to install Node. You can download source code from [Node.js](http://nodejs.org) and compile from source. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * Clang 3.4 or later.
