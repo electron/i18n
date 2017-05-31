@@ -1,12 +1,12 @@
 # Estructura del directorio de código fuente
 
-El código fuente del electrón se separa en algunas partes, sobre todo después de cromo en los convenios de separación.
+El código fuente del Electron se separa en algunas partes, sobre todo después de cromo en los convenios de separación.
 
 Puede que necesite familiarizarse con architecture</a> múltiples procesos de Chromium para entender el código mejor.</p> 
 
 ## Estructura del código fuente
 
-    Átomo ├── de electrón / - código fuente de C++.
+    Átomo ├── de Electron / - código fuente de C++.
     |   ├── aplicación-código de entrada del sistema.
     |   Navegador ├── / - la interfaz incluyendo la ventana principal, interfaz de usuario y todos los |   |   cosas del proceso principal. Esto habla con el renderizador para gestionar páginas web.
     |   |   ├── ui / - aplicación de interfaz de usuario de la materia para diferentes plataformas.
@@ -20,9 +20,9 @@ Puede que necesite familiarizarse con architecture</a> múltiples procesos de Ch
     |   Procesador ├── / - código que ejecuta en el proceso de renderizado.
     |   |   └── del api / - la aplicación del procesador de proceso de las API.
     |   └── del común / - código utilizado por el principal y el procesador de los procesos, |       incluyendo algunas funciones de utilidad y el código para integrar el mensaje del nodo |       bucle en bucle de mensajes del cromo.
-    |       └── del api-la implementación de APIs comunes y bases de |           Módulos incorporados del electrón.
+    |       └── del api-la implementación de APIs comunes y bases de |           Módulos incorporados del Electron.
     Chromium_src ├── / - fuente del código que se copia de cromo.
-    Default_app ├── / - página de predeterminada para mostrar cuando el electrón se inicia sin |   proporciona una aplicación.
+    Default_app ├── / - página de predeterminada para mostrar cuando el Electron se inicia sin |   proporciona una aplicación.
     Docs ├──-documentaciones.
     Lib ├── / - código fuente de JavaScript.
     |   Navegador ├── / - código de inicialización del proceso principal de Javascript.
@@ -31,7 +31,7 @@ Puede que necesite familiarizarse con architecture</a> múltiples procesos de Ch
     |   Procesador └── / - código de inicialización del proceso de renderizado de Javascript.
     |       └── del api-implementación de la API de Javascript.
     Especificaciones ├── / - automática de pruebas.
-    ├── electron.gyp - normas de construcción del electrón.
+    ├── electron.gyp - normas de construcción del Electron.
     Common.gypi └── - configuración específica del compilador y las reglas de construcción para otros componentes como el 'nodo' y 'breakpad'.
     
 
@@ -47,7 +47,7 @@ Puede que necesite familiarizarse con architecture</a> múltiples procesos de Ch
 
 ## Mantener al día los submódulos de Git
 
-El repositorio electrónico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). De vez en cuando podría ver un mensaje como este cuando se ejecuta `git status`:
+El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). De vez en cuando podría ver un mensaje como este cuando se ejecuta `git status`:
 
 ```sh
 Estado de git $ modificado: proveedor/brightray (nuevos commits) modificado: proveedor/nodo (nuevo confía)
