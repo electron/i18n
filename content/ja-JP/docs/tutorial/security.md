@@ -6,7 +6,7 @@ When working with Electron, it is important to understand that Electron is not a
 
 With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
-## Reporting Security Issues
+## セキュリティ問題の報告
 
 For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
@@ -22,7 +22,7 @@ A security issue exists whenever you receive code from a remote destination and 
 
 > :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
 
-#### Checklist
+#### チェックリスト
 
 This is not bulletproof, but at the least, you should attempt the following:
 
