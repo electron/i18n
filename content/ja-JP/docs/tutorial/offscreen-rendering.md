@@ -1,4 +1,4 @@
-# Offscreen Rendering
+# オフスクリーンレンダリング
 
 Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
@@ -6,19 +6,19 @@ Two modes of rendering can be used and only the dirty area is passed in the `'pa
 
 **Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-## Two modes of rendering
+## レンダリングの 2 つのモード
 
-### GPU accelerated
+### GPU アクセラレーション
 
 GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
 
-### Software output device
+### ソフトウェア出力デバイス
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
 
 To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-## Usage
+## 使い方
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
