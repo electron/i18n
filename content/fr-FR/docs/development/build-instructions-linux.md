@@ -45,13 +45,14 @@ $ git clone https://github.com/electron/electron.git
 
 ## Amorçage
 
-Le script bootstrap téléchargera toutes les dépendances nécessaires et créer les fichiers de projet. Vous devez avoir Python 2.7.x pour le script réussir. Téléchargement de certains fichiers peut prendre un certain temps. Avis que nous utilisons`ninja` pour construire des électrons donc il n’y a aucun `Makefile` généré.
+Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Vous devez avoir Python 2.7.x pour le bon fonctionnement du script. Le téléchargement de certains fichiers peut prendre un certain temps. Pour information, nous utilisons`ninja` pour compiler Electron, donc il n’y a aucun `Makefile` généré.
 
 ```bash
-$ cd $ électron./script/bootstrap.py - v
+$ cd electron
+$ ./script/bootstrap.py -v
 ```
 
-### Croix de compilation
+### Multi-compilation
 
 Si vous voulez construire une cible `arm`, vous devez également installer les dépendances suivantes :
 
