@@ -1,14 +1,14 @@
-# Construire des Instructions (Linux)
+# Instructions de Build (Linux)
 
-Suivez les indications ci-dessous pour la construction des électrons sur Linux.
+Suivez les indications ci-dessous pour compiler Electron sur Linux.
 
-## Conditions préalables
+## Prérequis
 
-* Au moins 25GB espace disque et 8 Go de RAM.
-* Python 2.7.x. Certaines distributions comme l’utilisent encore 6.x CentOS Python 2.6.x vous devrez peut-être vérifier votre version de Python avec `python-V`.
-* Node.js. Il y a différentes façons d’installer le nœud. Vous pouvez télécharger le code source de [Node.js](http://nodejs.org) et de compilation de source. Faisant permet l’installation de nœud sur votre propre répertoire comme un utilisateur standard. Ou essayez les référentiels tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* Clang 3.4 ou plus tard.
-* En-têtes de développement de GTK + et libnotify.
+* Au moins 25GB d'espace disque et 8 Go de RAM.
+* Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent encore Python 2.6.x, vous devrez peut-être vérifier votre version de Python avec `python -V`.
+* Node.js. Il y a différentes façons d’installer Node. Vous pouvez télécharger le code source de [Node.js](http://nodejs.org) et le compiler vous-même. Cela permet l’installation de Node sur votre propre répertoire comme un utilisateur standard. Ou essayez les dépôts tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Clang version 3.4 ou plus récent.
+* En-têtes de développement de GTK+ et libnotify.
 
 Sur Ubuntu, installer les bibliothèques suivantes :
 
