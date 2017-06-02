@@ -10,13 +10,17 @@ Suivez les indications ci-dessous pour compiler Electron sur Linux.
 * Clang version 3.4 ou plus récent.
 * En-têtes de développement de GTK+ et libnotify.
 
-Sur Ubuntu, installer les bibliothèques suivantes :
+Sur Ubuntu, installez les bibliothèques suivantes :
 
 ```bash
-$ sudo apt-get installer build-essential clang libdbus-1-dev libgtk2. 0-dev \ libnotify-dev libgnome-keyring-dev libgconf2-dev \ libasound2-dev libcap-dev libcups2-dev libxtst-dev \ libxss1 libnss3-dev gcc-multilib g ++-multilib curl \ gperf bison
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
+                       libnotify-dev libgnome-keyring-dev libgconf2-dev \
+                       libasound2-dev libcap-dev libcups2-dev libxtst-dev \
+                       libxss1 libnss3-dev gcc-multilib g++-multilib curl \
+                       gperf bison
 ```
 
-Sur RHEL / CentOS, installer les bibliothèques suivantes :
+Sur RHEL / CentOS, installez les bibliothèques suivantes :
 
 ```bash
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \ libgnome-keyring-devel xorg-x11-serveur-utils libcap-devel \ tasses-devel libXtst-devel alsa-lib-devel libXrandr-devel \ GConf2-devel nss-devel
@@ -25,10 +29,13 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \ libgnome-keyrin
 Sur Fedora, installer les bibliothèques suivantes :
 
 ```bash
-$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \ libgnome-keyring-devel xorg-x11-serveur-utils libcap-devel \ tasses-devel libXtst-devel alsa-lib-devel libXrandr-devel \ GConf2-devel nss-devel
+$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
+                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   GConf2-devel nss-devel
 ```
 
-Autres distributions peuvent offrir des programmes similaires pour l’installation via les gestionnaires de paquets tels que pacman. Ou on peut compiler du code source.
+Les autres distributions peuvent offrir des packages similaires pour l’installation via les gestionnaires de paquets tels que pacman. Ou l'un pouvant compiler depuis les codes sources.
 
 ## Obtenir le Code
 
@@ -58,7 +65,7 @@ Et pour traverser les compiler pour les cibles `arm` ou `ia32`, vous devez passe
 $./script/bootstrap.py - v--target_arch = bras
 ```
 
-## Bâtiment
+## Compilation
 
 Si vous souhaitez générer les cibles fois `Release` et `Debug` :
 
