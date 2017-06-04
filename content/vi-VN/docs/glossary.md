@@ -1,4 +1,4 @@
-# Glossary
+# Bảng thuật ngữ
 
 This page defines some terminology that is commonly used in Electron development.
 
@@ -78,7 +78,7 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 là một JavaScript engine mã nguồn mở của Google. Nó được viết bằng C++ và được sử dụng trong Google Chrome. V8 có thể chạy độc lập hoặc có thể được nhúng vào bất ký ứng dụng C++ nào.
 
 ### webview
 
