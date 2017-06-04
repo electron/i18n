@@ -10,7 +10,7 @@ nav:
   contact: Liên hệ
 electron_is_easy:
   title: Nó dễ dàng hơn bạn nghĩ
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
+  description: Nếu bạn có thể xây dựng một website thì bạn có thể xây dựng ứng dụng trên desktop. Electron là một framework cho việc tạo ra các ứng dụng đó chỉ với công nghệ xây dựng web, giống như HTML, CSS và Javascript. Nó sẽ lo về các phần cứng dùm bạn, việc của bạn chỉ cần làm là tập trung tinh thành vào lập trình ứng dụng của bạn.
   video_link: Xem video
 web_technologies:
   title: Công nghệ lập trình Web
@@ -20,7 +20,7 @@ open_source:
   desciption: Electron là một dự án mã nguồn mở được xây dựng và bảo trì bởi Github và cộng đồng những người đóng góp tích cực.
 cross_platform:
   title: Đa Nền Tảng
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Tương thích với Mac, Windows và Linux, các ứng dụng Electron xây dựng và chạy trên được cả ba nền tảng.
 benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: Trình tự động cập nhật
@@ -30,14 +30,14 @@ benefits:
   windows_installers: Các cài đặt cho Windows
 get_started:
   title: Bắt đầu
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Để bắt đầu với Electron, bạn có thể xem qua kho tài nguyên dưới đây. Tìm hiểu làm thể nào để đóng gói web app của bạn với Electron thành ứng dụng, và cách kết nối đến các API của Eletron cũng như việc tạo ra các file cài đặt cuối cùng cho ứng dụng của bạn đế các nền tảng.
 explore:
   title: Khám phá các API của Electron
   description:
     - '<a href="https://github.com/electron/electron-api-demos">Ứng dụng demo các API của Electron API</a>'
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
+    - xây dựng ứng dụng của bạn.
 download_from_github: Tải về từ Github
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github'
 quick_start:
@@ -49,7 +49,7 @@ quick_start:
   dive_deeper: 'Hoặc xem xét kĩ hơn bằng cách đọc <a href=''https://electron.atom.io/docs/''>tài liệu</a>.'
 need_help:
   title: Cần trợ giúp?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: 'Đặt câu hỏi trong <a href=''https://discuss.atom.io/c/electron''>Diễn đàn</a> hoặc kênh <a href=''http://atom-slack.herokuapp.com/''>Slack</a> của chúng tôi. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> trên Twitter cho các thông báo quan trọng. Để liên hệ với người phụ trách, vui lòng gửi email về <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
   title: Các ứng dụng được xây dựng từ Electron
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
