@@ -1,56 +1,77 @@
-# Mise à jour de liste de contrôle de Chrome
+# Upgrading Chrome Checklist
 
-Ce document est destiné à servir à un aperçu de ce que des mesures sont nécessaires sur chaque Chrome mise à niveau en électrons.
+This document is meant to serve as an overview of what steps are needed on each Chrome upgrade in Electron.
 
-Ce sont des choses à faire en outre à mettre à jour le code électronique pour tout changement de Chrome/noeud API.
+These are things to do in addition to updating the Electron code for any Chrome/Node API changes.
 
-- Vérifiez que la nouvelle version de Chrome est disponible à https://github.com/zcbenz/chromium-source-tarball/releases
-- Mise à jour le fichier `VERSION` à la racine du référentiel `electron/libchromiumcontent`
-- Mise à jour de la `CLANG_REVISION` en `script/mise à jour-clang.sh` pour correspondre à la version que Chrome utilise en `libchromiumcontent/src/tools/clang/scripts/update.py`
-- Mise à niveau `vendor/node` à la libération de nœud qui correspond à la version v8 utilisée dans la nouvelle version de Chrome. Voir les versions v8 en nœud sur https://nodejs.org/en/download/releases pour plus de détails
-- Mise à jour de `vendor/crashpad` pour un crash changements journaliste nécessaires
-- Outils de mise à niveau `vendor/depot_tools` pour n’importe quel build changements nécessaires
-- Mise à jour le `libchromiumcontent` SHA-1 à télécharger sous `script/lib/config.py`
-- Ouvrez une demande de tirer sur les `electron/libchromiumcontent` avec les modifications
-- Ouvrez une demande de tirer sur `électronique/brightray` avec les changements 
-  - Cela devrait inclure la mise à niveau le sous-module de `vendor/libchromiumcontent`
-- Ouvrez une demande de tirer sur `électron/électron` avec les changements 
-  - Cela devrait inclure la mise à niveau les sous-modules dans `vendor/` selon les besoins
-- Vérifiez les versions debug donne gain de cause : 
+- Verify the new Chrome version is available from https://github.com/zcbenz/chromium-source-tarball/releases
+- Update the `VERSION` file at the root of the `electron/libchromiumcontent` repository
+- Update the `CLANG_REVISION` in `script/update-clang.sh` to match the version Chrome is using in `libchromiumcontent/src/tools/clang/scripts/update.py`
+- Upgrade `vendor/node` to the Node release that corresponds to the v8 version being used in the new Chrome release. See the v8 versions in Node on https://nodejs.org/en/download/releases for more details
+- Upgrade `vendor/crashpad` for any crash reporter changes needed
+- Upgrade `vendor/depot_tools` for any build tools changes needed
+- Update the `libchromiumcontent` SHA-1 to download in `script/lib/config.py`
+- Open a pull request on `electron/libchromiumcontent` with the changes
+- Open a pull request on `electron/brightray` with the changes 
+  - This should include upgrading the `vendor/libchromiumcontent` submodule
+- Open a pull request on `electron/electron` with the changes 
+  - This should include upgrading the submodules in `vendor/` as needed
+- Verify debug builds succeed on: 
   - macOS
-  - Windows 32 bits
-  - Fenêtre de 64 bits
-  - Linux 32 bits
-  - Linux 64 bits
+  - 32-bit Windows
+  - 64-bit Window
+  - 32-bit Linux
+  - 64-bit Linux
   - ARM Linux
-- Vérifiez les versions release donne gain de cause : 
+- Verify release builds succeed on: 
   - macOS
-  - Windows 32 bits
-  - Fenêtre de 64 bits
-  - Linux 32 bits
-  - Linux 64 bits
+  - 32-bit Windows
+  - 64-bit Window
+  - 32-bit Linux
+  - 64-bit Linux
   - ARM Linux
-- Vérifiez que les tests passent : 
+- Verify tests pass on: 
   - macOS
-  - Windows 32 bits
-  - Fenêtre de 64 bits
-  - Linux 32 bits
-  - Linux 64 bits
+  - 32-bit Windows
+  - 64-bit Window
+  - 32-bit Linux
+  - 64-bit Linux
   - ARM Linux
 
-## Vérifier la prise en charge de ffmpeg
+## Verify ffmpeg Support
 
-Électrons est livré avec une version de `ffmpeg` qui inclut des codecs propriétaires par défaut. Une version sans ces codecs est construite et distribuée à chaque nouvelle version aussi bien. Chaque mise à jour de Chrome doit vérifier que cette version de commutation est toujours supporté.
+Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
-Vous pouvez vérifier la prise en charge de l’électron pour plusieurs `ffmpeg` construit par le chargement de la page suivante. Il doit travailler avec la bibliothèque de `ffmpeg` par défaut distribuée avec des électrons et ne fonctionne pas avec la bibliothèque de `ffmpeg` construite sans codecs propriétaires.
+You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
 
 ```html
-< ! DOCTYPE html><html> <head> <meta charset="utf-8"> <title>Proprietary Codec Check</title> </head> <body> <p>Checking si électron utilise des codecs propriétaires en chargeant les vidéo de http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p> <p id="outcome"></p> <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video> <script> const video = document.querySelector('video')
-      video.addEventListener ('erreur', ({target}) = > {si (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {document.querySelector('#outcome').textContent = « ne pas à l’aide de codecs propriétaires, vidéo source émis pas soutenu événement d’erreur. »
-        } else {document.querySelector('#outcome').textContent = "une erreur inattendue : ${target.error.code}'}}) video.addEventListener (« jouer », () = > {document.querySelector('#outcome').textContent = « À l’aide de codecs propriétaires, vidéo a commencé à jouer. »
-     </html> de </body> </script>})
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Proprietary Codec Check</title>
+  </head>
+  <body>
+    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
+    <p id="outcome"></p>
+    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
+    <script>
+      const video = document.querySelector('video')
+      video.addEventListener('error', ({target}) => {
+        if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
+        } else {
+          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
+        }
+      })
+      video.addEventListener('playing', () => {
+        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
+      })
+    </script>
+  </body>
+</html>
 ```
 
-## Liens
+## Links
 
-- [Calendrier des parutions chrome](https://www.chromium.org/developers/calendar)
+- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
