@@ -12,7 +12,7 @@ Chỉ có các luồn phiên bản ổn định của Chrome mới được cậ
 
 Khi một phiên bản mới nhất của Node.js được phát hành, chúng tôi thường chờ khoảng một tháng rồi mới cập nhật nó vô Electron. Nhờ vậy chúng tôi có thể tránh bị ảnh hưởng bởi các lỗi trong phiên bản Node.js mới, điều này xảy ra thường xuyên.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Các tính năng mới của Node.js thường được cung cấp bởi V8, kể từ khi Electron cũng sử dụng V8 từ trình duyệt Chrome, các tính năng mới của JavaScript trong các phiên bản mới nhất của Node.js thường đã sẳn sàng trong Electron.
 
 ## How to share data between web pages?
 
