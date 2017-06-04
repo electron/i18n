@@ -1,24 +1,24 @@
-# Source Code Directory Structure
+# Cấu trúc cây thư mục của Source Code
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Mã nguồn của Electron được phân tách thành một vài phần, chủ yếu là theo cấu trúc của Chromium.
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Bạn có thể cần phải trở nên quen thuộc với [kiến trúc đa quy trình của Chromium](http://dev.chromium.org/developers/design-documents/multi-process-architecture) để hiểu mã nguồn tốt hơn.
 
-## Structure of Source Code
+## Cấu trúc của Source Code
 
     Electron
     ├── atom/ - C++ source code.
     |   ├── app/ - System entry code.
-    |   ├── browser/ - The frontend including the main window, UI, and all of the
-    |   |   main process things. This talks to the renderer to manage web pages.
-    |   |   ├── ui/ - Implementation of UI stuff for different platforms.
+    |   ├── browser/ - Frontend, bao gồm của sổ chính, UI, và tất cả những
+    |   |  quá trình chính. Điều này nói đến bộ render để quản lý trang web.
+    |   |   ├── ui / - Implement của UI cho các nền tảng khác nhau.
     |   |   |   ├── cocoa/ - Cocoa specific source code.
     |   |   |   ├── win/ - Windows GUI specific source code.
     |   |   |   └── x/ - X11 specific source code.
-    |   |   ├── api/ - The implementation of the main process APIs.
+    |   |   ├── api/ - Implement các xử lý chính của các API.
     |   |   ├── net/ - Network related code.
     |   |   ├── mac/ - Mac specific Objective-C source code.
-    |   |   └── resources/ - Icons, platform-dependent files, etc.
+    |   |   └── resources/ - Icons, các tập tin phụ thuộc vào nền tảng, vâng vâng.
     |   ├── renderer/ - Code that runs in renderer process.
     |   |   └── api/ - The implementation of renderer process APIs.
     |   └── common/ - Code that used by both the main and renderer processes,
