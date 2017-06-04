@@ -1,6 +1,6 @@
 ---
 app:
-  description: Control your application's event lifecycle.
+  description: Kiểm soát các vòng đời sự kiện trong ứng dụng của bạn.
   methods:
     quit:
       description: >-
@@ -99,7 +99,7 @@ app:
         Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
       parameters:
         tasks:
-          description: Array of `Task` objects
+          description: Array của đối tượng `Task`
       returns:
         description: Whether the call succeeded.
     getJumpListSettings:
