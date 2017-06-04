@@ -10,7 +10,7 @@ Mais il y a aussi des différences fondamentales entre les deux projets qui rend
 
 Avec NW.js, le point d’entrée principal d’une application est une page web. Vous spécifiez une URL de page d’accueil dans le `package.json` et il est ouvert dans une fenêtre de navigateur comme fenêtre principale de l’application.
 
-Avec Electron, le point d’entrée est un script JavaScript. Au lieu de fournir une URL directement, vous créez une fenêtre de navigateur manuellement et chargez un fichier HTML à l’aide de l’API. Vous devez aussi écouter les événements de fenêtre pour décider quand quitter l’application.
+Avec Electron, le point d’entrée est un script JavaScript. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. Vous devez aussi écouter les événements de fenêtre pour décider quand quitter l’application.
 
 Electron fonctionne plus comme le runtime de Node.js. L'API d'Electron est de niveau bas, donc vous pouvez l’utiliser pour tester le navigateur à la place de [PhantomJS](http://phantomjs.org/).
 
