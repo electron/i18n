@@ -1,8 +1,8 @@
-# Notifications (Windows, Linux, macOS)
+# Bảng thông báo (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Tất cả ba điều hành hệ thống cung cấp phương tiện cho các ứng dụng có thể gửi thông báo cho người dùng. Electron cho phép nhà phát triển để gửi thông báo một các tiện lợi với [API thông báo của HTML5](https://notifications.spec.whatwg.org/), bằng cách sử dụng thông báo của hệ điều hành đang chạy API để hiển thị nó.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process.
+**Lưu ý:** Vì đây là một API HTML5 nó chỉ sẵn sàng trong quá trình render.
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,13 +14,13 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Code và cả trải nghiệm của người dùng là như nhau trong cả ba hệ điều hành, không có sự khác biệt một các tinh tế.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an \[Application User Model ID\]\[app-user-model-id\], must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Trên Windows 10, thông báo luôn làm việc.
+* Trên Windows 8.1 và Windows 8, một phím tắt cho ứng dụng của bạn, với một \[Application User Model ID\]\[app-user-model-id\], phải được cài đặt vào màn hình của Start. Lưu ý, Tuy nhiên, nó không cần phải được ghim vào màn hình Start.
+* Trên Windows 7, thông báo làm việc thông qua thực hiện một tùy chỉnh trực quan tương tự như trên các hệ thống mới hơn.
 
 Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
