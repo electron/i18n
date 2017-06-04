@@ -1,53 +1,57 @@
 # Notifications (Windows, Linux, macOS)
 
-Les trois systèmes d’exploitation permettent aux applications d’envoyer des notifications à l’utilisateur. Électron permet idéalement aux développeurs envoyer des notifications avec le API</a> de Notification HTML5, à l’aide de notification native du système d’exploitation en cours d’exécution API pour l’afficher.</p> 
+All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
 
-**Note:** puisqu’il s’agit d’une API HTML5, il est uniquement disponible dans le processus de rendu.
+**Note:** Since this is an HTML5 API it is only available in the renderer process.
 
 ```javascript
-Let myNotification = nouvelle Notification ('Title', {
+let myNotification = new Notification('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
-}) myNotification.onclick = () => {console.log ("Notification cliquée")}
+})
+
+myNotification.onclick = () => {
+  console.log('Notification clicked')
+}
 ```
 
-Alors que le code et l’expérience utilisateur sur systèmes d’exploitation sont semblables, il y a des différences subtiles.
+While code and user experience across operating systems are similar, there are subtle differences.
 
 ## Windows
 
-* Sur Windows 10, notifications « que le travail ».
-* Sur Windows 8.1 et Windows 8, un raccourci vers votre application, avec un\[app-user-model-id\] \[ID de modèle d’Application utilisateur\], doit être installé à l’écran de démarrage. Notez, cependant, qu’il n’a pas besoin d’être épinglée à l’écran de démarrage.
-* Sur Windows 7, notifications de travaillent via une implémentation personnalisée qui visuellement ressemble au natif sur les systèmes plus récents.
+* On Windows 10, notifications "just work".
+* On Windows 8.1 and Windows 8, a shortcut to your app, with an \[Application User Model ID\]\[app-user-model-id\], must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
+* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
-En outre, dans Windows 8, la longueur maximale pour le corps de notification est 250 caractères, avec l’équipe Windows recommandant que les notifications devraient être maintenues à 200 caractères. Cela dit, que la restriction a été supprimée dans Windows 10, avec l’équipe de Windows demandant aux développeurs d’être raisonnable. Essayez d’envoyer des quantités gigantesques de texte à l’API (des milliers de caractères) peut entraîner l’instabilité.
+Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
-### Notifications avancées
+### Advanced Notifications
 
-Les versions ultérieures de Windows permettent aux notifications avancées, avec des modèles personnalisés, des images et autres éléments élastiques. Pour envoyer ces notifications (à partir du procédé de rendu ou le processus principal), utilisez le "userland" module[electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), qui utilise native nœud addons pour envoyer des objets `ToastNotification` et `TileNotification`.
+Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
-Alors que les communications y compris les boutons fonctionnent avec quelques `electron-windows-notifications`, traitement des réponses nécessite l’utilisation de [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), qui contribue à inscrire les composants COM requis et en appelant votre application électronique avec les données de l’utilisateur inscrit.
+While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
-### Heures de calme / Mode présentation
+### Quiet Hours / Presentation Mode
 
-Pour détecter si oui ou non vous êtes autorisé à envoyer une notification, utilisez le module "userland"[electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-Cela permet de déterminer en avance ou non Windows lèvera silencieusement à la notification.
+This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
 ## macOS
 
-Les notifications sont directe sur macOS, mais vous devez être conscient du directives Interface humaine de[Apple concernant les notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
-Notez que les notifications sont limitées à 256 octets de taille et risque d’être tronquées si vous dépassez cette limite.
+Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
-### Notifications avancées
+### Advanced Notifications
 
-Les versions ultérieures de macOS permettent aux notifications avec un champ de saisie, permettant à l’utilisateur de répondre rapidement à une notification. Pour envoyer des notifications à un champ de saisie, utilisez le module "userland" [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Ne pas déranger / Session State
+### Do not disturb / Session State
 
-Pour détecter si oui ou non vous êtes autorisé à envoyer une notification, utilisez le module "userland"[electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-Cela vous permettra de détecter avance si oui ou non la notification sera affichée.
+This will allow you to detect ahead of time whether or not the notification will be displayed.
 
 ## Linux
 
-Les notifications sont envoyées à l’aide de `libnotify` qui peuvent afficher les notifications sur n’importe quel environnement de bureau que[notification-spec] suit [Desktop Notifications spécifications], y compris la cannelle, l’illumination, l’unité, GNOME, KDE.
+Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows \[Desktop Notifications Specification\]\[notification-spec\], including Cinnamon, Enlightenment, Unity, GNOME, KDE.
