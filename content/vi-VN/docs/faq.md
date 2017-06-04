@@ -1,16 +1,16 @@
-# Electron FAQ
+# Electron FAQ (các câu hỏi thường gặp)
 
-## When will Electron upgrade to latest Chrome?
+## Khi nào Chrome được cập nhật phiên bản mới nhất vào Electron?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Phiên bản của Chrome trong Electron thường được cài đặt vào trong khoảng một hoặc hai tuần sau khi phiên bản ổn định mới nhất đó được phát hành. Ước tính này không được đảm bảo và phụ thuộc vào công việc tham gia nâng cấp.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Chỉ có các luồn phiên bản ổn định của Chrome mới được cập nhật. Nếu có một sửa lỗi quan trọng từ Chrome nằm ở phiên bản beta hoặc dev, chúng tôi sẽ sử dụng nó.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Để biết thêm thông tin, vui lòng xem [thông tin bảo mật](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Khi nào thì Electron sử dụng phiên bản mới nhất của Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Khi một phiên bản mới nhất của Node.js được phát hành, chúng tôi thường chờ khoảng một tháng rồi mới cập nhật nó vô Electron. Nhờ vậy chúng tôi có thể tránh bị ảnh hưởng bởi các lỗi trong phiên bản Node.js mới, điều này xảy ra thường xuyên.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
