@@ -5,7 +5,7 @@ nav:
   blog: Blog
   community: Cộng đồng
   apps: Ứng dụng
-  userland: Userland
+  userland: Không gian người dùng
   releases: Các phiên bản phát hành
   contact: Liên hệ
 electron_is_easy:
@@ -22,11 +22,11 @@ cross_platform:
   title: Đa Nền Tảng
   description: Tương thích với Mac, Windows và Linux, các ứng dụng Electron xây dựng và chạy trên được cả ba nền tảng.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
+  hard_parts_made_easy: Phần cứng được thực hiện dễ dàng
   automatic_updates: Trình tự động cập nhật
   native_menus_and_notifications: Menu chính và thông báo
   crash_reporting: Báo lỗi
-  debugging_and_profiling: Debugging & profiling
+  debugging_and_profiling: Debug và profiling
   windows_installers: Các cài đặt cho Windows
 get_started:
   title: Bắt đầu
@@ -35,14 +35,14 @@ explore:
   title: Khám phá các API của Electron
   description:
     - '<a href="https://github.com/electron/electron-api-demos">Ứng dụng demo các API của Electron API</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
+    - các tương tác demo các tính năng quan trọng nhất của các API của Electron.
+    - Xem những gì Electron có thể làm với các code đơn giản và các lời khuyên hữu ích cho
     - xây dựng ứng dụng của bạn.
 download_from_github: Tải về từ Github
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "Trở về ứng dụng <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> để xem các Electron hoạt động:"
+  description: Một ứng dụng Electron nhỏ hữu ích.
   clone: Clone lại source của Quick Start
   go_into_repo: Đi tới kho source code
   install_deps: Cài đặt các gói đi kèm và chạy
@@ -52,7 +52,7 @@ need_help:
   description: 'Đặt câu hỏi trong <a href=''https://discuss.atom.io/c/electron''>Diễn đàn</a> hoặc kênh <a href=''http://atom-slack.herokuapp.com/''>Slack</a> của chúng tôi. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> trên Twitter cho các thông báo quan trọng. Để liên hệ với người phụ trách, vui lòng gửi email về <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
   title: Các ứng dụng được xây dựng từ Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'Với Electron, tạo ra một ứng dụng desktop cho công ty hoặc các ý tưởng của bạn thật đơn giản. Ban đầu, Electron được phát triển cho ứng dụng <a href=''https://atom.io'' target=''_blank''>Atom (trình soạn thảo)</a> của Github, sau đó, Electron đã được sử dụng rộng rãi để tạo ra các ứng dụng của các công ty như Microsoft, Facebook, Slack và Docker.'
   view_more: Xem thêm các ứng dụng khác
-  submit_your_own: submit your own
+  submit_your_own: gửi lên ứng dụng của bạn
 or: hoặc
