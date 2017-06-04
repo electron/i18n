@@ -6,127 +6,196 @@ Cela ne signifie pas qu'Electron est une liaison JavaScript à l'interface utili
 
 ### Processus principal
 
-En électronique, le processus qui exécute le script de `main` de `package.json` s’appelle**the process** principal. Le script qui s’exécute dans le processus principal peut afficher une interface graphique de création de pages web.
+In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
 
-### Processus du moteur de rendu
+### Renderer Process
 
-Puisque les électrons utilise chrome pour l’affichage des pages web, architecture multiprocessu de chrome est également utilisé. Chaque page web en électrons s’exécute dans son propre processus, qui s’appelle **the rendu process**.
+Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
-Normale de navigateurs, des pages web habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder à des ressources natives. Utilisateurs de l’électron, cependant, ont le pouvoir d’utiliser Node.js APIs dans les pages web, ce qui permet des interactions de niveau système d’exploitation plus faibles.
+In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-### Différences entre les processus principaux et de moteur de rendu
+### Differences Between Main Process and Renderer Process
 
-Le processus principal crée des pages web en créant des instances de `BrowserWindow`. Chaque instance de`BrowserWindow` s’exécute la page web dans son propre processus de rendu. Lorsqu’une instance de`BrowserWindow` est détruite, le processus de rendu correspondante est également arrêté.
+The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
-Le processus principal gère toutes les pages web et leurs processus de rendu correspondante. Chaque processus de rendu est isolé et seulement se soucie de la page web en cours d’exécution dedans.
+The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
-Dans les pages web, appel GUI natif associés Qu'api n’est pas autorisé parce que la gestion des ressources natives de GUI dans les pages web est très dangereux et il est facile aux ressources de la fuite. Si vous souhaitez effectuer des opérations de GUI dans une page web, le processus de rendu de la page web doit communiquer avec le processus principal de demander que le processus principal effectuer ces opérations.
+In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
-En électronique, nous avons plusieurs façons de communiquer entre les processus principaux et les processus de rendu. Comme les modules [`ipcRenderer`](../api/ipc-renderer.md) et[`ipcMain`](../api/ipc-main.md) pour envoyer des messages et le module[remote](../api/remote.md) pour la communication de style RPC. Il y a également une entrée de la FAQ sur [how pour partager des données entre web pages](../faq.md#how-to-share-data-between-web-pages).
+In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Écrire votre première application électronique
+## Write your First Electron App
 
-Généralement, une application électronique est structurée comme suit :
+Generally, an Electron app is structured like this:
 
 ```text
-votre-app / ├── package.json ├── main.js └── index.html
+your-app/
+├── package.json
+├── main.js
+└── index.html
 ```
 
-Le format de `package.json` est exactement la même que celle des modules du nœud, et le script spécifié par le champ `main` est le script de démarrage de votre application, qui se déroulera le processus principal. Un exemple de votre `package.json` pourrait ressembler à ceci :
+The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
 
 ```json
-{« nom » : « your app », « version » : « 0.1.0 », « principale » : « main.js »}
+{
+  "name"    : "your-app",
+  "version" : "0.1.0",
+  "main"    : "main.js"
+}
 ```
 
-**Note** : si le champ `main` ne figure pas dans `package.json`, électron tente de charger une `index.js`.
+**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
 
-Le `main.js` devrait créer des fenêtres et gérer les événements système, un exemple typique étant :
+The `main.js` should create windows and handle system events, a typical example being:
 
 ```javascript
-const {app, BrowserWindow} = chemin const require('electron') = require('path') const url = require('url') / / conserver une référence mondiale de l’objet window, si vous n’avez pas, la fenêtre se / / se ferme automatiquement lorsque l’objet JavaScript est le garbage collecté.
-laisser gagner la fonction createWindow () {/ / Create la fenêtre du navigateur.
-  gagner = nouveau BrowserWindow({width: 800, height: 600}) / / et charger le fichier index.html de l’app.
-  win.loadURL (url.format ({chemin d’accès : path.join (__dirname, 'index.html'), protocole : ' file :', barres obliques : vrai})) / / ouvrir le DevTools.
-  win.webContents.openDevTools() / / émise lorsque la fenêtre est fermée.
-  Win.on ("fermés", () => {/ / l’objet window de déréférencement, habituellement vous stockeriez windows / / dans un tableau, si votre application prend en charge windows multi, c’est le temps / / lorsque vous devez supprimer l’élément correspondant.
-    victoire = null})} / / cette méthode sera appelée lorsque l’électron est terminé / / initialisation et est prêt à créer des fenêtres du navigateur.
-Certaines API utilisable uniquement après que cet événement se produit.
-App.on ("ready", createWindow) / / je quitte lorsque toutes les fenêtres sont fermées.
-App.on (' fenêtre-tout-fermée ', () => {/ / sur Mac OS, il est courant pour les applications et leur barre de menu / / de rester actif jusqu'à ce que l’utilisateur quitte explicitement avec Cmd + Q si (process.platform ! == « darwin ») {app.quit()}}) app.on ('activer', () = > {/ / sur Mac OS, il est fréquent de re-créer une fenêtre de l’application lorsque le / / dock icône est cliqué, et il n’y a pas d’autres fenêtres ouvertes.
-  Si (gagner === null) {createWindow()}}) / / dans ce fichier, vous pouvez inclure le reste du processus principal spécifique de votre app / code /. Vous pouvez aussi mettre dans des fichiers séparés et leur demander ici.
+const {app, BrowserWindow} = require('electron')
+const path = require('path')
+const url = require('url')
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let win
+
+function createWindow () {
+  // Create the browser window.
+  win = new BrowserWindow({width: 800, height: 600})
+
+  // and load the index.html of the app.
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+
+  // Open the DevTools.
+  win.webContents.openDevTools()
+
+  // Emitted when the window is closed.
+  win.on('closed', () => {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    win = null
+  })
+}
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', () => {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (win === null) {
+    createWindow()
+  }
+})
+
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
 ```
 
-Enfin, le `index.html` est la page web à afficher :
+Finally the `index.html` is the web page you want to show:
 
 ```html
-< ! DOCTYPE html><html> <head> <meta charset="UTF-8"> <title>Hello monde !</title> </head> <body> <h1>Hello monde !</h1> nous utilisons nœud <script>document.write (process.versions.node)</script>, </script> <script>document.write (process.versions.chrome) Chrome et </script> <script>document.write (process.versions.electron) électrons.
-  </body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+  </body>
+</html>
 ```
 
-## Exécutez votre application
+## Run your app
 
-Une fois que vous avez créé votre première `main.js`, `index.html` et `package.json` fichiers, vous voudrez probablement essayer d’exécuter votre application localement afin de le tester et assurez-vous qu’il fonctionne comme prévu.
+Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
-### `électron`
+### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) est un module de `npm` qui contient des versions précompilées des électrons.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
 
-Si vous avez installé il dans le monde avec `npm`, puis vous devrez seulement exécuter ce qui suit dans le répertoire source de votre application :
+If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 
 ```bash
-électron.
+electron .
 ```
 
-Si vous avez installé localement, puis exécutez :
+If you've installed it locally, then run:
 
 #### macOS / Linux
 
 ```bash
-$./node_modules/.bin/electron.
+$ ./node_modules/.bin/electron .
 ```
 
 #### Windows
 
 ```bash
-$.\node_modules\.bin\electron.
+$ .\node_modules\.bin\electron .
 ```
 
-### Électron manuellement téléchargé binaire
+### Manually Downloaded Electron Binary
 
-Si vous avez téléchargé électron manuellement, vous pouvez également utiliser le binaire inclus pour exécuter votre application directement.
+If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
 #### macOS
 
 ```bash
-$./Electron.app/Contents/MacOS/Electron votre-app /
+$ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 #### Linux
 
 ```bash
-$ ./electron/electron votre-app /
+$ ./electron/electron your-app/
 ```
 
 #### Windows
 
 ```bash
-votre $.\electron\electron.exe-app\
+$ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` ici fait partie des documents de mainlevée de l’électron, vous pouvez le télécharger depuis [here](https://github.com/electron/electron/releases).
+`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
-### Exécuter en tant qu’une distribution
+### Run as a distribution
 
-Après vous êtes fait écrire votre application, vous pouvez créer une répartition en suivant le guide de Distribution</a> de Application et en exécutant ensuite l’app emballé.</p> 
+After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Essayez cet exemple
+### Try this Example
 
-Cloner et exécuter le code dans ce tutoriel en utilisant le référentiel [`electron/électron-rapide-start`](https://github.com/electron/electron-quick-start).
+Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note** : courir ceci nécessite des [Git](https://git-scm.com) et [Node.js](https://nodejs.org/en/download/) (dont [npm](https://npmjs.org)) sur votre système.
+**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
 ```bash
-# Cloner le référentiel $ git clone https://github.com/electron/electron-quick-start # aller dans le référentiel $ cd # électron-quick-start Install dépendances $ npm installer # lancez l’app $ NGP start
+# Clone the repository
+$ git clone https://github.com/electron/electron-quick-start
+# Go into the repository
+$ cd electron-quick-start
+# Install dependencies
+$ npm install
+# Run the app
+$ npm start
 ```
 
-Pour plus d’applications exemple, voir la[list de boilerplates](https://electron.atom.io/community/#boilerplates), créé par la communauté électronique génial.
+For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
