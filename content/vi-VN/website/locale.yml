@@ -1,9 +1,9 @@
 ---
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Xây dựng ứng dụng đa nền tảng bằng HTML, CSS và Javascript cho máy tính để bàn và laptop
 nav:
-  docs: Docs
+  docs: Tài liệu
   blog: Blog
-  community: Community
+  community: Cộng đồng
   apps: Apps
   userland: Userland
   releases: Releases
