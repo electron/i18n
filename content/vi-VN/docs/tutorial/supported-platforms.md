@@ -1,4 +1,4 @@
-# Supported Platforms
+# Nền tảng hỗ trợ
 
 Following platforms are supported by Electron:
 
