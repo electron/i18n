@@ -4,33 +4,33 @@ Cette page définit certaines terminologies qui sont couramment utilisées dans 
 
 ### ASAR
 
-ASAR signifie atome Shell Archive Format. Une archive de [asar](https://github.com/electron/asar) est un simple format de type`tar` qui concatène des fichiers dans un seul fichier. Électron peut lire les fichiers arbitraires d’elle sans déballage de l’ensemble du dossier.
+ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
-Le format de l’ASAR a été créé principalement pour améliorer les performances sur Windows... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray) est une bibliothèque statique qui rend [libchromiumcontent](#libchromiumcontent) plus facile à utiliser dans les applications. Il a été créé spécifiquement pour les électrons, mais peut être utilisé pour activer le moteur de rendu de chrome dans des applications natives qui ne reposent pas sur des électrons.
+[Brightray](https://github.com/electron/brightray) is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications. It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
 
-Brightray est une dépendance de bas niveau d’électron qui ne concerne pas la majorité des utilisateurs de l’électron.
+Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
 
 ### DMG
 
-Une Image de disque Apple est un format d’emballage utilisé par Mac OS. Les fichiers DMG sont couramment utilisés pour distribuer l’application « installateurs ». [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge les `dmg` comme une cible de génération.
+An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IPC
 
-IPC est synonyme de Communication inter-processus. Électrons utilise IPC pour messages JSON envoi sérialisé entre les processus [main](#main-process) et [renderer](#renderer-process).
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
-Une bibliothèque unique et partagée qui inclut le module chrome contenu et toutes ses dépendances (p. ex., Blink, [V8](#v8), etc.).
+A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
 
 ### processus principal
 
-Le processus principal (main process), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. Il gère également les éléments natifs tels que le Menu, barre de Menu, Dock, plateau, etc.. Le processus principal est responsable de la création de chaque nouveau processus de rendu dans l’app. La pleine noeud API est intégrée.
+Le processus principal (main process), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Fichier de processus principal de chaque application est spécifié dans la propriété `main` dans `package.json`. Il s’agit `electron .` sait quel fichier à exécuter au démarrage.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
 Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
@@ -40,46 +40,46 @@ Acronyme pour Mac App Store d'Apple. Pour plus d’informations sur la soumissio
 
 ### modules natifs
 
-Modules natifs (aussi appelés [addons](https://nodejs.org/api/addons.html) en Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou électronique à l’aide de la fonction require() et utilisé comme si ils étaient un module de Node.js ordinaire. Ils sont utilisés principalement pour fournir une interface entre JavaScript s’exécutant dans des bibliothèques de Node.js et C/C++.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
-Les modules natifs de nœud sont pris en charge par l’électron, mais étant donné que l’électron est très susceptible d’utiliser une version différente de V8 à partir du nœud binaire installée sur votre système, vous devez spécifier manuellement l’emplacement des en-têtes de l’électron, lors de la génération de modules natifs.
+Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-Voir aussi [Using Native nœud Modules](tutorial/using-native-node-modules.md).
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ## NSIS
 
-Nullsoft Scriptable Install System est un programme d’installation pilotée par le script, outil de création pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée aux spécialités commerciales comme InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge les instituts nationaux de statistique comme une cible de génération.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
 ### processus
 
-Un processus est une instance d’un programme informatique qui est en cours d’exécution. Électron apps qui font usage de la [main](#main-process) et un ou plusieurs processus de [renderer](#renderer-process) s’exécutent en fait plusieurs programmes simultanément.
+A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
-Node.js et électron, chaque processus en cours d’exécution a un objet `process`. Cet objet est un mondial qui fournit des informations sur et la maîtrise, le processus en cours. Comme un global, il est toujours disponible pour les applications sans utiliser require().
+In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
 Voir aussi : [processus principal](#main-process), [processus de rendu](#renderer-process)
 
 ### processus de rendu
 
-Le processus de rendu est une fenêtre de navigateur dans votre application. Contrairement au processus principal, il peut y avoir plusieurs d'entre eux et chacun sont exécutés dans un processus séparé. Ils peuvent également être masqués.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-Normale de navigateurs, des pages web habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder à des ressources natives. Utilisateurs de l’électron, cependant, ont le pouvoir d’utiliser Node.js APIs dans les pages web, ce qui permet des interactions de niveau système d’exploitation plus faibles.
+In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
 Voir aussi : [processus](#process), [processus principal](#main-process)
 
 ### Squirrel
 
-L’écureuil est un framework open-source qui permet aux électrons apps mettre à jour automatiquement, comme les nouvelles versions sont publiées. Voir l’API [autoUpdater](api/auto-updater.md) pour l’info sur comment démarrer avec l’écureuil.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
 ### userland
 
-Ce terme daterait de la communauté Unix, où dénommé « userland » ou « userspace » programmes qui s’exécutent en dehors du noyau de système d’exploitation. Plus récemment, le terme a été popularisé dans la communauté nœud et du Musée d’établir une distinction entre les fonctions disponibles dans « Nœud de base » par rapport aux paquets publié au registre du Musée de la communauté de « utilisateur » beaucoup plus grande.
+This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
-Comme nœud, électron se concentre sur d’avoir un petit ensemble d’API qui fournissent toutes les primitives nécessaires pour développer des applications de bureau multiplateformes. Cette philosophie de conception permet aux électrons de rester un outil souple sans être trop normative sur la façon dont il doit être utilisé. "Userland" permet aux utilisateurs de créer et partager des outils qui fournissent des fonctionnalités supplémentaires sur le dessus de ce qui est disponible dans le « noyau ».
+Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 
-V8 est moteur de JavaScript open source de Google. Il est écrit en C++ et est utilisé dans Google Chrome. V8 peut tourner, ou peuvent être intégrées dans n’importe quelle application C++.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 ### webview
 
-`webview` balises sont utilisées pour intégration du contenu « invité » (par exemple, des pages web externes) dans votre application d’électrons. Ils sont semblables aux `iframe`s, mais diffèrent en ce que chaque affichage Web s’exécute dans un processus séparé. Il n’a pas les mêmes autorisations que votre page web et toutes les interactions entre votre application et le contenu incorporé sera asynchrones. Cela protège votre app contre le contenu incorporé.
+`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
