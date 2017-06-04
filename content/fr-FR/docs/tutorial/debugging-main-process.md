@@ -1,26 +1,26 @@
-# Le principal processus de débogage
+# Debugging the Main Process
 
-Le DevTools dans une fenêtre de navigateur d’électron peut seulement déboguer JavaScript qui est exécuté dans cette fenêtre (c'est-à-dire les pages web). Pour déboguer le code JavaScript qui s’exécute dans le processus principal, vous devrez utiliser un débogueur externe et de lancer des électrons avec la `--debug` ou `--debug-brk` passer.
+The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--debug` or `--debug-brk` switch.
 
-## Commutateurs de ligne de commande
+## Command Line Switches
 
-Utilisez une des commutateurs de ligne de commande suivante pour activer le débogage du processus principaux :
+Use one of the following command line switches to enable debugging of the main process:
 
-### `--debug =[port]`
+### `--debug=[port]`
 
-Électron doit écouter les messages de protocole du débogueur V8 sur le `port` spécifié, un débogueur externe devra se connecter sur ce port. Le `port` par défaut est `5858`.
+Electron will listen for V8 debugger protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
-électrons--debug = 5858 votre / app
+electron --debug=5858 your/app
 ```
 
-### `--debug-brk =[port]`
+### `--debug-brk=[port]`
 
-Comme `--debug`, mais s’arrête l’exécution sur la première ligne de JavaScript.
+Like `--debug` but pauses execution on the first line of JavaScript.
 
-## Débogueurs externes
+## External Debuggers
 
-Vous devrez utiliser un débogueur qui prend en charge le protocole de débogueur V8, les guides suivants devraient vous aider à démarrer :
+You will need to use a debugger that supports the V8 debugger protocol, the following guides should help you to get started:
 
 - [Déboguer le processus principal dans VSCode](debugging-main-process-vscode.md)
-- [Déboguer le processus principal dans le nœud-inspecteur](debugging-main-process-node-inspector.md)
+- [Debugging the Main Process in node-inspector](debugging-main-process-node-inspector.md)
