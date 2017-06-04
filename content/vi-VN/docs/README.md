@@ -1,18 +1,18 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Hãy chắc chắn rằng bạn sử dụng các tài liệu phù hợp với phiên bản Electron của bạn. Các đánh số của phiên bản là một phần của URL. Nếu bạn không thấy, thì bạn đang sử dụng tài liệu của một nhánh, tài liệu này có thể chứa các thay đổi trong các API mà nó có thể không tương thích với phiên bản Electron hiện tại mà bạn đang sử dụng. Để xem các tài liệu của phiên bản cũ hơn, bạn có thể [duyệt theo thẻ](https://github.com/electron/electron/tree/v1.4.0) trên GitHub mở trình đơn thả xuống "Swich branches/tags" và chọn từ khóa phù hợp với phiên bản của bạn.
 
-## FAQ
+## FAQ (câu hỏi thường gặp)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dưới trước khi tạo một issue:
 
-* [Electron FAQ](faq.md)
+* [Danh sách các câu hỏi hay gặp của Electron](faq.md)
 
-## Guides
+## Các hướng dẫn
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
+* [Từ điển thuật ngữ](glossary.md)
+* [Nền tảng hỗ trợ](tutorial/supported-platforms.md)
+* [Bảo mật](tutorial/security.md)
+* [Phiên bản Electron](tutorial/electron-versioning.md)
+* [Phân phối ứng dụng](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store Guide](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
