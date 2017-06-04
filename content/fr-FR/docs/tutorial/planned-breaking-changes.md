@@ -1,87 +1,177 @@
-# Prévues Breaking Changes API
+# Planned Breaking API Changes
 
-La liste suivante inclut les API qui seront supprimés en électrons 2.0.
+The following list includes the APIs that will be removed in Electron 2.0.
 
-Il n’y a aucun calendrier pour quand cette libération aura lieu mais les avertissements de désapprobation s’ajouteront au moins 90 jours à l’avance.
+There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
 ## `BrowserWindow`
 
 ```js
-Abondonnée optionsA laisser = {webPreferences : {blinkFeatures: ''}} laisser windowA = nouveau BrowserWindow(optionsA) / / remplacer avec let optionsB = {webPreferences : {enableBlinkFeatures: ''}} laisser windowB = nouveau BrowserWindow(optionsB)
+// Deprecated
+let optionsA = {webPreferences: {blinkFeatures: ''}}
+let windowA = new BrowserWindow(optionsA)
+// Replace with
+let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+let windowB = new BrowserWindow(optionsB)
 ```
 
-## `presse-papier`
+## `clipboard`
 
 ```js
-Deprecated clipboard.readRtf() / / remplacer par clipboard.readRTF() / / obsolète clipboard.writeRtf() / / remplacer par clipboard.writeRTF() / / obsolète clipboard.readHtml() / / remplacer par clipboard.readHTML() / / obsolète clipboard.writeHtml() / / remplacer par clipboard.writeHTML()
+// Deprecated
+clipboard.readRtf()
+// Replace with
+clipboard.readRTF()
+
+// Deprecated
+clipboard.writeRtf()
+// Replace with
+clipboard.writeRTF()
+
+// Deprecated
+clipboard.readHtml()
+// Replace with
+clipboard.readHTML()
+
+// Deprecated
+clipboard.writeHtml()
+// Replace with
+clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-Déconseillée crashReporter.start ({companyName : 'Crashly', submitURL : 'https://crash.server.com', autoSubmit : true}) / / remplacer avec crashReporter.start ({companyName : 'Crashly', submitURL : 'https://crash.server.com', uploadToServer : true})
+// Deprecated
+crashReporter.start({
+  companyName: 'Crashly',
+  submitURL: 'https://crash.server.com',
+  autoSubmit: true
+})
+// Replace with
+crashReporter.start({
+  companyName: 'Crashly',
+  submitURL: 'https://crash.server.com',
+  uploadToServer: true
+})
 ```
 
 ## `menu`
 
 ```js
-Déconseillé de menu.popup (browserWindow, 100, 200, 2) / / remplacer avec menu.popup (browserWindow, {x: 100, y: 200, positioningItem: 2})
+// Deprecated
+menu.popup(browserWindow, 100, 200, 2)
+// Replace with
+menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-Deprecated nativeImage.toPng() / / remplacer par nativeImage.toPNG() / / obsolète nativeImage.toJpeg() / / remplacer par nativeImage.toJPEG() / / obsolète nativeImage.createFromBuffer (buffer, 1.0) / / remplacer avec nativeImage.createFromBuffer (buffer, {
+// Deprecated
+nativeImage.toPng()
+// Replace with
+nativeImage.toPNG()
+
+// Deprecated
+nativeImage.toJpeg()
+// Replace with
+nativeImage.toJPEG()
+
+// Deprecated
+nativeImage.createFromBuffer(buffer, 1.0)
+// Replace with
+nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `processus de`
+## `processus`
 
 ```js
-Déconseillée process.versions [« atome-shell »] / / remplacer par process.versions.electron
+// Deprecated
+process.versions['atom-shell']
+// Replace with
+process.versions.electron
 ```
 
-* `process.versions.electron` et `process.version.chrome` seront propriétés en lecture seule par souci de cohérence avec les autres propriétés de `process.versions` définies par nœud.
+* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
 ## `session`
 
 ```js
-Obsolète ses.setCertificateVerifyProc (function (nom d’hôte, certificat, rappel) {callback(true)}) / / remplacer avec ses.setCertificateVerifyProc (function (demande, rappel) {callback(0)})
+// Deprecated
+ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+  callback(true)
+})
+// Replace with
+ses.setCertificateVerifyProc(function (request, callback) {
+  callback(0)
+})
 ```
 
-## `Barre d’État`
+## `Tray`
 
 ```js
-Deprecated tray.setHighlightMode(true) / / remplacer par tray.setHighlightMode('on') / / obsolète tray.setHighlightMode(false) / / remplacer par tray.setHighlightMode('off')
+// Deprecated
+tray.setHighlightMode(true)
+// Replace with
+tray.setHighlightMode('on')
+
+// Deprecated
+tray.setHighlightMode(false)
+// Replace with
+tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-Déconseillée webContents.openDevTools({detach: true}) / / remplacer par webContents.openDevTools({mode: 'detach'})
+// Deprecated
+webContents.openDevTools({detach: true})
+// Replace with
+webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-Déconseillé de webContents.setZoomLevelLimits (1, 2) / / remplacer avec webContents.setVisualZoomLevelLimits (1, 2)
+// Deprecated
+webContents.setZoomLevelLimits(1, 2)
+// Replace with
+webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-Obsolète webFrame.setZoomLevelLimits (1, 2) / / remplacer avec webFrame.setVisualZoomLevelLimits (1, 2) / / obsolète webFrame.registerURLSchemeAsSecure('app') / / remplacer avec protocol.registerStandardSchemes (["app"], {secure: true}) / / obsolète webFrame.registerURLSchemeAsPrivileged ("app", {secure: true}) / / remplacer avec protocol.registerStandardSchemes (["app"], {secure: true})
+// Deprecated
+webFrame.setZoomLevelLimits(1, 2)
+// Replace with
+webFrame.setVisualZoomLevelLimits(1, 2)
+
+// Deprecated
+webFrame.registerURLSchemeAsSecure('app')
+// Replace with
+protocol.registerStandardSchemes(['app'], {secure: true})
+
+// Deprecated
+webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+// Replace with
+protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-Déconseillé de webview.setZoomLevelLimits (1, 2) / / remplacer avec webview.setVisualZoomLevelLimits (1, 2)
+// Deprecated
+webview.setZoomLevelLimits(1, 2)
+// Replace with
+webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Nœud en-têtes URL
+## Node Headers URL
 
-Il s’agit de l’URL spécifiée comme `disturl` dans un fichier `.npmrc` ou le `--dist-url` indicateur de ligne de commande lors de la construction des modules natifs de nœud.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Obsolète : https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Remplacer par : https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
