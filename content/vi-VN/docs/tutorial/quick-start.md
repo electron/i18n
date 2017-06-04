@@ -14,7 +14,7 @@ Since Electron uses Chromium for displaying web pages, Chromium's multi-process 
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-### Differences Between Main Process and Renderer Process
+### Sự khác nhau giữa quá trình chính và quá trình render
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
@@ -24,7 +24,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Viết ứng dụng Electron đầu tiên của bạn
 
 Generally, an Electron app is structured like this:
 
@@ -59,20 +59,20 @@ const url = require('url')
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Tạo một cửa sổ trình duyệt.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // và tải trang index.html của ứng dụng lên.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Mở DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Bắt sự kiện cửa sổ được đóng lại.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -125,7 +125,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## Chạy ứng dụng của bạn
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
@@ -139,7 +139,7 @@ If you've installed it globally with `npm`, then you will only need to run the f
 electron .
 ```
 
-If you've installed it locally, then run:
+Nếu bạn đã cài nó tại thư mục ứng dụng, thì chỉ cần chạy:
 
 #### macOS / Linux
 
@@ -181,7 +181,7 @@ $ .\electron\electron.exe your-app\
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### Hãy thử ví dụ này
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
