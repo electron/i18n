@@ -1,14 +1,14 @@
 # Sử dụng clang-format trên Code C++
 
-[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) is a tool to automatically format C/C++/Objective-C code, so that developers don't need to worry about style issues during code reviews.
+[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) là một công cụ định dạng lại Code cho C/C++/Objective-C, vì vậy các lập trình viên không cần phải lo lắng về các vấn đề phong cách lập trình khi xem lại code.
 
-It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
+Nó rất được khuyến khích để định dạng lại các thay đổi trong code C++ của bạn trước khi tạo các pull request, điều này sẽ tiết kiệm thời gian của bạn bạn và của các reviewer.
 
-You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
+Bạn có thể cài đặt `clang-format` và `git-clang-format` bằng cách sử dụng npm: `npm install -g clang-format`.
 
 To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
-The workflow to format your changed code:
+Quy trình làm việc để format lại code thay đổi của bạn:
 
   1. Make codes changes in Electron repository.
   2. Run `git add your_changed_file.cc`.
@@ -16,11 +16,11 @@ The workflow to format your changed code:
   4. Run `git add your_changed_file.cc`, and commit your change.
   5. Now the branch is ready to be opened as a pull request.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Nếu bạn muốn định dạng các code đã thay đổi của bạn trên git commit (HEAD), bạn có thể chạy lệnh `git-clang-format HEAD~1`. Chạy lệnh `git-clang-format -h` để xem thêm chi tiết.
 
-## Editor Integration
+## Tích hợp và trình soạn thảo
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+Bạn có thể tích hợp `clang-format` vào các trình soạn thảo yêu thích của bạn. Để biết thông các thông tin về việc tích hợp, xem các trang sau:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
