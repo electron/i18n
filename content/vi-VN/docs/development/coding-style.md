@@ -1,20 +1,20 @@
-# Coding Style
+# Phong cách lập trình
 
-These are the style guidelines for coding in Electron.
+Đây là các hướng dẫn phong cách lập trình trong Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Bạn có thể chạy `npm run lint` và xem bất kỳ vấn đề gì về phong cách lập trình được phát hiện bởi `cpplint` và `eslint`.
 
-## C++ and Python
+## C ++ và Python
 
-For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Với C++ và Python, chúng tôi theo [phong cách lập trình của Chromium](http://www.chromium.org/developers/coding-style). Bạn có thể sử dụng [clang-format](clang-format.md) để tự động format cho code của C++. Hoặc cũng có thể sử dụng đoạn code trong `script/cpplint.py` để kiểm tra xem các file đã phù hợp hay chưa.
 
-The Python version we are using now is Python 2.7.
+Chúng tôi đang sử dụng phiên bản Python 2.7.
 
 The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
+* [Các tiêu chuẩn](http://npm.im/standard) cho phong cách lập trình JavaScript.
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
@@ -22,7 +22,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
-## Naming Things
+## Cách đặt tên
 
 Electron APIs uses the same capitalization scheme as Node.js:
 
