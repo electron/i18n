@@ -15,7 +15,8 @@ let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `clipboard
+`
 
 ```js
 // Deprecated
