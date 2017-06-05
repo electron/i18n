@@ -18,15 +18,15 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Application Packaging](tutorial/application-packaging.md)
 * [Sử dụng các Module Native của Node](tutorial/using-native-node-modules.md)
 * [Debug cho Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Sử dụng Selenium và WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [Phần mở rộng DevTools](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Việc sử dụng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Việc sử dụng Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Các phím tắt](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Các Tut
 
 * [Bắt đầu nhanh](tutorial/quick-start.md)
 * [Môi trường làm việc tích hợp (Desktop Environment Integration)](tutorial/desktop-environment-integration.md)
@@ -84,18 +84,18 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 ## Development
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Phong cách lập trình](development/coding-style.md)
+* [Sử dụng clang-format trên Code C++](development/clang-format.md)
+* [Cấu trúc cây thư mục của Source Code](development/source-code-directory-structure.md)
+* [Technical Differences to NW.js (tiền thân là node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Tổng qua về Hệ thống cần thiết để Build](development/build-system-overview.md)
 * [Hướng dẫn build (macOS)](development/build-instructions-osx.md)
 * [Hướng dẫn build (Windows)](development/build-instructions-windows.md)
 * [Hướng dẫn build (Linux)](development/build-instructions-linux.md)
 * [Các hướng dẫn debug (macOS)](development/debugging-instructions-macos.md)
 * [Các hướng dẫn debug (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
+* [Cài đặt Symbol Server trên debugger](development/setting-up-symbol-server.md)
+* [Tài liệu về Styleguide](styleguide.md)
 * [Nâng cấp Chrome](development/upgrading-chrome.md)
 * [Chromium Development](development/chromium-development.md)
 * [V8 Development](development/v8-development.md)
