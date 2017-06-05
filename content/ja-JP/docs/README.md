@@ -11,17 +11,17 @@
 * [用語集](glossary.md)
 * [サポートされているプラットフォーム](tutorial/supported-platforms.md)
 * [セキュリティ](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
+* [Electronのバージョン管理](tutorial/electron-versioning.md)
 * [アプリケーションの配布](tutorial/application-distribution.md)
 * [Mac App Storeへの公開ガイド](tutorial/mac-app-store-submission-guide.md)
 * [Windowsストア ガイド](tutorial/windows-store-guide.md)
 * [アプリケーションのパッケージ化](tutorial/application-packaging.md)
-* [ネイティブ Node モジュールの使用](tutorial/using-native-node-modules.md)
+* [ネイティブのNodeモジュールを使用する](tutorial/using-native-node-modules.md)
 * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
-* [SeleniumとWebDriverの使用](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Widevine CDMプラグインの使用](tutorial/using-widevine-cdm-plugin.md)
+* [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
+* [DevTools エクステンション](tutorial/devtools-extension.md)
+* [Pepper Flash プラグインを使用する](tutorial/using-pepper-flash-plugin.md)
+* [Widevine CDMプラグインを使用する](tutorial/using-widevine-cdm-plugin.md)
 * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
 * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
@@ -29,10 +29,10 @@
 ## チュートリアル
 
 * [クイック スタート](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [デスクトップ環境の統合](tutorial/desktop-environment-integration.md)
+* [オンライン/オフライン イベントの検出](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [ネイティブの通知](tutorial/notifications.md)
 
 ## API リファレンス
 
@@ -41,7 +41,7 @@
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 
-### Custom DOM Elements:
+### カスタム DOM 要素
 
 * [`File`オブジェクト](api/file-object.md)
 * [`<webview>`タグ](api/webview-tag.md)
