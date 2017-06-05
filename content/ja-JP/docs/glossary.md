@@ -4,13 +4,13 @@
 
 ### ASAR
 
-ASARはAtom Shell Archive Formatの略語です。 An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
+ASARはAtom Shell Archive Formatの略語です。 [asar](https://github.com/electron/asar)アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
 
 ASAR 形式は、Windows でのパフォーマンスを向上させるために主に作成されました…[書きかけです]
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray) is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications. It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
+[Brightray](https://github.com/electron/brightray)は、アプリケーション内で簡単に[libchromiumcontent](#libchromiumcontent)を使用する静的ライブラリです。 Brightrayは元々Electronのために作成されましたが、Electronを使用していないネイティブアプリでChromiumのレンダラを有効にするために使用する事もできます。
 
 Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
 
