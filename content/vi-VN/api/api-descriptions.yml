@@ -157,11 +157,11 @@ app:
             certificate:
               description: Đường dẫn của tập tin pkcs12.
             password:
-              description: Passphrase for the certificate.
+              description: Passphrase của certificate.
         callback:
           parameters:
             result:
-              description: Result of import.
+              description: Kết quả của import.
     disableHardwareAcceleration:
       description: >-
         Disables hardware acceleration for current app. This method can only be called before app is ready.
