@@ -1,4 +1,4 @@
-# Online/Offline Event Detection
+# Các phát hiện sự kiện Online/Offline xảy ra trong ứng dụng
 
 Online and offline event detection can be implemented in the renderer process using standard HTML5 APIs, as shown in the following example.
 
