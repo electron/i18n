@@ -1,8 +1,8 @@
-# Electron Documentation Styleguide
+# Tài liệu về Styleguide của Electron
 
-These are the guidelines for writing Electron documentation.
+Đây là những nguyên tắc để viết tài liệu Electron.
 
-## Titles
+## Tiêu đề
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
@@ -10,7 +10,7 @@ These are the guidelines for writing Electron documentation.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
 
-Using `Quick Start` as example:
+Lấy `Quick Start` để làm ví dụ:
 
 ```markdown
 # Quick Start
@@ -38,9 +38,9 @@ Using `Quick Start` as example:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Cũng được dùng cho các tài liệu của API, không có ngoại lệ.
 
-## Markdown rules
+## Quy tắc sử dụng Markdown
 
 * Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
