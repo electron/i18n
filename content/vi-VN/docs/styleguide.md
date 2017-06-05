@@ -4,8 +4,8 @@
 
 ## Tiêu đề
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
+* Mỗi trang chỉ có một tiêu đề ở cấp `#` và được viết ngay đầu trang.
+* Các tiêu đề của các chương trong cùng một trang phải có cấp độ `##`.
 * Chương nhỏ cần được tăng số lượng của `#` theo chiều sâu mà nó nằm so với chương chứa nó.
 * Tất cả các từ trong tiêu đề của trang phải được viết hoa, ngoại trừ các liên từ như "của" và "và".
 * Chỉ từ đầu tiên của một tiêu đề chương phải được viết hoa.
