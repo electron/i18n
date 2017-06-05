@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Các phím tắt
 
 > Configure local and global keyboard shortcuts
 
