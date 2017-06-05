@@ -6,9 +6,9 @@
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Chương nhỏ cần được tăng số lượng của `#` theo chiều sâu mà nó nằm so với chương chứa nó.
+* Tất cả các từ trong tiêu đề của trang phải được viết hoa, ngoại trừ các liên từ như "của" và "và".
+* Chỉ từ đầu tiên của một tiêu đề chương phải được viết hoa.
 
 Lấy `Quick Start` để làm ví dụ:
 
@@ -47,22 +47,22 @@ Cũng được dùng cho các tài liệu của API, không có ngoại lệ.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Chọn từ
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Sử dụng "will" thay vì "would" khi mô tả các kết quả.
+* Sử dụng "in the ___ process" thay vì "on".
 
-## API references
+## Tài liệu tham khảo về API
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### Tiêu đề Trang
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
 Under the page tile must be a one-line description starting with `>`.
 
-Using `session` as example:
+Sử dụng `session` như một ví dụ:
 
 ```markdown
 # session
@@ -70,11 +70,11 @@ Using `session` as example:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### Các module phương thức và sự kiện
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+Ví dụ như `autoUpdater` là một ví dụ:
 
 ```markdown
 # autoUpdater
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Các class
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Các phương thức
 
 The methods chapter must be in the following form:
 
@@ -166,7 +166,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Hoặc một loại tùy chỉnh như của Electron: [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
@@ -178,7 +178,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### Các sự kiện
 
 The events chapter must be in following form:
 
@@ -196,9 +196,9 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### Các thuộc tính
 
-The properties chapter must be in following form:
+Các chương của thuộc tính phải theo quy tắc:
 
 ```markdown
 ### session.defaultSession
@@ -206,11 +206,11 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là thuộc tính của một module hay của một class.
 
-## Documentation Translations
+## Các bản dịch của tài liệu
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Các bản dịch của tài liệu Electron nằm trong thư mục `docs-translations`.
 
 To add another set (or partial set):
 
