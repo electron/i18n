@@ -87,7 +87,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `プロセス`
 
 ```js
 // Deprecated
