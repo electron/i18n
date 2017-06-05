@@ -4,10 +4,10 @@ app:
   methods:
     quit:
       description: >-
-        Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+        Cố gắng đóng tất cả cửa sổ. Sự kiện before-quit sẽ xuất hiện đầu tiên. Nếu tất cả cửa sổ được đóng thành công, sự kiện will-quit sẽ xuất hiện và theo như mặc định thì ứng dụng sẽ kết thúc. Giao thức này đảm bảo tất cả sự kiện beforeunload và unload đều được bắt được một cách chính xác. Nó có thể là một cửa sổ cancel việc thoát ứng dụng bằng cách trả về giá trị false trong handler của sự kiện beforeunload.
     exit:
       description: >-
-        Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
+        Thoát ngay lập tức với exitCode. exitCode mặc định là 0. Tất cả cửa sổ sẽ đóng ngay lặp tức mà không cần phải hỏi người dùng và sự kiện before-quit và will-quit sẽ không được xuất hiện.
     relaunch:
       description: >-
         Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
@@ -16,9 +16,9 @@ app:
         description: 'trả về true nếu Electron đã khởi tạo xong nếu không trả về false.'
     focus:
       description: >-
-        On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+        Trên Linux, focus lên cửa sổ đang mở đầu tiên. Trên macOS, làm cho ứng dụng đó thành ứng dụng đang hoạt động. Trên Windows, focus lên cửa sổ đang mở đầu tiên.
     hide:
-      description: Hides all application windows without minimizing them.
+      description: Ẩn tất cả các cửa sổ ứng dụng xuống mà không có minimize chúng.
     show:
       description: >-
         Shows application windows after they were hidden. Does not automatically focus them.
@@ -155,7 +155,7 @@ app:
         options:
           properties:
             certificate:
-              description: Path for the pkcs12 file.
+              description: Đường dẫn của tập tin pkcs12.
             password:
               description: Passphrase for the certificate.
         callback:
@@ -408,7 +408,7 @@ BrowserView:
       - 
         properties:
           - 
-            description: See .
+            description: Hãy xem .
   instanceMethods:
     setAutoResize:
       parameters:
@@ -486,12 +486,12 @@ BrowserWindow:
           - 
             description: Window's maximum width. Default is no limit.
           - 
-            description: Window's maximum height. Default is no limit.
+            description: Chiều cao tối đa của cửa sổ. Mặc định là không có giới hạn.
           - 
-            description: Whether window is resizable. Default is true.
+            description: Cửa sổ có thể resizable hay không. Mặc định là true.
           - 
             description: >-
-              Whether window is movable. This is not implemented on Linux. Default is true.
+              Cửa sổ đó có thể di chuyển hay không. Điều này không thực hiện trên Linux. Mặc định là true.
           - 
             description: >-
               Whether window is minimizable. This is not implemented on Linux. Default is true.
@@ -530,7 +530,7 @@ BrowserWindow:
           - 
             description: Specify false to create a . Default is true.
           - 
-            description: Specify parent window. Default is null.
+            description: Xác định cửa sổ cha. Mặc định là null.
           - 
             description: >-
               Whether this is a modal window. This only works when the window is a child window. Default is false.
@@ -584,7 +584,7 @@ BrowserWindow:
             description: >-
               Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together.
           - 
-            description: Settings of web page's features.
+            description: Cài đặt các tính năng của trang web.
             properties:
               - 
                 description: >-
@@ -611,7 +611,7 @@ BrowserWindow:
                 description: >-
                   The default zoom factor of the page, 3.0 represents 300%. Default is 1.0.
               - 
-                description: Enables JavaScript support. Default is true.
+                description: Cho phép hỗ trợ JavaScript. Mặc định là true.
               - 
                 description: >-
                   When false, it will disable the same-origin policy (usually using testing websites by people), and set allowRunningInsecureContent to true if this options has not been set by user. Default is true.
@@ -650,21 +650,21 @@ BrowserWindow:
                   - 
                     description: Defaults to Times New Roman.
                   - 
-                    description: Defaults to Arial.
+                    description: Mặc định là Arial.
                   - 
                     description: Defaults to Courier New.
                   - 
-                    description: Defaults to Script.
+                    description: Mặc định là Script.
                   - 
                     description: Defaults to Impact.
               - 
-                description: Defaults to 16.
+                description: Mặc định là 16.
               - 
-                description: Defaults to 13.
+                description: Mặc định là 13.
               - 
-                description: Defaults to 0.
+                description: Mặc định là 0.
               - 
-                description: Defaults to ISO-8859-1.
+                description: Mặc định là ISO-8859-1.
               - 
                 description: >-
                   Whether to throttle animations and timers when the page becomes background. Defaults to true.
@@ -3066,7 +3066,7 @@ UploadFile:
     filePath:
       description: Path of file to be uploaded.
     offset:
-      description: Defaults to 0.
+      description: Mặc định là 0.
     length:
       description: Number of bytes to read from offset. Defaults to 0.
     modificationTime:
@@ -3078,7 +3078,7 @@ UploadFileSystem:
     filsSystemURL:
       description: FileSystem url to read data for upload.
     offset:
-      description: Defaults to 0.
+      description: Mặc định là 0.
     length:
       description: Number of bytes to read from offset. Defaults to 0.
     modificationTime:
