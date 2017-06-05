@@ -1,4 +1,4 @@
-# Việc sử dụng Widevine CDM Plugin
+# Sử dụng Widevine CDM Plugin
 
 In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
 
@@ -28,7 +28,7 @@ After getting the plugin files, you should pass the `widevinecdmadapter`'s path 
 
 The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
 
-Example code:
+Code ví dụ:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
