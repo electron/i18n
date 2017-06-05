@@ -646,17 +646,17 @@ BrowserWindow:
                 description: Sets the default font for the font-family.
                 properties:
                   - 
-                    description: Defaults to Times New Roman.
+                    description: Mặc định là Times New Roman.
                   - 
-                    description: Defaults to Times New Roman.
+                    description: Mặc định là Times New Roman.
                   - 
                     description: Mặc định là Arial.
                   - 
-                    description: Defaults to Courier New.
+                    description: Mặc định là Courier New.
                   - 
                     description: Mặc định là Script.
                   - 
-                    description: Defaults to Impact.
+                    description: Mặc định là Impact.
               - 
                 description: Mặc định là 16.
               - 
@@ -682,9 +682,9 @@ BrowserWindow:
       description: >-
         Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the close event.
     focus:
-      description: Focuses on the window.
+      description: Focus lên cửa sổ.
     blur:
-      description: Removes focus from the window.
+      description: Ngừng focus cửa sổ đó.
     isFocused:
       returns:
         description: Whether the window is focused.
@@ -696,7 +696,7 @@ BrowserWindow:
     showInactive:
       description: Shows the window but doesn't focus on it.
     hide:
-      description: Hides the window.
+      description: Ẩn cửa sổ.
     isVisible:
       returns:
         description: Whether the window is visible to the user.
@@ -825,7 +825,7 @@ BrowserWindow:
     center:
       description: Moves window to the center of the screen.
     setPosition:
-      description: Moves window to x and y.
+      description: Di chuyển cửa sổ tới tọa độ x và y.
     getPosition:
       returns:
         description: Contains the window's current position.
@@ -835,7 +835,7 @@ BrowserWindow:
       description: >-
         Note: The title of web page can be different from the title of the native window.
       returns:
-        description: The title of the native window.
+        description: Tiêu đề của cửa sổ gốc.
     setSheetOffset:
       description: >-
         Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
@@ -960,7 +960,7 @@ BrowserWindow:
     showDefinitionForSelection:
       description: Same as webContents.showDefinitionForSelection().
     setIcon:
-      description: Changes window icon.
+      description: Thay đổi biểu tượng cửa sổ.
     setAutoHideMenuBar:
       description: >-
         Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately.
@@ -993,10 +993,10 @@ BrowserWindow:
         Sets parent as current window's parent window, passing null will turn current window into a top-level window.
     getParentWindow:
       returns:
-        description: The parent window.
+        description: Cửa sổ cha.
     getChildWindows:
       returns:
-        description: All child windows.
+        description: Tất cả cửa sổ con.
     setAutoHideCursor:
       description: Controls whether to hide cursor when typing.
     setVibrancy:
@@ -1110,7 +1110,7 @@ BrowserWindowProxy:
 Certificate:
   properties:
     data:
-      description: PEM encoded data
+      description: PEM mã hóa dữ liệu
     issuer:
       description: Issuer principal
     issuerName:
@@ -1138,11 +1138,11 @@ CertificatePrincipal:
     organizationUnits:
       description: Organization Unit names
     locality:
-      description: Locality
+      description: Địa phương
     state:
-      description: State or province
+      description: Bang hay tỉnh
     country:
-      description: Country or region
+      description: Quốc gia hoặc vùng
 ClientRequest:
   description: Make HTTP/HTTPS requests.
   constructorMethod:
@@ -1307,15 +1307,15 @@ contentTracing:
 Cookie:
   properties:
     name:
-      description: The name of the cookie.
+      description: Tên của cookie.
     value:
-      description: The value of the cookie.
+      description: Giá trị của cookie.
     domain:
-      description: The domain of the cookie.
+      description: Tên miền của cookie.
     hostOnly:
       description: Whether the cookie is a host-only cookie.
     path:
-      description: The path of the cookie.
+      description: Đường dẫn của cookie.
     secure:
       description: Whether the cookie is marked as secure.
     httpOnly:
@@ -1415,12 +1415,12 @@ crashReporter:
             submitURL:
               description: URL that crash reports will be sent to as POST.
             productName:
-              description: Defaults to app.getName().
+              description: Mặc định là app.getName().
             uploadToServer:
               description: >-
                 Whether crash reports should be sent to the server Default is true.
             ignoreSystemCrashHandler:
-              description: Default is false.
+              description: Mặc định là false.
             extra:
               description: >-
                 An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported.
@@ -1446,7 +1446,7 @@ crashReporter:
         Set an extra parameter to set be sent with the crash report. The values specified here will be sent in addition to any values set via the extra option when start was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to start you can call start again with the updated extra options.
       parameters:
         key:
-          description: Parameter key.
+          description: Key của tham số.
         value:
           description: >-
             Parameter value. Specifying `null` or `undefined` will remove the key from the extra parameters.
@@ -1490,7 +1490,7 @@ Debugger:
       description: Emitted whenever debugging target issues instrumentation event.
       returns:
         method:
-          description: Method name.
+          description: Tên phương thức.
         params:
           description: >-
             Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
@@ -1583,7 +1583,7 @@ dialog:
             title:
               description: 'Title of the message box, some platforms will not show it.'
             message:
-              description: Content of the message box.
+              description: Nội dung của message box.
             detail:
               description: Extra information of the message.
             checkboxLabel:
@@ -1653,7 +1653,7 @@ DownloadItem:
         description: >-
           The save path of the download item. This will be either the path set via downloadItem.setSavePath(path) or the path selected from the shown save dialog.
     pause:
-      description: Pauses the download.
+      description: Tạm dừng việc tải xuống.
     isPaused:
       returns:
         description: Whether the download is paused.
@@ -1679,7 +1679,7 @@ DownloadItem:
       returns:
         description: The file name of the download item.
     getTotalBytes:
-      description: 'If the size is unknown, it returns 0.'
+      description: 'Nếu kích thước là unknown, nó trả về 0.'
       returns:
         description: The total size in bytes of the download item.
     getReceivedBytes:
@@ -1763,11 +1763,11 @@ IncomingMessage:
 IOCounters:
   properties:
     readOperationCount:
-      description: The number of I/O read operations.
+      description: Số lượng các I/O đọc hoạt động.
     writeOperationCount:
-      description: The number of I/O write operations.
+      description: Số lượng các I/O viết hoạt động.
     otherOperationCount:
-      description: Then number of I/O other operations.
+      description: Sau đó số lượng các I/O khác hoạt động.
     readTransferCount:
       description: The number of I/O read transfers.
     writeTransferCount:
@@ -1881,7 +1881,7 @@ Menu:
       description: Pops up this menu as a context menu in the browserWindow.
       parameters:
         browserWindow:
-          description: Default is the focused window.
+          description: Mặc định là cửa sổ được focus.
         options:
           properties:
             x:
@@ -1898,7 +1898,7 @@ Menu:
       description: Closes the context menu in the browserWindow.
       parameters:
         browserWindow:
-          description: Default is the focused window.
+          description: Mặc định là cửa sổ được focus.
     append:
       description: Appends the menuItem to the menu.
     insert:
@@ -1979,7 +1979,7 @@ nativeImage:
             height:
               description: Required for bitmap buffers.
             scaleFactor:
-              description: Defaults to 1.0.
+              description: Mặc định là 1.0.
     createFromDataURL:
       description: Creates a new NativeImage instance from dataURL.
 NativeImage:
@@ -1990,13 +1990,13 @@ NativeImage:
         options:
           properties:
             scaleFactor:
-              description: Defaults to 1.0.
+              description: Mặc định là 1.0.
       returns:
         description: A Buffer that contains the image's PNG encoded data.
     toJPEG:
       parameters:
         quality:
-          description: () Between 0 100.
+          description: () Giữa 0 100.
       returns:
         description: A Buffer that contains the image's JPEG encoded data.
     toBitmap:
@@ -2004,7 +2004,7 @@ NativeImage:
         options:
           properties:
             scaleFactor:
-              description: Defaults to 1.0.
+              description: Mặc định là 1.0.
       returns:
         description: A Buffer that contains a copy of the image's raw bitmap pixel data.
     toDataURL:
@@ -2012,7 +2012,7 @@ NativeImage:
         options:
           properties:
             scaleFactor:
-              description: Defaults to 1.0.
+              description: Mặc định là 1.0.
       returns:
         description: The data URL of the image.
     getBitmap:
@@ -2022,7 +2022,7 @@ NativeImage:
         options:
           properties:
             scaleFactor:
-              description: Defaults to 1.0.
+              description: Mặc định là 1.0.
       returns:
         description: A Buffer that contains the image's raw bitmap pixel data.
     getNativeHandle:
@@ -2044,7 +2044,7 @@ NativeImage:
         rect:
           description: The area of the image to crop
       returns:
-        description: The cropped image.
+        description: Hình đã cắt.
     resize:
       description: >-
         If only the height or the width are specified then the current aspect ratio will be preserved in the resized image.
@@ -2059,7 +2059,7 @@ NativeImage:
               description: >-
                 The desired quality of the resize image. Possible values are good, better or best. The default is best. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
       returns:
-        description: The resized image.
+        description: Hình đã thay đổi kích thước.
     getAspectRatio:
       returns:
         description: The image's aspect ratio.
@@ -2198,7 +2198,7 @@ process:
 ProcessMemoryInfo:
   properties:
     pid:
-      description: Process id of the process.
+      description: Process id của process.
     memory:
       description: Memory information of the process.
 protocol:
@@ -2313,7 +2313,7 @@ RemoveClientCertificate:
 RemovePassword:
   properties:
     type:
-      description: password.
+      description: mật khẩu.
     origin:
       description: >-
         When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.
@@ -2335,7 +2335,7 @@ screen:
       description: The current absolute position of the mouse pointer.
     getPrimaryDisplay:
       returns:
-        description: The primary display.
+        description: Màn hình chính.
     getAllDisplays:
       returns:
         description: An array of displays that are currently available.
@@ -2509,11 +2509,11 @@ Session:
     getBlobData:
       parameters:
         identifier:
-          description: Valid UUID.
+          description: UUID hợp lệ.
         callback:
           parameters:
             result:
-              description: Blob data.
+              description: Dữ liệu Blob.
       returns:
         description: The blob data associated with the identifier.
     createInterruptedDownload:
@@ -2533,7 +2533,7 @@ Session:
             lastModified:
               description: Last-Modified header value.
             eTag:
-              description: ETag header value.
+              description: Các giá trị ETag trong header.
             startTime:
               description: >-
                 Time when download was started in number of seconds since UNIX epoch.
@@ -2692,7 +2692,7 @@ Task:
     title:
       description: The string to be displayed in a JumpList.
     description:
-      description: Description of this task.
+      description: Mô tả của công việc này.
     iconPath:
       description: >-
         The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. You can usually specify process.execPath to show the icon of the program.
@@ -2718,13 +2718,13 @@ TouchBar:
           - 
             properties:
               - 
-                description: Button text.
+                description: Chữ trên nút.
               - 
                 description: '''Button background color in hex format, i.e'
               - 
-                description: Button icon.
+                description: Biểu tượng nút.
               - 
-                description: Can be left, right or overlay.
+                description: Có thể là left, right hoặc overlay.
               - 
                 description: Function to call when the button is clicked.
       instanceProperties:
@@ -2775,7 +2775,7 @@ TouchBar:
           - 
             properties:
               - 
-                description: Text to display.
+                description: Văn bản để hiển thị.
               - 
                 description: '''Hex color of text, i.e'
       instanceProperties:
