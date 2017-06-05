@@ -16,37 +16,37 @@ Các tính năng mới của Node.js thường được cung cấp bởi V8, k�
 
 ## Làm thế nào để chia sẻ dữ liệu giữa các trang web?
 
-Các đơn giản nhất để chia sẻ dữ liệu giữa các trang web (trong quá trình renderer) là sử dụng HTML5 API, đã có sẵn trong trình duyệt. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Các đơn giản nhất để chia sẻ dữ liệu giữa các trang web (trong quá trình renderer) là sử dụng HTML5 API, đã có sẵn trong trình duyệt. Đề nghị tốt nhất cho bạn là [API Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) và [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Hoặc bạn có thể sử dụng hệ thống IPC của Electron, để lưu trữ các đối tượng trong main process như là một biến toàn cầu, và sau đó truy cập chúng từ các renderer thông qua các property `điều khiển (remote)` của module `electron`:
 
 ```javascript
-// In the main process.
+// Trong main process.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// Trong trang 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// Trong trang 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Cửa sổ của ứng dụng hoặc icon dưới taskbar (tray) của tôi đột nhiên biến mất chỉ sau một vài phút xuất hiện.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Điều này xảy ra khi các biến được sử dụng để lưu trữ các cửa sổ/tray được bộ dọn rác dọn đi.
 
-If you encounter this problem, the following articles may prove helpful:
+Nếu bạn gặp vấn đề này, bài viết sau đây có thể hữu ích:
 
 * [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Nếu bạn chỉ muốn một sửa lỗi này nhanh chóng, bạn có thể tạo ra các biến toàn cầu bằng cách thay đổi code của bạn từ:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -56,7 +56,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+thành:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -67,14 +67,14 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Tại sao tôi không thể sử dụng jQuery/RequireJS/Meteor/AngularJS trong Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Do Node.js được tích hợp trong Electron, do đó có một số symbol bổ sung được chèn vào DOM như `module`, `exports`, `require`. Điều này gây ra vấn đề cho một số thư viện khi họ muốn chèn các symbols với cùng một tên.
 
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
+// Trong main process.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -98,7 +98,7 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` bị undefined.
 
 When using Electron's built-in module you might encounter an error like this:
 
