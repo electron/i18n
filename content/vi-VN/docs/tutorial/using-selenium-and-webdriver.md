@@ -1,10 +1,10 @@
 # Sử dụng Selenium và WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+Từ [ChromeDriver - WebDriver dành cho Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
 > WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
 
-## Setting up Spectron
+## Thiết lập Spectron
 
 [Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
@@ -42,11 +42,11 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## Cài đặt với WebDriverJs
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
-### 1. Start ChromeDriver
+### 1. Bắt đầu ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
@@ -100,7 +100,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. Bắt đầu ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
