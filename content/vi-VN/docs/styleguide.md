@@ -42,10 +42,10 @@ Cũng được dùng cho các tài liệu của API, không có ngoại lệ.
 
 ## Quy tắc sử dụng Markdown
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
+* Sử dụng `bash` thay thế cho `cmd` trong code (cú pháp của markdown).
+* Một dòng nên chứa tối đa 80 kí tự kể cả khoảng cách.
 * No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Tất cả code `js` và `javascript` nên được linted với [tiêu chuẩn của markdown](http://npm.im/standard-markdown).
 
 ## Chọn từ
 
@@ -180,7 +180,7 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### Các sự kiện
 
-The events chapter must be in following form:
+Các chương về các sự kiện phải được viết theo kiểu dưới đây:
 
 ```markdown
 ### Event: 'wake-up'
@@ -192,7 +192,7 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là thuộc tính của một module hay của một class.
 
 The arguments of an event follow the same rules as methods.
 
