@@ -1,12 +1,12 @@
 # Bảng thuật ngữ
 
-This page defines some terminology that is commonly used in Electron development.
+Trang này định nghĩa một số thuật ngữ thường được sử dụng trong Electron.
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR là viết tắt của Atom Shell Archive Format. Một tập tin [asar](https://github.com/electron/asar) đơn giản như một tập tin `tar`, nó là một định dạng nối các file lại với nhau thành một file duy nhất. Electron có thể đọc bất kể tập tin nào trong file có định dạng này mà không cần giải nén toàn bộ tập tin.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+Định dạng ASAR được tạo ra chủ yếu để cải thiện hiệu suất trên Windows... TODO
 
 ### Brightray
 
@@ -32,19 +32,19 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Xem thêm: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
 Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
 
-### native modules
+### các module native
 
 Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-modules.md).
 
 ## NSIS
 
@@ -56,7 +56,7 @@ A process is an instance of a computer program that is being executed. Electron 
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Xem thêm: [process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
@@ -64,7 +64,7 @@ The renderer process is a browser window in your app. Unlike the main process, t
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-See also: [process](#process), [main process](#main-process)
+Xem thêm: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
