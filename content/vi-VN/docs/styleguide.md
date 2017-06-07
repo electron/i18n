@@ -212,7 +212,7 @@ Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là 
 
 Các bản dịch của tài liệu Electron nằm trong thư mục `docs-translations`.
 
-To add another set (or partial set):
+Để thêm một thiết lập (hoặc một phần):
 
 * Create a subdirectory named by language abbreviation.
 * Translate the files.
