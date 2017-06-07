@@ -71,7 +71,7 @@ app:
         args:
           description: Mặc định là một empty array
       returns:
-        description: Whether the call succeeded.
+        description: Cho dù đã gọi thành công.
     removeAsDefaultProtocolClient:
       description: >-
         This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
@@ -83,7 +83,7 @@ app:
         args:
           description: Mặc định là một empty array
       returns:
-        description: Whether the call succeeded.
+        description: Cho dù đã gọi thành công.
     isDefaultProtocolClient:
       description: >-
         This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
@@ -101,7 +101,7 @@ app:
         tasks:
           description: Array của đối tượng `Task`
       returns:
-        description: Whether the call succeeded.
+        description: Cho dù đã gọi thành công.
     getJumpListSettings:
       returns:
         properties:
@@ -172,7 +172,7 @@ app:
       description: >-
         Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
       returns:
-        description: Whether the call succeeded.
+        description: Cho dù đã gọi thành công.
     getBadgeCount:
       returns:
         description: The current value displayed in the counter badge.
@@ -202,7 +202,7 @@ app:
                 description: >-
                   The command-line arguments to compare against. Defaults to an empty array.
           - 
-            description: true if the app is set to open at login.
+            description: trả về true nếu ứng dụng đã được cài đặt là open at login.
           - 
             description: >-
               true if the app is set to open as hidden at login. This setting is only supported on macOS.
