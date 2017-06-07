@@ -26,7 +26,7 @@ app:
       returns:
         description: Текущая директория приложения.
     getPath:
-      description: 'You can request the following paths by the name:'
+      description: 'Вы можете по имени запросить следующие пути:'
       returns:
         description: >-
           A path to a special directory or file associated with name. On failure an Error is thrown.
