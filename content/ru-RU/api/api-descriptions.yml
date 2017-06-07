@@ -1,10 +1,10 @@
 ---
 app:
-  description: Control your application's event lifecycle.
+  description: Управление жизненным циклом событий вашего приложения.
   methods:
     quit:
       description: >-
-        Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+        Попробуйте закрыть все окна. Сначала сработает событие befor-quit. Если все окна будут успешно закрыты, сработает событие will-quit. По умолчанию это означает завершение приложения. Этот метод гарантирует, что отработают все обработчики событий beforeunload и unload. Окно приложения может отменить завершение работы, если вернет false из обработчика события beforeunload.
     exit:
       description: >-
         Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
