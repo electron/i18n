@@ -58,7 +58,7 @@ app:
       description: >-
         Adds path to the recent documents list. This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
     clearRecentDocuments:
-      description: Clears the recent documents list.
+      description: Xóa danh sách tài liệu gần đây.
     setAsDefaultProtocolClient:
       description: >-
         This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
@@ -67,9 +67,9 @@ app:
           description: >-
             The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
         path:
-          description: Defaults to `process.execPath`
+          description: Mặc định là `process.execPath`
         args:
-          description: Defaults to an empty array
+          description: Mặc định là một empty array
       returns:
         description: Whether the call succeeded.
     removeAsDefaultProtocolClient:
@@ -77,11 +77,11 @@ app:
         This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
       parameters:
         protocol:
-          description: 'The name of your protocol, without `://`.'
+          description: 'Tên giao thức của bạn, lưu ý, không thêm `://`.'
         path:
           description: Mặc định là `process.execPath`
         args:
-          description: Mặc định là một array empty
+          description: Mặc định là một empty array
       returns:
         description: Whether the call succeeded.
     isDefaultProtocolClient:
@@ -89,11 +89,11 @@ app:
         This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
       parameters:
         protocol:
-          description: 'The name of your protocol, without `://`.'
+          description: 'Tên giao thức của bạn, lưu ý, không thêm `://`.'
         path:
-          description: Defaults to `process.execPath`
+          description: Mặc định là `process.execPath`
         args:
-          description: Defaults to an empty array
+          description: Mặc định là một empty array
     setUserTasks:
       description: >-
         Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
@@ -243,11 +243,11 @@ app:
         options:
           properties:
             applicationName:
-              description: The app's name.
+              description: Tên của ứng dụng.
             applicationVersion:
-              description: The app's version.
+              description: Phiên bản của ứng dụng.
             copyright:
-              description: Copyright information.
+              description: Thông tin bản quyền.
             credits:
               description: Credit information.
             version:
@@ -301,7 +301,7 @@ app:
         Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).
       returns:
         error:
-          description: The error code
+          description: Mã lỗi
         callback:
           parameters:
             isTrusted:
@@ -329,7 +329,7 @@ app:
             Append a switch (with optional value) to Chromium's command line. Note: This will not affect process.argv, and is mainly used by developers to control some low-level Chromium behaviors.
           parameters:
             switch:
-              description: A command-line switch
+              description: Một chuyển đổi dòng lệnh
             value:
               description: A value for the given switch
         appendArgument:
@@ -358,11 +358,11 @@ app:
           description: Sets the string to be displayed in the dock’s badging area.
         getBadge:
           returns:
-            description: The badge string of the dock.
+            description: Các kí tự mô tả trên dock.
         hide:
-          description: Hides the dock icon.
+          description: Ẩn biểu tượng dock.
         show:
-          description: Shows the dock icon.
+          description: Hiển thị biểu tượng dock.
         isVisible:
           returns:
             description: >-
@@ -519,7 +519,7 @@ BrowserWindow:
           - 
             description: Whether to show the window in taskbar. Default is false.
           - 
-            description: The kiosk mode. Default is false.
+            description: Chế độ kiosk. Mặc định là false.
           - 
             description: Default window title. Default is "Electron".
           - 
@@ -785,14 +785,14 @@ BrowserWindow:
       description: >-
         Sets whether the window can be manually minimized by user. On Linux does nothing.
     isMinimizable:
-      description: On Linux always returns true.
+      description: Trên Linux luôn trả về true.
       returns:
         description: Whether the window can be manually minimized by user
     setMaximizable:
       description: >-
         Sets whether the window can be manually maximized by user. On Linux does nothing.
     isMaximizable:
-      description: On Linux always returns true.
+      description: Trên Linux luôn trả về true.
       returns:
         description: Whether the window can be manually maximized by user.
     setFullScreenable:
@@ -806,7 +806,7 @@ BrowserWindow:
       description: >-
         Sets whether the window can be manually closed by user. On Linux does nothing.
     isClosable:
-      description: On Linux always returns true.
+      description: Trên Linux luôn trả về true.
       returns:
         description: Whether the window can be manually closed by user.
     setAlwaysOnTop:
@@ -896,7 +896,7 @@ BrowserWindow:
               description: >-
                 Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
     reload:
-      description: Same as webContents.reload.
+      description: Tương tự như webContents.reload.
     setMenu:
       description: >-
         Sets the menu as the window's menu bar, setting it to null will remove the menu bar.
@@ -1118,7 +1118,7 @@ Certificate:
     issuerCert:
       description: Issuer certificate (if not self-signed)
     subject:
-      description: Subject principal
+      description: Chủ đề chính
     subjectName:
       description: Subject's Common Name
     serialNumber:
@@ -1132,11 +1132,11 @@ Certificate:
 CertificatePrincipal:
   properties:
     commonName:
-      description: Common Name
+      description: Tên phổ biến
     organizations:
-      description: Organization names
+      description: Tên tổ chức
     organizationUnits:
-      description: Organization Unit names
+      description: Tên các đơn vị tổ chức
     locality:
       description: Địa phương
     state:
@@ -1277,7 +1277,7 @@ clipboard:
         data:
           properties:
             bookmark:
-              description: The title of the url at text.
+              description: Tiêu đề của url bằng chữ.
 contentTracing:
   description: |-
     Collect tracing data from Chromium's content module for finding performance
@@ -1339,7 +1339,7 @@ Cookies:
               description: >-
                 Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
             name:
-              description: Filters cookies by name.
+              description: Bộ lọc cookie theo tên.
             domain:
               description: >-
                 Retrieves cookies whose domains match or are subdomains of domains
@@ -1390,7 +1390,7 @@ Cookies:
         Emitted when a cookie is changed because it was added, edited, removed, or expired.
       returns:
         cookie:
-          description: The cookie that was changed
+          description: Các cookie đã được thay đổi
         cause:
           description: 'The cause of the change with one of the following values:'
         removed:
@@ -1669,7 +1669,7 @@ DownloadItem:
         description: The origin url where the item is downloaded from.
     getMimeType:
       returns:
-        description: The files mime type.
+        description: Mime type của các tập tin.
     hasUserGesture:
       returns:
         description: Whether the download has user gesture.
@@ -1702,7 +1702,7 @@ DownloadItem:
         description: Last-Modified header value.
     getETag:
       returns:
-        description: ETag header value.
+        description: Các giá trị ETag trong header.
     getStartTime:
       returns:
         description: Number of seconds since the UNIX epoch when the download was started.
@@ -1814,7 +1814,7 @@ ipcRenderer:
 JumpListCategory:
   properties:
     type:
-      description: 'One of the following:'
+      description: 'Một trong những điều sau đây:'
     name:
       description: 'Must be set if type is custom, otherwise it should be omitted.'
     items:
@@ -1823,7 +1823,7 @@ JumpListCategory:
 JumpListItem:
   properties:
     type:
-      description: 'One of the following:'
+      description: 'Một trong những điều sau đây:'
     path:
       description: 'Path of the file to open, should only be set if type is file.'
     program:
@@ -1847,7 +1847,7 @@ JumpListItem:
 MemoryInfo:
   properties:
     pid:
-      description: Process id of the process.
+      description: Process id của process.
     workingSetSize:
       description: The amount of memory currently pinned to actual physical RAM.
     peakWorkingSetSize:
@@ -2014,7 +2014,7 @@ NativeImage:
             scaleFactor:
               description: Mặc định là 1.0.
       returns:
-        description: The data URL of the image.
+        description: Dữ liệu URL của hình ảnh.
     getBitmap:
       description: >-
         The difference between getBitmap() and toBitmap() is, getBitmap() does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
@@ -2033,7 +2033,7 @@ NativeImage:
           A Buffer that stores C pointer to underlying native handle of the image. On macOS, a pointer to NSImage instance would be returned.
     isEmpty:
       returns:
-        description: Whether the image is empty.
+        description: Cho dù hình ảnh là empty.
     setTemplateImage:
       description: Marks the image as a template image.
     isTemplateImage:
@@ -2052,9 +2052,9 @@ NativeImage:
         options:
           properties:
             width:
-              description: Defaults to the image's width.
+              description: Mặc định là chiều rộng của hình ảnh.
             height:
-              description: Defaults to the image's height
+              description: Mặc định là chiều cao của hình ảnh
             quality:
               description: >-
                 The desired quality of the resize image. Possible values are good, better or best. The default is best. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -2200,7 +2200,7 @@ ProcessMemoryInfo:
     pid:
       description: Process id của process.
     memory:
-      description: Memory information of the process.
+      description: Nhớ các thông tin của process.
 protocol:
   description: Register a custom protocol and intercept existing protocol requests.
   methods:
@@ -2270,9 +2270,9 @@ protocol:
                     uploadData:
                       properties:
                         contentType:
-                          description: MIME type of the content.
+                          description: MIME type của nội dung.
                         data:
-                          description: Content to be sent.
+                          description: Nội dung đã được gửi đi.
     uninterceptProtocol:
       description: >-
         Remove the interceptor installed for scheme and restore its original handler.
@@ -2286,7 +2286,7 @@ remote:
   description: Use main process modules from the renderer process.
   methods:
     require:
-      description: e.g.
+      description: ví dụ.
       returns:
         description: >-
           The object returned by require(module) in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
@@ -3555,7 +3555,7 @@ WebContents:
         Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.
       returns:
         error:
-          description: The error code
+          description: Mã lỗi
         callback:
           parameters:
             isTrusted:
