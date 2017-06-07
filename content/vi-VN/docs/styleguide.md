@@ -214,9 +214,9 @@ Các bản dịch của tài liệu Electron nằm trong thư mục `docs-transl
 
 Để thêm một thiết lập (hoặc một phần):
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* Tạo một thư mục con đặt tên theo tên viết tắt của ngôn ngữ.
+* Dịch các tập tin.
+* Cập nhật các link tới các tập tin mà bạn đã dịch vào `README.md` nằm trong thư mục ngôn ngữ của bạn.
+* Thêm liên kết của thư mục ngôn ngữ đó của bạn vào trang [README](https://github.com/electron/electron#documentation-translations) chính của Electron.
 
 Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
