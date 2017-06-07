@@ -79,9 +79,9 @@ app:
         protocol:
           description: 'The name of your protocol, without `://`.'
         path:
-          description: Defaults to `process.execPath`
+          description: Mặc định là `process.execPath`
         args:
-          description: Defaults to an empty array
+          description: Mặc định là một array empty
       returns:
         description: Whether the call succeeded.
     isDefaultProtocolClient:
