@@ -3531,19 +3531,19 @@ WebContents:
             type:
               description: Either keyUp or keyDown
             key:
-              description: Equivalent to
+              description: Tương tự với
             code:
-              description: Equivalent to
+              description: Tương tự với
             isAutoRepeat:
-              description: Equivalent to
+              description: Tương tự với
             shift:
-              description: Equivalent to
+              description: Tương tự với
             control:
-              description: Equivalent to
+              description: Tương tự với
             alt:
-              description: Equivalent to
+              description: Tương tự với
             meta:
-              description: Equivalent to
+              description: Tương tự với
     devtools-opened:
       description: Emitted when DevTools is opened.
     devtools-closed:
@@ -3599,7 +3599,7 @@ WebContents:
         scale:
           description: scaling factor for the custom cursor
         size:
-          description: the size of the `image`
+          description: kích thước của `image`
         hotspot:
           description: coordinates of the custom cursor's hotspot
     context-menu:
@@ -3741,7 +3741,7 @@ webFrame:
         provider:
           properties:
             spellCheck:
-              description: Returns Boolean
+              description: Trả về các giá trị thuộc kiểu Boolean
     registerURLSchemeAsSecure:
       description: >-
         Registers the scheme as secure scheme. Secure schemes do not trigger mixed content warnings. For example, https and data are secure schemes because they cannot be corrupted by active network attackers.
@@ -3755,15 +3755,15 @@ webFrame:
         options:
           properties:
             secure:
-              description: Default true.
+              description: Default là true.
             bypassCSP:
-              description: Default true.
+              description: Default là true.
             allowServiceWorkers:
-              description: Default true.
+              description: Default là true.
             supportFetchAPI:
-              description: Default true.
+              description: Default là true.
             corsEnabled:
-              description: Default true.
+              description: Default là true.
     insertText:
       description: Inserts text to the focused element.
     executeJavaScript:
@@ -3956,7 +3956,7 @@ webviewTag:
         Evaluates code in page. If userGesture is set, it will create the user gesture context in the page. HTML APIs like requestFullScreen, which require user action, can take advantage of this option for automation.
       parameters:
         userGesture:
-          description: Default `false`.
+          description: Mặc định là `false`.
         callback:
           description: Called after script has been executed.
     openDevTools:
@@ -4162,7 +4162,7 @@ webviewTag:
       description: Fired when page receives favicon urls.
       returns:
         favicons:
-          description: Array of URLs.
+          description: Array của các URL.
     enter-html-full-screen:
       description: Fired when page enters fullscreen triggered by HTML API.
     leave-html-full-screen:
