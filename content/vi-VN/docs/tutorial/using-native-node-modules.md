@@ -2,33 +2,33 @@
 
 The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
 
-## How to install native modules
+## Làm thế nào để cài đặt các Module Native
 
-Three ways to install native modules:
+Có ba cách để cài đặt các Module Native:
 
-### Using `npm`
+### Sử dụng `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Bằng cách cài đặt vài biến env (environment), bạn có thể sử dụng `npm` để cài đặt trực tiếp các module.
 
-An example of installing all dependencies for Electron:
+Một ví dụ cho việc cài đặt tất cả các gói mở rộng cho Electron:
 
 ```bash
-# Electron's version.
+# Phiên bản của Electron.
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+# Cấu trúc của Electron, có thể là ia32 hoặc x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Tải về các header cho Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# Truyền lệnh cho node-pre-gyp việc chúng ta đang build Electron.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# Truyền lệnh cho node-pre-gyp xây dựng các module từ source code.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# Cài đặt tất cả các module, và lưu trữ cache tại ~/.electron-gyp.
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### Cài đặt các module và xây dựng lại cho Electron
 
 You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
 
@@ -55,7 +55,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
 
-## Troubleshooting
+## Xử lý sự cố
 
 If you installed a native module and found it was not working, you need to check following things:
 
