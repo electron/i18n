@@ -205,10 +205,10 @@ app:
             description: trả về true nếu ứng dụng đã được cài đặt là open at login.
           - 
             description: >-
-              true if the app is set to open as hidden at login. This setting is only supported on macOS.
+              trả về true nếu ứng dụng được cài đặt là open at login nhưng bị ẩn đi. Cài đặt này chỉ hỗ trợ duy nhất cho macOS.
           - 
             description: >-
-              true if the app was opened at login automatically. This setting is only supported on macOS.
+              trả về true nếu ứng dụng đã open at login thành công. Cài đặt này chỉ hỗ trợ duy nhất cho macOS.
           - 
             description: >-
               true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
@@ -750,10 +750,10 @@ BrowserWindow:
       description: >-
         Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
     setSize:
-      description: Resizes the window to width and height.
+      description: Thay đổi kích thước cửa sổ bằng chiều rộng và chiều cao.
     getSize:
       returns:
-        description: Contains the window's width and height.
+        description: Chức chiều rộng và cao của cửa sổ.
     setContentSize:
       description: >-
         Resizes the window's client area (e.g. the web page) to width and height.
@@ -778,7 +778,7 @@ BrowserWindow:
     setMovable:
       description: Sets whether the window can be moved by user. On Linux does nothing.
     isMovable:
-      description: On Linux always returns true.
+      description: Trên Linux luôn trả về true.
       returns:
         description: Whether the window can be moved by user.
     setMinimizable:
@@ -1258,7 +1258,7 @@ clipboard:
       description: >-
         Writes the text into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
     clear:
-      description: Clears the clipboard content.
+      description: Xóa bộ nhớ copy paste.
     availableFormats:
       returns:
         description: An array of supported formats for the clipboard type.
@@ -1381,7 +1381,7 @@ Cookies:
         url:
           description: The URL associated with the cookie.
         name:
-          description: The name of cookie to remove.
+          description: Tên của cookie để loại bỏ.
     flushStore:
       description: Writes any unwritten cookies data to disk.
   instanceEvents:
@@ -1926,7 +1926,7 @@ MenuItem:
           - null
           - null
           - 
-            description: If false, the menu item will be greyed out and unclickable.
+            description: Nếu false, menu item sẽ bị xám màu và không thể click.
           - 
             description: If false, the menu item will be entirely hidden.
           - 
@@ -2242,7 +2242,7 @@ protocol:
                         contentType:
                           description: MIME type of the content.
                         data:
-                          description: Content to be sent.
+                          description: Nội dung đã được gửi đi.
     unregisterProtocol:
       description: Unregisters the custom protocol of scheme.
     isProtocolHandled:
@@ -2704,7 +2704,7 @@ ThumbarButton:
     icon:
       description: The icon showing in thumbnail toolbar.
     tooltip:
-      description: The text of the button's tooltip.
+      description: Văn bản chú thích của nút.
     flags:
       description: >-
         Control specific states and behaviors of the button. By default, it is ['enabled'].
@@ -2831,11 +2831,11 @@ TouchBar:
               - 
                 description: Selected overlay item style. Defaults to null.
               - 
-                description: Defaults to false.
+                description: Mặc định là false.
               - 
-                description: Defaults to free.
+                description: Mặc định là free.
               - 
-                description: Defaults to true.
+                description: Mặc định là true.
       instanceProperties:
         items:
           description: >-
@@ -2995,7 +2995,7 @@ Tray:
         Pops up the context menu of the tray icon. When menu is passed, the menu will be shown instead of the tray icon's context menu. The position is only available on Windows, and it is (0, 0) by default.
       parameters:
         position:
-          description: The pop up position.
+          description: Vị trí popup.
     setContextMenu:
       description: Sets the context menu for this icon.
     getBounds:
@@ -3090,7 +3090,7 @@ UploadRawData:
     bytes:
       description: Data to be uploaded.
 webContents:
-  description: Render and control web pages.
+  description: Render và control các trang web.
   methods:
     getAllWebContents:
       returns:
@@ -3126,10 +3126,10 @@ WebContents:
         Initiates a download of the resource at url without navigating. The will-download event of session will be triggered.
     getURL:
       returns:
-        description: The URL of the current web page.
+        description: URL của trang web hiện tại.
     getTitle:
       returns:
-        description: The title of the current web page.
+        description: Tiêu đề của trang web hiện tại.
     isDestroyed:
       returns:
         description: Whether the web page is destroyed.
@@ -3187,7 +3187,7 @@ WebContents:
         Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation. If the result of the executed code is a promise the callback result will be the resolved value of the promise.  We recommend that you use the returned Promise to handle code that results in a Promise.
       parameters:
         userGesture:
-          description: Default is `false`.
+          description: Mặc định là `false`.
         callback:
           description: Called after script has been executed.
       returns:
@@ -3212,7 +3212,7 @@ WebContents:
         Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
       parameters:
         level:
-          description: Zoom level
+          description: Mức thu phóng
     getZoomLevel:
       description: >-
         Sends a request to get current zoom level, the callback will be called with callback(zoomLevel).
@@ -3323,7 +3323,7 @@ WebContents:
     removeWorkSpace:
       description: Removes the specified path from DevTools workspace.
     openDevTools:
-      description: Opens the devtools.
+      description: Mở devtools.
       parameters:
         options:
           properties:
@@ -3331,7 +3331,7 @@ WebContents:
               description: >-
                 Opens the devtools with specified dock state, can be right, bottom, undocked, detach. Defaults to last used dock state. In undocked mode it's possible to dock back. In detach mode it's not.
     closeDevTools:
-      description: Closes the devtools.
+      description: Đóng devtools.
     isDevToolsOpened:
       returns:
         description: Whether the devtools is opened.
@@ -3392,7 +3392,7 @@ WebContents:
         Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer, dirtyRect) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format). The dirtyRect is an object with x, y, width, height properties that describes which part of the page was repainted. If onlyDirty is set to true, frameBuffer will only contain the repainted area. onlyDirty defaults to false.
       parameters:
         onlyDirty:
-          description: Defaults to `false`
+          description: Mặc định là `false`
     endFrameSubscription:
       description: End subscribing for frame presentation events.
     startDrag:
@@ -3493,7 +3493,7 @@ WebContents:
       description: Emitted when page receives favicon urls.
       returns:
         favicons:
-          description: Array of URLs
+          description: Array của các URL
     new-window:
       description: >-
         Emitted when the page requests to open a new window for a url. It could be requested by window.open or an external link like <a target='_blank'>. By default a new BrowserWindow will be created for the url. Calling event.preventDefault() will prevent Electron from automatically creating a new BrowserWindow. If you call event.preventDefault() and manually create a new BrowserWindow then you must set event.newGuest to reference the new BrowserWindow instance, failing to do so may result in unexpected behavior. For example:
@@ -3723,7 +3723,7 @@ webFrame:
         Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
       parameters:
         level:
-          description: Zoom level
+          description: Mức thu phóng
     getZoomLevel:
       returns:
         description: The current zoom level.
@@ -3771,7 +3771,7 @@ webFrame:
         Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation.
       parameters:
         userGesture:
-          description: Default is `false`.
+          description: Mặc định là `false`.
         callback:
           description: Called after script has been executed.
       returns:
@@ -4079,7 +4079,7 @@ webviewTag:
         Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
       parameters:
         level:
-          description: Zoom level
+          description: Mức thu phóng
     showDefinitionForSelection:
       description: Shows pop-up dictionary that searches the selected word on the page.
     getWebContents:
