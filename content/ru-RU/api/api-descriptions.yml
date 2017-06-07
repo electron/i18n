@@ -10,21 +10,21 @@ app:
         Немедленно завершает приложение с заданным exitCode'ом. Значение exitCode'a по умолчанию - 0. Все окна  закроются, не спрашивая подтверждения пользователя. События before-quit и will-quit не сработают.
     relaunch:
       description: >-
-        Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
+        Перезапускает приложение, когда текущий экземпляр завершает работу. По умолчанию новый экземпляр будет использовать тот же рабочий каталог и аргументы командной строки, что и текущий. Аргументы функции, если они указаны, будут использованы в качестве аргументов командной строки вместо тех, чтобы были. Если указан параметр execPath, то вместо повторного запуска приложения будет вызван execPath. Обратите внимание, что этот метод не выходит из приложения, вы должны вызвать app.quit или app.exit после вызова app.relaunch, чтобы перезапустить приложение. Когда app.relaunch вызывается несколько раз, несколько экземпляров будут запущены после выхода текущего экземпляра. Пример перезапуска текущего экземпляра и добавления нового аргумента командной строки в новый экземпляр:
     isReady:
       returns:
-        description: 'true if Electron has finished initializing, false otherwise.'
+        description: 'true если Electron завершил инициализацию, иначе false.'
     focus:
       description: >-
-        On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+        В Linux перемещает фокус на первое видимое окно. В macOS делает ваше приложение активным. В Windows перемещает фокус на первое окно приложения.
     hide:
-      description: Hides all application windows without minimizing them.
+      description: Скрывает все окна приложения, не минимизируя их.
     show:
       description: >-
-        Shows application windows after they were hidden. Does not automatically focus them.
+        Показывает окна приложения, после того как они были скрыты. Фокус не будет перемещён автоматически.
     getAppPath:
       returns:
-        description: The current application directory.
+        description: Текущая директория приложения.
     getPath:
       description: 'You can request the following paths by the name:'
       returns:
