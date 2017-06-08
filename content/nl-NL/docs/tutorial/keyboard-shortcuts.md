@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Toetsencombinaties
 
 > Configure local and global keyboard shortcuts
 
