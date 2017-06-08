@@ -10,17 +10,17 @@ nav:
   contact: Contact
 electron_is_easy:
   title: Het is makkelijker dan je denkt
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
+  description: Als je een website kunt bouwen, kun je een desktop app bouwen. Electron is een framewerk voor het creëren van applicaties met webtechnologieën als JavaScript, HTML en CSS. Het zorgt zelf voor de moeilijke delen zodat jij je meer kunt richten op de kern van je applicatie.
   video_link: Bekijk de video
 web_technologies:
   title: Web technologieën
   description: Electron gebruikt Chromium en Node.js zodat je je app kunt bouwen met HTML, CSS en JavaScript.
 open_source:
   title: Open bron
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  desciption: Electron is een open bron project beheerd door GitHub en een actieve gemeenschap van bijdragers.
 cross_platform:
   title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Compatibel met Mac, Windows en Linux, bouwt en beheert Electron apps op drie platformen.
 benefits:
   hard_parts_made_easy: De moeilijke dingen makkelijk gemaakt
   automatic_updates: Automatische updates
@@ -30,23 +30,23 @@ benefits:
   windows_installers: Windows installateurs
 get_started:
   title: Aan de slag
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Om te beginnen met Electron, bekijk de onderstaande bronnen. Leer hoe je je wep app met Electron inwikkelt, toegang hebt tot al de API's, en installaties genereert.
 explore:
   title: Verken de Electron API's
   description:
     - 'De <a href="https://github.com/electron/electron-api-demos">Electron API demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
+    - demonstreert interactief de belangrijkste features van de Electron API.
+    - Bekijk wat mogelijk is met Electron met voorbeeldcode en nuttige tips voor
     - het opbouwen van je app.
 download_from_github: Downloaden van GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Toon alle releases</a> op GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "Activeer de <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app om Electron in actie te zien:"
+  description: Een minimale Electron app met nuttige notaties.
   clone: Het Quick Start archief klonen
   go_into_repo: Ga naar het archief
   install_deps: De afhankelijkheden installeren en uitvoeren
-  dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
+  dive_deeper: 'Of duik wat dieper en lees de <a href=''https://electron.atom.io/docs/''>documentatie</a>.'
 need_help:
   title: Hulp nodig?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
