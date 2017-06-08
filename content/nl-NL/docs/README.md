@@ -1,23 +1,23 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Wees er zeker van dat je de documenten gebruikt die overeenkomen met jouw Electron versie. Het versienummer moet deel uitmaken van de URL van de pagina. Als dit niet zo is, gebruik je mogelijk de documentatie van een ontwikkelingstak die mogelijk API veranderingen bevat die niet compatibel zijn met jouw Electron versie. Om oudere versies van de documentatie te tonen, kun je [op tag bladeren](https://github.com/electron/electron/tree/v1.4.0) op GitHub door de "Switch branches/tags" dropdown te openen en de tag te selecteren die overeenkomt met jouw versie.
 
-## FAQ
+## Veelgestelde vragen (FAQ)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem invoert:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Gidsen
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
+* [Verklarende woordenlijst van termen](glossary.md)
+* [Ondersteunde platformen](tutorial/supported-platforms.md)
+* [Beveiliging](tutorial/security.md)
+* [Electron versiebeheer](tutorial/electron-versioning.md)
+* [Applicatie distributie](tutorial/application-distribution.md)
+* [Mac App Store indiening gids](tutorial/mac-app-store-submission-guide.md)
+* [Windows Store gids](tutorial/windows-store-guide.md)
+* [Applicatie Packaging](tutorial/application-packaging.md)
+* [Het gebruik van inheemse knooppunt modules](tutorial/using-native-node-modules.md)
+* [De debugging van het basisproces](tutorial/debugging-main-process.md)
 * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools Extension](tutorial/devtools-extension.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
