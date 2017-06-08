@@ -15,7 +15,7 @@ let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `klembord`
 
 ```js
 // Deprecated
@@ -97,7 +97,7 @@ process.versions.electron
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
-## `session`
+## `sessie`
 
 ```js
 // Deprecated
