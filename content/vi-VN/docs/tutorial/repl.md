@@ -18,6 +18,6 @@ electron --interactive
 
 This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Lưu ý:** `electron --interactive` không thể sử dụng trên Windows.
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+Để tìm hiểu thêm, các thông tin về REPL có tại: [Tài liệu Node.js REPL](https://nodejs.org/dist/latest/docs/api/repl.html).
