@@ -1,22 +1,22 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
+Read-Eval-Print-Loop (REPL) (Đọc, thực thi, in ra và lặp lại), là một môi trường lập trình tương tác đơn giản, sử dụng các input của người dùng (tức là các single expression), đánh giá chúng, và trả về kết quả cho người dùng.
 
-The `repl` module provides a REPL implementation that can be accessed using:
+Module `repl` cung cấp một REPL đã được xây dựng, để chạy nó bạn chỉ việc thực hiện các lệnh sau:
 
-* Assuming you have `electron` or `electron-prebuilt` installed as a local project dependency:
+* Giả sử như bạn chỉ cài đặt `electron` hoặc `electron-prebuilt` tại thư mục của project rồi thì chạy lệnh sau:
     
     ```sh
 ./node_modules/.bin/electron --interactive
 ```
 
-* Assuming you have `electron` or `electron-prebuilt` installed globally:
+* Giả sử như bạn đã cài đặt `electron` hoặc `electron-prebuilt` trên global rồi:
     
     ```sh
 electron --interactive
 ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Đều này chỉ tạo ra một REPL cho main process. Bạn có thể sử dụng tab Console của DevTools để tạo ra một REPL cho các renderer process.
 
 **Lưu ý:** `electron --interactive` không thể sử dụng trên Windows.
 
