@@ -1,8 +1,8 @@
 # Các phím tắt
 
-> Configure local and global keyboard shortcuts
+> Cấu hình phím tắt tại thư mục và toàn hệ thống
 
-## Local Shortcuts
+## Các phím tắt tại local
 
 You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
@@ -25,7 +25,7 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## Các phím tắt Global
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
