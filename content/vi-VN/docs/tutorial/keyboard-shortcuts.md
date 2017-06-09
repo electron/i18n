@@ -4,7 +4,7 @@
 
 ## Các phím tắt tại local
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Bạn có thể sử dụng module [Menu](../api/menu.md) để cài đặt các phím tắt, điều đó sẽ kích hoạt các phím tắt khi cửa sổ của app được focus vào. Để là điều này, chỉ cần cài thêm vô một [`accelerator`] khi tạo [MenuItem](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Rất là dễ để cài đặt phím tắt mà cần sự kết hợp giữa các phím khác nhau dựa trên hệ điều hành của người dùng. Như sau.
 
 ```js
 {
@@ -27,7 +27,7 @@ It's easy to configure different key combinations based on the user's operating 
 
 ## Các phím tắt Global
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Bạn có thể sử dụng module [globalShortcut](../api/global-shortcut.md) để xác định các sự kiện trên bàn phím khi mà app không được focus.
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -41,7 +41,7 @@ app.on('ready', () => {
 
 ## Các phím tắt trong một BrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Nếu bạn muốn bắt các phím tắt cho một [BrowserWindow](../api/browser-window.md), bạn có thể sử dụng sự kiện `keyup` và `keydown` để theo dõi cửa sổ đó từ bên trong quá trình renderer.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
