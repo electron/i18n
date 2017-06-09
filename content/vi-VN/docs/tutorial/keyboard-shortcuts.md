@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Các phím tắt trong một BrowserWindow
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
