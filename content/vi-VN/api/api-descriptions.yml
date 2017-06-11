@@ -1,4 +1,3 @@
----
 app:
   description: Kiểm soát các vòng đời sự kiện trong ứng dụng của bạn.
   methods:
@@ -235,7 +234,7 @@ app:
     isAccessibilitySupportEnabled:
       returns:
         description: >-
-          true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+          trả về true nếu khả năng truy cập của Chrome được bật, còn lại trả về false. API này sẽ trả về true nếu phát hiện ra các công nghệ hỗ trợ, ví dụ nhưcác screen reader. Xem thêm tại: https://www.chromium.org/developers/design-documents/accessibility để biết thêm chi tiết.
     setAboutPanelOptions:
       description: >-
         Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
