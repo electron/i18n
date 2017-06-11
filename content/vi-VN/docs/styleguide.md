@@ -44,7 +44,7 @@ Cũng được dùng cho các tài liệu của API, không có ngoại lệ.
 
 * Sử dụng `bash` thay thế cho `cmd` trong code (cú pháp của markdown).
 * Một dòng nên chứa tối đa 80 kí tự kể cả khoảng cách.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* Phân cấp tiêu đề không được quá 2 cấp (vì markdown sẽ không render quá 2 cấp).
 * Tất cả code `js` và `javascript` nên được linted với [tiêu chuẩn của markdown](http://npm.im/standard-markdown).
 
 ## Chọn từ
@@ -54,7 +54,7 @@ Cũng được dùng cho các tài liệu của API, không có ngoại lệ.
 
 ## Tài liệu tham khảo về API
 
-The following rules only apply to the documentation of APIs.
+Các quy định sau đây chỉ áp dụng cho các tài liệu API.
 
 ### Tiêu đề Trang
 
@@ -95,13 +95,13 @@ Ví dụ như `autoUpdater` là một ví dụ:
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* Tất cả phương thức có trả về giá trị phải được bắt đầu bằng đoạn mô tả: "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Sử dụng tài liệu của các class `Session` và `Cookies` làm ví dụ:
 
 ```markdown
 # session
@@ -137,7 +137,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### Các phương thức
 
-The methods chapter must be in the following form:
+Chương viết về các phương thức phải viết trong các hình thức sau đây:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -219,4 +219,4 @@ Các bản dịch của tài liệu Electron nằm trong thư mục `docs-transl
 * Cập nhật các link tới các tập tin mà bạn đã dịch vào `README.md` nằm trong thư mục ngôn ngữ của bạn.
 * Thêm liên kết của thư mục ngôn ngữ đó của bạn vào trang [README](https://github.com/electron/electron#documentation-translations) chính của Electron.
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+Lưu ý rằng các file trong `docs-translations` chỉ bao gồm những bản dịch, những bản gốc tiếng Anh không xuất phát từ đó.
