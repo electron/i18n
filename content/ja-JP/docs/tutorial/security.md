@@ -24,9 +24,9 @@ A security issue exists whenever you receive code from a remote destination and 
 
 #### チェックリスト
 
-This is not bulletproof, but at the least, you should attempt the following:
+これで完全というわけではありませんが、最低でも以下のような対策を行う必要があるでしょう。
 
-* Only display secure (https) content
+* セキュリティで保護されたコンテンツ(https) のみ表示
 * Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
 * Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
 * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
@@ -41,4 +41,4 @@ This is not bulletproof, but at the least, you should attempt the following:
 * WebViews: Do not use `allowpopups`
 * WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。Webサイトを表示するためには、ブラウザがよりセキュアな選択肢になるでしょう。
