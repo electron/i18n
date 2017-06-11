@@ -1,6 +1,6 @@
-# Accessibility
+# アクセシビリティ
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+アクセシビリティの高いアプリケーションを作ることは重要です。開発者がすべてのユーザとってより良いアプリケーションを開発することを手助けする新機能「[Devtron](https://electron.atom.io/devtron)」および「[Spectron](https://electron.atom.io/spectron)」をご紹介いたします。
 
 * * *
 
@@ -20,7 +20,7 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+この機能の詳細は[Spectronのドキュメント](https://github.com/electron/spectron#accessibility-testing)にて閲覧できます。
 
 ### Devtron
 
