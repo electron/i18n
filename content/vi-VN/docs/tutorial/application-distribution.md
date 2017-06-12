@@ -2,7 +2,7 @@
 
 To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
 
-On macOS:
+Trên macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Trên Windows và Linux:
 
 ```text
 electron/resources/app
@@ -28,14 +28,14 @@ Apart from shipping your app by copying all of its source files, you can also pa
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+Trên macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Trên Windows và Linux:
 
 ```text
 electron/resources/
@@ -84,9 +84,9 @@ The structure of a renamed app would be like:
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Bạn có thể đổi tên file thực thi `electron` thành bất cứ tên nào mà bạn thích.
 
-## Packaging Tools
+## Công cụ đóng gói
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
@@ -111,16 +111,16 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 #### Creating a Custom Release with surf-build
 
-  1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+  1. Cài đặt [Surf](https://github.com/surf-build/surf), từ npm: `npm install -g surf-build@latest`
 
-  2. Create a new S3 bucket and create the following empty directory structure:
+  2. Tạo một bucket S3 và tạo một cây thư mục như sau vào trong đó:
     
         - atom-shell/
           - symbols/
           - dist/
         
 
-  3. Set the following Environment Variables:
+  3. Thiết lập các biến môi trường sau đây:
 
 * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
