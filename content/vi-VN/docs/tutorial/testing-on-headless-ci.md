@@ -6,7 +6,7 @@ Being based on Chromium, Electron requires a display driver to function. If Chro
 
 Đầu tiên, cài đặt [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
 
-Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will simply do nothing.
+Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. Trên Windows hay macOS, nó chỉ sẽ đơn giản là không cần phải làm gì.
 
     ## On Windows or macOS, this just invokes electron-mocha
     ## On Linux, if we are in a headless environment, this will be equivalent
@@ -39,4 +39,4 @@ Circle CI rất tuyệt vời và có xvfb và `$DISPLAY` [được thiết lậ
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+AppVeyor chạy trên Windows, hỗ trợ Selenium, Chrome, Electron và các công cụ out of the box tương tự - không cần phải cài đặt gì.
