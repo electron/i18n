@@ -100,7 +100,7 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Để làm trống task list của bạn, chỉ cần gọi lệnh `app.setUserTasks` với mỗi array empty:
 
 ```javascript
 const {app} = require('electron')
@@ -243,7 +243,7 @@ win.setDocumentEdited(true)
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+Trong webpage:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+Trong main process:
 
 ```javascript
 const {ipcMain} = require('electron')
