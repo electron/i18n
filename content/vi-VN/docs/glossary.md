@@ -16,11 +16,11 @@ Brightray is a low-level dependency of Electron that does not concern the majori
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Apple Disk Image là một định dạng đóng gói được sử dụng bởi macOS. Tập tin DMG thường được sử dụng để phân phối ứng dụng "installers". [electron-builder](https://github.com/electron-userland/electron-builder) hỗ trợ `dmg` như một build target.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC là viết tắt cho Inter-Process Communication. Electron sử dụng IPC để gửi các file tin nhắn JSON tuần tự giữa các [main process](#main-process) và [renderer process](#renderer-process).
 
 ### libchromiumcontent
 
@@ -36,7 +36,7 @@ Xem thêm: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
+Viết tắt của Apple's Mac App Store Để biết thêm chi tiết về cách gửi ứng dụng của bạn tới MAS, xem tại: [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
 
 ### các module native
 
