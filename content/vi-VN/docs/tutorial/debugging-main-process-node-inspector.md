@@ -20,9 +20,9 @@ npm install electron-rebuild --save-dev
 npm install electron-inspector --save-dev
 ```
 
-### 4. Start Electron
+### 4. Chạy Electron
 
-Launch Electron with the `--debug` switch:
+Chạy Electron với chế độ `--debug`:
 
 ```shell
 electron --debug=5858 your/app
@@ -34,15 +34,15 @@ or, to pause execution on the first line of JavaScript:
 electron --debug-brk=5858 your/app
 ```
 
-### 5. Start electron-inspector
+### 5. chạy electron-inspector
 
-On macOS / Linux:
+Trên macOS / Linux:
 
 ```shell
 node_modules/.bin/electron-inspector
 ```
 
-On Windows:
+Trên Windows:
 
 ```shell
 node_modules\\.bin\\electron-inspector
@@ -50,21 +50,21 @@ node_modules\\.bin\\electron-inspector
 
 `electron-inspector` will need to rebuild `node-inspector` dependencies on the first run, and any time you change your Electron version. The rebuild process may require an internet connection to download Node headers and libs, and may take a few minutes.
 
-### 6. Load the debugger UI
+### 6. Tải giao diện debugger
 
 Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome browser. You may have to click pause if starting with `--debug-brk` to force the UI to update.
 
-## Use `node-inspector` for Debugging
+## Sử dụng `node-inspector` cho việc Debug
 
 ### 1. Đầu tiên phải cài đặt công cụ [node-gyp](https://github.com/nodejs/node-gyp#installation)
 
-### 2. Install [`node-inspector`](https://github.com/node-inspector/node-inspector)
+### 2. Cài đặt [`node-inspector`](https://github.com/node-inspector/node-inspector)
 
 ```bash
 $ npm install node-inspector
 ```
 
-### 3. Install [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)
+### 3. Cài đặt [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)
 
 ```bash
 $ npm install node-pre-gyp
@@ -95,7 +95,7 @@ or, to pause your script on the first line:
 $ electron --debug-brk=5858 your/app
 ```
 
-### 6. Start the [`node-inspector`](https://github.com/node-inspector/node-inspector) server using Electron
+### 6. Chạy server [`node-inspector`](https://github.com/node-inspector/node-inspector) đang sử dụng Electron
 
 ```bash
 $ ELECTRON_RUN_AS_NODE=true path/to/electron.exe node_modules/node-inspector/bin/inspector.js
