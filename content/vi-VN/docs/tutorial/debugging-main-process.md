@@ -23,4 +23,4 @@ Like `--debug` but pauses execution on the first line of JavaScript.
 You will need to use a debugger that supports the V8 debugger protocol, the following guides should help you to get started:
 
 - [Debug Main Process trong VSCode](debugging-main-process-vscode.md)
-- [Debugging the Main Process in node-inspector](debugging-main-process-node-inspector.md)
+- [Debugg Main Process trong node-inspector](debugging-main-process-node-inspector.md)
