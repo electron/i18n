@@ -1,26 +1,26 @@
-# Application Packaging
+# Đóng góp ứng dụng
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
 
-## Generating `asar` Archive
+## Tạo ra một file `asar`
 
 An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
 Steps to package your app into an `asar` archive:
 
-### 1. Install the asar Utility
+### Cài đặt bộ Utility asar
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Đóng gói lại với `asar pack`
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Sử dụng các file đóng gói `asar`
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Độc một tập tin `asar`:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Danh sách ra tất cả các file trong thư mục root của asar:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Sử dụng một module từ file asar:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Bạn cũng có thể hiển thị một trang web trong `asar` với `BrowserWindow`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -122,7 +122,7 @@ APIs that requires extra unpacking are:
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - Sử dụng bởi `require` trên các module native
 
 ### Fake Stat Information of `fs.stat`
 
