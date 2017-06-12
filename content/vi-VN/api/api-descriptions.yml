@@ -46,7 +46,7 @@ app:
         description: >-
           The current application's name, which is the name in the application's package.json file.
     setName:
-      description: Overrides the current application's name.
+      description: Ghi đè lên tên ứng dụng hiện tại.
     getLocale:
       description: >-
         Note: When distributing your packaged app, you have to also ship the locales folder. Note: On Windows you have to call it after the ready events gets emitted.
@@ -144,9 +144,9 @@ app:
             The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
     getCurrentActivityType:
       returns:
-        description: The type of the currently running activity.
+        description: Các loại của các hoạt động hiện đang chạy.
     setAppUserModelId:
-      description: Changes the Application User Model ID to id.
+      description: Thay đổi Application User Model ID thành id.
     importCertificate:
       description: >-
         Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
@@ -330,7 +330,7 @@ app:
             switch:
               description: Một chuyển đổi dòng lệnh
             value:
-              description: A value for the given switch
+              description: Một giá trị cho các chuyển đổi nhất định
         appendArgument:
           description: >-
             Append an argument to Chromium's command line. The argument will be quoted correctly. Note: This will not affect process.argv.
@@ -347,7 +347,7 @@ app:
               description: >-
                 Can be `critical` or `informational`. The default is `informational`
           returns:
-            description: an ID representing the request.
+            description: một ID đại diện cho request.
         cancelBounce:
           description: Cancel the bounce of id.
         downloadFinished:
@@ -477,13 +477,13 @@ BrowserWindow:
             description: >-
               The width and height would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is false.
           - 
-            description: Show window in the center of the screen.
+            description: Hiển thị cửa sổ ở trung tâm của màn hình.
           - 
-            description: Window's minimum width. Default is 0.
+            description: Chiều rộng tối thiểu của cửa sổ. Mặc định là 0.
           - 
-            description: Window's minimum height. Default is 0.
+            description: Chiều cao tối thiểu của cửa sổ. Mặc định là 0.
           - 
-            description: Window's maximum width. Default is no limit.
+            description: Chiều rộng tối đa của cửa sổ. Mặc định là không có giới hạn.
           - 
             description: Chiều cao tối đa của cửa sổ. Mặc định là không có giới hạn.
           - 
@@ -618,13 +618,13 @@ BrowserWindow:
                 description: >-
                   Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is false.
               - 
-                description: Enables image support. Default is true.
+                description: Cho phép hỗ trợ hình ảnh. Mặc định là true.
               - 
-                description: Make TextArea elements resizable. Default is true.
+                description: Làm cho TextArea có thể thay đổi kích thước. Mặc định là true.
               - 
-                description: Enables WebGL support. Default is true.
+                description: Cho phép hỗ trợ WebGL. Mặc định là true.
               - 
-                description: Enables WebAudio support. Default is true.
+                description: Cho phép hỗ trợ WebAudio. Mặc định là true.
               - 
                 description: Whether plugins should be enabled. Default is false.
               - 
@@ -642,7 +642,7 @@ BrowserWindow:
                 description: >-
                   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to disable. The full list of supported feature strings can be found in the file.
               - 
-                description: Sets the default font for the font-family.
+                description: Cài đặt font mặc định cho font-family.
                 properties:
                   - 
                     description: Mặc định là Times New Roman.
@@ -827,9 +827,9 @@ BrowserWindow:
       description: Di chuyển cửa sổ tới tọa độ x và y.
     getPosition:
       returns:
-        description: Contains the window's current position.
+        description: Chứa các vị trí hiện tại của cửa sổ.
     setTitle:
-      description: Changes the title of native window to title.
+      description: Thay đổi tiêu đề của cửa sổ gốc.
     getTitle:
       description: >-
         Note: The title of web page can be different from the title of the native window.
@@ -921,7 +921,7 @@ BrowserWindow:
       description: >-
         Sets whether the window should have a shadow. On Windows and Linux does nothing.
     hasShadow:
-      description: On Windows and Linux always returns true.
+      description: Trên Windows và Linux luôn trả về true.
       returns:
         description: Whether the window has a shadow.
     setThumbarButtons:
@@ -934,7 +934,7 @@ BrowserWindow:
         Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: {x: 0, y: 0, width: 0, height: 0}.
       parameters:
         region:
-          description: Region of the window
+          description: Khu vực của cửa sổ
     setThumbnailToolTip:
       description: >-
         Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
@@ -1237,7 +1237,7 @@ clipboard:
       returns:
         description: The image content in the clipboard.
     writeImage:
-      description: Writes image to the clipboard.
+      description: Copy hình ảnh vào bộ nhớ tạm.
     readRTF:
       returns:
         description: The content in the clipboard as RTF.
@@ -1266,12 +1266,12 @@ clipboard:
         description: Whether the clipboard supports the specified format.
     read:
       returns:
-        description: Reads format type from the clipboard.
+        description: Đọc định dạng tập tin trong clipboard.
     readBuffer:
       returns:
-        description: Reads format type from the clipboard.
+        description: Đọc định dạng tập tin trong clipboard.
     write:
-      description: Writes data to the clipboard.
+      description: Ghi dữ liệu vào clipboard.
       parameters:
         data:
           properties:
@@ -1555,7 +1555,7 @@ dialog:
               description: >-
                 Custom label for the confirmation button, when left empty the default label will be used.
             message:
-              description: Message to display above text fields.
+              description: Tin nhắn được hiện thị phía trên các text field.
             nameFieldLabel:
               description: >-
                 Custom label for the text displayed in front of the filename text field.
@@ -1698,7 +1698,7 @@ DownloadItem:
         description: The complete url chain of the item including any redirects.
     getLastModifiedTime:
       returns:
-        description: Last-Modified header value.
+        description: Giá trị Last-Modified của header.
     getETag:
       returns:
         description: Các giá trị ETag trong header.
@@ -1750,7 +1750,7 @@ IncomingMessage:
         The data event is the usual method of transferring response data into applicative code.
       returns:
         chunk:
-          description: A chunk of response body's data.
+          description: Một đoạn dữ liệu của body của response.
     end:
       description: Indicates that response body has ended.
     aborted:
@@ -2530,7 +2530,7 @@ Session:
             length:
               description: Total length of the download.
             lastModified:
-              description: Last-Modified header value.
+              description: Giá trị Last-Modified của header.
             eTag:
               description: Các giá trị ETag trong header.
             startTime:
