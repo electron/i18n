@@ -2,7 +2,7 @@
 
 If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
 
-## Overview of Semantic Versioning
+## Tổng qua về Semantic Versioning
 
 Semantic versions are always made up of three numbers:
 
