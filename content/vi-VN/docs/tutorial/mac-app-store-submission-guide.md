@@ -71,16 +71,16 @@ And then sign your app with the following script:
 ```bash
 #!/bin/bash
 
-# Name of your app.
+# Tên ứng dụng của bạn.
 APP="YourApp"
-# The path of your app to sign.
+# Đường dẫn tới sign của ứng dụng của bạn.
 APP_PATH="/path/to/YourApp.app"
 # The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# Tên của các chứng chỉ mà bạn đã yêu cầu.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Đường dẫn của các file plist.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 
@@ -116,11 +116,11 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
-### Upload Your App
+### Tải ứng dụng của bạn lên
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
-### Submit Your App for Review
+### Submit ứng dụng của bạn cho việc review
 
 After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
