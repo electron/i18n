@@ -18,24 +18,24 @@ These are things to do in addition to updating the Electron code for any Chrome/
   - This should include upgrading the submodules in `vendor/` as needed
 - Verify debug builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - Windows 32-bit
+  - Windows 64-bit
+  - Linux 32-bit
+  - Linux 64-bit
   - ARM Linux
 - Verify release builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - Windows 32-bit
+  - Windows 64-bit
+  - Linux 32-bit
+  - Linux 64-bit
   - ARM Linux
 - Verify tests pass on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - Windows 32-bit
+  - Windows 64-bit
+  - Linux 32-bit
+  - Linux 64-bit
   - ARM Linux
 
 ## Verify ffmpeg Support
