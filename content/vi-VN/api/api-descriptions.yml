@@ -248,7 +248,7 @@ app:
             copyright:
               description: Thông tin bản quyền.
             credits:
-              description: Credit information.
+              description: Thông tin Credit.
             version:
               description: The app's build version number.
   events:
@@ -1662,7 +1662,7 @@ DownloadItem:
     canResume:
       description: Resumes Boolean - Whether the download can resume.
     cancel:
-      description: Cancels the download operation.
+      description: Hủy bỏ thao tác tải về.
     getURL:
       returns:
         description: The origin url where the item is downloaded from.
@@ -1676,7 +1676,7 @@ DownloadItem:
       description: >-
         Note: The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
       returns:
-        description: The file name of the download item.
+        description: Tên tập tin của các mục tải về.
     getTotalBytes:
       description: 'Nếu kích thước là unknown, nó trả về 0.'
       returns:
@@ -2239,7 +2239,7 @@ protocol:
                     uploadData:
                       properties:
                         contentType:
-                          description: MIME type of the content.
+                          description: MIME type của nội dung.
                         data:
                           description: Nội dung đã được gửi đi.
     unregisterProtocol:
