@@ -1,20 +1,20 @@
-# Debugging the Main Process in node-inspector
+# Debugg Main Process trong node-inspector
 
 [`node-inspector`](https://github.com/node-inspector/node-inspector) provides a familiar DevTools GUI that can be used in Chrome to debug Electron's main process, however, because `node-inspector` relies on some native Node modules they must be rebuilt to target the version of Electron you wish to debug. You can either rebuild the `node-inspector` dependencies yourself, or let [`electron-inspector`](https://github.com/enlight/electron-inspector) do it for you, both approaches are covered in this document.
 
 **Note**: At the time of writing the latest release of `node-inspector` (0.12.8) can't be rebuilt to target Electron 1.3.0 or later without patching one of its dependencies. If you use `electron-inspector` it will take care of this for you.
 
-## Use `electron-inspector` for Debugging
+## Sử dụng `electron-inspector` cho việc Debug
 
-### 1. Install the [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
+### 1. Đầu tiên phải cài đặt công cụ [node-gyp](https://github.com/nodejs/node-gyp#installation)
 
-### 2. Install [`electron-rebuild`](https://github.com/electron/electron-rebuild), if you haven't done so already.
+### 2. Cài đặt [`electron-rebuild`](https://github.com/electron/electron-rebuild).
 
 ```shell
 npm install electron-rebuild --save-dev
 ```
 
-### 3. Install [`electron-inspector`](https://github.com/enlight/electron-inspector)
+### 3. Cài đặt [`electron-inspector`](https://github.com/enlight/electron-inspector)
 
 ```shell
 npm install electron-inspector --save-dev
@@ -56,7 +56,7 @@ Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome brows
 
 ## Use `node-inspector` for Debugging
 
-### 1. Install the [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
+### 1. Đầu tiên phải cài đặt công cụ [node-gyp](https://github.com/nodejs/node-gyp#installation)
 
 ### 2. Install [`node-inspector`](https://github.com/node-inspector/node-inspector)
 
