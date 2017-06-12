@@ -1,13 +1,13 @@
-# Debugging the Main Process in VSCode
+# Debug Main Process trong VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Mở project Electron trong VSCode.
 
 ```bash
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Thêm file cài đặt `.vscode/launch.json`:
 
 ```json
 {
