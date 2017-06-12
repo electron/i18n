@@ -225,7 +225,7 @@ app:
                 true to open the app at login, false to remove the app as a login item. Defaults to false.
             openAsHidden:
               description: >-
-                true to open the app as hidden. Defaults to false. The user can edit this setting from the System Preferences so app.getLoginItemStatus().wasOpenedAsHidden should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+                trả về trung nếu mở app trong tình trạng hidden. Mặc định trả về false. Người dùng có thể thay đổi các cài đặt trong System Preferences, vì vậy app.getLoginItemStatus().wasOpenedAsHidden cần được kiểm tra khi ứng dụng được mở để biết giá trị hiện tại. Cài đặt này chỉ hỗ trợ cho macOS.
         path:
           description: The executable to launch at login. Defaults to `process.execPath`.
         args:
