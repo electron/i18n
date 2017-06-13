@@ -41,15 +41,15 @@ app:
           La version de l’application chargée. Si aucune version n’est trouvée dans le fichier package.json de l’application, la version du paquet actuel ou exécutable est retournée.
     getName:
       description: >-
-        Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
+        Le champ name du package.json est généralement un nom en minuscule, selon les spécifications modules npm. Vous devriez normalement spécifier un champ productName, qui est le nom de votre application en capital, et qui sera utilisé par préférence par Electron.
       returns:
         description: >-
-          The current application's name, which is the name in the application's package.json file.
+          Nom de l’application actuelle, qui est le champ name dans le fichier package.json de l’application.
     setName:
-      description: Overrides the current application's name.
+      description: Remplace le nom de l'application actuelle.
     getLocale:
       description: >-
-        Note: When distributing your packaged app, you have to also ship the locales folder. Note: On Windows you have to call it after the ready events gets emitted.
+        Remarque : Lorsque vous distribuez votre package, vous devrez également distribuer le dossier locales. Remarque : Sur Windows vous devez l’appeler après que l'événement ready soit émis.
       returns:
         description: >-
           The current application locale. Possible return values are documented here.
