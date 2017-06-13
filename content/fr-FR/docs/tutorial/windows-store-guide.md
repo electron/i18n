@@ -28,25 +28,25 @@ Package the application using [electron-packager](https://github.com/electron-us
 The output should look roughly like this:
 
     ├── Ghost.exe
-    ├── LICENSE
-    ├── content_resources_200_percent.pak
-    ├── content_shell.pak
-    ├── d3dcompiler_47.dll
-    ├── ffmpeg.dll
-    ├── icudtl.dat
-    ├── libEGL.dll
+    ├── LICENSE 
+    ├── content_resources_200_percent.pak 
+    ├── content_shell.pak 
+    ├── d3dcompiler_47.dll 
+    ├── ffmpeg.dll 
+    ├── icudtl.dat 
+    ├── libEGL.dll 
     ├── libGLESv2.dll
     ├── locales
-    │   ├── am.pak
-    │   ├── ar.pak
-    │   ├── [...]
-    ├── natives_blob.bin
-    ├── node.dll
-    ├── resources
-    │   ├── app
-    │   └── atom.asar
-    ├── snapshot_blob.bin
-    ├── squirrel.exe
+    │   ├── am.pak
+    │   ├── ar.pak 
+    │   ├── [...] 
+    ├── natives_blob.bin 
+    ├── node.dll 
+    ├── resources 
+    │   ├── app 
+    │   └── atom.asar 
+    ├── snapshot_blob.bin 
+    ├── squirrel.exe 
     └── ui_resources_200_percent.pak
     
 
