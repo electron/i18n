@@ -24,13 +24,13 @@ IPC est synonyme de Communication inter-processus. Electron utilise l'IPC pour e
 
 ### libchromiumcontent
 
-A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
+C'est une bibliothèque unique et partagée qui inclut le module Chromium Content et toutes ses dépendances (par ex., Blink, [V8](#v8), etc..).
 
-### processus principal
+### main process (processus principal)
 
-Le processus principal (main process), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Le processus principal (main process en Anglais), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. Il gère également les éléments natifs tels que le Menu, Meny Bar, Dock, Tray, etc.. Le processus principal est responsable de la création de chaque nouveau processus de rendu dans l’app. L'API Node y est complètement intégrée.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Le fichier du processus principal d'une app est spécifié dans la propriété `main` du `package.json`. C'est comme ça qu'`Electron` sait quel fichier exécuter au démarrage.
 
 Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
@@ -44,7 +44,7 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Voir aussi [Utilisation des modules natifs de Node](tutorial/using-native-node-modules.md).
 
 ## NSIS
 
