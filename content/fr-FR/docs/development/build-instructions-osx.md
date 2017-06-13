@@ -1,24 +1,24 @@
 # Instructions de Build (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Suivez les indications ci-dessous pour compiler Electron sur macOS.
 
 ## Prérequis
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](http://nodejs.org) (externe)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Si vous utilisez Python téléchargé par Homebrew, vous devez également installer les modules Python suivants :
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
-## macOS SDK
+## SDK macOS
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Si vous développez simplement sur Electron et ne prévoyez pas de redistribuer votre build d'Electron custom, vous pouvez ignorer cette section.
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+Pour que certaines fonctionnalités (par exemple pinch-zoom) fonctionnent correctement, vous devez cibler le SDK macOS 10.10.
 
-Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+Les builds officielles d'Electron sont compilés avec [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), qui ne contient pas le SDK 10.10 par défaut. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
 
 Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
 
@@ -85,4 +85,4 @@ $ npm run clean-build
 
 ## Tests
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Voir [Build System Overview : Tests](build-system-overview.md#tests)
