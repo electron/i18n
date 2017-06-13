@@ -16,9 +16,9 @@ Les nouvelles fonctionnalités de Node.js sont généralement ajoutées dans les
 
 ## Comment partager les données entre les pages web ?
 
-Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d’utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d’utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Quelques choix possible sont [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) et [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Ou vous pouvez utiliser le système IPC, qui est spécifique à Electron, pour stocker des objets dans le processus principal comme une variable globale, puis d’y accéder depuis les moteurs de rendu via la propriété `remote` du module `electron` :
 
 ```javascript
 // Dans le processus principal. 
@@ -37,16 +37,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Ma fenêtre/icône de mon application a disparu au bout de quelques minutes.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Cela se produit lorsque la variable qui sert à stocker la fenêtre/icône est détruite.
 
-If you encounter this problem, the following articles may prove helpful:
+Si vous rencontrez ce problème, les articles suivants peuvent s’avérer utiles :
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gestion de la mémoire](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Portée des variables](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Si vous voulez une solution rapide, vous pouvez mettre les variables en globale en changeant votre code de ceci :
 
 ```javascript
 const {app, Tray} = require('electron')
