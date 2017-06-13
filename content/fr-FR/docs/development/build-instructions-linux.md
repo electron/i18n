@@ -153,7 +153,7 @@ $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using other compilers other than `clang`
+### Utiliser un compilateur autre que `clang`
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
