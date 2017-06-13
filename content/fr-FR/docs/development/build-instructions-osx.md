@@ -55,33 +55,33 @@ Compiler une version `Release` et une version `Debug` :
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Vous pouvez également compiler seulement une version `Debug` :
 
 ```bash
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+Une fois la compilation terminée, vous trouverez `Electron.app` dans `out/D`.
 
 ## Support 32 bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron ne peut être compiler qu'en 64 bit sur macOS et il n'est pas prévu d'avoir un support 32 bit sur macOS dans le futur.
 
-## Cleaning
+## Nettoyage
 
-To clean the build files:
+Pour nettoyer les fichiers de build :
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Pour nettoyer uniquement les répertoires `out` et `dist` :
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Remarque :** Les deux commandes de nettoyage requière l’exécution de `bootstrap`.
 
 ## Tests
 
