@@ -74,11 +74,11 @@ You'll need to set the following environment variables to publish a release. Ask
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - A personal access token with "repo" scope.
+- `ELECTRON_GITHUB_TOKEN` - un jeton d’accès personnelle avec le scope « repo ».
 
-You will only need to do this once.
+Vous aurez besoin de le faire seulement une fois.
 
-## Publish the release
+## Publier la release
 
 This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
 
@@ -88,7 +88,7 @@ npm run release
 
 Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
 
-## Delete the temporary branch
+## Supprimer la branche temporaire
 
 ```sh
 git checkout master
