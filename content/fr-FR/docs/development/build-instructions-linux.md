@@ -24,12 +24,12 @@ Sur RHEL / CentOS, installez les bibliothèques suivantes :
 
 ```bash
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
-                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Sur Fedora, installez les bibliothèques suivantes :
 
 ```bash
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -40,13 +40,13 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Les autres distributions peuvent offrir des packages similaires pour l’installation via les gestionnaires de paquets tels que pacman. Ou l'un pouvant compiler depuis les codes sources.
 
-## Getting the Code
+## Obtenir le Code
 
 ```bash
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## Amorçage
 
 Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Vous devez avoir Python 2.7.x pour le bon fonctionnement du script. Le téléchargement de certains fichiers peut prendre un certain temps. Pour information, nous utilisons`ninja` pour compiler Electron, donc il n’y a aucun `Makefile` généré.
 
@@ -61,7 +61,7 @@ If you want to build for an `arm` target you should also install the following d
 
 ```bash
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
-                       g++-arm-linux-gnueabihf
+                        g++-arm-linux-gnueabihf
 ```
 
 And to cross compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
@@ -72,7 +72,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Compilation
 
-If you would like to build both `Release` and `Debug` targets:
+Compiler une version `Release` et une version `Debug` :
 
 ```bash
 $ ./script/build.py
@@ -86,33 +86,33 @@ $ ./script/create-dist.py
 
 This will put a working distribution with much smaller file sizes in the `dist` directory. After running the create-dist.py script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-You can also build the `Debug` target only:
+Vous pouvez également compiler seulement une version `Debug` :
 
 ```bash
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Une fois la compilation terminée, vous trouverez un binaire de debug `Electron` dans `out/D`.
 
-## Cleaning
+## Nettoyage
 
-To clean the build files:
+Pour nettoyer les fichiers de build :
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Pour nettoyer uniquement les répertoires `out` et `dist` :
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Remarque :** Les deux commandes de nettoyage requière l’exécution de `bootstrap`.
 
-## Troubleshooting
+## Résolution de problème
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### Erreur lors du chargement Shared Libraries : libtinfo.so.5
 
 Prebulit `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
@@ -122,13 +122,13 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tests
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Voir [Build System Overview : Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## Sujets Avancés
 
 The default building configuration is targeted for major desktop Linux distributions, to build for a specific distribution or device, following information may help you.
 
-### Building `libchromiumcontent` locally
+### Compiler `libchromiumcontent` localement
 
 To avoid using the prebuilt binaries of `libchromiumcontent`, you can pass the `--build_libchromiumcontent` switch to `bootstrap.py` script:
 
@@ -164,7 +164,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disab
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Variables d'environnement
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
