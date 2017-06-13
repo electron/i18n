@@ -1,0 +1,58 @@
+---
+tagline: Construcción transversal aplicaciones de escritorio plataforma con JavaScript, HTML y CSS
+nav:
+  docs: Docs
+  blog: Blog
+  community: Comunidad
+  apps: Aplicaciones
+  userland: Entorno de usuario
+  releases: Comunicados
+  contact: Contacto
+electron_is_easy:
+  title: Es más fácil que usted piensa
+  description: Si usted puede construir un sitio web, usted puede construir una computadora de escritorio la bobina electrónica es un framework para crear aplicaciones nativas con tecnologías web como JavaScript, HTML y CSS. Se encarga de las partes duras, para que pueda concentrarse en el núcleo de la aplicación.
+  video_link: Ver el video
+web_technologies:
+  title: Tecnologías web
+  description: Electrónica usa cromo y Node.js así que usted puede construir su aplicación con HTML, CSS y JavaScript.
+open_source:
+  title: Open Source
+  desciption: Electrón es un proyecto de código abierto, mantenido por GitHub y una comunidad activa de colaboradores.
+cross_platform:
+  title: Cruz plataforma
+  description: Compatible con Mac, Windows y Linux, aplicaciones de electrónica construirán y ejecutan en tres plataformas.
+benefits:
+  hard_parts_made_easy: Las piezas duras que se realizan de manera sencilla
+  automatic_updates: Actualizaciones automáticas
+  native_menus_and_notifications: Menús nativos y notificaciones
+  crash_reporting: Reporte de accidente
+  debugging_and_profiling: Depuración y generación de perfiles
+  windows_installers: Instaladores de Windows
+get_started:
+  title: Empezar
+  description: Para empezar con la electrónica, consulte los recursos siguientes. Aprende a envolver tu aplicación web con electrón, acceder a todas las APIs y generar a instaladores.
+explore:
+  title: Explorar las APIs de electrón
+  description:
+    - 'La app</a> de API Demos <a href="https://github.com/electron/electron-api-demos">Electron'
+    - forma interactiva muestra las características más importantes de la API de electrón.
+    - Ver lo que es posible con electrónica con código de ejemplo y consejos útiles para
+    - la construcción de su aplicación.
+download_from_github: Descargar desde GitHub
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View todos releases</a> en GitHub'
+quick_start:
+  title: "Girar la aplicación de Start</a> de <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick ver electrónica en acción:"
+  description: Una mínima aplicación de electrón con útiles anotaciones.
+  clone: Clonar el repositorio de inicio rápido
+  go_into_repo: Ir al repositorio
+  install_deps: Instalar las dependencias y ejecutar
+  dive_deeper: 'O bucear más profundo y lea la <a href=''https://electron.atom.io/docs/''>documentation</a>.'
+need_help:
+  title: '¿Necesita ayuda?'
+  description: 'Preguntas en el foro de <a href=''https://discuss.atom.io/c/electron''>Discuss</a> o en nuestro canal de <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Sigue <a href="https://twitter.com/ElectronJS">@ElectronJS</a> en Twitter para avisos importantes. ¿Necesidad privada llegar? Correo electrónico <a href="mailto:electron@github.com">electron@github.com</a>.'
+apps:
+  title: Aplicaciones en electrónica
+  description: 'Con el electrón, es fácil crear una aplicación de escritorio para su empresa o idea. Inicialmente desarrollado para editor</a> de <a href=''https://atom.io'' target=''_blank''>Atom de GitHub, electrón se desde entonces ha utilizado para crear aplicaciones por empresas como Microsoft, Facebook, holgura y Docker.'
+  view_more: Ver más aplicaciones
+  submit_your_own: enviar su propio
+or: o

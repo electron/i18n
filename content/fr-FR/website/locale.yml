@@ -1,0 +1,57 @@
+tagline: Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS
+nav:
+  docs: Docs
+  blog: Blog
+  community: Communauté
+  apps: Apps
+  userland: Userland
+  releases: Versions
+  contact: Contact
+electron_is_easy:
+  title: C'est plus facile que vous ne le pensiez
+  description: Si vous pouvez développer un site, vous pouvez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme le JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
+  video_link: Voir la vidéo
+web_technologies:
+  title: Technologies Web
+  description: Electron utilise Chromium et Node.js pour que vous puissez développer avec HTML, CSS et JavaScript.
+open_source:
+  title: Open Source
+  desciption: Electron est un projet open source maintenu par GitHub et par une communauté active de contributeurs.
+cross_platform:
+  title: Multi-Plateformes
+  description: Compatible avec Mac, Windows et Linux, les applications Electron sont développées et utilisées sur ces trois plateformes.
+benefits:
+  hard_parts_made_easy: Fini les détails trop techniques
+  automatic_updates: Mises à jour automatiques
+  native_menus_and_notifications: Notifications & menus natif
+  crash_reporting: Rapport de plantage
+  debugging_and_profiling: Debugging & profiling
+  windows_installers: Installateurs Windows
+get_started:
+  title: Premier pas
+  description: Pour commencer avec Electron, consultez les ressources ci-dessous. Vous apprendrez comment développer votre app web avec Electron, accéder aux APIs et générer des installateurs.
+explore:
+  title: Découvrir les APIs d'Electron
+  description:
+    - 'L''application <a href="https://github.com/electron/electron-api-demos">Electron API Demos</a>'
+    - démontre de façon interactive les caractéristiques les plus importantes de l'API Electron.
+    - Voyez ce qui est possible avec Electron avec des exemples et des conseils utiles pour
+    - développer votre app.
+download_from_github: Télécharger depuis GitHub
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Voir toutes les versions</a> sur GitHub'
+quick_start:
+  title: "Faites tourner l'application <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> pour voir Electron en action :"
+  description: Une application Electron minimale avec des notes utiles.
+  clone: Clonez le dépôt Quick Start
+  go_into_repo: Allez dans le dépôt
+  install_deps: Installez les dépendances et lancez l'app
+  dive_deeper: 'Ou allez plus loin en lisant la <a href=''https://electron.atom.io/docs/''>documentation</a>.'
+need_help:
+  title: Besoin d’aide ?
+  description: 'Posez vos questions sur le forum <a href=''https://discuss.atom.io/c/electron''>Discussion</a> ou sur notre channel <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Suivez <a href="https://twitter.com/ElectronJS">@ElectronJS</a> sur Twitter pour les annonces importantes. Besoin de nous contacter directement ? Envoyez un email à <a href="mailto:electron@github.com">electron@github.com</a>.'
+apps:
+  title: Apps développées sur Electron
+  description: 'Avec Electron, il est facile de créer des applications desktop pour votre entreprise ou votre projet. Initialement développé pour <a href=''https://atom.io'' target=''_blank''>l''éditeur Atom</a> de GitHub, Electron est maintenant utilisé pour créer des applications par des entreprises comme Microsoft, Facebook, Slack ou encore Docker.'
+  view_more: Voir plus d'applications
+  submit_your_own: proposer votre app
+or: ou
