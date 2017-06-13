@@ -66,33 +66,33 @@ app:
           description: >-
             Le nom de votre protocole, sans `://`. Si vous souhaitez que votre application gère le protocol `electron://`, appelez cette méthode avec `electron` comme paramètre.
         path:
-          description: Defaults to `process.execPath`
+          description: Par défaut, `process.execPath`
         args:
-          description: Defaults to an empty array
+          description: Par défaut, un tableau vide
       returns:
-        description: Whether the call succeeded.
+        description: Si l’appel a réussi.
     removeAsDefaultProtocolClient:
       description: >-
-        This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+        Cette méthode vérifie si l'application actuel est l'application par défaut pour un protocole (aka le modèle URI). Si c'est le cas, il retirera l’application comme application par défaut.
       parameters:
         protocol:
-          description: 'The name of your protocol, without `://`.'
+          description: 'Le nom de votre protocole, sans `://`.'
         path:
           description: Par défaut, « process.execPath »
         args:
-          description: Defaults to an empty array
+          description: Par défaut, un tableau vide
       returns:
-        description: Whether the call succeeded.
+        description: Si l’appel a réussi.
     isDefaultProtocolClient:
       description: >-
         This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
       parameters:
         protocol:
-          description: 'The name of your protocol, without `://`.'
+          description: 'Le nom de votre protocole, sans `://`.'
         path:
-          description: Defaults to `process.execPath`
+          description: Par défaut, `process.execPath`
         args:
-          description: Defaults to an empty array
+          description: Par défaut, un tableau vide
     setUserTasks:
       description: >-
         Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
@@ -100,7 +100,7 @@ app:
         tasks:
           description: Array of `Task` objects
       returns:
-        description: Whether the call succeeded.
+        description: Si l’appel a réussi.
     getJumpListSettings:
       returns:
         properties:
@@ -171,7 +171,7 @@ app:
       description: >-
         Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
       returns:
-        description: Whether the call succeeded.
+        description: Si l’appel a réussi.
     getBadgeCount:
       returns:
         description: The current value displayed in the counter badge.
