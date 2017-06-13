@@ -20,7 +20,7 @@ app:
       description: Masque toutes les fenêtres d’application sans les minimiser.
     show:
       description: >-
-        Shows application windows after they were hidden. Does not automatically focus them.
+        Montre les fenêtres d’application après qu’ils étaient cachés. Ne les cibles pas automatiquement.
     getAppPath:
       returns:
         description: Le répertoire de l’application actuelle.
@@ -28,10 +28,10 @@ app:
       description: 'Vous pouvez demander les chemins suivants sous le nom :'
       returns:
         description: >-
-          A path to a special directory or file associated with name. On failure an Error is thrown.
+          Un chemin vers un répertoire spécial ou un fichier associé avec name. Si une erreur survient, une Error est générée.
     getFileIcon:
       description: >-
-        Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
+        Récupère l’icône associée à un chemin. Sous Windows, il y a 2 sortes d’icônes : sous Linux et macOS, les icônes dépendent de l’application associée au fichier type mime.
     setPath:
       description: >-
         Overrides the path to a special directory or file associated with name. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an Error is thrown. You can only override paths of a name defined in app.getPath. By default, web pages' cookies and caches will be stored under the userData directory. If you want to change this location, you have to override the userData path before the ready event of the app module is emitted.
