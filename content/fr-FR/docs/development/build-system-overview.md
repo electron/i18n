@@ -2,7 +2,7 @@
 
 Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
 
-## Gyp Files
+## Fichiers gyp
 
 Following `gyp` files contain the main rules for building Electron:
 
