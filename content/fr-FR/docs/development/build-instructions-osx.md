@@ -18,29 +18,29 @@ Si vous développez simplement sur Electron et ne prévoyez pas de redistribuer 
 
 Pour que certaines fonctionnalités (par exemple pinch-zoom) fonctionnent correctement, vous devez cibler le SDK macOS 10.10.
 
-Les builds officielles d'Electron sont compilés avec [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), qui ne contient pas le SDK 10.10 par défaut. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+Les builds officielles d'Electron sont compilés avec [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), qui ne contient pas le SDK 10.10 par défaut. Pour l’obtenir, commencez par télécharger et monter le DMG [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg).
 
-Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
+Puis, en supposant que le DMG Xcode 6.4 a été monté dans `/Volumes/Xcode` et que votre installation Xcode 8.2.1 est dans `/Applications/Xcode.app`, exécutez :
 
 ```bash
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+Vous devrez aussi activer Xcode pour compiler avec le SDK 10.10 :
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Ouvrir `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- Mettre la valeur `MinimumSDKVersion` à `10.10`
+- Sauvegarder le fichier
 
-## Getting the Code
+## Obtenir le code
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Amorçage
 
-Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Nous utilisons [ninja](https://ninja-build.org/) pour compiler Electron, donc il n'y a aucun projet Xcode généré.
 
 ```bash
 $ cd electron
@@ -49,7 +49,7 @@ $ ./script/bootstrap.py -v
 
 ## Compilation
 
-Build both `Release` and `Debug` targets:
+Compiler une version `Release` et une version `Debug` :
 
 ```bash
 $ ./script/build.py
@@ -63,7 +63,7 @@ $ ./script/build.py -c D
 
 After building is done, you can find `Electron.app` under `out/D`.
 
-## 32bit Support
+## Support 32 bit
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
