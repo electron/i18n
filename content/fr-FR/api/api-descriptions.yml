@@ -15,7 +15,7 @@ app:
         description: 'true is Electron a terminé l''initialisation, sinon false.'
     focus:
       description: >-
-        On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+        Sur Linux, cela cible la première fenêtre visible. Sur macOS, cela met l'application comme étant l'app active. Sur Windows, cela cible la première fenêtre de l'application.
     hide:
       description: Masque toutes les fenêtres d’application sans les minimiser.
     show:
