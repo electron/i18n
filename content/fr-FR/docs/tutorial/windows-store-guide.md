@@ -55,11 +55,11 @@ The output should look roughly like this:
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
     electron-windows-store `
-        --input-directory C:\myelectronapp `
-        --output-directory C:\output\myelectronapp `
-        --flatten true `
-        --package-version 1.0.0.0 `
-        --package-name myelectronapp
+       --input-directory C:\myelectronapp `
+       --output-directory C:\output\myelectronapp `
+       --flatten true `
+       --package-version 1.0.0.0 `
+       --package-name myelectronapp
     
 
 Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
