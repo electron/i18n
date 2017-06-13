@@ -17,13 +17,13 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## Obtenir le Code
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## Amorçage
 
 Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
@@ -66,27 +66,27 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## Nettoyage
 
-To clean the build files:
+Pour nettoyer les fichiers de build :
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Pour nettoyer uniquement les répertoires `out` et `dist` :
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Remarque :** Les deux commandes de nettoyage requière l’exécution de `bootstrap`.
 
 ## Tests
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Voir [Build System Overview : Tests](build-system-overview.md#tests)
 
-## Troubleshooting
+## Résolution de problème
 
 ### Command xxxx not found
 
