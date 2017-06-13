@@ -60,11 +60,11 @@ app:
       description: Efface la liste des documents récents.
     setAsDefaultProtocolClient:
       description: >-
-        This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+        Cette méthode définit l'exécutable actuel comme application par défaut pour un protocole (aka le modèle URI). Il vous permet d'intégrer votre application plus profondément dans le système d'exploitation. Une fois enregistré, tout les liens avec votre-protocol:// seront ouvert avec votre application. Le lien entier, y compris le protocol, sera transmis à votre application comme paramètre. Sous Windows, vous pouvez fournir les paramètres optionnels path, le chemin vers votre application, et args, un tableau d'arguments à passer à votre application lors de son lancement. Remarque : Sur macOS, vous pouvez enregistrer uniquement les protocoles qui ont été ajoutés au fichier info.plist de votre application, qui ne peuvent pas pas être modifiés lors de son exécution. Vous pouvez toutefois modifier le fichier avec un éditeur de texte ou via un script durant la compilation. Veuillez vous reporter à la documentation d'Apple pour plus de détails. L’API utilise le registre de Windows et LSSetDefaultHandlerForURLScheme en interne.
       parameters:
         protocol:
           description: >-
-            The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+            Le nom de votre protocole, sans `://`. Si vous souhaitez que votre application gère le protocol `electron://`, appelez cette méthode avec `electron` comme paramètre.
         path:
           description: Defaults to `process.execPath`
         args:
