@@ -85,7 +85,7 @@ app:
         description: Si l’appel a réussi.
     isDefaultProtocolClient:
       description: >-
-        This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+        Cette méthode vérifie si l'application actuelle est l'application par défaut pour un protocole (aka le modèle URI). Si cela est le cas, elle retournera true. Sinon elle retournera false. Remarque : Sur macOS, vous pouvez utiliser cette méthode pour vérifier si l'application à bien été enregistrée comme application par défaut d'un protocol. Vous pouvez également vérifier cela en vérifiant ~/Library/Preferences/com.apple.LaunchServices.plist sur le macOS. Veuillez vous reporter à la documentation d’Apple pour plus de détails. L’API utilise le registre de Windows et LSCopyDefaultHandlerForURLScheme en interne.
       parameters:
         protocol:
           description: 'Le nom de votre protocole, sans `://`.'
