@@ -52,12 +52,12 @@ app:
         Remarque : Lorsque vous distribuez votre package, vous devrez également distribuer le dossier locales. Remarque : Sur Windows vous devez l’appeler après que l'événement ready soit émis.
       returns:
         description: >-
-          The current application locale. Possible return values are documented here.
+          La langue de l'application actuelle. Les valeurs de retour possibles sont documentés ici.
     addRecentDocument:
       description: >-
-        Adds path to the recent documents list. This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+        Ajoute path dans la liste des documents récents. Cette liste est gérée par l'OS. Sur Windows, vous pouvez voir la liste depuis la barre des tâches et sur macOS, vous pouvez la voir depuis le menu du dock.
     clearRecentDocuments:
-      description: Clears the recent documents list.
+      description: Efface la liste des documents récents.
     setAsDefaultProtocolClient:
       description: >-
         This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
