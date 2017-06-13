@@ -100,26 +100,26 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Lorsque vous utilisez le module intégré d'Electron, vous pouvez obtenir une erreur comme celle-ci :
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+C’est parce que vous avez le [module `Electron` npm](https://www.npmjs.com/package/electron) installé localement ou en global, qui remplace le module intégré d'Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Pour vérifier si vous utilisez le module intégré correct, vous pouvez afficher le chemin d’accès du module `Electron` ainsi :
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+et ensuite vérifier si elle est sous la forme suivante :
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Si c’est quelque chose comme `node_modules/electron/index.js`, vous devrez retirer le module `Electron` de npm ou le renommer.
 
 ```bash
 npm uninstall electron
