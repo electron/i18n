@@ -34,11 +34,11 @@ app:
         Récupère l’icône associée à un chemin. Sous Windows, il y a 2 sortes d’icônes : sous Linux et macOS, les icônes dépendent de l’application associée au fichier type mime.
     setPath:
       description: >-
-        Overrides the path to a special directory or file associated with name. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an Error is thrown. You can only override paths of a name defined in app.getPath. By default, web pages' cookies and caches will be stored under the userData directory. If you want to change this location, you have to override the userData path before the ready event of the app module is emitted.
+        Remplace le chemin d’accès par un répertoire spécial ou un fichier associé au name. Si le chemin d’accès spécifie un répertoire qui n’existe pas, le répertoire sera créé par cette méthode. Si une erreur survient, une Error est retournée. Vous pouvez remplacer uniquement les chemins d’un name définis dans app.getPath. Par défaut, les cookies et caches des pages web seront stockées dans le répertoire userData. Si vous souhaitez modifier cet emplacement, vous devez remplacer le chemin d’accès userData avant que l'événement ready du module app soit émis.
     getVersion:
       returns:
         description: >-
-          The version of the loaded application. If no version is found in the application's package.json file, the version of the current bundle or executable is returned.
+          La version de l’application chargée. Si aucune version n’est trouvée dans le fichier package.json de l’application, la version du paquet actuel ou exécutable est retournée.
     getName:
       description: >-
         Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
