@@ -57,10 +57,10 @@ Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/Mac
 To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
 
 ```bash
-(lldb) frame variable
-(atom::Browser *) this = 0x0000000108b14f20
+(lldb) frame variable 
+(atom::Browser *) this = 0x0000000108b14f20 
 (const string &) name = "Electron": {
-    [...]
+   [...]
 }
 ```
 
@@ -84,7 +84,7 @@ To finish debugging at this point, run `process continue`. You can also continue
 
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
-### Further Reading
+### Lectures additionnelles
 
 LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
