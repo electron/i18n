@@ -14,7 +14,7 @@ Electron được duy trì bởi một nhóm tại GitHub và một nhóm [hoạ
 
 ## Các phiên bản phát hành
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron phát hành các phiên bản](https://github.com/electron/electron/releases) thường xuyên. Chúng tôi phát hành khi có lỗi quan trọng, API hoặc được cập nhật phiên bản mới từ Chrome hoặc Node.js.
 
 ### Updating Dependencies
 
@@ -44,13 +44,13 @@ New features added to Electron should primarily be native APIs. If a feature can
 
 ## Lịch sử
 
-Below are milestones in Electron's history.
+Dưới đây là các dấu mốc trong lịch sử của Electron.
 
-| :calendar:         | :tada:                                                                                                                |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| **Tháng tư 2013**  | [Atom Shell được bắt đầu](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
-| **Tháng năm 2014** | [Atom Shell công khai mã nguồn mở](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                      |
-| **Tháng tư 2015**  | [Atom Shell được đặt tên lại thành Electron](https://github.com/electron/electron/pull/1389).                         |
-| **May 2016**       | [Electron releases `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).                                  |
-| **May 2016**       | [Electron apps compatible with Mac App Store](https://electron.atom.io/docs/tutorial/mac-app-store-submission-guide). |
-| **August 2016**    | [Windows Store support for Electron apps](https://electron.atom.io/docs/tutorial/windows-store-guide).                |
+| :calendar:         | :tada:                                                                                                                                  |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tháng tư 2013**  | [Atom Shell được bắt đầu](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).                        |
+| **Tháng năm 2014** | [Atom Shell công khai mã nguồn mở](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                        |
+| **Tháng tư 2015**  | [Atom Shell được đặt tên lại thành Electron](https://github.com/electron/electron/pull/1389).                                           |
+| **Tháng năm 2016** | [Electron phát hành phiên bản `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).                                         |
+| **Tháng năm 2016** | [Các ứng dụng Electron đã có thể tương thích với Mac App Store](https://electron.atom.io/docs/tutorial/mac-app-store-submission-guide). |
+| **Tháng tám 2016** | [Windows Store đã hỗ trợ các ứng dụng Electron](https://electron.atom.io/docs/tutorial/windows-store-guide).                            |
