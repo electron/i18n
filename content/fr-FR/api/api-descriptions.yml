@@ -95,7 +95,7 @@ app:
           description: Par défaut, un tableau vide
     setUserTasks:
       description: >-
-        Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
+        Ajoute tasks à la catégorie Tasks de la Liste de raccourcis sur Windows. tasks est un tableau d'objets Task. Remarque : Si vous souhaitez personnaliser encore plus la liste de raccourcis, utilisez à la place app.setJumpList(categories).
       parameters:
         tasks:
           description: Tableau d’objets `Task`
@@ -106,7 +106,7 @@ app:
         properties:
           - 
             description: >-
-              The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
+              Le nombre minimal d’éléments qui seront affichés dans la liste de raccourcis (pour une description plus détaillée de cette valeur, consultez la ).
           - 
             description: >-
               Array of JumpListItem objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the call to app.setJumpList(), Windows will not display any custom category that contains any of the removed items.
