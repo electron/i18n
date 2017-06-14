@@ -98,7 +98,7 @@ app:
         Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
       parameters:
         tasks:
-          description: Array of `Task` objects
+          description: Tableau d’objets `Task`
       returns:
         description: Si l’appel a réussi.
     getJumpListSettings:
