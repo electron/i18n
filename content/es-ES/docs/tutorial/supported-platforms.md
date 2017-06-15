@@ -14,9 +14,9 @@ Ambos `ia32` (`x86`) y `x64` (`amd64`) binarios se proporcionan para Windows. Te
 
 ### Linux
 
-`ia32` precompilados (`i686`) y `x64` (`amd64`) binarios de electrón se basan en Ubuntu 12.04, el `arm` binario se construye contra ARM v7 con ABI y neón duro flotador para Debian Wheezy.
+`ia32` precompilados (`i686`) y `x64` (`amd64`) binarios de Electron se basan en Ubuntu 12.04, el `arm` binario se construye contra ARM v7 con ABI y neón duro flotador para Debian Wheezy.
 
-Si puede ejecutar el binario precompilado en una distribución depende de si la distribución incluye las librerías que electrón es en la plataforma de la construcción, tan sólo Ubuntu 12.04 es garantizado al trabajo, pero las plataformas siguientes también son verificados para poder ejecutar los binarios pre-compilados de electrón:
+Si puede ejecutar el binario precompilado en una distribución depende de si la distribución incluye las librerías que Electron es en la plataforma de la construcción, tan sólo Ubuntu 12.04 es garantizado al trabajo, pero las plataformas siguientes también son verificados para poder ejecutar los binarios pre-compilados de Electron:
 
 * Ubuntu 12.04 y posteriormente
 * Fedora 21
