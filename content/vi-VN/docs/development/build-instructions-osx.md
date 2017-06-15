@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on macOS.
 
-## Prerequisites
+## Điều kiện yêu cầu
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
@@ -47,7 +47,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## Xây dựng
 
 Build both `Release` and `Debug` targets:
 
@@ -67,9 +67,9 @@ After building is done, you can find `Electron.app` under `out/D`.
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
-## Cleaning
+## Dọn dẹp
 
-To clean the build files:
+Để dọn các file build:
 
 ```bash
 $ npm run clean
@@ -83,6 +83,6 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## Thử nghiệm
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
