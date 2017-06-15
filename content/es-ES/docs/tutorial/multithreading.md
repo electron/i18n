@@ -4,7 +4,7 @@ Con [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/
 
 ## Multi-threaded Node.js
 
-Es posible utilizar Node.js características en trabajadores de la Web de electrónica, para ello debe establecerse la opción de `nodeIntegrationInWorker` en `true` en `webPreferences`.
+Es posible utilizar Node.js características en trabajadores de la Web de Electron, para ello debe establecerse la opción de `nodeIntegrationInWorker` en `true` en `webPreferences`.
 
 ```javascript
 dejó de ganar = new BrowserWindow ({webPreferences: {
@@ -16,7 +16,7 @@ La `nodeIntegrationInWorker` puede ser utilizado independiente de `nodeIntegrati
 
 ## APIs disponibles
 
-Todos los módulos integrados de Node.js son compatibles con Web Workers y `asar` archivos se pueden leer todavía con Node.js APIs. Sin embargo ninguno de los módulos incorporados del electrón puede utilizarse en un entorno multiproceso.
+Todos los módulos integrados de Node.js son compatibles con Web Workers y `asar` archivos se pueden leer todavía con Node.js APIs. Sin embargo ninguno de los módulos incorporados del Electron puede utilizarse en un entorno multiproceso.
 
 ## Módulos nativos de Node.js
 
