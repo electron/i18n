@@ -22,11 +22,11 @@ $ asar paquete su aplicación app.asar
 
 ## Usando archivos de `asar`
 
-En electrónica hay dos conjuntos de API: API de nodo proporcionadas por Node.js y API Web proporcionadas por el cromo. Ambas APIs admiten archivos de lectura de archivos de `asar`.
+En Electron hay dos conjuntos de API: API de nodo proporcionadas por Node.js y API Web proporcionadas por el cromo. Ambas APIs admiten archivos de lectura de archivos de `asar`.
 
 ### Nodo de API
 
-Con parches especiales en electrónica, nodo API como `fs.readFile` y `require` tratan `asar` archivos como directorios virtuales y los archivos como archivos normales en el sistema de archivos.
+Con parches especiales en Electron, nodo API como `fs.readFile` y `require` tratan `asar` archivos como directorios virtuales y los archivos como archivos normales en el sistema de archivos.
 
 Por ejemplo, supongamos que tenemos un archivo de `example.asar` bajo la ruta/`/to`:
 
@@ -96,7 +96,7 @@ Aunque `asar` archivos son tratados como directorios, no hay directorios reales 
 
 ### Adicionales desempacar en algunas API
 
-Mayoría `fs` APIs puede leer un archivo u obtener información de un archivo de `asar` archivos sin descomprimir, pero para algunas APIs que se basan en pasar la ruta del archivo real a llamadas del sistema subyacente, electrón será extraer los archivos necesarios en un archivo temporal y pasar la ruta del archivo temporal a las APIs para hacerlos funcionar. Agrega un poco arriba de las APIs.
+Mayoría `fs` APIs puede leer un archivo u obtener información de un archivo de `asar` archivos sin descomprimir, pero para algunas APIs que se basan en pasar la ruta del archivo real a llamadas del sistema subyacente, Electron será extraer los archivos necesarios en un archivo temporal y pasar la ruta del archivo temporal a las APIs para hacerlos funcionar. Agrega un poco arriba de las APIs.
 
 API que requiere desempacar extra son:
 
