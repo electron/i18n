@@ -24,7 +24,7 @@ Además, en Windows 8, la longitud máxima para el cuerpo de la notificación es
 
 Versiones posteriores de Windows permitan notificaciones avanzadas, plantillas, imágenes y otros elementos flexibles. Para enviar las notificaciones (desde el proceso principal o el proceso de renderizado), utilice el modo de usuario módulo[electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), que utiliza nativo addons de nodo para enviar objetos `ToastNotification` y `TileNotification`.
 
-Mientras que las notificaciones incluyendo botones trabajan con solo `electron-windows-notifications`, manejo de respuestas requiere el uso de [`electron-windows-interactivos-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), que ayuda a registrar los componentes COM y llamar a la aplicación de la electrónica con los datos de usuario ingresados.
+Mientras que las notificaciones incluyendo botones trabajan con solo `electron-windows-notifications`, manejo de respuestas requiere el uso de [`electron-windows-interactivos-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), que ayuda a registrar los componentes COM y llamar a la aplicación de la Electron con los datos de usuario ingresados.
 
 ### Horas de silencioso / modo de presentación
 
