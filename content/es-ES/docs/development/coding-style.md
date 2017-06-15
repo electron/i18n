@@ -1,6 +1,6 @@
 # Estilo de codificación
 
-Estas son las directrices de estilo de codificación en el electrón.
+Estas son las directrices de estilo de codificación en el Electron.
 
 Puede ejecutar `npm ejecutar lint` para mostrar los problemas de estilo detectados por `cpplint` y `eslint`.
 
