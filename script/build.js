@@ -108,7 +108,7 @@ function writeApiData (apis) {
 
 function writeApiDescriptions (apis) {
   const tree = objectifyArray(apis)
-  const descriptions = shakeTree(tree, 'description')
+  const descriptions = shakeTree(tree, 'description', {flat: true})
   const filename = path.join(englishBasepath, 'api', 'api-descriptions.yml')
   mkdir(path.dirname(filename))
   console.log(`Writing ${path.relative(englishBasepath, filename)}`)

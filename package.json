@@ -19,7 +19,7 @@
     "mocha": "^3.3.0",
     "objectify-array": "^1.0.1",
     "ora": "^1.2.0",
-    "shake-tree": "^1.0.0",
+    "shake-tree": "^1.1.0",
     "standard": "^10.0.2",
     "standard-markdown": "^2.3.0",
     "walk-sync": "^0.3.1"
