@@ -1,6 +1,6 @@
 # Representación fuera de la pantalla
 
-Representación fuera de la pantalla le permite obtener el contenido de una ventana del navegador en un mapa de bits, por lo que se puede representar en cualquier lugar, por ejemplo en una textura en una escena 3D. El procesamiento fuera de la pantalla en electrónica utiliza un enfoque similar que el proyecto de Framework</a> integrado de Chromium.</p> 
+Representación fuera de la pantalla le permite obtener el contenido de una ventana del navegador en un mapa de bits, por lo que se puede representar en cualquier lugar, por ejemplo en una textura en una escena 3D. El procesamiento fuera de la pantalla en Electron utiliza un enfoque similar que el proyecto de Framework</a> integrado de Chromium.</p> 
 
 Pueden utilizarse dos modos de representación y sólo la zona sucia se pasa en el caso de</code> de 'pintar'` para ser más eficientes. La prestación puede ser detenida, continuó y se puede establecer la velocidad de fotogramas. La velocidad de fotogramas especificada es un valor límite superior, cuando no hay nada pasando en una página web, no se generan Marcos. La velocidad de fotogramas máxima es 60, porque encima de no existe ningún beneficio, sólo pérdida de rendimiento.</p>
 
