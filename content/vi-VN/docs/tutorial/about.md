@@ -26,13 +26,13 @@ Trong Electron, Node.js và Chromium chia sẻ một engine V8 duy nhất — th
 
 ### Phiên bản
 
-Do đó, rất khó khăn khi phụ thuộc phiên bản vào Node.js hay Chromium, phiên bản của Electron thì khéo léo hơn và sẽ không [không tuân thủ `semver`](http://semver.org). Do đó, bạn nên luôn luôn tham khảo các phần thông tin liên quan về một phiên bản cụ thể của Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+Do đó, rất khó khăn khi phụ thuộc phiên bản vào Node.js hay Chromium, phiên bản của Electron thì khéo léo hơn và sẽ không [không tuân thủ `semver`](http://semver.org). Do đó, bạn nên luôn luôn tham khảo các phần thông tin liên quan về một phiên bản cụ thể của Electron. [Đọc thêm về phiên bản của Electron](https://electron.atom.io/docs/tutorial/electron-versioning/) hoặc xem [Phiên bản của Electron hiện tại](https://electron.atom.io/#electron-versions).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+LTS viết tắt cho Long Term Support. Nghĩa là một phiên bản được hỗ trợ dài hạn. Nhưng hiện tại, LTS của các phiên bản cũ của Electron chưa tồn tại. Nếu phiên bản hiện tại của Electron làm việc hiệu quả với bạn, bạn có thể dừng lại tại đó và không cần cập nhật nữa bao lâu tùy thích. Nếu bạn muốn sử dụng các tính năng mới như những người khác bạn nên nâng cấp lên phiên bản mới hơn.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+Một bản cập nhật lớn đã đi kèm với phiên bản `v1.0.0`. Nếu bạn chưa sử dụng phiên bản này, bạn nên [đọc thêm về các thay đổi trong phiên bản `v1.0.0` ](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
 ## Triết lý cốt lõi
 
@@ -40,7 +40,7 @@ In order to keep Electron small (file size) and sustainable (the spread of depen
 
 For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Các tính năng mới được thêm vào Electron chủ yếu là các native API. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
 
 ## Lịch sử
 
