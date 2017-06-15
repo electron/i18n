@@ -17,13 +17,13 @@ app:
       description: >-
         On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
     hide:
-      description: Hides all application windows without minimizing them.
+      description: Blendet alle Anwendungsfenster aus ohne sie zu minimieren.
     show:
       description: >-
         Shows application windows after they were hidden. Does not automatically focus them.
     getAppPath:
       returns:
-        description: The current application directory.
+        description: Das aktuelle Anwendungsverzeichnis.
     getPath:
       description: 'You can request the following paths by the name:'
       returns:
@@ -46,7 +46,7 @@ app:
         description: >-
           The current application's name, which is the name in the application's package.json file.
     setName:
-      description: Overrides the current application's name.
+      description: Überschreibt den Namen der aktuellen Anwendung.
     getLocale:
       description: >-
         Note: When distributing your packaged app, you have to also ship the locales folder. Note: On Windows you have to call it after the ready events gets emitted.
