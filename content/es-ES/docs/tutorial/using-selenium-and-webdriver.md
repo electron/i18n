@@ -6,7 +6,7 @@ De [ChromeDriver - WebDriver para Chrome](https://sites.google.com/a/chromium.or
 
 ## Configuración de Spectron
 
-[Spectron](https://electron.atom.io/spectron) es el marco de pruebas ChromeDriver apoyo oficial para el electrón. Está construido en la parte superior [WebdriverIO](http://webdriver.io/) y tiene ayudantes para acceder a APIs de electrones en sus pruebas y paquetes ChromeDriver.
+[Spectron](https://electron.atom.io/spectron) es el marco de pruebas ChromeDriver apoyo oficial para el Electron. Está construido en la parte superior [WebdriverIO](http://webdriver.io/) y tiene ayudantes para acceder a APIs de electrones en sus pruebas y paquetes ChromeDriver.
 
 ```bash
 $ MNP instalar--save-dev spectron
@@ -25,7 +25,7 @@ Una prueba sencilla para verificar una ventana visible se abre con un título va
 Primero usted necesitará descargar el binario `chromedriver` y ejecutarlo:
 
 ```bash
-$ MNP instalar electrón-chromedriver $./node_modules/.bin/chromedriver a partir de ChromeDriver (v2.10.291558) en las conexiones locales sólo 9515 puerto se permite.
+$ MNP instalar Electron-chromedriver $./node_modules/.bin/chromedriver a partir de ChromeDriver (v2.10.291558) en las conexiones locales sólo 9515 puerto se permite.
 ```
 
 Recuerde el `9515` número de puerto, que será utilizada más adelante
@@ -38,11 +38,11 @@ instalación selenium-webdriver de $ MNP
 
 ### 3. Conecte al ChromeDriver
 
-El uso de `selenium-webdriver` con electrones es básicamente el mismo con aguas arriba, excepto que usted debe manualmente especificar cómo conectar controlador de cromo y donde se encuentra el binario del electrón:
+El uso de `selenium-webdriver` con electrones es básicamente el mismo con aguas arriba, excepto que usted debe manualmente especificar cómo conectar controlador de cromo y donde se encuentra el binario del Electron:
 
 ```javascript
 webdriver const = controlador const require('selenium-webdriver') = webdriver nuevo. Builder() / "9515" es el puerto abierto por conductor de cromo.
-  .usingServer ('http://localhost:9515 ') .withCapabilities ({chromeOptions: {/ / aqui va la ruta al binario de su electrón.
+  .usingServer ('http://localhost:9515 ') .withCapabilities ({chromeOptions: {/ / aqui va la ruta al binario de su Electron.
       binario: ' / Path-to-Your-App.app/Contents/MacOS/Electron'}}) .forBrowser('electron') .build() driver.get ('http://www.google.com') driver.findElement (webdriver. By.Name('q')).sendKeys('webdriver') driver.findElement (webdriver. By.Name('btnG')).click() driver.wait(() => {volver driver.getTitle().then((title) = > {volver título === 'webdriver - búsqueda en Google'})}, 1000) driver.quit()
 ```
 
@@ -55,7 +55,7 @@ webdriver const = controlador const require('selenium-webdriver') = webdriver nu
 Primero usted necesitará descargar el binario `chromedriver` y ejecutarlo:
 
 ```bash
-$ MNP instalar electrón-chromedriver $./node_modules/.bin/chromedriver--base url = wd/hub--puerto = 9515 a partir de ChromeDriver (v2.10.291558) en el puerto 9515 se permitieron sólo conexiones locales.
+$ MNP instalar Electron-chromedriver $./node_modules/.bin/chromedriver--base url = wd/hub--puerto = 9515 a partir de ChromeDriver (v2.10.291558) en el puerto 9515 se permitieron sólo conexiones locales.
 ```
 
 Recuerde el `9515` número de puerto, que será utilizada más adelante
@@ -70,12 +70,12 @@ $ MNP instalar webdriverio
 
 ```javascript
 const webdriverio = opciones const require('webdriverio') = {host: 'localhost', / utilice localhost como puerto de servidor de controlador de cromo: 9515, / / "9515" es el puerto abierto por conductor de cromo.
-  desiredCapabilities: {browserName: 'cromo', chromeOptions: {binario: '/ Path-a-su-aplicación/electrón', / / camino a su binario de electrón.
+  desiredCapabilities: {browserName: 'cromo', chromeOptions: {binario: '/ Path-a-su-aplicación/Electron', / / camino a su binario de Electron.
       args: [/ * cli argumentos * /] / / opcional, tal vez ' app =' + /path/to/your/app /}}} que cliente = webdriverio.remote(options) cliente .init() .url ('http://google.com') .setValue ('#q ', 'webdriverio') .click('#btnG').getTitle().then((title) => {console.log (' título era: ' + título)}) .end()
 ```
 
 ## Flujo de trabajo
 
-Para probar la aplicación sin reconstrucción de electrón, simplemente[place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la fuente de la aplicación en el directorio de recursos del electrón.
+Para probar la aplicación sin reconstrucción de Electron, simplemente[place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la fuente de la aplicación en el directorio de recursos del Electron.
 
-También puede pasar un argumento con su electrón binario que apunta a la carpeta de la aplicación. Esto elimina la necesidad de copiar y pegar su aplicación en el directorio de recursos del electrón.
+También puede pasar un argumento con su Electron binario que apunta a la carpeta de la aplicación. Esto elimina la necesidad de copiar y pegar su aplicación en el directorio de recursos del Electron.
