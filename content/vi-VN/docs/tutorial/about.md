@@ -14,19 +14,19 @@ Electron được duy trì bởi một nhóm tại GitHub và một nhóm [hoạ
 
 ## Các phiên bản phát hành
 
-[Electron phát hành các phiên bản](https://github.com/electron/electron/releases) thường xuyên. Chúng tôi phát hành khi có lỗi quan trọng, API hoặc được cập nhật phiên bản mới từ Chrome hoặc Node.js.
+[Electron phát hành các phiên bản](https://github.com/electron/electron/releases) thường xuyên. Chúng tôi phát hành khi có lỗi quan trọng, API hoặc được cập nhật phiên bản mới từ Chromium hoặc Node.js.
 
-### Cập nhật các package đi kèm
+### Cập nhật các tài nguyên đi kèm
 
 Các version của Chromium trong Electron sẽ được cập nhật bằng với phiên bản của Chromium trên phiên bản ổn định và mới nhất sau khi nó được phát hành khoảng một đến hai tuần.
 
-Khi một phiên bản mới của Node.js được phát hành, Electron thường chờ đợi khoảng một tháng trước khi nâng cấp để mang lại trong một phiên bản ổn định hơn.
+Khi một phiên bản mới của Node.js được phát hành, Electron thường chờ đợi khoảng một tháng trước khi nâng cấp phiên bản Node.js trong Electron bằng với phiên bản đó để mang lại trong một phiên bản Electron ổn định hơn.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Trong Electron, Node.js và Chromium chia sẻ một engine V8 duy nhất — thường là phiên bản V8 mà Chromium đang sử dụng. *Hầu hết thời gian nó là như vậy*, nhưng đôi khi phiên bản V8 đó được lấy từ phiên bản V8 mà Node.js đang sử dụng.
 
 ### Phiên bản
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+Do đó, rất khó khăn khi phụ thuộc phiên bản vào Node.js hay Chromium, phiên bản của Electron thì khéo léo hơn và sẽ không [không tuân thủ `semver`](http://semver.org). Do đó, bạn nên luôn luôn tham khảo các phần thông tin liên quan về một phiên bản cụ thể của Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
 
 ### LTS
 
