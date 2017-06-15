@@ -2,19 +2,19 @@
 
 Como desarrolladores web, generalmente disfrutamos de la red del explorador de seguridad fuerte - los riesgos asociados con el código que escribimos son relativamente pequeños. Nuestros sitios web se concede limitado energías en un sandbox, y confiamos en que nuestros usuarios disfruten de un navegador construido por un gran equipo de ingenieros que sea capaces de responder rápidamente a las amenazas de seguridad descubiertas recientemente.
 
-Cuando se trabaja con la electrónica, es importante entender que el electrón no es un navegador web. Te permite crear numerosas aplicaciones con tecnologías web familiares, pero su código tiene mucho mayor poder. JavaScript puede acceder el sistema de archivos y shell de usuario. Esto le permite crear aplicaciones nativas de alta calidad, pero los riesgos de seguridad inherentes de la escala con los poderes adicionales otorgados a su código.
+Cuando se trabaja con la Electron, es importante entender que el Electron no es un navegador web. Te permite crear numerosas aplicaciones con tecnologías web familiares, pero su código tiene mucho mayor poder. JavaScript puede acceder el sistema de archivos y shell de usuario. Esto le permite crear aplicaciones nativas de alta calidad, pero los riesgos de seguridad inherentes de la escala con los poderes adicionales otorgados a su código.
 
-Con esto en mente, ten en cuenta que mostrar contenido arbitrario de poses de untrusted fuentes un grave riesgo de seguridad que electrón no está diseñado manejar. De hecho, las más populares aplicaciones de electrón (átomo, holgura, código de Visual Studio, etcetera) Mostrar principalmente contenido local (o contenido remoto confiable y seguro sin integración de nodos) – si la aplicación ejecuta código desde una fuente en línea, es su responsabilidad asegurar que el código no es malicioso.
+Con esto en mente, ten en cuenta que mostrar contenido arbitrario de poses de untrusted fuentes un grave riesgo de seguridad que Electron no está diseñado manejar. De hecho, las más populares aplicaciones de Electron (átomo, holgura, código de Visual Studio, etcetera) Mostrar principalmente contenido local (o contenido remoto confiable y seguro sin integración de nodos) – si la aplicación ejecuta código desde una fuente en línea, es su responsabilidad asegurar que el código no es malicioso.
 
 ## Reportando problemas de seguridad
 
-Para obtener información sobre cómo revelar correctamente una vulnerabilidad de electrón, ver [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Para obtener información sobre cómo revelar correctamente una vulnerabilidad de Electron, ver [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 ## Actualizaciones y problemas de seguridad cromo
 
-Mientras que el electrón se esfuerza para apoyar nuevas versiones de cromo tan pronto como sea posible, los desarrolladores deben ser conscientes que actualizar es una empresa seria - con edición de mano decenas o incluso cientos de archivos. Dados los recursos y contribuciones disponibles en la actualidad, electrónica a menudo no estará en la versión más reciente de cromo, rezagados ya sea por días o semanas.
+Mientras que el Electron se esfuerza para apoyar nuevas versiones de cromo tan pronto como sea posible, los desarrolladores deben ser conscientes que actualizar es una empresa seria - con edición de mano decenas o incluso cientos de archivos. Dados los recursos y contribuciones disponibles en la actualidad, Electron a menudo no estará en la versión más reciente de cromo, rezagados ya sea por días o semanas.
 
-Creemos que nuestro sistema actual de actualizar el componente de cromo golpea un equilibrio adecuado entre los recursos que tenemos disponibles y las necesidades de la mayoría de aplicaciones construcción sobre el framework. Definitivamente estamos interesados en saber más acerca de casos de uso específicos de la gente que construye cosas sobre electrónica. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre muy bienvenidas.
+Creemos que nuestro sistema actual de actualizar el componente de cromo golpea un equilibrio adecuado entre los recursos que tenemos disponibles y las necesidades de la mayoría de aplicaciones construcción sobre el framework. Definitivamente estamos interesados en saber más acerca de casos de uso específicos de la gente que construye cosas sobre Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre muy bienvenidas.
 
 ## Haciendo caso omiso sobre el Consejo
 
