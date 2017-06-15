@@ -60,7 +60,7 @@ Xem thêm: [process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Renderer process là một cửa sổ trình duyệt trong ứng dụng của bạn. Không giống như main process, chúng ta có thể tạo ra nhiều renderer process và chạy chúng trong những process riêng biệt. Hoặc cũng có thể ẩn chúng đi.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
