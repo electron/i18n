@@ -26,19 +26,19 @@ A security issue exists whenever you receive code from a remote destination and 
 
 This is not bulletproof, but at the least, you should attempt the following:
 
-* Only display secure (https) content
+* Chỉ hiển thị các nội dung an toàn (https)
 * Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
 * Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
 * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
+* Vô hiệu hóa `webSecurity`. Vô hiệu hóa nó sẽ vô hiệu hóa các chính sách cùng một nguồn gốc.
 * Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
 * [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
+* Không đặt `allowRunningInsecureContent` thành true.
 * Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
+* Không sử dụng `blinkFeatures` trừ khi bạn biết bạn đang làm gì.
+* WebViews: Không thêm các thuộc tính `nodeintegration`.
+* WebViews: Không sử dụng `disablewebsecurity`
+* WebViews: Không sử dụng `allowpopups`
 * WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
 
 Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
