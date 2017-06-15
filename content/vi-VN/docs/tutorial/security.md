@@ -10,7 +10,7 @@ With that in mind, be aware that displaying arbitrary content from untrusted sou
 
 For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Chromium Security Issues and Upgrades
+## Vấn đề bảo mật của Chromium và các cập nhật
 
 While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
 
@@ -24,21 +24,21 @@ A security issue exists whenever you receive code from a remote destination and 
 
 #### Danh sách kiểm tra
 
-This is not bulletproof, but at the least, you should attempt the following:
+Danh sách này không dùng để chống đạn, nhưng ít nhất, bạn nên cố gắng làm theo những điều sau đây:
 
-* Only display secure (https) content
+* Chỉ hiển thị các nội dung an toàn (https)
 * Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
 * Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
+* Sử dụng `ses.setPermissionRequestHandler()` trong tất cả các session tải nội dung từ xa
+* Không vô hiệu hóa `webSecurity`. Vô hiệu hóa nó sẽ vô hiệu hóa luôn các chính sách có cùng một nguồn gốc.
 * Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
 * [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
+* Không đặt `allowRunningInsecureContent` thành true.
+* Không bật `experimentalFeatures` hoặc `experimentalCanvasFeatures` trừ khi bạn biết những gì bạn đang làm.
+* Không sử dụng `blinkFeatures` trừ khi bạn biết bạn đang làm gì.
+* WebViews: Không thêm các thuộc tính `nodeintegration`.
+* WebViews: Không sử dụng `disablewebsecurity`
+* WebViews: Không sử dụng `allowpopups`
+* WebViews: Không sử dụng `insertCSS` hoặc `executeJavaScript` với CSS/JS từ xa.
 
 Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.

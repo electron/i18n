@@ -2,11 +2,11 @@
 
 Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
 
-## Gyp Files
+## Các tập tin Gyp
 
 Following `gyp` files contain the main rules for building Electron:
 
-* `electron.gyp` defines how Electron itself is built.
+* `electron.gyp` chỉ ra cách để Electron có thể tự xây dựng chính nó.
 * `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
 * `vendor/brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
 * `vendor/brightray/brightray.gypi` includes general build configurations about building.
@@ -21,7 +21,7 @@ In Electron we took a very similar approach: for `Debug` builds, the binary will
 
 All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) là một bản sao của `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
 If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
 
@@ -42,7 +42,7 @@ Unlike most projects that use `Release` and `Debug` as target names, Electron us
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
-## Tests
+## Các thử nghiệm
 
 Test your changes conform to the project coding style using:
 
@@ -50,7 +50,7 @@ Test your changes conform to the project coding style using:
 $ npm run lint
 ```
 
-Test functionality using:
+Kiểm tra chức năng bằng cách sử dụng:
 
 ```bash
 $ npm test
@@ -66,7 +66,7 @@ You can make the test suite run faster by isolating the specific test or block y
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
+  // ... chỉ có các thử nghiệm trong đoạn này mới chạy
 })
 ```
 

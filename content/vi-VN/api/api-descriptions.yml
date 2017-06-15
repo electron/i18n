@@ -250,7 +250,7 @@ app:
             credits:
               description: Thông tin Credit.
             version:
-              description: The app's build version number.
+              description: Mã số phiên bản xây dựng của ứng dụng.
   events:
     will-finish-launching:
       description: >-
@@ -464,9 +464,9 @@ BrowserWindow:
       - 
         properties:
           - 
-            description: Window's width in pixels. Default is 800.
+            description: Chiều rộng của cửa sổ với đơn vị là pixel. Mặc định là 800.
           - 
-            description: Window's height in pixels. Default is 600.
+            description: Chiều cao của cửa sổ với đơn vị là pixel. Mặc định là 600.
           - 
             description: >-
               ( if y is used) Window's left offset from screen. Default is to center the window.
@@ -520,10 +520,10 @@ BrowserWindow:
           - 
             description: Chế độ kiosk. Mặc định là false.
           - 
-            description: Default window title. Default is "Electron".
+            description: Tiêu đề mặc định của cửa sổ. Mặc định là "Electron".
           - 
             description: >-
-              The window icon. On Windows it is recommended to use ICO icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
+              Biểu tượng cửa cửa sổ. Trên Windows, khuyến khích sử dụng biểu tượng có định dạng ICO để có được hiệu ứng hình ảnh tốt nhất, bạn cũng có thể để lại nó undefined để biểu tượng của định dạng exe được sử dụng.
           - 
             description: Whether window should be shown when created. Default is true.
           - 
@@ -951,7 +951,7 @@ BrowserWindow:
               description: Window's .
             appIconIndex:
               description: >-
-                Index of the icon in appIconPath. Ignored when appIconPath is not set. Default is 0.
+                Index của icon trong appIconPath. Bỏ qua khi appIconPath không được cài đặt. Mặc định là 0.
             relaunchCommand:
               description: Window's .
             relaunchDisplayName:
@@ -1091,7 +1091,7 @@ BrowserWindowProxy:
   description: Manipulate the child browser window
   instanceMethods:
     blur:
-      description: Removes focus from the child window.
+      description: Ngừng focus cửa sổ con.
     close:
       description: Forcefully closes the child window without calling its unload event.
     eval:
@@ -1378,7 +1378,7 @@ Cookies:
         Removes the cookies matching url and name, callback will called with callback() on complete.
       parameters:
         url:
-          description: The URL associated with the cookie.
+          description: URL liên kết với cookie.
         name:
           description: Tên của cookie để loại bỏ.
     flushStore:
@@ -1614,7 +1614,7 @@ dialog:
         Displays a modal dialog that shows an error message. This API can be called safely before the ready event the app module emits, it is usually used to report errors in early stage of startup.  If called before the app readyevent on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
       parameters:
         title:
-          description: The title to display in the error box
+          description: Tiêu đề để hiển thị trong hộp lỗi
         content:
           description: The text content to display in the error box
     showCertificateTrustDialog:
