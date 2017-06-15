@@ -13,7 +13,7 @@ El módulo de `repl` proporciona una implementación de sust que puede accederse
 * Suponiendo que ha `electron` o `electron-prebuilt` instalado a nivel mundial:
     
     ```sh
-electrón - interactivo
+Electron - interactivo
 ```
 
 Esto sólo crea una sust para el proceso principal. Puede utilizar la pestaña consola de las herramientas de desarrollo para obtener un sust para los procesos de renderizado.
