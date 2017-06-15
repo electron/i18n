@@ -1,6 +1,6 @@
 # Guía de presentación de Mac App Store
 
-Desde v0.34.0, electrónica permite enviar aplicaciones empaquetados a la Mac App Store (MAS). Esta guía proporciona información sobre: Cómo presentar su aplicación y las limitaciones del MAS construyen.
+Desde v0.34.0, Electron permite enviar aplicaciones empaquetados a la Mac App Store (MAS). Esta guía proporciona información sobre: Cómo presentar su aplicación y las limitaciones del MAS construyen.
 
 **Note:** presentación de una aplicación de Mac App Store requiere inscribir [Apple desarrollador de Program](https://developer.apple.com/support/compare-memberships/), que cuesta dinero.
 
@@ -50,7 +50,7 @@ Y entonces firmar la aplicación con el siguiente script:
 APP_PATH="/path/to/YourApp.app" # la ruta a la ubicación que desea poner el paquete firmado.
 RESULT_PATH="~/Desktop/$APP.pkg" # el nombre de certificados que solicita.
 APP_KEY = "3 Mac desarrollador de aplicación: nombre de la empresa (APPIDENTITY)" INSTALLER_KEY = "3ª fiesta Mac desarrollador instalador: empresa nombre (APPIDENTITY)" # la ruta de los archivos plist.
-CHILD_PLIST="/path/to/Child.plist" PARENT_PLIST="/path/to/parent.plist" FRAMEWORKS_PATH = "$APP_KEY" "Marcos de contenidos de$APP_PATH" codiseño de la -s -f--codiseño de "$FRAMEWORKS_PATH/electrón marco Framework.framework/Versions/A/Electron" derechos "$CHILD_PLIST" "$APP_KEY" -s -f--los derechos "$CHILD_PLIST" "$FRAMEWORKS_PATH/electrón Framework.framework/Versions/A/Libraries/libffmpeg.dylib" codesign -s "$APP_KEY" -f--los derechos "$CHILD_PLIST" $FRAMEWORKS_PATH/electrón Framework.framework/" Codiseño de Versions/A/Libraries/libnode.dylib"-s"$APP_KEY"-f--los derechos"$CHILD_PLIST"" $FRAMEWORKS_PATH/electrón Framework.framework"codesign"$APP_KEY"-s -f--los derechos"$CHILD_PLIST""$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"codiseño codesign de"$APP_KEY"-s -f--los derechos"$CHILD_PLIST"" $FRAMEWORKS_PATH/$APP Helper.app/"-s"$APP_KEY"-f--los derechos"$CHILD_PLIST "" $FRAMEWORKS_PATH/$APP auxiliar EH.app/Contents/MacOS/$APP auxiliar EH"codesign -s"$APP_KEY"-f--codiseño de derechos"$CHILD_PLIST""$FRAMEWORKS_PATH/$APP EH.app/ Helper""$APP_KEY"-s -f--los derechos"$CHILD_PLIST"" $FRAMEWORKS_PATH/$APP auxiliar NP.app/Contents/MacOS/$APP auxiliar NP"codesign -s"$APP_KEY"-f-- derechos "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP NP.app/ Helper" codesign "$APP_KEY" -s -f--codesign de derechos "$CHILD_PLIST" "$APP_PATH/contenido/MacOS/$APP" -s "$APP_KEY" -f--los derechos "$PARENT_PLIST" "$APP_PATH" productbuild - componente "$APP_PATH" /aplicaciones--firmar "$INSTALLER_KEY" "$RESULT_PATH"
+CHILD_PLIST="/path/to/Child.plist" PARENT_PLIST="/path/to/parent.plist" FRAMEWORKS_PATH = "$APP_KEY" "Marcos de contenidos de$APP_PATH" codiseño de la -s -f--codiseño de "$FRAMEWORKS_PATH/Electron marco Framework.framework/Versions/A/Electron" derechos "$CHILD_PLIST" "$APP_KEY" -s -f--los derechos "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib" codesign -s "$APP_KEY" -f--los derechos "$CHILD_PLIST" $FRAMEWORKS_PATH/Electron Framework.framework/" Codiseño de Versions/A/Libraries/libnode.dylib"-s"$APP_KEY"-f--los derechos"$CHILD_PLIST"" $FRAMEWORKS_PATH/Electron Framework.framework"codesign"$APP_KEY"-s -f--los derechos"$CHILD_PLIST""$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"codiseño codesign de"$APP_KEY"-s -f--los derechos"$CHILD_PLIST"" $FRAMEWORKS_PATH/$APP Helper.app/"-s"$APP_KEY"-f--los derechos"$CHILD_PLIST "" $FRAMEWORKS_PATH/$APP auxiliar EH.app/Contents/MacOS/$APP auxiliar EH"codesign -s"$APP_KEY"-f--codiseño de derechos"$CHILD_PLIST""$FRAMEWORKS_PATH/$APP EH.app/ Helper""$APP_KEY"-s -f--los derechos"$CHILD_PLIST"" $FRAMEWORKS_PATH/$APP auxiliar NP.app/Contents/MacOS/$APP auxiliar NP"codesign -s"$APP_KEY"-f-- derechos "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP NP.app/ Helper" codesign "$APP_KEY" -s -f--codesign de derechos "$CHILD_PLIST" "$APP_PATH/contenido/MacOS/$APP" -s "$APP_KEY" -f--los derechos "$PARENT_PLIST" "$APP_PATH" productbuild - componente "$APP_PATH" /aplicaciones--firmar "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
 Si eres nuevo en sandboxing de aplicación bajo macOS, también debe leer a través [Enabling de Apple App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) para tener una idea básica, luego agregar las llaves para los permisos necesarios para su aplicación a los archivos de los derechos.
@@ -59,10 +59,10 @@ Aparte de firmar manualmente la aplicación, también puede optar por utilizar e
 
 #### Muestra los módulos nativos
 
-Módulos nativos utilizados en su aplicación también necesitan la firma. Si usa el electrón-osx-signo, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos:
+Módulos nativos utilizados en su aplicación también necesitan la firma. Si usa el Electron-osx-signo, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos:
 
 ```bash
-electrón-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
 También nota que los módulos nativos pueden tener archivos intermedios producidos que no deberían incluirse (como también tendrían que ser firmado). Si utilizas[electron packager](https://github.com/electron-userland/electron-packager) antes de la versión 8.1.0, agregue`--ignore=.+\.o$` a su paso de compilación para omitir estos archivos. Versiones 8.1.0 y después ignora los archivos por defecto.
@@ -93,7 +93,7 @@ También, debido al uso de sandboxing de aplicación, los recursos que se pueden
 
 ### Derechos adicionales
 
-Dependiendo de que APIs de electrón usos de su aplicación, puede que necesite agregar derechos adicionales para el archivo `parent.plist` para poder utilizar estas API de compilación de Mac App Store de su aplicación.
+Dependiendo de que APIs de Electron usos de su aplicación, puede que necesite agregar derechos adicionales para el archivo `parent.plist` para poder utilizar estas API de compilación de Mac App Store de su aplicación.
 
 #### Acceso a la red
 
@@ -127,7 +127,7 @@ Ver el [Enabling según el acceso al archivo documentation](https://developer.ap
 
 Ver el [Enabling según el acceso al archivo documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para más detalles.
 
-## Algoritmos criptográficos utilizados por electrón
+## Algoritmos criptográficos utilizados por Electron
 
 Dependiendo del país y la región que se encuentra, Mac App Store puede requieren documentar los algoritmos criptográficos utilizados en su aplicación e incluso que preguntase a presentar copia de aprobación de registro de cifrado de Estados Unidos (ERN).
 
