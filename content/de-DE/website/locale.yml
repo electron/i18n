@@ -1,6 +1,6 @@
 tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
 nav:
-  docs: Docs
+  docs: Dokumentation
   blog: Blog
   community: Community
   apps: Apps
@@ -23,7 +23,7 @@ cross_platform:
 benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: Automatische Updates
-  native_menus_and_notifications: Native menus & notifications
+  native_menus_and_notifications: Native Menüs & Benachrichtigungen
   crash_reporting: Crash reporting
   debugging_and_profiling: Debugging & profiling
   windows_installers: Windows installers
