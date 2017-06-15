@@ -1,16 +1,16 @@
 # Hướng dẫn build (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 
-## Prerequisites
+## Điều kiện yêu cầu
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [Node.js](http://nodejs.org) and compile from source. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* Clang 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
+* Python phiên bản 2.7.x. Một số bản phân phối như CentOS 6.x vẫn sử dụng Python 2.6.x vì vậy bạn có thể cần phải kiểm tra phiên bản Python của bạn với `python -V`.
+* Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải về mã nguồn từ [Node.js](http://nodejs.org) và biên dịch từ nguồn. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Clang phiên bản 3.4+.
+* Bộ phát triển tiên đề GTK+ và libnotify.
 
-On Ubuntu, install the following libraries:
+Trên Ubuntu, cài đặt các thư viện sau đây:
 
 ```bash
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+Trên RHEL / CentOS, cài đặt các thư viện sau đây:
 
 ```bash
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Trên Fedora, cài đặt các thư viện sau đây:
 
 ```bash
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,7 +38,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Trên các bản phân phối khác có thể cung cấp cá gói tương tự cho việc cài đặt thông qua các phần mềm quản lý gói như pacman. Hoặc cũng có thể biên dịch từ mã nguồn của các gói đó.
 
 ## Getting the Code
 
@@ -55,7 +55,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-### Cross compilation
+### Biên soạn đa nền tảng
 
 If you want to build for an `arm` target you should also install the following dependencies:
 
@@ -70,9 +70,9 @@ And to cross compile for `arm` or `ia32` targets, you should pass the `--target_
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## Xây dựng
 
-If you would like to build both `Release` and `Debug` targets:
+Nếu bạn nhắm tới mong muốn xây dựng cả hai phiên bản là `Bản phát hành chính thức` và `Bản debug`:
 
 ```bash
 $ ./script/build.py
@@ -94,9 +94,9 @@ $ ./script/build.py -c D
 
 After building is done, you can find the `electron` debug binary under `out/D`.
 
-## Cleaning
+## Dọn dẹp
 
-To clean the build files:
+Để dọn các file build:
 
 ```bash
 $ npm run clean
@@ -110,7 +110,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## Xử lý sự cố
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -120,7 +120,7 @@ Prebulit `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## Thử nghiệm
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
@@ -164,7 +164,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disab
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Các biến môi trường
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
