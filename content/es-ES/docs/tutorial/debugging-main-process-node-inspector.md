@@ -1,8 +1,8 @@
 # Depurar el proceso del principal inspector de nodo
 
-[`node-inspector`](https://github.com/node-inspector/node-inspector) proporciona una GUI DevTools familiar que puede utilizarse en cromo para depurar el proceso principal del electrón, sin embargo, porque `node-inspector` se basa en algunos módulos nativos de nodo que debe ser reconstruidos para la versión de electrón que desea depurar. Puede reconstruir las dependencias `node-inspector` a ti mismo, o que[`electron-inspector`](https://github.com/enlight/electron-inspector) hacer por usted, ambos enfoques están cubiertos en este documento.
+[`node-inspector`](https://github.com/node-inspector/node-inspector) proporciona una GUI DevTools familiar que puede utilizarse en cromo para depurar el proceso principal del Electron, sin embargo, porque `node-inspector` se basa en algunos módulos nativos de nodo que debe ser reconstruidos para la versión de Electron que desea depurar. Puede recompilar las dependencias `node-inspector` a ti mismo, o que[`electron-inspector`](https://github.com/enlight/electron-inspector) hacer por usted, ambos enfoques están cubiertos en este documento.
 
-**Note**: en el momento de escribir la última versión de `node-inspector` (0.12.8) no puede reconstruirse destino electrón 1.3.0 o posterior sin parchear una de sus dependencias. Si utilizas `electron inspector` se encargará de esto para usted.
+**Note**: en el momento de escribir la última versión de `node-inspector` (0.12.8) no puede recompilarse destino Electron 1.3.0 o posterior sin parchear una de sus dependencias. Si utilizas `electron inspector` se encargará de esto para usted.
 
 ## Uso `electron-inspector` para la depuración
 
@@ -11,30 +11,30 @@
 ### 2. Instale el [`electron-rebuild`](https://github.com/electron/electron-rebuild), si no has hecho ya.
 
 ```shell
-MNP instalar electrónica-reconstrucción--save-dev
+MNP instalar Electron-reconstrucción--save-dev
 ```
 
 ### 3. instalar [`electron-inspector`](https://github.com/enlight/electron-inspector)
 
 ```shell
-MNP instalar inspector del electrón--save-dev
+MNP instalar inspector del Electron--save-dev
 ```
 
-### 4. arranque electrónico
+### 4. arranque Electronico
 
-Lanzamiento de electrón con el ` - debug` conmutador:
+Lanzamiento de Electron con el ` - debug` conmutador:
 
 ```shell
-electrónica--debug = 5858 su / app
+Electron--debug = 5858 su / app
 ```
 
 o para pausar la ejecución de la primera línea de JavaScript:
 
 ```shell
-electrónica--debug-brk = 5858 su / app
+Electron--debug-brk = 5858 su / app
 ```
 
-### 5. arranque electrónico-inspector
+### 5. arranque Electronico-inspector
 
 En macOS / Linux:
 
@@ -48,7 +48,7 @@ En Windows:
 node_modules\\.bin\\electron-inspector
 ```
 
-`electron-inspector` será necesario reconstruir las dependencias `node-inspector` en la primera carrera, y cualquier momento cambiar su versión electrónica. El proceso de reconstrucción puede requerir una conexión a internet para descargar librerías y cabeceras del nodo y puede tardar unos minutos.
+`electron-inspector` será necesario recompilar las dependencias `node-inspector` en la primera carrera, y cualquier momento cambiar su versión Electron. El proceso de reconstrucción puede requerir una conexión a internet para descargar librerías y cabeceras del nodo y puede tardar unos minutos.
 
 ### 6. Cargue el interfaz de usuario de depurador
 
@@ -70,28 +70,28 @@ $ MNP instalar nodo-inspector
 $ MNP instalar nodo-pre-gyp
 ```
 
-### 4. compilar los módulos de `v8` de `node-inspector` de electrónica
+### 4. compilar los módulos de `v8` de `node-inspector` de Electron
 
-**Note:** actualizar el argumento objetivo a ser el número de versión electrónica
+**Note:** actualizar el argumento objetivo a ser el número de versión Electron
 
 ```bash
-$ node_modules/.bin/node-pre-gyp--objetivo = 1.2.5--tiempo de ejecución = electrón--respaldo para construir--directorio node_modules/v8-debug /--dist-url = https://atom.io/download/atom-shell reinstalar $ node_modules/.bin/node-pre-gyp--objetivo = 1.2.5--tiempo de ejecución = electrón--respaldo para construir--directorio node_modules/v8-profiler / url--dist = https://atom.io/download/atom-shell vuelva a instalar
+$ node_modules/.bin/node-pre-gyp--objetivo = 1.2.5--tiempo de ejecución = Electron--respaldo para compilar--directorio node_modules/v8-debug /--dist-url = https://atom.io/download/atom-shell reinstalar $ node_modules/.bin/node-pre-gyp--objetivo = 1.2.5--tiempo de ejecución = Electron--respaldo para compilar--directorio node_modules/v8-profiler / url--dist = https://atom.io/download/atom-shell vuelva a instalar
 ```
 
 Véase también [How para instalar el modules](using-native-node-modules.md#how-to-install-native-modules) nativo.
 
-### 5. activar el modo debug para electrónica
+### 5. activar el modo debug para Electron
 
-Usted puede cualquier salida como el electrón con una bandera de la depuración:
+Usted puede cualquier salida como el Electron con una bandera de la depuración:
 
 ```bash
-electrónica $--debug = 5858 su / app
+Electron $--debug = 5858 su / app
 ```
 
 o bien, para hacer una pausa en la secuencia de comandos en la primera línea:
 
 ```bash
-electrónica $--debug-brk = 5858 su / app
+Electron $--debug-brk = 5858 su / app
 ```
 
 ### 6. iniciar el servidor de [`node-inspector`](https://github.com/node-inspector/node-inspector) con electrones
