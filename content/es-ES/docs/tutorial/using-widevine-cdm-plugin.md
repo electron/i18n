@@ -1,12 +1,12 @@
 # Usando el Plugin MDL Widevine
 
-En electrónica pueden usar el plugin de Widevine CDM con el navegador Chrome.
+En Electron pueden usar el plugin de Widevine CDM con el navegador Chrome.
 
 ## Conseguir el plugin
 
 Electrón no enviar con el plugin Widevine CDM por razones de licencia, para conseguirlo, es necesario instalar el navegador Chrome oficial primero, que debe coincidir con la arquitectura y la versión del cromo de la acumulación de electrones que usa.
 
-**Note:** que la versión del navegador Chrome tiene que ser el mismo con la versión de cromo utilizada por el electrón, de lo contrario el plugin no funcionará aunque`navigator.plugins` demostraría que se ha cargado.
+**Note:** que la versión del navegador Chrome tiene que ser el mismo con la versión de cromo utilizada por el Electron, de lo contrario el plugin no funcionará aunque`navigator.plugins` demostraría que se ha cargado.
 
 ### Windows & macOS
 
@@ -22,9 +22,9 @@ En Linux que los binarios del plugin se envían junto con el navegador Chrome, s
 
 ## Usando el plugin
 
-Después de conseguir los archivos de plugin, debe pasar camino de la `widevinecdmadapter` electrón con `--interruptor de línea de comandos widevine-MDL-path` y la versión del plugin con `--widevine-MDL-version` interruptor.
+Después de conseguir los archivos de plugin, debe pasar camino de la `widevinecdmadapter` Electron con `--interruptor de línea de comandos widevine-MDL-path` y la versión del plugin con `--widevine-MDL-version` interruptor.
 
-**Note:** aunque sólo el `widevinecdmadapter` binario se pasa al electrón, el `widevinecdm` binario tiene que ponerlo a un lado.
+**Note:** aunque sólo el `widevinecdmadapter` binario se pasa al Electron, el `widevinecdm` binario tiene que ponerlo a un lado.
 
 Los interruptores de línea de comandos tienen que pasar antes del evento `ready` `app` módulo obtiene emitido, y la página que usa este plugin debe tener plugin activado.
 
