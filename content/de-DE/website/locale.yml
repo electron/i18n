@@ -1,4 +1,4 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln
 nav:
   docs: Dokumentation
   blog: Blog
@@ -24,7 +24,7 @@ benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: Automatische Updates
   native_menus_and_notifications: Native Menüs & Benachrichtigungen
-  crash_reporting: Crash reporting
+  crash_reporting: Absturzmelder
   debugging_and_profiling: Debugging & profiling
   windows_installers: Windows installers
 get_started:
@@ -37,14 +37,14 @@ explore:
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
-download_from_github: Download from GitHub
+download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
+  description: Eine minimale Electron App mit hilfreichen Anmerkungen.
+  clone: Das Quick-Start Repository klonen
   go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  install_deps: Die Abhängigkeiten installieren und ausführen
   dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
 need_help:
   title: Benötigen Sie Hilfe?
