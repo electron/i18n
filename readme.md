@@ -60,7 +60,7 @@ To get a sense of how content is transformed, see [crowdin.yml](crowdin.yml)
 
 ## Why Crowdin?
 
-GitHub's documentation team reviewed numerous localization platforms (Acrolinx, LingoHub, Qordoba, Transifex) before choosing [Crowdin](http://crowdin.com). We found Crowdin to be the best fit for the needs of the Electron project, as it satisfies most of our unique requirements:
+GitHub's documentation team reviewed numerous localization platforms (XTM, Smartling, Memsource, LingoHub, Qordoba, Transifex) before choosing [Crowdin](http://crowdin.com). We found Crowdin to be the best fit for the needs of the Electron project, as it satisfies most of our unique requirements:
 
 - **GitHub Flavored Markdown.** Some other localization platforms do not support markdown, on the basis that it is "unstructured" (though Githubbers are [working on that](https://githubengineering.com/a-formal-spec-for-github-markdown/). Other platforms have markdown support, but few have full support for GFM.
 - **Aribtrary YAML data.** Many localization platforms support YAML, but some have specific requirements about its structure, such as a locale key like `en` at the root node of the file.
