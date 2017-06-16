@@ -17,7 +17,7 @@ Electron's documentation and website are authored in English.
 The source content in this repo is collected from a few places:
 
 - Markdown files from the [electron](https://github.com/electron/electron/tree/master/docs) repo.
-- YML files from the [electron.atom.io](https://github.com/electron/electron.atom.io/tree/gh-pages/_data/) repo
+- YAML files from the [electron.atom.io](https://github.com/electron/electron.atom.io/tree/gh-pages/_data/) repo
 - Electron's [structured API docs](https://electron.atom.io/blog/2016/09/27/api-docs-json-schema).
 
 Here's the directory structure:
@@ -63,8 +63,8 @@ To get a sense of how content is transformed, see [crowdin.yml](crowdin.yml)
 GitHub's documentation team reviewed numerous localization platforms (Acrolinx, LingoHub, Qordoba, Transifex) before choosing [Crowdin](http://crowdin.com). We found Crowdin to be the best fit for the needs of the Electron project, as it satisfies most of our unique requirements:
 
 - **GitHub Flavored Markdown.** Some other localization platforms do not support markdown, on the basis that it is "unstructured" (though Githubbers are [working on that](https://githubengineering.com/a-formal-spec-for-github-markdown/). Other platforms have markdown support, but few have full support for GFM.
-- **Aribtrary YML data.** Many localization platforms support YML, but some have specific requirements about its structure, such as a locale key like `en` at the root node of the file.
-- **YML frontmatter.** Tools like Jekyll (upon which the Electron website is built) use a block of key-value metadata atop markdown files like `date`, `keywords`, `author`, `permalink`, etc. This content needs to be translated while preserving the original YML structure.
+- **Aribtrary YAML data.** Many localization platforms support YAML, but some have specific requirements about its structure, such as a locale key like `en` at the root node of the file.
+- **YAML frontmatter.** Tools like Jekyll (upon which the Electron website is built) use a block of key-value metadata atop markdown files like `date`, `keywords`, `author`, `permalink`, etc. This content needs to be translated while preserving the original YAML structure.
 
 In addition to satifying our project's unique requirements, Crowdin has some compelling features:
 
