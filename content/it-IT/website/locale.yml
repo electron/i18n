@@ -48,10 +48,10 @@ quick_start:
   dive_deeper: 'O dai un''occhiata alla <a href=''https://electron.atom.io/docs/''>documentazione</a>.'
 need_help:
   title: Hai bisogno di aiuto?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: 'Puoi dare domande nel forum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> o nostro canale <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Segui <a href="https://twitter.com/ElectronJS">@ElectronJS</a> su Twitter per gli annunci importanti. Vuoi contattarci via E-mail? <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
-  title: Apps built on Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
-or: or
+  title: Applicazioni costruite con Electron
+  description: 'Con Electron è facile creare un''applicazione desktop per la tua azienda o il tuo prodotto. Inizialmente sviluppato per l''editor di <a href=''https://atom.io'' target=''_blank''>Atom di GitHub</a>, Electron è stato utilizzato per creare applicazioni da aziende quali Microsoft, Facebook, Slack e Docker.'
+  view_more: Vedi altre applicazioni
+  submit_your_own: inviare la tua applicazione
+or: o
