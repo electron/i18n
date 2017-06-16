@@ -1,10 +1,10 @@
-# Security, Native Capabilities, and Your Responsibility
+# Beveiliging, inheemse mogelijkheden en jouw verantwoordelijkheid
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Als web-ontwikkelaars maken we gebruik van het sterke beveiligings net van de browser - de risico's bij de codes die we schrijven zijn relatief klein. Onze websites hebben beperkte bevoegdheden in een zandbak, en we vertrouwen erop dat onze gebruikers een browser gebruiken die gebouwd is bij een groot team van ingenieurs dat snel kan reageren op pas-ontdekte bedreigingen.
 
-When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Wanneer je werkt met Electron is het belangrijk dat je begrijpt dat Electron geen webbrowser is. Het laat je feature-rijke desktop applicaties bouwen met bekende webtechnologieën, maar je code heeft veel meer macht. JavaScript kan toegang krijgen tot het bestandssysteem, gebruiker-shell en meer. Hierdoor kun je inheemse applicaties bouwen van hoge kwaliteit, maar de inherente beveiligingsrisico's gaan geschaald met de extra bevoegdheden die met je code meekomen.
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
+Dat zeggende, wees er van bewust dat het weergeven van willekeurige inhoud van onbetrouwbare bronnen een ernstig veiligheidsrisico vormt dat niet bestemd is voor Electron om aan te kunnen. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
 ## Reporting Security Issues
 

@@ -1,12 +1,12 @@
-# Releasing
+# リリース
 
-This document describes the process for releasing a new version of Electron.
+このドキュメントでは、Electronの新しいバージョンをリリースするプロセスについて説明します。
 
-## Compile release notes
+## リリースノートをコンパイルする
 
 The current process is to maintain a local file, keeping track of notable changes as pull requests are merged. For examples of how to format the notes, see previous releases on [the releases page](https://github.com/electron/electron/releases).
 
-## Create a temporary branch
+## テンポラリなブランチを作成
 
 Create a new branch from `master` named `release`.
 
@@ -18,7 +18,7 @@ git checkout -b release
 
 This branch is created as a precaution to prevent any merged PRs from sneaking into a release between the time the temporary release branch is created and the CI builds are complete.
 
-## Bump the version
+## バージョンを上げる
 
 Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
 
@@ -31,14 +31,14 @@ This will bump the version number in several files. See [this bump commit](https
 
 Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
 
-## Edit the release draft
+## リリースのドラフトを編集する
 
   1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-  2. Edit the release and add release notes.
-  3. Click 'Save draft'. **Do not click 'Publish release'!**
-  4. Wait for all the builds to pass. :hourglass_flowing_sand:
+  2. リリースを編集し、リリースノートを追加します。
+  3. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
+  4. すべてのビルドがパスするのを待ちます :hourglass_flowing_sand:
 
-## Merge temporary branch
+## テンポラリなブランチをマージ
 
 Merge the temporary back into master, without creating a merge commit:
 
@@ -47,7 +47,7 @@ git merge release master --no-commit
 git push origin master
 ```
 
-If this fails, rebase with master and rebuild:
+もしこれが失敗した場合、masterブランチとリベースしてからビルドしてください
 
 ```sh
 git pull
@@ -78,7 +78,7 @@ You'll need to set the following environment variables to publish a release. Ask
 
 You will only need to do this once.
 
-## Publish the release
+## リリースを公開する
 
 This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
 
@@ -88,10 +88,10 @@ npm run release
 
 Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
 
-## Delete the temporary branch
+## テンポラリなブランチを削除する
 
 ```sh
 git checkout master
-git branch -D release # delete local branch
-git push origin :release # delete remote branch
+git branch -D release # ローカルブランチを削除
+git push origin :release # リモートブランチを削除
 ```

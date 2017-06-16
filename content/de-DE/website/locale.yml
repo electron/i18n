@@ -5,7 +5,7 @@ nav:
   community: Community
   apps: Apps
   userland: Userland
-  releases: Releases
+  releases: Versionen
   contact: Kontakt
 electron_is_easy:
   title: Es ist einfacher als Sie denken
@@ -26,7 +26,7 @@ benefits:
   native_menus_and_notifications: Native Menüs & Benachrichtigungen
   crash_reporting: Absturzmelder
   debugging_and_profiling: Debuggen & Profiling
-  windows_installers: Windows installers
+  windows_installers: Windows Installer
 get_started:
   title: Erste Schritte
   description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
@@ -43,7 +43,7 @@ quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: Eine minimale Electron App mit hilfreichen Anmerkungen.
   clone: Das Quick-Start Repository klonen
-  go_into_repo: Go into the repository
+  go_into_repo: Gehen Sie in das Repository
   install_deps: Die Abhängigkeiten installieren und ausführen
   dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
 need_help:

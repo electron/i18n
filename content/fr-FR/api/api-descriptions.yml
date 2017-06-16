@@ -1994,6 +1994,6 @@ webviewTag.domEvents.did-change-theme-color.description: >-
   Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 webviewTag.domEvents.update-target-url.description: >-
   Emitted when mouse moves over a link or the keyboard moves the focus to a link.
-webviewTag.domEvents.devtools-opened.description: Emitted when DevTools is opened.
-webviewTag.domEvents.devtools-closed.description: Emitted when DevTools is closed.
-webviewTag.domEvents.devtools-focused.description: Emitted when DevTools is focused / opened.
+webviewTag.domEvents.devtools-opened.description: Émis lorsque la DevTools est ouverte.
+webviewTag.domEvents.devtools-closed.description: Émis lorsque la DevTools est fermée.
+webviewTag.domEvents.devtools-focused.description: Émis lorsque la DevTools est active / ouverte.
