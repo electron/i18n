@@ -34,20 +34,20 @@ explore:
   title: Esplorare le API di Electron
   description:
     - '<a href="https://github.com/electron/electron-api-demos">Demo delle API di Electron</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+    - mostra in modo interattivo le caratteristiche più importanti delle API Electron.
+    - Guarda cosa è possibile creare con Electron con codici di esempio e suggerimenti utili
+    - costruisci la tua app.
+download_from_github: Scarica da GitHub
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Tutte le versioni</a> su GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
-  dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
+  title: "Inizia con l'app <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> per vedere Electron in azione:"
+  description: Una semplice app Electron con utili commenti.
+  clone: Clona il repository Quick Start
+  go_into_repo: Vai al repository
+  install_deps: Installa le librerie ed esegui
+  dive_deeper: 'O dai un''occhiata alla <a href=''https://electron.atom.io/docs/''>documentazione</a>.'
 need_help:
-  title: Need Help?
+  title: Hai bisogno di aiuto?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
   title: Apps built on Electron
