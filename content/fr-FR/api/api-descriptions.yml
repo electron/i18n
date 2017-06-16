@@ -4,63 +4,63 @@ app.methods.quit.description: >-
 app.methods.exit.description: >-
   Termine immédiatement avec exitCode.  exitCode est par défaut à 0. Toutes les fenêtres se fermeront immédiatement sans demander à l’utilisateur et les événements before-quit et will-quit ne seront pas émis.
 app.methods.relaunch.description: >-
-  Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
-app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
+  Relance l’app quand l’instance en cours se termine. Par défaut, la nouvelle instance utilisera le même répertoire de travail et les arguments de ligne de commande que l’instance actuelle. Si args est spécifié, args sera passé comme argument de ligne de commande à la place. Lorsque execPath est spécifié, l’execPath sera exécutée pour relancer au lieu de l’actuel App. Notez que cette méthode ne quitte pas l’application lors de l’exécution, vous devez appeler app.quit ou app.exit après app.relaunch pour redémarrer l’application. Lorsque app.relaunch est appelé à plusieurs reprises, plusieurs instances démarre après avoir quitté l’instance actuelle. Un exemple de redémarrage de l’instance en cours en ajoutant un nouvel argument de ligne de commande à la nouvelle instance :
+app.methods.isReady.returns.description: 'true si Electron a terminé l''initialisation, sinon false.'
 app.methods.focus.description: >-
-  On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-app.methods.hide.description: Hides all application windows without minimizing them.
+  Sur Linux, cela cible la première fenêtre visible. Sur macOS, cela met l'application comme étant l'app active. Sur Windows, cela cible la première fenêtre de l'application.
+app.methods.hide.description: Masque toutes les fenêtres d’application sans les minimiser.
 app.methods.show.description: >-
-  Shows application windows after they were hidden. Does not automatically focus them.
-app.methods.getAppPath.returns.description: The current application directory.
-app.methods.getPath.description: 'You can request the following paths by the name:'
+  Montre les fenêtres d’application après qu’ils étaient cachés. Ne les cibles pas automatiquement.
+app.methods.getAppPath.returns.description: Le répertoire de l’application actuelle.
+app.methods.getPath.description: 'Vous pouvez demander les chemins suivants sous le nom :'
 app.methods.getPath.returns.description: >-
-  A path to a special directory or file associated with name. On failure an Error is thrown.
+  Un chemin vers un répertoire spécial ou un fichier associé avec name. Si une erreur survient, une Error est générée.
 app.methods.getFileIcon.description: >-
-  Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
+  Récupère l’icône associée à un chemin. Sous Windows, il y a 2 sortes d’icônes : sous Linux et macOS, les icônes dépendent de l’application associée au fichier type mime.
 app.methods.setPath.description: >-
-  Overrides the path to a special directory or file associated with name. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an Error is thrown. You can only override paths of a name defined in app.getPath. By default, web pages' cookies and caches will be stored under the userData directory. If you want to change this location, you have to override the userData path before the ready event of the app module is emitted.
+  Remplace le chemin d’accès par un répertoire spécial ou un fichier associé au name. Si le chemin d’accès spécifie un répertoire qui n’existe pas, le répertoire sera créé par cette méthode. Si une erreur survient, une Error est retournée. Vous pouvez remplacer uniquement les chemins d’un name définis dans app.getPath. Par défaut, les cookies et caches des pages web seront stockées dans le répertoire userData. Si vous souhaitez modifier cet emplacement, vous devez remplacer le chemin d’accès userData avant que l'événement ready du module app soit émis.
 app.methods.getVersion.returns.description: >-
-  The version of the loaded application. If no version is found in the application's package.json file, the version of the current bundle or executable is returned.
+  La version de l’application chargée. Si aucune version n’est trouvée dans le fichier package.json de l’application, la version du paquet actuel ou exécutable est retournée.
 app.methods.getName.description: >-
-  Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
+  Le champ name du package.json est généralement un nom en minuscule, selon les spécifications modules npm. Vous devriez normalement spécifier un champ productName, qui est le nom de votre application en capital, et qui sera utilisé par préférence par Electron.
 app.methods.getName.returns.description: >-
-  The current application's name, which is the name in the application's package.json file.
-app.methods.setName.description: Overrides the current application's name.
+  Nom de l’application actuelle, qui est le champ name dans le fichier package.json de l’application.
+app.methods.setName.description: Remplace le nom de l'application actuelle.
 app.methods.getLocale.description: >-
-  Note: When distributing your packaged app, you have to also ship the locales folder. Note: On Windows you have to call it after the ready events gets emitted.
-app.methods.getLocale.returns.description: The current application locale. Possible return values are documented here.
+  Remarque : Lorsque vous distribuez votre package, vous devrez également distribuer le dossier locales. Remarque : Sur Windows vous devez l’appeler après que l'événement ready soit émis.
+app.methods.getLocale.returns.description: La langue de l'application actuelle. Les valeurs de retour possibles sont documentés ici.
 app.methods.addRecentDocument.description: >-
-  Adds path to the recent documents list. This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
-app.methods.clearRecentDocuments.description: Clears the recent documents list.
+  Ajoute path dans la liste des documents récents. Cette liste est gérée par l'OS. Sur Windows, vous pouvez voir la liste depuis la barre des tâches et sur macOS, vous pouvez la voir depuis le menu du dock.
+app.methods.clearRecentDocuments.description: Efface la liste des documents récents.
 app.methods.setAsDefaultProtocolClient.description: >-
-  This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+  Cette méthode définit l'exécutable actuel comme application par défaut pour un protocole (aka le modèle URI). Il vous permet d'intégrer votre application plus profondément dans le système d'exploitation. Une fois enregistré, tout les liens avec votre-protocol:// seront ouvert avec votre application. Le lien entier, y compris le protocol, sera transmis à votre application comme paramètre. Sous Windows, vous pouvez fournir les paramètres optionnels path, le chemin vers votre application, et args, un tableau d'arguments à passer à votre application lors de son lancement. Remarque : Sur macOS, vous pouvez enregistrer uniquement les protocoles qui ont été ajoutés au fichier info.plist de votre application, qui ne peuvent pas pas être modifiés lors de son exécution. Vous pouvez toutefois modifier le fichier avec un éditeur de texte ou via un script durant la compilation. Veuillez vous reporter à la documentation d'Apple pour plus de détails. L’API utilise le registre de Windows et LSSetDefaultHandlerForURLScheme en interne.
 app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
-  The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-app.methods.setAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.setAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
-app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+  Le nom de votre protocole, sans `://`. Si vous souhaitez que votre application gère le protocol `electron://`, appelez cette méthode avec `electron` comme paramètre.
+app.methods.setAsDefaultProtocolClient.parameters.path.description: Par défaut, `process.execPath`
+app.methods.setAsDefaultProtocolClient.parameters.args.description: Par défaut, un tableau vide
+app.methods.setAsDefaultProtocolClient.returns.description: Si l’appel a réussi.
 app.methods.removeAsDefaultProtocolClient.description: >-
-  This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.removeAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.removeAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
-app.methods.removeAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+  Cette méthode vérifie si l'application actuel est l'application par défaut pour un protocole (aka le modèle URI). Si c'est le cas, il retirera l’application comme application par défaut.
+app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'Le nom de votre protocole, sans `://`.'
+app.methods.removeAsDefaultProtocolClient.parameters.path.description: Par défaut, `process.execPath`
+app.methods.removeAsDefaultProtocolClient.parameters.args.description: Par défaut, un tableau vide
+app.methods.removeAsDefaultProtocolClient.returns.description: Si l’appel a réussi.
 app.methods.isDefaultProtocolClient.description: >-
-  This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-app.methods.isDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.isDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+  Cette méthode vérifie si l'application actuelle est l'application par défaut pour un protocole (aka le modèle URI). Si cela est le cas, elle retournera true. Sinon elle retournera false. Remarque : Sur macOS, vous pouvez utiliser cette méthode pour vérifier si l'application à bien été enregistrée comme application par défaut d'un protocol. Vous pouvez également vérifier cela en vérifiant ~/Library/Preferences/com.apple.LaunchServices.plist sur le macOS. Veuillez vous reporter à la documentation d’Apple pour plus de détails. L’API utilise le registre de Windows et LSCopyDefaultHandlerForURLScheme en interne.
+app.methods.isDefaultProtocolClient.parameters.protocol.description: 'Le nom de votre protocole, sans `://`.'
+app.methods.isDefaultProtocolClient.parameters.path.description: Par défaut, `process.execPath`
+app.methods.isDefaultProtocolClient.parameters.args.description: Par défaut, un tableau vide
 app.methods.setUserTasks.description: >-
-  Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
-app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
-app.methods.setUserTasks.returns.description: Whether the call succeeded.
+  Ajoute tasks à la catégorie Tasks de la Liste de raccourcis sur Windows. tasks est un tableau d'objets Task. Remarque : Si vous souhaitez personnaliser encore plus la liste de raccourcis, utilisez à la place app.setJumpList(categories).
+app.methods.setUserTasks.parameters.tasks.description: Tableau d’objets `Task`
+app.methods.setUserTasks.returns.description: Si l’appel a réussi.
 app.methods.getJumpListSettings.returns.properties.0.description: >-
-  The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
+  Le nombre minimal d’éléments qui seront affichés dans la liste de raccourcis (pour une description plus détaillée de cette valeur, consultez la ).
 app.methods.getJumpListSettings.returns.properties.1.description: >-
-  Array of JumpListItem objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the call to app.setJumpList(), Windows will not display any custom category that contains any of the removed items.
+  Tableau d’objets JumpListItem qui correspondent aux éléments que l’utilisateur a explicitement supprimé des catégories personnalisées dans la liste de raccourcis. Ces éléments ne doivent pas être rajoutés à la liste de raccourcis dans l’appel à app.setJumpList(), Windows n’affichera pas une catégorie personnalisée qui contient un élément supprimé.
 app.methods.setJumpList.description: >-
-  Sets or removes a custom Jump List for the application, and returns one of the following strings: If categories is null the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows). Note: If a JumpListCategory object has neither the type nor the name property set then its type is assumed to be tasks. If the name property is set but the type property is omitted then the type is assumed to be custom. Note: Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until after the next successful call to app.setJumpList(categories). Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using app.getJumpListSettings(). Here's a very simple example of creating a custom Jump List:
-app.methods.setJumpList.parameters.categories.description: or `null` Array of `JumpListCategory` objects.
+  Définit ou supprime une liste de raccourcis personnalisés pour l’application et retourne l’une des chaînes suivantes : si categories est null la précédente liste de raccourcis personnalisé (s'il y en a une) sera remplacée par la liste de raccourcis standard de l’application (gérée par Windows). Remarque : Si un objet JumpListCategory n’a ni la propriétés type ni la propriétés name de définit, alors son type sera tasks. Si seulement la propriété name est définit, alors la propriété type sera indiqué comme custom. Remarque : Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows ne permettra pas qu'un élément supprimé soit rajouté dans une catégorie personnalisée avant le prochain appel à app.setJumpList(categories). Toute tentative de rajouter un élément supprimé dans une catégorie personnalisée avant cela se résultera par la suppression totale de la catégorie personnalisée de la liste de raccourcis. La liste d’éléments supprimés peut être obtenue à l’aide de app.getJumpListSettings(). Voici un exemple très simple pour créer une liste de raccourcis personnalisés :
+app.methods.setJumpList.parameters.categories.description: ou `null` Tableau d'objets `JumpListCategory`.
 app.methods.makeSingleInstance.description: >-
   This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit. callback will be called with callback(argv, workingDirectory) when a second instance has been executed. argv is an Array of the second instance's command line arguments, and workingDirectory is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized. The callback is guaranteed to be executed after the ready event of app gets emitted. This method returns false if your process is the primary instance of the application and your app should continue loading. And returns true if your process has sent its parameters to another instance, and you should immediately quit. On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the open-file and open-url events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance. An example of activating the window of primary instance when a second instance starts:
 app.methods.makeSingleInstance.parameters.callback.parameters.argv.description: An array of the second instance's command line arguments
@@ -87,7 +87,7 @@ app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
   Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
-app.methods.setBadgeCount.returns.description: Whether the call succeeded.
+app.methods.setBadgeCount.returns.description: Si l’appel a réussi.
 app.methods.getBadgeCount.returns.description: The current value displayed in the counter badge.
 app.methods.isUnityRunning.returns.description: Whether the current desktop environment is Unity launcher.
 app.methods.getLoginItemSettings.description: >-
