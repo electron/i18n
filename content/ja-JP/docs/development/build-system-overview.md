@@ -42,7 +42,7 @@ Unlike most projects that use `Release` and `Debug` as target names, Electron us
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
-## Tests
+## テスト
 
 Test your changes conform to the project coding style using:
 
@@ -66,7 +66,7 @@ You can make the test suite run faster by isolating the specific test or block y
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
+  // このブロックのテストのみが実行されます
 })
 ```
 
