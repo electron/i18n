@@ -118,9 +118,9 @@ app.methods.isAccessibilitySupportEnabled.returns.description: >-
   trả về true nếu khả năng truy cập của Chrome được bật, còn lại trả về false. API này sẽ trả về true nếu phát hiện ra các công nghệ hỗ trợ, ví dụ nhưcác screen reader. Xem thêm tại: https://www.chromium.org/developers/design-documents/accessibility để biết thêm chi tiết.
 app.methods.setAboutPanelOptions.description: >-
   Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: The app's name.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: The app's version.
-app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Copyright information.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Tên của ứng dụng.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Phiên bản của ứng dụng.
+app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Thông tin bản quyền.
 app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Credit information.
 app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
 app.events.will-finish-launching.description: >-
@@ -176,7 +176,7 @@ app.properties.dock.properties.downloadFinished.description: Bounces the Downloa
 app.properties.dock.properties.setBadge.description: Sets the string to be displayed in the dock’s badging area.
 app.properties.dock.properties.getBadge.returns.description: The badge string of the dock.
 app.properties.dock.properties.hide.description: Hides the dock icon.
-app.properties.dock.properties.show.description: Shows the dock icon.
+app.properties.dock.properties.show.description: Hiển thị biểu tượng dock.
 app.properties.dock.properties.isVisible.returns.description: >-
   Whether the dock icon is visible. The app.dock.show() call is asynchronous so this method might not return true immediately after that call.
 app.properties.dock.properties.setMenu.description: Sets the application's dock menu.
@@ -197,7 +197,7 @@ autoUpdater.events.update-not-available.description: Emitted when there is no av
 autoUpdater.events.update-downloaded.description: >-
   Emitted when an update has been downloaded. On Windows only releaseName is available.
 BrowserView.description: Create and control views.
-BrowserView.constructorMethod.parameters.0.properties.0.description: See .
+BrowserView.constructorMethod.parameters.0.properties.0.description: Hãy xem .
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.description: >-
   If true, the view's width will grow and shrink together with the window. false by default.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
