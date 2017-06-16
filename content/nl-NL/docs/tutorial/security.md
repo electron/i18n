@@ -2,7 +2,7 @@
 
 Als web-ontwikkelaars maken we gebruik van het sterke beveiligings net van de browser - de risico's bij de codes die we schrijven zijn relatief klein. Onze websites hebben beperkte bevoegdheden in een zandbak, en we vertrouwen erop dat onze gebruikers een browser gebruiken die gebouwd is bij een groot team van ingenieurs dat snel kan reageren op pas-ontdekte bedreigingen.
 
-Wanneer je werkt met Electron is het belangrijk dat je begrijpt dat Electron geen webbrowser is. Het laat je feature-rijke desktop applicaties bouwen met bekende webtechnologieën, maar je code heeft veel meer macht. JavaScript kan toegang krijgen tot het bestandssysteem, gebruiker-shell en meer. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Wanneer je werkt met Electron is het belangrijk dat je begrijpt dat Electron geen webbrowser is. Het laat je feature-rijke desktop applicaties bouwen met bekende webtechnologieën, maar je code heeft veel meer macht. JavaScript kan toegang krijgen tot het bestandssysteem, gebruiker-shell en meer. Hierdoor kun je inheemse applicaties bouwen van hoge kwaliteit, maar de inherente beveiligingsrisico's gaan geschaald met de extra bevoegdheden die met je code meekomen.
 
 With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
