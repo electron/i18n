@@ -44,9 +44,9 @@ describe('electron-i18n', () => {
       expect(sourceKeys).to.include('app.events.continue-activity.returns.type.description')
 
       expect(locales.length).to.be.above(10)
-      // locales.forEach(locale => {
-      //   expect(sourceKeys).to.deep.equal(getKeys(locale), `${locale} API descriptions tree does not match source content`)
-      // })
+      locales.forEach(locale => {
+        expect(sourceKeys).to.deep.equal(getKeys(locale), `${locale} API descriptions tree does not match source content`)
+      })
     })
   })
 })
