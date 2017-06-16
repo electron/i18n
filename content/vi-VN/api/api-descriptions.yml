@@ -110,7 +110,7 @@ app.methods.setLoginItemSettings.description: >-
 app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.description: >-
   true to open the app at login, false to remove the app as a login item. Defaults to false.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
-  trả về trung nếu mở app trong tình trạng hidden. Mặc định trả về false. Người dùng có thể thay đổi các cài đặt trong System Preferences, vì vậy app.getLoginItemStatus().wasOpenedAsHidden cần được kiểm tra khi ứng dụng được mở để biết giá trị hiện tại. Cài đặt này chỉ hỗ trợ cho macOS.
+  trả về true nếu mở app trong tình trạng hidden. Mặc định trả về false. Người dùng có thể thay đổi các cài đặt trong System Preferences, vì vậy app.getLoginItemStatus().wasOpenedAsHidden cần được kiểm tra khi ứng dụng được mở để biết giá trị hiện tại. Cài đặt này chỉ hỗ trợ cho macOS.
 app.methods.setLoginItemSettings.parameters.path.description: The executable to launch at login. Defaults to `process.execPath`.
 app.methods.setLoginItemSettings.parameters.args.description: >-
   The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
