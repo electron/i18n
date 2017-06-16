@@ -2,7 +2,7 @@
 
 Sistemas operativos ofrecen diferentes funciones para integración de aplicaciones de escritorio en sus entornos de escritorio. Por ejemplo, en Windows, aplicaciones pueden poner accesos directos en la JumpList de barra de tareas, y en Mac, aplicaciones pueden poner un menú personalizado en el menú dock.
 
-Esta guía explica cómo integrar su aplicación en los entornos de escritorio con las APIs de electrón.
+Esta guía explica cómo integrar su aplicación en los entornos de escritorio con las APIs de Electron.
 
 ## Notificaciones
 
@@ -60,7 +60,7 @@ const {app, Menu} = dockMenu const require('electron') = Menu.buildFromTemplate 
 
 En Windows puede especificar acciones personalizadas en la categoría de `Tasks` de JumpList, citado de MSDN:
 
-> Aplicaciones definen basadas en características del programa y de las cosas claves que un usuario se pretende hacer con ellos. Tareas deben estar libre de contexto, en que la aplicación no necesita estar en ejecución para que trabajen. También deben ser las acciones estadísticamente más común que un usuario normal sería realizar en una aplicación, tales como componer un mensaje de correo electrónico o abrir el calendario en un programa de correo, crean un nuevo documento en un procesador de textos, inicie una aplicación en cierto modo o uno de sus subcomandos. Una aplicación debe desorden el menú con características avanzadas que no necesitan los usuarios estándar o acciones de una sola vez como registro. No utilice tareas para artículos promocionales tales como actualizaciones u ofertas especiales.
+> Aplicaciones definen basadas en características del programa y de las cosas claves que un usuario se pretende hacer con ellos. Tareas deben estar libre de contexto, en que la aplicación no necesita estar en ejecución para que trabajen. También deben ser las acciones estadísticamente más común que un usuario normal sería realizar en una aplicación, tales como componer un mensaje de correo Electronico o abrir el calendario en un programa de correo, crean un nuevo documento en un procesador de textos, inicie una aplicación en cierto modo o uno de sus subcomandos. Una aplicación debe desorden el menú con características avanzadas que no necesitan los usuarios estándar o acciones de una sola vez como registro. No utilice tareas para artículos promocionales tales como actualizaciones u ofertas especiales.
 > 
 > Se recomienda que la lista de tareas ser estático. Debe seguir siendo la misma independientemente del estado o el estado de la aplicación. Mientras que es posible variar la lista dinámicamente, debe considerar que esto podría confundir al usuario que no espera que la parte de la lista para cambiar de destino.
 

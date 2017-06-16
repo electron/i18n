@@ -1,6 +1,6 @@
 # Liberación
 
-Este documento describe el proceso para lanzar una nueva versión del electrón.
+Este documento describe el proceso para lanzar una nueva versión del Electron.
 
 ## Notas de la versión de compilación
 
@@ -43,7 +43,7 @@ Combinar el reverso temporal en master, sin crear un commit de combinación:
 git fusión liberación maestro--no-commit git push origen
 ```
 
-Si esto falla, rebase con master y reconstruir:
+Si esto falla, rebase con master y recompilar:
 
 ```sh
 comprobación de git git pull lanzar origen de git rebase master git push cabeza
@@ -72,7 +72,7 @@ Sólo necesita hacer esto una vez.
 
 ## Publicar la versión
 
-Este script será descargar los binarios y generar los encabezados de nodo y el vinculador .lib utilizado en Windows por nodo-gyp para construir módulos nativos.
+Este script será descargar los binarios y generar los encabezados de nodo y el vinculador .lib utilizado en Windows por nodo-gyp para compilar módulos nativos.
 
 ```sh
 ejecutar lanzamiento de NGP

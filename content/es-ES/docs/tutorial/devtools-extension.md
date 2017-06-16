@@ -6,7 +6,7 @@ Electrónica compatible con la [Chrome DevTools Extension](https://developer.chr
 
 Este documento describe el proceso para cargar manualmente la extensión. También puede tratar devtools-[electron-installer](https://github.com/GPMDP/electron-devtools-installer), una herramienta de terceros que descarga extensiones directamente desde la Chrome WebStore.
 
-Para cargar una extensión en electrón, necesita descargar en navegador Chrome, localizar su ruta de sistema de archivos y luego cargar llamando la</code> API de`BrowserWindow.addDevToolsExtension (extensión).</p>
+Para cargar una extensión en Electron, necesita descargar en navegador Chrome, localizar su ruta de sistema de archivos y luego cargar llamando la</code> API de`BrowserWindow.addDevToolsExtension (extensión).</p>
 
 <p>Usando el Tools</a> de desarrollador de <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React como ejemplo:</p>
 
@@ -30,7 +30,7 @@ Para cargar una extensión en electrón, necesita descargar en navegador Chrome,
 
 ## Extensiones compatibles DevTools
 
-Electrón sólo admite un conjunto limitado de `chrome.*` APIs, para que no funcionen algunas extensiones con `chrome.*` sin soporte API para características de la extensión de chrome. Siguientes Devtools extensiones son probadas y garantizadas para trabajar en electrónica:
+Electrón sólo admite un conjunto limitado de `chrome.*` APIs, para que no funcionen algunas extensiones con `chrome.*` sin soporte API para características de la extensión de chrome. Siguientes Devtools extensiones son probadas y garantizadas para trabajar en Electron:
 
 * [Inspector de Ember](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [Herramientas para desarrolladores de reaccionar](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -45,4 +45,4 @@ Electrón sólo admite un conjunto limitado de `chrome.*` APIs, para que no func
 
 Primero por favor asegúrese de que la extensión se se mantiene, algunas extensiones no pueden trabajar incluso para las versiones recientes de navegador Chrome, y no somos capaces de hacer cualquier cosa por ellos.
 
-Entonces un error de archivo en la lista de problemas del electrón y describir que parte de la extensión no funciona como se esperaba.
+Entonces un error de archivo en la lista de problemas del Electron y describir que parte de la extensión no funciona como se esperaba.

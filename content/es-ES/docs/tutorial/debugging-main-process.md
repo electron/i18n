@@ -1,6 +1,6 @@
 # Los principales procesos de depuración
 
-Las DevTools en una ventana del navegador del electrón sólo puede depurar JavaScript que se ejecuta en la ventana (es decir, las páginas web). Para depurar JavaScript que se ejecuta en el proceso principal que usted necesitará utilizar un depurador externo y lanzar electrones con el ` - debug` o `--debug-brk` interruptor.
+Las DevTools en una ventana del navegador del Electron sólo puede depurar JavaScript que se ejecuta en la ventana (es decir, las páginas web). Para depurar JavaScript que se ejecuta en el proceso principal que usted necesitará utilizar un depurador externo y lanzar electrones con el ` - debug` o `--debug-brk` interruptor.
 
 ## Línea de comandos
 
@@ -11,7 +11,7 @@ Utilice uno de los siguientes modificadores de línea de comandos para habilitar
 Electrón se escucha mensajes de protocolo de depurador de V8 en el `port` especificado, un depurador externo necesitará conectarse a este puerto. El `port` por defecto es `5858`.
 
 ```shell
-electrónica--debug = 5858 su / app
+Electron--debug = 5858 su / app
 ```
 
 ### `--debug-brk =[port]`

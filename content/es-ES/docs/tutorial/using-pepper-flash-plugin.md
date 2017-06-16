@@ -1,14 +1,14 @@
 # Usando el Plugin de Flash de pimienta
 
-Electrón es compatible con el plugin de Flash de pimienta. Para utilizar el plugin de Flash de pimienta en electrón, debe especificar manualmente la ubicación del plugin Flash de pimienta y habilítelo en su aplicación.
+Electrón es compatible con el plugin de Flash de pimienta. Para utilizar el plugin de Flash de pimienta en Electron, debe especificar manualmente la ubicación del plugin Flash de pimienta y habilítelo en su aplicación.
 
 ## Preparar una copia del Plugin de Flash
 
-En macOS y Linux, los detalles del plugin Flash de pimiento pueden encontrarse navegando a ` chrome://plugins` en el navegador Chrome. Su ubicación y su versión son útiles para soporte Flash de pimienta del electrón. También puede copiar a otra ubicación.
+En macOS y Linux, los detalles del plugin Flash de pimiento pueden encontrarse navegando a ` chrome://plugins` en el navegador Chrome. Su ubicación y su versión son útiles para soporte Flash de pimienta del Electron. También puede copiar a otra ubicación.
 
-## Añadir interruptor electrónico
+## Añadir interruptor Electronico
 
-Puede agregar directamente `--ppapi-flash-path` y `--ppapi-flash-version` a la línea de comando electrónica o mediante el método `app.commandLine.appendSwitch` antes del evento ready de la aplicación. Además, activar la opción de `plugins` de `BrowserWindow`.
+Puede agregar directamente `--ppapi-flash-path` y `--ppapi-flash-version` a la línea de comando Electron o mediante el método `app.commandLine.appendSwitch` antes del evento ready de la aplicación. Además, activar la opción de `plugins` de `BrowserWindow`.
 
 Por ejemplo:
 
@@ -33,7 +33,7 @@ Agregue el atributo de `plugins` etiqueta de `<webview>`.
 
 Usted puede chequear si pimienta Flash plugin fue cargado por inspección`navigator.plugins` en la consola de devtools (aunque no se sabe si la ruta del plugin es correcta).
 
-La arquitectura de plugin de destello de la pimienta tiene que coincidir con uno del electrón. En Windows, un error común es usar la versión de 32 bits del plugin de Flash contra la versión de 64 bits de electrónica.
+La arquitectura de plugin de destello de la pimienta tiene que coincidir con uno del Electron. En Windows, un error común es usar la versión de 32 bits del plugin de Flash contra la versión de 64 bits de Electron.
 
 En Windows la ruta pasa a `--ppapi-flash-path` tiene que utilizar `` como delimitador, con rutas de estilo POSIX no funcionará.
 

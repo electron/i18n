@@ -1,6 +1,6 @@
 # Planea romper cambios de API
 
-La siguiente lista incluye las API que se suprimirá en electrónica 2.0.
+La siguiente lista incluye las API que se suprimirá en Electron 2.0.
 
 No hay ningún calendario para cuando ocurrirá esta versión pero las advertencias de degradación se añadirá al menos 90 días de antelación.
 
@@ -80,7 +80,7 @@ Webview.setZoomLevelLimits (1, 2) en desuso / / reemplazar con webview.setVisual
 
 ## Nodo enlace de cabeceras
 
-Esta es la dirección URL especificada como `disturl` en un archivo `.npmrc` o como ` - dist-url` bandera de línea de comandos al construir los módulos nativos de nodo.
+Esta es la dirección URL especificada como `disturl` en un archivo `.npmrc` o como ` - dist-url` bandera de línea de comandos al compilar los módulos nativos de nodo.
 
 Obsoleto: https://atom.io/download/atom-shell
 

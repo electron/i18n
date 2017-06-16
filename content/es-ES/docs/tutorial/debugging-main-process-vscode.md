@@ -1,9 +1,9 @@
 # Depurar el proceso principal en VSCode
 
-### 1. Abra un proyecto de electrónica en VSCode.
+### 1. Abra un proyecto de Electron en VSCode.
 
 ```bash
-$ git clone git@github.com:electron / electrón-rápido-start.git $ código electrón-quick-start
+$ git clone git@github.com:electron / Electron-rápido-start.git $ código Electron-quick-start
 ```
 
 ### 2. Añadir un archivo `.vscode/launch.json` con la siguiente configuración:
