@@ -58,11 +58,11 @@ Các quy định sau đây chỉ áp dụng cho các tài liệu API.
 
 ### Tiêu đề Trang
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Mỗi trang phải dùng tên đối tượng thực tế được trả về bởi `require('electron')` như tiêu đề, chẳng hạn như `BrowserWindow`, `autoUpdater`, và `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Mô tả của tiêu đề trang phải được viết trong một dòng và bắt đầu bằng `>`.
 
-Sử dụng `session` như một ví dụ:
+Sử dụng một đoạn văn trên đầu của trang `session` làm ví dụ:
 
 ```markdown
 # session
@@ -70,9 +70,9 @@ Sử dụng `session` như một ví dụ:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Các module phương thức và sự kiện
+### Các phương thức và sự kiện của module
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Với các module không phải là một class, các phương thức và các sự kiện của nó phải được liệt kê trong hai mục sau `## Các phương thức` và `## Các sự kiện`.
 
 Ví dụ như `autoUpdater` là một ví dụ:
 
@@ -148,7 +148,7 @@ Chương viết về các phương thức phải viết trong các hình thức 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là một phương thức của một module hay của một class.
 
 For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
@@ -192,9 +192,9 @@ Returns:
 ...
 ```
 
-Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là thuộc tính của một module hay của một class.
+Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là một sự kiện của một module hay của một class.
 
-The arguments of an event follow the same rules as methods.
+Các đối số của một sự kiện được viết theo các quy tắc tương tự như các quy tắc của các phương thức.
 
 ### Các thuộc tính
 
