@@ -35,7 +35,7 @@ app.methods.clearRecentDocuments.description: Xóa danh sách tài liệu gần 
 app.methods.setAsDefaultProtocolClient.description: >-
   This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
-  The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+  Tên của giao thức của bạn, lưu ý không có '://'. Nếu bạn muốn ứng dụng của bạn xử lý các liên kết 'electron://', gọi phương pháp này với tham số được truyền vào là 'electron'.
 app.methods.setAsDefaultProtocolClient.parameters.path.description: Mặc định là `process.execPath`
 app.methods.setAsDefaultProtocolClient.parameters.args.description: Mặc định là một empty array
 app.methods.setAsDefaultProtocolClient.returns.description: Cho dù đã gọi thành công.
@@ -74,13 +74,13 @@ app.methods.setUserActivity.parameters.type.description: Uniquely identifies the
 app.methods.setUserActivity.parameters.userInfo.description: App-specific state to store for use by another device.
 app.methods.setUserActivity.parameters.webpageURL.description: >-
   The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
-app.methods.getCurrentActivityType.returns.description: The type of the currently running activity.
+app.methods.getCurrentActivityType.returns.description: Các loại của các hoạt động hiện đang chạy.
 app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
 app.methods.importCertificate.description: >-
   Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
-app.methods.importCertificate.parameters.options.properties.certificate.description: Path for the pkcs12 file.
-app.methods.importCertificate.parameters.options.properties.password.description: Passphrase for the certificate.
-app.methods.importCertificate.parameters.callback.parameters.result.description: Result of import.
+app.methods.importCertificate.parameters.options.properties.certificate.description: Đường dẫn của tập tin pkcs12.
+app.methods.importCertificate.parameters.options.properties.password.description: Passphrase của certificate.
+app.methods.importCertificate.parameters.callback.parameters.result.description: Kết quả của import.
 app.methods.disableHardwareAcceleration.description: >-
   Disables hardware acceleration for current app. This method can only be called before app is ready.
 app.methods.getAppMemoryInfo.description: >-
@@ -96,11 +96,11 @@ app.methods.getLoginItemSettings.parameters.options.properties.path.description:
 app.methods.getLoginItemSettings.parameters.options.properties.args.description: The command-line arguments to compare against. Defaults to an empty array.
 app.methods.getLoginItemSettings.returns.properties.0.properties.0.description: The executable path to compare against. Defaults to process.execPath.
 app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: The command-line arguments to compare against. Defaults to an empty array.
-app.methods.getLoginItemSettings.returns.properties.1.description: true if the app is set to open at login.
+app.methods.getLoginItemSettings.returns.properties.1.description: trả về true nếu ứng dụng đã được cài đặt là open at login.
 app.methods.getLoginItemSettings.returns.properties.2.description: >-
-  true if the app is set to open as hidden at login. This setting is only supported on macOS.
+  trả về true nếu ứng dụng được cài đặt là open at login nhưng bị ẩn đi. Cài đặt này chỉ hỗ trợ duy nhất cho macOS.
 app.methods.getLoginItemSettings.returns.properties.3.description: >-
-  true if the app was opened at login automatically. This setting is only supported on macOS.
+  trả về true nếu ứng dụng đã open at login thành công. Cài đặt này chỉ hỗ trợ duy nhất cho macOS.
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
   true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
@@ -121,8 +121,8 @@ app.methods.setAboutPanelOptions.description: >-
 app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Tên của ứng dụng.
 app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Phiên bản của ứng dụng.
 app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Thông tin bản quyền.
-app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Credit information.
-app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
+app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Thông tin Credit.
+app.methods.setAboutPanelOptions.parameters.options.properties.version.description: Mã số phiên bản xây dựng của ứng dụng.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
 app.events.ready.description: >-
@@ -150,7 +150,7 @@ app.events.browser-window-created.description: Emitted when a new browserWindow 
 app.events.web-contents-created.description: Emitted when a new webContents is created.
 app.events.certificate-error.description: >-
   Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).
-app.events.certificate-error.returns.error.description: The error code
+app.events.certificate-error.returns.error.description: Mã lỗi
 app.events.certificate-error.returns.callback.parameters.isTrusted.description: Whether to consider the certificate as trusted
 app.events.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The url corresponds to the navigation entry requesting the client certificate and callback can be called with an entry filtered from the list. Using event.preventDefault() prevents the application from using the first certificate from the store.
@@ -162,8 +162,8 @@ app.events.accessibility-support-changed.description: >-
 app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` when Chrome''s accessibility support is enabled, `false` otherwise.'
 app.properties.commandLine.properties.appendSwitch.description: >-
   Append a switch (with optional value) to Chromium's command line. Note: This will not affect process.argv, and is mainly used by developers to control some low-level Chromium behaviors.
-app.properties.commandLine.properties.appendSwitch.parameters.switch.description: A command-line switch
-app.properties.commandLine.properties.appendSwitch.parameters.value.description: A value for the given switch
+app.properties.commandLine.properties.appendSwitch.parameters.switch.description: Một chuyển đổi dòng lệnh
+app.properties.commandLine.properties.appendSwitch.parameters.value.description: Một giá trị cho các chuyển đổi nhất định
 app.properties.commandLine.properties.appendArgument.description: >-
   Append an argument to Chromium's command line. The argument will be quoted correctly. Note: This will not affect process.argv.
 app.properties.commandLine.properties.appendArgument.parameters.value.description: The argument to append to the command line
@@ -174,8 +174,8 @@ app.properties.dock.properties.bounce.returns.description: an ID representing th
 app.properties.dock.properties.cancelBounce.description: Cancel the bounce of id.
 app.properties.dock.properties.downloadFinished.description: Bounces the Downloads stack if the filePath is inside the Downloads folder.
 app.properties.dock.properties.setBadge.description: Sets the string to be displayed in the dock’s badging area.
-app.properties.dock.properties.getBadge.returns.description: The badge string of the dock.
-app.properties.dock.properties.hide.description: Hides the dock icon.
+app.properties.dock.properties.getBadge.returns.description: Các kí tự mô tả trên dock.
+app.properties.dock.properties.hide.description: Ẩn biểu tượng thanh dock.
 app.properties.dock.properties.show.description: Hiển thị biểu tượng dock.
 app.properties.dock.properties.isVisible.returns.description: >-
   Whether the dock icon is visible. The app.dock.show() call is asynchronous so this method might not return true immediately after that call.
@@ -219,8 +219,8 @@ BrowserWindow.staticMethods.getDevToolsExtensions.description: >-
   To check if a DevTools extension is installed you can run the following: Note: This API cannot be called before the ready event of the app module is emitted.
 BrowserWindow.staticMethods.getDevToolsExtensions.returns.description: >-
   The keys are the extension names and each value is an Object containing name and version properties.
-BrowserWindow.constructorMethod.parameters.0.properties.0.description: Window's width in pixels. Default is 800.
-BrowserWindow.constructorMethod.parameters.0.properties.1.description: Window's height in pixels. Default is 600.
+BrowserWindow.constructorMethod.parameters.0.properties.0.description: Chiều rộng của cửa sổ với đơn vị là pixel. Mặc định là 800.
+BrowserWindow.constructorMethod.parameters.0.properties.1.description: Chiều cao của cửa sổ với đơn vị là pixel. Mặc định là 600.
 BrowserWindow.constructorMethod.parameters.0.properties.2.description: >-
   ( if y is used) Window's left offset from screen. Default is to center the window.
 BrowserWindow.constructorMethod.parameters.0.properties.3.description: >-
@@ -228,12 +228,12 @@ BrowserWindow.constructorMethod.parameters.0.properties.3.description: >-
 BrowserWindow.constructorMethod.parameters.0.properties.4.description: >-
   The width and height would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.5.description: Show window in the center of the screen.
-BrowserWindow.constructorMethod.parameters.0.properties.6.description: Window's minimum width. Default is 0.
-BrowserWindow.constructorMethod.parameters.0.properties.7.description: Window's minimum height. Default is 0.
-BrowserWindow.constructorMethod.parameters.0.properties.8.description: Window's maximum width. Default is no limit.
-BrowserWindow.constructorMethod.parameters.0.properties.9.description: Window's maximum height. Default is no limit.
-BrowserWindow.constructorMethod.parameters.0.properties.10.description: Whether window is resizable. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.11.description: Whether window is movable. This is not implemented on Linux. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.6.description: Chiều rộng tối thiểu của cửa sổ. Mặc định là 0.
+BrowserWindow.constructorMethod.parameters.0.properties.7.description: Chiều cao tối thiểu của cửa sổ. Mặc định là 0.
+BrowserWindow.constructorMethod.parameters.0.properties.8.description: Chiều rộng tối đa của cửa sổ. Mặc định là không có giới hạn.
+BrowserWindow.constructorMethod.parameters.0.properties.9.description: Chiều cao tối đa của cửa sổ. Mặc định là không có giới hạn.
+BrowserWindow.constructorMethod.parameters.0.properties.10.description: Cửa sổ có thể resizable hay không. Mặc định là true.
+BrowserWindow.constructorMethod.parameters.0.properties.11.description: Cửa sổ đó có thể di chuyển hay không. Điều này không thực hiện trên Linux. Mặc định là true.
 BrowserWindow.constructorMethod.parameters.0.properties.12.description: >-
   Whether window is minimizable. This is not implemented on Linux. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.13.description: >-
@@ -248,13 +248,13 @@ BrowserWindow.constructorMethod.parameters.0.properties.17.description: >-
 BrowserWindow.constructorMethod.parameters.0.properties.18.description: >-
   Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.19.description: Whether to show the window in taskbar. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.20.description: The kiosk mode. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.21.description: Default window title. Default is "Electron".
+BrowserWindow.constructorMethod.parameters.0.properties.20.description: Chế độ kiosk. Mặc định là false.
+BrowserWindow.constructorMethod.parameters.0.properties.21.description: Tiêu đề mặc định của cửa sổ. Mặc định là "Electron".
 BrowserWindow.constructorMethod.parameters.0.properties.22.description: >-
   The window icon. On Windows it is recommended to use ICO icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
 BrowserWindow.constructorMethod.parameters.0.properties.23.description: Whether window should be shown when created. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.24.description: Specify false to create a . Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.25.description: Specify parent window. Default is null.
+BrowserWindow.constructorMethod.parameters.0.properties.25.description: Xác định cửa sổ cha. Mặc định là null.
 BrowserWindow.constructorMethod.parameters.0.properties.26.description: >-
   Whether this is a modal window. This only works when the window is a child window. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.27.description: >-
@@ -284,7 +284,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.39.description: >-
   Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If true, the window will grow to the preferred width of the web page when zoomed, false will cause it to zoom to the width of the screen. This will also affect the behavior when calling maximize() directly. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.40.description: >-
   Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together.
-BrowserWindow.constructorMethod.parameters.0.properties.41.description: Settings of web page's features.
+BrowserWindow.constructorMethod.parameters.0.properties.41.description: Cài đặt các tính năng của trang web.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.0.description: >-
   Whether to enable DevTools. If it is set to false, can not use BrowserWindow.webContents.openDevTools() to open DevTools. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.1.description: Whether node integration is enabled. Default is true.
@@ -299,15 +299,15 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.5.descript
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.6.description: >-
   Sets the session used by the page according to the session's partition string. If partition starts with persist:, the page will use a persistent session available to all pages in the app with the same partition. If there is no persist: prefix, the page will use an in-memory session. By assigning the same partition, multiple pages can share the same session. Default is the default session.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.7.description: 'The default zoom factor of the page, 3.0 represents 300%. Default is 1.0.'
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.8.description: Enables JavaScript support. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.8.description: Cho phép hỗ trợ JavaScript. Mặc định là true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.9.description: >-
   When false, it will disable the same-origin policy (usually using testing websites by people), and set allowRunningInsecureContent to true if this options has not been set by user. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.10.description: >-
   Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.11.description: Enables image support. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.12.description: Make TextArea elements resizable. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.description: Enables WebGL support. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Enables WebAudio support. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.11.description: Cho phép hỗ trợ hình ảnh. Mặc định là true.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.12.description: Làm cho TextArea có thể thay đổi kích thước. Mặc định là true.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.description: Cho phép hỗ trợ WebGL. Mặc định là true.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Cho phép hỗ trợ WebAudio. Mặc định là true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.15.description: Whether plugins should be enabled. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.16.description: Enables Chromium's experimental features. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Enables Chromium's experimental canvas features. Default is false.
@@ -316,17 +316,17 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.19.descrip
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.20.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to disable. The full list of supported feature strings can be found in the file.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.description: Sets the default font for the font-family.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.0.description: Defaults to Times New Roman.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.1.description: Defaults to Times New Roman.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.2.description: Defaults to Arial.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.3.description: Defaults to Courier New.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.4.description: Defaults to Script.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Defaults to Impact.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.22.description: Defaults to 16.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.23.description: Defaults to 13.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: Defaults to 0.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.25.description: Defaults to ISO-8859-1.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.description: Cài đặt font mặc định cho font-family.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.0.description: Mặc định là Times New Roman.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.1.description: Mặc định là Times New Roman.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.2.description: Mặc định là Arial.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.3.description: Mặc định là Courier New.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.4.description: Mặc định là Script.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Mặc định là Impact.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.22.description: Mặc định là 16.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.23.description: Mặc định là 13.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: Mặc định là 0.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.25.description: Mặc định là ISO-8859-1.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.26.description: >-
   Whether to throttle animations and timers when the page becomes background. Defaults to true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.27.description: >-
@@ -337,13 +337,13 @@ BrowserWindow.instanceMethods.destroy.description: >-
   Force closing the window, the unload and beforeunload event won't be emitted for the web page, and close event will also not be emitted for this window, but it guarantees the closed event will be emitted.
 BrowserWindow.instanceMethods.close.description: >-
   Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the close event.
-BrowserWindow.instanceMethods.focus.description: Focuses on the window.
-BrowserWindow.instanceMethods.blur.description: Removes focus from the window.
+BrowserWindow.instanceMethods.focus.description: Focus lên cửa sổ.
+BrowserWindow.instanceMethods.blur.description: Ngừng focus cửa sổ đó.
 BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window is focused.
 BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
 BrowserWindow.instanceMethods.show.description: Shows and gives focus to the window.
 BrowserWindow.instanceMethods.showInactive.description: Shows the window but doesn't focus on it.
-BrowserWindow.instanceMethods.hide.description: Hides the window.
+BrowserWindow.instanceMethods.hide.description: Ẩn cửa sổ.
 BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
 BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
 BrowserWindow.instanceMethods.maximize.description: >-
@@ -374,28 +374,28 @@ BrowserWindow.instanceMethods.getSize.returns.description: Contains the window's
 BrowserWindow.instanceMethods.setContentSize.description: Resizes the window's client area (e.g. the web page) to width and height.
 BrowserWindow.instanceMethods.getContentSize.returns.description: Contains the window's client area's width and height.
 BrowserWindow.instanceMethods.setMinimumSize.description: Sets the minimum size of window to width and height.
-BrowserWindow.instanceMethods.getMinimumSize.returns.description: Contains the window's minimum width and height.
+BrowserWindow.instanceMethods.getMinimumSize.returns.description: Chức chiều rộng tối thiểu và cao tối thiểu của cửa sổ.
 BrowserWindow.instanceMethods.setMaximumSize.description: Sets the maximum size of window to width and height.
 BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contains the window's maximum width and height.
 BrowserWindow.instanceMethods.setResizable.description: Sets whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.isResizable.returns.description: Whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.setMovable.description: Sets whether the window can be moved by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMovable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMovable.description: Trên Linux luôn trả về true.
 BrowserWindow.instanceMethods.isMovable.returns.description: Whether the window can be moved by user.
 BrowserWindow.instanceMethods.setMinimizable.description: >-
   Sets whether the window can be manually minimized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMinimizable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMinimizable.description: Trên Linux luôn trả về true.
 BrowserWindow.instanceMethods.isMinimizable.returns.description: Whether the window can be manually minimized by user
 BrowserWindow.instanceMethods.setMaximizable.description: >-
   Sets whether the window can be manually maximized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMaximizable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMaximizable.description: Trên Linux luôn trả về true.
 BrowserWindow.instanceMethods.isMaximizable.returns.description: Whether the window can be manually maximized by user.
 BrowserWindow.instanceMethods.setFullScreenable.description: >-
   Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 BrowserWindow.instanceMethods.isFullScreenable.returns.description: >-
   Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 BrowserWindow.instanceMethods.setClosable.description: Sets whether the window can be manually closed by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isClosable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isClosable.description: Trên Linux luôn trả về true.
 BrowserWindow.instanceMethods.isClosable.returns.description: Whether the window can be manually closed by user.
 BrowserWindow.instanceMethods.setAlwaysOnTop.description: >-
   Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
@@ -405,12 +405,12 @@ BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.relativeLevel.descriptio
   The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Whether the window is always on top of other windows.
 BrowserWindow.instanceMethods.center.description: Moves window to the center of the screen.
-BrowserWindow.instanceMethods.setPosition.description: Moves window to x and y.
+BrowserWindow.instanceMethods.setPosition.description: Di chuyển cửa sổ tới tọa độ x và y.
 BrowserWindow.instanceMethods.getPosition.returns.description: Contains the window's current position.
 BrowserWindow.instanceMethods.setTitle.description: Changes the title of native window to title.
 BrowserWindow.instanceMethods.getTitle.description: >-
   Note: The title of web page can be different from the title of the native window.
-BrowserWindow.instanceMethods.getTitle.returns.description: The title of the native window.
+BrowserWindow.instanceMethods.getTitle.returns.description: Tiêu đề của cửa sổ gốc.
 BrowserWindow.instanceMethods.setSheetOffset.description: >-
   Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 BrowserWindow.instanceMethods.flashFrame.description: Starts or stops flashing the window to attract user's attention.
@@ -440,7 +440,7 @@ BrowserWindow.instanceMethods.loadURL.parameters.options.properties.userAgent.de
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
   Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
-BrowserWindow.instanceMethods.reload.description: Same as webContents.reload.
+BrowserWindow.instanceMethods.reload.description: Tương tự như webContents.reload.
 BrowserWindow.instanceMethods.setMenu.description: >-
   Sets the menu as the window's menu bar, setting it to null will remove the menu bar.
 BrowserWindow.instanceMethods.setProgressBar.description: >-
@@ -469,11 +469,11 @@ BrowserWindow.instanceMethods.setAppDetails.description: >-
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appId.description: 'Window''s . It has to be set, otherwise the other options will have no effect.'
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconPath.description: Window's .
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconIndex.description: >-
-  Index of the icon in appIconPath. Ignored when appIconPath is not set. Default is 0.
+  Index của icon trong appIconPath. Bỏ qua khi appIconPath không được cài đặt. Mặc định là 0.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchCommand.description: Window's .
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchDisplayName.description: Window's .
-BrowserWindow.instanceMethods.showDefinitionForSelection.description: Same as webContents.showDefinitionForSelection().
-BrowserWindow.instanceMethods.setIcon.description: Changes window icon.
+BrowserWindow.instanceMethods.showDefinitionForSelection.description: Tương tự như webContents.showDefinitionForSelection().
+BrowserWindow.instanceMethods.setIcon.description: Thay đổi biểu tượng cửa sổ.
 BrowserWindow.instanceMethods.setAutoHideMenuBar.description: >-
   Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately.
 BrowserWindow.instanceMethods.isMenuBarAutoHide.returns.description: Whether menu bar automatically hides itself.
@@ -491,8 +491,8 @@ BrowserWindow.instanceMethods.setContentProtection.description: >-
 BrowserWindow.instanceMethods.setFocusable.description: Changes whether the window can be focused.
 BrowserWindow.instanceMethods.setParentWindow.description: >-
   Sets parent as current window's parent window, passing null will turn current window into a top-level window.
-BrowserWindow.instanceMethods.getParentWindow.returns.description: The parent window.
-BrowserWindow.instanceMethods.getChildWindows.returns.description: All child windows.
+BrowserWindow.instanceMethods.getParentWindow.returns.description: Cửa sổ cha.
+BrowserWindow.instanceMethods.getChildWindows.returns.description: Tất cả cửa sổ con.
 BrowserWindow.instanceMethods.setAutoHideCursor.description: Controls whether to hide cursor when typing.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
   Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window.
@@ -550,7 +550,7 @@ BrowserWindowProxy.instanceMethods.print.description: Invokes the print dialog o
 BrowserWindowProxy.instanceMethods.postMessage.description: >-
   Sends a message to the child window with the specified origin or * for no origin preference. In addition to these methods, the child window implements window.opener object with no properties and a single method.
 BrowserWindowProxy.instanceProperties.closed.description: A Boolean that is set to true after the child window gets closed.
-Certificate.properties.data.description: PEM encoded data
+Certificate.properties.data.description: Dữ liệu được mã hóa bởi PEM
 Certificate.properties.issuer.description: Issuer principal
 Certificate.properties.issuerName.description: Issuer's Common Name
 Certificate.properties.issuerCert.description: Issuer certificate (if not self-signed)
@@ -560,12 +560,12 @@ Certificate.properties.serialNumber.description: Hex value represented string
 Certificate.properties.validStart.description: Start date of the certificate being valid in seconds
 Certificate.properties.validExpiry.description: End date of the certificate being valid in seconds
 Certificate.properties.fingerprint.description: Fingerprint of the certificate
-CertificatePrincipal.properties.commonName.description: Common Name
-CertificatePrincipal.properties.organizations.description: Organization names
-CertificatePrincipal.properties.organizationUnits.description: Organization Unit names
-CertificatePrincipal.properties.locality.description: Locality
-CertificatePrincipal.properties.state.description: State or province
-CertificatePrincipal.properties.country.description: Country or region
+CertificatePrincipal.properties.commonName.description: Tên phổ biến
+CertificatePrincipal.properties.organizations.description: Tên tổ chức
+CertificatePrincipal.properties.organizationUnits.description: Tên các đơn vị tổ chức
+CertificatePrincipal.properties.locality.description: Địa phương
+CertificatePrincipal.properties.state.description: Bang hay tỉnh
+CertificatePrincipal.properties.country.description: Quốc gia hoặc vùng
 ClientRequest.description: Make HTTP/HTTPS requests.
 ClientRequest.constructorMethod.parameters.0.description: >-
   If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
@@ -623,7 +623,7 @@ clipboard.methods.readFindText.returns.description: >-
   The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 clipboard.methods.writeFindText.description: >-
   Writes the text into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
-clipboard.methods.clear.description: Clears the clipboard content.
+clipboard.methods.clear.description: Xóa bộ nhớ copy paste.
 clipboard.methods.availableFormats.returns.description: An array of supported formats for the clipboard type.
 clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
 clipboard.methods.read.returns.description: Reads format type from the clipboard.
@@ -647,11 +647,11 @@ contentTracing.methods.captureMonitoringSnapshot.description: >-
   Get the current monitoring traced data. Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data. Once all child processes have acknowledged the captureMonitoringSnapshot request the callback will be called with a file that contains the traced data.
 contentTracing.methods.getTraceBufferUsage.description: >-
   Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the callback is called.
-Cookie.properties.name.description: The name of the cookie.
-Cookie.properties.value.description: The value of the cookie.
-Cookie.properties.domain.description: The domain of the cookie.
+Cookie.properties.name.description: Tên của cookie.
+Cookie.properties.value.description: Giá trị của cookie.
+Cookie.properties.domain.description: Tên miền của cookie.
 Cookie.properties.hostOnly.description: Whether the cookie is a host-only cookie.
-Cookie.properties.path.description: The path of the cookie.
+Cookie.properties.path.description: Đường dẫn của cookie.
 Cookie.properties.secure.description: Whether the cookie is marked as secure.
 Cookie.properties.httpOnly.description: Whether the cookie is marked as HTTP only.
 Cookie.properties.session.description: >-
@@ -663,7 +663,7 @@ Cookies.instanceMethods.get.description: >-
   Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete. cookies is an Array of cookie objects.
 Cookies.instanceMethods.get.parameters.filter.properties.url.description: >-
   Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
-Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filters cookies by name.
+Cookies.instanceMethods.get.parameters.filter.properties.name.description: Bộ lọc cookie theo tên.
 Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Retrieves cookies whose domains match or are subdomains of domains
 Cookies.instanceMethods.get.parameters.filter.properties.path.description: Retrieves cookies whose path matches path.
 Cookies.instanceMethods.get.parameters.filter.properties.secure.description: Filters cookies by their Secure property.
@@ -682,11 +682,11 @@ Cookies.instanceMethods.set.parameters.details.properties.expirationDate.descrip
 Cookies.instanceMethods.remove.description: >-
   Removes the cookies matching url and name, callback will called with callback() on complete.
 Cookies.instanceMethods.remove.parameters.url.description: The URL associated with the cookie.
-Cookies.instanceMethods.remove.parameters.name.description: The name of cookie to remove.
+Cookies.instanceMethods.remove.parameters.name.description: Tên của cookie để loại bỏ.
 Cookies.instanceMethods.flushStore.description: Writes any unwritten cookies data to disk.
 Cookies.instanceEvents.changed.description: >-
   Emitted when a cookie is changed because it was added, edited, removed, or expired.
-Cookies.instanceEvents.changed.returns.cookie.description: The cookie that was changed
+Cookies.instanceEvents.changed.returns.cookie.description: Các cookie đã được thay đổi
 Cookies.instanceEvents.changed.returns.cause.description: 'The cause of the change with one of the following values:'
 Cookies.instanceEvents.changed.returns.removed.description: '`true` if the cookie was removed, `false` otherwise.'
 CPUUsage.properties.percentCPUUsage.description: >-
@@ -697,9 +697,9 @@ crashReporter.description: Submit crash reports to a remote server.
 crashReporter.methods.start.description: >-
   You are required to call this method before using any other crashReporter APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to crashReporter.start when calling from different processes. Note Child processes created via the child_process module will not have access to the Electron modules. Therefore, to collect crash reports from them, use process.crashReporter.start instead. Pass the same options as above along with an additional one called crashesDirectory that should point to a directory to store the crash reports temporarily. You can test this out by calling process.crash() to crash the child process. Note: To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace submitURL, productName and crashesDirectory with appropriate values. Note: If you need send additional/updated extra parameters after your first call start you can call setExtraParameter on macOS or call start again with the new/updated extra parameters on Linux and Windows. Note: On macOS, Electron uses a new crashpad client for crash collection and reporting. If you want to enable crash reporting, initializing crashpad from the main process using crashReporter.start is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call crashReporter.start from the renderer or child process, otherwise crashes from them will get reported without companyName, productName or any of the extra information.
 crashReporter.methods.start.parameters.options.properties.submitURL.description: URL that crash reports will be sent to as POST.
-crashReporter.methods.start.parameters.options.properties.productName.description: Defaults to app.getName().
+crashReporter.methods.start.parameters.options.properties.productName.description: Mặc định là app.getName().
 crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Whether crash reports should be sent to the server Default is true.
-crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Default is false.
+crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Mặc định là false.
 crashReporter.methods.start.parameters.options.properties.extra.description: >-
   An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported.
 crashReporter.methods.getLastCrashReport.description: >-
@@ -714,7 +714,7 @@ crashReporter.methods.setUploadToServer.description: >-
 crashReporter.methods.setUploadToServer.parameters.uploadToServer.description: Whether reports should be submitted to the server
 crashReporter.methods.setExtraParameter.description: >-
   Set an extra parameter to set be sent with the crash report. The values specified here will be sent in addition to any values set via the extra option when start was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to start you can call start again with the updated extra options.
-crashReporter.methods.setExtraParameter.parameters.key.description: Parameter key.
+crashReporter.methods.setExtraParameter.parameters.key.description: Key của tham số.
 crashReporter.methods.setExtraParameter.parameters.value.description: >-
   Parameter value. Specifying `null` or `undefined` will remove the key from the extra parameters.
 Debugger.description: An alternate transport for Chrome's remote debugging protocol.
@@ -734,7 +734,7 @@ Debugger.instanceEvents.detach.description: >-
   Emitted when debugging session is terminated. This happens either when webContents is closed or devtools is invoked for the attached webContents.
 Debugger.instanceEvents.detach.returns.reason.description: Reason for detaching debugger.
 Debugger.instanceEvents.message.description: Emitted whenever debugging target issues instrumentation event.
-Debugger.instanceEvents.message.returns.method.description: Method name.
+Debugger.instanceEvents.message.returns.method.description: Tên phương thức.
 Debugger.instanceEvents.message.returns.params.description: >-
   Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 desktopCapturer.description: |-
@@ -759,15 +759,15 @@ dialog.methods.showOpenDialog.parameters.options.properties.buttonLabel.descript
   Custom label for the confirmation button, when left empty the default label will be used.
 dialog.methods.showOpenDialog.parameters.options.properties.properties.description: >-
   Contains which features the dialog should use. The following values are supported:
-dialog.methods.showOpenDialog.parameters.options.properties.message.description: Message to display above input boxes.
-dialog.methods.showOpenDialog.parameters.callback.parameters.filePaths.description: An array of file paths chosen by the user
+dialog.methods.showOpenDialog.parameters.options.properties.message.description: Tin nhắn được hiển thị phía trên các hộp kí tự.
+dialog.methods.showOpenDialog.parameters.callback.parameters.filePaths.description: Một loạt các đường dẫn tập tin được lựa chọn bởi người sử dụng
 dialog.methods.showOpenDialog.returns.description: >-
   , an array of file paths chosen by the user, if the callback is provided it returns undefined.
 dialog.methods.showSaveDialog.description: >-
   The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. The filters specifies an array of file types that can be displayed, see dialog.showOpenDialog for an example. If a callback is passed, the API call will be asynchronous and the result will be passed via callback(filename)
 dialog.methods.showSaveDialog.parameters.options.properties.buttonLabel.description: >-
   Custom label for the confirmation button, when left empty the default label will be used.
-dialog.methods.showSaveDialog.parameters.options.properties.message.description: Message to display above text fields.
+dialog.methods.showSaveDialog.parameters.options.properties.message.description: Tin nhắn được hiển thị phía trên các trường điền kí tự.
 dialog.methods.showSaveDialog.parameters.options.properties.nameFieldLabel.description: Custom label for the text displayed in front of the filename text field.
 dialog.methods.showSaveDialog.parameters.options.properties.showsTagField.description: 'Show the tags input box, defaults to true.'
 dialog.methods.showSaveDialog.returns.description: >-
@@ -781,8 +781,8 @@ dialog.methods.showMessageBox.parameters.options.properties.buttons.description:
 dialog.methods.showMessageBox.parameters.options.properties.defaultId.description: >-
   Index of the button in the buttons array which will be selected by default when the message box opens.
 dialog.methods.showMessageBox.parameters.options.properties.title.description: 'Title of the message box, some platforms will not show it.'
-dialog.methods.showMessageBox.parameters.options.properties.message.description: Content of the message box.
-dialog.methods.showMessageBox.parameters.options.properties.detail.description: Extra information of the message.
+dialog.methods.showMessageBox.parameters.options.properties.message.description: Nội dung của message box.
+dialog.methods.showMessageBox.parameters.options.properties.detail.description: Thông tin thêm của tin nhắn.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxLabel.description: >-
   If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using callback.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxChecked.description: Initial checked state of the checkbox. false by default.
@@ -792,13 +792,13 @@ dialog.methods.showMessageBox.parameters.options.properties.noLink.description: 
   On Windows Electron will try to figure out which one of the buttons are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set noLink to true.
 dialog.methods.showMessageBox.parameters.options.properties.normalizeAccessKeys.description: >-
   Normalize the keyboard access keys across platforms. Default is false. Enabling this assumes & is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, & characters are removed on macOS, converted to _ on Linux, and left untouched on Windows. For example, a button label of Vie&w will be converted to Vie_w on Linux and View on macOS and can be selected via Alt-W on Windows and Linux.
-dialog.methods.showMessageBox.parameters.callback.parameters.response.description: The index of the button that was clicked
+dialog.methods.showMessageBox.parameters.callback.parameters.response.description: Chỉ số của nút được nhấn
 dialog.methods.showMessageBox.parameters.callback.parameters.checkboxChecked.description: The checked state of the checkbox if checkboxLabel was set. Otherwise false.
 dialog.methods.showMessageBox.returns.description: >-
-  , the index of the clicked button, if a callback is provided it returns undefined.
+  , chỉ số của nút bấm đã nhấn, nếu một callback được cung cấp cho nó, nó sẽ trả về undefined.
 dialog.methods.showErrorBox.description: >-
   Displays a modal dialog that shows an error message. This API can be called safely before the ready event the app module emits, it is usually used to report errors in early stage of startup.  If called before the app readyevent on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
-dialog.methods.showErrorBox.parameters.title.description: The title to display in the error box
+dialog.methods.showErrorBox.parameters.title.description: Tiêu đề để hiển thị trong hộp lỗi
 dialog.methods.showErrorBox.parameters.content.description: The text content to display in the error box
 dialog.methods.showCertificateTrustDialog.description: >-
   On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a browserWindow argument the dialog will be attached to the parent window, making it modal. On Windows the options are more limited, due to the Win32 APIs used:
@@ -814,19 +814,19 @@ DownloadItem.instanceMethods.setSavePath.description: >-
 DownloadItem.instanceMethods.setSavePath.parameters.path.description: Set the save file path of the download item.
 DownloadItem.instanceMethods.getSavePath.returns.description: >-
   The save path of the download item. This will be either the path set via downloadItem.setSavePath(path) or the path selected from the shown save dialog.
-DownloadItem.instanceMethods.pause.description: Pauses the download.
+DownloadItem.instanceMethods.pause.description: Tạm dừng việc tải xuống.
 DownloadItem.instanceMethods.isPaused.returns.description: Whether the download is paused.
 DownloadItem.instanceMethods.resume.description: >-
   Resumes the download that has been paused. Note: To enable resumable downloads the server you are downloading from must support range requests and provide both Last-Modified and ETag header values. Otherwise resume() will dismiss previously received bytes and restart the download from the beginning.
 DownloadItem.instanceMethods.canResume.description: Resumes Boolean - Whether the download can resume.
-DownloadItem.instanceMethods.cancel.description: Cancels the download operation.
+DownloadItem.instanceMethods.cancel.description: Hủy bỏ thao tác tải về.
 DownloadItem.instanceMethods.getURL.returns.description: The origin url where the item is downloaded from.
-DownloadItem.instanceMethods.getMimeType.returns.description: The files mime type.
+DownloadItem.instanceMethods.getMimeType.returns.description: Mime type của các tập tin.
 DownloadItem.instanceMethods.hasUserGesture.returns.description: Whether the download has user gesture.
 DownloadItem.instanceMethods.getFilename.description: >-
   Note: The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 DownloadItem.instanceMethods.getFilename.returns.description: The file name of the download item.
-DownloadItem.instanceMethods.getTotalBytes.description: 'If the size is unknown, it returns 0.'
+DownloadItem.instanceMethods.getTotalBytes.description: 'Nếu kích thước là unknown, nó trả về 0.'
 DownloadItem.instanceMethods.getTotalBytes.returns.description: The total size in bytes of the download item.
 DownloadItem.instanceMethods.getReceivedBytes.returns.description: The received bytes of the download item.
 DownloadItem.instanceMethods.getContentDisposition.returns.description: The Content-Disposition field from the response header.
@@ -834,8 +834,8 @@ DownloadItem.instanceMethods.getState.description: >-
   Note: The following methods are useful specifically to resume a cancelled item when session is restarted.
 DownloadItem.instanceMethods.getState.returns.description: 'The current state. Can be progressing, completed, cancelled or interrupted.'
 DownloadItem.instanceMethods.getURLChain.returns.description: The complete url chain of the item including any redirects.
-DownloadItem.instanceMethods.getLastModifiedTime.returns.description: Last-Modified header value.
-DownloadItem.instanceMethods.getETag.returns.description: ETag header value.
+DownloadItem.instanceMethods.getLastModifiedTime.returns.description: Giá trị Last-Modified của header.
+DownloadItem.instanceMethods.getETag.returns.description: Các giá trị ETag trong header.
 DownloadItem.instanceMethods.getStartTime.returns.description: Number of seconds since the UNIX epoch when the download was started.
 DownloadItem.instanceEvents.updated.description: >-
   Emitted when the download has been updated and is not done. The state can be one of following:
@@ -860,7 +860,7 @@ IncomingMessage.instanceProperties.httpVersionMajor.description: An Integer indi
 IncomingMessage.instanceProperties.httpVersionMinor.description: An Integer indicating the HTTP protocol minor version number.
 IncomingMessage.instanceEvents.data.description: >-
   The data event is the usual method of transferring response data into applicative code.
-IncomingMessage.instanceEvents.data.returns.chunk.description: A chunk of response body's data.
+IncomingMessage.instanceEvents.data.returns.chunk.description: Một đoạn dữ liệu của body của response.
 IncomingMessage.instanceEvents.end.description: Indicates that response body has ended.
 IncomingMessage.instanceEvents.aborted.description: Emitted when a request has been canceled during an ongoing HTTP transaction.
 IncomingMessage.instanceEvents.error.description: >-
@@ -893,10 +893,10 @@ ipcRenderer.methods.sendSync.description: >-
   Send a message to the main process synchronously via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The main process handles it by listening for channel with ipcMain module, and replies by setting event.returnValue. Note: Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
 ipcRenderer.methods.sendToHost.description: >-
   Like ipcRenderer.send but the event will be sent to the <webview> element in the host page instead of the main process.
-JumpListCategory.properties.type.description: 'One of the following:'
+JumpListCategory.properties.type.description: 'Một trong những điều sau đây:'
 JumpListCategory.properties.name.description: 'Must be set if type is custom, otherwise it should be omitted.'
 JumpListCategory.properties.items.description: 'Array of objects if type is tasks or custom, otherwise it should be omitted.'
-JumpListItem.properties.type.description: 'One of the following:'
+JumpListItem.properties.type.description: 'Một trong những điều sau đây:'
 JumpListItem.properties.path.description: 'Path of the file to open, should only be set if type is file.'
 JumpListItem.properties.program.description: >-
   Path of the program to execute, usually you should specify process.execPath which opens the current program. Should only be set if type is task.
@@ -910,7 +910,7 @@ JumpListItem.properties.iconPath.description: >-
   The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. .ico, .exe, .dll). You can usually specify process.execPath to show the program icon.
 JumpListItem.properties.iconIndex.description: >-
   The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
-MemoryInfo.properties.pid.description: Process id of the process.
+MemoryInfo.properties.pid.description: Process id của process.
 MemoryInfo.properties.workingSetSize.description: The amount of memory currently pinned to actual physical RAM.
 MemoryInfo.properties.peakWorkingSetSize.description: The maximum amount of memory that has ever been pinned to actual physical RAM.
 MemoryInfo.properties.privateBytes.description: >-
@@ -928,16 +928,16 @@ Menu.staticMethods.sendActionToFirstResponder.description: >-
 Menu.staticMethods.buildFromTemplate.description: >-
   Generally, the template is just an array of options for constructing a MenuItem. The usage can be referenced above. You can also attach other fields to the element of the template and they will become properties of the constructed menu items.
 Menu.instanceMethods.popup.description: Pops up this menu as a context menu in the browserWindow.
-Menu.instanceMethods.popup.parameters.browserWindow.description: Default is the focused window.
+Menu.instanceMethods.popup.parameters.browserWindow.description: Mặc định là cửa sổ được focus.
 Menu.instanceMethods.popup.parameters.options.properties.x.description: Default is the current mouse cursor position.
 Menu.instanceMethods.popup.parameters.options.properties.y.description: ( if x is used) Default is the current mouse cursor position.
 Menu.instanceMethods.popup.parameters.options.properties.async.description: >-
   Set to true to have this method return immediately called, false to return after the menu has been selected or closed. Defaults to false.
 Menu.instanceMethods.popup.parameters.options.properties.positioningItem.description: >-
   The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-Menu.instanceMethods.closePopup.description: Closes the context menu in the browserWindow.
-Menu.instanceMethods.closePopup.parameters.browserWindow.description: Default is the focused window.
-Menu.instanceMethods.append.description: Appends the menuItem to the menu.
+Menu.instanceMethods.closePopup.description: Đóng menu ngữ cảnh trong browserWindow.
+Menu.instanceMethods.closePopup.parameters.browserWindow.description: Mặc định là cửa sổ được focus.
+Menu.instanceMethods.append.description: Gắn thêm menuItem cho menu.
 Menu.instanceMethods.insert.description: Inserts the menuItem to the pos position of the menu.
 Menu.instanceProperties.items.description: >-
   A MenuItem[] array containing the menu's items. Each Menu consists of multiple MenuItems and each MenuItem can have a submenu.
@@ -948,7 +948,7 @@ MenuItem.constructorMethod.parameters.0.properties.1.description: >-
   Define the action of the menu item, when specified the click property will be ignored. See .
 MenuItem.constructorMethod.parameters.0.properties.2.description: 'Can be normal, separator, submenu, checkbox or radio.'
 MenuItem.constructorMethod.parameters.0.properties.7.description: 'If false, the menu item will be greyed out and unclickable.'
-MenuItem.constructorMethod.parameters.0.properties.8.description: 'If false, the menu item will be entirely hidden.'
+MenuItem.constructorMethod.parameters.0.properties.8.description: 'Nếu false, mục menu sẽ được ẩn hoàn toàn.'
 MenuItem.constructorMethod.parameters.0.properties.9.description: Should only be specified for checkbox or radio type menu items.
 MenuItem.constructorMethod.parameters.0.properties.10.description: >-
   Should be specified for submenu type menu items. If submenu is specified, the type: 'submenu' can be omitted. If the value is not a Menu then it will be automatically converted to one using Menu.buildFromTemplate.
@@ -966,44 +966,44 @@ MenuItem.instanceProperties.label.description: A String representing the menu it
 MenuItem.instanceProperties.click.description: A Function that is fired when the MenuItem receives a click event
 MimeTypedBuffer.properties.mimeType.description: The mimeType of the Buffer that you are sending
 MimeTypedBuffer.properties.data.description: The actual Buffer content
-nativeImage.description: 'Create tray, dock, and application icons using PNG or JPG files.'
-nativeImage.methods.createEmpty.description: Creates an empty NativeImage instance.
+nativeImage.description: 'Tạo ra tray, dock, và các biểu tượng của ứng dụng bằng cách sử dụng tập tin PNG hoặc JPG.'
+nativeImage.methods.createEmpty.description: Tạo ra các NativeImage rỗng.
 nativeImage.methods.createFromPath.description: >-
   Creates a new NativeImage instance from a file located at path. This method returns an empty image if the path does not exist, cannot be read, or is not a valid image.
 nativeImage.methods.createFromBuffer.description: Creates a new NativeImage instance from buffer.
-nativeImage.methods.createFromBuffer.parameters.options.properties.width.description: Required for bitmap buffers.
-nativeImage.methods.createFromBuffer.parameters.options.properties.height.description: Required for bitmap buffers.
-nativeImage.methods.createFromBuffer.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
+nativeImage.methods.createFromBuffer.parameters.options.properties.width.description: Yêu cầu bộ đệm bitmap.
+nativeImage.methods.createFromBuffer.parameters.options.properties.height.description: Yêu cầu bộ đệm bitmap.
+nativeImage.methods.createFromBuffer.parameters.options.properties.scaleFactor.description: Mặc định là 1.0.
 nativeImage.methods.createFromDataURL.description: Creates a new NativeImage instance from dataURL.
 NativeImage.description: 'Natively wrap images such as tray, dock, and application icons.'
-NativeImage.instanceMethods.toPNG.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
+NativeImage.instanceMethods.toPNG.parameters.options.properties.scaleFactor.description: Mặc định là 1.0.
 NativeImage.instanceMethods.toPNG.returns.description: A Buffer that contains the image's PNG encoded data.
-NativeImage.instanceMethods.toJPEG.parameters.quality.description: () Between 0 100.
-NativeImage.instanceMethods.toJPEG.returns.description: A Buffer that contains the image's JPEG encoded data.
-NativeImage.instanceMethods.toBitmap.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
-NativeImage.instanceMethods.toBitmap.returns.description: A Buffer that contains a copy of the image's raw bitmap pixel data.
-NativeImage.instanceMethods.toDataURL.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
-NativeImage.instanceMethods.toDataURL.returns.description: The data URL of the image.
+NativeImage.instanceMethods.toJPEG.parameters.quality.description: () Giữa 0 100.
+NativeImage.instanceMethods.toJPEG.returns.description: Một bộ đệm chứa những hình ảnh được mã hóa dữ liệu kiểu JPEG.
+NativeImage.instanceMethods.toBitmap.parameters.options.properties.scaleFactor.description: Mặc định là 1.0.
+NativeImage.instanceMethods.toBitmap.returns.description: Một bộ đệm chứa một bản sao của các hình ảnh thuộc dữ liệu điểm ảnh bitmap.
+NativeImage.instanceMethods.toDataURL.parameters.options.properties.scaleFactor.description: Mặc định là 1.0.
+NativeImage.instanceMethods.toDataURL.returns.description: Dữ liệu URL của hình ảnh.
 NativeImage.instanceMethods.getBitmap.description: >-
   The difference between getBitmap() and toBitmap() is, getBitmap() does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
-NativeImage.instanceMethods.getBitmap.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
-NativeImage.instanceMethods.getBitmap.returns.description: A Buffer that contains the image's raw bitmap pixel data.
+NativeImage.instanceMethods.getBitmap.parameters.options.properties.scaleFactor.description: Mặc định là 1.0.
+NativeImage.instanceMethods.getBitmap.returns.description: Một bộ đệm chứa một bản sao của các hình ảnh thuộc dữ liệu điểm ảnh bitmap.
 NativeImage.instanceMethods.getNativeHandle.description: >-
   Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you must ensure that the associated nativeImage instance is kept around.
 NativeImage.instanceMethods.getNativeHandle.returns.description: >-
   A Buffer that stores C pointer to underlying native handle of the image. On macOS, a pointer to NSImage instance would be returned.
-NativeImage.instanceMethods.isEmpty.returns.description: Whether the image is empty.
+NativeImage.instanceMethods.isEmpty.returns.description: Cho dù hình ảnh là empty.
 NativeImage.instanceMethods.setTemplateImage.description: Marks the image as a template image.
 NativeImage.instanceMethods.isTemplateImage.returns.description: Whether the image is a template image.
-NativeImage.instanceMethods.crop.parameters.rect.description: The area of the image to crop
-NativeImage.instanceMethods.crop.returns.description: The cropped image.
+NativeImage.instanceMethods.crop.parameters.rect.description: Diện tích của hình ảnh để cắt
+NativeImage.instanceMethods.crop.returns.description: Hình đã bị cắt.
 NativeImage.instanceMethods.resize.description: >-
   If only the height or the width are specified then the current aspect ratio will be preserved in the resized image.
-NativeImage.instanceMethods.resize.parameters.options.properties.width.description: Defaults to the image's width.
-NativeImage.instanceMethods.resize.parameters.options.properties.height.description: Defaults to the image's height
+NativeImage.instanceMethods.resize.parameters.options.properties.width.description: Mặc định là chiều rộng của hình ảnh.
+NativeImage.instanceMethods.resize.parameters.options.properties.height.description: Mặc định là chiều cao của hình ảnh
 NativeImage.instanceMethods.resize.parameters.options.properties.quality.description: >-
   The desired quality of the resize image. Possible values are good, better or best. The default is best. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
-NativeImage.instanceMethods.resize.returns.description: The resized image.
+NativeImage.instanceMethods.resize.returns.description: Hình đã thay đổi kích thước.
 NativeImage.instanceMethods.getAspectRatio.returns.description: The image's aspect ratio.
 NativeImage.instanceMethods.addRepresentation.description: >-
   Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
@@ -1063,9 +1063,9 @@ process.properties.windowsStore.description: >-
 process.properties.defaultApp.description: >-
   A Boolean. When app is started by being passed as parameter to the default app, this property is true in the main process, otherwise it is undefined.
 process.properties.versions.properties.electron.description: A String representing Electron's version string.
-process.properties.versions.properties.chrome.description: A String representing Chrome's version string.
-ProcessMemoryInfo.properties.pid.description: Process id of the process.
-ProcessMemoryInfo.properties.memory.description: Memory information of the process.
+process.properties.versions.properties.chrome.description: Một chuỗi đại diện cho chuỗi phiên bản của Chrome.
+ProcessMemoryInfo.properties.pid.description: Process id của process.
+ProcessMemoryInfo.properties.memory.description: Nhớ các thông tin của process.
 protocol.description: Register a custom protocol and intercept existing protocol requests.
 protocol.methods.registerStandardSchemes.description: >-
   A standard scheme adheres to what RFC 3986 calls generic URI syntax. For example http and https are standard schemes, while file is not. Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the file protocol, but without the ability to resolve relative URLs. For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs: Registering a scheme as standard will allow access to files through the FileSystem API. Otherwise the renderer will throw a security error for the scheme. By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the http protocol, you have to register it as a standard scheme: Note: This method can only be used before the ready event of the app module gets emitted.
@@ -1080,8 +1080,8 @@ protocol.methods.registerStringProtocol.description: >-
   Registers a protocol of scheme that will send a String as a response. The usage is the same with registerFileProtocol, except that the callback should be called with either a String or an object that has the data, mimeType, and charset properties.
 protocol.methods.registerHttpProtocol.description: >-
   Registers a protocol of scheme that will send an HTTP request as a response. The usage is the same with registerFileProtocol, except that the callback should be called with a redirectRequest object that has the url, method, referrer, uploadData and session properties. By default the HTTP request will reuse the current session. If you want the request to have a different session you should set session to null. For POST requests the uploadData object must be provided.
-protocol.methods.registerHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.contentType.description: MIME type of the content.
-protocol.methods.registerHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.data.description: Content to be sent.
+protocol.methods.registerHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.contentType.description: MIME type của nội dung.
+protocol.methods.registerHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.data.description: Nội dung đã được gửi đi.
 protocol.methods.unregisterProtocol.description: Unregisters the custom protocol of scheme.
 protocol.methods.isProtocolHandled.description: >-
   The callback will be called with a boolean that indicates whether there is already a handler for scheme.
@@ -1093,24 +1093,24 @@ protocol.methods.interceptBufferProtocol.description: >-
   Intercepts scheme protocol and uses handler as the protocol's new handler which sends a Buffer as a response.
 protocol.methods.interceptHttpProtocol.description: >-
   Intercepts scheme protocol and uses handler as the protocol's new handler which sends a new HTTP request as a response.
-protocol.methods.interceptHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.contentType.description: MIME type of the content.
-protocol.methods.interceptHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.data.description: Content to be sent.
+protocol.methods.interceptHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.contentType.description: MIME type của nội dung.
+protocol.methods.interceptHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.data.description: Nội dung đã được gửi đi.
 protocol.methods.uninterceptProtocol.description: Remove the interceptor installed for scheme and restore its original handler.
 Rectangle.properties.x.description: The x coordinate of the origin of the rectangle
 Rectangle.properties.y.description: The y coordinate of the origin of the rectangle
 remote.description: Use main process modules from the renderer process.
-remote.methods.require.description: e.g.
+remote.methods.require.description: ví dụ.
 remote.methods.require.returns.description: >-
   The object returned by require(module) in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 remote.methods.getCurrentWindow.returns.description: The window to which this web page belongs.
-remote.methods.getCurrentWebContents.returns.description: The web contents of this web page.
+remote.methods.getCurrentWebContents.returns.description: Nội dung trang web của trang web này.
 remote.methods.getGlobal.returns.description: 'The global variable of name (e.g. global[name]) in the main process.'
 remote.properties.process.description: >-
   The process object in the main process. This is the same as remote.getGlobal('process') but is cached.
 RemoveClientCertificate.properties.type.description: clientCertificate.
 RemoveClientCertificate.properties.origin.description: >-
   Origin of the server whose associated client certificate must be removed from the cache.
-RemovePassword.properties.type.description: password.
+RemovePassword.properties.type.description: mật khẩu.
 RemovePassword.properties.origin.description: >-
   When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.
 RemovePassword.properties.scheme.description: >-
@@ -1120,7 +1120,7 @@ RemovePassword.properties.username.description: Credentials of the authenticatio
 RemovePassword.properties.password.description: Credentials of the authentication. Must be provided if removing by origin.
 screen.description: 'Retrieve information about screen size, displays, cursor position, etc.'
 screen.methods.getCursorScreenPoint.description: The current absolute position of the mouse pointer.
-screen.methods.getPrimaryDisplay.returns.description: The primary display.
+screen.methods.getPrimaryDisplay.returns.description: Màn hình chính.
 screen.methods.getAllDisplays.returns.description: An array of displays that are currently available.
 screen.methods.getDisplayNearestPoint.returns.description: The display nearest the specified point.
 screen.methods.getDisplayMatching.returns.description: The display that most closely intersects the provided bounds.
@@ -1143,26 +1143,26 @@ session.properties.defaultSession.description: 'A Session object, the default se
 Session.description: Get and set properties of a session.
 Session.instanceMethods.getCacheSize.description: Callback is invoked with the session's current cache size.
 Session.instanceMethods.getCacheSize.parameters.callback.parameters.size.description: Cache size used in bytes.
-Session.instanceMethods.clearCache.description: Clears the session’s HTTP cache.
-Session.instanceMethods.clearCache.parameters.callback.description: Called when operation is done
-Session.instanceMethods.clearStorageData.description: Clears the data of web storages.
+Session.instanceMethods.clearCache.description: Xóa bộ nhớ cache HTTP của session.
+Session.instanceMethods.clearCache.parameters.callback.description: Được gọi là khi hoạt động đã hoàn thành việc thực thi
+Session.instanceMethods.clearStorageData.description: Xóa dữ liệu của web storages.
 Session.instanceMethods.clearStorageData.parameters.options.properties.origin.description: 'Should follow window.location.origin’s representation scheme://host:port.'
 Session.instanceMethods.clearStorageData.parameters.options.properties.storages.description: >-
   The types of storages to clear, can contain: appcache, cookies, filesystem, indexdb, localstorage, shadercache, websql, serviceworkers
 Session.instanceMethods.clearStorageData.parameters.options.properties.quotas.description: 'The types of quotas to clear, can contain: temporary, persistent, syncable.'
-Session.instanceMethods.clearStorageData.parameters.callback.description: Called when operation is done.
+Session.instanceMethods.clearStorageData.parameters.callback.description: Được gọi là khi hoạt động đã hoàn thành việc thực thi.
 Session.instanceMethods.flushStorageData.description: Writes any unwritten DOMStorage data to disk.
 Session.instanceMethods.setProxy.description: >-
   Sets the proxy settings. When pacScript and proxyRules are provided together, the proxyRules option is ignored and pacScript configuration is applied. The proxyRules has to follow the rules below: For example: The proxyBypassRules is a comma separated list of rules described below:
 Session.instanceMethods.setProxy.parameters.config.properties.pacScript.description: The URL associated with the PAC file.
 Session.instanceMethods.setProxy.parameters.config.properties.proxyRules.description: Rules indicating which proxies to use.
 Session.instanceMethods.setProxy.parameters.config.properties.proxyBypassRules.description: Rules indicating which URLs should bypass the proxy settings.
-Session.instanceMethods.setProxy.parameters.callback.description: Called when operation is done.
+Session.instanceMethods.setProxy.parameters.callback.description: Được gọi là khi hoạt động đã hoàn thành việc thực thi.
 Session.instanceMethods.resolveProxy.description: >-
   Resolves the proxy information for url. The callback will be called with callback(proxy) when the request is performed.
 Session.instanceMethods.setDownloadPath.description: >-
   Sets download saving directory. By default, the download directory will be the Downloads under the respective app folder.
-Session.instanceMethods.setDownloadPath.parameters.path.description: The download location
+Session.instanceMethods.setDownloadPath.parameters.path.description: Vị trí tải xuống
 Session.instanceMethods.enableNetworkEmulation.description: Emulates network with the given configuration for the session.
 Session.instanceMethods.enableNetworkEmulation.parameters.options.properties.offline.description: Whether to emulate network outage. Defaults to false.
 Session.instanceMethods.enableNetworkEmulation.parameters.options.properties.latency.description: RTT in ms. Defaults to 0 which will disable latency throttling.
@@ -1172,7 +1172,7 @@ Session.instanceMethods.disableNetworkEmulation.description: >-
   Disables any network emulation already active for the session. Resets to the original network configuration.
 Session.instanceMethods.setCertificateVerifyProc.description: >-
   Sets the certificate verify proc for session, the proc will be called with proc(request, callback) whenever a server certificate verification is requested. Calling callback(0) accepts the certificate, calling callback(-2) rejects it. Calling setCertificateVerifyProc(null) will revert back to default certificate verify proc.
-Session.instanceMethods.setCertificateVerifyProc.parameters.proc.parameters.request.properties.error.description: Verification result from chromium.
+Session.instanceMethods.setCertificateVerifyProc.parameters.proc.parameters.request.properties.error.description: Xác minh các kết quả từ chromium.
 Session.instanceMethods.setCertificateVerifyProc.parameters.proc.parameters.callback.parameters.verificationResult.description: >-
   Value can be one of certificate error codes from . Apart from the certificate error codes, the following special codes can be used.
 Session.instanceMethods.setPermissionRequestHandler.description: >-
@@ -1180,9 +1180,9 @@ Session.instanceMethods.setPermissionRequestHandler.description: >-
 Session.instanceMethods.setPermissionRequestHandler.parameters.handler.parameters.webContents.description: WebContents requesting the permission.
 Session.instanceMethods.setPermissionRequestHandler.parameters.handler.parameters.permission.description: >-
   Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-Session.instanceMethods.setPermissionRequestHandler.parameters.handler.parameters.callback.parameters.permissionGranted.description: Allow or deny the permission
+Session.instanceMethods.setPermissionRequestHandler.parameters.handler.parameters.callback.parameters.permissionGranted.description: Cho phép hoặc từ chối sự quyền truy cập
 Session.instanceMethods.clearHostResolverCache.description: Clears the host resolver cache.
-Session.instanceMethods.clearHostResolverCache.parameters.callback.description: Called when operation is done.
+Session.instanceMethods.clearHostResolverCache.parameters.callback.description: Được gọi là khi hoạt động đã hoàn thành việc thực thi.
 Session.instanceMethods.allowNTLMCredentialsForDomains.description: >-
   Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 Session.instanceMethods.allowNTLMCredentialsForDomains.parameters.domains.description: >-
@@ -1190,8 +1190,8 @@ Session.instanceMethods.allowNTLMCredentialsForDomains.parameters.domains.descri
 Session.instanceMethods.setUserAgent.description: >-
   Overrides the userAgent and acceptLanguages for this session. The acceptLanguages must a comma separated ordered list of language codes, for example "en-US,fr,de,ko,zh-CN,ja". This doesn't affect existing WebContents, and each WebContents can use webContents.setUserAgent to override the session-wide user agent.
 Session.instanceMethods.getUserAgent.returns.description: The user agent for this session.
-Session.instanceMethods.getBlobData.parameters.identifier.description: Valid UUID.
-Session.instanceMethods.getBlobData.parameters.callback.parameters.result.description: Blob data.
+Session.instanceMethods.getBlobData.parameters.identifier.description: UUID hợp lệ.
+Session.instanceMethods.getBlobData.parameters.callback.parameters.result.description: Dữ liệu Blob.
 Session.instanceMethods.getBlobData.returns.description: The blob data associated with the identifier.
 Session.instanceMethods.createInterruptedDownload.description: >-
   Allows resuming cancelled or interrupted downloads from previous Session. The API will generate a DownloadItem that can be accessed with the will-download event. The DownloadItem will not have any WebContents associated with it and the initial state will be interrupted. The download will start only when the resume API is called on the DownloadItem.
@@ -1199,13 +1199,13 @@ Session.instanceMethods.createInterruptedDownload.parameters.options.properties.
 Session.instanceMethods.createInterruptedDownload.parameters.options.properties.urlChain.description: Complete URL chain for the download.
 Session.instanceMethods.createInterruptedDownload.parameters.options.properties.offset.description: Start range for the download.
 Session.instanceMethods.createInterruptedDownload.parameters.options.properties.length.description: Total length of the download.
-Session.instanceMethods.createInterruptedDownload.parameters.options.properties.lastModified.description: Last-Modified header value.
-Session.instanceMethods.createInterruptedDownload.parameters.options.properties.eTag.description: ETag header value.
+Session.instanceMethods.createInterruptedDownload.parameters.options.properties.lastModified.description: Giá trị Last-Modified của header.
+Session.instanceMethods.createInterruptedDownload.parameters.options.properties.eTag.description: Các giá trị ETag trong header.
 Session.instanceMethods.createInterruptedDownload.parameters.options.properties.startTime.description: Time when download was started in number of seconds since UNIX epoch.
 Session.instanceMethods.clearAuthCache.description: Clears the session’s HTTP authentication cache.
-Session.instanceMethods.clearAuthCache.parameters.callback.description: Called when operation is done
+Session.instanceMethods.clearAuthCache.parameters.callback.description: Được gọi là khi hoạt động đã hoàn thành việc thực thi
 Session.instanceProperties.cookies.description: A Cookies object for this session.
-Session.instanceProperties.webRequest.description: A WebRequest object for this session.
+Session.instanceProperties.webRequest.description: Một object WebRequest cho session này.
 Session.instanceProperties.protocol.description: A Protocol object for this session.
 Session.instanceEvents.will-download.description: >-
   Emitted when Electron is about to download item in webContents. Calling event.preventDefault() will cancel the download and item will not be available from next tick of the process.
@@ -1237,7 +1237,7 @@ ShortcutDetails.properties.icon.description: >-
   The path to the icon, can be a DLL or EXE. icon and iconIndex have to be set together. Default is empty, which uses the target's icon.
 ShortcutDetails.properties.iconIndex.description: The resource ID of icon when icon is a DLL or EXE. Default is 0.
 ShortcutDetails.properties.appUserModelId.description: The Application User Model ID. Default is empty.
-systemPreferences.description: Get system preferences.
+systemPreferences.description: Lấy thông tin tùy chọn của hệ thống.
 systemPreferences.methods.isDarkMode.returns.description: Whether the system is in Dark Mode.
 systemPreferences.methods.isSwipeTrackingFromScrollEventsEnabled.returns.description: Whether the Swipe between pages setting is on.
 systemPreferences.methods.postNotification.description: >-
@@ -1262,7 +1262,7 @@ systemPreferences.methods.isAeroGlassEnabled.description: >-
   This method returns true if DWM composition (Aero Glass) is enabled, and false otherwise. An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 systemPreferences.methods.getAccentColor.returns.description: >-
   The users current system wide accent color preference in RGBA hexadecimal form.
-systemPreferences.methods.getColor.parameters.color.description: 'One of the following values:'
+systemPreferences.methods.getColor.parameters.color.description: 'Một trong những điều sau đây:'
 systemPreferences.methods.getColor.returns.description: >-
   The system color setting in RGB hexadecimal form (#ABCDEF). See the Windows docs for more details.
 systemPreferences.methods.isInvertedColorScheme.returns.description: >-
@@ -1285,10 +1285,10 @@ ThumbarButton.properties.flags.description: >-
   Control specific states and behaviors of the button. By default, it is ['enabled'].
 TouchBar.description: Create TouchBar layouts for native macOS applications
 TouchBar.staticProperties.TouchBarButton.description: Create a button in the touch bar for native macOS applications
-TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.0.description: Button text.
-TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.1.description: 'Button background color in hex format, i.e #ABCDEF.'
-TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.2.description: Button icon.
-TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.3.description: 'Can be left, right or overlay.'
+TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.0.description: Chữ trên nút.
+TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.1.description: 'Màu nền của nút ở dạng hex, ví dụ #ABCDEF.'
+TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.2.description: Biểu tượng của nút.
+TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.3.description: 'Có thể là left, right hoặc overlay.'
 TouchBar.staticProperties.TouchBarButton.constructorMethod.parameters.0.properties.4.description: Function to call when the button is clicked.
 TouchBar.staticProperties.TouchBarButton.instanceProperties.label.description: >-
   A String representing the button's current text. Changing this value immediately updates the button in the touch bar.
@@ -1308,7 +1308,7 @@ TouchBar.staticProperties.TouchBarColorPicker.instanceProperties.selectedColor.d
 TouchBar.staticProperties.TouchBarGroup.description: Create a group in the touch bar for native macOS applications
 TouchBar.staticProperties.TouchBarGroup.constructorMethod.parameters.0.properties.0.description: Items to display as a group.
 TouchBar.staticProperties.TouchBarLabel.description: Create a label in the touch bar for native macOS applications
-TouchBar.staticProperties.TouchBarLabel.constructorMethod.parameters.0.properties.0.description: Text to display.
+TouchBar.staticProperties.TouchBarLabel.constructorMethod.parameters.0.properties.0.description: Văn bản để hiển thị.
 TouchBar.staticProperties.TouchBarLabel.constructorMethod.parameters.0.properties.1.description: 'Hex color of text, i.e #ABCDEF.'
 TouchBar.staticProperties.TouchBarLabel.instanceProperties.label.description: >-
   A String representing the label's current text. Changing this value immediately updates the label in the touch bar.
@@ -1327,14 +1327,14 @@ TouchBar.staticProperties.TouchBarPopover.instanceProperties.icon.description: >
 TouchBar.staticProperties.TouchBarScrubber.description: Create a scrubber (a scrollable selector)
 TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.0.description: An array of items to place in this scrubber
 TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.1.description: Called when the user taps an item that was not the last tapped item
-TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.1.parameters.0.description: The index of the item the user selected
+TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.1.parameters.0.description: Chỉ mục của item mà người dùng đã chọn
 TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.2.description: Called when the user taps any item
-TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.2.parameters.0.description: The index of the item the user touched
+TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.2.parameters.0.description: Chỉ mục của item mà người dùng đã chạm vào
 TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.3.description: Selected item style. Defaults to null.
 TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.4.description: Selected overlay item style. Defaults to null.
-TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.5.description: Defaults to false.
-TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.6.description: Defaults to free.
-TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.7.description: Defaults to true.
+TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.5.description: Mặc định là false.
+TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.6.description: Mặc định là free.
+TouchBar.staticProperties.TouchBarScrubber.constructorMethod.parameters.0.properties.7.description: Mặc định là true.
 TouchBar.staticProperties.TouchBarScrubber.instanceProperties.items.description: >-
   A ScrubberItem[] array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array does not update the touch bar.
 TouchBar.staticProperties.TouchBarScrubber.instanceProperties.selectedStyle.description: >-
@@ -1379,10 +1379,10 @@ TouchBar.staticProperties.TouchBarSegmentedControl.instanceProperties.segments.d
 TouchBar.staticProperties.TouchBarSegmentedControl.instanceProperties.selectedIndex.description: >-
   An Integer representing the currently selected segment.  Changing this value immediately updates the control in the touch bar.  User interaction with the touch bar will update this value automatically.
 TouchBar.staticProperties.TouchBarSlider.description: Create a slider in the touch bar for native macOS applications
-TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.0.description: Label text.
-TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.1.description: Selected value.
-TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.2.description: Minimum value.
-TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.3.description: Maximum value.
+TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.0.description: Đoạn văn bản label.
+TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.1.description: Giá trị đã chọn.
+TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.2.description: Giá trị tối thiểu.
+TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.3.description: Gía trị tối đa.
 TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.4.description: Function to call when the slider is changed.
 TouchBar.staticProperties.TouchBarSlider.constructorMethod.parameters.0.properties.4.parameters.0.description: The value that the user selected on the Slider
 TouchBar.staticProperties.TouchBarSlider.instanceProperties.label.description: >-
@@ -1438,16 +1438,16 @@ Tray.instanceEvents.drag-end.description: Emitted when a drag operation ends on 
 UploadBlob.properties.type.description: blob.
 UploadBlob.properties.blobUUID.description: UUID of blob data to upload.
 UploadData.properties.bytes.description: Content being sent.
-UploadData.properties.file.description: Path of file being uploaded.
+UploadData.properties.file.description: Đường đi của các tập tin đang tải lên.
 UploadData.properties.blobUUID.description: UUID of blob data. Use method to retrieve the data.
 UploadFile.properties.type.description: file.
-UploadFile.properties.filePath.description: Path of file to be uploaded.
-UploadFile.properties.offset.description: Defaults to 0.
+UploadFile.properties.filePath.description: Đường đi của các tập tin được tải lên.
+UploadFile.properties.offset.description: Mặc định là 0.
 UploadFile.properties.length.description: Number of bytes to read from offset. Defaults to 0.
 UploadFile.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadFileSystem.properties.type.description: fileSystem.
 UploadFileSystem.properties.filsSystemURL.description: FileSystem url to read data for upload.
-UploadFileSystem.properties.offset.description: Defaults to 0.
+UploadFileSystem.properties.offset.description: Mặc định là 0.
 UploadFileSystem.properties.length.description: Number of bytes to read from offset. Defaults to 0.
 UploadFileSystem.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadRawData.properties.type.description: rawData.
@@ -1675,7 +1675,7 @@ WebContents.instanceEvents.devtools-closed.description: Emitted when DevTools is
 WebContents.instanceEvents.devtools-focused.description: Emitted when DevTools is focused / opened.
 WebContents.instanceEvents.certificate-error.description: >-
   Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.
-WebContents.instanceEvents.certificate-error.returns.error.description: The error code
+WebContents.instanceEvents.certificate-error.returns.error.description: Mã lỗi
 WebContents.instanceEvents.certificate-error.returns.callback.parameters.isTrusted.description: Indicates whether the certificate can be considered trusted
 WebContents.instanceEvents.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The usage is the same with the select-client-certificate event of app.
