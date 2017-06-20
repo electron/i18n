@@ -57,7 +57,7 @@ Add `plugins` attribute to `<webview>` tag.
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Troubleshooting
+## Solução de Problemas
 
 You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
 
