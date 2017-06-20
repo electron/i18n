@@ -13,6 +13,27 @@ const tree = objectifyArray(apis)
 const locales = fs.readdirSync(contentDir)
   .filter(filename => fs.statSync(path.join(contentDir, filename)).isDirectory())
 
+
+
+function preTranslateApiDocs () {
+  const trees = {}  
+  locales.forEach(locale => {
+    let descriptionsPath = path.join(contentDir, `${locale}/api/api-descriptions.yml`)
+    let descriptions = requireYAML(descriptionsPath)
+    // console.log(locale, descriptions['app.description'])
+    let result = Object.assign({}, tree)
+    Object.keys(descriptions).forEach(key => {
+      set(result, key, descriptions[key])
+    })
+    
+    // serialize before storing. not sure why it doesn't work otherwise
+    trees[locale] = JSON.stringify(result)
+  })  
+  return trees
+}
+
+const translatedTrees = preTranslateApiDocs()
+
 module.exports = {
   api: {
     array: apis,
@@ -25,11 +46,6 @@ module.exports = {
 function getApi (api, locale = 'en') {
   assert(Object.keys(tree).includes(api), `Unsupported API: ${api}`)
   assert(locales.includes(locale), `Unsupported locale: ${locale}`)
-  const descriptionsPath = path.join(contentDir, `${locale}/api/api-descriptions.yml`)
-  const descriptions = requireYAML(descriptionsPath)
-  let result = Object.assign({}, tree)
-  Object.keys(descriptions).forEach(key => {
-    set(result, key, descriptions[key])
-  })
-  return result[api]
+  return JSON.parse(translatedTrees[locale])[api]
 }
+
