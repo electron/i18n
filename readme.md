@@ -120,7 +120,7 @@ Exports an array of locale names that are currently being translated.
 Returns an structured object for the given API, with translations applied from 
 the given locale.
 
-- `api` String - an Electron API like `app` or `BrowserWindow` (required)
+- `api` String - an Electron API like `app` or `BrowserWindow`. Can be the full name like `BrowserWindow`, or the URL-friendly slug like `browser-window`. (required)
 - `locale` String - a language locale (optional; defaults to `en`)
 
 
