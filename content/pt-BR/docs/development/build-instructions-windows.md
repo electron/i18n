@@ -1,11 +1,11 @@
-# Build Instructions (Windows)
+# Instruções para Configuração (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Siga as instruções abaixo para compilar o Electron no Windows.
 
 ## Pré-requisitos
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Windows 7 / Server 2008 R2 ou maior
+* Visual Studio 2015 Update 3 - [Baixe o VS 2015 Community grátis](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -17,22 +17,22 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## Obtendo o código fonte
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## Inicialização
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+O script de inicialização irá baixar todas as dependências necessárias e criar os arquivos de configuração do projeto. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## Compilando
 
 Build both Release and Debug targets:
 
@@ -66,27 +66,27 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## Excluindo
 
-To clean the build files:
+Para excluir os arquivos de compilação:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Para excluir somente os diretórios `out` e `dist`:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Nota:** Os dois comandos exigem que seja executado o `bootstrap` novamente antes da compilação.
 
-## Tests
+## Testes
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
 
-## Troubleshooting
+## Solução de Problemas
 
 ### Command xxxx not found
 
