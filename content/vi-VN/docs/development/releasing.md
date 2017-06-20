@@ -1,14 +1,14 @@
-# Releasing
+# Phát hành
 
-This document describes the process for releasing a new version of Electron.
+Tài liệu này mô tả quá trình phát hành các phiên bản mới của Electron.
 
-## Compile release notes
+## Biên dịch các ghi chú của việc phát hành phiên bản
 
 The current process is to maintain a local file, keeping track of notable changes as pull requests are merged. For examples of how to format the notes, see previous releases on [the releases page](https://github.com/electron/electron/releases).
 
-## Create a temporary branch
+## Tạo ra một nhánh tạm thời
 
-Create a new branch from `master` named `release`.
+Tạo ra một chi nhánh mới từ `master` đặt tên là `release`.
 
 ```sh
 git checkout master
@@ -20,7 +20,7 @@ This branch is created as a precaution to prevent any merged PRs from sneaking i
 
 ## Bump the version
 
-Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
+Chạy đoạn mã `bump-version`, truyền vào các tham số `major`, `minor`, or `patch`:
 
 ```sh
 npm run bump-version -- patch
@@ -29,25 +29,25 @@ git push origin HEAD
 
 This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+Hầu hết các bản phát hành sẽ phát hành ở cấp `patch`. Nâng cấp để Chrome hoặc các thay đổi lớn sẽ phát hành ở cấp `minor`. Để biết thêm chi tiết, hãy xem [Electron-phiên bản](/docs/tutorial/electron-versioning.md).
 
-## Edit the release draft
+## Chỉnh sửa dự thảo phát hành phiên bản
 
-  1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-  2. Edit the release and add release notes.
-  3. Click 'Save draft'. **Do not click 'Publish release'!**
-  4. Wait for all the builds to pass. :hourglass_flowing_sand:
+  1. Ghé thăm [trang của các bản phát hành](https://github.com/electron/electron/releases) và bạn sẽ thấy một dự thảo phát hành mới với một giữ chỗ cho các ghi chú phát hành.
+  2. Chỉnh sửa bản phát hành và thêm ghi chú phát hành.
+  3. Nhấn vào 'Save draft'. **Lòng không nhấn vào 'Publish'!**
+  4. Chờ đợi cho tất cả các bản xây dựng thành công. :hourglass_flowing_sand:
 
-## Merge temporary branch
+## Gộp nhánh tạm thời
 
-Merge the temporary back into master, without creating a merge commit:
+Hợp nhất nhánh tạm thời vào master, mà không tạo ra một việc gộp các commit:
 
 ```sh
 git merge release master --no-commit
 git push origin master
 ```
 
-If this fails, rebase with master and rebuild:
+Nếu điều này không thành công, rebase với master và xây dựng lại:
 
 ```sh
 git pull
@@ -56,29 +56,29 @@ git rebase master
 git push origin HEAD
 ```
 
-## Run local debug build
+## Chạy xây dựng trình gỡ lỗi tại máy của bạn
 
-Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
+Chạy xây dựng debug tại máy của bạn để xác minh rằng bạn thực sự đang xây dựng phiên bản mà bạn muốn. Đôi khi bạn nghĩ rằng bạn đã làm một bản phát hành cho một phiên bản mới, nhưng bạn thực sự không.
 
 ```sh
 npm run build
 npm start
 ```
 
-Verify the window is displaying the current updated version.
+Kiểm tra xem cửa sổ hiển thị có đang hiển thị phiên bản cập nhật hiện tại.
 
-## Set environment variables
+## Cài đặt biến môi trường
 
-You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
+Bạn sẽ cần phải thiết lập các biến môi trường sau đây để xuất bản một bản phát hành. Yêu cầu là một thành viên trong nhóm đẻ có các thông tin đăng nhập.
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - A personal access token with "repo" scope.
+- `ELECTRON_GITHUB_TOKEN` - Một access token cá nhân với phạm vi của "repo".
 
-You will only need to do this once.
+Bạn chỉ cần làm điều này một lần.
 
-## Publish the release
+## Công bố việc phát hành
 
 This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
 
@@ -88,7 +88,7 @@ npm run release
 
 Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
 
-## Delete the temporary branch
+## Xóa nhánh tạm thời
 
 ```sh
 git checkout master
