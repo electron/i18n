@@ -6,15 +6,15 @@ Nó rất được khuyến khích để định dạng lại các thay đổi t
 
 Bạn có thể cài đặt `clang-format` và `git-clang-format` bằng cách sử dụng npm: `npm install -g clang-format`.
 
-To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Để tự động định dạng tập tin theo phong cách lập trình cho C++ trên Electron, chỉ cần chạy `clang-format -i path/to/electron/file.cc`. Nó sẽ làm việc trên cả macOS/Linux/Windows.
 
 Quy trình làm việc để format lại code thay đổi của bạn:
 
-  1. Make codes changes in Electron repository.
-  2. Run `git add your_changed_file.cc`.
-  3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-  4. Run `git add your_changed_file.cc`, and commit your change.
-  5. Now the branch is ready to be opened as a pull request.
+  1. Thay đổi code trong repo của Electron.
+  2. Chạy `git add your_changed_file.cc`.
+  3. Chạy `git-clang-format`, và bạn sẽ thấy các thay đổi trong `your_changed_file.cc`, các thay đổi được tạo ra từ `clang-format`.
+  4. Chạy `git add your_changed_file.cc`, và commit thay đổi của bạn.
+  5. Bây giờ branch đó đã sẳn sàng để tạo ra một pull request.
 
 Nếu bạn muốn định dạng các code đã thay đổi của bạn trên git commit (HEAD), bạn có thể chạy lệnh `git-clang-format HEAD~1`. Chạy lệnh `git-clang-format -h` để xem thêm chi tiết.
 
