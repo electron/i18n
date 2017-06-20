@@ -31,17 +31,27 @@ describe('electron-i18n', () => {
       expect(i18n.locales).to.include('fr-FR')
     })
 
-    it('exports a method for getting translated structured API docs by locale', () => {
-      let app = i18n.api.get('app')
-      expect(app.description).to.include('Control your application')
+    describe('api.get', () => {
+      it('is a method for getting translated structured API docs by locale', () => {
+        let app = i18n.api.get('app')
+        expect(app.description).to.include('Control your application')
 
-      app = i18n.api.get('app', 'fr-FR')
-      expect(app.description).to.include('Contrôle le cycle de vie')
-      expect(app.methods.quit.description).to.include('Essaye de fermer toutes les fenêtres')
+        app = i18n.api.get('app', 'fr-FR')
+        expect(app.description).to.include('Contrôle le cycle de vie')
+        expect(app.methods.quit.description).to.include('Essaye de fermer toutes les fenêtres')
 
-      app = i18n.api.get('app', 'vi-VN')
-      expect(app.description).to.include('Kiểm soát các vòng')
-      expect(app.methods.relaunch.description).to.include('ứng dụng khi thoát khỏi')
+        app = i18n.api.get('app', 'vi-VN')
+        expect(app.description).to.include('Kiểm soát các vòng')
+        expect(app.methods.relaunch.description).to.include('ứng dụng khi thoát khỏi')
+      })
+
+      it('allows lookup by API name or url-friendly slug', () => {
+        const api1 = i18n.api.get('BrowserWindow')
+        expect(api1).to.be.an('object')
+        const api2 = i18n.api.get('browser-window')
+        expect(api2).to.be.an('object')
+        expect(api1).to.deep.equal(api2)
+      })
     })
   })
 
