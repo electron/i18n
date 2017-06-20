@@ -10,6 +10,7 @@ Do you speak multiple languages? We need your help!
 
 Visit **[crowdin.com/project/electron](https://crowdin.com/project/electron)** and log in with your GitHub account to help translate.
 
+
 ## Source Content
 
 Electron's documentation and website are authored in English.
@@ -73,6 +74,55 @@ In addition to satifying our project's unique requirements, Crowdin has some com
 - **Crowdsourcing.** Electron has a huge community of open-source
 contributors. Whether or not we end up paying professionals to help translate Electron's docs, we will always want the localization process to be as transparent and inclusive as possible. Other localization platforms are geared toward professional translators, whereas Crowdin can be used by anyone, and has some unique collaborative features like voting.
 - **Login with GitHub** Translators can log in with their GitHub accounts. This makes the onboarding process easier for participants, and gives  us an easier way to know who to thank for the contributions.
+
+## Installation and Usage
+
+If you are here to help translate, visit 
+**[crowdin.com/project/electron](https://crowdin.com/project/electron)** and log in with your GitHub account to get started.
+
+If you are here to use this translated content for some purpose, read on!
+
+This repo is also a node module for working with Electron's translated content.
+
+It is not currently published to npm, so install it directly from GitHub:
+
+```
+npm install electron/electron-i18n
+```
+
+Then require it:
+
+```js
+const i18n = require('electron-i18n')
+```
+
+## API
+
+### `i18n.api.array`
+
+Exports all of Electron's structured API docs, in array format. This data
+is identical to the 
+[electron-api.json](https://github.com/electron/electron/releases/tag/v1.6.11)
+release asset.
+
+### `i18n.api.tree`
+
+Exports the same data as `array`, but in a deep tree format. This can be 
+useful if you want to traverse the docs like 
+`apis.BrowserWindow.instanceMethods.blur.etc.etc`
+
+### `i18n.locales`
+
+Exports an array of locale names that are currently being translated.
+
+### `i18n.api.get(api[, locale])`
+
+Returns an structured object for the given API, with translations applied from 
+the given locale.
+
+- `api` String - an Electron API like `app` or `BrowserWindow` (required)
+- `locale` String - a language locale (optional; defaults to `en`)
+
 
 ## License
 
