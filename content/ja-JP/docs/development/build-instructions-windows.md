@@ -1,6 +1,6 @@
 # ビルド手順 (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Windows 版 Electron のビルドについては、以下のガイドラインに従ってください。
 
 ## 必要な環境
 
