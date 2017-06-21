@@ -87,7 +87,7 @@
 * [コーディング スタイル](development/coding-style.md)
 * [C++のコードにclang-formatを使用する](development/clang-format.md)
 * [ソースコードのディレクトリ構造](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [NW.js(node-webkit) との技術的違い](development/atom-shell-vs-node-webkit.md)
 * [ビルドシステムの概要](development/build-system-overview.md)
 * [ビルド手順 (macOS)](development/build-instructions-osx.md)
 * [ビルド手順 (Windows)](development/build-instructions-windows.md)
