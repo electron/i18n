@@ -170,7 +170,7 @@ app.properties.commandLine.properties.appendArgument.parameters.value.descriptio
 app.properties.dock.properties.bounce.description: >-
   When critical is passed, the dock icon will bounce until either the application becomes active or the request is canceled. When informational is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 app.properties.dock.properties.bounce.parameters.type.description: Can be `critical` or `informational`. The default is `informational`
-app.properties.dock.properties.bounce.returns.description: an ID representing the request.
+app.properties.dock.properties.bounce.returns.description: một ID đại diện cho request.
 app.properties.dock.properties.cancelBounce.description: Cancel the bounce of id.
 app.properties.dock.properties.downloadFinished.description: Bounces the Downloads stack if the filePath is inside the Downloads folder.
 app.properties.dock.properties.setBadge.description: Sets the string to be displayed in the dock’s badging area.
