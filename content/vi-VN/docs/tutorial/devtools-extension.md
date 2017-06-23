@@ -8,10 +8,10 @@ This document outlines the process for manually loading an extension. You may al
 
 To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Ví dụ như [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
 
-  1. Install it in Chrome browser.
-  2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
+  1. Cài đặt nó trên trình duyệt Chrome.
+  2. Điều hướng đến `chrome://extensions`, và tìm thấy ID của phần mở rộng đó, là một chuỗi băm giống như `fmkadmapgofadopljbjfkapdkoienihi`.
   3. Find out filesystem location used by Chrome for storing extensions: 
     * trên Windows nó là `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * trên Linux nó sẽ là: 
@@ -26,7 +26,7 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 
 The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
 
-## Supported DevTools Extensions
+## Các DevTools Extension được hỗ trợ
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
@@ -39,8 +39,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-### What should I do if a DevTools Extension is not working?
+### Tôi có thể làm gì nếu một phần mở rộng DevTools không làm việc?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Trước tiên hãy chắc chắn rằng phần mở rộng vẫn được cập nhật, một số tiện ích mở rộng có thể không thậm chí làm việc cho các phiên bản gần đây của trình duyệt Chrome, và chúng tôi không thể làm bất cứ điều gì cho nó.
 
 Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
