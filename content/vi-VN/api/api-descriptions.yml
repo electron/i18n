@@ -369,14 +369,14 @@ BrowserWindow.instanceMethods.closeFilePreview.description: Closes the currently
 BrowserWindow.instanceMethods.setBounds.description: Resizes and moves the window to the supplied bounds
 BrowserWindow.instanceMethods.setContentBounds.description: >-
   Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
-BrowserWindow.instanceMethods.setSize.description: Resizes the window to width and height.
-BrowserWindow.instanceMethods.getSize.returns.description: Contains the window's width and height.
+BrowserWindow.instanceMethods.setSize.description: Thay đổi kích thước cửa sổ bằng chiều rộng và chiều cao.
+BrowserWindow.instanceMethods.getSize.returns.description: Chức chiều rộng và cao của cửa sổ.
 BrowserWindow.instanceMethods.setContentSize.description: Resizes the window's client area (e.g. the web page) to width and height.
 BrowserWindow.instanceMethods.getContentSize.returns.description: Contains the window's client area's width and height.
-BrowserWindow.instanceMethods.setMinimumSize.description: Sets the minimum size of window to width and height.
+BrowserWindow.instanceMethods.setMinimumSize.description: Thiết lập kích thước chiều rộng và chiều cao tối thiểu của cửa sổ.
 BrowserWindow.instanceMethods.getMinimumSize.returns.description: Chức chiều rộng tối thiểu và cao tối thiểu của cửa sổ.
-BrowserWindow.instanceMethods.setMaximumSize.description: Sets the maximum size of window to width and height.
-BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contains the window's maximum width and height.
+BrowserWindow.instanceMethods.setMaximumSize.description: Thiết lập kích thước chiều rộng và chiều cao tối đa của cửa sổ.
+BrowserWindow.instanceMethods.getMaximumSize.returns.description: Chức chiều rộng tối đa và cao tối thiểu của cửa sổ.
 BrowserWindow.instanceMethods.setResizable.description: Sets whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.isResizable.returns.description: Whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.setMovable.description: Sets whether the window can be moved by user. On Linux does nothing.
@@ -461,7 +461,7 @@ BrowserWindow.instanceMethods.setThumbarButtons.description: >-
 BrowserWindow.instanceMethods.setThumbarButtons.returns.description: Whether the buttons were added successfully
 BrowserWindow.instanceMethods.setThumbnailClip.description: >-
   Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: {x: 0, y: 0, width: 0, height: 0}.
-BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Region of the window
+BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Khu vực của cửa sổ
 BrowserWindow.instanceMethods.setThumbnailToolTip.description: >-
   Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
 BrowserWindow.instanceMethods.setAppDetails.description: >-
@@ -554,7 +554,7 @@ Certificate.properties.data.description: Dữ liệu được mã hóa bởi PEM
 Certificate.properties.issuer.description: Issuer principal
 Certificate.properties.issuerName.description: Issuer's Common Name
 Certificate.properties.issuerCert.description: Issuer certificate (if not self-signed)
-Certificate.properties.subject.description: Subject principal
+Certificate.properties.subject.description: Chủ đề chính
 Certificate.properties.subjectName.description: Subject's Common Name
 Certificate.properties.serialNumber.description: Hex value represented string
 Certificate.properties.validStart.description: Start date of the certificate being valid in seconds
@@ -628,8 +628,8 @@ clipboard.methods.availableFormats.returns.description: An array of supported fo
 clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
 clipboard.methods.read.returns.description: Reads format type from the clipboard.
 clipboard.methods.readBuffer.returns.description: Reads format type from the clipboard.
-clipboard.methods.write.description: Writes data to the clipboard.
-clipboard.methods.write.parameters.data.properties.bookmark.description: The title of the url at text.
+clipboard.methods.write.description: Ghi dữ liệu vào clipboard.
+clipboard.methods.write.parameters.data.properties.bookmark.description: Tiêu đề của url bằng chữ.
 contentTracing.description: |-
   Collect tracing data from Chromium's content module for finding performance
   bottlenecks and slow operations.
