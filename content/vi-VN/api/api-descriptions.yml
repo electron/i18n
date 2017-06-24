@@ -203,7 +203,7 @@ BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.de
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
   If true, the view's height will grow and shrink together with the window. false by default.
 BrowserView.instanceMethods.setBounds.description: Resizes and moves the view to the supplied bounds relative to the window.
-BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.'
+BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Màu sắc được viết dưới dạng ''#aarrggbb'' hoặc ''#argb''. Mã đuôi alpha có thể có hoặc không.'
 BrowserView.instanceProperties.webContents.description: A WebContents object owned by this view.
 BrowserView.instanceProperties.id.description: A Integer representing the unique ID of the view.
 BrowserWindow.description: Create and control browser windows.
