@@ -8,8 +8,8 @@ nav:
   releases: リリース
   contact: お問い合わせ
 electron_is_easy:
-  title: 思ったよりも簡単です
-  description: Webサイトを作成できる人なら、デスクトップアプリを作成できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者がアプリの重要な部分に集中できるように、Electronが困難な部分を処理します。
+  title: 想像以上に簡単です
+  description: もしあなたがWebサイトを作成できるなら、その調子でデスクトップアプリを作成できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者がアプリの重要な部分に集中できるように、Electronが困難な部分を処理します。
   video_link: 動画を見る
 web_technologies:
   title: Web技術
@@ -26,7 +26,7 @@ benefits:
   native_menus_and_notifications: ネイティブなメニューと通知
   crash_reporting: クラッシュレポート
   debugging_and_profiling: デバッグ と プロファイリング
-  windows_installers: Windows インストーラー
+  windows_installers: Windows用インストーラー
 get_started:
   title: 始めましょう！
   description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
