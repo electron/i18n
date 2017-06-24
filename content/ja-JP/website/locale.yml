@@ -1,4 +1,4 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: クロスプラットフォームなデスクトップアプリをJavaScript, HTML, CSSを用いて構築
 nav:
   docs: ドキュメント
   blog: ブログ
@@ -19,7 +19,7 @@ open_source:
   desciption: Electron は GitHubおよび活発なボランティアのコミュニティによってメンテナンスされるオープンソースプロジェクトです。
 cross_platform:
   title: クロスプラットフォーム
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Mac, Windows, Linuxに対応。Electronアプリは3つのプラットフォームでビルド・動作します。
 benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: 自動更新
@@ -43,7 +43,7 @@ quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
   clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
+  go_into_repo: リポジトリを見る
   install_deps: Install the dependencies and run
   dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
 need_help:
