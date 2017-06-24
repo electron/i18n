@@ -29,12 +29,12 @@ benefits:
   windows_installers: Windows用インストーラー
 get_started:
   title: 始めましょう！
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Electronでの開発を始めるには、以下の情報をチェックしてください。Electronを用いたWebアプリのパッケージ化、APIへのアクセス、インストーラの作成方法などが解説されています。
 explore:
-  title: Explore the Electron APIs
+  title: ElectronのAPIに触れる
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
+    - '<a href="https://github.com/electron/electron-api-demos">Electron APIのデモアプリ</a>'
+    - はElectron APIの中でも特に重要な機能をインタラクティブに紹介します。
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
 download_from_github: GitHub からダウンロード
