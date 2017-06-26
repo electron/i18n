@@ -1,64 +1,64 @@
-# Electron Documentation Styleguide
+# Electron Documentatie Styleguide
 
-These are the guidelines for writing Electron documentation.
+Dit zijn de richtlijnen voor het schrijven van Electron documentatie.
 
-## Titles
+## Titels
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Elke pagina moet een `#`-level titel bovenaan hebben.
+* Hoofdstukken in dezelfde pagina moeten `##`-level titels hebben.
+* Sub hoofdstukken moeten toenemen in het aantal `#` in de titel volgens hun diepte.
+* Alle woorden in de titel van de pagina moeten in hoofdletters, met uitzondering van voegwoorden als "of" en "en".
+* Alleen het eerste woord van een hoofdstuktitel moet in hoofdletters worden geschreven.
 
-Using `Quick Start` as example:
+Met `Quick Start` als voorbeeld:
 
 ```markdown
 # Quick Start
 
 ...
 
-## Main process
+## Basis proces
 
 ...
 
-## Renderer process
+## Renderer proces
 
 ...
 
-## Run your app
+## Je app onderhouden
 
 ...
 
-### Run as a distribution
+### Onderhoud als een bijdrage
 
 ...
 
-### Manually downloaded Electron binary
+### Handmatig Electron binaire gedownload
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Voor de API-referenties zijn er uitzonderingen op deze regel.
 
-## Markdown rules
+## Markdown regels
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Gebruik de `bash` in plaats van `cmd` in codeblokken (vanwege de syntaxis markeerstift).
+* Lijnen moeten worden verpakt in 80 kolommen.
+* Geen geneste lijsten meer dan 2 verdiepingen (vanwege de markdown renderer).
+* Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Het kiezen van woorden
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Het gebruik maken van "zal" in plaats van "zou" bij het beschrijven van resultaten.
+* Liever "in het proces van ___" dan "aan".
 
-## API references
+## API verwijzingen
 
-The following rules only apply to the documentation of APIs.
+De volgende regels gelden alleen voor de documentatie van de API's.
 
-### Page title
+### Paginatitel
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Elke pagina moet met de naam van het werkelijke object geretourneerd worden door `require('electron')` als de titel, zoals `BrowserWindow`, `autoUpdater`en `sessie`.
 
 Under the page tile must be a one-line description starting with `>`.
 
