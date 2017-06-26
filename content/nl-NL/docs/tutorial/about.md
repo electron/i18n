@@ -48,7 +48,7 @@ Hieronder zijn mijlpalen in de geschiedenis van Electron.
 
 | :calendar:      | :tada:                                                                                                                |
 | --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).        |
+| **April 2013**  | [Atom Shell is gestart](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).        |
 | **May 2014**    | [Atom Shell is open sourced](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                            |
 | **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                                    |
 | **May 2016**    | [Electron releases `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).                                  |
