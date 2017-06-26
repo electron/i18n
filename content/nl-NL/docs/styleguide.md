@@ -60,9 +60,9 @@ De volgende regels gelden alleen voor de documentatie van de API's.
 
 Elke pagina moet met de naam van het werkelijke object geretourneerd worden door `require('electron')` als de titel, zoals `BrowserWindow`, `autoUpdater`en `sessie`.
 
-Under the page tile must be a one-line description starting with `>`.
+Onder de paginategel moet een beschrijving zijn van één regel die begint met `>`.
 
-Using `session` as example:
+Met `sessie` als voorbeeld:
 
 ```markdown
 # session
