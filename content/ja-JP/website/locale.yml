@@ -40,8 +40,8 @@ explore:
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> アプリで実際に動く Electron を見てみましょう\n \nContext | Request Context\n"
+  description: 最低限の機能と親切な解説コード
   clone: Clone the Quick Start repository
   go_into_repo: リポジトリを見る
   install_deps: Install the dependencies and run
