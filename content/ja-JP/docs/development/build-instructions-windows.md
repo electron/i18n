@@ -4,8 +4,8 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 
 ## 必要な環境
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Windows 7 / Server 2008 R2 以上
+* Visual Studio 2015 Update 3 [VS 2015 Community Edition（無料）をダウンロード](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
