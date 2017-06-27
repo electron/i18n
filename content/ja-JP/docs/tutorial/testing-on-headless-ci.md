@@ -16,7 +16,7 @@ Then, create a virtual xvfb screen and export an environment variable called DIS
 
 ### Travis CI 
 
-On Travis, your `.travis.yml` should look roughly like this:
+Travisにおいては、 `.travis.yml` を以下のようなものにしてください。
 
 ```yml
 addons:
@@ -31,7 +31,7 @@ install:
 
 ### Jenkins
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+Jenkins 用の [Xvfb プラグインが利用可能です](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin)。
 
 ### Circle CI
 
