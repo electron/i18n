@@ -15,7 +15,7 @@ Caso você não tenha uma instalação do Windows, acesso o endereço [dev.micro
 
 A configuração do Electron é feita totalmente por linha de comando, não é possível fazer pelo o Visual Studio. Você pode desenvolver com Electron utilizando qualquer editor, futuramente haverá suporte para o Visual Studio.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Note:** Mesmo que o Visual Studio não seja utilizado para desenvolver com Electron, ainda é preciso ter instalado. **required** Porque é necessário a toolchains fornecida.
 
 ## Obtendo o código fonte
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Inicialização
 
-O script de inicialização irá baixar todas as dependências necessárias e criar os arquivos de configuração do projeto. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+O script de inicialização irá baixar todas as dependências necessárias e criar os arquivos de configuração do projeto. Observe que estamos utilizando o `ninja` para compilar o Electron, não existe nenhum projeto gerado pelo o Visual Studio.
 
 ```powershell
 $ cd electron
@@ -34,13 +34,13 @@ $ python script\bootstrap.py -v
 
 ## Compilando
 
-Build both Release and Debug targets:
+Compilar Release e Debug:
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Você pode também compilar somente o Debug:
 
 ```powershell
 $ python script\build.py -c D
@@ -48,9 +48,9 @@ $ python script\build.py -c D
 
 After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
 
-## 32bit Build
+## Compilação 32bits
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Para compilar para 32bits, é necessário informar o parâmetro `--target_arch=ia32` ao executar o script de inicialização:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
