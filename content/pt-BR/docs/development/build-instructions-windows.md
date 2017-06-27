@@ -46,21 +46,21 @@ Você pode também compilar somente o Debug:
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Após a finalização da compilação, você poderá ver o `electron.exe` na pasta `out\D`(debug) ou `out\R` (release).
 
-## Compilação 32bits
+## Compilação 32bit
 
-Para compilar para 32bits, é necessário informar o parâmetro `--target_arch=ia32` ao executar o script de inicialização:
+Para compilar para 32bit, é necessário informar o parâmetro `--target_arch=ia32` ao executar o script de inicialização:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Os outros passos para a compilação são os mesmos.
 
-## Visual Studio project
+## Projeto Visual Studio
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Para você gerar o projeto no Visual Studio, é necessário informar o parâmetro `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -88,7 +88,7 @@ Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
 
 ## Solução de Problemas
 
-### Command xxxx not found
+### Comando xxxx não encontrado
 
 If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
 
