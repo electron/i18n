@@ -1,6 +1,6 @@
 # オンライン/オフライン イベントの検出
 
-Online and offline event detection can be implemented in the renderer process using standard HTML5 APIs, as shown in the following example.
+オンライン/オフライン イベントの検出は、標準の HTML5 API を利用することによって、以下の例のように実装できます。
 
 *main.js*
 
