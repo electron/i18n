@@ -1,8 +1,8 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# ヘッドレスCIシステムでのテスト (Travis CI, Jenkins)
 
 Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will simply fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
 
-## Configuring the Virtual Display Server
+## 仮想ディスプレイの構成
 
 First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
 
@@ -14,7 +14,7 @@ Then, create a virtual xvfb screen and export an environment variable called DIS
     xvfb-maybe electron-mocha ./test/*.js
     
 
-### Travis CI
+### Travis CI 
 
 On Travis, your `.travis.yml` should look roughly like this:
 
