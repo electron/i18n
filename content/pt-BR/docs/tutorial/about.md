@@ -1,26 +1,26 @@
 # Sobre Electron
 
-[Electron](https://electron.atom.io) é uma biblioteca open soruce desenvolvida pelo o GitHub para o desenvolvimento de aplicações desktop multi-plataforma com HTML, CSS e JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electron.atom.io) é uma biblioteca open source desenvolvida pelo o GitHub para o desenvolvimento de aplicações desktop multi-plataforma com HTML, CSS e JavaScript. Electron é uma combinação de [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) executados juntos em tempo de execução. Os apps podem ser empacotados para Mac, Windows, e Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+E Electron foi criado em 2013 como um framework do [Atom](https://atom.io), GitHub's hackable text editor, podendo ser criado. Os dois tiveram o código fonte aberto na primavera de 2014. 
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
+Desde de então tornou-se uma ferramenta muito popular entre os desenvolvedores open source, startups, e empresas. [Veja quem está desenvolvendo com Electron](https://electron.atom.io/apps/).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Leia para saber mais sobre os colaboradores e versões do Electron ou comece a criar aplicações com Electron no seguindo o [Guia rápido](quick-start.md).
 
-## Core Team and Contributors
+## Equipe Principal e Colaboradores
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron é mantido por um time do Github bem como o grupo de [colaboradores ativos](https://github.com/electron/electron/graphs/contributors) da comunidade. Alguns colaboradores são pessoas individuais e algumas trabalham em grandes empresas que estão desenvolvendo aplicações com Electron. Nós ficamos muito felizes por adicionar colaboradores frequentes no projeto como mantededores. Leia mais sobre como [contribuir com o Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## Releases
+## Versões
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Versões do Electron](https://github.com/electron/electron/releases). Nós liberamos uma nova versão quando existe uma correção para um determinado bug, novas APIs ou atualização do Chromium ou Node.js.
 
-### Updating Dependencies
+### Atualização de Depedências
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+A versão do Chromium do Electron é normalmente atualizado após uma ou duas semanas depois que uma versão estável do Chromium é liberada, dependendo do esforço envolvido na atualização.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Quando uma nova versão do Node.js é lançada, normalmente aguardamos um mês antes da atualização do Electron, para trazer uma versão mais estável.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
