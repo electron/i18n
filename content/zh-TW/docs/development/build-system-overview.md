@@ -1,4 +1,4 @@
-# Build System Overview
+# 構建系統概述
 
 Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
 
