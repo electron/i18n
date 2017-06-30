@@ -1,14 +1,14 @@
-# Electron FAQ
+# Electron 常見問題
 
-## When will Electron upgrade to latest Chrome?
+## Electron 何時會升級用 Chrome 的最新版本？
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+我們只會用 Chrome 的穩定版本，但如果 dev 或 beta 管道有重要的修復程式，我們會 backport。
 
-For more information, please see the [security introduction](tutorial/security.md).
+詳情請參閱[安全簡介](tutorial/security.md)。
 
-## When will Electron upgrade to latest Node.js?
+## Electron 何時會升級用 Node.js 的最新版本？
 
 When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
