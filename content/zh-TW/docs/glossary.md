@@ -1,16 +1,16 @@
-# Glossary
+# 術語彙編
 
 This page defines some terminology that is commonly used in Electron development.
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR 代表 Atom Shell Archive Format。 [Asar](https://github.com/electron/asar)檔案跟 `tar` 相似，都是將數個檔序連成單個檔格式。 Electron 可以任意從它讀取，無須拆包整個檔。
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+ASAR 格式目標主要是為提高 Windows 的性能... TODO
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray) is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications. It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
+[Brightray](https://github.com/electron/brightray)是一個靜態程式庫，使[libchromiumcontent](#libchromiumcontent)便於在應用程式中使用。 It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
 
 Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
 
