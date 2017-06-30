@@ -1,4 +1,4 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+請確保您瀏覽與您的 Electron 版本相匹配的文檔。 版本編號應是文檔 URL 的一部分。 If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## FAQ
 
@@ -44,10 +44,10 @@ There are questions that are asked quite often. Check this out before creating a
 ### 自訂 DOM 元素：
 
 * [`File` 物件](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`<webview>`<webview></0> 標籤](api/webview-tag.md)
+* [`window.open`函數](api/window-open.md)
 
-### Modules for the Main Process:
+### 主行程可用的模組：
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -67,14 +67,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### 渲染行程可用的模組 (網頁)：
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### 主行程及渲染行程均可用的模組：
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -82,20 +82,20 @@ There are questions that are asked quite often. Check this out before creating a
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## 開發
 
-* [Coding Style](development/coding-style.md)
+* [編碼格式](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
+* [原碼目錄結構](development/source-code-directory-structure.md)
+* [與NW.js (原名 webkit) 的技術差異](development/atom-shell-vs-node-webkit.md)
+* [構建系統概述](development/build-system-overview.md)
+* [構建步驟 (macOS)](development/build-instructions-osx.md)
+* [構建步驟 (Windows)](development/build-instructions-windows.md)
+* [構建步驟 (Linux)](development/build-instructions-linux.md)
+* [Debug 步驟 (macOS)](development/debugging-instructions-macos.md)
+* [Debug 步驟 (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [文檔風格](styleguide.md)
+* [Chrome 升級](development/upgrading-chrome.md)
+* [開發 Chromium](development/chromium-development.md)
+* [開發 V8](development/v8-development.md)
