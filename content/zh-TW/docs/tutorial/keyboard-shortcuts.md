@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# 鍵盤快速鍵
 
 > Configure local and global keyboard shortcuts
 
