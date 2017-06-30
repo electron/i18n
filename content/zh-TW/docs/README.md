@@ -11,39 +11,39 @@ There are questions that are asked quite often. Check this out before creating a
 * [術語彙編](glossary.md)
 * [支援平臺](tutorial/supported-platforms.md)
 * [安全性](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Electron 版本控制](tutorial/electron-versioning.md)
+* [應用程式發布](tutorial/application-distribution.md)
+* [Mac App Store 上架指引](tutorial/mac-app-store-submission-guide.md)
+* [Windows Store 上架指引](tutorial/windows-store-guide.md)
+* [應用程式打包](tutorial/application-packaging.md)
+* [使用原生 Node 模組](tutorial/using-native-node-modules.md)
+* [Debug 主行程](tutorial/debugging-main-process.md)
+* [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [DevTools 擴充](tutorial/devtools-extension.md)
+* [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
+* [使用 Widevine 外掛](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## 教學
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [快速入門](tutorial/quick-start.md)
+* [桌面環境整合](tutorial/desktop-environment-integration.md)
+* [連線/離線事件檢測](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [系統原生通知](tutorial/notifications.md)
 
-## API References
+## API 参考
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [簡介](api/synopsis.md)
+* [進程物件](api/process.md)
+* [支援 Chrome 命令行開關](api/chrome-command-line-switches.md)
+* [環境變數](api/environment-variables.md)
 
-### Custom DOM Elements:
+### 自訂 DOM 元素：
 
-* [`File` Object](api/file-object.md)
+* [`File` 物件](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
