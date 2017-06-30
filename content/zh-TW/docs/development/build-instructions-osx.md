@@ -1,4 +1,4 @@
-# Build Instructions (macOS)
+# 構建步驟 (macOS)
 
 Follow the guidelines below for building Electron on macOS.
 
