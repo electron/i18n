@@ -1,4 +1,4 @@
-請確保您瀏覽與您的 Electron 版本相匹配的文檔。 版本編號應是文檔 URL 的一部分。 If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+請確保您瀏覽與您的 Electron 版本相匹配的文檔， 版本編號應是文檔 URL 的一部分。 如果版本不合，你正在讀的有可能是一個開發中的分支文檔，當中可能包含跟您用的 Electron 版本不相容的 API。 To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## FAQ
 
