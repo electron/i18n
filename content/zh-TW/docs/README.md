@@ -6,11 +6,11 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## 導引
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
+* [術語彙編](glossary.md)
+* [支援平臺](tutorial/supported-platforms.md)
+* [安全性](tutorial/security.md)
 * [Electron Versioning](tutorial/electron-versioning.md)
 * [Application Distribution](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
