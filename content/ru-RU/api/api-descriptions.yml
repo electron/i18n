@@ -33,27 +33,27 @@ app.methods.addRecentDocument.description: >-
   Добавляет путь к списку последних документов. Этот список управляется ОС. В Windows вы можете посетить список из панели задач, а на MacOS вы можете посетить его из меню дока.
 app.methods.clearRecentDocuments.description: Очищает список последних документов.
 app.methods.setAsDefaultProtocolClient.description: >-
-  This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+  Этот метод устанавливает текущий исполняемый файл как обработчик по умолчанию для протокола (aka URI). Это позволяет вам интегрировать ваше приложение глубже в операционную систему. После регистрации все ссылки с вашим-протоколом:// будут открываться текущим исполняемым файлом. Вся ссылка, включая протокол, будет передана вашему приложению в качестве параметра. В Windows вы можете передать необязательные параметры path, путь к вашему исполняемому файлу, и args, массив аргументов, который будет передан вашему исполняемому файлу при его запуске. Примечание: В macOS вы можете регистрировать только протоколы, добавленные в info.plist вашего приложения, который нельзя изменять во время выполнения. Однако вы можете изменить файл с помощью простого текстового редактора или скрипта во время сборки. Подробнее см. Документацию Apple. Внутри API использует регистр Windows и LSSetDefaultHandlerForURLScheme.
 app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
-  The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-app.methods.setAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.setAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
-app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+  Имя вашего протокола, без `://`. Если вы хотите, чтобы ваше приложение обрабатывало ссылки `electron://`, вызовите этот метод с параметром `electron`.
+app.methods.setAsDefaultProtocolClient.parameters.path.description: По умолчанию `process.execPath`
+app.methods.setAsDefaultProtocolClient.parameters.args.description: По умолчанию пустой массив
+app.methods.setAsDefaultProtocolClient.returns.description: Был ли вызов успешным.
 app.methods.removeAsDefaultProtocolClient.description: >-
-  This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.removeAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.removeAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
-app.methods.removeAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+  Этот метод проверяет, является ли текущий исполняемый файл обработчиком по умолчанию для протокола (aka URI). Если это так, оно удалит запись об использовании приложение в качестве обработчика по умолчанию.
+app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'Имя вашего протокола, без `://`.'
+app.methods.removeAsDefaultProtocolClient.parameters.path.description: По умолчанию `process.execPath`
+app.methods.removeAsDefaultProtocolClient.parameters.args.description: По умолчанию пустой массив
+app.methods.removeAsDefaultProtocolClient.returns.description: Был ли вызов успешным.
 app.methods.isDefaultProtocolClient.description: >-
   This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-app.methods.isDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.isDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.isDefaultProtocolClient.parameters.protocol.description: 'Имя вашего протокола, без `://`.'
+app.methods.isDefaultProtocolClient.parameters.path.description: По умолчанию `process.execPath`
+app.methods.isDefaultProtocolClient.parameters.args.description: По умолчанию пустой массив
 app.methods.setUserTasks.description: >-
   Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
 app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
-app.methods.setUserTasks.returns.description: Whether the call succeeded.
+app.methods.setUserTasks.returns.description: Был ли вызов успешным.
 app.methods.getJumpListSettings.returns.properties.0.description: >-
   The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
 app.methods.getJumpListSettings.returns.properties.1.description: >-
@@ -87,7 +87,7 @@ app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
   Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
-app.methods.setBadgeCount.returns.description: Whether the call succeeded.
+app.methods.setBadgeCount.returns.description: Был ли вызов успешным.
 app.methods.getBadgeCount.returns.description: The current value displayed in the counter badge.
 app.methods.isUnityRunning.returns.description: Whether the current desktop environment is Unity launcher.
 app.methods.getLoginItemSettings.description: >-
