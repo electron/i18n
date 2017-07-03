@@ -11,12 +11,12 @@ app.methods.focus.description: >-
 app.methods.hide.description: Скрывает все окна приложения, не минимизируя их.
 app.methods.show.description: >-
   Показывает окна приложения, после того как они были скрыты. Фокус не будет перемещён автоматически.
-app.methods.getAppPath.returns.description: The current application directory.
-app.methods.getPath.description: 'You can request the following paths by the name:'
+app.methods.getAppPath.returns.description: Текущая директория приложения.
+app.methods.getPath.description: 'Вы можете запросить следующие пути по их имени:'
 app.methods.getPath.returns.description: >-
-  A path to a special directory or file associated with name. On failure an Error is thrown.
+  Путь к специальному каталогу или файлу, который будет ассоциироваться с именем. Бросает Error при ошибке.
 app.methods.getFileIcon.description: >-
-  Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
+  Получает значок, связанный с путём. В Windows существует 2 вида иконок: Linux и macOS, иконки зависят от приложения, которое ассоциируется с MIME типом конечного файла.
 app.methods.setPath.description: >-
   Overrides the path to a special directory or file associated with name. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an Error is thrown. You can only override paths of a name defined in app.getPath. By default, web pages' cookies and caches will be stored under the userData directory. If you want to change this location, you have to override the userData path before the ready event of the app module is emitted.
 app.methods.getVersion.returns.description: >-
