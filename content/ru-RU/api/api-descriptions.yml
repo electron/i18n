@@ -5,12 +5,12 @@ app.methods.exit.description: >-
   Немедленно завершает приложение с заданным exitCode'ом. Значение exitCode'a по умолчанию - 0. Все окна  закроются, не спрашивая подтверждения пользователя. События before-quit и will-quit не сработают.
 app.methods.relaunch.description: >-
   Перезапускает приложение, когда текущий экземпляр завершает работу. По умолчанию новый экземпляр будет использовать тот же рабочий каталог и аргументы командной строки, что и текущий. Аргументы функции, если они указаны, будут использованы в качестве аргументов командной строки вместо тех, чтобы были. Если указан параметр execPath, то вместо повторного запуска приложения будет вызван execPath. Обратите внимание, что этот метод не выходит из приложения, вы должны вызвать app.quit или app.exit после вызова app.relaunch, чтобы перезапустить приложение. Когда app.relaunch вызывается несколько раз, несколько экземпляров будут запущены после выхода текущего экземпляра. Пример перезапуска текущего экземпляра и добавления нового аргумента командной строки в новый экземпляр:
-app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
+app.methods.isReady.returns.description: 'true, если Electron завершил инициализацию, иначе false.'
 app.methods.focus.description: >-
-  On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-app.methods.hide.description: Hides all application windows without minimizing them.
+  В Linux перемещает фокус на первое видимое окно. В macOS делает приложение активным. В Windows перемещает фокус на первое окно приложения.
+app.methods.hide.description: Скрывает все окна приложения, не минимизируя их.
 app.methods.show.description: >-
-  Shows application windows after they were hidden. Does not automatically focus them.
+  Показывает окна приложения, после того как они были скрыты. Фокус не будет перемещён автоматически.
 app.methods.getAppPath.returns.description: The current application directory.
 app.methods.getPath.description: 'You can request the following paths by the name:'
 app.methods.getPath.returns.description: >-
