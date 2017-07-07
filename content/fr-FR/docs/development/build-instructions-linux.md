@@ -155,7 +155,7 @@ $ ./script/build.py -c R
 
 ### Utiliser un compilateur autre que `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Pour compiler ELectron avec des compilateur comme `g++`, vous devez d'abord désactiver `clang` avec le paramètre `--disable_clang`. Ensuite, vous devez définir les variables d'environnement `CC` et `CXX` avec les compilateur que vous souhaitez.
 
 Par exemple, compiler avec les outils de compilation GCC :
 
