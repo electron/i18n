@@ -126,7 +126,7 @@ Voir [Build System Overview : Tests](build-system-overview.md#tests)
 
 ## Sujets Avancés
 
-The default building configuration is targeted for major desktop Linux distributions, to build for a specific distribution or device, following information may help you.
+La configuration par défaut de compilation cible la majorité des distributions bureau Linux. Pour compiler sur une distribution ou un appareil spécifique, les informations suivantes peuvent vous aider.
 
 ### Compiler `libchromiumcontent` localement
 
@@ -144,7 +144,7 @@ $ ./script/build.py -c R
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 
-By default Electron is built with prebuilt `clang` binaries provided by Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Par défaut, Electron est compilé avec les binaires précompilés `clang` fournis par le projet Chromium. Si pour une raison quelconque vous souhaitez compiler avec `clang` d'installé sur votre système, vous pouvez appeler `bootstrap.py` avec le paramètre `--clang_dir=<path>`. En lui passant ce paramètre, le script de compilation assumera que les binaires de `clang` se situent dans `<path>/bin/`.
 
 Par exemple, si vous avez installé `clang` sous `/user/local/bin/clang`:
 
@@ -155,7 +155,7 @@ $ ./script/build.py -c R
 
 ### Utiliser un compilateur autre que `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Pour compiler ELectron avec des compilateur comme `g++`, vous devez d'abord désactiver `clang` avec le paramètre `--disable_clang`. Ensuite, vous devez définir les variables d'environnement `CC` et `CXX` avec les compilateur que vous souhaitez.
 
 Par exemple, compiler avec les outils de compilation GCC :
 
