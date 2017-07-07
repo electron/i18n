@@ -348,7 +348,7 @@ BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window 
 BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
 BrowserWindow.instanceMethods.maximize.description: >-
   Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
-BrowserWindow.instanceMethods.unmaximize.description: Unmaximizes the window.
+BrowserWindow.instanceMethods.unmaximize.description: Unmaximizes cửa sổ.
 BrowserWindow.instanceMethods.isMaximized.returns.description: Whether the window is maximized.
 BrowserWindow.instanceMethods.minimize.description: >-
   Minimizes the window. On some platforms the minimized window will be shown in the Dock.
@@ -406,8 +406,8 @@ BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.relativeLevel.descriptio
 BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Whether the window is always on top of other windows.
 BrowserWindow.instanceMethods.center.description: Moves window to the center of the screen.
 BrowserWindow.instanceMethods.setPosition.description: Di chuyển cửa sổ tới tọa độ x và y.
-BrowserWindow.instanceMethods.getPosition.returns.description: Contains the window's current position.
-BrowserWindow.instanceMethods.setTitle.description: Changes the title of native window to title.
+BrowserWindow.instanceMethods.getPosition.returns.description: Chứa các vị trí hiện tại của cửa sổ.
+BrowserWindow.instanceMethods.setTitle.description: Thay đổi tiêu đề của cửa sổ gốc.
 BrowserWindow.instanceMethods.getTitle.description: >-
   Note: The title of web page can be different from the title of the native window.
 BrowserWindow.instanceMethods.getTitle.returns.description: Tiêu đề của cửa sổ gốc.
@@ -435,7 +435,7 @@ BrowserWindow.instanceMethods.capturePage.description: 'Same as webContents.capt
 BrowserWindow.instanceMethods.capturePage.parameters.rect.description: The bounds to capture
 BrowserWindow.instanceMethods.loadURL.description: >-
   Same as webContents.loadURL(url[, options]). The url can be a remote address (e.g. http://) or a path to a local HTML file using the file:// protocol. To ensure that file URLs are properly formatted, it is recommended to use Node's url.format method: You can load a URL using a POST request with URL-encoded data by doing the following:
-BrowserWindow.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
+BrowserWindow.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: Một HTTP Referrer url.
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
@@ -482,8 +482,8 @@ BrowserWindow.instanceMethods.setMenuBarVisibility.description: >-
 BrowserWindow.instanceMethods.isMenuBarVisible.returns.description: Whether the menu bar is visible.
 BrowserWindow.instanceMethods.setVisibleOnAllWorkspaces.description: >-
   Sets whether the window should be visible on all workspaces. Note: This API does nothing on Windows.
-BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.description: 'Note: This API always returns false on Windows.'
-BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.returns.description: Whether the window is visible on all workspaces.
+BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.description: 'Lưu ý: API này luôn luôn trả về false trên Windows.'
+BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.returns.description: Cho dù có thể nhìn thấy cửa sổ này trên tất cả workspaces.
 BrowserWindow.instanceMethods.setIgnoreMouseEvents.description: >-
   Makes the window ignore all mouse events. All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 BrowserWindow.instanceMethods.setContentProtection.description: >-
@@ -1460,7 +1460,7 @@ webContents.methods.fromId.returns.description: A WebContents instance with the 
 WebContents.description: Render and control the contents of a BrowserWindow instance.
 WebContents.instanceMethods.loadURL.description: >-
   Loads the url in the window. The url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it.
-WebContents.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
+WebContents.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: Một HTTP Referrer url.
 WebContents.instanceMethods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
 WebContents.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
 WebContents.instanceMethods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
@@ -1828,7 +1828,7 @@ WebRequest.instanceMethods.onErrorOccurred.parameters.listener.parameters.detail
 webviewTag.description: Display external web content in an isolated frame and process.
 webviewTag.methods.loadURL.description: >-
   Loads the url in the webview, the url must contain the protocol prefix, e.g. the http:// or file://.
-webviewTag.methods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
+webviewTag.methods.loadURL.parameters.options.properties.httpReferrer.description: Một HTTP Referrer url.
 webviewTag.methods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
 webviewTag.methods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
 webviewTag.methods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
