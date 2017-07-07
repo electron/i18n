@@ -144,7 +144,7 @@ $ ./script/build.py -c R
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 
-By default Electron is built with prebuilt `clang` binaries provided by Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Par défaut, Electron est compilé avec les binaires précompilés `clang` fournis par le projet Chromium. Si pour une raison quelconque vous souhaitez compiler avec `clang` d'installé sur votre système, vous pouvez appeler `bootstrap.py` avec le paramètre `--clang_dir=<path>`. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
 Par exemple, si vous avez installé `clang` sous `/user/local/bin/clang`:
 
