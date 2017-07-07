@@ -126,7 +126,7 @@ Voir [Build System Overview : Tests](build-system-overview.md#tests)
 
 ## Sujets Avancés
 
-The default building configuration is targeted for major desktop Linux distributions, to build for a specific distribution or device, following information may help you.
+La configuration par défaut de compilation cible la majorité des distributions bureau Linux. Pour compiler sur une distribution ou un appareil spécifique, les informations suivantes peuvent vous aider.
 
 ### Compiler `libchromiumcontent` localement
 
