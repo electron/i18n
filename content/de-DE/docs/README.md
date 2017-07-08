@@ -1,57 +1,57 @@
-Bitte stellen Sie sicher, dass die Dokumente, die Sie benutzen, mit Ihrer Electron Version übereinstimmen. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Bitte stellen Sie sicher, dass die Dokumente, die Sie benutzen, mit Ihrer Electron Version übereinstimmen. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
-## FAQ
+## Häufige Fragen
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häufig gestellten Fragen nach:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Anleitungen
 
 * [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
+* [Unterstützte Plattformen](tutorial/supported-platforms.md)
+* [Sicherheit](tutorial/security.md)
+* [Electron Versionierung](tutorial/electron-versioning.md)
 * [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
+* [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md)
+* [Anleitung: Windows Store](tutorial/windows-store-guide.md)
+* [Anwendungspakete](tutorial/application-packaging.md)
+* [Native Node Module verwenden](tutorial/using-native-node-modules.md)
 * [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Selenium und WebDriver verwenden](tutorial/using-selenium-and-webdriver.md)
+* [DevTools Erweiterung](tutorial/devtools-extension.md)
+* [Verwendung des Pepper Flash-Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Verwendung des Widevine CDM-Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Tastenkürzel](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Anleitungen
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Schnellstart](tutorial/quick-start.md)
+* [Integration der Desktop-Umgebung](tutorial/desktop-environment-integration.md)
+* [Online/Offline Ereigniserkennung](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Native Benachrichtigungen](tutorial/notifications.md)
 
-## API References
+## API Referenzen
 
-* [Synopsis](api/synopsis.md)
+* [Übersicht](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Unterstützt Chrome Befehlszeilenoptionen](api/chrome-command-line-switches.md)
+* [Umgebungsvariablen](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Benutzerdefinierte DOM-Elemente:
 
-* [`File` Object](api/file-object.md)
+* [`File` Objekt](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`window.open` Funktion](api/window-open.md)
 
-### Modules for the Main Process:
+### Module für den Main-Prozess:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
-* [BrowserWindow](api/browser-window.md)
+* [Browserfenster](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
