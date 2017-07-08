@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## Vorrausetzungen
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
@@ -17,7 +17,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## Code erhalten
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -68,7 +68,7 @@ $ python script\bootstrap.py --msvs
 
 ## Cleaning
 
-To clean the build files:
+Um die Build-Dateien aufzuräumen:
 
 ```powershell
 $ npm run clean
@@ -86,7 +86,7 @@ $ npm run clean-build
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Troubleshooting
+## Problemlösungen
 
 ### Command xxxx not found
 
