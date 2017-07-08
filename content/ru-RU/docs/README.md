@@ -44,10 +44,10 @@
 ### Пользовательские DOM-элементы:
 
 * [Объект `File`](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
+* [Тэг `<webview>`](api/webview-tag.md)
 * [Функция `window.open`](api/window-open.md)
 
-### Модули главного процесса:
+### Модули для главного процесса:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -74,7 +74,7 @@
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Модули для обоих процессов:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -82,20 +82,20 @@
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Разработка
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Стиль кода](development/coding-style.md)
+* [Использование clang-format на C++ коде](development/clang-format.md)
+* [Структура каталога с исходным кодом](development/source-code-directory-structure.md)
+* [Технические отличия от NW.js (ранее был извествен как node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Обзор системы сборки](development/build-system-overview.md)
+* [Инструкции по сборке (macOS)](development/build-instructions-osx.md)
+* [Инструкции по сборке (Windows)](development/build-instructions-windows.md)
+* [Инструкции по сборке (Linux)](development/build-instructions-linux.md)
+* [Инструкции по отладке (macOS)](development/debugging-instructions-macos.md)
+* [Инструкции по отладке (Windows)](development/debug-instructions-windows.md)
+* [Настройка сервера символов в отладчике](development/setting-up-symbol-server.md)
+* [Руководство по написанию документации](styleguide.md)
+* [Обновление Chrome](development/upgrading-chrome.md)
+* [Разработка Chromium](development/chromium-development.md)
+* [Разработка V8](development/v8-development.md)
