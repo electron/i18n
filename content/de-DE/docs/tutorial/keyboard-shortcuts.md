@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Tastenkürzel
 
 > Configure local and global keyboard shortcuts
 
