@@ -2,7 +2,7 @@
 
 These are the guidelines for writing Electron documentation.
 
-## Titles
+## Titel
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
@@ -52,9 +52,9 @@ For API references, there are exceptions to this rule.
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
 
-## API references
+## API Referenzen
 
-The following rules only apply to the documentation of APIs.
+Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 ### Page title
 
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Klassen
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Methoden
 
 The methods chapter must be in the following form:
 
@@ -196,7 +196,7 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### Eigenschaften
 
 The properties chapter must be in following form:
 
@@ -208,9 +208,9 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## Übersetzungen der Dokumentationen
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Übersetzungen der Electron-Docs befinden sich in dem Verzeichnis `Docs-Übersetzungen`.
 
 To add another set (or partial set):
 
