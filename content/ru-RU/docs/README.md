@@ -2,29 +2,29 @@
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Есть вопросы, которые задаются довольно часто. Прочитайте это, прежде чем открывать issue:
 
-* [Electron FAQ](faq.md)
+* [FAQ по Electron](faq.md)
 
-## Guides
+## Руководства
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Глоссарий](glossary.md)
+* [Поддерживаемые платформы](tutorial/supported-platforms.md)
+* [Безопасность](tutorial/security.md)
+* [Нумерация версий Electron](tutorial/electron-versioning.md)
+* [Распространение приложений](tutorial/application-distribution.md)
+* [Руководство по распространению с помощью Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Руководство по распространению с помощью Windows Store](tutorial/windows-store-guide.md)
+* [Упаковка приложений](tutorial/application-packaging.md)
+* [Использование нативных модулей NodeJS](tutorial/using-native-node-modules.md)
+* [Отладка главного процесса](tutorial/debugging-main-process.md)
+* [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Расширение DevTools](tutorial/devtools-extension.md)
+* [Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Использование плагина Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
+* [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Закадровый рендеринг](tutorial/offscreen-rendering.md)
+* [Горячие клавиши](tutorial/keyboard-shortcuts.md)
 
 ## Tutorials
 
