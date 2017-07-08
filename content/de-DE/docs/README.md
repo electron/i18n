@@ -56,7 +56,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [Menü](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
