@@ -1,4 +1,4 @@
-Убедитесь, что вы используете документацию, соответствующую вашей версии Electron. Версия должна быть частью URL-адреса страницы. Если это не так, вы, вероятно, используете документацию к главной ветке, которая может содержать изменения API, несовместимые с вашей версией Electron. Чтобы просмотреть более старые версии документации, вы можете [поискать по тегу](https://github.com/electron/electron/tree/v1.4.0) на GitHub, открыв список «Switch branches/tags» и выбрав тег, соответствующий вашей версии.
+Убедитесь, что вы используете документацию, соответствующую вашей версии Electron. Версия должна быть частью URL-адреса страницы. Если это не так, вы, вероятно, используете документацию к главной ветке, которая может содержать изменения API, несовместимые с вашей версией Electron. Чтобы просмотреть более старые версии документации, вы можете использовать [browse by tag](https://github.com/electron/electron/tree/v1.4.0) на GitHub, открыв список «Switch branches/tags» и выбрав тег, соответствующий вашей версии.
 
 ## FAQ
 
@@ -26,28 +26,28 @@
 * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
 * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Инструкции
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Руководство для начинающих](tutorial/quick-start.md)
+* [Интеграция со средами рабочего стола](tutorial/desktop-environment-integration.md)
+* [Обнаружение онлайн/офлайн событий](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Нативные уведомления](tutorial/notifications.md)
 
-## API References
+## Справочник по API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Краткий обзор](api/synopsis.md)
+* [Объект процесса](api/process.md)
+* [Поддерживаемые параметры командной строки Chrome](api/chrome-command-line-switches.md)
+* [Переменные окружения](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Пользовательские DOM-элементы:
 
-* [`File` Object](api/file-object.md)
+* [Объект `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [Функция `window.open`](api/window-open.md)
 
-### Modules for the Main Process:
+### Модули главного процесса:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -67,7 +67,7 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Модули для процесса-рендерера (веб-страницы):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
