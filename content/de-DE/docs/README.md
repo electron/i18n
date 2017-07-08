@@ -37,7 +37,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 ## API Referenzen
 
 * [Übersicht](api/synopsis.md)
-* [Process Object](api/process.md)
+* [Prozess-Objekt](api/process.md)
 * [Unterstützt Chrome Befehlszeilenoptionen](api/chrome-command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
 
@@ -64,17 +64,17 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [protocol](api/protocol.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [Tray](api/tray.md)
+* [Fach](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Module für den Renderer-Prozess (Webseite):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Module für beide Prozesse:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -82,20 +82,20 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Entwicklung
 
 * [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
+* [clang-format im C++ Code verwenden](development/clang-format.md)
+* [Source-Code-Verzeichnis-Struktur](development/source-code-directory-structure.md)
+* [Technische Unterschiede zum NW.js (ehemals node-Webkit)](development/atom-shell-vs-node-webkit.md)
+* [Build System Übersicht](development/build-system-overview.md)
+* [Build Anweisungen (macOS)](development/build-instructions-osx.md)
+* [Build Anweisungen (Windows)](development/build-instructions-windows.md)
+* [Build Anweisungen (Linux)](development/build-instructions-linux.md)
+* [Debug Anweisungen (macOS)](development/debugging-instructions-macos.md)
+* [Debug Anweisungen (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Chrome Upgrade](development/upgrading-chrome.md)
+* [Chromium Entwicklung](development/chromium-development.md)
+* [V8 Entwicklung](development/v8-development.md)
