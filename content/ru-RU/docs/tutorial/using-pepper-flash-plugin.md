@@ -1,4 +1,4 @@
-# Using Pepper Flash Plugin
+# Использование плагина Pepper Flash
 
 Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
