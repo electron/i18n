@@ -1,4 +1,4 @@
-# Electron FAQ
+# FAQ по Electron
 
 ## When will Electron upgrade to latest Chrome?
 

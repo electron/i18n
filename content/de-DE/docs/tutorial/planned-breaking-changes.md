@@ -4,7 +4,7 @@ The following list includes the APIs that will be removed in Electron 2.0.
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
-## `BrowserWindow`
+## `Browserfenster`
 
 ```js
 // Deprecated
@@ -110,7 +110,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Tray`
+## `Fach`
 
 ```js
 // Deprecated

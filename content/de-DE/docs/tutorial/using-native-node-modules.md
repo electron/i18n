@@ -1,4 +1,4 @@
-# Using Native Node Modules
+# Native Node Module verwenden
 
 The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
 
@@ -55,7 +55,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
 
-## Troubleshooting
+## Problemlösungen
 
 If you installed a native module and found it was not working, you need to check following things:
 

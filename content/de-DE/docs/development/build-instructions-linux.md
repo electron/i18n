@@ -1,4 +1,4 @@
-# Build Instructions (Linux)
+# Build Anweisungen (Linux)
 
 Follow the guidelines below for building Electron on Linux.
 
@@ -40,7 +40,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-## Getting the Code
+## Code erhalten
 
 ```bash
 $ git clone https://github.com/electron/electron.git
@@ -75,7 +75,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 If you would like to build both `Release` and `Debug` targets:
 
 ```bash
-$ ./script/build.py
+$./script/build.py
 ```
 
 This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
@@ -96,7 +96,7 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 
 ## Cleaning
 
-To clean the build files:
+Um die Build-Dateien aufzuräumen:
 
 ```bash
 $ npm run clean
@@ -110,7 +110,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## Problemlösungen
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -124,7 +124,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## Erweiterte Themen
 
 The default building configuration is targeted for major desktop Linux distributions, to build for a specific distribution or device, following information may help you.
 

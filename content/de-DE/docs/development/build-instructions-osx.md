@@ -1,4 +1,4 @@
-# Build Instructions (macOS)
+# Build Anweisungen (macOS)
 
 Follow the guidelines below for building Electron on macOS.
 
@@ -32,7 +32,7 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Save the file
 
-## Getting the Code
+## Code erhalten
 
 ```bash
 $ git clone https://github.com/electron/electron
@@ -52,7 +52,7 @@ $ ./script/bootstrap.py -v
 Build both `Release` and `Debug` targets:
 
 ```bash
-$ ./script/build.py
+$./script/build.py
 ```
 
 You can also only build the `Debug` target:
@@ -63,13 +63,13 @@ $ ./script/build.py -c D
 
 After building is done, you can find `Electron.app` under `out/D`.
 
-## 32bit Support
+## 32-Bit-Unterstützung
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
 ## Cleaning
 
-To clean the build files:
+Um die Build-Dateien aufzuräumen:
 
 ```bash
 $ npm run clean
