@@ -48,7 +48,7 @@ $ python script\build.py -c D
 
 After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
 
-## 32bit Build
+## 32-Bit-Build
 
 To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
@@ -94,7 +94,7 @@ If you encountered an error like `Command xxxx not found`, you may try to use th
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Stellen Sie sicher, dass Sie die neueste Visual Studio Version installiert haben.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
