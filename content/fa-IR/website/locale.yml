@@ -10,9 +10,9 @@ nav:
 electron_is_easy:
   title: It's easier than you think
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  video_link: ویدئو را مشاهده کنید
 web_technologies:
-  title: Web Technologies
+  title: فناوری‌های وب
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
   title: متن‌باز
@@ -37,7 +37,7 @@ explore:
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
-download_from_github: Download from GitHub
+download_from_github: دانلود از گیت‌هاب
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
@@ -52,6 +52,6 @@ need_help:
 apps:
   title: Apps built on Electron
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
+  view_more: مشاهده برنامه‌های بیشتر
+  submit_your_own: برنامه خودتان را ارسال کنید
 or: یا
