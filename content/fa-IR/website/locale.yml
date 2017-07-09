@@ -1,12 +1,12 @@
 tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
 nav:
-  docs: Docs
+  docs: مستندات
   blog: وبلاگ
-  community: Community
-  apps: Apps
+  community: جامعه
+  apps: برنامه‌ها
   userland: Userland
   releases: Releases
-  contact: Contact
+  contact: تماس به ما
 electron_is_easy:
   title: It's easier than you think
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
@@ -15,7 +15,7 @@ web_technologies:
   title: Web Technologies
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
-  title: Open Source
+  title: متن‌باز
   desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: Cross Platform
