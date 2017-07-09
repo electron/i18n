@@ -1,7 +1,7 @@
 tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
 nav:
   docs: Docs
-  blog: Blog
+  blog: وبلاگ
   community: Community
   apps: Apps
   userland: Userland
@@ -54,4 +54,4 @@ apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: View more apps
   submit_your_own: submit your own
-or: or
+or: یا
