@@ -10,11 +10,11 @@ Electron 已經成為開放原始碼開發者、新創公司及設立許久的�
 
 ## 核心團隊和貢獻者
 
-Electron 是由 GitHub 的一個團隊以及一群來自社群的 [活躍的貢獻者](https://github.com/electron/electron/graphs/contributors) 所維護的。 有些貢獻者是個人，而有些貢獻者工作於大型公司，這些公司正在使用 Electron 開發。 We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron 是由 GitHub 的一個團隊以及一群來自社群的 [活躍的貢獻者](https://github.com/electron/electron/graphs/contributors) 所維護的。 有些貢獻者是個人，而有些貢獻者工作於大型公司，這些公司正在使用 Electron 開發。 我們很樂於將經常貢獻的貢獻者加入專案，作為維護人員。 閱讀更多關於[貢獻 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
 
-## 版本發布
+## 版本發佈
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron 發佈](https://github.com/electron/electron/releases)頻繁。當有重大的臭蟲修復、提供新的 API、或是 Chromium 或 Node.js 有版本更新時，我們會發佈 Electron。
 
 ### 更新相依性
 
