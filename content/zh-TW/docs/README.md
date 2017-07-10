@@ -2,7 +2,7 @@
 
 ## 常見問題
 
-There are questions that are asked quite often. Check this out before creating an issue:
+這裡有常被提出的問題。請在建立問題之前檢查你的問題是否出現在當中。
 
 * [Electron 常見問題](faq.md)
 
