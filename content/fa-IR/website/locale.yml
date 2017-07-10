@@ -19,7 +19,7 @@ open_source:
   desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: چندسکویی
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: برنامه‌های ساخته شده با الکترون بر روی سه سیستم‌عامل اجرا می‌شود، سازگار با مک، ویندوز و لینوکس می‌باشد.
 benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: به‌روز رسانی خودکار
