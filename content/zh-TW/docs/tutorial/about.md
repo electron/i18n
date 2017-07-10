@@ -18,7 +18,7 @@ Electron 是由 GitHub 的一個團隊以及一群來自社群的 [活躍的貢�
 
 ### 更新相依性
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron 的 Chromium 版本通常會在 Chromium 穩定版釋出後的一至兩個星期內更新，這取決於 Chromium 更新版所牽涉的努力。
 
 When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
 
