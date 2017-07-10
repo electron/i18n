@@ -1,10 +1,10 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: ساخت برنامه‌های چندسکویی دسکتاپ با جاوا اسکریپت، HTML، و CSS
 nav:
   docs: مستندات
   blog: وبلاگ
   community: جامعه
   apps: برنامه‌ها
-  userland: Userland
+  userland: فضای کاربری
   releases: نسخه‌ها
   contact: تماس به ما
 electron_is_easy:
