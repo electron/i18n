@@ -1,8 +1,8 @@
-# Build Anweisungen (Windows)
+# Build Instructions (Windows)
 
 Follow the guidelines below for building Electron on Windows.
 
-## Vorrausetzungen
+## Prerequisites
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
@@ -17,7 +17,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Code erhalten
+## Getting the Code
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -48,7 +48,7 @@ $ python script\build.py -c D
 
 After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
 
-## 32-Bit-Build
+## 32bit Build
 
 To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
@@ -68,7 +68,7 @@ $ python script\bootstrap.py --msvs
 
 ## Cleaning
 
-Um die Build-Dateien aufzuräumen:
+To clean the build files:
 
 ```powershell
 $ npm run clean
@@ -86,7 +86,7 @@ $ npm run clean-build
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Problemlösungen
+## Troubleshooting
 
 ### Command xxxx not found
 
@@ -94,7 +94,7 @@ If you encountered an error like `Command xxxx not found`, you may try to use th
 
 ### Fatal internal compiler error: C1001
 
-Stellen Sie sicher, dass Sie die neueste Visual Studio Version installiert haben.
+Make sure you have the latest Visual Studio update installed.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
