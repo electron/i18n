@@ -24,9 +24,9 @@ benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: به‌روز رسانی خودکار
   native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
+  crash_reporting: گزارش دادن خرابی و بهم ریختگی
   debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  windows_installers: نصب کننده ویندوز
 get_started:
   title: شروع کنید
   description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
