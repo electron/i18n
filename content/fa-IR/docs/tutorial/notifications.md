@@ -16,7 +16,7 @@ myNotification.onclick = () => {
 
 While code and user experience across operating systems are similar, there are subtle differences.
 
-## Windows
+## ویندوز
 
 * On Windows 10, notifications "just work".
 * On Windows 8.1 and Windows 8, a shortcut to your app, with an \[Application User Model ID\]\[app-user-model-id\], must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
@@ -52,6 +52,6 @@ To detect whether or not you're allowed to send a notification, use the userland
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
-## Linux
+## لینوکس
 
 Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows \[Desktop Notifications Specification\]\[notification-spec\], including Cinnamon, Enlightenment, Unity, GNOME, KDE.
