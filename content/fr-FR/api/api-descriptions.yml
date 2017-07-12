@@ -647,12 +647,12 @@ contentTracing.methods.captureMonitoringSnapshot.description: >-
   Get the current monitoring traced data. Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data. Once all child processes have acknowledged the captureMonitoringSnapshot request the callback will be called with a file that contains the traced data.
 contentTracing.methods.getTraceBufferUsage.description: >-
   Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the callback is called.
-Cookie.properties.name.description: The name of the cookie.
-Cookie.properties.value.description: The value of the cookie.
-Cookie.properties.domain.description: The domain of the cookie.
-Cookie.properties.hostOnly.description: Whether the cookie is a host-only cookie.
-Cookie.properties.path.description: The path of the cookie.
-Cookie.properties.secure.description: Whether the cookie is marked as secure.
+Cookie.properties.name.description: Le nom du cookie.
+Cookie.properties.value.description: La valeur du cookie.
+Cookie.properties.domain.description: Le domaine du cookie.
+Cookie.properties.hostOnly.description: Si le cookie est un cookie hôte uniquement.
+Cookie.properties.path.description: Le chemin d’accès du cookie.
+Cookie.properties.secure.description: Si le cookie est marqué comme sécurisé.
 Cookie.properties.httpOnly.description: Whether the cookie is marked as HTTP only.
 Cookie.properties.session.description: >-
   Whether the cookie is a session cookie or a persistent cookie with an expiration date.
@@ -663,7 +663,7 @@ Cookies.instanceMethods.get.description: >-
   Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete. cookies is an Array of cookie objects.
 Cookies.instanceMethods.get.parameters.filter.properties.url.description: >-
   Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
-Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filters cookies by name.
+Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filtre les cookies par nom.
 Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Retrieves cookies whose domains match or are subdomains of domains
 Cookies.instanceMethods.get.parameters.filter.properties.path.description: Retrieves cookies whose path matches path.
 Cookies.instanceMethods.get.parameters.filter.properties.secure.description: Filters cookies by their Secure property.
@@ -688,9 +688,9 @@ Cookies.instanceEvents.changed.description: >-
   Émis lorsqu’un cookie est changé car il a été ajouté, édité, enlevé ou a expiré.
 Cookies.instanceEvents.changed.returns.cookie.description: Le cookie qui a été changé
 Cookies.instanceEvents.changed.returns.cause.description: 'The cause of the change with one of the following values:'
-Cookies.instanceEvents.changed.returns.removed.description: '`true` if the cookie was removed, `false` otherwise.'
+Cookies.instanceEvents.changed.returns.removed.description: '`true` si le cookie a été supprimé, `false` dans le cas contraire.'
 CPUUsage.properties.percentCPUUsage.description: >-
-  Percentage of CPU used since the last call to getCPUUsage. First call returns 0.
+  Pourcentage de CPU utilisé depuis le dernier appel à getCPUUsage. Le premier appel retourne 0.
 CPUUsage.properties.idleWakeupsPerSecond.description: >-
   The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0.
 crashReporter.description: Submit crash reports to a remote server.
@@ -734,7 +734,7 @@ Debugger.instanceEvents.detach.description: >-
   Emitted when debugging session is terminated. This happens either when webContents is closed or devtools is invoked for the attached webContents.
 Debugger.instanceEvents.detach.returns.reason.description: Reason for detaching debugger.
 Debugger.instanceEvents.message.description: Emitted whenever debugging target issues instrumentation event.
-Debugger.instanceEvents.message.returns.method.description: Method name.
+Debugger.instanceEvents.message.returns.method.description: Nom de la méthode.
 Debugger.instanceEvents.message.returns.params.description: >-
   Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 desktopCapturer.description: |-
@@ -781,8 +781,8 @@ dialog.methods.showMessageBox.parameters.options.properties.buttons.description:
 dialog.methods.showMessageBox.parameters.options.properties.defaultId.description: >-
   Index of the button in the buttons array which will be selected by default when the message box opens.
 dialog.methods.showMessageBox.parameters.options.properties.title.description: 'Title of the message box, some platforms will not show it.'
-dialog.methods.showMessageBox.parameters.options.properties.message.description: Content of the message box.
-dialog.methods.showMessageBox.parameters.options.properties.detail.description: Extra information of the message.
+dialog.methods.showMessageBox.parameters.options.properties.message.description: Contenu de la boîte de message.
+dialog.methods.showMessageBox.parameters.options.properties.detail.description: Informations supplémentaires du message.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxLabel.description: >-
   If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using callback.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxChecked.description: Initial checked state of the checkbox. false by default.
@@ -805,7 +805,7 @@ dialog.methods.showCertificateTrustDialog.description: >-
 dialog.methods.showCertificateTrustDialog.parameters.options.properties.certificate.description: The certificate to trust/import.
 dialog.methods.showCertificateTrustDialog.parameters.options.properties.message.description: The message to display to the user.
 Display.properties.id.description: Unique identifier associated with the display.
-Display.properties.rotation.description: 'Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.'
+Display.properties.rotation.description: 'Peut être 0, 90, 180, 270, représente la rotation de l’écran en degrés horaire.'
 Display.properties.scaleFactor.description: Output device's pixel scale factor.
 Display.properties.touchSupport.description: 'Can be available, unavailable, unknown.'
 DownloadItem.description: Control file downloads from remote sources.
@@ -814,7 +814,7 @@ DownloadItem.instanceMethods.setSavePath.description: >-
 DownloadItem.instanceMethods.setSavePath.parameters.path.description: Set the save file path of the download item.
 DownloadItem.instanceMethods.getSavePath.returns.description: >-
   The save path of the download item. This will be either the path set via downloadItem.setSavePath(path) or the path selected from the shown save dialog.
-DownloadItem.instanceMethods.pause.description: Pauses the download.
+DownloadItem.instanceMethods.pause.description: Met en pause le téléchargement.
 DownloadItem.instanceMethods.isPaused.returns.description: Whether the download is paused.
 DownloadItem.instanceMethods.resume.description: >-
   Resumes the download that has been paused. Note: To enable resumable downloads the server you are downloading from must support range requests and provide both Last-Modified and ETag header values. Otherwise resume() will dismiss previously received bytes and restart the download from the beginning.
@@ -824,9 +824,9 @@ DownloadItem.instanceMethods.getURL.returns.description: The origin url where th
 DownloadItem.instanceMethods.getMimeType.returns.description: The files mime type.
 DownloadItem.instanceMethods.hasUserGesture.returns.description: Whether the download has user gesture.
 DownloadItem.instanceMethods.getFilename.description: >-
-  Note: The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+  Remarque: Le nom du fichier n'est pas toujours identique à celui enregistré sur le disque local. Si l'utilisateur modifie le nom du fichier dans une boîte de dialogue de sauvegarde de téléchargement, le nom du fichier enregistré sera différent.
 DownloadItem.instanceMethods.getFilename.returns.description: The file name of the download item.
-DownloadItem.instanceMethods.getTotalBytes.description: 'If the size is unknown, it returns 0.'
+DownloadItem.instanceMethods.getTotalBytes.description: 'Si la taille est inconnue, retourne 0.'
 DownloadItem.instanceMethods.getTotalBytes.returns.description: The total size in bytes of the download item.
 DownloadItem.instanceMethods.getReceivedBytes.returns.description: The received bytes of the download item.
 DownloadItem.instanceMethods.getContentDisposition.returns.description: The Content-Disposition field from the response header.
