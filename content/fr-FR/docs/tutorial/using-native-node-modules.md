@@ -6,19 +6,19 @@ The native Node modules are supported by Electron, but since Electron is very li
 
 Three ways to install native modules:
 
-### Using `npm`
+### À l’aide de `npm`
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
 An example of installing all dependencies for Electron:
 
 ```bash
-# Electron's version.
+# Version d'Electron.
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+# L'architecture d'Electron, peut être ia32 ou x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Télécharger les headers pour Electron.
 export npm_config_disturl=https://atom.io/download/electron
 # Tell node-pre-gyp that we are building for Electron.
 export npm_config_runtime=electron
