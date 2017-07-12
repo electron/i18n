@@ -254,7 +254,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.22.description: >-
   The window icon. On Windows it is recommended to use ICO icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
 BrowserWindow.constructorMethod.parameters.0.properties.23.description: Whether window should be shown when created. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.24.description: Specify false to create a . Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.25.description: Specify parent window. Default is null.
+BrowserWindow.constructorMethod.parameters.0.properties.25.description: Spécifier la fenêtre parent. null par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.26.description: >-
   Whether this is a modal window. This only works when the window is a child window. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.27.description: >-
@@ -303,15 +303,15 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.8.descript
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.9.description: >-
   When false, it will disable the same-origin policy (usually using testing websites by people), and set allowRunningInsecureContent to true if this options has not been set by user. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.10.description: >-
-  Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.11.description: Enables image support. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.12.description: Make TextArea elements resizable. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.description: Enables WebGL support. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Enables WebAudio support. Default is true.
+  Permet à une page https d'exécuter du JavaScript, CSS ou plugins depuis des URL http. False par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.11.description: Permet le support de l’image. True par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.12.description: Rend les éléments TextArea redimensionnable. True par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.description: Permet le support de WebGL. True par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Permet le support de WebAudio. True par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.15.description: Whether plugins should be enabled. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.16.description: Enables Chromium's experimental features. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Enables Chromium's experimental canvas features. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.18.description: Enables scroll bounce (rubber banding) effect on macOS. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.16.description: Active les fonctionnalités expérimentales de Chromium. False par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Active les fonctionnalités expérimentales canvas de Chromium. False par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.18.description: Active le défilement à effet rebond sur macOS. False par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.19.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.20.description: >-
@@ -325,8 +325,8 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.propert
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Defaults to Impact.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.22.description: Defaults to 16.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.23.description: Defaults to 13.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: Defaults to 0.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.25.description: Defaults to ISO-8859-1.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: 0 par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.25.description: Par défaut, ISO-8859-1.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.26.description: >-
   Whether to throttle animations and timers when the page becomes background. Defaults to true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.27.description: >-
@@ -343,7 +343,7 @@ BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window 
 BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
 BrowserWindow.instanceMethods.show.description: Shows and gives focus to the window.
 BrowserWindow.instanceMethods.showInactive.description: Shows the window but doesn't focus on it.
-BrowserWindow.instanceMethods.hide.description: Hides the window.
+BrowserWindow.instanceMethods.hide.description: Masque la fenêtre.
 BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
 BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
 BrowserWindow.instanceMethods.maximize.description: >-
@@ -1442,12 +1442,12 @@ UploadData.properties.file.description: Path of file being uploaded.
 UploadData.properties.blobUUID.description: UUID of blob data. Use method to retrieve the data.
 UploadFile.properties.type.description: file.
 UploadFile.properties.filePath.description: Path of file to be uploaded.
-UploadFile.properties.offset.description: Defaults to 0.
+UploadFile.properties.offset.description: 0 par défaut.
 UploadFile.properties.length.description: Number of bytes to read from offset. Defaults to 0.
 UploadFile.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadFileSystem.properties.type.description: fileSystem.
 UploadFileSystem.properties.filsSystemURL.description: FileSystem url to read data for upload.
-UploadFileSystem.properties.offset.description: Defaults to 0.
+UploadFileSystem.properties.offset.description: 0 par défaut.
 UploadFileSystem.properties.length.description: Number of bytes to read from offset. Defaults to 0.
 UploadFileSystem.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadRawData.properties.type.description: rawData.
