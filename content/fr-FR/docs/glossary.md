@@ -80,6 +80,6 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 V8 est le moteur JavaScript open source de Google. Il est écrit en C++ et est utilisé dans Google Chrome. V8 peut tourner en standalone, ou peut être intégré dans n’importe quelle application C++.
 
-### webview
+### WebView
 
 `webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
