@@ -1,10 +1,10 @@
 # Raccourcis clavier
 
-> Configure local and global keyboard shortcuts
+> Configurer des raccourcis clavier locaux et globaux
 
-## Local Shortcuts
+## Raccourcis Locaux
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Vous pouvez utiliser le module de [Menu](../api/menu.md) pour configurer les raccourcis clavier qui se déclenchera uniquement lorsque l’application est au premier plan. Pour ce faire, spécifiez une propriété [`accelerator`] lors de la création d’un [MenuItem](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Il est facile de configurer différentes combinaisons de touches basées sur le système d’exploitation de l’utilisateur.
 
 ```js
 {
@@ -25,9 +25,9 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## Raccourcis globaux
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Vous pouvez utiliser le module [globalShortcut](../api/global-shortcut.md) pour détecter les événements de clavier, même lorsque l’application n’a pas le focus clavier.
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Raccourcis dans un BrowserWindow
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
