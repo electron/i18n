@@ -4,43 +4,43 @@ Ce document est destiné à servir de vue d'ensemble des étapes à suivre pour 
 
 Ce sont des choses à faire en plus de mettre à jour le code d'Electron pour toutes modification des API de Chrome/Node.
 
-- Verify the new Chrome version is available from https://github.com/zcbenz/chromium-source-tarball/releases
-- Update the `VERSION` file at the root of the `electron/libchromiumcontent` repository
+- Vérifiez que la nouvelle version de Chrome est disponible : https://github.com/zcbenz/chromium-source-tarball/releases
+- Mettre à jour la `VERSION` du fichier à la racine de `electron/libchromiumcontent`
 - Update the `CLANG_REVISION` in `script/update-clang.sh` to match the version Chrome is using in `libchromiumcontent/src/tools/clang/scripts/update.py`
 - Upgrade `vendor/node` to the Node release that corresponds to the v8 version being used in the new Chrome release. See the v8 versions in Node on https://nodejs.org/en/download/releases for more details
 - Upgrade `vendor/crashpad` for any crash reporter changes needed
 - Upgrade `vendor/depot_tools` for any build tools changes needed
 - Update the `libchromiumcontent` SHA-1 to download in `script/lib/config.py`
-- Open a pull request on `electron/libchromiumcontent` with the changes
-- Open a pull request on `electron/brightray` with the changes 
-  - This should include upgrading the `vendor/libchromiumcontent` submodule
-- Open a pull request on `electron/electron` with the changes 
-  - This should include upgrading the submodules in `vendor/` as needed
+- Ouvrez une pull request dans `electron/libchromiumcontent` avec les modifications
+- Ouvrez une pull request dans `electron/brightray` avec les modifications 
+  - Cela devrait inclure la mise à niveau du sous-module `vendor/libchromiumcontent`
+- Ouvrez une pull request dans `electron/electron` avec les modifications 
+  - Cela devrait inclure la mise à niveau des sous-modules dans `vendor/` au besoin
 - Verify debug builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - Windows 32 bits
+  - Windows 64 bits
+  - Linux 32 bits
+  - Linux 64 bits
   - ARM Linux
 - Verify release builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - Windows 32 bits
+  - Windows 64 bits
+  - Linux 32 bits
+  - Linux 64 bits
   - ARM Linux
-- Verify tests pass on: 
+- Vérifiez que les tests passent sur : 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - Windows 32 bits
+  - Windows 64 bits
+  - Linux 32 bits
+  - Linux 64 bits
   - ARM Linux
 
 ## Vérifier la prise en charge de ffmpeg
 
-Electron est livré avec une version de `ffmpeg` qui inclut des codecs propriétaires par défaut. Une version sans ces codecs est construite et distribuée à chaque nouvelle version. Each Chrome upgrade should verify that switching this version is still supported.
+Electron est livré avec une version de `ffmpeg` qui inclut des codecs propriétaires par défaut. Une version sans ces codecs est construite et distribuée à chaque nouvelle version. Chaque mise à jour de Chrome devrait vérifier que la modification de cette version est toujours prise en charge.
 
 Vous pouvez vérifier le support d'Electron pour plusieurs compilations `ffmpeg` en chargeant la page suivante. Il devrait fonctionner avec la bibliothèque `ffmpeg` par défaut distribuée avec Electron et ne fonctionnera pas avec la bibliothèque `ffmpeg` construite sans codecs propriétaires.
 
