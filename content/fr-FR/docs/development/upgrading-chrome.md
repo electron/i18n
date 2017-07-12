@@ -8,22 +8,22 @@ Ce sont des choses à faire en plus de mettre à jour le code d'Electron pour to
 - Mettre à jour la `VERSION` du fichier à la racine de `electron/libchromiumcontent`
 - Mettre à jour la `CLANG_REVISION` dans `script/update-clang.sh` à la version qu'utilise Chrome dans `libchromiumcontent/src/tools/clang/scripts/update.py`
 - Mettre à jour `vendor/node` à la version de Node qui correspond à la version v8 utilisée dans la nouvelle version de Chrome. Voir les versions v8 dans Node sur https://nodejs.org/en/download/releases pour plus de détails
-- Upgrade `vendor/crashpad` for any crash reporter changes needed
-- Upgrade `vendor/depot_tools` for any build tools changes needed
-- Update the `libchromiumcontent` SHA-1 to download in `script/lib/config.py`
+- Mettre à jour `vendor/crashpad` pour tout changement du rapporteur de crash nécessaire
+- Mettre à jour `vendor/depot_tools` pour tout changement des outils de build nécessaire
+- Mettre à jour le `libchromiumcontent` SHA-1 à télécharger dans `script/lib/config.py`
 - Ouvrez une pull request dans `electron/libchromiumcontent` avec les modifications
 - Ouvrez une pull request dans `electron/brightray` avec les modifications 
   - Cela devrait inclure la mise à niveau du sous-module `vendor/libchromiumcontent`
 - Ouvrez une pull request dans `electron/electron` avec les modifications 
   - Cela devrait inclure la mise à niveau des sous-modules dans `vendor/` au besoin
-- Verify debug builds succeed on: 
+- Vérifiez que les version de debug réussissent sur : 
   - macOS
   - Windows 32 bits
   - Windows 64 bits
   - Linux 32 bits
   - Linux 64 bits
   - ARM Linux
-- Verify release builds succeed on: 
+- Vérifiez que les versions de release réussissent sur : 
   - macOS
   - Windows 32 bits
   - Windows 64 bits
