@@ -16,12 +16,12 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
     |   |   |   ├── win/ - Code source spécifique pour le GUI Windows.
     |   |   |   └── x/ - Code Source spécifique à X11.
     |   |   ├── api/ - L'implementation des principales API de processus.
-    |   |   ├── net/ - Network related code.
+    |   |   ├── net/ - Code lié au réseau.
     |   |   ├── mac/ - Code Source Objective-C spécifique à MacOS.
     |   |   └── resources/ - Icônes, fichiers dépendant de la plateforme, etc.
-    |   ├── renderer/ - Code qui s'exécute dans le processus de rendu.
+    |   ├── renderer/ - Code qui s'exécute dans le moteur de rendu.
     |   |   └── api/ - L'implementation des API de processus de rendu.
-    |   └── common/ - Code utilisé par le processus principal et le processus de rendu,
+    |   └── common/ - Code utilisé par les processus principal et le moteur de rendu,
     |       comprenant certains fonctions utilitaires et le code pour intégrer la boucle de
     |       message de Node dans la boucle de message de Chromium.
     |       └── api/ - L'implementation d'API communes, et les fondations
@@ -31,19 +31,19 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
     |   fournir une application.
     ├── docs/ - Documentations.
     ├── lib/ - Code Source JavaScript.
-    |   ├── browser/ - Javascript main process initialization code.
-    |   |   └── api/ - Javascript API implementation.
-    |   ├── common/ - JavaScript used by both the main and renderer processes
-    |   |   └── api/ - Javascript API implementation.
-    |   └── renderer/ - Javascript renderer process initialization code.
-    |       └── api/ - Javascript API implementation.
-    ├── spec/ - Automatic tests.
-    ├── electron.gyp - Building rules of Electron.
-    └── common.gypi - Compiler specific settings and building rules for other
-        components like `node` and `breakpad`.
+    |   ├── browser/ - Code d'initialisation du processus principal JavaScript.
+    |   |   └── api/ - Implementation de l'API JavaScript.
+    |   ├── common/ - Code JavaScript utilisé par les processus principal et le moteur de rendu
+    |   |   └── api/ - Implementation de l'API JavaScript.
+    |   └── renderer/ - Code d'initialisation du moteur de rendu JavaScript.
+    |       └── api/ - Implementation de l'API Javascript.
+    ├── spec/ - Tests automatiques.
+    ├── electron.gyp - Règles de build d'Electron.
+    └── common.gypi - Paramètres spécifiques du compilateur et règles de construction pour d'autres
+        composants comme `node` et` breakpad`.
     
 
-## Structure of Other Directories
+## Structure d'autres Dossiers
 
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
