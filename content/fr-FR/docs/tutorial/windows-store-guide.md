@@ -8,24 +8,24 @@ Microsoft [à développé un outil qui compile les apps Electron en packages `.a
 
 Windows 10 "Anniversary Update" est capable d'exécuter des binaires win32 `.exe` en les lançant avec un système de fichier et un registre virtualisé. Ils sont tout les deux créés durant la compilation en exécutant l'app et l'installer a l'intérieur d'un conteneur de Windows, ce qui permet à Windows d'identifier exactement quelles modifications au système d'exploitation sont effectuées pendant l'installation. Appareiller l'exécutable avec un système de fichiers virtuel et un registre virtuel permet à Windows la désinstallation et l'installation en un seul clic.
 
-En addition, le exe est lancé à l'intérieur du modèle appx - ce qui signifie qu'il peut utiliser beaucoup des API disponibles pour la plateforme Universelle Windows. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+En addition, le exe est lancé à l'intérieur du modèle appx - ce qui signifie qu'il peut utiliser beaucoup des API disponibles pour la plateforme Universelle Windows. Pour gagner encore plus de fonctionnalités, une app Electron peut jumeler avec une tâche d'arrière-plan invisible UWP lancée avec le `exe` - sorte d'acolyte pour exécuter des tâches en arrière-plan, recevoir des notifications push, ou pour communiquer avec d'autres applications UWP.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+Pour compiler n’importe quelle app Electron existante, assurez-vous que vous avez les exigences suivantes :
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10 avec Anniversary Update (sorti le 2 Août 2016)
+* Le SDK Windows 10, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Au minimum Node 4 (pour vérifier, exécutez `node -v`)
 
-Then, go and install the `electron-windows-store` CLI:
+Ensuite, installez `electron-windows-store` CLI:
 
     npm install -g electron-windows-store
     
 
-## Step 1: Package Your Electron Application
+## Étape 1 : Empaqueter votre Application Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Empaquetez l’application à l’aide de [electron-packager](https://github.com/electron-userland/electron-packager) (ou un outil similaire). Assurez vous de supprimer `node_modules` que vous n'avez pas besoin dans votre application finale, puisque n'importe quel module dans vous n'avez pas besoin augmentera inutilement la taille de votre application.
 
-The output should look roughly like this:
+La sortie devrait ressembler à peu près à ceci :
 
     ├── Ghost.exe
     ├── LICENSE 
@@ -50,7 +50,7 @@ The output should look roughly like this:
     └── ui_resources_200_percent.pak
     
 
-## Step 2: Running electron-windows-store
+## Étape 2: Exécuter electron-windows-store
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
