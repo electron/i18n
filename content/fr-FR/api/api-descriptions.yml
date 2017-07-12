@@ -67,18 +67,18 @@ app.methods.makeSingleInstance.parameters.callback.parameters.argv.description: 
 app.methods.makeSingleInstance.parameters.callback.parameters.workingDirectory.description: The second instance's working directory
 app.methods.makeSingleInstance.returns.description: '.'
 app.methods.releaseSingleInstance.description: >-
-  Releases all locks that were created by makeSingleInstance. This will allow multiple instances of the application to once again run side by side.
+  Libère tous les verrous qui ont été créés par makeSingleInstance. Cela permettra à plusieurs instances de l'application de s'exécuter au même moment.
 app.methods.setUserActivity.description: >-
-  Creates an NSUserActivity and sets it as the current activity. The activity is eligible for Handoff to another device afterward.
+  Crée une NSUserActivity et la définit comme l'activité actuelle. L'activité est susceptible d'être transférée dans un autre appareil ultérieurement.
 app.methods.setUserActivity.parameters.type.description: Uniquely identifies the activity. Maps to .
 app.methods.setUserActivity.parameters.userInfo.description: App-specific state to store for use by another device.
 app.methods.setUserActivity.parameters.webpageURL.description: >-
   The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
-app.methods.getCurrentActivityType.returns.description: The type of the currently running activity.
+app.methods.getCurrentActivityType.returns.description: Le type de l'activité en cours d'exécution.
 app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
 app.methods.importCertificate.description: >-
-  Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
-app.methods.importCertificate.parameters.options.properties.certificate.description: Path for the pkcs12 file.
+  Importe le certificat au format pkcs12 dans le magasin de certificats de la plate-forme. Le callback est appelé avec le résultat de l'opération d'importation, une valeur de 0 indique le succès alors que n'importe qu'elle autre valeur indique un échec selon net_error_list de chromium.
+app.methods.importCertificate.parameters.options.properties.certificate.description: Chemin d'accès du fichier pkcs12.
 app.methods.importCertificate.parameters.options.properties.password.description: Passphrase for the certificate.
 app.methods.importCertificate.parameters.callback.parameters.result.description: Result of import.
 app.methods.disableHardwareAcceleration.description: >-
