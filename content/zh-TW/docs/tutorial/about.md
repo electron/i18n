@@ -1,40 +1,40 @@
-# About Electron
+# 關於 Electron
 
-[Electron](https://electron.atom.io) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electron.atom.io) 是由 GitHub 開發的開放源碼庫，使開發者可以用 HTML，CSS 和 JavaScript 構建跨平臺的桌面應用程式。 Electron 藉由結合 [Chromium](https://www.chromium.org/Home) 與 [Node.js](https://nodejs.org) 成為單一執行環境，以及提供應用程式打包至 Mac 、Windows 及 Linux 平台，來實現這個特性。
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron 起源於 2013 年，作為 [Atom](https://atom.io)，GitHub 的可改造的文字編輯器，開發所需要的應用程式框架。這兩個專案在 2014 春天被開放其原始碼。
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
+Electron 已經成為開放原始碼開發者、新創公司及設立許久的公司所使用的熱門工具。[看看誰使用 Electron](https://electron.atom.io/apps/)。
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+請繼續閱讀，學習更多關於貢獻者與 Electron 發布版本的資訊，或是瀏覽 [Quick Start Guide](quick-start.md) 開始使用 Electron 開發。
 
-## Core Team and Contributors
+## 核心團隊和貢獻者
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron 是由 GitHub 的一個團隊以及一群來自社群的 [活躍的貢獻者](https://github.com/electron/electron/graphs/contributors) 所維護的。 有些貢獻者是個人，而有些貢獻者工作於大型公司，這些公司正在使用 Electron 開發。 我們很樂於將經常貢獻的貢獻者加入專案，作為維護人員。 閱讀更多關於[貢獻 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
 
-## Releases
+## 版本發佈
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron 發佈](https://github.com/electron/electron/releases)頻繁。當有重大的臭蟲修復、提供新的 API、或是 Chromium 或 Node.js 有版本更新時，我們會發佈 Electron。
 
-### Updating Dependencies
+### 更新相依性
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron 的 Chromium 版本通常會在 Chromium 穩定版釋出後的一至兩個星期內更新，這取決於 Chromium 更新版所牽涉的努力。
 
 When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
-### Versioning
+### 版本號
 
 Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
 
-### LTS
+### 長期支援
 
 Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
-## Core Philosophy
+## 核心哲學
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
@@ -42,7 +42,7 @@ For instance, Electron uses just the rendering library from Chromium rather than
 
 New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
 
-## History
+## 歷史
 
 Below are milestones in Electron's history.
 
