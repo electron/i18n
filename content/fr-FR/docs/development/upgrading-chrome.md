@@ -42,30 +42,30 @@ Ce sont des choses à faire en plus de mettre à jour le code d'Electron pour to
 
 Electron est livré avec une version de `ffmpeg` qui inclut des codecs propriétaires par défaut. Une version sans ces codecs est construite et distribuée à chaque nouvelle version. Each Chrome upgrade should verify that switching this version is still supported.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Vous pouvez vérifier le support d'Electron pour plusieurs compilations `ffmpeg` en chargeant la page suivante. Il devrait fonctionner avec la bibliothèque `ffmpeg` par défaut distribuée avec Electron et ne fonctionnera pas avec la bibliothèque `ffmpeg` construite sans codecs propriétaires.
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
+    <title>Verification des codecs propriétaires</title>
   </head>
   <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
+    <p>Vérifie si Electron utilise des codecs propriétaires en chargeant la vidéo : http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
     <p id="outcome"></p>
     <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
     <script>
       const video = document.querySelector('video')
       video.addEventListener('error', ({target}) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
+          document.querySelector('#outcome').textContent = 'N'utilise pas de codecs propriétaires, source d'émission vidéo non prise en charge.'
         } else {
-          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
+          document.querySelector('#outcome').textContent = `Erreur non expectée: ${target.error.code}`
         }
       })
       video.addEventListener('playing', () => {
-        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
+        document.querySelector('#outcome').textContent = 'À l'aide de codecs propriétaires, la vidéo a commencé la lecture.'
       })
     </script>
   </body>
