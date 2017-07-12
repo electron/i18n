@@ -52,7 +52,7 @@ La sortie devrait ressembler à peu près à ceci :
 
 ## Étape 2: Exécuter electron-windows-store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Depuis un PowerShell élevé (exécuter le "en tant Administrateur"), exécutez `electron-windows-store` avec les paramètres requis, en mettant le dossier d'entrée, le dossier de sortie, le nom et la version de l'application, et confirmer que `node_modules` doit être aplati :
 
     electron-windows-store `
        --input-directory C:\myelectronapp `
@@ -62,11 +62,11 @@ From an elevated PowerShell (run it "as Administrator"), run `electron-windows-s
        --package-name myelectronapp
     
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Une fois exécuté, l’outil se met au travail : il accepte votre app Electron comme entrée, et aplatit les `node_modules`. Ensuite, il archive votre application comme `app.zip`. En utilisant un installateur et un conteneur de Windows, l’outil crée un paquet AppX « élargi » - contenant le manifeste d’Application Windows (`AppXManifest.xml`) ainsi que le système de fichiers virtuel et le registre virtuel à l’intérieur de votre dossier de sortie.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+Une fois les fichiers AppX élargis sont créés, l’outil utilise le Windows App Packager (`MakeAppx.exe`) pour créer un package de AppX de fichier unique de ces fichiers sur le disque. Enfin, l’outil peut servir pour créer un certificat approuvé sur votre ordinateur pour signer le nouveau paquet AppX. Avec le package AppX signé, la CLI peut également automatiquement installer le package sur votre machine.
 
-## Step 3: Using the AppX Package
+## Étape 3 : Utiliser le Package AppX
 
 In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
