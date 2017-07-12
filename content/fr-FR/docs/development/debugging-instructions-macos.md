@@ -86,6 +86,6 @@ Maintenant, si vous ouvrez les outils de développement d'Electron et appelez `s
 
 ### Lectures additionnelles
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB est un outil puissant, avec une excellente documentation. Pour en savoir plus à ce sujet, examinez la documentation de déboggage d'Apple, par exemple, la [Structure de référence des commandes de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) ou l’introduction de [Utiliser LLDB à l'aide d'un déboggueur autonome](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-Vous pouvez également consulter les fantastiques [manuel et tutoriel](http://lldb.llvm.org/tutorial.html) pour LLDB, qui vous expliquera des scénarios de déboggage plus complexes.
+Vous pouvez également consulter les fantastiques [manuel et didacticiel](http://lldb.llvm.org/tutorial.html) pour LLDB, qui vous expliquera des scénarios de déboggage plus complexes.
