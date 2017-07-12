@@ -51,11 +51,11 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
 * **node_modules** - Modules de Node tiers utilisés pour les builds.
 * **out** - Dossier de sortie temporaire de `ninja`.
 * **dist** - Dossier temporaire créé par `script/create-dist.py` lors de la création d'une distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **external_binaries** - Les fichiers binaires téléchargés de frameworks tiers qui ne prennent pas en charge les builds avec `gyp`.
 
-## Keeping Git Submodules Up to Date
+## Garder les sous-modules Git à jour
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Le repository d'Electron a quelques dépendances tierces, se trouvant dans le dossier [/vendor](https://github.com/electron/electron/tree/master/vendor). Parfois, vous pourriez voir un message comme celui ci lors de l'exécution de `git status`:
 
 ```sh
 $ git status
@@ -64,7 +64,7 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Pour mettre à jour ces dependances tierces, exécutez cette commande:
 
 ```sh
 git submodule update --init --recursive
