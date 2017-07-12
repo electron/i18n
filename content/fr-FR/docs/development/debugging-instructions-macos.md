@@ -4,9 +4,9 @@ If you experience crashes or issues in Electron that you believe are not caused 
 
 ## Spécifications requises
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Un debug build d'Electron** : le moyen le plus simple est généralement de le build vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-osx.md). Alors que vous pouvez facilement débogguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le déboggage sensiblement plus difficile : le déboggueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’in-Lining, queue d’appels et autres optimisations du compilateur.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 ## Attaching to and Debugging Electron
 
@@ -37,7 +37,7 @@ Ensuite, démarrez Electron :
 (lldb) run
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+L’app sera immédiatement suspendu, puisque l’électron définit le nom de l’application au lancement :
 
 ```bash
 (lldb) run
