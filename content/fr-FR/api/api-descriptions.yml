@@ -501,7 +501,7 @@ BrowserWindow.instanceMethods.setVibrancy.parameters.type.description: >-
 BrowserWindow.instanceMethods.setTouchBar.description: >-
   Sets the touchBar layout for the current window. Specifying null or undefined clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+. Note: The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 BrowserWindow.instanceMethods.setBrowserView.description: >-
-  Note: The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+  Note: L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 BrowserWindow.instanceProperties.webContents.description: >-
   A WebContents object this window owns. All web page related events and operations will be done via it. See the webContents documentation for its methods and events.
 BrowserWindow.instanceProperties.id.description: A Integer representing the unique ID of the window.
@@ -554,19 +554,19 @@ Certificate.properties.data.description: PEM encoded data
 Certificate.properties.issuer.description: Issuer principal
 Certificate.properties.issuerName.description: Issuer's Common Name
 Certificate.properties.issuerCert.description: Issuer certificate (if not self-signed)
-Certificate.properties.subject.description: Subject principal
+Certificate.properties.subject.description: Principal sujet
 Certificate.properties.subjectName.description: Subject's Common Name
 Certificate.properties.serialNumber.description: Hex value represented string
 Certificate.properties.validStart.description: Start date of the certificate being valid in seconds
 Certificate.properties.validExpiry.description: End date of the certificate being valid in seconds
-Certificate.properties.fingerprint.description: Fingerprint of the certificate
+Certificate.properties.fingerprint.description: Empreinte digitale du certificat
 CertificatePrincipal.properties.commonName.description: Common Name
-CertificatePrincipal.properties.organizations.description: Organization names
-CertificatePrincipal.properties.organizationUnits.description: Organization Unit names
-CertificatePrincipal.properties.locality.description: Locality
-CertificatePrincipal.properties.state.description: State or province
-CertificatePrincipal.properties.country.description: Country or region
-ClientRequest.description: Make HTTP/HTTPS requests.
+CertificatePrincipal.properties.organizations.description: Noms de l’Organisation
+CertificatePrincipal.properties.organizationUnits.description: Nom des unités de l'organisation
+CertificatePrincipal.properties.locality.description: Localité
+CertificatePrincipal.properties.state.description: État ou province
+CertificatePrincipal.properties.country.description: Pays ou région
+ClientRequest.description: Faire des requêtes HTTP/HTTPS.
 ClientRequest.constructorMethod.parameters.0.description: >-
   If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
 ClientRequest.instanceMethods.setHeader.description: >-
@@ -612,9 +612,9 @@ clipboard.methods.writeText.description: Writes the text into the clipboard as p
 clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
 clipboard.methods.writeHTML.description: Writes markup to the clipboard.
 clipboard.methods.readImage.returns.description: The image content in the clipboard.
-clipboard.methods.writeImage.description: Writes image to the clipboard.
+clipboard.methods.writeImage.description: Écrit l'image dans le presse-papiers.
 clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
-clipboard.methods.writeRTF.description: Writes the text into the clipboard in RTF.
+clipboard.methods.writeRTF.description: Écrit le texte dans le presse-papiers en RTF.
 clipboard.methods.readBookmark.description: >-
   Returns an Object containing title and url keys representing the bookmark in the clipboard. The title and url values will be empty strings when the bookmark is unavailable.
 clipboard.methods.writeBookmark.description: >-
@@ -681,12 +681,12 @@ Cookies.instanceMethods.set.parameters.details.properties.expirationDate.descrip
   The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 Cookies.instanceMethods.remove.description: >-
   Removes the cookies matching url and name, callback will called with callback() on complete.
-Cookies.instanceMethods.remove.parameters.url.description: The URL associated with the cookie.
-Cookies.instanceMethods.remove.parameters.name.description: The name of cookie to remove.
-Cookies.instanceMethods.flushStore.description: Writes any unwritten cookies data to disk.
+Cookies.instanceMethods.remove.parameters.url.description: L’URL associée au cookie.
+Cookies.instanceMethods.remove.parameters.name.description: Le nom du cookie à supprimer.
+Cookies.instanceMethods.flushStore.description: Écrit toutes les données des cookies non écrites sur le disque.
 Cookies.instanceEvents.changed.description: >-
-  Emitted when a cookie is changed because it was added, edited, removed, or expired.
-Cookies.instanceEvents.changed.returns.cookie.description: The cookie that was changed
+  Émis lorsqu’un cookie est changé car il a été ajouté, édité, enlevé ou a expiré.
+Cookies.instanceEvents.changed.returns.cookie.description: Le cookie qui a été changé
 Cookies.instanceEvents.changed.returns.cause.description: 'The cause of the change with one of the following values:'
 Cookies.instanceEvents.changed.returns.removed.description: '`true` if the cookie was removed, `false` otherwise.'
 CPUUsage.properties.percentCPUUsage.description: >-
@@ -697,9 +697,9 @@ crashReporter.description: Submit crash reports to a remote server.
 crashReporter.methods.start.description: >-
   You are required to call this method before using any other crashReporter APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to crashReporter.start when calling from different processes. Note Child processes created via the child_process module will not have access to the Electron modules. Therefore, to collect crash reports from them, use process.crashReporter.start instead. Pass the same options as above along with an additional one called crashesDirectory that should point to a directory to store the crash reports temporarily. You can test this out by calling process.crash() to crash the child process. Note: To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace submitURL, productName and crashesDirectory with appropriate values. Note: If you need send additional/updated extra parameters after your first call start you can call setExtraParameter on macOS or call start again with the new/updated extra parameters on Linux and Windows. Note: On macOS, Electron uses a new crashpad client for crash collection and reporting. If you want to enable crash reporting, initializing crashpad from the main process using crashReporter.start is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call crashReporter.start from the renderer or child process, otherwise crashes from them will get reported without companyName, productName or any of the extra information.
 crashReporter.methods.start.parameters.options.properties.submitURL.description: URL that crash reports will be sent to as POST.
-crashReporter.methods.start.parameters.options.properties.productName.description: Defaults to app.getName().
-crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Whether crash reports should be sent to the server Default is true.
-crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Default is false.
+crashReporter.methods.start.parameters.options.properties.productName.description: Par défaut, app.getName().
+crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Si les rapports de crash doivent être envoyés au serveur. True par défaut.
+crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: False par défaut.
 crashReporter.methods.start.parameters.options.properties.extra.description: >-
   An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported.
 crashReporter.methods.getLastCrashReport.description: >-
