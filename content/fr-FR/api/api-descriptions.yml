@@ -811,7 +811,7 @@ Display.properties.touchSupport.description: 'Can be available, unavailable, unk
 DownloadItem.description: Control file downloads from remote sources.
 DownloadItem.instanceMethods.setSavePath.description: >-
   The API is only available in session's will-download callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
-DownloadItem.instanceMethods.setSavePath.parameters.path.description: Set the save file path of the download item.
+DownloadItem.instanceMethods.setSavePath.parameters.path.description: Enregistre le chemin d'accès de l'élément téléchargé.
 DownloadItem.instanceMethods.getSavePath.returns.description: >-
   The save path of the download item. This will be either the path set via downloadItem.setSavePath(path) or the path selected from the shown save dialog.
 DownloadItem.instanceMethods.pause.description: Met en pause le téléchargement.
