@@ -10,7 +10,7 @@ Three ways to install native modules:
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
-An example of installing all dependencies for Electron:
+Un exemple d’installation de toutes les dépendances pour Electron:
 
 ```bash
 # Version d'Electron.
@@ -24,7 +24,7 @@ export npm_config_disturl=https://atom.io/download/electron
 export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# Installe toutes les dependances, et met en cache à ~/.electron-gyp.
 HOME=~/.electron-gyp npm install
 ```
 
@@ -32,28 +32,28 @@ HOME=~/.electron-gyp npm install
 
 You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+Un exemple d'installation de `electron-rebuild` et du rebuild des modules avec:
 
 ```bash
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# À chaque fois que vous exécutez "npm install", exécutez ça:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# Sur Windows si vous rencontrez des problèmes, essayez:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### Build manuellement pour Electron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Si vous êtes un développeur développant un module natif et que vous voulez le tester avec Electron, vous pouvez rebuild le module pour Electron manuellement. Vous pouvez utiliser `node-gyp` directement pour build pour Electron:
 
 ```bash
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. Le paramètre `--arch=x64` dit que le module est prévu pour un système 64bits.
 
 ## Résolution de problème
 
