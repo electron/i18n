@@ -26,7 +26,7 @@ IPC est synonyme de Communication inter-processus. Electron utilise l'IPC pour e
 
 C'est une bibliothèque unique et partagée qui inclut le module Chromium Content et toutes ses dépendances (par ex., Blink, [V8](#v8), etc..).
 
-### main process (processus principal)
+### Main process (processus principal)
 
 Le processus principal (main process en Anglais), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. Il gère également les éléments natifs tels que le Menu, Meny Bar, Dock, Tray, etc.. Le processus principal est responsable de la création de chaque nouveau processus de rendu dans l’app. L'API Node y est complètement intégrée.
 
@@ -38,9 +38,9 @@ Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
 Acronyme pour Mac App Store d'Apple. Pour plus d’informations sur la soumission de votre application pour le MAS, consultez le [Guide de soumission sur le Mac App Store](tutorials/mac-app-store-submission-guide.md).
 
-### modules natifs
+### Modules natifs
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Les modules natifs (également appelés [addons](https://nodejs.org/api/addons.html) dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l’aide de la fonction require() et utilisé comme si ils étaient un module de Node.js ordinaire. Ils sont utilisés principalement pour fournir une interface entre JavaScript s’exécutant dans les librairies Node.js et C/C++.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
