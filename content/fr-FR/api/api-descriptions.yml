@@ -493,7 +493,7 @@ BrowserWindow.instanceMethods.setParentWindow.description: >-
   Sets parent as current window's parent window, passing null will turn current window into a top-level window.
 BrowserWindow.instanceMethods.getParentWindow.returns.description: La fenêtre parente.
 BrowserWindow.instanceMethods.getChildWindows.returns.description: Toutes les fenêtres enfants.
-BrowserWindow.instanceMethods.setAutoHideCursor.description: Controls whether to hide cursor when typing.
+BrowserWindow.instanceMethods.setAutoHideCursor.description: Contrôle s'il faut masquer le curseur lors de la saisie.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
   Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window.
 BrowserWindow.instanceMethods.setVibrancy.parameters.type.description: >-
