@@ -74,17 +74,17 @@ En opposition aux traditionelles apps UWP, actuellement les apps empaquetées do
 
 Une autre limitation importante est que le paquet AppX compilé contient un fichier exécutable win32 - toujours et qu’il ne fonctionnera donc pas sur Xbox, HoloLens ou téléphones.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Facultatif : Ajouter les fonctionnalités UWP à l’aide d’un BackgroundTask
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Vous pouvez coupler votre app Electron avec une tâche en arrière-plan UWP invisible qui vous permet de tirer pleinement parti des fonctionnalités de Windows 10 - comme notifications push, ou les tuiles vivantes.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Pour voir comment une app Electron peut utiliser une tâche de fond pour envoyer des notifications toast et tuiles vivantes, [consultez l'exemple fourni par Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## Optionnel: Conversion en utilisant la virtualisation de conteneur
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+Pour générer le package AppX, l'`electron-windows-store` CLI utilise un modèle qui devrait fonctionner pour la plupart des applications Electron. Toutefois, si vous utilisez un programme d’installation personnalisé, ou si vous rencontrez des problèmes avec le paquet généré, vous pouvez essayer de créer un package à l’aide de compilation avec un conteneur Windows - dans ce mode, le CLI va installer et exécuter votre application dans un conteneur vide de Windows pour déterminer quelles modifications votre application fait au système d’exploitation.
 
-Before running the CLI for the, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Before running the CLI for the, you will have to setup the "Windows Desktop App Converter". Cela prendra quelques minutes, mais ne vous inquiétez pas il suffit de le faire une fois. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
 1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
