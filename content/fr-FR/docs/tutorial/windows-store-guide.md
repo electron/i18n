@@ -6,9 +6,9 @@ Microsoft [à développé un outil qui compile les apps Electron en packages `.a
 
 ## Contexte et exigences
 
-Windows 10 "Anniversary Update" est capable d'exécuter des binaires win32 `.exe` en les lançant avec un système de fichier et un registre virtualisé. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+Windows 10 "Anniversary Update" est capable d'exécuter des binaires win32 `.exe` en les lançant avec un système de fichier et un registre virtualisé. Ils sont tout les deux créés durant la compilation en exécutant l'app et l'installer a l'intérieur d'un conteneur de Windows, ce qui permet à Windows d'identifier exactement quelles modifications au système d'exploitation sont effectuées pendant l'installation. Appareiller l'exécutable avec un système de fichiers virtuel et un registre virtuel permet à Windows la désinstallation et l'installation en un seul clic.
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+En addition, le exe est lancé à l'intérieur du modèle appx - ce qui signifie qu'il peut utiliser beaucoup des API disponibles pour la plateforme Universelle Windows. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
