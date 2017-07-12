@@ -12,12 +12,12 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
     |   ├── browser/ - L'interface incluant la fenêtre principale, l'UI, et toutes les
     |   |   principales opérations. Cela permet au moteur de rendu de gérer les pages Web.
     |   |   ├── ui/ - Implementation de l'UI pour différentes plateformes.
-    |   |   |   ├── cocoa/ - Cocoa specific source code.
-    |   |   |   ├── win/ - Windows GUI specific source code.
-    |   |   |   └── x/ - X11 specific source code.
-    |   |   ├── api/ - The implementation of the main process APIs.
+    |   |   |   ├── cocoa/ - Code Source spécifique à Cocoa.
+    |   |   |   ├── win/ - Code source spécifique pour le GUI Windows.
+    |   |   |   └── x/ - Code Source spécifique à X11.
+    |   |   ├── api/ - L'implementation des principales API de processus.
     |   |   ├── net/ - Network related code.
-    |   |   ├── mac/ - Mac specific Objective-C source code.
+    |   |   ├── mac/ - Code Source Objective-C spécifique à MacOS.
     |   |   └── resources/ - Icons, platform-dependent files, etc.
     |   ├── renderer/ - Code that runs in renderer process.
     |   |   └── api/ - The implementation of renderer process APIs.
