@@ -84,10 +84,10 @@ Pour voir comment une app Electron peut utiliser une tâche de fond pour envoyer
 
 Pour générer le package AppX, l'`electron-windows-store` CLI utilise un modèle qui devrait fonctionner pour la plupart des applications Electron. Toutefois, si vous utilisez un programme d’installation personnalisé, ou si vous rencontrez des problèmes avec le paquet généré, vous pouvez essayer de créer un package à l’aide de compilation avec un conteneur Windows - dans ce mode, le CLI va installer et exécuter votre application dans un conteneur vide de Windows pour déterminer quelles modifications votre application fait au système d’exploitation.
 
-Before running the CLI for the, you will have to setup the "Windows Desktop App Converter". Cela prendra quelques minutes, mais ne vous inquiétez pas il suffit de le faire une fois. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Before running the CLI for the, you will have to setup the "Windows Desktop App Converter". Cela prendra quelques minutes, mais ne vous inquiétez pas il suffit de le faire une fois. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Vous recevrez deux fichiers: `DesktopAppConverter.zip` et `BaseImage-14316.wim`.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
+1. Décompressez `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
 3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Une fois l’installation réussie, vous pouvez passer à la compilation de votre app Electron.
