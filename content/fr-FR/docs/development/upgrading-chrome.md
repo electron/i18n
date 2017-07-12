@@ -1,8 +1,8 @@
-# Upgrading Chrome Checklist
+# Mettre à jour Chrome
 
-This document is meant to serve as an overview of what steps are needed on each Chrome upgrade in Electron.
+Ce document est destiné à servir de vue d'ensemble des étapes à suivre pour chaque mises à jour de Chrome dans Electron.
 
-These are things to do in addition to updating the Electron code for any Chrome/Node API changes.
+Ce sont des choses à faire en plus de mettre à jour le code d'Electron pour toutes modification des API de Chrome/Node.
 
 - Verify the new Chrome version is available from https://github.com/zcbenz/chromium-source-tarball/releases
 - Update the `VERSION` file at the root of the `electron/libchromiumcontent` repository
@@ -38,9 +38,9 @@ These are things to do in addition to updating the Electron code for any Chrome/
   - 64-bit Linux
   - ARM Linux
 
-## Verify ffmpeg Support
+## Vérifier la prise en charge de ffmpeg
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron est livré avec une version de `ffmpeg` qui inclut des codecs propriétaires par défaut. Une version sans ces codecs est construite et distribuée à chaque nouvelle version. Each Chrome upgrade should verify that switching this version is still supported.
 
 You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
 
@@ -72,6 +72,6 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Links
+## Liens
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Calendrier des mises à jour Chrome](https://www.chromium.org/developers/calendar)
