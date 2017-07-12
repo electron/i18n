@@ -1,6 +1,6 @@
-# Debugging on macOS
+# Déboggage sur macOS
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, le déboggage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le déboggage natif/C++. Toutefois, à l’aide de base et le code source d'Electron, il est assez facile d'activer le déboggage avec points d’arrêt dans le code source d'Electron.
 
 ## Spécifications requises
 
@@ -8,7 +8,7 @@ If you experience crashes or issues in Electron that you believe are not caused 
 
 * **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le déboggueur par défaut dans Xcode sur Mac OS X. Il prend en charge le déboggage C, Objective-C et C++ sur les ordinateurs et les appareils iOS et simulateur.
 
-## Attaching to and Debugging Electron
+## Déboggage d'Electrons
 
 Pour démarrer une session de déboggage, ouvrez terminal et lancez `lldb`, passez une version debug d'Electron en tant que paramètre.
 
@@ -18,13 +18,13 @@ $ lldb ./out/D/Electron.app
 Current executable set to './out/D/Electron.app' (x86_64).
 ```
 
-### Setting Breakpoints
+### Définition de points d’arrêt
 
 LLDB est un outil puissant et supporte plusieurs stratégies d'inspection de code. Pour cette introduction basique, assumons que vous exécutez une commande JavaScript qui ne se comporte pas correctement - donc vous aimeriez voir l'equivalent de cette commande en C++.
 
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./vendor/brightray/browser` and `./vendor/brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
+Relevant code files can be found in `./atom/` as well as in Brightray, found in `./vendor/brightray/browser` and `./vendor/brightray/common`. Si vous êtes hardcore, vous pouvez également débogguer Chromium directement, qui se trouve évidemment dans `chromium_src`.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Supposons que vous souhaitez débogguer `app.setName()`, qui est définie dans `browser.cc` comme `Browser::SetName()`. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et la ligne à couper :
 
 ```bash
 (lldb) breakpoint set --file browser.cc --line 117
@@ -54,7 +54,7 @@ Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/Mac
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+Pour afficher les arguments et les variables locales pour le frame en cours, exécutez `frame variable` (ou `fr v`), qui vous montrera que l'app est en train de mettre le nom à "Electron".
 
 ```bash
 (lldb) frame variable 
@@ -80,9 +80,9 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+Pour terminer de débogguer à ce stade, exécutez : `process continue`. Vous pouvez également continuer jusqu'à ce que la ligne soit frappée dans ce thread (`thread jusqu'à 100`). Cette commande exécutera le thread dans le frame actif jusqu'à ce qu’il atteigne la ligne 100 dans cette trame ou s’arrête si elle quitte le frame en cours.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+Maintenant, si vous ouvrez les outils de développement d'Electron et appelez `setName`, vous frapperez une fois de plus le point d’arrêt.
 
 ### Lectures additionnelles
 
