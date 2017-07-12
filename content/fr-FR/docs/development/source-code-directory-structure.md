@@ -1,17 +1,17 @@
-# Hiérarchie du Code Source
+# Structure du répertoire du Code Source
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Le code source d'Electron est séparé en plusieurs parties, principalement suivant les conventions de séparation de Chromium.
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de Chromium](http://dev.chromium.org/developers/design-documents/multi-process-architecture) pour mieux comprendre le code source.
 
-## Structure of Source Code
+## Structure du Code Source
 
     Electron
-    ├── atom/ - C++ source code.
-    |   ├── app/ - System entry code.
-    |   ├── browser/ - The frontend including the main window, UI, and all of the
-    |   |   main process things. This talks to the renderer to manage web pages.
-    |   |   ├── ui/ - Implementation of UI stuff for different platforms.
+    ├── atom/ - Code Source C++.
+    |   ├── app/ - Code d'entrée du système.
+    |   ├── browser/ - L'interface incluant la fenêtre principale, l'UI, et toutes les
+    |   |   principales opérations. Cela permet au moteur de rendu de gérer les pages Web.
+    |   |   ├── ui/ - Implementation de l'UI pour différentes plateformes.
     |   |   |   ├── cocoa/ - Cocoa specific source code.
     |   |   |   ├── win/ - Windows GUI specific source code.
     |   |   |   └── x/ - X11 specific source code.
