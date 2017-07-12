@@ -6,8 +6,8 @@ Ce sont des choses à faire en plus de mettre à jour le code d'Electron pour to
 
 - Vérifiez que la nouvelle version de Chrome est disponible : https://github.com/zcbenz/chromium-source-tarball/releases
 - Mettre à jour la `VERSION` du fichier à la racine de `electron/libchromiumcontent`
-- Update the `CLANG_REVISION` in `script/update-clang.sh` to match the version Chrome is using in `libchromiumcontent/src/tools/clang/scripts/update.py`
-- Upgrade `vendor/node` to the Node release that corresponds to the v8 version being used in the new Chrome release. See the v8 versions in Node on https://nodejs.org/en/download/releases for more details
+- Mettre à jour la `CLANG_REVISION` dans `script/update-clang.sh` à la version qu'utilise Chrome dans `libchromiumcontent/src/tools/clang/scripts/update.py`
+- Mettre à jour `vendor/node` à la version de Node qui correspond à la version v8 utilisée dans la nouvelle version de Chrome. Voir les versions v8 dans Node sur https://nodejs.org/en/download/releases pour plus de détails
 - Upgrade `vendor/crashpad` for any crash reporter changes needed
 - Upgrade `vendor/depot_tools` for any build tools changes needed
 - Update the `libchromiumcontent` SHA-1 to download in `script/lib/config.py`
