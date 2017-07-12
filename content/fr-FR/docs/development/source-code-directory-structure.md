@@ -45,12 +45,12 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
 
 ## Structure d'autres Dossiers
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **script** - Scripts utilisés à des fins de développement comme le build, le packaging, les tests, etc.
+* **tools** - Scripts d'aide utilisés par les fichiers gyp, contrairement au `script`, les scripts mis ici ne devraient jamais être invoqué par les utilisateurs directement.
+* **vendor** - Code Source des dependances tierces, nous n'utilisons pas `third_party` comme nom parce qu'on le confondrait avec le même dossier dans le Code Source de Chromium.
+* **node_modules** - Modules de Node tiers utilisés pour les builds.
+* **out** - Dossier de sortie temporaire de `ninja`.
+* **dist** - Dossier temporaire créé par `script/create-dist.py` lors de la création d'une distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
 
 ## Keeping Git Submodules Up to Date
