@@ -29,7 +29,7 @@ git push origin HEAD
 
 Cela va changer le numéro de version dans plusieurs fichiers. Voir [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) pour exemple.
 
-La plupart des nouvelles versions seront des `patch`. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+La plupart des nouvelles versions seront des `patch`. Les mises à jour de Chrome ou d'autres changements majeurs doivent utiliser `minor`. Pour plus d’informations, consultez [electron-versioning](/docs/tutorial/electron-versioning.md).
 
 ## Modifier le projet de communiqué
 
@@ -86,7 +86,7 @@ Ce script va télécharger les fichiers binaires et générer les headers de nod
 npm run release
 ```
 
-Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
+Remarque: Beaucoup de distributions de Python sont toujours livrés avec de vieux certificats HTTPS. Vous pouvez voir un `InsecureRequestWarning`, mais c'est négligeable.
 
 ## Supprimer la branche temporaire
 
