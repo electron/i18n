@@ -70,7 +70,7 @@ Pour mettre à jour ces dependances tierces, exécutez cette commande:
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Si vous utilisez souvent cette commande, vous pouvez créer un alias dans votre fichier `~/.gitconfig`:
 
     [alias]
         su = submodule update --init --recursive
