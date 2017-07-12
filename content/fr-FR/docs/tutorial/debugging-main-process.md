@@ -1,10 +1,10 @@
 # Débogguer le Processus Principal
 
-Les DevTools dans une fenêtre de navigateur d’Electron peut seulement débogguer le JavaScript qui est exécuté dans cette fenêtre (c'est-à-dire les pages web). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--debug` or `--debug-brk` switch.
+Les DevTools dans une fenêtre de navigateur d’Electron peut seulement débogguer le JavaScript qui est exécuté dans cette fenêtre (c'est-à-dire les pages web). Pour débogguer le code JavaScript qui s’exécute dans le processus principal, vous devrez utiliser un déboggueur externe et lancer Electron avec les commutateurs `--debug` ou `--debug-brk`.
 
 ## Commutateurs de ligne de commande
 
-Use one of the following command line switches to enable debugging of the main process:
+Utilisez un des commutateurs de ligne de commande suivants pour activer le déboggage du processus principal :
 
 ### `--debug=[port]`
 
@@ -20,7 +20,7 @@ Comme `--debug` mais interrompt l’exécution sur la première ligne de JavaScr
 
 ## Déboggueurs externes
 
-You will need to use a debugger that supports the V8 debugger protocol, the following guides should help you to get started:
+Vous devrez utiliser un déboggueur qui prend en charge le protocole de déboggueur V8, les guides suivants devraient vous aider à démarrer :
 
 - [Débogguer le processus principal dans VSCode](debugging-main-process-vscode.md)
 - [Débogguer le processus principal dans node-inspector](debugging-main-process-node-inspector.md)
