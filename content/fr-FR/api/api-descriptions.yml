@@ -133,7 +133,7 @@ app.events.before-quit.description: >-
   Emitted before the application starts closing its windows. Calling event.preventDefault() will prevent the default behaviour, which is terminating the application. Note: If application quit was initiated by autoUpdater.quitAndInstall() then before-quit is emitted after emitting close event on all windows and closing them.
 app.events.will-quit.description: >-
   Emitted when all windows have been closed and the application will quit. Calling event.preventDefault() will prevent the default behaviour, which is terminating the application. See the description of the window-all-closed event for the differences between the will-quit and window-all-closed events.
-app.events.quit.description: Emitted when the application is quitting.
+app.events.quit.description: Émis lorsque l'application se quitte.
 app.events.open-file.description: >-
   Emitted when the user wants to open a file with the application. The open-file event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. open-file is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the open-file event very early in your application startup to handle this case (even before the ready event is emitted). You should call event.preventDefault() if you want to handle this event. On Windows, you have to parse process.argv (in the main process) to get the filepath.
 app.events.open-url.description: >-
@@ -175,15 +175,15 @@ app.properties.dock.properties.cancelBounce.description: Cancel the bounce of id
 app.properties.dock.properties.downloadFinished.description: Bounces the Downloads stack if the filePath is inside the Downloads folder.
 app.properties.dock.properties.setBadge.description: Sets the string to be displayed in the dock’s badging area.
 app.properties.dock.properties.getBadge.returns.description: The badge string of the dock.
-app.properties.dock.properties.hide.description: Hides the dock icon.
-app.properties.dock.properties.show.description: Shows the dock icon.
+app.properties.dock.properties.hide.description: Masque l’icône du dock.
+app.properties.dock.properties.show.description: Affiche l’icône du dock.
 app.properties.dock.properties.isVisible.returns.description: >-
-  Whether the dock icon is visible. The app.dock.show() call is asynchronous so this method might not return true immediately after that call.
-app.properties.dock.properties.setMenu.description: Sets the application's dock menu.
-app.properties.dock.properties.setIcon.description: Sets the image associated with this dock icon.
-autoUpdater.description: Enable apps to automatically update themselves.
-autoUpdater.methods.setFeedURL.description: Sets the url and initialize the auto updater.
-autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: HTTP request headers.
+  Si l’icône du dock est visible. L’appel de app.dock.show() est asynchrone donc cette méthode peut ne pas retourner true immédiatement après cet appel.
+app.properties.dock.properties.setMenu.description: Définit le menu du dock de l’application.
+app.properties.dock.properties.setIcon.description: Définit l’image associée à cette icône du dock.
+autoUpdater.description: Permet aux apps de se mettre automatiquement à jour d'elles mêmes.
+autoUpdater.methods.setFeedURL.description: Définit l'url et initialise l'auto updater.
+autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: Headers de requête HTTP.
 autoUpdater.methods.getFeedURL.returns.description: The current update feed URL.
 autoUpdater.methods.checkForUpdates.description: >-
   Asks the server whether there is an update. You must call setFeedURL before using this API.
@@ -248,8 +248,8 @@ BrowserWindow.constructorMethod.parameters.0.properties.17.description: >-
 BrowserWindow.constructorMethod.parameters.0.properties.18.description: >-
   Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.19.description: Whether to show the window in taskbar. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.20.description: The kiosk mode. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.21.description: Default window title. Default is "Electron".
+BrowserWindow.constructorMethod.parameters.0.properties.20.description: Le mode kiosk. false par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.21.description: Titre de fenêtre par défaut. "Electron" par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.22.description: >-
   The window icon. On Windows it is recommended to use ICO icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
 BrowserWindow.constructorMethod.parameters.0.properties.23.description: Whether window should be shown when created. Default is true.
