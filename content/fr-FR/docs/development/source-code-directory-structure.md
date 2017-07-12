@@ -1,56 +1,56 @@
-# Hiérarchie du Code Source
+# Structure du répertoire du Code Source
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Le code source d'Electron est séparé en plusieurs parties, principalement suivant les conventions de séparation de Chromium.
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de Chromium](http://dev.chromium.org/developers/design-documents/multi-process-architecture) pour mieux comprendre le code source.
 
-## Structure of Source Code
+## Structure du Code Source
 
     Electron
-    ├── atom/ - C++ source code.
-    |   ├── app/ - System entry code.
-    |   ├── browser/ - The frontend including the main window, UI, and all of the
-    |   |   main process things. This talks to the renderer to manage web pages.
-    |   |   ├── ui/ - Implementation of UI stuff for different platforms.
-    |   |   |   ├── cocoa/ - Cocoa specific source code.
-    |   |   |   ├── win/ - Windows GUI specific source code.
-    |   |   |   └── x/ - X11 specific source code.
-    |   |   ├── api/ - The implementation of the main process APIs.
-    |   |   ├── net/ - Network related code.
-    |   |   ├── mac/ - Mac specific Objective-C source code.
-    |   |   └── resources/ - Icons, platform-dependent files, etc.
-    |   ├── renderer/ - Code that runs in renderer process.
-    |   |   └── api/ - The implementation of renderer process APIs.
-    |   └── common/ - Code that used by both the main and renderer processes,
-    |       including some utility functions and code to integrate node's message
-    |       loop into Chromium's message loop.
-    |       └── api/ - The implementation of common APIs, and foundations of
-    |           Electron's built-in modules.
-    ├── chromium_src/ - Source code that copied from Chromium.
-    ├── default_app/ - The default page to show when Electron is started without
-    |   providing an app.
+    ├── atom/ - Code Source C++.
+    |   ├── app/ - Code d'entrée du système.
+    |   ├── browser/ - L'interface incluant la fenêtre principale, l'UI, et toutes les
+    |   |   principales opérations. Cela permet au moteur de rendu de gérer les pages Web.
+    |   |   ├── ui/ - Implementation de l'UI pour différentes plateformes.
+    |   |   |   ├── cocoa/ - Code Source spécifique à Cocoa.
+    |   |   |   ├── win/ - Code source spécifique pour le GUI Windows.
+    |   |   |   └── x/ - Code Source spécifique à X11.
+    |   |   ├── api/ - L'implementation des principales API de processus.
+    |   |   ├── net/ - Code lié au réseau.
+    |   |   ├── mac/ - Code Source Objective-C spécifique à MacOS.
+    |   |   └── resources/ - Icônes, fichiers dépendant de la plateforme, etc.
+    |   ├── renderer/ - Code qui s'exécute dans le moteur de rendu.
+    |   |   └── api/ - L'implementation des API de processus de rendu.
+    |   └── common/ - Code utilisé par les processus principal et le moteur de rendu,
+    |       comprenant certains fonctions utilitaires et le code pour intégrer la boucle de
+    |       message de Node dans la boucle de message de Chromium.
+    |       └── api/ - L'implementation d'API communes, et les fondations
+    |           des modules intégrés d'Electron.
+    ├── chromium_src/ - Code Source copié depuis Chromium.
+    ├── default_app/ - La page par default a montrer quand Electron a démarré sans
+    |   fournir une application.
     ├── docs/ - Documentations.
-    ├── lib/ - JavaScript source code.
-    |   ├── browser/ - Javascript main process initialization code.
-    |   |   └── api/ - Javascript API implementation.
-    |   ├── common/ - JavaScript used by both the main and renderer processes
-    |   |   └── api/ - Javascript API implementation.
-    |   └── renderer/ - Javascript renderer process initialization code.
-    |       └── api/ - Javascript API implementation.
-    ├── spec/ - Automatic tests.
-    ├── electron.gyp - Building rules of Electron.
-    └── common.gypi - Compiler specific settings and building rules for other
-        components like `node` and `breakpad`.
+    ├── lib/ - Code Source JavaScript.
+    |   ├── browser/ - Code d'initialisation du processus principal JavaScript.
+    |   |   └── api/ - Implementation de l'API JavaScript.
+    |   ├── common/ - Code JavaScript utilisé par les processus principal et le moteur de rendu
+    |   |   └── api/ - Implementation de l'API JavaScript.
+    |   └── renderer/ - Code d'initialisation du moteur de rendu JavaScript.
+    |       └── api/ - Implementation de l'API Javascript.
+    ├── spec/ - Tests automatiques.
+    ├── electron.gyp - Règles de build d'Electron.
+    └── common.gypi - Paramètres spécifiques du compilateur et règles de construction pour d'autres
+        composants comme `node` et` breakpad`.
     
 
-## Structure of Other Directories
+## Structure d'autres Dossiers
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **script** - Scripts utilisés à des fins de développement comme le build, le packaging, les tests, etc.
+* **tools** - Scripts d'aide utilisés par les fichiers gyp, contrairement au `script`, les scripts mis ici ne devraient jamais être invoqué par les utilisateurs directement.
+* **vendor** - Code Source des dependances tierces, nous n'utilisons pas `third_party` comme nom parce qu'on le confondrait avec le même dossier dans le Code Source de Chromium.
+* **node_modules** - Modules de Node tiers utilisés pour les builds.
+* **out** - Dossier de sortie temporaire de `ninja`.
+* **dist** - Dossier temporaire créé par `script/create-dist.py` lors de la création d'une distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
 
 ## Keeping Git Submodules Up to Date

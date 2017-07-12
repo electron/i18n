@@ -67,22 +67,22 @@ app.methods.makeSingleInstance.parameters.callback.parameters.argv.description: 
 app.methods.makeSingleInstance.parameters.callback.parameters.workingDirectory.description: The second instance's working directory
 app.methods.makeSingleInstance.returns.description: '.'
 app.methods.releaseSingleInstance.description: >-
-  Releases all locks that were created by makeSingleInstance. This will allow multiple instances of the application to once again run side by side.
+  Libère tous les verrous qui ont été créés par makeSingleInstance. Cela permettra à plusieurs instances de l'application de s'exécuter au même moment.
 app.methods.setUserActivity.description: >-
-  Creates an NSUserActivity and sets it as the current activity. The activity is eligible for Handoff to another device afterward.
+  Crée une NSUserActivity et la définit comme l'activité actuelle. L'activité est susceptible d'être transférée dans un autre appareil ultérieurement.
 app.methods.setUserActivity.parameters.type.description: Uniquely identifies the activity. Maps to .
 app.methods.setUserActivity.parameters.userInfo.description: App-specific state to store for use by another device.
 app.methods.setUserActivity.parameters.webpageURL.description: >-
   The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
-app.methods.getCurrentActivityType.returns.description: The type of the currently running activity.
+app.methods.getCurrentActivityType.returns.description: Le type de l'activité en cours d'exécution.
 app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
 app.methods.importCertificate.description: >-
-  Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
-app.methods.importCertificate.parameters.options.properties.certificate.description: Path for the pkcs12 file.
-app.methods.importCertificate.parameters.options.properties.password.description: Passphrase for the certificate.
-app.methods.importCertificate.parameters.callback.parameters.result.description: Result of import.
+  Importe le certificat au format pkcs12 dans le magasin de certificats de la plate-forme. Le callback est appelé avec le résultat de l'opération d'importation, une valeur de 0 indique le succès alors que n'importe qu'elle autre valeur indique un échec selon net_error_list de chromium.
+app.methods.importCertificate.parameters.options.properties.certificate.description: Chemin d'accès du fichier pkcs12.
+app.methods.importCertificate.parameters.options.properties.password.description: Passphrase pour le certificat.
+app.methods.importCertificate.parameters.callback.parameters.result.description: Résultat de l'importation.
 app.methods.disableHardwareAcceleration.description: >-
-  Disables hardware acceleration for current app. This method can only be called before app is ready.
+  Désactive l'accélération matérielle pour l'application en cours. Cette méthode peut uniquement être appelée avant que l'application soit prête.
 app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
@@ -110,18 +110,18 @@ app.methods.setLoginItemSettings.description: >-
 app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.description: >-
   true to open the app at login, false to remove the app as a login item. Defaults to false.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
-  true to open the app as hidden. Defaults to false. The user can edit this setting from the System Preferences so app.getLoginItemStatus().wasOpenedAsHidden should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-app.methods.setLoginItemSettings.parameters.path.description: The executable to launch at login. Defaults to `process.execPath`.
+  true pour ouvrir l'application comme cachée. Par défaut, false. L'utilisateur peut modifier ce paramètre à partir des Préférences Système afin que app.getLoginItemStatus().wasOpenedAsHidden soit vérifié lorsque l'application est ouverte pour connaître la valeur actuelle. Ce paramètre n'est pris en charge que sur MacOS.
+app.methods.setLoginItemSettings.parameters.path.description: L'exécutable à lancer lors de la connexion. Par défaut, `process.execPath`.
 app.methods.setLoginItemSettings.parameters.args.description: >-
-  The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  Les arguments de ligne de commande à passer à l'exécutable. Par défaut, un array vide. Veillez à mettre les chemins entre guillemets.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
   true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 app.methods.setAboutPanelOptions.description: >-
   Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: The app's name.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: The app's version.
-app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Copyright information.
-app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Credit information.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Nom de l’application.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Version de l’application.
+app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Information sur les droits d'auteur.
+app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Information sur les crédits.
 app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
@@ -133,7 +133,7 @@ app.events.before-quit.description: >-
   Emitted before the application starts closing its windows. Calling event.preventDefault() will prevent the default behaviour, which is terminating the application. Note: If application quit was initiated by autoUpdater.quitAndInstall() then before-quit is emitted after emitting close event on all windows and closing them.
 app.events.will-quit.description: >-
   Emitted when all windows have been closed and the application will quit. Calling event.preventDefault() will prevent the default behaviour, which is terminating the application. See the description of the window-all-closed event for the differences between the will-quit and window-all-closed events.
-app.events.quit.description: Emitted when the application is quitting.
+app.events.quit.description: Émis lorsque l'application se quitte.
 app.events.open-file.description: >-
   Emitted when the user wants to open a file with the application. The open-file event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. open-file is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the open-file event very early in your application startup to handle this case (even before the ready event is emitted). You should call event.preventDefault() if you want to handle this event. On Windows, you have to parse process.argv (in the main process) to get the filepath.
 app.events.open-url.description: >-
@@ -175,15 +175,15 @@ app.properties.dock.properties.cancelBounce.description: Cancel the bounce of id
 app.properties.dock.properties.downloadFinished.description: Bounces the Downloads stack if the filePath is inside the Downloads folder.
 app.properties.dock.properties.setBadge.description: Sets the string to be displayed in the dock’s badging area.
 app.properties.dock.properties.getBadge.returns.description: The badge string of the dock.
-app.properties.dock.properties.hide.description: Hides the dock icon.
-app.properties.dock.properties.show.description: Shows the dock icon.
+app.properties.dock.properties.hide.description: Masque l’icône du dock.
+app.properties.dock.properties.show.description: Affiche l’icône du dock.
 app.properties.dock.properties.isVisible.returns.description: >-
-  Whether the dock icon is visible. The app.dock.show() call is asynchronous so this method might not return true immediately after that call.
-app.properties.dock.properties.setMenu.description: Sets the application's dock menu.
-app.properties.dock.properties.setIcon.description: Sets the image associated with this dock icon.
-autoUpdater.description: Enable apps to automatically update themselves.
-autoUpdater.methods.setFeedURL.description: Sets the url and initialize the auto updater.
-autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: HTTP request headers.
+  Si l’icône du dock est visible. L’appel de app.dock.show() est asynchrone donc cette méthode peut ne pas retourner true immédiatement après cet appel.
+app.properties.dock.properties.setMenu.description: Définit le menu du dock de l’application.
+app.properties.dock.properties.setIcon.description: Définit l’image associée à cette icône du dock.
+autoUpdater.description: Permet aux apps de se mettre automatiquement à jour d'elles mêmes.
+autoUpdater.methods.setFeedURL.description: Définit l'url et initialise l'auto updater.
+autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: Headers de requête HTTP.
 autoUpdater.methods.getFeedURL.returns.description: The current update feed URL.
 autoUpdater.methods.checkForUpdates.description: >-
   Asks the server whether there is an update. You must call setFeedURL before using this API.
@@ -248,13 +248,13 @@ BrowserWindow.constructorMethod.parameters.0.properties.17.description: >-
 BrowserWindow.constructorMethod.parameters.0.properties.18.description: >-
   Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.19.description: Whether to show the window in taskbar. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.20.description: The kiosk mode. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.21.description: Default window title. Default is "Electron".
+BrowserWindow.constructorMethod.parameters.0.properties.20.description: Le mode kiosk. false par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.21.description: Titre de fenêtre par défaut. "Electron" par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.22.description: >-
   The window icon. On Windows it is recommended to use ICO icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
 BrowserWindow.constructorMethod.parameters.0.properties.23.description: Whether window should be shown when created. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.24.description: Specify false to create a . Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.25.description: Specify parent window. Default is null.
+BrowserWindow.constructorMethod.parameters.0.properties.25.description: Spécifier la fenêtre parent. null par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.26.description: >-
   Whether this is a modal window. This only works when the window is a child window. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.27.description: >-
@@ -303,15 +303,15 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.8.descript
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.9.description: >-
   When false, it will disable the same-origin policy (usually using testing websites by people), and set allowRunningInsecureContent to true if this options has not been set by user. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.10.description: >-
-  Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.11.description: Enables image support. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.12.description: Make TextArea elements resizable. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.description: Enables WebGL support. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Enables WebAudio support. Default is true.
+  Permet à une page https d'exécuter du JavaScript, CSS ou plugins depuis des URL http. False par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.11.description: Permet le support de l’image. True par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.12.description: Rend les éléments TextArea redimensionnable. True par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.description: Permet le support de WebGL. True par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Permet le support de WebAudio. True par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.15.description: Whether plugins should be enabled. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.16.description: Enables Chromium's experimental features. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Enables Chromium's experimental canvas features. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.18.description: Enables scroll bounce (rubber banding) effect on macOS. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.16.description: Active les fonctionnalités expérimentales de Chromium. False par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Active les fonctionnalités expérimentales canvas de Chromium. False par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.18.description: Active le défilement à effet rebond sur macOS. False par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.19.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.20.description: >-
@@ -325,8 +325,8 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.propert
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Defaults to Impact.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.22.description: Defaults to 16.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.23.description: Defaults to 13.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: Defaults to 0.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.25.description: Defaults to ISO-8859-1.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: 0 par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.25.description: Par défaut, ISO-8859-1.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.26.description: >-
   Whether to throttle animations and timers when the page becomes background. Defaults to true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.27.description: >-
@@ -337,13 +337,13 @@ BrowserWindow.instanceMethods.destroy.description: >-
   Force closing the window, the unload and beforeunload event won't be emitted for the web page, and close event will also not be emitted for this window, but it guarantees the closed event will be emitted.
 BrowserWindow.instanceMethods.close.description: >-
   Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the close event.
-BrowserWindow.instanceMethods.focus.description: Focuses on the window.
+BrowserWindow.instanceMethods.focus.description: Ramène la fenêtre au premier plan.
 BrowserWindow.instanceMethods.blur.description: Removes focus from the window.
 BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window is focused.
 BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
-BrowserWindow.instanceMethods.show.description: Shows and gives focus to the window.
-BrowserWindow.instanceMethods.showInactive.description: Shows the window but doesn't focus on it.
-BrowserWindow.instanceMethods.hide.description: Hides the window.
+BrowserWindow.instanceMethods.show.description: Affiche la fenêtre et la ramène au premier plan.
+BrowserWindow.instanceMethods.showInactive.description: Affiche la fenêtre, mais ne la ramène pas au premier plan.
+BrowserWindow.instanceMethods.hide.description: Masque la fenêtre.
 BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
 BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
 BrowserWindow.instanceMethods.maximize.description: >-
@@ -384,10 +384,10 @@ BrowserWindow.instanceMethods.isMovable.description: On Linux always returns tru
 BrowserWindow.instanceMethods.isMovable.returns.description: Whether the window can be moved by user.
 BrowserWindow.instanceMethods.setMinimizable.description: >-
   Sets whether the window can be manually minimized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMinimizable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isMinimizable.returns.description: Whether the window can be manually minimized by user
+BrowserWindow.instanceMethods.isMinimizable.description: Sur Linux, retourne toujours true.
+BrowserWindow.instanceMethods.isMinimizable.returns.description: Que l'utilisateur puisse minimiser manuellement la fenêtre
 BrowserWindow.instanceMethods.setMaximizable.description: >-
-  Sets whether the window can be manually maximized by user. On Linux does nothing.
+  Définit que la fenêtre peut être agrandie manuellement par l’utilisateur. Sous Linux, il ne fait rien.
 BrowserWindow.instanceMethods.isMaximizable.description: On Linux always returns true.
 BrowserWindow.instanceMethods.isMaximizable.returns.description: Whether the window can be manually maximized by user.
 BrowserWindow.instanceMethods.setFullScreenable.description: >-
@@ -405,17 +405,17 @@ BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.relativeLevel.descriptio
   The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Whether the window is always on top of other windows.
 BrowserWindow.instanceMethods.center.description: Moves window to the center of the screen.
-BrowserWindow.instanceMethods.setPosition.description: Moves window to x and y.
-BrowserWindow.instanceMethods.getPosition.returns.description: Contains the window's current position.
+BrowserWindow.instanceMethods.setPosition.description: Déplace la fenêtre à x et y.
+BrowserWindow.instanceMethods.getPosition.returns.description: Contient la position actuelle de la fenêtre.
 BrowserWindow.instanceMethods.setTitle.description: Changes the title of native window to title.
 BrowserWindow.instanceMethods.getTitle.description: >-
   Note: The title of web page can be different from the title of the native window.
-BrowserWindow.instanceMethods.getTitle.returns.description: The title of the native window.
+BrowserWindow.instanceMethods.getTitle.returns.description: Le titre de la fenêtre native.
 BrowserWindow.instanceMethods.setSheetOffset.description: >-
   Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 BrowserWindow.instanceMethods.flashFrame.description: Starts or stops flashing the window to attract user's attention.
 BrowserWindow.instanceMethods.setSkipTaskbar.description: Makes the window not show in the taskbar.
-BrowserWindow.instanceMethods.setKiosk.description: Enters or leaves the kiosk mode.
+BrowserWindow.instanceMethods.setKiosk.description: Entre ou quitte le mode kiosk.
 BrowserWindow.instanceMethods.isKiosk.returns.description: Whether the window is in kiosk mode.
 BrowserWindow.instanceMethods.getNativeWindowHandle.description: >-
   The native type of the handle is HWND on Windows, NSView* on macOS, and Window (unsigned long) on Linux.
@@ -437,10 +437,10 @@ BrowserWindow.instanceMethods.loadURL.description: >-
   Same as webContents.loadURL(url[, options]). The url can be a remote address (e.g. http://) or a path to a local HTML file using the file:// protocol. To ensure that file URLs are properly formatted, it is recommended to use Node's url.format method: You can load a URL using a POST request with URL-encoded data by doing the following:
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
-BrowserWindow.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
+BrowserWindow.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Headers supplémentaires séparés par "\n"
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
   Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
-BrowserWindow.instanceMethods.reload.description: Same as webContents.reload.
+BrowserWindow.instanceMethods.reload.description: Identique à webContents.reload.
 BrowserWindow.instanceMethods.setMenu.description: >-
   Sets the menu as the window's menu bar, setting it to null will remove the menu bar.
 BrowserWindow.instanceMethods.setProgressBar.description: >-
@@ -454,16 +454,16 @@ BrowserWindow.instanceMethods.setOverlayIcon.parameters.overlay.description: >-
 BrowserWindow.instanceMethods.setOverlayIcon.parameters.description.description: a description that will be provided to Accessibility screen readers
 BrowserWindow.instanceMethods.setHasShadow.description: >-
   Sets whether the window should have a shadow. On Windows and Linux does nothing.
-BrowserWindow.instanceMethods.hasShadow.description: On Windows and Linux always returns true.
+BrowserWindow.instanceMethods.hasShadow.description: Sur Windows et Linux retourne toujours true.
 BrowserWindow.instanceMethods.hasShadow.returns.description: Whether the window has a shadow.
 BrowserWindow.instanceMethods.setThumbarButtons.description: >-
   Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a Boolean object indicates whether the thumbnail has been added successfully. The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons. The buttons is an array of Button objects: The flags is an array that can include following Strings:
 BrowserWindow.instanceMethods.setThumbarButtons.returns.description: Whether the buttons were added successfully
 BrowserWindow.instanceMethods.setThumbnailClip.description: >-
   Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: {x: 0, y: 0, width: 0, height: 0}.
-BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Region of the window
+BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Région de la fenêtre
 BrowserWindow.instanceMethods.setThumbnailToolTip.description: >-
-  Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+  Définit l'info-bulle qui s'affiche lors du survol de la vignette de la fenêtre dans la barre des tâches.
 BrowserWindow.instanceMethods.setAppDetails.description: >-
   Sets the properties for the window's taskbar button. Note: relaunchCommand and relaunchDisplayName must always be set together. If one of those properties is not set, then neither will be used.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appId.description: 'Window''s . It has to be set, otherwise the other options will have no effect.'
@@ -491,9 +491,9 @@ BrowserWindow.instanceMethods.setContentProtection.description: >-
 BrowserWindow.instanceMethods.setFocusable.description: Changes whether the window can be focused.
 BrowserWindow.instanceMethods.setParentWindow.description: >-
   Sets parent as current window's parent window, passing null will turn current window into a top-level window.
-BrowserWindow.instanceMethods.getParentWindow.returns.description: The parent window.
-BrowserWindow.instanceMethods.getChildWindows.returns.description: All child windows.
-BrowserWindow.instanceMethods.setAutoHideCursor.description: Controls whether to hide cursor when typing.
+BrowserWindow.instanceMethods.getParentWindow.returns.description: La fenêtre parente.
+BrowserWindow.instanceMethods.getChildWindows.returns.description: Toutes les fenêtres enfants.
+BrowserWindow.instanceMethods.setAutoHideCursor.description: Contrôle s'il faut masquer le curseur lors de la saisie.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
   Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window.
 BrowserWindow.instanceMethods.setVibrancy.parameters.type.description: >-
@@ -501,7 +501,7 @@ BrowserWindow.instanceMethods.setVibrancy.parameters.type.description: >-
 BrowserWindow.instanceMethods.setTouchBar.description: >-
   Sets the touchBar layout for the current window. Specifying null or undefined clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+. Note: The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 BrowserWindow.instanceMethods.setBrowserView.description: >-
-  Note: The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+  Note: L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 BrowserWindow.instanceProperties.webContents.description: >-
   A WebContents object this window owns. All web page related events and operations will be done via it. See the webContents documentation for its methods and events.
 BrowserWindow.instanceProperties.id.description: A Integer representing the unique ID of the window.
@@ -554,19 +554,19 @@ Certificate.properties.data.description: PEM encoded data
 Certificate.properties.issuer.description: Issuer principal
 Certificate.properties.issuerName.description: Issuer's Common Name
 Certificate.properties.issuerCert.description: Issuer certificate (if not self-signed)
-Certificate.properties.subject.description: Subject principal
+Certificate.properties.subject.description: Principal sujet
 Certificate.properties.subjectName.description: Subject's Common Name
 Certificate.properties.serialNumber.description: Hex value represented string
 Certificate.properties.validStart.description: Start date of the certificate being valid in seconds
 Certificate.properties.validExpiry.description: End date of the certificate being valid in seconds
-Certificate.properties.fingerprint.description: Fingerprint of the certificate
+Certificate.properties.fingerprint.description: Empreinte digitale du certificat
 CertificatePrincipal.properties.commonName.description: Common Name
-CertificatePrincipal.properties.organizations.description: Organization names
-CertificatePrincipal.properties.organizationUnits.description: Organization Unit names
-CertificatePrincipal.properties.locality.description: Locality
-CertificatePrincipal.properties.state.description: State or province
-CertificatePrincipal.properties.country.description: Country or region
-ClientRequest.description: Make HTTP/HTTPS requests.
+CertificatePrincipal.properties.organizations.description: Noms de l’Organisation
+CertificatePrincipal.properties.organizationUnits.description: Nom des unités de l'organisation
+CertificatePrincipal.properties.locality.description: Localité
+CertificatePrincipal.properties.state.description: État ou province
+CertificatePrincipal.properties.country.description: Pays ou région
+ClientRequest.description: Faire des requêtes HTTP/HTTPS.
 ClientRequest.constructorMethod.parameters.0.description: >-
   If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
 ClientRequest.instanceMethods.setHeader.description: >-
@@ -612,9 +612,9 @@ clipboard.methods.writeText.description: Writes the text into the clipboard as p
 clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
 clipboard.methods.writeHTML.description: Writes markup to the clipboard.
 clipboard.methods.readImage.returns.description: The image content in the clipboard.
-clipboard.methods.writeImage.description: Writes image to the clipboard.
+clipboard.methods.writeImage.description: Écrit l'image dans le presse-papiers.
 clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
-clipboard.methods.writeRTF.description: Writes the text into the clipboard in RTF.
+clipboard.methods.writeRTF.description: Écrit le texte dans le presse-papiers en RTF.
 clipboard.methods.readBookmark.description: >-
   Returns an Object containing title and url keys representing the bookmark in the clipboard. The title and url values will be empty strings when the bookmark is unavailable.
 clipboard.methods.writeBookmark.description: >-
@@ -647,12 +647,12 @@ contentTracing.methods.captureMonitoringSnapshot.description: >-
   Get the current monitoring traced data. Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data. Once all child processes have acknowledged the captureMonitoringSnapshot request the callback will be called with a file that contains the traced data.
 contentTracing.methods.getTraceBufferUsage.description: >-
   Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the callback is called.
-Cookie.properties.name.description: The name of the cookie.
-Cookie.properties.value.description: The value of the cookie.
-Cookie.properties.domain.description: The domain of the cookie.
-Cookie.properties.hostOnly.description: Whether the cookie is a host-only cookie.
-Cookie.properties.path.description: The path of the cookie.
-Cookie.properties.secure.description: Whether the cookie is marked as secure.
+Cookie.properties.name.description: Le nom du cookie.
+Cookie.properties.value.description: La valeur du cookie.
+Cookie.properties.domain.description: Le domaine du cookie.
+Cookie.properties.hostOnly.description: Si le cookie est un cookie hôte uniquement.
+Cookie.properties.path.description: Le chemin d’accès du cookie.
+Cookie.properties.secure.description: Si le cookie est marqué comme sécurisé.
 Cookie.properties.httpOnly.description: Whether the cookie is marked as HTTP only.
 Cookie.properties.session.description: >-
   Whether the cookie is a session cookie or a persistent cookie with an expiration date.
@@ -663,7 +663,7 @@ Cookies.instanceMethods.get.description: >-
   Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete. cookies is an Array of cookie objects.
 Cookies.instanceMethods.get.parameters.filter.properties.url.description: >-
   Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
-Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filters cookies by name.
+Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filtre les cookies par nom.
 Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Retrieves cookies whose domains match or are subdomains of domains
 Cookies.instanceMethods.get.parameters.filter.properties.path.description: Retrieves cookies whose path matches path.
 Cookies.instanceMethods.get.parameters.filter.properties.secure.description: Filters cookies by their Secure property.
@@ -681,25 +681,25 @@ Cookies.instanceMethods.set.parameters.details.properties.expirationDate.descrip
   The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 Cookies.instanceMethods.remove.description: >-
   Removes the cookies matching url and name, callback will called with callback() on complete.
-Cookies.instanceMethods.remove.parameters.url.description: The URL associated with the cookie.
-Cookies.instanceMethods.remove.parameters.name.description: The name of cookie to remove.
-Cookies.instanceMethods.flushStore.description: Writes any unwritten cookies data to disk.
+Cookies.instanceMethods.remove.parameters.url.description: L’URL associée au cookie.
+Cookies.instanceMethods.remove.parameters.name.description: Le nom du cookie à supprimer.
+Cookies.instanceMethods.flushStore.description: Écrit toutes les données des cookies non écrites sur le disque.
 Cookies.instanceEvents.changed.description: >-
-  Emitted when a cookie is changed because it was added, edited, removed, or expired.
-Cookies.instanceEvents.changed.returns.cookie.description: The cookie that was changed
+  Émis lorsqu’un cookie est changé car il a été ajouté, édité, enlevé ou a expiré.
+Cookies.instanceEvents.changed.returns.cookie.description: Le cookie qui a été changé
 Cookies.instanceEvents.changed.returns.cause.description: 'The cause of the change with one of the following values:'
-Cookies.instanceEvents.changed.returns.removed.description: '`true` if the cookie was removed, `false` otherwise.'
+Cookies.instanceEvents.changed.returns.removed.description: '`true` si le cookie a été supprimé, `false` dans le cas contraire.'
 CPUUsage.properties.percentCPUUsage.description: >-
-  Percentage of CPU used since the last call to getCPUUsage. First call returns 0.
+  Pourcentage de CPU utilisé depuis le dernier appel à getCPUUsage. Le premier appel retourne 0.
 CPUUsage.properties.idleWakeupsPerSecond.description: >-
   The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0.
 crashReporter.description: Submit crash reports to a remote server.
 crashReporter.methods.start.description: >-
   You are required to call this method before using any other crashReporter APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to crashReporter.start when calling from different processes. Note Child processes created via the child_process module will not have access to the Electron modules. Therefore, to collect crash reports from them, use process.crashReporter.start instead. Pass the same options as above along with an additional one called crashesDirectory that should point to a directory to store the crash reports temporarily. You can test this out by calling process.crash() to crash the child process. Note: To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace submitURL, productName and crashesDirectory with appropriate values. Note: If you need send additional/updated extra parameters after your first call start you can call setExtraParameter on macOS or call start again with the new/updated extra parameters on Linux and Windows. Note: On macOS, Electron uses a new crashpad client for crash collection and reporting. If you want to enable crash reporting, initializing crashpad from the main process using crashReporter.start is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call crashReporter.start from the renderer or child process, otherwise crashes from them will get reported without companyName, productName or any of the extra information.
 crashReporter.methods.start.parameters.options.properties.submitURL.description: URL that crash reports will be sent to as POST.
-crashReporter.methods.start.parameters.options.properties.productName.description: Defaults to app.getName().
-crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Whether crash reports should be sent to the server Default is true.
-crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Default is false.
+crashReporter.methods.start.parameters.options.properties.productName.description: Par défaut, app.getName().
+crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Si les rapports de crash doivent être envoyés au serveur. True par défaut.
+crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: False par défaut.
 crashReporter.methods.start.parameters.options.properties.extra.description: >-
   An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported.
 crashReporter.methods.getLastCrashReport.description: >-
@@ -734,7 +734,7 @@ Debugger.instanceEvents.detach.description: >-
   Emitted when debugging session is terminated. This happens either when webContents is closed or devtools is invoked for the attached webContents.
 Debugger.instanceEvents.detach.returns.reason.description: Reason for detaching debugger.
 Debugger.instanceEvents.message.description: Emitted whenever debugging target issues instrumentation event.
-Debugger.instanceEvents.message.returns.method.description: Method name.
+Debugger.instanceEvents.message.returns.method.description: Nom de la méthode.
 Debugger.instanceEvents.message.returns.params.description: >-
   Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 desktopCapturer.description: |-
@@ -781,8 +781,8 @@ dialog.methods.showMessageBox.parameters.options.properties.buttons.description:
 dialog.methods.showMessageBox.parameters.options.properties.defaultId.description: >-
   Index of the button in the buttons array which will be selected by default when the message box opens.
 dialog.methods.showMessageBox.parameters.options.properties.title.description: 'Title of the message box, some platforms will not show it.'
-dialog.methods.showMessageBox.parameters.options.properties.message.description: Content of the message box.
-dialog.methods.showMessageBox.parameters.options.properties.detail.description: Extra information of the message.
+dialog.methods.showMessageBox.parameters.options.properties.message.description: Contenu de la boîte de message.
+dialog.methods.showMessageBox.parameters.options.properties.detail.description: Informations supplémentaires du message.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxLabel.description: >-
   If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using callback.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxChecked.description: Initial checked state of the checkbox. false by default.
@@ -805,16 +805,16 @@ dialog.methods.showCertificateTrustDialog.description: >-
 dialog.methods.showCertificateTrustDialog.parameters.options.properties.certificate.description: The certificate to trust/import.
 dialog.methods.showCertificateTrustDialog.parameters.options.properties.message.description: The message to display to the user.
 Display.properties.id.description: Unique identifier associated with the display.
-Display.properties.rotation.description: 'Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.'
+Display.properties.rotation.description: 'Peut être 0, 90, 180, 270, représente la rotation de l’écran en degrés horaire.'
 Display.properties.scaleFactor.description: Output device's pixel scale factor.
 Display.properties.touchSupport.description: 'Can be available, unavailable, unknown.'
 DownloadItem.description: Control file downloads from remote sources.
 DownloadItem.instanceMethods.setSavePath.description: >-
   The API is only available in session's will-download callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
-DownloadItem.instanceMethods.setSavePath.parameters.path.description: Set the save file path of the download item.
+DownloadItem.instanceMethods.setSavePath.parameters.path.description: Enregistre le chemin d'accès de l'élément téléchargé.
 DownloadItem.instanceMethods.getSavePath.returns.description: >-
   The save path of the download item. This will be either the path set via downloadItem.setSavePath(path) or the path selected from the shown save dialog.
-DownloadItem.instanceMethods.pause.description: Pauses the download.
+DownloadItem.instanceMethods.pause.description: Met en pause le téléchargement.
 DownloadItem.instanceMethods.isPaused.returns.description: Whether the download is paused.
 DownloadItem.instanceMethods.resume.description: >-
   Resumes the download that has been paused. Note: To enable resumable downloads the server you are downloading from must support range requests and provide both Last-Modified and ETag header values. Otherwise resume() will dismiss previously received bytes and restart the download from the beginning.
@@ -824,9 +824,9 @@ DownloadItem.instanceMethods.getURL.returns.description: The origin url where th
 DownloadItem.instanceMethods.getMimeType.returns.description: The files mime type.
 DownloadItem.instanceMethods.hasUserGesture.returns.description: Whether the download has user gesture.
 DownloadItem.instanceMethods.getFilename.description: >-
-  Note: The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+  Remarque: Le nom du fichier n'est pas toujours identique à celui enregistré sur le disque local. Si l'utilisateur modifie le nom du fichier dans une boîte de dialogue de sauvegarde de téléchargement, le nom du fichier enregistré sera différent.
 DownloadItem.instanceMethods.getFilename.returns.description: The file name of the download item.
-DownloadItem.instanceMethods.getTotalBytes.description: 'If the size is unknown, it returns 0.'
+DownloadItem.instanceMethods.getTotalBytes.description: 'Si la taille est inconnue, retourne 0.'
 DownloadItem.instanceMethods.getTotalBytes.returns.description: The total size in bytes of the download item.
 DownloadItem.instanceMethods.getReceivedBytes.returns.description: The received bytes of the download item.
 DownloadItem.instanceMethods.getContentDisposition.returns.description: The Content-Disposition field from the response header.
@@ -1442,12 +1442,12 @@ UploadData.properties.file.description: Path of file being uploaded.
 UploadData.properties.blobUUID.description: UUID of blob data. Use method to retrieve the data.
 UploadFile.properties.type.description: file.
 UploadFile.properties.filePath.description: Path of file to be uploaded.
-UploadFile.properties.offset.description: Defaults to 0.
+UploadFile.properties.offset.description: 0 par défaut.
 UploadFile.properties.length.description: Number of bytes to read from offset. Defaults to 0.
 UploadFile.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadFileSystem.properties.type.description: fileSystem.
 UploadFileSystem.properties.filsSystemURL.description: FileSystem url to read data for upload.
-UploadFileSystem.properties.offset.description: Defaults to 0.
+UploadFileSystem.properties.offset.description: 0 par défaut.
 UploadFileSystem.properties.length.description: Number of bytes to read from offset. Defaults to 0.
 UploadFileSystem.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
 UploadRawData.properties.type.description: rawData.
@@ -1462,7 +1462,7 @@ WebContents.instanceMethods.loadURL.description: >-
   Loads the url in the window. The url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it.
 WebContents.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
 WebContents.instanceMethods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
-WebContents.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
+WebContents.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Headers supplémentaires séparés par "\n"
 WebContents.instanceMethods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
   Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
 WebContents.instanceMethods.downloadURL.description: >-
@@ -1830,7 +1830,7 @@ webviewTag.methods.loadURL.description: >-
   Loads the url in the webview, the url must contain the protocol prefix, e.g. the http:// or file://.
 webviewTag.methods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
 webviewTag.methods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
-webviewTag.methods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
+webviewTag.methods.loadURL.parameters.options.properties.extraHeaders.description: Headers supplémentaires séparés par "\n"
 webviewTag.methods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
   Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
 webviewTag.methods.getURL.returns.description: The URL of guest page.
