@@ -79,10 +79,10 @@ app.methods.setAppUserModelId.description: Changes the Application User Model ID
 app.methods.importCertificate.description: >-
   Importe le certificat au format pkcs12 dans le magasin de certificats de la plate-forme. Le callback est appelé avec le résultat de l'opération d'importation, une valeur de 0 indique le succès alors que n'importe qu'elle autre valeur indique un échec selon net_error_list de chromium.
 app.methods.importCertificate.parameters.options.properties.certificate.description: Chemin d'accès du fichier pkcs12.
-app.methods.importCertificate.parameters.options.properties.password.description: Passphrase for the certificate.
-app.methods.importCertificate.parameters.callback.parameters.result.description: Result of import.
+app.methods.importCertificate.parameters.options.properties.password.description: Passphrase pour le certificat.
+app.methods.importCertificate.parameters.callback.parameters.result.description: Résultat de l'importation.
 app.methods.disableHardwareAcceleration.description: >-
-  Disables hardware acceleration for current app. This method can only be called before app is ready.
+  Désactive l'accélération matérielle pour l'application en cours. Cette méthode peut uniquement être appelée avant que l'application soit prête.
 app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
@@ -110,18 +110,18 @@ app.methods.setLoginItemSettings.description: >-
 app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.description: >-
   true to open the app at login, false to remove the app as a login item. Defaults to false.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
-  true to open the app as hidden. Defaults to false. The user can edit this setting from the System Preferences so app.getLoginItemStatus().wasOpenedAsHidden should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-app.methods.setLoginItemSettings.parameters.path.description: The executable to launch at login. Defaults to `process.execPath`.
+  true pour ouvrir l'application comme cachée. Par défaut, false. L'utilisateur peut modifier ce paramètre à partir des Préférences Système afin que app.getLoginItemStatus().wasOpenedAsHidden soit vérifié lorsque l'application est ouverte pour connaître la valeur actuelle. Ce paramètre n'est pris en charge que sur MacOS.
+app.methods.setLoginItemSettings.parameters.path.description: L'exécutable à lancer lors de la connexion. Par défaut, `process.execPath`.
 app.methods.setLoginItemSettings.parameters.args.description: >-
-  The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  Les arguments de ligne de commande à passer à l'exécutable. Par défaut, un array vide. Veillez à mettre les chemins entre guillemets.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
   true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 app.methods.setAboutPanelOptions.description: >-
   Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: The app's name.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: The app's version.
-app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Copyright information.
-app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Credit information.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Nom de l’application.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Version de l’application.
+app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Information sur les droits d'auteur.
+app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Information sur les crédits.
 app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
