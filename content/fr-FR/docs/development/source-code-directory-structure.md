@@ -18,19 +18,19 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
     |   |   ├── api/ - L'implementation des principales API de processus.
     |   |   ├── net/ - Network related code.
     |   |   ├── mac/ - Code Source Objective-C spécifique à MacOS.
-    |   |   └── resources/ - Icons, platform-dependent files, etc.
-    |   ├── renderer/ - Code that runs in renderer process.
-    |   |   └── api/ - The implementation of renderer process APIs.
-    |   └── common/ - Code that used by both the main and renderer processes,
-    |       including some utility functions and code to integrate node's message
-    |       loop into Chromium's message loop.
-    |       └── api/ - The implementation of common APIs, and foundations of
-    |           Electron's built-in modules.
-    ├── chromium_src/ - Source code that copied from Chromium.
-    ├── default_app/ - The default page to show when Electron is started without
-    |   providing an app.
+    |   |   └── resources/ - Icônes, fichiers dépendant de la plateforme, etc.
+    |   ├── renderer/ - Code qui s'exécute dans le processus de rendu.
+    |   |   └── api/ - L'implementation des API de processus de rendu.
+    |   └── common/ - Code utilisé par le processus principal et le processus de rendu,
+    |       comprenant certains fonctions utilitaires et le code pour intégrer la boucle de
+    |       message de Node dans la boucle de message de Chromium.
+    |       └── api/ - L'implementation d'API communes, et les fondations
+    |           des modules intégrés d'Electron.
+    ├── chromium_src/ - Code Source copié depuis Chromium.
+    ├── default_app/ - La page par default a montrer quand Electron a démarré sans
+    |   fournir une application.
     ├── docs/ - Documentations.
-    ├── lib/ - JavaScript source code.
+    ├── lib/ - Code Source JavaScript.
     |   ├── browser/ - Javascript main process initialization code.
     |   |   └── api/ - Javascript API implementation.
     |   ├── common/ - JavaScript used by both the main and renderer processes
