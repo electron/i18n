@@ -337,12 +337,12 @@ BrowserWindow.instanceMethods.destroy.description: >-
   Force closing the window, the unload and beforeunload event won't be emitted for the web page, and close event will also not be emitted for this window, but it guarantees the closed event will be emitted.
 BrowserWindow.instanceMethods.close.description: >-
   Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the close event.
-BrowserWindow.instanceMethods.focus.description: Focuses on the window.
+BrowserWindow.instanceMethods.focus.description: Ramène la fenêtre au premier plan.
 BrowserWindow.instanceMethods.blur.description: Removes focus from the window.
 BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window is focused.
 BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
-BrowserWindow.instanceMethods.show.description: Shows and gives focus to the window.
-BrowserWindow.instanceMethods.showInactive.description: Shows the window but doesn't focus on it.
+BrowserWindow.instanceMethods.show.description: Affiche la fenêtre et la ramène au premier plan.
+BrowserWindow.instanceMethods.showInactive.description: Affiche la fenêtre, mais ne la ramène pas au premier plan.
 BrowserWindow.instanceMethods.hide.description: Masque la fenêtre.
 BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
 BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
@@ -384,10 +384,10 @@ BrowserWindow.instanceMethods.isMovable.description: On Linux always returns tru
 BrowserWindow.instanceMethods.isMovable.returns.description: Whether the window can be moved by user.
 BrowserWindow.instanceMethods.setMinimizable.description: >-
   Sets whether the window can be manually minimized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMinimizable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isMinimizable.returns.description: Whether the window can be manually minimized by user
+BrowserWindow.instanceMethods.isMinimizable.description: Sur Linux, retourne toujours true.
+BrowserWindow.instanceMethods.isMinimizable.returns.description: Que l'utilisateur puisse minimiser manuellement la fenêtre
 BrowserWindow.instanceMethods.setMaximizable.description: >-
-  Sets whether the window can be manually maximized by user. On Linux does nothing.
+  Définit que la fenêtre peut être agrandie manuellement par l’utilisateur. Sous Linux, il ne fait rien.
 BrowserWindow.instanceMethods.isMaximizable.description: On Linux always returns true.
 BrowserWindow.instanceMethods.isMaximizable.returns.description: Whether the window can be manually maximized by user.
 BrowserWindow.instanceMethods.setFullScreenable.description: >-
@@ -405,17 +405,17 @@ BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.relativeLevel.descriptio
   The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Whether the window is always on top of other windows.
 BrowserWindow.instanceMethods.center.description: Moves window to the center of the screen.
-BrowserWindow.instanceMethods.setPosition.description: Moves window to x and y.
-BrowserWindow.instanceMethods.getPosition.returns.description: Contains the window's current position.
+BrowserWindow.instanceMethods.setPosition.description: Déplace la fenêtre à x et y.
+BrowserWindow.instanceMethods.getPosition.returns.description: Contient la position actuelle de la fenêtre.
 BrowserWindow.instanceMethods.setTitle.description: Changes the title of native window to title.
 BrowserWindow.instanceMethods.getTitle.description: >-
   Note: The title of web page can be different from the title of the native window.
-BrowserWindow.instanceMethods.getTitle.returns.description: The title of the native window.
+BrowserWindow.instanceMethods.getTitle.returns.description: Le titre de la fenêtre native.
 BrowserWindow.instanceMethods.setSheetOffset.description: >-
   Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 BrowserWindow.instanceMethods.flashFrame.description: Starts or stops flashing the window to attract user's attention.
 BrowserWindow.instanceMethods.setSkipTaskbar.description: Makes the window not show in the taskbar.
-BrowserWindow.instanceMethods.setKiosk.description: Enters or leaves the kiosk mode.
+BrowserWindow.instanceMethods.setKiosk.description: Entre ou quitte le mode kiosk.
 BrowserWindow.instanceMethods.isKiosk.returns.description: Whether the window is in kiosk mode.
 BrowserWindow.instanceMethods.getNativeWindowHandle.description: >-
   The native type of the handle is HWND on Windows, NSView* on macOS, and Window (unsigned long) on Linux.
@@ -437,10 +437,10 @@ BrowserWindow.instanceMethods.loadURL.description: >-
   Same as webContents.loadURL(url[, options]). The url can be a remote address (e.g. http://) or a path to a local HTML file using the file:// protocol. To ensure that file URLs are properly formatted, it is recommended to use Node's url.format method: You can load a URL using a POST request with URL-encoded data by doing the following:
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
-BrowserWindow.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
+BrowserWindow.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Headers supplémentaires séparés par "\n"
 BrowserWindow.instanceMethods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
   Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
-BrowserWindow.instanceMethods.reload.description: Same as webContents.reload.
+BrowserWindow.instanceMethods.reload.description: Identique à webContents.reload.
 BrowserWindow.instanceMethods.setMenu.description: >-
   Sets the menu as the window's menu bar, setting it to null will remove the menu bar.
 BrowserWindow.instanceMethods.setProgressBar.description: >-
@@ -454,16 +454,16 @@ BrowserWindow.instanceMethods.setOverlayIcon.parameters.overlay.description: >-
 BrowserWindow.instanceMethods.setOverlayIcon.parameters.description.description: a description that will be provided to Accessibility screen readers
 BrowserWindow.instanceMethods.setHasShadow.description: >-
   Sets whether the window should have a shadow. On Windows and Linux does nothing.
-BrowserWindow.instanceMethods.hasShadow.description: On Windows and Linux always returns true.
+BrowserWindow.instanceMethods.hasShadow.description: Sur Windows et Linux retourne toujours true.
 BrowserWindow.instanceMethods.hasShadow.returns.description: Whether the window has a shadow.
 BrowserWindow.instanceMethods.setThumbarButtons.description: >-
   Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a Boolean object indicates whether the thumbnail has been added successfully. The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons. The buttons is an array of Button objects: The flags is an array that can include following Strings:
 BrowserWindow.instanceMethods.setThumbarButtons.returns.description: Whether the buttons were added successfully
 BrowserWindow.instanceMethods.setThumbnailClip.description: >-
   Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: {x: 0, y: 0, width: 0, height: 0}.
-BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Region of the window
+BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Région de la fenêtre
 BrowserWindow.instanceMethods.setThumbnailToolTip.description: >-
-  Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+  Définit l'info-bulle qui s'affiche lors du survol de la vignette de la fenêtre dans la barre des tâches.
 BrowserWindow.instanceMethods.setAppDetails.description: >-
   Sets the properties for the window's taskbar button. Note: relaunchCommand and relaunchDisplayName must always be set together. If one of those properties is not set, then neither will be used.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appId.description: 'Window''s . It has to be set, otherwise the other options will have no effect.'
@@ -491,8 +491,8 @@ BrowserWindow.instanceMethods.setContentProtection.description: >-
 BrowserWindow.instanceMethods.setFocusable.description: Changes whether the window can be focused.
 BrowserWindow.instanceMethods.setParentWindow.description: >-
   Sets parent as current window's parent window, passing null will turn current window into a top-level window.
-BrowserWindow.instanceMethods.getParentWindow.returns.description: The parent window.
-BrowserWindow.instanceMethods.getChildWindows.returns.description: All child windows.
+BrowserWindow.instanceMethods.getParentWindow.returns.description: La fenêtre parente.
+BrowserWindow.instanceMethods.getChildWindows.returns.description: Toutes les fenêtres enfants.
 BrowserWindow.instanceMethods.setAutoHideCursor.description: Controls whether to hide cursor when typing.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
   Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window.
@@ -1462,7 +1462,7 @@ WebContents.instanceMethods.loadURL.description: >-
   Loads the url in the window. The url must contain the protocol prefix, e.g. the http:// or file://. If the load should bypass http cache then use the pragma header to achieve it.
 WebContents.instanceMethods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
 WebContents.instanceMethods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
-WebContents.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
+WebContents.instanceMethods.loadURL.parameters.options.properties.extraHeaders.description: Headers supplémentaires séparés par "\n"
 WebContents.instanceMethods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
   Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
 WebContents.instanceMethods.downloadURL.description: >-
@@ -1830,7 +1830,7 @@ webviewTag.methods.loadURL.description: >-
   Loads the url in the webview, the url must contain the protocol prefix, e.g. the http:// or file://.
 webviewTag.methods.loadURL.parameters.options.properties.httpReferrer.description: A HTTP Referrer url.
 webviewTag.methods.loadURL.parameters.options.properties.userAgent.description: A user agent originating the request.
-webviewTag.methods.loadURL.parameters.options.properties.extraHeaders.description: Extra headers separated by "\n"
+webviewTag.methods.loadURL.parameters.options.properties.extraHeaders.description: Headers supplémentaires séparés par "\n"
 webviewTag.methods.loadURL.parameters.options.properties.baseURLForDataURL.description: >-
   Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified url is a data url and needs to load other files.
 webviewTag.methods.getURL.returns.description: The URL of guest page.
