@@ -1,12 +1,12 @@
 # Guide Windows Store
 
-Avec Windows 8, le bon vieux win32 executable a un nouveau frère: La plateforme Universelle de Windows. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+Avec Windows 8, le bon vieux win32 executable a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft [à développé un outil qui compile les apps Electron en packages `.appx`](https://github.com/catalystcode/electron-windows-store), permettant aux développeurs d'utiliser une partie des goodies trouvés dans le nouveau modèle d'application. Ce guide explique comment l'utiliser - et quelles sont les capacités et les limites d'un package Electron AppX.
 
-## Background and Requirements
+## Contexte et exigences
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+Windows 10 "Anniversary Update" est capable d'exécuter des binaires win32 `.exe` en les lançant avec un système de fichier et un registre virtualisé. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
 
 In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
