@@ -1435,9 +1435,9 @@ Tray.instanceEvents.drop-text.returns.text.description: the dropped text string
 Tray.instanceEvents.drag-enter.description: Emitted when a drag operation enters the tray icon.
 Tray.instanceEvents.drag-leave.description: Emitted when a drag operation exits the tray icon.
 Tray.instanceEvents.drag-end.description: Emitted when a drag operation ends on the tray or ends at another location.
-UploadBlob.properties.type.description: blob.
-UploadBlob.properties.blobUUID.description: UUID of blob data to upload.
-UploadData.properties.bytes.description: Content being sent.
+UploadBlob.properties.type.description: objet blob.
+UploadBlob.properties.blobUUID.description: UUID des données blob à télécharger.
+UploadData.properties.bytes.description: Contenu envoyé.
 UploadData.properties.file.description: Path of file being uploaded.
 UploadData.properties.blobUUID.description: UUID of blob data. Use method to retrieve the data.
 UploadFile.properties.type.description: file.
