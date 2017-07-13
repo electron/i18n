@@ -1,6 +1,6 @@
 # Notifications (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Les trois systèmes d’exploitation permettent aux applications d’envoyer des notifications à l’utilisateur. Electron permet aux développeurs d'envoyer des notifications avec l' [API de Notification HTML5](https://notifications.spec.whatwg.org/), utilisant l'API de notifications natives du système d’exploitation en cours d’exécution pour l’afficher.
 
 **Remarque :** Depuis qu'il s'agit d'une API HTML5 c'est seulement disponible dans le processus de rendu.
 
@@ -14,43 +14,43 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Le code et l’expérience utilisateur sur les différents systèmes d’exploitation sont semblables, mais il y a des différences.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an \[Application User Model ID\]\[app-user-model-id\], must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Sur Windows 10, les notifications "fonctionnent".
+* Sur Windows 8.1 et Windows 8, un raccourci vers votre application, avec un \[App User Model ID\]\[app-user-model-id\], doit être installé à l’écran de démarrage. Notez, cependant, qu’il n’a pas besoin d’être épinglée à l’écran de démarrage.
+* Sur Windows 7, les notifications fonctionnent via une implémentation personnalisée qui ressemble visuellement au natif sur les systèmes plus récents.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+En outre, dans Windows 8, la longueur maximale pour le corps de notification est de 250 caractères, l'équipe Windows recommande que les notifications fassent jusqu'à 200 caractères. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
-### Advanced Notifications
+### Notifications enrichies
 
 Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
-### Quiet Hours / Presentation Mode
+### Heures de calme / Mode présentation
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Pour détecter si oui ou non vous êtes autorisé à envoyer une notification, utilisez module "userland" [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
 This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Les notifications sont directe sur macOS, mais vous devez être conscient des [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Notez que les notifications sont limitées à 256 octets de taille et risque d’être tronquées si vous dépassez cette limite.
 
 ### Notifications enrichies
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Les versions ultérieures de macOS permettent aux notifications d'avoir un champ de saisie, permettant à l’utilisateur de répondre rapidement à une notification. Pour envoyer des notifications à un champ de saisie, utilisez le module de "userland" [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Ne pas déranger / État de la session
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Pour détecter si oui ou non vous êtes autorisé à envoyer une notification, utilisez module "userland" [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Cela vous permettra de détecter si la notification sera affichée ou pas.
 
 ## Linux
 
