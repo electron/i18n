@@ -1438,21 +1438,21 @@ Tray.instanceEvents.drag-end.description: Emitted when a drag operation ends on 
 UploadBlob.properties.type.description: objet blob.
 UploadBlob.properties.blobUUID.description: UUID des données blob à télécharger.
 UploadData.properties.bytes.description: Contenu envoyé.
-UploadData.properties.file.description: Path of file being uploaded.
-UploadData.properties.blobUUID.description: UUID of blob data. Use method to retrieve the data.
-UploadFile.properties.type.description: file.
-UploadFile.properties.filePath.description: Path of file to be uploaded.
+UploadData.properties.file.description: Chemin d'accès du fichier en cours de téléchargement.
+UploadData.properties.blobUUID.description: UUID des données blob. Méthode utilisée pour récupérer les données.
+UploadFile.properties.type.description: fichier.
+UploadFile.properties.filePath.description: Chemin d’accès du fichier à télécharger.
 UploadFile.properties.offset.description: 0 par défaut.
-UploadFile.properties.length.description: Number of bytes to read from offset. Defaults to 0.
+UploadFile.properties.length.description: Nombre d’octets à lire depuis l'offset. 0 par défaut.
 UploadFile.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
-UploadFileSystem.properties.type.description: fileSystem.
+UploadFileSystem.properties.type.description: système de fichiers.
 UploadFileSystem.properties.filsSystemURL.description: FileSystem url to read data for upload.
 UploadFileSystem.properties.offset.description: 0 par défaut.
-UploadFileSystem.properties.length.description: Number of bytes to read from offset. Defaults to 0.
+UploadFileSystem.properties.length.description: Nombre d’octets à lire depuis l'offset. 0 par défaut.
 UploadFileSystem.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
-UploadRawData.properties.type.description: rawData.
-UploadRawData.properties.bytes.description: Data to be uploaded.
-webContents.description: Render and control web pages.
+UploadRawData.properties.type.description: données brutes.
+UploadRawData.properties.bytes.description: Données devant être téléchargées.
+webContents.description: Contrôle et rendu des pages web.
 webContents.methods.getAllWebContents.returns.description: >-
   An array of all WebContents instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 webContents.methods.getFocusedWebContents.returns.description: 'The web contents that is focused in this application, otherwise returns null.'
@@ -1490,23 +1490,23 @@ WebContents.instanceMethods.goToOffset.description: Navigates to the specified o
 WebContents.instanceMethods.isCrashed.returns.description: Whether the renderer process has crashed.
 WebContents.instanceMethods.setUserAgent.description: Overrides the user agent for this web page.
 WebContents.instanceMethods.getUserAgent.returns.description: The user agent for this web page.
-WebContents.instanceMethods.insertCSS.description: Injects CSS into the current web page.
+WebContents.instanceMethods.insertCSS.description: Injecte du CSS dans la page web actuelle.
 WebContents.instanceMethods.executeJavaScript.description: >-
   Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation. If the result of the executed code is a promise the callback result will be the resolved value of the promise.  We recommend that you use the returned Promise to handle code that results in a Promise.
-WebContents.instanceMethods.executeJavaScript.parameters.userGesture.description: Default is `false`.
-WebContents.instanceMethods.executeJavaScript.parameters.callback.description: Called after script has been executed.
+WebContents.instanceMethods.executeJavaScript.parameters.userGesture.description: '`false` par défaut.'
+WebContents.instanceMethods.executeJavaScript.parameters.callback.description: Appelé après que le script ai été exécuté.
 WebContents.instanceMethods.executeJavaScript.returns.description: >-
   A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 WebContents.instanceMethods.setAudioMuted.description: Mute the audio on the current web page.
 WebContents.instanceMethods.isAudioMuted.returns.description: Whether this page has been muted.
 WebContents.instanceMethods.setZoomFactor.description: >-
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-WebContents.instanceMethods.setZoomFactor.parameters.factor.description: Zoom factor.
+WebContents.instanceMethods.setZoomFactor.parameters.factor.description: Niveau de Zoom.
 WebContents.instanceMethods.getZoomFactor.description: >-
   Sends a request to get current zoom factor, the callback will be called with callback(zoomFactor).
 WebContents.instanceMethods.setZoomLevel.description: >-
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
-WebContents.instanceMethods.setZoomLevel.parameters.level.description: Zoom level
+WebContents.instanceMethods.setZoomLevel.parameters.level.description: Niveau de zoom
 WebContents.instanceMethods.getZoomLevel.description: >-
   Sends a request to get current zoom level, the callback will be called with callback(zoomLevel).
 WebContents.instanceMethods.setZoomLevelLimits.description: >-
@@ -1564,10 +1564,10 @@ WebContents.instanceMethods.removeWorkSpace.description: Removes the specified p
 WebContents.instanceMethods.openDevTools.description: Opens the devtools.
 WebContents.instanceMethods.openDevTools.parameters.options.properties.mode.description: >-
   Opens the devtools with specified dock state, can be right, bottom, undocked, detach. Defaults to last used dock state. In undocked mode it's possible to dock back. In detach mode it's not.
-WebContents.instanceMethods.closeDevTools.description: Closes the devtools.
+WebContents.instanceMethods.closeDevTools.description: Ferme les devtools.
 WebContents.instanceMethods.isDevToolsOpened.returns.description: Whether the devtools is opened.
 WebContents.instanceMethods.isDevToolsFocused.returns.description: Whether the devtools view is focused .
-WebContents.instanceMethods.toggleDevTools.description: Toggles the developer tools.
+WebContents.instanceMethods.toggleDevTools.description: Active/désactive les outils développeur.
 WebContents.instanceMethods.inspectElement.description: 'Starts inspecting element at position (x, y).'
 WebContents.instanceMethods.inspectServiceWorker.description: Opens the developer tools for the service worker context.
 WebContents.instanceMethods.send.description: >-
@@ -1595,13 +1595,13 @@ WebContents.instanceMethods.sendInputEvent.parameters.event.properties.modifiers
   An array of modifiers of the event, can include shift, control, alt, meta, isKeypad, isAutoRepeat, leftButtonDown, middleButtonDown, rightButtonDown, capsLock, numLock, left, right.
 WebContents.instanceMethods.beginFrameSubscription.description: >-
   Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer, dirtyRect) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format). The dirtyRect is an object with x, y, width, height properties that describes which part of the page was repainted. If onlyDirty is set to true, frameBuffer will only contain the repainted area. onlyDirty defaults to false.
-WebContents.instanceMethods.beginFrameSubscription.parameters.onlyDirty.description: Defaults to `false`
+WebContents.instanceMethods.beginFrameSubscription.parameters.onlyDirty.description: '`false` par défaut'
 WebContents.instanceMethods.endFrameSubscription.description: End subscribing for frame presentation events.
 WebContents.instanceMethods.startDrag.description: >-
   Sets the item as dragging item for current drag-drop operation, file is the absolute path of the file to be dragged, and icon is the image showing under the cursor when dragging.
 WebContents.instanceMethods.startDrag.parameters.item.properties.file.description: or files Array The path(s) to the file(s) being dragged.
 WebContents.instanceMethods.startDrag.parameters.item.properties.icon.description: The image must be non-empty on macOS.
-WebContents.instanceMethods.savePage.parameters.fullPath.description: The full file path.
+WebContents.instanceMethods.savePage.parameters.fullPath.description: Le chemin d’accès complet du fichier.
 WebContents.instanceMethods.savePage.parameters.saveType.description: Specify the save type.
 WebContents.instanceMethods.savePage.parameters.callback.description: '`(error) => {}`.'
 WebContents.instanceMethods.savePage.returns.description: true if the process of saving page has been initiated successfully.
@@ -1695,11 +1695,11 @@ WebContents.instanceEvents.update-target-url.description: >-
 WebContents.instanceEvents.cursor-changed.description: >-
   Emitted when the cursor's type changes. The type parameter can be default, crosshair, pointer, text, wait, help, e-resize, n-resize, ne-resize, nw-resize, s-resize, se-resize, sw-resize, w-resize, ns-resize, ew-resize, nesw-resize, nwse-resize, col-resize, row-resize, m-panning, e-panning, n-panning, ne-panning, nw-panning, s-panning, se-panning, sw-panning, w-panning, move, vertical-text, cell, context-menu, alias, progress, nodrop, copy, none, not-allowed, zoom-in, zoom-out, grab, grabbing, custom. If the type parameter is custom, the image parameter will hold the custom cursor image in a NativeImage, and scale, size and hotspot will hold additional information about the custom cursor.
 WebContents.instanceEvents.cursor-changed.returns.scale.description: scaling factor for the custom cursor
-WebContents.instanceEvents.cursor-changed.returns.size.description: the size of the `image`
+WebContents.instanceEvents.cursor-changed.returns.size.description: la taille de `image`
 WebContents.instanceEvents.cursor-changed.returns.hotspot.description: coordinates of the custom cursor's hotspot
 WebContents.instanceEvents.context-menu.description: Emitted when there is a new context menu that needs to be handled.
-WebContents.instanceEvents.context-menu.returns.params.properties.x.description: x coordinate
-WebContents.instanceEvents.context-menu.returns.params.properties.y.description: y coordinate
+WebContents.instanceEvents.context-menu.returns.params.properties.x.description: coordonnée x
+WebContents.instanceEvents.context-menu.returns.params.properties.y.description: coordonnée y
 WebContents.instanceEvents.context-menu.returns.params.properties.linkURL.description: URL of the link that encloses the node the context menu was invoked on.
 WebContents.instanceEvents.context-menu.returns.params.properties.linkText.description: >-
   Text associated with the link. May be an empty string if the contents of the link are an image.
@@ -1752,11 +1752,11 @@ WebContents.instanceEvents.will-attach-webview.returns.params.description: >-
 webFrame.description: Customize the rendering of the current web page.
 webFrame.methods.setZoomFactor.description: >-
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-webFrame.methods.setZoomFactor.parameters.factor.description: Zoom factor.
+webFrame.methods.setZoomFactor.parameters.factor.description: Niveau de Zoom.
 webFrame.methods.getZoomFactor.returns.description: The current zoom factor.
 webFrame.methods.setZoomLevel.description: >-
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
-webFrame.methods.setZoomLevel.parameters.level.description: Zoom level
+webFrame.methods.setZoomLevel.parameters.level.description: Niveau de zoom
 webFrame.methods.getZoomLevel.returns.description: The current zoom level.
 webFrame.methods.setZoomLevelLimits.description: >-
   Deprecated: Call setVisualZoomLevelLimits instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
@@ -1771,16 +1771,16 @@ webFrame.methods.registerURLSchemeAsBypassingCSP.description: >-
   Resources will be loaded from this scheme regardless of the current page's Content Security Policy.
 webFrame.methods.registerURLSchemeAsPrivileged.description: >-
   Registers the scheme as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API. Specify an option with the value of false to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.secure.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.bypassCSP.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.allowServiceWorkers.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.supportFetchAPI.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.corsEnabled.description: Default true.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.secure.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.bypassCSP.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.allowServiceWorkers.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.supportFetchAPI.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.corsEnabled.description: True par défaut.
 webFrame.methods.insertText.description: Inserts text to the focused element.
 webFrame.methods.executeJavaScript.description: >-
   Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation.
-webFrame.methods.executeJavaScript.parameters.userGesture.description: Default is `false`.
-webFrame.methods.executeJavaScript.parameters.callback.description: Called after script has been executed.
+webFrame.methods.executeJavaScript.parameters.userGesture.description: '`false` par défaut.'
+webFrame.methods.executeJavaScript.parameters.callback.description: Appelé après que le script ai été exécuté.
 webFrame.methods.executeJavaScript.returns.description: >-
   A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 webFrame.methods.getResourceUsage.description: >-
@@ -1855,8 +1855,8 @@ webviewTag.methods.getUserAgent.returns.description: The user agent for guest pa
 webviewTag.methods.insertCSS.description: Injects CSS into the guest page.
 webviewTag.methods.executeJavaScript.description: >-
   Evaluates code in page. If userGesture is set, it will create the user gesture context in the page. HTML APIs like requestFullScreen, which require user action, can take advantage of this option for automation.
-webviewTag.methods.executeJavaScript.parameters.userGesture.description: Default `false`.
-webviewTag.methods.executeJavaScript.parameters.callback.description: Called after script has been executed.
+webviewTag.methods.executeJavaScript.parameters.userGesture.description: '`false` par défaut.'
+webviewTag.methods.executeJavaScript.parameters.callback.description: Appelé après que le script ai été exécuté.
 webviewTag.methods.openDevTools.description: Opens a DevTools window for guest page.
 webviewTag.methods.closeDevTools.description: Closes the DevTools window of guest page.
 webviewTag.methods.isDevToolsOpened.returns.description: Whether guest page has a DevTools window attached.
@@ -1909,10 +1909,10 @@ webviewTag.methods.sendInputEvent.description: >-
   Sends an input event to the page. See webContents.sendInputEvent for detailed description of event object.
 webviewTag.methods.setZoomFactor.description: >-
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-webviewTag.methods.setZoomFactor.parameters.factor.description: Zoom factor.
+webviewTag.methods.setZoomFactor.parameters.factor.description: Niveau de Zoom.
 webviewTag.methods.setZoomLevel.description: >-
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
-webviewTag.methods.setZoomLevel.parameters.level.description: Zoom level
+webviewTag.methods.setZoomLevel.parameters.level.description: Niveau de zoom
 webviewTag.methods.showDefinitionForSelection.description: Shows pop-up dictionary that searches the selected word on the page.
 webviewTag.methods.getWebContents.returns.description: The web contents associated with this webview.
 webviewTag.attributes.src.description: >-
@@ -1960,7 +1960,7 @@ webviewTag.domEvents.dom-ready.description: Fired when document in the given fra
 webviewTag.domEvents.page-title-updated.description: >-
   Fired when page title is set during navigation. explicitSet is false when title is synthesized from file url.
 webviewTag.domEvents.page-favicon-updated.description: Fired when page receives favicon urls.
-webviewTag.domEvents.page-favicon-updated.returns.favicons.description: Array of URLs.
+webviewTag.domEvents.page-favicon-updated.returns.favicons.description: Array d'URL.
 webviewTag.domEvents.enter-html-full-screen.description: Fired when page enters fullscreen triggered by HTML API.
 webviewTag.domEvents.leave-html-full-screen.description: Fired when page leaves fullscreen triggered by HTML API.
 webviewTag.domEvents.console-message.description: >-
