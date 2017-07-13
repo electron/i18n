@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Un test simple pour verifier si un fenêtre visible s'ouvre avec un titre
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,22 +22,22 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Check if the window is visible
+  // Vérifie si la fenêtre est visible
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verify the window is visible
+  // Vérifie que la fenêtre est visible
   assert.equal(isVisible, true)
 }).then(function () {
-  // Get the window's title
+  // Obtient le titre de la fenêtre
   return app.client.getTitle()
 }).then(function (title) {
-  // Verify the window's title
+  // Vérifie le titre de la fenêtre
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log any failures
+  // Log toutes les erreurs
   console.error('Test failed', error.message)
 }).then(function () {
-  // Stop the application
+  // Stop l'Application
   return app.stop()
 })
 ```
@@ -53,19 +53,19 @@ First you need to download the `chromedriver` binary, and run it:
 ```bash
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Démarre ChromeDriver (v2.10.291558) sur le port 9515
+Seulement les connexions locales sont autorisées.
 ```
 
-Remember the port number `9515`, which will be used later
+N’oubliez pas le numéro du port `9515`, qui servira plus tard
 
-### 2. Install WebDriverJS
+### 2. installer WebDriverJS
 
 ```bash
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Se connecter à ChromeDriver
 
 The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
@@ -73,7 +73,7 @@ The usage of `selenium-webdriver` with Electron is basically the same with upstr
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // "9515" est le port ouvert par ChromeDriver.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
@@ -111,7 +111,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+N’oubliez pas le numéro du port `9515`, qui servira plus tard
 
 ### 2. Install WebdriverIO
 
