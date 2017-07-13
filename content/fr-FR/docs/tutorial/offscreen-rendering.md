@@ -1,24 +1,24 @@
-# Rendu Offscreen
+# Rendu hors de l'écran
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Le Rendu hors de l'écran vous permet d’obtenir le contenu d’une fenêtre de navigateur dans un fichier bitmap, donc il peut être restitué n’importe où, par exemple une texture dans une scène 3D. Le rendu hors écran d'Electron utilise une approche similaire au projet [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. La fréquence maximale est de 60, car haut dessus il n'y a aucun bénéfices, juste des pertes de performances.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Remarque :** Une fenêtre hors de l’écran est toujours créée comme une [Fenêtre sans cadre](../api/frameless-window.md).
 
-## Two modes of rendering
+## Deux modes de rendu
 
-### GPU accelerated
+### Accélération GPU
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+Le rendu par l'acceleration GPU signifie que le GPU est utilisé pour la composition. Puisque cette fenêtre doit être copiée depuis le GPU, cela require plus de performances. Donc ce mode est légèrement plus lent que l'autre. L’avantage de ce mode est que WebGL et les animations CSS 3D sont prises en charge.
 
 ### Software output device
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Pour activer ce mode, l'accélération GPU doit être désactivé en appelant l'API [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration).
 
-## Usage
+## Utilisation
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
