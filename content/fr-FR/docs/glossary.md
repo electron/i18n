@@ -50,25 +50,25 @@ Voir aussi [Utilisation des modules natifs de Node](tutorial/using-native-node-m
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
-### processus
+### processus (process)
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Un processus est une instance d'un programme d'ordinateur en execution. Les apps Electron qui utilisent le processus [main](#main-process) et un ou plusieurs processus [renderer](#renderer-process) font tourner plusieurs programmes en même temps.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+Dans Node.js et Electron, chaque processus en execution ont un objet `processus`. Cet objet global donne des informations et permet de contrôler le processus current. Comme une variable global, cet objet est disponible dans l'application sans utiliser require().
 
 Voir aussi : [processus principal](#main-process), [processus de rendu](#renderer-process)
 
-### processus de rendu
+### processus de rendu (renderer process)
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-Voir aussi : [processus](#process), [processus principal](#main-process)
+Voir aussi : [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel est un framework open-source permettant aux apps Electron de se mettre à jour automatiquement quand une nouvelle version est disponible. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
 ### Userland
 
