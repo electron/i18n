@@ -50,8 +50,8 @@ need_help:
   title: Precisa de Ajuda?
   description: 'Fazer perguntas no fórum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> ou nosso canal do <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Siga <a href="https://twitter.com/ElectronJS">@ElectronJS</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
-  title: Apps built on Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  title: Aplicativos construídos com Electron
+  description: 'Com Electron, criar uma aplicação desktop para sua empresa ou ideia é fácil. Inicialmente foi desenvolvido para GitHubs o <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron já foi usado para criar aplicativos por empresas como Microsoft, Facebook, Slack e Docker.'
   view_more: View more apps
   submit_your_own: submit your own
 or: or
