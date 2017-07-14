@@ -11,30 +11,30 @@ There are questions that are asked quite often. Check this out before creating a
 * [术语表](glossary.md)
 * [支持平台](tutorial/supported-platforms.md)
 * [安全](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
+* [Electron 版本管理](tutorial/electron-versioning.md)
 * [Application Distribution](tutorial/application-distribution.md)
 * [Mac App Store 应用程序提交指南](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store Guide](tutorial/windows-store-guide.md)
 * [应用程序打包](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [使用 Node 原生模块](tutorial/using-native-node-modules.md)
+* [主进程调试](tutorial/debugging-main-process.md)
+* [使用 Selenium 和 WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [开发者工具拓展](tutorial/devtools-extension.md)
+* [使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
+* [使用 Widevine CDM 插件](tutorial/using-widevine-cdm-plugin.md)
+* [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [离屏渲染](tutorial/offscreen-rendering.md)
+* [键盘快捷键](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## 教程
 
-* [Quick Start](tutorial/quick-start.md)
+* [快速入门](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
 * [Online/Offline Event Detection](tutorial/online-offline-events.md)
-* [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [交互式解释器 (REPL)](tutorial/repl.md)
+* [系统原生通知](tutorial/notifications.md)
 
-## API References
+## API 参考
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
@@ -82,9 +82,9 @@ There are questions that are asked quite often. Check this out before creating a
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## 开发
 
-* [Coding Style](development/coding-style.md)
+* [代码规范](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
 * [Source Code Directory Structure](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
