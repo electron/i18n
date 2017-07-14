@@ -1,4 +1,4 @@
-# Coding Style
+# 代码规范
 
 These are the style guidelines for coding in Electron.
 
