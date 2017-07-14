@@ -4,95 +4,95 @@
 
 **Note**: At the time of writing the latest release of `node-inspector` (0.12.8) can't be rebuilt to target Electron 1.3.0 or later without patching one of its dependencies. If you use `electron-inspector` it will take care of this for you.
 
-## Use `electron-inspector` for Debugging
+## Utiliser `electron-inspector` pour le déboggage
 
-### 1. Install the [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
+### 1. Installez [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
 
-### 2. Install [`electron-rebuild`](https://github.com/electron/electron-rebuild), if you haven't done so already.
+### 2. Installez [`Electron-rebuild`](https://github.com/electron/electron-rebuild), si vous ne l’avez pas déjà fait.
 
 ```shell
 npm install electron-rebuild --save-dev
 ```
 
-### 3. Install [`electron-inspector`](https://github.com/enlight/electron-inspector)
+### 3. installez [`electron-inspector`](https://github.com/enlight/electron-inspector)
 
 ```shell
 npm install electron-inspector --save-dev
 ```
 
-### 4. Start Electron
+### 4. Démarrez Electron
 
-Launch Electron with the `--debug` switch:
-
-```shell
-electron --debug=5858 your/app
-```
-
-or, to pause execution on the first line of JavaScript:
+Lancer Electron avec le paramètre `--debug` :
 
 ```shell
-electron --debug-brk=5858 your/app
+electron --debug=5858 votre/app
 ```
 
-### 5. Start electron-inspector
+sinon, pour mettre en pause l’exécution sur la première ligne de JavaScript :
 
-On macOS / Linux:
+```shell
+electron --debug-brk=5858 votre/app
+```
+
+### 5. Démarrer electron-inspector
+
+Sur macOS / Linux :
 
 ```shell
 node_modules/.bin/electron-inspector
 ```
 
-On Windows:
+Sur Windows :
 
 ```shell
 node_modules\\.bin\\electron-inspector
 ```
 
-`electron-inspector` will need to rebuild `node-inspector` dependencies on the first run, and any time you change your Electron version. The rebuild process may require an internet connection to download Node headers and libs, and may take a few minutes.
+`electron-inspector` devra reconstruire les dépendances de `node-inspector` à la première exécution, et à chaque fois que vous changerez votre version d'Electron. Le processus de rebuild peut exiger une connexion internet pour télécharger les bibliothèques et headers de Node et peut prendre quelques minutes.
 
-### 6. Load the debugger UI
+### 6. Charger l’interface utilisateur du déboggueur
 
 Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome browser. You may have to click pause if starting with `--debug-brk` to force the UI to update.
 
-## Use `node-inspector` for Debugging
+## Utiliser `node-inspector` pour le déboggage
 
-### 1. Install the [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
+### 1. Installez [node-gyp required tools](https://github.com/nodejs/node-gyp#installation)
 
-### 2. Install [`node-inspector`](https://github.com/node-inspector/node-inspector)
+### 2. Installez [`node-inspector`](https://github.com/node-inspector/node-inspector)
 
 ```bash
 $ npm install node-inspector
 ```
 
-### 3. Install [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)
+### 3. Installez [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)
 
 ```bash
 $ npm install node-pre-gyp
 ```
 
-### 4. Recompile the `node-inspector` `v8` modules for Electron
+### 4. Recompilez les modules de `node-inspector` `v8` pour Electron
 
-**Note:** Update the target argument to be your Electron version number
+**Remarque :** Mettre à jour l’argument target à votre numéro de version Electron
 
 ```bash
 $ node_modules/.bin/node-pre-gyp --target=1.2.5 --runtime=electron --fallback-to-build --directory node_modules/v8-debug/ --dist-url=https://atom.io/download/atom-shell reinstall
 $ node_modules/.bin/node-pre-gyp --target=1.2.5 --runtime=electron --fallback-to-build --directory node_modules/v8-profiler/ --dist-url=https://atom.io/download/atom-shell reinstall
 ```
 
-See also [How to install native modules](using-native-node-modules.md#how-to-install-native-modules).
+Voir aussi [Comment faire pour installer les modules natifs](using-native-node-modules.md#how-to-install-native-modules).
 
-### 5. Enable debug mode for Electron
+### 5. Activer le mode debug pour Electron
 
-You can either start Electron with a debug flag like:
+Vous pouvez soit démarrer Electron avec un indicateur de déboggage :
 
 ```bash
-$ electron --debug=5858 your/app
+$ electron --debug=5858 votre/app
 ```
 
 or, to pause your script on the first line:
 
 ```bash
-$ electron --debug-brk=5858 your/app
+$ electron --debug-brk=5858 votre/app
 ```
 
 ### 6. Start the [`node-inspector`](https://github.com/node-inspector/node-inspector) server using Electron
