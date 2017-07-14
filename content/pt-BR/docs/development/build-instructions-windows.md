@@ -94,7 +94,7 @@ If you encountered an error like `Command xxxx not found`, you may try to use th
 
 ### Erro do compilador interno fatal: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Verifique se você tem a atualização mais recente do Visual Studio instalada.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
