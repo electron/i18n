@@ -29,26 +29,26 @@ benefits:
   windows_installers: Instalador do Windows
 get_started:
   title: Começar
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com Electron, acesse todas as APIs e gerado de instaladores.
 explore:
   title: Explore as APIs do Electron
   description:
     - 'O <a href="https://github.com/electron/electron-api-demos">Exemplos das APIs do Electron</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+    - interativamente, demonstra as características mais importantes da API do Electron.
+    - Veja o que é possível com Electron com exemplos de código e dicas úteis para
+    - construindo seu aplicativo.
+download_from_github: Download no GitHub
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a>no GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  clone: Clone o repositório Quick Start
+  go_into_repo: Ir para o repositório
+  install_deps: Instale as dependências e execute
   dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
 need_help:
-  title: Need Help?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  title: Precisa de Ajuda?
+  description: 'Fazer perguntas no fórum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> ou nosso canal do <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Siga <a href="https://twitter.com/ElectronJS">@ElectronJS</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
   title: Apps built on Electron
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
