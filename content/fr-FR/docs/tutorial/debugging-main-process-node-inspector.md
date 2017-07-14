@@ -1,8 +1,8 @@
-# Debugging the Main Process in node-inspector
+# Débogguer le processus principal dans node-inspector
 
-[`node-inspector`](https://github.com/node-inspector/node-inspector) provides a familiar DevTools GUI that can be used in Chrome to debug Electron's main process, however, because `node-inspector` relies on some native Node modules they must be rebuilt to target the version of Electron you wish to debug. You can either rebuild the `node-inspector` dependencies yourself, or let [`electron-inspector`](https://github.com/enlight/electron-inspector) do it for you, both approaches are covered in this document.
+[`node-inspector`](https://github.com/node-inspector/node-inspector) fournit un GUI DevTools familier qui peut être utilisé dans Chrome pour débogguer le processus principal d'Electron, cependant, puisque `node-inspector` s'appuie sur quelques modules natifs Node il doivent être rebuild pour cibler la version d'Electron que vous souhaitez débogguer. Vous pouvez reconstruire les dépendances de `node-inspector` vous-même, ou laisser [`electron-inspector`](https://github.com/enlight/electron-inspector) le faire pour vous, ces deux approches sont couvertes dans ce document.
 
-**Note**: At the time of writing the latest release of `node-inspector` (0.12.8) can't be rebuilt to target Electron 1.3.0 or later without patching one of its dependencies. If you use `electron-inspector` it will take care of this for you.
+**Remarque :** Au moment de l’écriture, la dernière version de `node-inspector` (0.12.8) ne peut pas être reconstruite pour cibler Electron 1.3.0 (ou +) sans patcher une de ses dépendances. Si vous utilisez `electron-inspector`, il s’occupera de cela pour vous.
 
 ## Utiliser `electron-inspector` pour le déboggage
 
@@ -103,4 +103,4 @@ $ ELECTRON_RUN_AS_NODE=true path/to/electron.exe node_modules/node-inspector/bin
 
 ### 7. Charger le déboggueur de l'interface utilisateur
 
-Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome browser. You may have to click pause if starting with `--debug-brk` to see the entry line.
+Ouvrez http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 dans Chrome. Vous devrez peut-être cliquer sur pause si ça commence par `--debug-brk` pour voir la ligne d’entrée.
