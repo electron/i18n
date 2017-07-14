@@ -92,7 +92,7 @@ Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
 
 If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
 
-### Fatal internal compiler error: C1001
+### Erro do compilador interno fatal: C1001
 
 Make sure you have the latest Visual Studio update installed.
 
