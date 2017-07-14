@@ -1,4 +1,4 @@
-# REPL
+# 交互式解释器 (REPL)
 
 Read-Eval-Print-Loop (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
 
