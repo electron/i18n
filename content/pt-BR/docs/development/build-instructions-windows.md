@@ -114,17 +114,17 @@ If building under Cygwin, you may see `bootstrap.py` failed with following error
     subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
     
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Isso é causado por um bug ao usar o Cygwin Python e Win32 juntos. A solução ao usar o Python Win32 para executar o script de inicialização (supondo que você tenha instalado o Python em `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: não é possível abrir o arquivo 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Tente reinstalar o Node.js 32bit.
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### Erro: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
 Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
 
