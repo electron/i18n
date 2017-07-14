@@ -20,25 +20,25 @@ Nous estimons que notre système actuel de mise à jour de Chromium présente un
 
 Il existe un problème de sécurité chaque fois que vous recevez le code d’une destination distante et l’exécutez localement. Par exemple, imaginez un site distant affiché dans une fenêtre du navigateur. Si un pirate réussit à modifier lesdits contenus (que ce soit en s’attaquant à la source directement, ou en étant entre votre application et la destination réelle), ils seront en mesure d’exécuter du code natif sur l’ordinateur de l’utilisateur.
 
-> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: en aucune circonstance vous devriez charger et exécuter du code distant avec l'intégration de Node activé. Utilisez plutôt les fichiers locaux (empaquetés avec votre demande) pour exécuter le code de Node. Pour afficher du contenu distant, utilisez la balise `webview` et assurez-vous de désactiver le `nodeIntegration`.
 
-#### Checklist
+#### Liste de contrôle
 
-This is not bulletproof, but at the least, you should attempt the following:
+Ce n’est pas bulletproof, mais au moins, vous devriez essayer ce qui suit :
 
-* Only display secure (https) content
-* Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
+* Afficher uniquement le contenu sécurisé (https)
+* Désactiver l’intégration de Node dans tous les convertisseurs qui affichent du contenu distant (paramètre `nodeIntegration` `faux` dans `webPreferences`)
+* Activer l’isolement de contexte dans tous les convertisseurs qui affichent du contenu distant (paramètre `contextIsolation` sur `true` dans `webPreferences`)
+* Utiliser `ses.setPermissionRequestHandler()` dans toutes les sessions qui se chargent de contenu distant
+* Ne désactivez pas `webSecurity`. Le désactiver désactivera la politique de la même origine.
+* Définir une [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) et appliquer les règles restrictives (c.-à-d. `script-src 'self'`)
+* [Annuler et désactiver `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8), qui permet aux strings d'exécuter du code.
+* Ne définissez pas `allowRunningInsecureContent` à true.
+* N’activez pas de `experimentalFeatures` ou `experimentalCanvasFeatures` sauf si vous savez ce que vous faites.
+* N’utilisez pas `blinkFeatures` sauf si vous savez ce que vous faites.
+* WebViews : N’ajoutez pas l’attribut `nodeintegration`.
+* WebViews : Ne pas utiliser `disablewebsecurity`
+* WebViews : Ne pas utiliser `allowpopups`
+* WebViews : Ne pas utiliser `insertCSS` ou `executeJavaScript` avec CSS/JS distant.
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Encore une fois, cette liste permet simplement de réduire le risque, elle ne le supprime pas. Si votre but est d’afficher un site Web, un navigateur sera une option plus sûre.
