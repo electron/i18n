@@ -52,7 +52,7 @@ node_modules\\.bin\\electron-inspector
 
 ### 6. Charger l’interface utilisateur du déboggueur
 
-Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome browser. You may have to click pause if starting with `--debug-brk` to force the UI to update.
+Ouvrez http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 dans Chrome. Vous devrez peut-être cliquer sur pause si ça commence par `--debug-brk` pour forcer la mise à jour de l’interface utilisateur.
 
 ## Utiliser `node-inspector` pour le déboggage
 
@@ -89,18 +89,18 @@ Vous pouvez soit démarrer Electron avec un indicateur de déboggage :
 $ electron --debug=5858 votre/app
 ```
 
-or, to pause your script on the first line:
+sinon, pour mettre en pause votre script sur la première ligne :
 
 ```bash
 $ electron --debug-brk=5858 votre/app
 ```
 
-### 6. Start the [`node-inspector`](https://github.com/node-inspector/node-inspector) server using Electron
+### 6. Démarrez le serveur de [`node-inspector`](https://github.com/node-inspector/node-inspector) avec Electron
 
 ```bash
 $ ELECTRON_RUN_AS_NODE=true path/to/electron.exe node_modules/node-inspector/bin/inspector.js
 ```
 
-### 7. Load the debugger UI
+### 7. Charger le déboggueur de l'interface utilisateur
 
 Open http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858 in the Chrome browser. You may have to click pause if starting with `--debug-brk` to see the entry line.
