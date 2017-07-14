@@ -126,12 +126,12 @@ Tente reinstalar o Node.js 32bit.
 
 ### Erro: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Simplesmente criando esse diretório [deve corrigir o problema](http://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp não é reconhecido como um comando interno ou externo
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Você pode obter este erro se você estiver usando Git Bash para construção, você deve usar o PowerShell ou VS2015 Command Prompt.
