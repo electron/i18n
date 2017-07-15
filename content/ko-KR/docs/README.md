@@ -1,14 +1,19 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+자신의 Electron 버전과 일치하는 문서를 사용했는지 확인하세요. 버전 번호는 페이지
+URL 의 일부여야 합니다. 그렇지 않은 경우, Electron 버전과 호환되지 않는 API 변경
+사항이 포함될 수 있는 개발 브랜치의 문서를 사용하고 있을 수 있습니다. 문서의
+이전 버전을 보려면, GitHub 에서 "Switch branches/tags" 드롭다운을 열고 버전과
+일치하는 태그를 선책하여
+[태그로 찾아](https://github.com/electron/electron/tree/v1.4.0) 볼 수 있습니다.
 
 ## 자주 묻는 질문
 
-There are questions that are asked quite often. Check this out before creating an issue:
+꽤 자주 묻는 질문이 있습니다. 이슈를 생성하기 전에 다음을 확인하세요:
 
-* [Electron FAQ](faq.md)
+* [Electron 자주 묻는 질문](faq.md)
 
-## Guides
+## 안내
 
-* [Glossary of Terms](glossary.md)
+* [용어 사전](glossary.md)
 * [Supported Platforms](tutorial/supported-platforms.md)
 * [Security](tutorial/security.md)
 * [Electron Versioning](tutorial/electron-versioning.md)
@@ -26,7 +31,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## 사용 지침
 
 * [Quick Start](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
@@ -34,20 +39,20 @@ There are questions that are asked quite often. Check this out before creating a
 * [REPL](tutorial/repl.md)
 * [Native Notifications](tutorial/notifications.md)
 
-## API References
+## API 참고
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 
-### Custom DOM Elements:
+### 사용자 정의 DOM 요소:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`File` 객체](api/file-object.md)
+* [`<webview>` 태그](api/webview-tag.md)
+* [`window.open` 함수](api/window-open.md)
 
-### Modules for the Main Process:
+### 주 프로세스를 위한 모듈:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -67,7 +72,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### 렌더러 프로세스(웹 페이지)를 위한 모듈:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
@@ -82,7 +87,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## 개발
 
 * [Coding Style](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
