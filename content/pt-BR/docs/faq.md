@@ -1,14 +1,14 @@
 # Electron FAQ
 
-## Quando o Electron recebera a atualização mais recente do Chrome?
+## Quando o Electron será atualizado para a versão mais recente do Chrome?
 
 A versão do Chrome usada no Electron é geralmente disponibilizado dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é uma garantida, depende da quantidade de trabalho envolvido com a atualização.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Apenas a versão estável do Chrome é usado. Se uma correção importante estiver disponível nas versões Beta ou Dev, vamos portá-la.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Para mais informações, consulte a [introdução de segurança](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Quando o Electron será atualizado para a versão mais recente do Node.js?
 
 When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
