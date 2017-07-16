@@ -1,50 +1,50 @@
-# Electron Documentation Styleguide
+# Electron 문서 스타일 안내
 
-These are the guidelines for writing Electron documentation.
+Electron 문서 작성 지침입니다.
 
-## Titles
+## 제목
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* 각 페이지는 상단에 단일 `#` 레벨 제목을 가지고 있어야 합니다.
+* 같은 페이지의 챕터는 `##` 레벨 제목을 가지고 있어야 합니다.
+* 하위 챕터는 중첩 깊이에 따라 제목에 `#` 의 수를 늘려야 합니다.
+* "of" 와 "and" 같은 접속사를 제외한, 페이지 제목의 모든 단어는 대문자로 시작해야 합니다.
+* 챕터 제목의 첫 단어만 대문자로 시작해야 합니다.
 
-Using `Quick Start` as example:
+`시작하기` 를 예로 듭니다:
 
 ```markdown
-# Quick Start
+# 시작하기
 
 ...
 
-## Main process
+## 주요 프로세스
 
 ...
 
-## Renderer process
+## 렌더러 프로세스
 
 ...
 
-## Run your app
+## 앱 실행
 
 ...
 
-### Run as a distribution
+### 배포판으로 실행
 
 ...
 
-### Manually downloaded Electron binary
+### 수동으로 내려받은 Electron 바이너리
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
 
-## Markdown rules
+## 마크다운 규칙
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* 코드 블럭에서 `cmd` 대신 `bash` 를 사용하세요 (구문 강조기로 인해).
+* 줄은 80 열로 줄 바꿈 되어야 합니다.
+* 2 단계 이상의 중첩 목록은 없습니다 (마크다운 렌더러로 인해).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
 ## Picking words
