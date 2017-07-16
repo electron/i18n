@@ -2,7 +2,7 @@
 
 ## Quando o Electron recebera a atualização mais recente do Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+A versão do Chrome usada no Electron é geralmente disponibilizado dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é uma garantida, depende da quantidade de trabalho envolvido com a atualização.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
