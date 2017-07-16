@@ -1,4 +1,4 @@
-# Using Selenium and WebDriver
+# Selenium 과 WebDriver 사용하기
 
 From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
