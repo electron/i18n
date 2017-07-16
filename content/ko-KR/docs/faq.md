@@ -1,24 +1,24 @@
-# Electron FAQ
+# Electron 자주 묻는 질문
 
-## When will Electron upgrade to latest Chrome?
+## Electron 은 언제 최신 Chrome 으로 업그레이드 합니까?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Electron 의 Chrome 버전은 대게 새로운 안정적인 Chrome 버전이 출시 된 후 1 ~ 2 주 이내에 반영됩니다. 이 예상치는 보장되지 않으며 업그레이드와 관련 작업량에 따라 다릅니다.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Chrome 의 안정적인 채널만 사용됩니다. 베타 또는 개발 채널에 중요한 수정 사항이 있다면, 소급 적용 할 것 입니다.
 
-For more information, please see the [security introduction](tutorial/security.md).
+자세한 내용은, [보안 소개](tutorial/security.md)를 참조하세요.
 
-## When will Electron upgrade to latest Node.js?
+## Electron 은 언제 최신 Node.js 로 업그레이드 합니까?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Node.js 의 새 버전이 출시되면, Electron 에서 업그레이드 하기 전에 보통 한 달 정도 기다립니다. 그래서 새 Node.js 버전에 발생한 버그의 영향을 받지 않을 수 있습니다. 이것은 매우 자주 발생합니다.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+일반적으로 Node.js 의 새 기능은 V8 업그레이드로 가져옵니다. Electron 이 Chrome 브라우저에 탑재된 V8 을 사용하기 때문에, 대게 새 Node.js 버전의 빛나는 새JavaScript 기능은 이미 Electron 에 있습니다.
 
-## How to share data between web pages?
+## 웹 페이지 간 데이터는 어떻게 공유합니까?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+웹 페이지 (렌더러 프로세스 들) 간 데이터를 공유하기 위한 가장 쉬운 방법은 브라우저에 이미 사용가능 한 HTML5 API 들을 사용하는 것 입니다. 좋은 후보는 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 입니다.
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+또는 Electron 에 한정되는 IPC 시스템을 사용할 수 있습니다. `electron` 모듈의 `remote` 속성을 통하여 주 프로세스의 객체를 전역 변수로 저장하고, 렌더러에서 그것들에 접근합니다:
 
 ```javascript
 // In the main process.
