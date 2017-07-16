@@ -1,6 +1,6 @@
 # Electron FAQ
 
-## When will Electron upgrade to latest Chrome?
+## Quando o Electron recebera a atualização mais recente do Chrome?
 
 The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
