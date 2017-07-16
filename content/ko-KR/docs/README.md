@@ -1,53 +1,53 @@
-자신의 Electron 버전과 일치하는 문서를 사용했는지 확인하세요. 버전 번호는 페이지 URL 의 일부여야 합니다. 그렇지 않은 경우, Electron 버전과 호환되지 않는 API 변경 사항이 포함될 수 있는 개발 브랜치의 문서를 사용하고 있을 수 있습니다. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+자신의 Electron 버전과 일치하는 문서를 사용했는지 확인하세요. 버전 번호는 페이지 URL 의 일부여야 합니다. 그렇지 않은 경우, Electron 버전과 호환되지 않는 API 변경 사항이 포함될 수 있는 개발 브랜치의 문서를 사용하고 있을 수 있습니다. 문서의 이전 버전을 보려면, GitHub 에서 "Switch branches/tags" 드롭다운을 열고 버전과 일치하는 태그를 선택하여 [태그로 찾아](https://github.com/electron/electron/tree/v1.4.0) 볼 수 있습니다.
 
 ## 자주 묻는 질문
 
-There are questions that are asked quite often. Check this out before creating an issue:
+꽤 자주 묻는 질문이 있습니다. 이슈를 생성하기 전에 다음을 확인하세요:
 
-* [Electron FAQ](faq.md)
+* [Electron 자주 묻는 질문](faq.md)
 
-## Guides
+## 안내서
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [용어집](glossary.md)
+* [지원되는 플랫폼](tutorial/supported-platforms.md)
+* [보안](tutorial/security.md)
+* [Electron 버전 관리](tutorial/electron-versioning.md)
+* [응용 프로그램 배포](tutorial/application-distribution.md)
+* [맥 앱스토어 제출 안내서](tutorial/mac-app-store-submission-guide.md)
+* [윈도우 스토어 안내서](tutorial/windows-store-guide.md)
+* [응용 프로그램 패키징](tutorial/application-packaging.md)
+* [기본 노드 모듈을 사용하기](tutorial/using-native-node-modules.md)
+* [주요 프로세스 디버깅](tutorial/debugging-main-process.md)
+* [Selenium 과 WebDriver 사용하기](tutorial/using-selenium-and-webdriver.md)
+* [DevTools 확장](tutorial/devtools-extension.md)
+* [Pepper Flash 플러그인 사용하기](tutorial/using-pepper-flash-plugin.md)
+* [Widevine CDM 플러그인 사용하기](tutorial/using-widevine-cdm-plugin.md)
+* [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
+* [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
+* [키보드 단축기](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## 따라하기
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [시작하기](tutorial/quick-start.md)
+* [데스크탑 환경 통합](tutorial/desktop-environment-integration.md)
+* [온라인/오프 라인 이벤트 감지](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [기본 알림](tutorial/notifications.md)
 
-## API References
+## API 참조 문서
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [개요](api/synopsis.md)
+* [프로세스 개체](api/process.md)
+* [크롬 명령 줄 스위치 지원](api/chrome-command-line-switches.md)
+* [환경 변수](api/environment-variables.md)
 
-### Custom DOM Elements:
+### 사용자 지정 DOM 요소:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`File` 객체](api/file-object.md)
+* [`<webview>` 태그](api/webview-tag.md)
+* [`window.open` 함수](api/window-open.md)
 
-### Modules for the Main Process:
+### 주요 프로세스 모듈:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -67,14 +67,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### 렌더러 프로세스 (웹 페이지) 에 대한 모듈:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### 두 프로세스에 대한 모듈:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -82,7 +82,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## 개발
 
 * [Coding Style](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
