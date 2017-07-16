@@ -45,29 +45,29 @@ API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
 * 코드 블럭에서 `cmd` 대신 `bash` 를 사용하세요 (구문 강조기로 인해).
 * 줄은 80 열로 줄 바꿈 되어야 합니다.
 * 2 단계 이상의 중첩 목록은 없습니다 (마크다운 렌더러로 인해).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* 모든 `js` 와 `javascript` 코드 블록은 [standard-markdown](http://npm.im/standard-markdown) 으로 검사합니다.
 
-## Picking words
+## 단어 선택
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* 결과를 기술 할 때 "would" 보다 "will" 을 사용하세요.
+* "on" 보다 "in the ___ process" 를 선호합니다.
 
-## API references
+## API 참조
 
-The following rules only apply to the documentation of APIs.
+다음 규칙은 API 문서에만 적용됩니다.
 
-### Page title
+### 페이지 제목
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+각 페이지는 `require('electron')` 에 의해 반환 된 실제 객체 이름을 제목으로 사용해야 하며, `BrowserWindow`, `autoUpdater`, `session` 와 같은 것 들이 있습니다.
 
-Under the page tile must be a one-line description starting with `>`.
+페이지 제목 아래에는 `>` 로 시작하는 한 줄 짜리 설명이 있어야 합니다.
 
-Using `session` as example:
+`session` 을 예로 듭니다:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> 브라우저 세션, 쿠키, 캐시, 프록시 설정, 등을 관리 합니다.
 ```
 
 ### Module methods and events
