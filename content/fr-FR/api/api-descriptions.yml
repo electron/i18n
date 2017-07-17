@@ -205,9 +205,9 @@ BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.d
 BrowserView.instanceMethods.setBounds.description: Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
 BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Couleur au format `#aarrggbb` ou `#argb`. Le canal alpha est facultatif.'
 BrowserView.instanceProperties.webContents.description: Un objet WebContents appartenant a cette vue.
-BrowserView.instanceProperties.id.description: A Integer representing the unique ID of the view.
-BrowserWindow.description: Create and control browser windows.
-BrowserWindow.staticMethods.getAllWindows.returns.description: An array of all opened browser windows.
+BrowserView.instanceProperties.id.description: Un entier représentant l’ID unique de la vue.
+BrowserWindow.description: Créer et contrôle des fenêtres navigateur.
+BrowserWindow.staticMethods.getAllWindows.returns.description: Un tableau de toutes les fenêtres de navigateur ouvertes.
 BrowserWindow.staticMethods.getFocusedWindow.returns.description: 'The window that is focused in this application, otherwise returns null.'
 BrowserWindow.staticMethods.fromWebContents.returns.description: The window that owns the given webContents.
 BrowserWindow.staticMethods.fromId.returns.description: The window with the given id.
