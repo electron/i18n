@@ -190,14 +190,14 @@ autoUpdater.methods.checkForUpdates.description: >-
 autoUpdater.methods.quitAndInstall.description: >-
   Restarts the app and installs the update after it has been downloaded. It should only be called after update-downloaded has been emitted. Note: autoUpdater.quitAndInstall() will close all application windows first and only emit before-quit event on app after that. This is different from the normal quit event sequence.
 autoUpdater.events.error.description: Émis lorsqu’il y a une erreur pendant la mise à jour.
-autoUpdater.events.checking-for-update.description: Emitted when checking if an update has started.
+autoUpdater.events.checking-for-update.description: Émis lors de la vérification du commencement d'une mise à jour.
 autoUpdater.events.update-available.description: >-
-  Emitted when there is an available update. The update is downloaded automatically.
-autoUpdater.events.update-not-available.description: Emitted when there is no available update.
+  Émis lorsqu’il y a une mise à jour disponible. La mise à jour est téléchargé automatiquement.
+autoUpdater.events.update-not-available.description: Émis quand il n’y a aucune mise à jour disponible.
 autoUpdater.events.update-downloaded.description: >-
-  Emitted when an update has been downloaded. On Windows only releaseName is available.
-BrowserView.description: Create and control views.
-BrowserView.constructorMethod.parameters.0.properties.0.description: See .
+  Émis lorsqu’une mise à jour a été téléchargée. Sous Windows seulement releaseName est disponible.
+BrowserView.description: Créer et contrôle les fenêtres.
+BrowserView.constructorMethod.parameters.0.properties.0.description: Voir .
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.description: >-
   If true, the view's width will grow and shrink together with the window. false by default.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
