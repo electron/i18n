@@ -102,7 +102,7 @@ app.methods.getLoginItemSettings.returns.properties.2.description: >-
 app.methods.getLoginItemSettings.returns.properties.3.description: >-
   true si l'application a été ouverte automatiquement lors de la connexion. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
-  true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+  true si l'application a été ouverte comme un élément de connexion cachée. Cela indique que l'application ne devrait pas ouvrir de fenêtres au démarrage. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
   true if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
 app.methods.setLoginItemSettings.description: >-
