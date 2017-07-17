@@ -96,11 +96,11 @@ app.methods.getLoginItemSettings.parameters.options.properties.path.description:
 app.methods.getLoginItemSettings.parameters.options.properties.args.description: Les arguments de ligne de commande à comparer. Par défaut un tableau vide.
 app.methods.getLoginItemSettings.returns.properties.0.properties.0.description: Le chemin d'accès de l'exécutable à comparer. process.execPath par défaut.
 app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: Les arguments de ligne de commande à comparer. Par défaut un tableau vide.
-app.methods.getLoginItemSettings.returns.properties.1.description: true si l'application est configurée pour être ouverte à l'ouverture de session.
+app.methods.getLoginItemSettings.returns.properties.1.description: true si l'application est configurée pour être ouverte à la connexion.
 app.methods.getLoginItemSettings.returns.properties.2.description: >-
-  true if the app is set to open as hidden at login. This setting is only supported on macOS.
+  true si l'application est configurée pour s'ouvrir comme cachée lors de la connexion. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.3.description: >-
-  true if the app was opened at login automatically. This setting is only supported on macOS.
+  true si l'application a été ouverte automatiquement lors de la connexion. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
   true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
