@@ -316,13 +316,13 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.19.descrip
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.20.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to disable. The full list of supported feature strings can be found in the file.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.description: Sets the default font for the font-family.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.0.description: Defaults to Times New Roman.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.1.description: Defaults to Times New Roman.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.2.description: Defaults to Arial.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.3.description: Defaults to Courier New.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.4.description: Defaults to Script.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Defaults to Impact.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.description: Définit la police par défaut pour le font-family.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.0.description: Times New Roman par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.1.description: Times New Roman par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.2.description: Arial par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.3.description: Courier New par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.4.description: Script par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Impact par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.22.description: Defaults to 16.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.23.description: Defaults to 13.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: 0 par défaut.
@@ -338,24 +338,24 @@ BrowserWindow.instanceMethods.destroy.description: >-
 BrowserWindow.instanceMethods.close.description: >-
   Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the close event.
 BrowserWindow.instanceMethods.focus.description: Ramène la fenêtre au premier plan.
-BrowserWindow.instanceMethods.blur.description: Removes focus from the window.
-BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window is focused.
-BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
+BrowserWindow.instanceMethods.blur.description: Supprime le focus de la fenêtre.
+BrowserWindow.instanceMethods.isFocused.returns.description: Si la fenêtre est au premier-plan.
+BrowserWindow.instanceMethods.isDestroyed.returns.description: Si la fenêtre est détruite.
 BrowserWindow.instanceMethods.show.description: Affiche la fenêtre et la ramène au premier plan.
 BrowserWindow.instanceMethods.showInactive.description: Affiche la fenêtre, mais ne la ramène pas au premier plan.
 BrowserWindow.instanceMethods.hide.description: Masque la fenêtre.
-BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
-BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
+BrowserWindow.instanceMethods.isVisible.returns.description: Si la fenêtre est visible par l’utilisateur.
+BrowserWindow.instanceMethods.isModal.returns.description: Si la fenêtre active est une fenêtre modale.
 BrowserWindow.instanceMethods.maximize.description: >-
-  Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+  Agrandit la fenêtre. Cela affichera également (mais pas au premier-plan) la fenêtre si elle n’est pas déjà affichée.
 BrowserWindow.instanceMethods.unmaximize.description: Unmaximizes the window.
 BrowserWindow.instanceMethods.isMaximized.returns.description: Whether the window is maximized.
 BrowserWindow.instanceMethods.minimize.description: >-
-  Minimizes the window. On some platforms the minimized window will be shown in the Dock.
-BrowserWindow.instanceMethods.restore.description: Restores the window from minimized state to its previous state.
-BrowserWindow.instanceMethods.isMinimized.returns.description: Whether the window is minimized.
-BrowserWindow.instanceMethods.setFullScreen.description: Sets whether the window should be in fullscreen mode.
-BrowserWindow.instanceMethods.isFullScreen.returns.description: Whether the window is in fullscreen mode.
+  Minimise la fenêtre. Sur certaines plateformes la fenêtre réduite sera affichée dans le Dock.
+BrowserWindow.instanceMethods.restore.description: Restaure la fenêtre depuis l'état réduit à son état précédent.
+BrowserWindow.instanceMethods.isMinimized.returns.description: Si la fenêtre est réduite.
+BrowserWindow.instanceMethods.setFullScreen.description: Définit si la fenêtre doit être en mode plein écran.
+BrowserWindow.instanceMethods.isFullScreen.returns.description: Si la fenêtre est en mode plein écran.
 BrowserWindow.instanceMethods.setAspectRatio.description: >-
   This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size. Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
 BrowserWindow.instanceMethods.setAspectRatio.parameters.aspectRatio.description: The aspect ratio to maintain for some portion of the content view.
