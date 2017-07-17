@@ -104,11 +104,11 @@ app.methods.getLoginItemSettings.returns.properties.3.description: >-
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
   true si l'application a été ouverte comme un élément de connexion cachée. Cela indique que l'application ne devrait pas ouvrir de fenêtres au démarrage. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
-  true if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+  true si l’application a été ouverte comme item de connexion qui devrait rétablir l’état de la session précédente. Cela indique que l’application doit restaurer les fenêtres qui étaient ouvertes à la dernière fois que l’application a été fermée. Ce paramètre est supporté uniquement sur macOS.
 app.methods.setLoginItemSettings.description: >-
   Set the app's login item settings. To work with Electron's autoUpdater on Windows, which uses Squirrel, you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example: Note: This API has no effect on MAS builds.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.description: >-
-  true to open the app at login, false to remove the app as a login item. Defaults to false.
+  true pour ouvrir l'application lors de la connexion, false pour supprimer l'application comme élément de connexion. false par défaut.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
   true pour ouvrir l'application comme cachée. Par défaut, false. L'utilisateur peut modifier ce paramètre à partir des Préférences Système afin que app.getLoginItemStatus().wasOpenedAsHidden soit vérifié lorsque l'application est ouverte pour connaître la valeur actuelle. Ce paramètre n'est pris en charge que sur MacOS.
 app.methods.setLoginItemSettings.parameters.path.description: L'exécutable à lancer lors de la connexion. Par défaut, `process.execPath`.
