@@ -70,29 +70,29 @@ API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
 > 브라우저 세션, 쿠키, 캐시, 프록시 설정, 등을 관리 합니다.
 ```
 
-### Module methods and events
+### 모듈 메소드 및 이벤트
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+클래스가 아닌 모듈의 경우, 메소드 및 이벤트는 `## 메소드` 와 `## 이벤트` 장 아래에 나열해야 합니다.
 
-Using `autoUpdater` as an example:
+`autoUpdater` 을 예로 듭니다:
 
 ```markdown
 # autoUpdater
 
-## Events
+## 이벤트
 
-### Event: 'error'
+### 이벤트: 'error'
 
-## Methods
+## 메소드
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### 클래스
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
+* API 클래스 또는 모듈의 일부인 클래스는 `## 클래스: TheClassName` 장 아래에 나열되야 합니다.
+* 한 페이지에 여러 개의 클래스가 있을 수 있습니다.
+* 생성자는 `###` 레벨 제목으로 나열되야 합니다.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
