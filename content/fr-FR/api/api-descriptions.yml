@@ -348,8 +348,8 @@ BrowserWindow.instanceMethods.isVisible.returns.description: Si la fenêtre est 
 BrowserWindow.instanceMethods.isModal.returns.description: Si la fenêtre active est une fenêtre modale.
 BrowserWindow.instanceMethods.maximize.description: >-
   Agrandit la fenêtre. Cela affichera également (mais pas au premier-plan) la fenêtre si elle n’est pas déjà affichée.
-BrowserWindow.instanceMethods.unmaximize.description: Unmaximizes the window.
-BrowserWindow.instanceMethods.isMaximized.returns.description: Whether the window is maximized.
+BrowserWindow.instanceMethods.unmaximize.description: Réduit la fenêtre à sa taille initiale.
+BrowserWindow.instanceMethods.isMaximized.returns.description: Si la fenêtre est agrandie.
 BrowserWindow.instanceMethods.minimize.description: >-
   Minimise la fenêtre. Sur certaines plateformes la fenêtre réduite sera affichée dans le Dock.
 BrowserWindow.instanceMethods.restore.description: Restaure la fenêtre depuis l'état réduit à son état précédent.
@@ -366,37 +366,37 @@ BrowserWindow.instanceMethods.previewFile.parameters.path.description: >-
 BrowserWindow.instanceMethods.previewFile.parameters.displayName.description: >-
   The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
 BrowserWindow.instanceMethods.closeFilePreview.description: Closes the currently open Quick Look panel.
-BrowserWindow.instanceMethods.setBounds.description: Resizes and moves the window to the supplied bounds
+BrowserWindow.instanceMethods.setBounds.description: Redimensionne et déplace la fenêtre vers les limites fournies
 BrowserWindow.instanceMethods.setContentBounds.description: >-
-  Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
-BrowserWindow.instanceMethods.setSize.description: Resizes the window to width and height.
-BrowserWindow.instanceMethods.getSize.returns.description: Contains the window's width and height.
-BrowserWindow.instanceMethods.setContentSize.description: Resizes the window's client area (e.g. the web page) to width and height.
-BrowserWindow.instanceMethods.getContentSize.returns.description: Contains the window's client area's width and height.
-BrowserWindow.instanceMethods.setMinimumSize.description: Sets the minimum size of window to width and height.
-BrowserWindow.instanceMethods.getMinimumSize.returns.description: Contains the window's minimum width and height.
-BrowserWindow.instanceMethods.setMaximumSize.description: Sets the maximum size of window to width and height.
-BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contains the window's maximum width and height.
-BrowserWindow.instanceMethods.setResizable.description: Sets whether the window can be manually resized by user.
-BrowserWindow.instanceMethods.isResizable.returns.description: Whether the window can be manually resized by user.
-BrowserWindow.instanceMethods.setMovable.description: Sets whether the window can be moved by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMovable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isMovable.returns.description: Whether the window can be moved by user.
+  Redimensionne et déplace la zone cliente de la fenêtre (par exemple, la page web) vers les limites fournies.
+BrowserWindow.instanceMethods.setSize.description: Redimensionne la fenêtre à largeur et hauteur.
+BrowserWindow.instanceMethods.getSize.returns.description: Contient la largeur et la hauteur de la fenêtre.
+BrowserWindow.instanceMethods.setContentSize.description: Redimensionne la zone client de la fenêtre (par exemple, la page web) à largeur et hauteur.
+BrowserWindow.instanceMethods.getContentSize.returns.description: Contient la largeur et la hauteur de la zone client de la fenêtre.
+BrowserWindow.instanceMethods.setMinimumSize.description: Définit la taille minimale de la fenêtre à largeur et hauteur.
+BrowserWindow.instanceMethods.getMinimumSize.returns.description: Contient la largeur et la hauteur minimale de la fenêtre.
+BrowserWindow.instanceMethods.setMaximumSize.description: Définit la taille maximale de la fenêtre à largeur et hauteur.
+BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contient la hauteur et la largeur maximale de la fenêtre.
+BrowserWindow.instanceMethods.setResizable.description: Définit si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
+BrowserWindow.instanceMethods.isResizable.returns.description: Si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
+BrowserWindow.instanceMethods.setMovable.description: Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, cela ne fait rien.
+BrowserWindow.instanceMethods.isMovable.description: Sur Linux, cela retourne toujours true.
+BrowserWindow.instanceMethods.isMovable.returns.description: Si la fenêtre peut être déplacée par l’utilisateur.
 BrowserWindow.instanceMethods.setMinimizable.description: >-
-  Sets whether the window can be manually minimized by user. On Linux does nothing.
+  Définit si la fenêtre peut être minimisée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
 BrowserWindow.instanceMethods.isMinimizable.description: Sur Linux, retourne toujours true.
 BrowserWindow.instanceMethods.isMinimizable.returns.description: Que l'utilisateur puisse minimiser manuellement la fenêtre
 BrowserWindow.instanceMethods.setMaximizable.description: >-
   Définit que la fenêtre peut être agrandie manuellement par l’utilisateur. Sous Linux, il ne fait rien.
-BrowserWindow.instanceMethods.isMaximizable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isMaximizable.returns.description: Whether the window can be manually maximized by user.
+BrowserWindow.instanceMethods.isMaximizable.description: Sur Linux, cela retourne toujours true.
+BrowserWindow.instanceMethods.isMaximizable.returns.description: Si la fenêtre peut être agrandie manuellement par l’utilisateur.
 BrowserWindow.instanceMethods.setFullScreenable.description: >-
-  Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+  Définit si le bouton agrandir/zoom de la fenêtre active/désactive le mode plein écran ou agrandit la fenêtre.
 BrowserWindow.instanceMethods.isFullScreenable.returns.description: >-
-  Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
-BrowserWindow.instanceMethods.setClosable.description: Sets whether the window can be manually closed by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isClosable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isClosable.returns.description: Whether the window can be manually closed by user.
+  Si le bouton Agrandir/zoom de la fenêtre active/désactive le mode plein écran ou agrandit la fenêtre.
+BrowserWindow.instanceMethods.setClosable.description: Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
+BrowserWindow.instanceMethods.isClosable.description: Sur Linux, cela retourne toujours true.
+BrowserWindow.instanceMethods.isClosable.returns.description: Si la fenêtre peut être fermée de manuellement par l’utilisateur.
 BrowserWindow.instanceMethods.setAlwaysOnTop.description: >-
   Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.level.description: >-
