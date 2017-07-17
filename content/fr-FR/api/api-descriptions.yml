@@ -400,16 +400,16 @@ BrowserWindow.instanceMethods.isClosable.returns.description: Si la fenêtre peu
 BrowserWindow.instanceMethods.setAlwaysOnTop.description: >-
   Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.level.description: >-
-  Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and (Deprecated). The default is `floating`. See the for more details.
+  Les valeurs incluent `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and (Deprecated). La valeur par défaut est `floating`. Consultez le pour plus de détails.
 BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.relativeLevel.description: >-
   The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
-BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Whether the window is always on top of other windows.
-BrowserWindow.instanceMethods.center.description: Moves window to the center of the screen.
+BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Si la fenêtre est toujours au-dessus des autres fenêtres.
+BrowserWindow.instanceMethods.center.description: Déplace la fenêtre vers le centre de l’écran.
 BrowserWindow.instanceMethods.setPosition.description: Déplace la fenêtre à x et y.
 BrowserWindow.instanceMethods.getPosition.returns.description: Contient la position actuelle de la fenêtre.
-BrowserWindow.instanceMethods.setTitle.description: Changes the title of native window to title.
+BrowserWindow.instanceMethods.setTitle.description: Remplace le titre de la fenêtre native par title.
 BrowserWindow.instanceMethods.getTitle.description: >-
-  Note: The title of web page can be different from the title of the native window.
+  Remarque : Le titre de page web peut être différent du titre de la fenêtre native.
 BrowserWindow.instanceMethods.getTitle.returns.description: Le titre de la fenêtre native.
 BrowserWindow.instanceMethods.setSheetOffset.description: >-
   Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
@@ -478,12 +478,12 @@ BrowserWindow.instanceMethods.setAutoHideMenuBar.description: >-
   Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately.
 BrowserWindow.instanceMethods.isMenuBarAutoHide.returns.description: Whether menu bar automatically hides itself.
 BrowserWindow.instanceMethods.setMenuBarVisibility.description: >-
-  Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single Alt key.
-BrowserWindow.instanceMethods.isMenuBarVisible.returns.description: Whether the menu bar is visible.
+  Définit si la barre de menus doit être visible. Si la barre de menu est cachée, les utilisateurs peuvent toujours afficher la barre de menu en appuyant sur la touche Alt.
+BrowserWindow.instanceMethods.isMenuBarVisible.returns.description: Si la barre de menu est visible.
 BrowserWindow.instanceMethods.setVisibleOnAllWorkspaces.description: >-
-  Sets whether the window should be visible on all workspaces. Note: This API does nothing on Windows.
-BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.description: 'Note: This API always returns false on Windows.'
-BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.returns.description: Whether the window is visible on all workspaces.
+  Définit si la fenêtre doit être visible sur tous les espaces de travail. Remarque : Cette API ne fait rien sur Windows.
+BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.description: 'Remarque : Cette API retourne toujours false sur Windows.'
+BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.returns.description: Si la fenêtre est visible sur tous les espaces de travail.
 BrowserWindow.instanceMethods.setIgnoreMouseEvents.description: >-
   Makes the window ignore all mouse events. All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 BrowserWindow.instanceMethods.setContentProtection.description: >-
@@ -495,9 +495,9 @@ BrowserWindow.instanceMethods.getParentWindow.returns.description: La fenêtre p
 BrowserWindow.instanceMethods.getChildWindows.returns.description: Toutes les fenêtres enfants.
 BrowserWindow.instanceMethods.setAutoHideCursor.description: Contrôle s'il faut masquer le curseur lors de la saisie.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
-  Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window.
+  Ajoute un effet vibrancy à la fenêtre du navigateur. En passant la valeur null ou une chaîne vide, cela supprime l’effet vibrancy sur la fenêtre.
 BrowserWindow.instanceMethods.setVibrancy.parameters.type.description: >-
-  Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the for more details.
+  Peut être `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` ou `ultra-dark`. Consultez le pour plus de détails.
 BrowserWindow.instanceMethods.setTouchBar.description: >-
   Sets the touchBar layout for the current window. Specifying null or undefined clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+. Note: The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 BrowserWindow.instanceMethods.setBrowserView.description: >-
