@@ -64,7 +64,7 @@ Pour afficher les arguments et les variables locales pour le frame en cours, ex�
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Pour faire une étape au niveau source dans le thread actuellement sélectionné, exécutez `step` (ou `s`). Cela vous amènerait dans `name_override_.empty()`. Pour continuer et refaire une étape, exécutez `next` (ou `n`).
 
 ```bash
 (lldb) step
