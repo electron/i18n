@@ -144,21 +144,21 @@ app.events.continue-activity.description: >-
   Emitted during Handoff when an activity from a different device wants to be resumed. You should call event.preventDefault() if you want to handle this event. A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's Info.plist under the NSUserActivityTypes key.
 app.events.continue-activity.returns.type.description: Une chaine de caractère identifiant de manière unique l’activité. Maps vers NSUserActivity.activityType.
 app.events.continue-activity.returns.userInfo.description: Contains app-specific state stored by the activity on another device.
-app.events.browser-window-blur.description: Emitted when a browserWindow gets blurred.
-app.events.browser-window-focus.description: Emitted when a browserWindow gets focused.
-app.events.browser-window-created.description: Emitted when a new browserWindow is created.
-app.events.web-contents-created.description: Emitted when a new webContents is created.
+app.events.browser-window-blur.description: Émis lorsqu'un browserWindow est mis en arrière-plan.
+app.events.browser-window-focus.description: Émis lorsqu’un browserWindow arrive au premier-plan.
+app.events.browser-window-created.description: Émis lorsqu'un browserWindow est créé.
+app.events.web-contents-created.description: Émis lorsqu’un nouveau webContents est créé.
 app.events.certificate-error.description: >-
   Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).
-app.events.certificate-error.returns.error.description: The error code
-app.events.certificate-error.returns.callback.parameters.isTrusted.description: Whether to consider the certificate as trusted
+app.events.certificate-error.returns.error.description: Le code d’erreur
+app.events.certificate-error.returns.callback.parameters.isTrusted.description: S'il faut considérer le certificat comme valide
 app.events.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The url corresponds to the navigation entry requesting the client certificate and callback can be called with an entry filtered from the list. Using event.preventDefault() prevents the application from using the first certificate from the store.
 app.events.login.description: >-
   Emitted when webContents wants to do basic auth. The default behavior is to cancel all authentications, to override this you should prevent the default behavior with event.preventDefault() and call callback(username, password) with the credentials.
-app.events.gpu-process-crashed.description: Emitted when the gpu process crashes or is killed.
+app.events.gpu-process-crashed.description: Émis lorsque le processus gpu crash ou est interrompu.
 app.events.accessibility-support-changed.description: >-
-  Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+  Émis lors d'un changement dans la prise en charge de l'accessibilité de Chrome. Cet événement se déclenche lorsque les technologies d'assistance, tels que les lecteurs d'écran, sont activées ou désactivées. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` when Chrome''s accessibility support is enabled, `false` otherwise.'
 app.properties.commandLine.properties.appendSwitch.description: >-
   Append a switch (with optional value) to Chromium's command line. Note: This will not affect process.argv, and is mainly used by developers to control some low-level Chromium behaviors.
@@ -1675,7 +1675,7 @@ WebContents.instanceEvents.devtools-closed.description: Emitted when DevTools is
 WebContents.instanceEvents.devtools-focused.description: Emitted when DevTools is focused / opened.
 WebContents.instanceEvents.certificate-error.description: >-
   Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.
-WebContents.instanceEvents.certificate-error.returns.error.description: The error code
+WebContents.instanceEvents.certificate-error.returns.error.description: Le code d’erreur
 WebContents.instanceEvents.certificate-error.returns.callback.parameters.isTrusted.description: Indicates whether the certificate can be considered trusted
 WebContents.instanceEvents.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The usage is the same with the select-client-certificate event of app.
