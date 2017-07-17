@@ -1,6 +1,6 @@
 # Déboggage sur macOS
 
-Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, le déboggage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le déboggage natif/C++. Toutefois, à l’aide de base et le code source d'Electron, il est assez facile d'activer le déboggage avec points d’arrêt dans le code source d'Electron.
+Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le déboggage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le déboggage natif/C++. Toutefois, à l’aide de base et du code source d'Electron, il est assez facile d'activer le déboggage avec des points d’arrêt dans le code source d'Electron.
 
 ## Spécifications requises
 
