@@ -115,7 +115,7 @@ app.methods.setLoginItemSettings.parameters.path.description: L'exécutable à l
 app.methods.setLoginItemSettings.parameters.args.description: >-
   Les arguments de ligne de commande à passer à l'exécutable. Par défaut, un array vide. Veillez à mettre les chemins entre guillemets.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
-  true si la prise en charge de l'accessibilité de Chrome est activé, sinon false. Cette API retourne true si l'utilisation de technologie d'aide, comme les lecteurs d'écran, a été détectée. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
+  true si la prise en charge de l'accessibilité de Chrome est activé, sinon false. Cette API retourne true si l'utilisation de technologie d'assistance, comme les lecteurs d'écran, a été détectée. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 app.methods.setAboutPanelOptions.description: >-
   Définit les options du panneau à propos. Cela remplace les valeurs définies dans le fichier .plist de l'application. Voir la documentation Apple pour plus de détails.
 app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Nom de l’application.
@@ -159,7 +159,7 @@ app.events.login.description: >-
 app.events.gpu-process-crashed.description: Émis lorsque le processus gpu crash ou est interrompu.
 app.events.accessibility-support-changed.description: >-
   Émis lors d'un changement dans la prise en charge de l'accessibilité de Chrome. Cet événement se déclenche lorsque les technologies d'assistance, tels que les lecteurs d'écran, sont activées ou désactivées. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
-app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` when Chrome''s accessibility support is enabled, `false` otherwise.'
+app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` lorsque les fonctions d''accessibilité de Chrome sont activées, `false` dans le cas contraire.'
 app.properties.commandLine.properties.appendSwitch.description: >-
   Append a switch (with optional value) to Chromium's command line. Note: This will not affect process.argv, and is mainly used by developers to control some low-level Chromium behaviors.
 app.properties.commandLine.properties.appendSwitch.parameters.switch.description: A command-line switch
@@ -184,12 +184,12 @@ app.properties.dock.properties.setIcon.description: Définit l’image associée
 autoUpdater.description: Permet aux apps de se mettre automatiquement à jour d'elles mêmes.
 autoUpdater.methods.setFeedURL.description: Définit l'url et initialise l'auto updater.
 autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: Headers de requête HTTP.
-autoUpdater.methods.getFeedURL.returns.description: The current update feed URL.
+autoUpdater.methods.getFeedURL.returns.description: L'URL courante de flux des mises à jour.
 autoUpdater.methods.checkForUpdates.description: >-
-  Asks the server whether there is an update. You must call setFeedURL before using this API.
+  Demande au serveur s’il y a une mise à jour. Vous devez appeler setFeedURL avant d’utiliser cette API.
 autoUpdater.methods.quitAndInstall.description: >-
   Restarts the app and installs the update after it has been downloaded. It should only be called after update-downloaded has been emitted. Note: autoUpdater.quitAndInstall() will close all application windows first and only emit before-quit event on app after that. This is different from the normal quit event sequence.
-autoUpdater.events.error.description: Emitted when there is an error while updating.
+autoUpdater.events.error.description: Émis lorsqu’il y a une erreur pendant la mise à jour.
 autoUpdater.events.checking-for-update.description: Emitted when checking if an update has started.
 autoUpdater.events.update-available.description: >-
   Emitted when there is an available update. The update is downloaded automatically.
