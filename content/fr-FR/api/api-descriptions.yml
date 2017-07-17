@@ -70,12 +70,12 @@ app.methods.releaseSingleInstance.description: >-
   Libère tous les verrous qui ont été créés par makeSingleInstance. Cela permettra à plusieurs instances de l'application de s'exécuter au même moment.
 app.methods.setUserActivity.description: >-
   Crée une NSUserActivity et la définit comme l'activité actuelle. L'activité est susceptible d'être transférée dans un autre appareil ultérieurement.
-app.methods.setUserActivity.parameters.type.description: Uniquely identifies the activity. Maps to .
+app.methods.setUserActivity.parameters.type.description: Identifie de manière unique l’activité. Maps vers NSUserActivity.activityType.
 app.methods.setUserActivity.parameters.userInfo.description: App-specific state to store for use by another device.
 app.methods.setUserActivity.parameters.webpageURL.description: >-
-  The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+  La page web à charger dans un navigateur si aucune application appropriée n'est installé sur l'appareil. Le schéma doit être `http` ou `https`.
 app.methods.getCurrentActivityType.returns.description: Le type de l'activité en cours d'exécution.
-app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
+app.methods.setAppUserModelId.description: Modifie le Application User Model ID par un id.
 app.methods.importCertificate.description: >-
   Importe le certificat au format pkcs12 dans le magasin de certificats de la plate-forme. Le callback est appelé avec le résultat de l'opération d'importation, une valeur de 0 indique le succès alors que n'importe qu'elle autre valeur indique un échec selon net_error_list de chromium.
 app.methods.importCertificate.parameters.options.properties.certificate.description: Chemin d'accès du fichier pkcs12.
@@ -84,7 +84,7 @@ app.methods.importCertificate.parameters.callback.parameters.result.description:
 app.methods.disableHardwareAcceleration.description: >-
   Désactive l'accélération matérielle pour l'application en cours. Cette méthode peut uniquement être appelée avant que l'application soit prête.
 app.methods.getAppMemoryInfo.description: >-
-  Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
+  Retourne ProcessMemoryInfo[]; Tableau d'objets ProcessMemoryInfo correspondant aux statistiques d'utilisation de mémoire de tous les processus associés à l'application.
 app.methods.setBadgeCount.description: >-
   Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
 app.methods.setBadgeCount.returns.description: Si l’appel a réussi.
