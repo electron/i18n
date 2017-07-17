@@ -115,14 +115,14 @@ app.methods.setLoginItemSettings.parameters.path.description: L'exécutable à l
 app.methods.setLoginItemSettings.parameters.args.description: >-
   Les arguments de ligne de commande à passer à l'exécutable. Par défaut, un array vide. Veillez à mettre les chemins entre guillemets.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
-  true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+  true si la prise en charge de l'accessibilité de Chrome est activé, sinon false. Cette API retourne true si l'utilisation de technologie d'aide, comme les lecteurs d'écran, a été détectée. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 app.methods.setAboutPanelOptions.description: >-
-  Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
+  Définit les options du panneau à propos. Cela remplace les valeurs définies dans le fichier .plist de l'application. Voir la documentation Apple pour plus de détails.
 app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Nom de l’application.
 app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Version de l’application.
 app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Information sur les droits d'auteur.
 app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Information sur les crédits.
-app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
+app.methods.setAboutPanelOptions.parameters.options.properties.version.description: Numéro de version de l’application.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
 app.events.ready.description: >-
@@ -142,7 +142,7 @@ app.events.activate.description: >-
   Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 app.events.continue-activity.description: >-
   Emitted during Handoff when an activity from a different device wants to be resumed. You should call event.preventDefault() if you want to handle this event. A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's Info.plist under the NSUserActivityTypes key.
-app.events.continue-activity.returns.type.description: A string identifying the activity. Maps to .
+app.events.continue-activity.returns.type.description: Une chaine de caractère identifiant de manière unique l’activité. Maps vers NSUserActivity.activityType.
 app.events.continue-activity.returns.userInfo.description: Contains app-specific state stored by the activity on another device.
 app.events.browser-window-blur.description: Emitted when a browserWindow gets blurred.
 app.events.browser-window-focus.description: Emitted when a browserWindow gets focused.
