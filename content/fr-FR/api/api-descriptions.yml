@@ -199,12 +199,12 @@ autoUpdater.events.update-downloaded.description: >-
 BrowserView.description: Créer et contrôle les fenêtres.
 BrowserView.constructorMethod.parameters.0.properties.0.description: Voir .
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.description: >-
-  If true, the view's width will grow and shrink together with the window. false by default.
+  Si true, la largeur de la vue va s'agrandir et se réduire avec la fenêtre. false par défaut.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
-  If true, the view's height will grow and shrink together with the window. false by default.
-BrowserView.instanceMethods.setBounds.description: Resizes and moves the view to the supplied bounds relative to the window.
-BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.'
-BrowserView.instanceProperties.webContents.description: A WebContents object owned by this view.
+  Si true, la hauteur de la vue va s'agrandir et se réduire avec la fenêtre. false par défaut.
+BrowserView.instanceMethods.setBounds.description: Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
+BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Couleur au format `#aarrggbb` ou `#argb`. Le canal alpha est facultatif.'
+BrowserView.instanceProperties.webContents.description: Un objet WebContents appartenant a cette vue.
 BrowserView.instanceProperties.id.description: A Integer representing the unique ID of the view.
 BrowserWindow.description: Create and control browser windows.
 BrowserWindow.staticMethods.getAllWindows.returns.description: An array of all opened browser windows.
