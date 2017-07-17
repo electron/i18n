@@ -93,49 +93,49 @@ API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
 * API 클래스 또는 모듈의 일부인 클래스는 `## 클래스: TheClassName` 장 아래에 나열되야 합니다.
 * 한 페이지에 여러 개의 클래스가 있을 수 있습니다.
 * 생성자는 `###` 레벨 제목으로 나열되야 합니다.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* [정적 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)는 `### 정적 메소드` 장 아래에 나열되야 합니다.
+* [인스턴스 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)는 `### 인스턴스 메소드` 장 아래에 나열되야 합니다.
+* 반환 값이 있는 모든 메소드는 다음 문구로 설명을 시작해야 합니다. "반환값 `[TYPE]` - 반환 값 설명" 
+  * 메소드가 `객체` 를 반환하면, 그 구조는 콜론과 개행 문자 다음에 함수 매개 변수와 같은 방식으로 된 정렬되지 않은 속성의 목록으로 지정할 수 있습니다.
+* 인스턴스 이벤트는 `### 인스턴스 이벤트` 장 아래에 나열되야 합니다.
+* 인스턴스 이벤트는 `### 인스턴스 속성` 장 아래에 나열되야 합니다. 
+  * 인스턴스 속성은 "[속성 유형] ..." 으로 시작해야 합니다.
 
-Using the `Session` and `Cookies` classes as an example:
+`Session` 과 `Cookies` 클래스를 예로 듭니다:
 
 ```markdown
 # session
 
-## Methods
+## 메소드
 
 ### session.fromPartition(partition)
 
-## Properties
+## 속성
 
 ### session.defaultSession
 
-## Class: Session
+## 클래스: Session
 
-### Instance Events
+### 인스턴스 이벤트
 
 #### Event: 'will-download'
 
-### Instance Methods
+### 인스턴스 메소드
 
 #### `ses.getCacheSize(callback)`
 
-### Instance Properties
+### 인스턴스 속성
 
 #### `ses.cookies`
 
-## Class: Cookies
+## 클래스: Cookies
 
-### Instance Methods
+### 인스턴스 메소드
 
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### 메소드
 
 The methods chapter must be in the following form:
 
