@@ -4,7 +4,7 @@
 
 ## Raccourcis Locaux
 
-Vous pouvez utiliser le module de [Menu](../api/menu.md) pour configurer les raccourcis clavier qui se déclenchera uniquement lorsque l’application est au premier plan. Pour ce faire, spécifiez une propriété [`accelerator`] lors de la création d’un [MenuItem](../api/menu-item.md).
+Vous pouvez utiliser le module [Menu](../api/menu.md) pour configurer les raccourcis clavier qui se déclencheront uniquement lorsque l’application est au premier plan. Pour ce faire, spécifiez une propriété [`accelerator`] lors de la création d’un [MenuItem](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -41,13 +41,13 @@ app.on('ready', () => {
 
 ## Raccourcis dans un BrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Si vous souhaitez gérer les raccourcis clavier pour un [BrowserWindow](../api/browser-window.md), vous pouvez utiliser les écouteurs d'événements `keyup` et `keydown` sur l'objet window dans le processus de rendu.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Notez que le troisième paramètre `true` qui signifie que l'écouteur recevra toujours les pressions de touches avant les autres écouteurs d'événement, ainsi ils ne peuvent pas appeler eux-même `stopPropagation()`.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
