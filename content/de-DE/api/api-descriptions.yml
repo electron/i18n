@@ -1,6 +1,6 @@
 app.description: Überwache den Ereignisverlauf deiner Applikation.
 app.methods.quit.description: >-
-  Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+  Versuche alle Fenster zu schließen. Das before-quit event wird als Erstes ausgelöst. Wenn alle Fenster erfolgreich geschlossen wurden, wird das will-quit Event ausgelöst and alle Applikationen werden automatisch beendet. Diese Vorgangsweise garantiert, dass alle beforeunload und unload Handler korrekt ausgeführt werden. Es ist möglich, dass ein Fenster die Beendigung unterbricht, indem es false im beforeunload Eventhandler zurückliefert.
 app.methods.exit.description: >-
   Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
 app.methods.relaunch.description: >-
