@@ -624,12 +624,12 @@ clipboard.methods.readFindText.returns.description: >-
 clipboard.methods.writeFindText.description: >-
   Writes the text into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 clipboard.methods.clear.description: Efface le contenu du presse-papiers.
-clipboard.methods.availableFormats.returns.description: An array of supported formats for the clipboard type.
-clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
-clipboard.methods.read.returns.description: Reads format type from the clipboard.
-clipboard.methods.readBuffer.returns.description: Reads format type from the clipboard.
-clipboard.methods.write.description: Writes data to the clipboard.
-clipboard.methods.write.parameters.data.properties.bookmark.description: The title of the url at text.
+clipboard.methods.availableFormats.returns.description: Tableau de formats pris en charge pour le presse-papiers type.
+clipboard.methods.has.returns.description: Si le presse-papiers prend en charge le format spécifié.
+clipboard.methods.read.returns.description: Lectures de format type à partir du presse-papiers.
+clipboard.methods.readBuffer.returns.description: Lectures de format type à partir du presse-papiers.
+clipboard.methods.write.description: Écrit les données dans le presse-papiers.
+clipboard.methods.write.parameters.data.properties.bookmark.description: Le titre de l’url dans text.
 contentTracing.description: |-
   Collect tracing data from Chromium's content module for finding performance
   bottlenecks and slow operations.
@@ -653,9 +653,9 @@ Cookie.properties.domain.description: Le domaine du cookie.
 Cookie.properties.hostOnly.description: Si le cookie est un cookie hôte uniquement.
 Cookie.properties.path.description: Le chemin d’accès du cookie.
 Cookie.properties.secure.description: Si le cookie est marqué comme sécurisé.
-Cookie.properties.httpOnly.description: Whether the cookie is marked as HTTP only.
+Cookie.properties.httpOnly.description: Si le cookie est marqué comme HTTP uniquement.
 Cookie.properties.session.description: >-
-  Whether the cookie is a session cookie or a persistent cookie with an expiration date.
+  Si le cookie est un cookie de session ou un cookie persistant avec une date d’expiration.
 Cookie.properties.expirationDate.description: >-
   The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
 Cookies.description: Query and modify a session's cookies.
