@@ -42,13 +42,13 @@ Acronyme pour Mac App Store d'Apple. Pour plus d’informations sur la soumissio
 
 Les modules natifs (également appelés [addons](https://nodejs.org/api/addons.html) dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l’aide de la fonction require() et utilisé comme si ils étaient un module de Node.js ordinaire. Ils sont utilisés principalement pour fournir une interface entre JavaScript s’exécutant dans les librairies Node.js et C/C++.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d’utiliser une version différente de V8 du Node binaire installée sur votre système. Vous devez spécifier manuellement l’emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
 Voir aussi [Utilisation des modules natifs de Node](tutorial/using-native-node-modules.md).
 
 ## NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System est un programme d’installation d'outil pilotée par script pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée par des produits propriétaire commerciales comme InstallShield. [électron-constructeur](https://github.com/electron-userland/electron-builder) prend en charge NSIS comme format de build.
 
 ### processus (process)
 
@@ -60,15 +60,15 @@ Voir aussi : [processus principal](#main-process), [processus de rendu](#render
 
 ### processus de rendu (renderer process)
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Le processus de rendu est une fenêtre de navigateur dans votre application. Contrairement au processus principal, il peut y en avoir plusieurs et chacun sont exécutés dans un processus séparé. Ils peuvent également être masqués.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Dans un navigateur normal, les pages web sont habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder aux ressources natives. Cependant, les utilisateurs d'Electron peuvent utiliser l'API Node.js dans les pages web, ce qui permet des interactions de niveau bas avec le système d'exploitation.
 
 Voir aussi : [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel est un framework open-source permettant aux apps Electron de se mettre à jour automatiquement quand une nouvelle version est disponible. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel est un framework open-source permettant aux apps Electron de se mettre à jour automatiquement quand une nouvelle version est disponible. Voir l'API [autoUpdater](api/auto-updater.md) pour plus d’informations sur comment démarrer avec Squirrel.
 
 ### Userland
 
