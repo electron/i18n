@@ -504,7 +504,7 @@ BrowserWindow.instanceMethods.setBrowserView.description: >-
   Note: L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 BrowserWindow.instanceProperties.webContents.description: >-
   A WebContents object this window owns. All web page related events and operations will be done via it. See the webContents documentation for its methods and events.
-BrowserWindow.instanceProperties.id.description: A Integer representing the unique ID of the window.
+BrowserWindow.instanceProperties.id.description: Un entier représentant l’ID unique de la fenêtre.
 BrowserWindow.instanceEvents.page-title-updated.description: >-
   Emitted when the document changed its title, calling event.preventDefault() will prevent the native window's title from changing.
 BrowserWindow.instanceEvents.close.description: >-
@@ -513,31 +513,31 @@ BrowserWindow.instanceEvents.closed.description: >-
   Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 BrowserWindow.instanceEvents.session-end.description: >-
   Emitted when window session is going to end due to force shutdown or machine restart or session log off.
-BrowserWindow.instanceEvents.unresponsive.description: Emitted when the web page becomes unresponsive.
-BrowserWindow.instanceEvents.responsive.description: Emitted when the unresponsive web page becomes responsive again.
-BrowserWindow.instanceEvents.blur.description: Emitted when the window loses focus.
-BrowserWindow.instanceEvents.focus.description: Emitted when the window gains focus.
-BrowserWindow.instanceEvents.show.description: Emitted when the window is shown.
-BrowserWindow.instanceEvents.hide.description: Emitted when the window is hidden.
+BrowserWindow.instanceEvents.unresponsive.description: Émis lorsque la page web cesse de répondre.
+BrowserWindow.instanceEvents.responsive.description: Émis lorsque la page web répond à nouveau.
+BrowserWindow.instanceEvents.blur.description: Émis lorsque la fenêtre perd le focus.
+BrowserWindow.instanceEvents.focus.description: Émis lorsque la fenêtre obtient le focus.
+BrowserWindow.instanceEvents.show.description: Émis lorsque la fenêtre est affichée.
+BrowserWindow.instanceEvents.hide.description: Émis lorsque la fenêtre est masquée.
 BrowserWindow.instanceEvents.ready-to-show.description: >-
-  Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
-BrowserWindow.instanceEvents.maximize.description: Emitted when window is maximized.
-BrowserWindow.instanceEvents.unmaximize.description: Emitted when the window exits from a maximized state.
-BrowserWindow.instanceEvents.minimize.description: Emitted when the window is minimized.
-BrowserWindow.instanceEvents.restore.description: Emitted when the window is restored from a minimized state.
-BrowserWindow.instanceEvents.resize.description: Emitted when the window is being resized.
+  Émis lorsque la page web a été rendue (tout en étant pas affiché) et la fenêtre peut être affiché sans flash visuel.
+BrowserWindow.instanceEvents.maximize.description: Émis lorsque la fenêtre est agrandie.
+BrowserWindow.instanceEvents.unmaximize.description: Émis lorsque la fenêtre quitte un état maximisé.
+BrowserWindow.instanceEvents.minimize.description: Émis lorsque la fenêtre est réduite.
+BrowserWindow.instanceEvents.restore.description: Émis lorsque la fenêtre est restaurée à partir d’un état réduit.
+BrowserWindow.instanceEvents.resize.description: Émis lorsque la fenêtre est redimensionnée.
 BrowserWindow.instanceEvents.move.description: >-
-  Emitted when the window is being moved to a new position. Note: On macOS this event is just an alias of moved.
-BrowserWindow.instanceEvents.moved.description: Emitted once when the window is moved to a new position.
-BrowserWindow.instanceEvents.enter-full-screen.description: Emitted when the window enters a full-screen state.
-BrowserWindow.instanceEvents.leave-full-screen.description: Emitted when the window leaves a full-screen state.
-BrowserWindow.instanceEvents.enter-html-full-screen.description: Emitted when the window enters a full-screen state triggered by HTML API.
-BrowserWindow.instanceEvents.leave-html-full-screen.description: Emitted when the window leaves a full-screen state triggered by HTML API.
+  Émis lorsque la fenêtre est déplacée vers une nouvelle position. Remarque : Sur macOS, cet événement est simplement un alias de `moved`.
+BrowserWindow.instanceEvents.moved.description: Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
+BrowserWindow.instanceEvents.enter-full-screen.description: Émis lorsque la fenêtre passe à un état de plein écran.
+BrowserWindow.instanceEvents.leave-full-screen.description: Émis lorsque la fenêtre revient d'un état de plein écran.
+BrowserWindow.instanceEvents.enter-html-full-screen.description: Émis lorsque la fenêtre entre dans un état de plein écran déclenchée par l’API HTML.
+BrowserWindow.instanceEvents.leave-html-full-screen.description: Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 BrowserWindow.instanceEvents.app-command.description: >-
   Emitted when an App Command is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows. Commands are lowercased, underscores are replaced with hyphens, and the APPCOMMAND_ prefix is stripped off. e.g. APPCOMMAND_BROWSER_BACKWARD is emitted as browser-backward.
-BrowserWindow.instanceEvents.scroll-touch-begin.description: Emitted when scroll wheel event phase has begun.
-BrowserWindow.instanceEvents.scroll-touch-end.description: Emitted when scroll wheel event phase has ended.
-BrowserWindow.instanceEvents.scroll-touch-edge.description: Emitted when scroll wheel event phase filed upon reaching the edge of element.
+BrowserWindow.instanceEvents.scroll-touch-begin.description: Émis lorsque l’événement scroll de la souris a commencé.
+BrowserWindow.instanceEvents.scroll-touch-end.description: Émis lorsque l’événement scroll de la souris est terminée.
+BrowserWindow.instanceEvents.scroll-touch-edge.description: Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
 BrowserWindow.instanceEvents.swipe.description: 'Emitted on 3-finger swipe. Possible directions are up, right, down, left.'
 BrowserWindow.instanceEvents.sheet-begin.description: Emitted when the window opens a sheet.
 BrowserWindow.instanceEvents.sheet-end.description: Emitted when the window has closed a sheet.
