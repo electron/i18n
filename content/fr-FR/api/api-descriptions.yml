@@ -538,15 +538,15 @@ BrowserWindow.instanceEvents.app-command.description: >-
 BrowserWindow.instanceEvents.scroll-touch-begin.description: Émis lorsque l’événement scroll de la souris a commencé.
 BrowserWindow.instanceEvents.scroll-touch-end.description: Émis lorsque l’événement scroll de la souris est terminée.
 BrowserWindow.instanceEvents.scroll-touch-edge.description: Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
-BrowserWindow.instanceEvents.swipe.description: 'Emitted on 3-finger swipe. Possible directions are up, right, down, left.'
-BrowserWindow.instanceEvents.sheet-begin.description: Emitted when the window opens a sheet.
-BrowserWindow.instanceEvents.sheet-end.description: Emitted when the window has closed a sheet.
-BrowserWindowProxy.description: Manipulate the child browser window
-BrowserWindowProxy.instanceMethods.blur.description: Removes focus from the child window.
-BrowserWindowProxy.instanceMethods.close.description: Forcefully closes the child window without calling its unload event.
-BrowserWindowProxy.instanceMethods.eval.description: Evaluates the code in the child window.
-BrowserWindowProxy.instanceMethods.focus.description: Focuses the child window (brings the window to front).
-BrowserWindowProxy.instanceMethods.print.description: Invokes the print dialog on the child window.
+BrowserWindow.instanceEvents.swipe.description: 'Émis par le balayage à 3 doigts. Les orientations possibles sont haut, droite, bas, gauche.'
+BrowserWindow.instanceEvents.sheet-begin.description: Émis lorsque la fenêtre ouvre une feuille.
+BrowserWindow.instanceEvents.sheet-end.description: Émis lorsque la fenêtre a fermé une feuille.
+BrowserWindowProxy.description: Manipuler la fenêtre de navigateur enfant
+BrowserWindowProxy.instanceMethods.blur.description: Supprime focus à partir de la fenêtre enfant.
+BrowserWindowProxy.instanceMethods.close.description: Force la fermeture de la fenêtre enfant sans appeler l'événement unload.
+BrowserWindowProxy.instanceMethods.eval.description: Évalue le code dans la fenêtre enfant.
+BrowserWindowProxy.instanceMethods.focus.description: Donne le focus à la fenêtre enfant (met la fenêtre au premier-plan).
+BrowserWindowProxy.instanceMethods.print.description: Appelle la boîte de dialogue Impression sur la fenêtre enfant.
 BrowserWindowProxy.instanceMethods.postMessage.description: >-
   Sends a message to the child window with the specified origin or * for no origin preference. In addition to these methods, the child window implements window.opener object with no properties and a single method.
 BrowserWindowProxy.instanceProperties.closed.description: A Boolean that is set to true after the child window gets closed.
@@ -610,10 +610,10 @@ clipboard.description: Perform copy and paste operations on the system clipboard
 clipboard.methods.readText.returns.description: The content in the clipboard as plain text.
 clipboard.methods.writeText.description: Writes the text into the clipboard as plain text.
 clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
-clipboard.methods.writeHTML.description: Writes markup to the clipboard.
-clipboard.methods.readImage.returns.description: The image content in the clipboard.
+clipboard.methods.writeHTML.description: Écrit markup dans le presse-papiers.
+clipboard.methods.readImage.returns.description: Le contenu de l’image dans le presse-papiers.
 clipboard.methods.writeImage.description: Écrit l'image dans le presse-papiers.
-clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
+clipboard.methods.readRTF.returns.description: Le contenu dans le presse-papiers au format RTF.
 clipboard.methods.writeRTF.description: Écrit le texte dans le presse-papiers en RTF.
 clipboard.methods.readBookmark.description: >-
   Returns an Object containing title and url keys representing the bookmark in the clipboard. The title and url values will be empty strings when the bookmark is unavailable.
@@ -623,7 +623,7 @@ clipboard.methods.readFindText.returns.description: >-
   The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 clipboard.methods.writeFindText.description: >-
   Writes the text into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
-clipboard.methods.clear.description: Clears the clipboard content.
+clipboard.methods.clear.description: Efface le contenu du presse-papiers.
 clipboard.methods.availableFormats.returns.description: An array of supported formats for the clipboard type.
 clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
 clipboard.methods.read.returns.description: Reads format type from the clipboard.
