@@ -2,7 +2,7 @@
 
 Le Rendu hors de l'écran vous permet d’obtenir le contenu d’une fenêtre de navigateur dans un fichier bitmap, donc il peut être restitué n’importe où, par exemple une texture dans une scène 3D. Le rendu hors écran d'Electron utilise une approche similaire au projet [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Deux modes de rendu peuvent être utilisés et la zone sale est passée à l’événement `'paint'` pour être plus efficace. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. La fréquence maximale est de 60, car haut dessus il n'y a aucun bénéfices, juste des pertes de performances.
+Deux modes de rendu peuvent être utilisés et la zone sale est passée à l’événement `'paint'` pour être plus efficace. Le rendu peut être arrêté, continué et la cadence peut être définie. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. La fréquence maximale est de 60, car haut dessus il n'y a aucun bénéfices, juste des pertes de performances.
 
 **Remarque :** Une fenêtre hors de l’écran est toujours créée comme une [Fenêtre sans cadre](../api/frameless-window.md).
 
