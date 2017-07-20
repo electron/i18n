@@ -12,9 +12,9 @@ Deux modes de rendu peuvent être utilisés et la zone sale est passée à l’�
 
 Le rendu par l'acceleration GPU signifie que le GPU est utilisé pour la composition. Puisque cette fenêtre doit être copiée depuis le GPU, cela require plus de performances. Donc ce mode est légèrement plus lent que l'autre. L’avantage de ce mode est que WebGL et les animations CSS 3D sont prises en charge.
 
-### Software output device
+### Logiciel de périphérique sortant
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Ce mode utilise un logiciel de périphérique sortant pour faire le rendu dans le CPU, donc la génération des frames est beaucoup plus rapide. Ce mode est donc préférable au mode GPU accéléré.
 
 Pour activer ce mode, l'accélération GPU doit être désactivé en appelant l'API [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration).
 
