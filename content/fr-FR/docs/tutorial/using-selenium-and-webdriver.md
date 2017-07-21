@@ -1,8 +1,8 @@
 # Utilisation de Selenium et WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+De [ChromeDriver - WebDriver pour Chrome](https://sites.google.com/a/chromium.org/chromedriver/) :
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver est un outil open source pour les tests automatisés d'applications web sur plusieurs navigateurs. Il fournit des fonctions pour naviguer vers les pages web, simuler l'input utilisateur, l’exécution de JavaScript, etc... . ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
 
 ## Mise en place de Spectron
 
@@ -28,16 +28,16 @@ app.start().then(function () {
   // Vérifie que la fenêtre est visible
   assert.equal(isVisible, true)
 }).then(function () {
-  // Obtient le titre de la fenêtre
+  // Récupère le titre de la fenêtre
   return app.client.getTitle()
 }).then(function (title) {
   // Vérifie le titre de la fenêtre
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log toutes les erreurs
+  // Affiche toutes les erreurs
   console.error('Test failed', error.message)
 }).then(function () {
-  // Stop l'Application
+  // Stoppe l'application
   return app.stop()
 })
 ```
