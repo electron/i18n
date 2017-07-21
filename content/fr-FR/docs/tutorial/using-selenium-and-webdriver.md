@@ -2,7 +2,7 @@
 
 De [ChromeDriver - WebDriver pour Chrome](https://sites.google.com/a/chromium.org/chromedriver/) :
 
-> WebDriver est un outil open source pour les tests automatisés d'applications web sur plusieurs navigateurs. Il fournit des fonctions pour naviguer vers les pages web, simuler l'input utilisateur, l’exécution de JavaScript, etc... . ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver est un outil open source pour les tests automatisés d'applications web sur plusieurs navigateurs. Il fournit des fonctions pour naviguer vers les pages web, simuler l'input utilisateur, l’exécution de JavaScript, etc... . ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. Il est développé par des membres des équipes chrome et WebDriver.
 
 ## Mise en place de Spectron
 
