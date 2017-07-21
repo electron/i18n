@@ -46,21 +46,21 @@ Vous pouvez également compiler seulement une version Debug :
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Après la compilation terminée, vous pouvez trouver `electron.exe` dans le dossier `out\D` (version Debug) ou dans le dossier `out\R` (version Release).
 
 ## Compilation 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Pour compiler une version 32bit, vous devez passer `--target_arch=ia32` lors de l'exécution du script bootstrap :
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Les autres étapes pour la compilation sont exactement les mêmes.
 
 ## Projet Visual Studio
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Pour générer un projet Visual Studio, vous pouvez passer le paramètre `--msvs` :
 
 ```powershell
 $ python script\bootstrap.py --msvs
