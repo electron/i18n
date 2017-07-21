@@ -90,7 +90,7 @@ Voir [Build System Overview : Tests](build-system-overview.md#tests)
 
 ### xxxx commande introuvable
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Si vous avez rencontré une erreur comme `commande xxxx introuvable`, vous pouvez essayez la console de `ligne de commande VS2015` pour exécuter les scripts de compilation.
 
 ### Fatal internal compiler error: C1001
 
@@ -98,7 +98,7 @@ Assurez-vous d'avoir la dernière mise à jour de Visual Studio installé.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Si vous compiler via Cygwin, vous pouvez voir `bootstrap.py` échouer avec l'erreur suivante :
 
     Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
     
@@ -114,7 +114,7 @@ If building under Cygwin, you may see `bootstrap.py` failed with following error
     subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
     
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Ceci est causé par un bug lors de l’utilisation de Cygwin Python et Node Win32 ensemble. La solution est d’utiliser Python Win32 pour exécuter le script bootstrap (en supposant que vous avez installé Python dans `C:\Python27`) :
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
