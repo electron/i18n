@@ -44,11 +44,11 @@ app.start().then(function () {
 
 ## Mise en place avec WebdriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) fournit un ensemble de package Node pour tester avec des pilotes web, nous l’utiliserons comme exemple.
 
-### 1. Start ChromeDriver
+### 1. Lancer ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Tout d’abord, téléchargez `chromedriver`, puis exécutez-le :
 
 ```bash
 $ npm install electron-chromedriver
@@ -67,7 +67,7 @@ $ npm install selenium-webdriver
 
 ### 3. Se connecter à ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+L’utilisation de ` selenium-webdriver` avec Electron est basiquement la même chose qu'avec un upstream, sauf que vous devez spécifier manuellement comment connecter le driver chrome et où trouver le fichier binaire d'Electron :
 
 ```javascript
 const webdriver = require('selenium-webdriver')
