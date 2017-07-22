@@ -20,15 +20,15 @@ Menggunakan [Alat-alat pengembang React](https://chrome.google.com/webstore/deta
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * pada macOS berada di `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+4. Gunakan lokasi ekstensi API `BrowserWindow.addDevToolsExtension`, untuk React Developer Tools, Ini seperti: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Catatan:** `BrowserWindow.addDevToolsExtension` API tidak disebut sebelum event siap saat modul app dibunyikan.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+Nama ekstensi dikembalikan oleh `BrowserWindow.addDevToolsExtension`, dan Anda dapat melewati nama ekstensi ke `BrowserWindow.removeDevToolsExtension` API untuk membongkar itu.
 
 ## Dukungan Ekstensi DevTool
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Elektron hanya mendukung seperangkat terbatas API `chrome.*`, sehingga beberapa ekstensi yang menggunakan tidak mendukung API `chrome.*` untuk fitur ekstensi chrome mungkin tidak bekerja. Ekstensi Devtools berikut diuji dan dijamin bekerja di elektron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -39,8 +39,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-### What should I do if a DevTools Extension is not working?
+### Apa yang harus saya lakukan jika Ekstensi DevTools tidak bekerja?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Pertama pastikan ekstensi tetap dikelola, beberapa ekstensi bahkan tidak bisa bekerja untuk versi terbaru dari Chrome browser, dan kita tidak mampu melakukan apa pun untuk mereka.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Kemudian mengajukan bug di Daftar persoalan elektron 's, dan menjelaskan bagian mana dari ekstensi tidak bekerja seperti yang diharapkan.
