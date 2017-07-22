@@ -1,6 +1,6 @@
-app.description: Control your application's event lifecycle.
+app.description: Kontrol siklus hidup acara aplikasi Anda.
 app.methods.quit.description: >-
-  Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+  Coba untuk menutup semua jendela. Berhenti sebelum event akan dibunyikan pertama. Jika semua jendela berhasil menutup, event akan berhenti akan dibunyikan dan secara default, aplikasi akan berakhir. Metode ini menjamin bahwa semua event handler beforeunload dan unload dilaksanakan dengan benar. Dimungkinkan bahwa jendela membatalkan berhenti dengan mengembalikan nilai false di beforeunload event handler.
 app.methods.exit.description: >-
   Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
 app.methods.relaunch.description: >-
@@ -11,8 +11,8 @@ app.methods.focus.description: >-
 app.methods.hide.description: Hides all application windows without minimizing them.
 app.methods.show.description: >-
   Shows application windows after they were hidden. Does not automatically focus them.
-app.methods.getAppPath.returns.description: The current application directory.
-app.methods.getPath.description: 'You can request the following paths by the name:'
+app.methods.getAppPath.returns.description: Direktori aplikasi saat ini.
+app.methods.getPath.description: 'Anda dapat meminta jalur berikut dengan nama:'
 app.methods.getPath.returns.description: >-
   A path to a special directory or file associated with name. On failure an Error is thrown.
 app.methods.getFileIcon.description: >-
@@ -25,7 +25,7 @@ app.methods.getName.description: >-
   Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
 app.methods.getName.returns.description: >-
   The current application's name, which is the name in the application's package.json file.
-app.methods.setName.description: Overrides the current application's name.
+app.methods.setName.description: Mengabaikan nama aplikasi saat ini.
 app.methods.getLocale.description: >-
   Note: When distributing your packaged app, you have to also ship the locales folder. Note: On Windows you have to call it after the ready events gets emitted.
 app.methods.getLocale.returns.description: The current application locale. Possible return values are documented here.
@@ -41,13 +41,13 @@ app.methods.setAsDefaultProtocolClient.parameters.args.description: Default untu
 app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
 app.methods.removeAsDefaultProtocolClient.description: >-
   This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
+app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'Nama protokol anda, tanpa '': //''.'
 app.methods.removeAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
 app.methods.removeAsDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.removeAsDefaultProtocolClient.returns.description: Whether the call succeeded.
 app.methods.isDefaultProtocolClient.description: >-
   This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-app.methods.isDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
+app.methods.isDefaultProtocolClient.parameters.protocol.description: 'Nama protokol anda, tanpa '': //''.'
 app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
 app.methods.isDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.setUserTasks.description: >-
@@ -75,11 +75,11 @@ app.methods.setUserActivity.parameters.userInfo.description: App-specific state 
 app.methods.setUserActivity.parameters.webpageURL.description: >-
   The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 app.methods.getCurrentActivityType.returns.description: The type of the currently running activity.
-app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
+app.methods.setAppUserModelId.description: Mengubah aplikasi Model Pengguna ID ke id.
 app.methods.importCertificate.description: >-
   Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
 app.methods.importCertificate.parameters.options.properties.certificate.description: Path for the pkcs12 file.
-app.methods.importCertificate.parameters.options.properties.password.description: Passphrase for the certificate.
+app.methods.importCertificate.parameters.options.properties.password.description: Passphrase untuk sertifikat.
 app.methods.importCertificate.parameters.callback.parameters.result.description: Hasil impor.
 app.methods.disableHardwareAcceleration.description: >-
   Disables hardware acceleration for current app. This method can only be called before app is ready.
@@ -162,7 +162,7 @@ app.events.accessibility-support-changed.description: >-
 app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` when Chrome''s accessibility support is enabled, `false` otherwise.'
 app.properties.commandLine.properties.appendSwitch.description: >-
   Append a switch (with optional value) to Chromium's command line. Note: This will not affect process.argv, and is mainly used by developers to control some low-level Chromium behaviors.
-app.properties.commandLine.properties.appendSwitch.parameters.switch.description: A command-line switch
+app.properties.commandLine.properties.appendSwitch.parameters.switch.description: Saklar baris perintah
 app.properties.commandLine.properties.appendSwitch.parameters.value.description: A value for the given switch
 app.properties.commandLine.properties.appendArgument.description: >-
   Append an argument to Chromium's command line. The argument will be quoted correctly. Note: This will not affect process.argv.
@@ -197,7 +197,7 @@ autoUpdater.events.update-not-available.description: Emitted when there is no av
 autoUpdater.events.update-downloaded.description: >-
   Emitted when an update has been downloaded. On Windows only releaseName is available.
 BrowserView.description: Create and control views.
-BrowserView.constructorMethod.parameters.0.properties.0.description: See .
+BrowserView.constructorMethod.parameters.0.properties.0.description: Lihat.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.description: >-
   If true, the view's width will grow and shrink together with the window. false by default.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
@@ -268,7 +268,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.32.description: >-
   Whether window should have a shadow. This is only implemented on macOS. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.33.description: >-
   Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.34.description: Makes the window . Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.34.description: Membuat jendela. Default false.
 BrowserWindow.constructorMethod.parameters.0.properties.35.description: 'The type of window, default is normal window. See more about this below.'
 BrowserWindow.constructorMethod.parameters.0.properties.36.description: 'The style of window title bar. Default is default. Possible values are:'
 BrowserWindow.constructorMethod.parameters.0.properties.36.possibleValues.0.description: Results in the standard gray opaque Mac title bar.
@@ -284,7 +284,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.39.description: >-
   Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If true, the window will grow to the preferred width of the web page when zoomed, false will cause it to zoom to the width of the screen. This will also affect the behavior when calling maximize() directly. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.40.description: >-
   Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together.
-BrowserWindow.constructorMethod.parameters.0.properties.41.description: Settings of web page's features.
+BrowserWindow.constructorMethod.parameters.0.properties.41.description: Pengaturan fitur halaman web.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.0.description: >-
   Whether to enable DevTools. If it is set to false, can not use BrowserWindow.webContents.openDevTools() to open DevTools. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.1.description: Whether node integration is enabled. Default is true.
@@ -343,7 +343,7 @@ BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window 
 BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
 BrowserWindow.instanceMethods.show.description: Shows and gives focus to the window.
 BrowserWindow.instanceMethods.showInactive.description: Shows the window but doesn't focus on it.
-BrowserWindow.instanceMethods.hide.description: Hides the window.
+BrowserWindow.instanceMethods.hide.description: Sembunyikan jendela.
 BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
 BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
 BrowserWindow.instanceMethods.maximize.description: >-
@@ -380,22 +380,22 @@ BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contains the w
 BrowserWindow.instanceMethods.setResizable.description: Sets whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.isResizable.returns.description: Whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.setMovable.description: Sets whether the window can be moved by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMovable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMovable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isMovable.returns.description: Whether the window can be moved by user.
 BrowserWindow.instanceMethods.setMinimizable.description: >-
   Sets whether the window can be manually minimized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMinimizable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMinimizable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isMinimizable.returns.description: Whether the window can be manually minimized by user
 BrowserWindow.instanceMethods.setMaximizable.description: >-
   Sets whether the window can be manually maximized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMaximizable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMaximizable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isMaximizable.returns.description: Whether the window can be manually maximized by user.
 BrowserWindow.instanceMethods.setFullScreenable.description: >-
   Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 BrowserWindow.instanceMethods.isFullScreenable.returns.description: >-
   Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 BrowserWindow.instanceMethods.setClosable.description: Sets whether the window can be manually closed by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isClosable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isClosable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isClosable.returns.description: Whether the window can be manually closed by user.
 BrowserWindow.instanceMethods.setAlwaysOnTop.description: >-
   Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
@@ -461,17 +461,17 @@ BrowserWindow.instanceMethods.setThumbarButtons.description: >-
 BrowserWindow.instanceMethods.setThumbarButtons.returns.description: Whether the buttons were added successfully
 BrowserWindow.instanceMethods.setThumbnailClip.description: >-
   Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: {x: 0, y: 0, width: 0, height: 0}.
-BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Region of the window
+BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Wilayah jendela
 BrowserWindow.instanceMethods.setThumbnailToolTip.description: >-
   Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
 BrowserWindow.instanceMethods.setAppDetails.description: >-
   Sets the properties for the window's taskbar button. Note: relaunchCommand and relaunchDisplayName must always be set together. If one of those properties is not set, then neither will be used.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appId.description: 'Window''s . It has to be set, otherwise the other options will have no effect.'
-BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconPath.description: Window's .
+BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconPath.description: Jendela.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconIndex.description: >-
   Index of the icon in appIconPath. Ignored when appIconPath is not set. Default is 0.
-BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchCommand.description: Window's .
-BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchDisplayName.description: Window's .
+BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchCommand.description: Jendela.
+BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchDisplayName.description: Jendela.
 BrowserWindow.instanceMethods.showDefinitionForSelection.description: Same as webContents.showDefinitionForSelection().
 BrowserWindow.instanceMethods.setIcon.description: Changes window icon.
 BrowserWindow.instanceMethods.setAutoHideMenuBar.description: >-
@@ -491,7 +491,7 @@ BrowserWindow.instanceMethods.setContentProtection.description: >-
 BrowserWindow.instanceMethods.setFocusable.description: Changes whether the window can be focused.
 BrowserWindow.instanceMethods.setParentWindow.description: >-
   Sets parent as current window's parent window, passing null will turn current window into a top-level window.
-BrowserWindow.instanceMethods.getParentWindow.returns.description: The parent window.
+BrowserWindow.instanceMethods.getParentWindow.returns.description: Jendela utama.
 BrowserWindow.instanceMethods.getChildWindows.returns.description: All child windows.
 BrowserWindow.instanceMethods.setAutoHideCursor.description: Controls whether to hide cursor when typing.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
@@ -561,12 +561,12 @@ Certificate.properties.validStart.description: Start date of the certificate bei
 Certificate.properties.validExpiry.description: End date of the certificate being valid in seconds
 Certificate.properties.fingerprint.description: Fingerprint of the certificate
 CertificatePrincipal.properties.commonName.description: Common Name
-CertificatePrincipal.properties.organizations.description: Organization names
+CertificatePrincipal.properties.organizations.description: Nama organisasi
 CertificatePrincipal.properties.organizationUnits.description: Organization Unit names
-CertificatePrincipal.properties.locality.description: Locality
-CertificatePrincipal.properties.state.description: State or province
-CertificatePrincipal.properties.country.description: Country or region
-ClientRequest.description: Make HTTP/HTTPS requests.
+CertificatePrincipal.properties.locality.description: Tempat
+CertificatePrincipal.properties.state.description: Negara Bagian/Propinsi
+CertificatePrincipal.properties.country.description: Negara atau wilayah
+ClientRequest.description: Membuat permintaan HTTP/HTTPS.
 ClientRequest.constructorMethod.parameters.0.description: >-
   If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
 ClientRequest.instanceMethods.setHeader.description: >-
@@ -611,8 +611,8 @@ clipboard.methods.readText.returns.description: The content in the clipboard as 
 clipboard.methods.writeText.description: Writes the text into the clipboard as plain text.
 clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
 clipboard.methods.writeHTML.description: Writes markup to the clipboard.
-clipboard.methods.readImage.returns.description: The image content in the clipboard.
-clipboard.methods.writeImage.description: Writes image to the clipboard.
+clipboard.methods.readImage.returns.description: Konten gambar dalam clipboard.
+clipboard.methods.writeImage.description: Menulis gambar ke clipboard.
 clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
 clipboard.methods.writeRTF.description: Writes the text into the clipboard in RTF.
 clipboard.methods.readBookmark.description: >-
@@ -623,7 +623,7 @@ clipboard.methods.readFindText.returns.description: >-
   The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 clipboard.methods.writeFindText.description: >-
   Writes the text into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
-clipboard.methods.clear.description: Clears the clipboard content.
+clipboard.methods.clear.description: Membersihkan konten clipboard.
 clipboard.methods.availableFormats.returns.description: An array of supported formats for the clipboard type.
 clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
 clipboard.methods.read.returns.description: Reads format type from the clipboard.
