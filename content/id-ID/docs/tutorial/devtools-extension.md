@@ -4,13 +4,13 @@ Elektron mendukung [Ekstensi DevTools Chrome](https://developer.chrome.com/exten
 
 ## Cara memuat ekstensi DevTools
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Dokumen ini menjelaskan proses untuk secara manual memuat ekstensi. Anda juga dapat mencoba [elektron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), alat pihak ketiga yang mengunduh ekstensi langsung dari Chrome WebStore.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Untuk memuat ekstensi elektron, Anda perlu mengunduh di peramban Chrome, gunakan path filesystem, dan kemudian muat dengan memanggil API `BrowserWindow.addDevToolsExtension(extension)`.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Menggunakan [Alat-alat pengembang React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) sebagai contoh:
 
-1. Install it in Chrome browser.
+1. Menginstal di peramban Chrome.
 2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
 3. Find out filesystem location used by Chrome for storing extensions: 
     * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
