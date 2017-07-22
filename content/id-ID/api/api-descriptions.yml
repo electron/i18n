@@ -31,25 +31,25 @@ app.methods.getLocale.description: >-
 app.methods.getLocale.returns.description: The current application locale. Possible return values are documented here.
 app.methods.addRecentDocument.description: >-
   Adds path to the recent documents list. This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
-app.methods.clearRecentDocuments.description: Clears the recent documents list.
+app.methods.clearRecentDocuments.description: Bersihkan daftar dokumen terakhir.
 app.methods.setAsDefaultProtocolClient.description: >-
   This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
   The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 app.methods.setAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.setAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.setAsDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
 app.methods.removeAsDefaultProtocolClient.description: >-
   This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
 app.methods.removeAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.removeAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.removeAsDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.removeAsDefaultProtocolClient.returns.description: Whether the call succeeded.
 app.methods.isDefaultProtocolClient.description: >-
   This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
 app.methods.isDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
 app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.isDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.isDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.setUserTasks.description: >-
   Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
 app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
@@ -80,7 +80,7 @@ app.methods.importCertificate.description: >-
   Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
 app.methods.importCertificate.parameters.options.properties.certificate.description: Path for the pkcs12 file.
 app.methods.importCertificate.parameters.options.properties.password.description: Passphrase for the certificate.
-app.methods.importCertificate.parameters.callback.parameters.result.description: Result of import.
+app.methods.importCertificate.parameters.callback.parameters.result.description: Hasil impor.
 app.methods.disableHardwareAcceleration.description: >-
   Disables hardware acceleration for current app. This method can only be called before app is ready.
 app.methods.getAppMemoryInfo.description: >-
@@ -118,10 +118,10 @@ app.methods.isAccessibilitySupportEnabled.returns.description: >-
   true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 app.methods.setAboutPanelOptions.description: >-
   Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: The app's name.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: The app's version.
-app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Copyright information.
-app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Credit information.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Nama aplikasi.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Versi aplikasi.
+app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Informasi hak cipta.
+app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Informasi kredit.
 app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
@@ -150,7 +150,7 @@ app.events.browser-window-created.description: Emitted when a new browserWindow 
 app.events.web-contents-created.description: Emitted when a new webContents is created.
 app.events.certificate-error.description: >-
   Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).
-app.events.certificate-error.returns.error.description: The error code
+app.events.certificate-error.returns.error.description: Kode kesalahan
 app.events.certificate-error.returns.callback.parameters.isTrusted.description: Whether to consider the certificate as trusted
 app.events.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The url corresponds to the navigation entry requesting the client certificate and callback can be called with an entry filtered from the list. Using event.preventDefault() prevents the application from using the first certificate from the store.
@@ -183,7 +183,7 @@ app.properties.dock.properties.setMenu.description: Sets the application's dock 
 app.properties.dock.properties.setIcon.description: Sets the image associated with this dock icon.
 autoUpdater.description: Enable apps to automatically update themselves.
 autoUpdater.methods.setFeedURL.description: Sets the url and initialize the auto updater.
-autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: HTTP request headers.
+autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: Header permintaan HTTP.
 autoUpdater.methods.getFeedURL.returns.description: The current update feed URL.
 autoUpdater.methods.checkForUpdates.description: >-
   Asks the server whether there is an update. You must call setFeedURL before using this API.
@@ -1675,7 +1675,7 @@ WebContents.instanceEvents.devtools-closed.description: Emitted when DevTools is
 WebContents.instanceEvents.devtools-focused.description: Emitted when DevTools is focused / opened.
 WebContents.instanceEvents.certificate-error.description: >-
   Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.
-WebContents.instanceEvents.certificate-error.returns.error.description: The error code
+WebContents.instanceEvents.certificate-error.returns.error.description: Kode kesalahan
 WebContents.instanceEvents.certificate-error.returns.callback.parameters.isTrusted.description: Indicates whether the certificate can be considered trusted
 WebContents.instanceEvents.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The usage is the same with the select-client-certificate event of app.
