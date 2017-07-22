@@ -74,19 +74,19 @@ function createWindow () {
 
   // Emitted saat jendela tertutup.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Dereference objek jendela, biasanya anda akan menyimpan jendela
+    // dalam array jika aplikasi Anda mendukung multi jendela, inilah waktunya
+    // kapan kamu harus menghapus elemen yang sesuai.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Metode ini akan dipanggil saat Elektron selesai
+/ / mengisialisasi dan siap untuk membuat jendela browser.
+// Beberapa API hanya dapat digunakan setelah event ini terjadi.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Keluar ketika semua jendela ditutup.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
