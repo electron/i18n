@@ -198,4 +198,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+Untuk contoh aplikasi lain, lihat [Daftar boilerplates](https://electron.atom.io/community/#boilerplates) yang diciptakan oleh masyarakat elektron yang mengagumkan.
