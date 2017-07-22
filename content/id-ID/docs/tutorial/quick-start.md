@@ -24,9 +24,9 @@ Di halaman web, memanggil native GUI terkait API tidak diperbolehkan karena meng
 
 Di elektron, kita memiliki beberapa cara untuk berkomunikasi antara proses utama dan proses renderer. Seperti [`ipcRenderer`](../api/ipc-renderer.md) dan [`ipcMain`](../api/ipc-main.md) modul untuk mengirim pesan, dan modul [remote](../api/remote.md) untuk gaya komunikasi RPC. Ada juga sebuah entri tentang FAQ [cara untuk berbagi data antara halaman web](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Menulis Aplikasi Elektron Pertama Anda
 
-Generally, an Electron app is structured like this:
+Umumnya, struktur aplikasi elektron seperti ini:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+Format `package.json` sama seperti dari Node modul, dan skrip yang ditentukan oleh bidang `main` adalah skrip startup aplikasi Anda, yang akan menjalankan proses utama. Contoh `package.json` mungkin terlihat seperti ini:
 
 ```json
 {
@@ -45,34 +45,34 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Catatan**: Jika bidang `main` tidak ada dalam `package.json`, elektron akan mencoba untuk memuat `index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js` akan membuat jendela dan menangani aktivitas sistem, contoh:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Simpan referensi global dari objek jendela, jika tidak, jendela akan menyala
+// ditutup secara otomatis saat objek JavaScript adalah sampah yang dikumpulkan.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Membuat jendela browser.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // dan memuat index.html dari aplikasi.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Buka devtool.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Emitted saat jendela tertutup.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
