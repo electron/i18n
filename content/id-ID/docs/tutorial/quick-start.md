@@ -1,20 +1,20 @@
-# Quick Start
+# Mulai Cepat
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Elektron memungkinkan Anda untuk membuat aplikasi desktop dengan murni JavaScript dengan menyediakan runtime yang kaya asli (sistem operasi) api. Anda bisa melihatnya sebagai varian dari runtime Node.js yang difokuskan pada aplikasi desktop bukan server web.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+Ini bukan berarti elektron mengikat JavaScript ke perpustakaan grafis antarmuka pengguna(GUI). Sebaliknya, elektron menggunakan halaman web sebagai GUI, sehingga Anda juga dapat melihatnya sebagai minimal Kromium browser, dikendalikan oleh JavaScript.
 
-### Main Process
+### Proses utama
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Dalam elektron, proses yang menjalankan script `utama` `package.json` disebut **proses utama**. Script yang berjalan dalam proses utama dapat menampilkan GUI dengan menciptakan halaman web.
 
-### Renderer Process
+### Proses renderer
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Sejak elektron menggunakan Kromium untuk menampilkan halaman web, Kromium di multi proses arsitektur juga digunakan. Setiap halaman web di elektron berjalan dalam proses sendiri, yang disebut **proses renderer**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Di normal browser, halaman web biasanya menjalankan dalam lingkungan sandboxed dan tidak diperbolehkan akses ke sumber daya yang asli. Pengguna Elektron, namun, memiliki kekuatan untuk menggunakan api Node.js di halaman web yang memungkinkan interaksi tingkat sistem operasi yang lebih rendah.
 
-### Differences Between Main Process and Renderer Process
+### Perbedaan utama proses dan proses Renderer
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
