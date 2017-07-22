@@ -2,7 +2,7 @@ app.description: Kontrol siklus hidup acara aplikasi Anda.
 app.methods.quit.description: >-
   Coba untuk menutup semua jendela. Berhenti sebelum event akan dibunyikan pertama. Jika semua jendela berhasil menutup, event akan berhenti akan dibunyikan dan secara default, aplikasi akan berakhir. Metode ini menjamin bahwa semua event handler beforeunload dan unload dilaksanakan dengan benar. Dimungkinkan bahwa jendela membatalkan berhenti dengan mengembalikan nilai false di beforeunload event handler.
 app.methods.exit.description: >-
-  Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
+  Keluar segera dengan exitCode.  exitCode default 0. Semua jendela akan ditutup segera tanpa meminta izin pengguna dan peristiwa sebelum berhenti dan berhenti akan tidak akan dibunyikan.
 app.methods.relaunch.description: >-
   Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
 app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
