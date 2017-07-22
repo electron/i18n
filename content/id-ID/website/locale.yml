@@ -23,35 +23,35 @@ cross_platform:
 benefits:
   hard_parts_made_easy: Bagian yang sulit menjadi mudah
   automatic_updates: Pembaruan otomatis
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
+  native_menus_and_notifications: Menu asli & pemberitahuan
+  crash_reporting: Laporan Masalah
+  debugging_and_profiling: Debugging & profil
   windows_installers: Windows Installer
 get_started:
   title: Memulai
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Untuk memulai dengan elektron, Lihat sumber daya di bawah ini. Pelajari cara untuk membungkus aplikasi web Anda dengan elektron, mengakses semua api, dan menghasilkan installer.
 explore:
-  title: Explore the Electron APIs
+  title: Jelajahi API Elektron
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
+    - '<a href="https://github.com/electron/electron-api-demos"> Demo aplikasi Elektron API</a>'
+    - demonstrasi fitur yang paling penting dari API elektron secara interaktif.
+    - Lihat apa saja yang mungkin dengan elektron dengan sampel kode dan tips untuk
     - bangun aplikasi anda.
 download_from_github: Unduh dari GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases"> Lihat semua rilis</a> di GitHub'
 quick_start:
   title: "Praktik <a href='https://github.com/electron/electron-quick-start' target='_blank'> Cepat mulai</a> membuat aplikasi untuk melihat elektron dalam tindakan:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
+  description: Aplikasi Electron dengan notasi berguna.
+  clone: Clone repositori untuk memulai
   go_into_repo: Kunjungi repositori
   install_deps: Install dependensi dan jalankan
-  dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
+  dive_deeper: 'Atau menyelam lebih dalam dan membaca <a href=''https://electron.atom.io/docs/''> dokumentasi</a>.'
 need_help:
   title: Perlu Bantuan?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: 'Ajukan pertanyaan di forum <a href=''https://discuss.atom.io/c/electron''> Diskusi</a> atau saluran <a href=''http://atom-slack.herokuapp.com/''> slack</a> kami. Ikuti <a href="https://twitter.com/ElectronJS">@ElectronJS</a> di Twitter untuk pengumuman penting. Perlu menjangkau secara pribadi? Email ke <a href="mailto:electron@github.com"> electron@github.com</a>.'
 apps:
   title: Aplikasi dibangun dengan elektron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'Dengan elektron, membuat aplikasi desktop untuk perusahaan anda atau ide dengan mudah. Awalnya dikembangkan untuk GitHub di <a href=''https://atom.io'' target=''_blank''> Atom editor</a>, karena elektron telah digunakan untuk membuat aplikasi oleh perusahaan seperti Microsoft, Facebook, kendur, dan Docker.'
   view_more: Lihat aplikasi lain
-  submit_your_own: submit your own
+  submit_your_own: kirim milik anda
 or: or
