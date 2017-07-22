@@ -16,13 +16,13 @@ Di normal browser, halaman web biasanya menjalankan dalam lingkungan sandboxed d
 
 ### Perbedaan utama proses dan proses Renderer
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Proses utama menciptakan halaman web dengan menciptakan contoh `BrowserWindow`. Setiap `BrowserWindow` berjalan halaman web dalam proses renderer sendiri. Ketika sebuah instance `BrowserWindow` hancur, proses renderer sesuai juga dihentikan.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Proses utama mengelola semua halaman web dan proses renderer mereka sesuai. Setiap proses renderer terisolasi dan hanya peduli tentang halaman web yang berjalan di dalamnya.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Di halaman web, memanggil native GUI terkait API tidak diperbolehkan karena mengelola sumber-daya GUI yang asli di halaman web ini sangat berbahaya dan sangat mudah untuk sumber daya kebocoran. Jika Anda ingin melakukan operasi GUI dalam halaman web, proses renderer laman web harus berkomunikasi dengan proses utama untuk meminta bahwa proses utama melakukan operasi tersebut.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+Di elektron, kita memiliki beberapa cara untuk berkomunikasi antara proses utama dan proses renderer. Seperti [`ipcRenderer`](../api/ipc-renderer.md) dan [`ipcMain`](../api/ipc-main.md) modul untuk mengirim pesan, dan modul [remote](../api/remote.md) untuk gaya komunikasi RPC. Ada juga sebuah entri tentang FAQ [cara untuk berbagi data antara halaman web](../faq.md#how-to-share-data-between-web-pages).
 
 ## Write your First Electron App
 
@@ -125,7 +125,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## Jalankan aplikasi Anda
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
