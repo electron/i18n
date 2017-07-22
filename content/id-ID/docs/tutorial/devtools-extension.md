@@ -1,8 +1,8 @@
-# DevTools Extension
+# Ekstensi DevTools
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Elektron mendukung [Ekstensi DevTools Chrome](https://developer.chrome.com/extensions/devtools), yang dapat digunakan untuk memperluas kemampuan devtools untuk debugging kerangka web populer.
 
-## How to load a DevTools Extension
+## Cara memuat ekstensi DevTools
 
 This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
@@ -10,9 +10,9 @@ To load an extension in Electron, you need to download it in Chrome browser, loc
 
 Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
 
-  1. Install it in Chrome browser.
-  2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-  3. Find out filesystem location used by Chrome for storing extensions: 
+1. Install it in Chrome browser.
+2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
+3. Find out filesystem location used by Chrome for storing extensions: 
     * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * on Linux it could be: 
         * `~/.config/google-chrome/Default/Extensions/`
@@ -20,13 +20,13 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-  4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
 The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
 
-## Supported DevTools Extensions
+## Dukungan Ekstensi DevTool
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
