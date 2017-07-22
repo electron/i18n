@@ -78,11 +78,11 @@ app.methods.getCurrentActivityType.returns.description: The type of the currentl
 app.methods.setAppUserModelId.description: Mengubah aplikasi Model Pengguna ID ke id.
 app.methods.importCertificate.description: >-
   Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
-app.methods.importCertificate.parameters.options.properties.certificate.description: Path for the pkcs12 file.
+app.methods.importCertificate.parameters.options.properties.certificate.description: Path untuk file pkcs12.
 app.methods.importCertificate.parameters.options.properties.password.description: Passphrase untuk sertifikat.
 app.methods.importCertificate.parameters.callback.parameters.result.description: Hasil impor.
 app.methods.disableHardwareAcceleration.description: >-
-  Disables hardware acceleration for current app. This method can only be called before app is ready.
+  Menonaktifkan akselerasi hardware untuk aplikasi saat ini. Metode ini hanya dapat panggil sebelum aplikasi siap.
 app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
@@ -609,8 +609,8 @@ ClientRequest.instanceEvents.redirect.description: >-
 clipboard.description: Perform copy and paste operations on the system clipboard.
 clipboard.methods.readText.returns.description: The content in the clipboard as plain text.
 clipboard.methods.writeText.description: Writes the text into the clipboard as plain text.
-clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
-clipboard.methods.writeHTML.description: Writes markup to the clipboard.
+clipboard.methods.readHTML.returns.description: Konten dalam clipboard sebagai markup.
+clipboard.methods.writeHTML.description: Menulis markup ke clipboard.
 clipboard.methods.readImage.returns.description: Konten gambar dalam clipboard.
 clipboard.methods.writeImage.description: Menulis gambar ke clipboard.
 clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
@@ -628,8 +628,8 @@ clipboard.methods.availableFormats.returns.description: An array of supported fo
 clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
 clipboard.methods.read.returns.description: Reads format type from the clipboard.
 clipboard.methods.readBuffer.returns.description: Reads format type from the clipboard.
-clipboard.methods.write.description: Writes data to the clipboard.
-clipboard.methods.write.parameters.data.properties.bookmark.description: The title of the url at text.
+clipboard.methods.write.description: Menulis data ke clipboard.
+clipboard.methods.write.parameters.data.properties.bookmark.description: Judul url di teks.
 contentTracing.description: |-
   Collect tracing data from Chromium's content module for finding performance
   bottlenecks and slow operations.
@@ -647,11 +647,11 @@ contentTracing.methods.captureMonitoringSnapshot.description: >-
   Get the current monitoring traced data. Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data. Once all child processes have acknowledged the captureMonitoringSnapshot request the callback will be called with a file that contains the traced data.
 contentTracing.methods.getTraceBufferUsage.description: >-
   Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the callback is called.
-Cookie.properties.name.description: The name of the cookie.
-Cookie.properties.value.description: The value of the cookie.
-Cookie.properties.domain.description: The domain of the cookie.
+Cookie.properties.name.description: Nama cookie.
+Cookie.properties.value.description: Nilai cookie.
+Cookie.properties.domain.description: Domain cookie.
 Cookie.properties.hostOnly.description: Whether the cookie is a host-only cookie.
-Cookie.properties.path.description: The path of the cookie.
+Cookie.properties.path.description: Path cookie.
 Cookie.properties.secure.description: Whether the cookie is marked as secure.
 Cookie.properties.httpOnly.description: Whether the cookie is marked as HTTP only.
 Cookie.properties.session.description: >-
@@ -663,8 +663,8 @@ Cookies.instanceMethods.get.description: >-
   Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete. cookies is an Array of cookie objects.
 Cookies.instanceMethods.get.parameters.filter.properties.url.description: >-
   Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
-Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filters cookies by name.
-Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Retrieves cookies whose domains match or are subdomains of domains
+Cookies.instanceMethods.get.parameters.filter.properties.name.description: Menyaring cookie berdasar nama.
+Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Mengambil cookie domain yang sesuai atau adalah subdomain dari domain
 Cookies.instanceMethods.get.parameters.filter.properties.path.description: Retrieves cookies whose path matches path.
 Cookies.instanceMethods.get.parameters.filter.properties.secure.description: Filters cookies by their Secure property.
 Cookies.instanceMethods.get.parameters.filter.properties.session.description: Filters out session or persistent cookies.
@@ -726,7 +726,7 @@ Debugger.instanceMethods.sendCommand.description: Send given command to the debu
 Debugger.instanceMethods.sendCommand.parameters.method.description: >-
   Method name, should be one of the methods defined by the remote debugging protocol.
 Debugger.instanceMethods.sendCommand.parameters.commandParams.description: JSON object with request parameters.
-Debugger.instanceMethods.sendCommand.parameters.callback.description: Response
+Debugger.instanceMethods.sendCommand.parameters.callback.description: Respon
 Debugger.instanceMethods.sendCommand.parameters.callback.parameters.error.description: Error message indicating the failure of the command.
 Debugger.instanceMethods.sendCommand.parameters.callback.parameters.result.description: >-
   Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
