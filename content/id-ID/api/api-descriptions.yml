@@ -96,11 +96,11 @@ app.methods.getLoginItemSettings.parameters.options.properties.path.description:
 app.methods.getLoginItemSettings.parameters.options.properties.args.description: The command-line arguments to compare against. Defaults to an empty array.
 app.methods.getLoginItemSettings.returns.properties.0.properties.0.description: The executable path to compare against. Defaults to process.execPath.
 app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: The command-line arguments to compare against. Defaults to an empty array.
-app.methods.getLoginItemSettings.returns.properties.1.description: true if the app is set to open at login.
+app.methods.getLoginItemSettings.returns.properties.1.description: true jika aplikasi diatur untuk membuka saat login.
 app.methods.getLoginItemSettings.returns.properties.2.description: >-
-  true if the app is set to open as hidden at login. This setting is only supported on macOS.
+  tru jika aplikasi diatur untuk membuka sebagai tersembunyi saat login. Pengaturan ini hanya didukung di macOS.
 app.methods.getLoginItemSettings.returns.properties.3.description: >-
-  true if the app was opened at login automatically. This setting is only supported on macOS.
+  true jika aplikasi dibuka di login secara otomatis. Pengaturan ini hanya didukung di macOS.
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
   true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
@@ -473,7 +473,7 @@ BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIco
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchCommand.description: Jendela.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchDisplayName.description: Jendela.
 BrowserWindow.instanceMethods.showDefinitionForSelection.description: Same as webContents.showDefinitionForSelection().
-BrowserWindow.instanceMethods.setIcon.description: Changes window icon.
+BrowserWindow.instanceMethods.setIcon.description: Ubah ikon jendela.
 BrowserWindow.instanceMethods.setAutoHideMenuBar.description: >-
   Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately.
 BrowserWindow.instanceMethods.isMenuBarAutoHide.returns.description: Whether menu bar automatically hides itself.
