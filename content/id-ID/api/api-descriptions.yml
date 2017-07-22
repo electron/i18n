@@ -10,7 +10,7 @@ app.methods.focus.description: >-
   On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 app.methods.hide.description: Hides all application windows without minimizing them.
 app.methods.show.description: >-
-  Shows application windows after they were hidden. Does not automatically focus them.
+  Menampilkan jendela aplikasi setelah disembunyikan. Tidak secara otomatis fokus.
 app.methods.getAppPath.returns.description: Direktori aplikasi saat ini.
 app.methods.getPath.description: 'Anda dapat meminta jalur berikut dengan nama:'
 app.methods.getPath.returns.description: >-
@@ -175,8 +175,8 @@ app.properties.dock.properties.cancelBounce.description: Cancel the bounce of id
 app.properties.dock.properties.downloadFinished.description: Bounces the Downloads stack if the filePath is inside the Downloads folder.
 app.properties.dock.properties.setBadge.description: Sets the string to be displayed in the dock’s badging area.
 app.properties.dock.properties.getBadge.returns.description: The badge string of the dock.
-app.properties.dock.properties.hide.description: Hides the dock icon.
-app.properties.dock.properties.show.description: Shows the dock icon.
+app.properties.dock.properties.hide.description: Sembunyikan ikon dok.
+app.properties.dock.properties.show.description: Tampilkan ikon dok.
 app.properties.dock.properties.isVisible.returns.description: >-
   Whether the dock icon is visible. The app.dock.show() call is asynchronous so this method might not return true immediately after that call.
 app.properties.dock.properties.setMenu.description: Sets the application's dock menu.
@@ -415,7 +415,7 @@ BrowserWindow.instanceMethods.setSheetOffset.description: >-
   Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 BrowserWindow.instanceMethods.flashFrame.description: Starts or stops flashing the window to attract user's attention.
 BrowserWindow.instanceMethods.setSkipTaskbar.description: Makes the window not show in the taskbar.
-BrowserWindow.instanceMethods.setKiosk.description: Enters or leaves the kiosk mode.
+BrowserWindow.instanceMethods.setKiosk.description: Masuk atau keluar dari mode kiosk.
 BrowserWindow.instanceMethods.isKiosk.returns.description: Whether the window is in kiosk mode.
 BrowserWindow.instanceMethods.getNativeWindowHandle.description: >-
   The native type of the handle is HWND on Windows, NSView* on macOS, and Window (unsigned long) on Linux.
@@ -560,9 +560,9 @@ Certificate.properties.serialNumber.description: Hex value represented string
 Certificate.properties.validStart.description: Start date of the certificate being valid in seconds
 Certificate.properties.validExpiry.description: End date of the certificate being valid in seconds
 Certificate.properties.fingerprint.description: Fingerprint of the certificate
-CertificatePrincipal.properties.commonName.description: Common Name
+CertificatePrincipal.properties.commonName.description: Nama Umum
 CertificatePrincipal.properties.organizations.description: Nama organisasi
-CertificatePrincipal.properties.organizationUnits.description: Organization Unit names
+CertificatePrincipal.properties.organizationUnits.description: Nama Unit organisasi
 CertificatePrincipal.properties.locality.description: Tempat
 CertificatePrincipal.properties.state.description: Negara Bagian/Propinsi
 CertificatePrincipal.properties.country.description: Negara atau wilayah
@@ -607,13 +607,13 @@ ClientRequest.instanceEvents.close.description: >-
 ClientRequest.instanceEvents.redirect.description: >-
   Emitted when there is redirection and the mode is manual. Calling request.followRedirect will continue with the redirection.
 clipboard.description: Perform copy and paste operations on the system clipboard.
-clipboard.methods.readText.returns.description: The content in the clipboard as plain text.
+clipboard.methods.readText.returns.description: Konten dalam clipboard sebagai teks biasa.
 clipboard.methods.writeText.description: Writes the text into the clipboard as plain text.
 clipboard.methods.readHTML.returns.description: Konten dalam clipboard sebagai markup.
 clipboard.methods.writeHTML.description: Menulis markup ke clipboard.
 clipboard.methods.readImage.returns.description: Konten gambar dalam clipboard.
 clipboard.methods.writeImage.description: Menulis gambar ke clipboard.
-clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
+clipboard.methods.readRTF.returns.description: Konten dalam clipboard sebagai RTF.
 clipboard.methods.writeRTF.description: Writes the text into the clipboard in RTF.
 clipboard.methods.readBookmark.description: >-
   Returns an Object containing title and url keys representing the bookmark in the clipboard. The title and url values will be empty strings when the bookmark is unavailable.
@@ -682,11 +682,11 @@ Cookies.instanceMethods.set.parameters.details.properties.expirationDate.descrip
 Cookies.instanceMethods.remove.description: >-
   Removes the cookies matching url and name, callback will called with callback() on complete.
 Cookies.instanceMethods.remove.parameters.url.description: The URL associated with the cookie.
-Cookies.instanceMethods.remove.parameters.name.description: The name of cookie to remove.
-Cookies.instanceMethods.flushStore.description: Writes any unwritten cookies data to disk.
+Cookies.instanceMethods.remove.parameters.name.description: Nama cookie untuk dihapus.
+Cookies.instanceMethods.flushStore.description: Tulis data cookie yang tidak tertulis ke disk.
 Cookies.instanceEvents.changed.description: >-
   Emitted when a cookie is changed because it was added, edited, removed, or expired.
-Cookies.instanceEvents.changed.returns.cookie.description: The cookie that was changed
+Cookies.instanceEvents.changed.returns.cookie.description: Cookie yang berubah
 Cookies.instanceEvents.changed.returns.cause.description: 'The cause of the change with one of the following values:'
 Cookies.instanceEvents.changed.returns.removed.description: '`true` if the cookie was removed, `false` otherwise.'
 CPUUsage.properties.percentCPUUsage.description: >-
@@ -699,7 +699,7 @@ crashReporter.methods.start.description: >-
 crashReporter.methods.start.parameters.options.properties.submitURL.description: URL that crash reports will be sent to as POST.
 crashReporter.methods.start.parameters.options.properties.productName.description: Defaults to app.getName().
 crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Whether crash reports should be sent to the server Default is true.
-crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Default is false.
+crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Default false.
 crashReporter.methods.start.parameters.options.properties.extra.description: >-
   An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported.
 crashReporter.methods.getLastCrashReport.description: >-
@@ -734,7 +734,7 @@ Debugger.instanceEvents.detach.description: >-
   Emitted when debugging session is terminated. This happens either when webContents is closed or devtools is invoked for the attached webContents.
 Debugger.instanceEvents.detach.returns.reason.description: Reason for detaching debugger.
 Debugger.instanceEvents.message.description: Emitted whenever debugging target issues instrumentation event.
-Debugger.instanceEvents.message.returns.method.description: Method name.
+Debugger.instanceEvents.message.returns.method.description: Nama metode.
 Debugger.instanceEvents.message.returns.params.description: >-
   Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 desktopCapturer.description: |-
@@ -781,7 +781,7 @@ dialog.methods.showMessageBox.parameters.options.properties.buttons.description:
 dialog.methods.showMessageBox.parameters.options.properties.defaultId.description: >-
   Index of the button in the buttons array which will be selected by default when the message box opens.
 dialog.methods.showMessageBox.parameters.options.properties.title.description: 'Title of the message box, some platforms will not show it.'
-dialog.methods.showMessageBox.parameters.options.properties.message.description: Content of the message box.
+dialog.methods.showMessageBox.parameters.options.properties.message.description: Isi kotak pesan.
 dialog.methods.showMessageBox.parameters.options.properties.detail.description: Extra information of the message.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxLabel.description: >-
   If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using callback.
@@ -814,7 +814,7 @@ DownloadItem.instanceMethods.setSavePath.description: >-
 DownloadItem.instanceMethods.setSavePath.parameters.path.description: Set the save file path of the download item.
 DownloadItem.instanceMethods.getSavePath.returns.description: >-
   The save path of the download item. This will be either the path set via downloadItem.setSavePath(path) or the path selected from the shown save dialog.
-DownloadItem.instanceMethods.pause.description: Pauses the download.
+DownloadItem.instanceMethods.pause.description: Jeda unduhan.
 DownloadItem.instanceMethods.isPaused.returns.description: Whether the download is paused.
 DownloadItem.instanceMethods.resume.description: >-
   Resumes the download that has been paused. Note: To enable resumable downloads the server you are downloading from must support range requests and provide both Last-Modified and ETag header values. Otherwise resume() will dismiss previously received bytes and restart the download from the beginning.
@@ -936,7 +936,7 @@ Menu.instanceMethods.popup.parameters.options.properties.async.description: >-
 Menu.instanceMethods.popup.parameters.options.properties.positioningItem.description: >-
   The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 Menu.instanceMethods.closePopup.description: Closes the context menu in the browserWindow.
-Menu.instanceMethods.closePopup.parameters.browserWindow.description: Default is the focused window.
+Menu.instanceMethods.closePopup.parameters.browserWindow.description: Default adalah jendela terfokus.
 Menu.instanceMethods.append.description: Appends the menuItem to the menu.
 Menu.instanceMethods.insert.description: Inserts the menuItem to the pos position of the menu.
 Menu.instanceProperties.items.description: >-
