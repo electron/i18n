@@ -88,26 +88,26 @@ app.on('ready', createWindow)
 
 // Keluar ketika semua jendela ditutup.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // Di macOS ini biasa digunakan untuk aplikasi dan menu bar
+  // tetap aktif sampai pengguna keluar secara eksplisit menggunakan perintah Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // Di macOS biasanya digunakan untuk membuat ulang jendela pada aplikasi ketika 
+  // dock icon di klik dan tidak ada jendela lain disana.
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// Di file ini anda dapat menambahkan semua kode spesifik main process pada
+// aplikasi. Anda juga dapat menempatkan dalam berkas terpisah dan menambahkannya di sini.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Akhirnya `index.html` adalah halaman web yang ingin Anda Tampilkan:
 
 ```html
 <!DOCTYPE html>
@@ -127,19 +127,19 @@ Finally the `index.html` is the web page you want to show:
 
 ## Jalankan aplikasi Anda
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Setelah Anda telah membuat file `main.js`, `index.html` dan file `package.json`, Anda mungkin ingin mencoba menjalankan aplikasi anda secara lokal untuk menguji dan memastikan bahwa itu bekerja seperti yang diharapkan.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) adalah modul `npm` yang berisi versi pre-compiled elektron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Jika Anda telah menginstall secara global dengan `npm`, maka Anda hanya akan perlu untuk menjalankan berikut dalam direktori source aplikasi Anda:
 
 ```bash
 electron .
 ```
 
-If you've installed it locally, then run:
+Jika Anda telah menginstal secara lokal, kemudian jalankan:
 
 #### macOS / Linux
 
@@ -153,9 +153,9 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-### Manually Downloaded Electron Binary
+### Mengunduh Binari Electron secara Manual
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Jika Anda download elektron secara manual, Anda juga dapat menggunakan binari kode dan menyertakannya untuk menjalankan aplikasi Anda secara langsung.
 
 #### macOS
 
@@ -175,17 +175,17 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` di sini adalah bagian dari elektron paket rilis, Anda dapat men-download dari [sini](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Dijalankan sebagai sebuah distribusi
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Setelah Anda selesai menulis aplikasi Anda, Anda dapat membuat sebuah distribusi dengan mengikuti panduan [Distribusi Aplikasi](./application-distribution.md) dan kemudian menjalankan app dikemas.
 
-### Try this Example
+### Cobalah contoh ini
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clone dan jalankan kode dalam tutorial ini menggunakan repositori [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Catatan**: ini memerlukan [Git](https://git-scm.com) dan [Node.js](https://nodejs.org/en/download/) (termasuk [npm](https://npmjs.org)) pada sistem Anda.
 
 ```bash
 # Clone the repository
