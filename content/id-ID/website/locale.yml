@@ -1,24 +1,24 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Membangun lintas platform aplikasi desktop dengan JavaScript, HTML dan CSS
 nav:
-  docs: Docs
+  docs: Dokumentasi
   blog: Blog
-  community: Community
-  apps: Apps
+  community: Komunitas
+  apps: Aplikasi
   userland: Userland
-  releases: Releases
-  contact: Contact
+  releases: Rilis
+  contact: Kontak
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  title: Lebih mudah daripada yang Anda pikirkan
+  description: Jika Anda dapat membangun sebuah situs web, Anda dapat membangun sebuah aplikasi desktop. elektron adalah suatu kerangka kerja untuk menciptakan aplikasi asli dengan teknologi web seperti JavaScript, HTML, dan CSS. Itu membutuhkan perawatan dari bagian sulit sehingga anda dapat fokus pada inti dari aplikasi anda.
+  video_link: Tonton video
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: Teknologi web
+  description: Elektron menggunakan Kromium dan Node.js sehingga Anda dapat membangun aplikasi anda dengan HTML, CSS, dan JavaScript.
 open_source:
-  title: Open Source
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: Sumber Terbuka
+  desciption: Elektron adalah sebuah proyek open source yang dikelola oleh GitHub dan komunitas kontributor aktif.
 cross_platform:
-  title: Cross Platform
+  title: Lintas Platform
   description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
 benefits:
   hard_parts_made_easy: The hard parts made easy
