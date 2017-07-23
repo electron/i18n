@@ -4,17 +4,17 @@ app.methods.quit.description: >-
 app.methods.exit.description: >-
   Keluar segera dengan exitCode.  exitCode default 0. Semua jendela akan ditutup segera tanpa meminta izin pengguna dan peristiwa sebelum berhenti dan berhenti akan tidak akan dibunyikan.
 app.methods.relaunch.description: >-
-  Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
-app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
+  Luncurkan ulang aplikasi saat instance saat ini keluar. Secara default instance baru akan menggunakan direktori dan argumen perintah yang sama dengan instance saat ini. Ketika argumen ditentukan, argumen akan dilewatkan sebagai argumen baris perintah. Ketika execPath ditentukan, execPath akan dieksekusi untuk diluncurkan kembali bukan aplikasi saat ini. Perhatikan bahwa metode ini tidak berhenti dari aplikasi saat dijalankan, Anda harus menghubungi app.quit atau app.exit setelah memanggil app.relaunch untuk membuat aplikasi diulang. Ketika app.relaunch dipanggil untuk beberapa kali, beberapa instance akan dimulai setelah instance saat ini keluar. Contoh untuk me-restart instance saat ini segera dan menambahkan argumen baris perintah baru ke instance baru:
+app.methods.isReady.returns.description: 'true jika electron selesai diinisialisasi, false jika sebaliknya.'
 app.methods.focus.description: >-
-  On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-app.methods.hide.description: Hides all application windows without minimizing them.
+  Pada Linux, berfokus pada jendela terlihat pertama. Pada macOS, membuat aplikasi app aktif. Pada Windows, berfokus pada aplikasi pertama jendela.
+app.methods.hide.description: Menyembunyikan semua jendela aplikasi tanpa meminimalkannya.
 app.methods.show.description: >-
   Menampilkan jendela aplikasi setelah disembunyikan. Tidak secara otomatis fokus.
 app.methods.getAppPath.returns.description: Direktori aplikasi saat ini.
 app.methods.getPath.description: 'Anda dapat meminta jalur berikut dengan nama:'
 app.methods.getPath.returns.description: >-
-  A path to a special directory or file associated with name. On failure an Error is thrown.
+  Path ke direktori khusus atau file yang terkait dengan nama. Kegagalan Error dilemparkan.
 app.methods.getFileIcon.description: >-
   Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
 app.methods.setPath.description: >-
@@ -52,7 +52,7 @@ app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `pr
 app.methods.isDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.setUserTasks.description: >-
   Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
-app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
+app.methods.setUserTasks.parameters.tasks.description: Array objek 'Task'
 app.methods.setUserTasks.returns.description: Whether the call succeeded.
 app.methods.getJumpListSettings.returns.properties.0.description: >-
   The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
