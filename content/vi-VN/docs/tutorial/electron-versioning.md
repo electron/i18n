@@ -1,6 +1,6 @@
 # Phiên bản Electron
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+Nếu bạn đã sử dụng Node và npm một thời gian, bạn có thể sẽ biết [Semantic Versioning](http://semver.org) (SemVer). It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
 
 ## Tổng qua về Semantic Versioning
 
