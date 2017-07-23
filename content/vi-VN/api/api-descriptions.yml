@@ -20,7 +20,7 @@ app.methods.getFileIcon.description: >-
 app.methods.setPath.description: >-
   Overrides the path to a special directory or file associated with name. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an Error is thrown. You can only override paths of a name defined in app.getPath. By default, web pages' cookies and caches will be stored under the userData directory. If you want to change this location, you have to override the userData path before the ready event of the app module is emitted.
 app.methods.getVersion.returns.description: >-
-  The version of the loaded application. If no version is found in the application's package.json file, the version of the current bundle or executable is returned.
+  Phiên bản của ứng dụng được tải. Nếu không tìn thấy phiên bản trong file package.json của ứng dụng, sẽ trả về phiên bản hiện tại của bundle hoặc trình thực thi.
 app.methods.getName.description: >-
   Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
 app.methods.getName.returns.description: >-
@@ -75,7 +75,7 @@ app.methods.setUserActivity.parameters.userInfo.description: App-specific state 
 app.methods.setUserActivity.parameters.webpageURL.description: >-
   The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 app.methods.getCurrentActivityType.returns.description: Các loại của các hoạt động hiện đang chạy.
-app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
+app.methods.setAppUserModelId.description: Thay đổi Application User Model ID thành id.
 app.methods.importCertificate.description: >-
   Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
 app.methods.importCertificate.parameters.options.properties.certificate.description: Đường dẫn của tập tin pkcs12.
