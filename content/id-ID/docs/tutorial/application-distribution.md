@@ -101,29 +101,29 @@ Anda juga dapat mengubah citra electron dengan mengubah nama produk dan membangu
 
 Secara manual memeriksa kode electron dan membangun kembali akan sangat rumit, sehingga tugas Grunt yang telah dibuat yang akan menangani hal ini secara otomatis: [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
 
-This task will automatically handle editing the `.gyp` file, building from source, then rebuilding your app's native Node modules to match the new executable name.
+Tugas ini secara otomatis akan menangani pengeditan file `.gyp`, pembangunan dari sumber, kemudian membangun kembali aplikasi anda secara native menggunakan Node modul untuk mencocokkan nama eksekusi baru.
 
-### Creating a Custom Electron Fork
+### Membuat Custom Fork Electron
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-builder` will allow you to "Rebrand" Electron without having to do these steps.
+Menciptakan sebuah kustom fork Electron ini hampir bukan sesuatu yang anda perlu lakukan untuk membangun aplikasi anda, bahkan untuk "Tingkat produksi" aplikasi. Menggunakan alat seperti `electron-packager` atau `electron-builder` akan memungkinkan anda untuk "Mengubah citra" electron tanpa harus melakukan langkah-langkah berikut.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda patch langsung ke Electron, yang tidak dapat upstreamed atau ditolak dari versi resmi. Sebagai pengelola Electron, kita sangat ingin membuat skenario pekerjaan, silakan coba sesulit yang anda bisa untuk mendapatkan perubahan ke versi resmi Electron, itu akan semakin mudah untuk anda, dan kami menghargai bantuan anda.
 
-#### Creating a Custom Release with surf-build
+#### Membuat sebuah Custom Release dengan surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Menginstal [Surf](https://github.com/surf-build/surf), melalui npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Buat bucket S3 baru dan buat struktur direktori kosong berikut:
     
         - atom-shell/
           - symbols/
           - dist/
         
 
-3. Set the following Environment Variables:
+3. Tetapkan variabel lingkungan berikut:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
+* `ELECTRON_GITHUB_TOKEN` - token untuk membuat releases pada GitHub
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - merupakan tempat dimana anda akan mengunggah header node.js juga sebagai symbol
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
 * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
