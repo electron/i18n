@@ -26,7 +26,7 @@ Kemudian jalankan `Electron.app` (atau `electron` pada Linux, `electron.exe` pad
 
 Selain pengiriman aplikasi anda dengan menyalin semua file sumber, Anda dapat juga paket aplikasi Anda ke arsip [asar](https://github.com/electron/asar) untuk menghindari mengekspos kode sumber aplikasi anda untuk pengguna.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Untuk menggunakan arsip `asar` untuk mengganti folder `app`, anda perlu untuk mengubah nama arsip menjadi `app.asar`, dan meletakkannya di direktori sumber daya electron yang seperti di bawah ini, dan electron akan mencoba untuk membaca arsip dan mulai dari sana.
 
 Pada macOS:
 
