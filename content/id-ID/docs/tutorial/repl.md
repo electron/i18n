@@ -20,4 +20,4 @@ Hal ini hanya menciptakan REPL untuk proses utama. Anda dapat menggunakan tab ko
 
 **Catatan:** `electron--interactive` tidak tersedia pada Windows.
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+Informasi lebih lanjut dapat ditemukan di [Dokumentasi Node.js REPL](https://nodejs.org/dist/latest/docs/api/repl.html).
