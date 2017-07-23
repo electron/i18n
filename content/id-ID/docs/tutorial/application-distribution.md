@@ -124,14 +124,14 @@ Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda pa
 
 * `ELECTRON_GITHUB_TOKEN` - token untuk membuat releases pada GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - merupakan tempat dimana anda akan mengunggah header node.js juga sebagai symbol
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64` 
+* `ELECTRON_RELEASE` - atur ke `true` dan unggah bagian akan berjalan, biarkan unset dan `surfing-build` hanya akan melakukan cek CI-type, sesuai untuk menjalankan untuk setiap permintaan tarik.
+* `CI` - Atur ke `true` atau lainnya akan gagal
+* `GITHUB_TOKEN` - atur sama seperti `ELECTRON_GITHUB_TOKEN`
+* `SURF_TEMP` - atur ke `C:\Temp` pada Windows untuk mencegah masalah terlalu panjang jalan
+* `TARGET_ARCH` - atur ke `ia32` atau `x64` 
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. Di `script/upload.py`, anda *harus* mengatur `ELECTRON_REPO` ke Fork anda (`MYORG/electron`), terutama jika anda adalah seorang kontributor ke elektron yang tepat.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Tunggu waktu yang sangat lama sampai selesai di bangun.
