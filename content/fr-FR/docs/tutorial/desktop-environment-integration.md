@@ -6,17 +6,17 @@ This guide explains how to integrate your application into those desktop environ
 
 ## Notifications
 
-See [Notifications](notifications.md)
+Voir les [Notifications](notifications.md)
 
-## Recent documents (Windows & macOS)
+## Documents récents (Windows & macOS)
 
 Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-**JumpList:**
+**JumpList :**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList fichiers récents](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Menu application du dock :**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
@@ -44,11 +44,11 @@ When a user clicks a file from the JumpList, a new instance of your application 
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
-## Custom Dock Menu (macOS)
+## Menu personnalisé du Dock (macOS)
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
-**Dock menu of Terminal.app:**
+**Menu du Dock de Terminal.app :**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
@@ -70,7 +70,7 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Tâches utilisateur (Windows)
 
 On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
 
@@ -78,7 +78,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Tasks of Internet Explorer:**
+**Tâches d’Internet Explorer :**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
@@ -109,7 +109,7 @@ app.setUserTasks([])
 
 The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
 
-## Thumbnail Toolbars
+## Barres d’outils miniatures
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
 
@@ -121,7 +121,7 @@ From MSDN, it's illustrated:
 
 **Thumbnail toolbar of Windows Media Player:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![lecteur](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
 
@@ -157,15 +157,15 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Lanceur de raccourcis Unity (Linux)
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
 **Launcher shortcuts of Audacious:**
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![audacieux](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Barre de progression dans la barre des tâches (Windows, macOS, Unity)
 
 On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
@@ -173,9 +173,9 @@ On macOS the progress bar will be displayed as a part of the dock icon.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
-**Progress bar in taskbar button:**
+**Barre de progression dans le bouton de la barre des tâches :**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Barre de progression personnalisée](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
 To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
 
@@ -193,7 +193,7 @@ On Windows a taskbar button can use a small overlay to display application statu
 
 **Overlay on taskbar button:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay sur le bouton de la barre des tâches](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
 
@@ -243,7 +243,7 @@ win.setDocumentEdited(true)
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+Dans une page web :
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+Dans le processus principal :
 
 ```javascript
 const {ipcMain} = require('electron')
