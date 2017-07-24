@@ -46,7 +46,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 * [Управление памятью](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Область видимости переменной](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Если вы хотите это быстро исправить, вы можете сделать переменную глобальной, заменив для этого следующий код:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -56,7 +56,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+на этот:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -67,11 +67,11 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## У меня не получается использовать Jquery/RequireJS/Meteor/AngularJS в Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+В связи с интеграцией Node.js с Electron, существуют некоторые дополнительные ключевые слова вставляемые в DOM такие как: `module`, `exports`, `require`. Это вызывает проблемы для некоторых библиотек, так как они пытаются вставить такие же имена.
 
-To solve this, you can turn off node integration in Electron:
+Для решения этой проблемы, вы можете отключить интеграцию node в Electron:
 
 ```javascript
 // In the main process.
