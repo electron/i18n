@@ -74,7 +74,7 @@ app.on('ready', () => {
 Для решения этой проблемы, вы можете отключить интеграцию node в Electron:
 
 ```javascript
-// In the main process.
+// В главном процессе.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -84,7 +84,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Но если вы хотите сохранить возможность использования Node.js или API Electron, вы должны переименовать имена на странице перед подключением других библиотек:
 
 ```html
 <head>
@@ -98,17 +98,17 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` is undefined (не определено).
 
-When using Electron's built-in module you might encounter an error like this:
+При использовании встроенного модуля Electron может возникнуть подобная ошибка:
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Это происходит потому что [npm `electron` module](https://www.npmjs.com/package/electron) установлен локально и глобально и переопределяет встроенный модуль Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете вывести путь Electron модуля:
 
 ```javascript
 console.log(require.resolve('electron'))
