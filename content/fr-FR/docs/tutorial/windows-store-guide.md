@@ -84,9 +84,9 @@ Pour voir comment une app Electron peut utiliser une tâche de fond pour envoyer
 
 Pour générer le package AppX, l'`electron-windows-store` CLI utilise un modèle qui devrait fonctionner pour la plupart des applications Electron. Toutefois, si vous utilisez un programme d’installation personnalisé, ou si vous rencontrez des problèmes avec le paquet généré, vous pouvez essayer de créer un package à l’aide de compilation avec un conteneur Windows - dans ce mode, le CLI va installer et exécuter votre application dans un conteneur vide de Windows pour déterminer quelles modifications votre application fait au système d’exploitation.
 
-Before running the CLI for the, you will have to setup the "Windows Desktop App Converter". Cela prendra quelques minutes, mais ne vous inquiétez pas il suffit de le faire une fois. Téléchargez le Desktop App Converter [ici](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Vous recevrez deux fichiers: `DesktopAppConverter.zip` et `BaseImage-14316.wim`.
+Avant d'exécuter le CLI pour la première fois, vous devrez configurer le "Windows Desktop App Converter". Cela prendra quelques minutes, mais ne vous inquiétez pas il suffit de le faire une fois. Téléchargez le Desktop App Converter [ici](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Vous recevrez deux fichiers: `DesktopAppConverter.zip` et `BaseImage-14316.wim`.
 
-1. Décompressez `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
+1. Décompressez `DesktopAppConverter.zip`. Depuis un PowerShell élevé (ouvert avec "exécuter en tant qu'administrateur"), faire en sorte que votre stratégie d'exécution de systèmes nous permet d'exécuter tout que nous avons besoin d'exécuter en appelant `Set-ExecutionPolicy bypass`.
 2. Ensuite, exécutez l'installation du Desktop App Converter, en lui passant l'emplacement du Windows base Image (téléchargé comme `BaseImage-14316.wim`), en exécutant la commande `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
 3. Si la commande ci-dessus vous demande un redémarrage, veuillez redémarrer votre machine et exécuter la commande ci-dessus une nouvelle fois après le redémarrage réussi.
 
