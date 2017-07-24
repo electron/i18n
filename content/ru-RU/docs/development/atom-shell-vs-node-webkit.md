@@ -6,7 +6,7 @@
 
 Но также есть фундаментальные различия между проектами которые делают Electron совершенно отдельным продуктом от NW.js:
 
-**Точка входа в приложение**
+**1. Точка входа в приложение**
 
 В NW.js основной входной точкой приложения является web страница. Вы указываете URL главной страницы в `package.json` и она будет открыта в окне браузера как главное окно приложения.
 
@@ -14,11 +14,11 @@
 
 Electron работает, скорее, как среда выполнения Node.js. API Electron является более низкоуровневым, благодаря чему вы можете использовать его для тестирования браузера вместо [PhantomJS](http://phantomjs.org/).
 
-**2. Build System**
+**2. Система сборки**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Для того чтобы избежать сборки всего Chromium, Electron использует [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) для доступа к Content API Chromium'а. `libchromiumcontent` это отдельная библиотека, которая включает в себя модуль Chromium Content и все его зависимости. Пользователям не потребуются высокопроизводительные машины для сборки Electron.
 
-**3. Node Integration**
+**3. Интеграция Node**
 
 In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
 
