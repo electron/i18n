@@ -185,7 +185,7 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Icônes superposée dans la barre des tâches (Windows)
 
 On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
 
