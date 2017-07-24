@@ -119,11 +119,11 @@ console.log(require.resolve('electron'))
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, или переименовать его.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Однако если вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, вы используете модуль в неподходящем процессе. Например `electron.app` может быть использован только в главном процессе, в то время как `electron.webFrame` доступен только в процессах рендеринга.
