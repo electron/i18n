@@ -22,16 +22,16 @@ $ asar pack votre-application app.asar
 
 ## Lire une archive `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Il y a deux méthodes dans les APIs d'Electron : Node APIs fournies par Node.js et Web APIs fournies par Chromium. Les deux APIs prennent en charge la lecture de fichier provenant d'archives `asar`.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Avec les patchs spéciaux d'Electron, `fs.readFile` et `require` traite les archives `asar` comme des répertoires virtuels et les fichiers qu’il contiennent, comme des fichiers normaux dans le système de fichiers.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Par exemple, supposons que nous ayons une archive `exemple.asar` dans `/chemin/vers` :
 
 ```bash
-$ asar list /path/to/example.asar
+$ asar list /chemin/vers/exemple.asar
 /app.js
 /file.txt
 /dir/module.js
@@ -40,32 +40,32 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Lire un fichier dans l’archive `asar` :
 
 ```javascript
 const fs = require('fs')
-fs.readFileSync('/path/to/example.asar/file.txt')
+fs.readFileSync('/chemin/vers/exemple.asar/fichier.txt')
 ```
 
-List all files under the root of the archive:
+Lister tous les fichiers à la racine de l’archive :
 
 ```javascript
 const fs = require('fs')
-fs.readdirSync('/path/to/example.asar')
+fs.readdirSync('/chemin/vers/exemple.asar')
 ```
 
-Use a module from the archive:
+Utiliser un module de l’archive :
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('/chemin/vers/exemple.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Vous pouvez également afficher une page web se trouvant dans une archive `asar` avec `BrowserWindow` :
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('file:///path/to/example.asar/static/index.html')
+win.loadURL('file:///chemin/vers/exemple.asar/static/index.html')
 ```
 
 ### Web API
@@ -77,7 +77,7 @@ For example, to get a file with `$.get`:
 ```html
 <script>
 let $ = require('./jquery.min.js')
-$.get('file:///path/to/example.asar/file.txt', (data) => {
+$.get('file:///chemin/vers/exemple.asar/fichier.txt', (data) => {
   console.log(data)
 })
 </script>
