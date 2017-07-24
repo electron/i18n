@@ -1,8 +1,8 @@
-# Notifications (Windows, Linux, macOS)
+# Уведомления (Window, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Все три операционные системы предоставляют возможность для приложения отправлять уведомления пользователю. Electron позволяет разработчикам удобно отправлять уведомления с помощью [HTML5 Notification API](https://notifications.spec.whatwg.org/), используя встроенный API уведомлений текущей операционной системы для отображения его.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process.
+**Примечание:** Поскольку это HTML5 API, то он доступен только в процессе рендеринга.
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,7 +14,7 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Хотя код и Ux схожий между операционными системами, все же есть небольшие различия.
 
 ## Windows
 
