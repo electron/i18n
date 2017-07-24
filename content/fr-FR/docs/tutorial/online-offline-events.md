@@ -1,6 +1,6 @@
 # Détection des événements en ligne/hors ligne
 
-Online and offline event detection can be implemented in the renderer process using standard HTML5 APIs, as shown in the following example.
+La détection des événements en ligne et hors ligne peut être implémentée dans le processus de rendu en utilisant les APIs standards HTML5, comme illustré dans l'exemple suivant.
 
 *main.js*
 
