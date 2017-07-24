@@ -83,13 +83,13 @@ $.get('file:///chemin/vers/exemple.asar/fichier.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Traiter une archive `asar` comme un fichier normal
 
 For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
 
 ```javascript
 const originalFs = require('original-fs')
-originalFs.readFileSync('/path/to/example.asar')
+originalFs.readFileSync('/chemin/vers/exemple.asar')
 ```
 
 You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
@@ -97,14 +97,14 @@ You can also set `process.noAsar` to `true` to disable the support for `asar` in
 ```javascript
 const fs = require('fs')
 process.noAsar = true
-fs.readFileSync('/path/to/example.asar')
+fs.readFileSync('/chemin/vers/exemple.asar')
 ```
 
-## Limitations of the Node API
+## Limites de Node API
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
-### Archives Are Read-only
+### Les archives sont en lecture seule
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 
@@ -122,7 +122,7 @@ APIs that requires extra unpacking are:
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - utilisé par `require` sur des modules natifs
 
 ### Fake Stat Information of `fs.stat`
 
