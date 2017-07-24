@@ -1,6 +1,6 @@
 # Security, Native Capabilities, and Your Responsibility
 
-Web開発者は通常、ブラウザの強力なセキュリティ機能のお世話になっています。つまり、私たちの書くコードが原因となってセキュリティ上の問題が生じるリスクは比較的小さいわけです。 Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Web開発者は通常、ブラウザの強力なセキュリティ機能のお世話になっています。つまり、私たちの書くコードが原因となってセキュリティ上の問題が生じるリスクは比較的小さいわけです。 私たちがWebサイトを作ったとして、それはブラウザというサンドボックス上において限られた権限しか与えられません。また、そのブラウザも新たなセキュリティ上の脅威にすぐ対応できる、大規模なチームによって開発されたものです。
 
 Electronで開発を行う時、「Electronはブラウザではない」ということを認識する必要があります。 使い慣れたWeb技術を用いて豊富な機能を持つデスクトップアプリケーションを作成することができますが、Webアプリを書く時に比べて、あなたの書くコードが大きな力を持つことになります。 JavaScriptがファイルシステムやシェルなどにアクセスできます。 これはつまり、質の高いネイティブアプリケーションを作成することができる反面、あなたの書くコードに与えられた権限に応じて固有のセキュリティリスクが増加するということです。
 
@@ -41,4 +41,4 @@ A security issue exists whenever you receive code from a remote destination and 
 * WebViews: Do not use `allowpopups`
 * WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
 
-繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。Webサイトを表示するという目的であれば、ブラウザの方がよりセキュアな選択肢になるでしょう。
+繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にWebサイトを表示するという目的であれば、Electronアプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
