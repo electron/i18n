@@ -6,9 +6,9 @@ Cela ne signifie pas qu'Electron est une liaison JavaScript à l'interface utili
 
 ### Processus principal
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Dans Electron, le processus qui exécute le script `main` dans le `package.json` est appelé le **processus principal**. The script that runs in the main process can display a GUI by creating web pages.
 
-### Renderer Process
+### Processus de rendu (renderer process)
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
