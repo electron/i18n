@@ -1,8 +1,8 @@
 # キーボード ショート カット
 
-> Configure local and global keyboard shortcuts
+> ローカルおよびグローバルなキーボードショートカットを設定します。
 
-## Local Shortcuts
+## ローカルショートカット
 
 You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
@@ -25,9 +25,9 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## グローバル ショートカット
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+アプリケーションからキーボードのフォーカスが外れている場合でも、 [globalShortcut](../api/global-shortcut.md) モジュールを使用すればキーボード操作を検出できます。
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## BrowserWindow 内のショートカット
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
@@ -56,10 +56,10 @@ Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// コンビネーション（複数キーの組み合わせ）
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// 複数のコンビネーションを1つのコールバックに割り当てる
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
@@ -67,12 +67,18 @@ Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   return false
 })
 
-// gmail style sequences
+// Gmailスタイルのシーケンス
 Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
-// konami code!
+// コナミコマンド
+ 
+Context | Request Context
+
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
+ 
+Context | Request Context
+
 ```
