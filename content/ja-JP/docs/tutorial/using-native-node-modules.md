@@ -6,7 +6,7 @@ The native Node modules are supported by Electron, but since Electron is very li
 
 Three ways to install native modules:
 
-### Using `npm`
+### `npm`を使用
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
