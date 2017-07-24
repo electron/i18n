@@ -18,33 +18,33 @@ New features of Node.js are usually brought by V8 upgrades, since Electron is us
 
 Для передачи данных между веб-страницами (процессами рендеринга) самым простым способом является использование HTML5 API который уже доступен в браузерах. Хорошими вариантами являются [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), и [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Или же вы можете использовать систему IPC, которая характерна для Electron, для хранения объектов в главном процессе как глобальную переменную, и затем получать доступ к ней из рендереров через `remote` переменную `electron`:
 
 ```javascript
-// In the main process.
+// В главном процессе
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// На странице 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// На странице 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Окно/Трей моего приложения исчезает через несколько минут.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Это происходит, когда переменная, используемая для хранения панели окна/трея уничтожается сборщиком мусора.
 
-If you encounter this problem, the following articles may prove helpful:
+Если вы столкнулись с этой проблемой, могут оказаться полезными следующие статьи:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Управление памятью](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Область видимости переменной](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:
 
