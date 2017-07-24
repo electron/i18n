@@ -90,7 +90,7 @@ Vous pouvez renommer l'exécutable `electron` par ce que vous voulez.
 
 ## Outils d’empaquetage
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Au lieu d'empaqueter votre application manuellement, vous pouvez également choisir d'utiliser des outils d'empaquetage pour faire le boulot automatiquement :
 
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
@@ -125,14 +125,14 @@ You need to fork Electron when you have custom C++ code that you have patched di
 3. Définir les Variables d’environnement suivantes :
 
 * `ELECTRON_GITHUB_TOKEN` - un jeton qui peut créer des releases sur GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64` 
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - l’endroit où vous allez envoyer les en-têtes node.js comme symboles
+* `ELECTRON_RELEASE` - Définit à `true` et l’upload s’exécutera, sinon `surf-build` va juste faire des contrôles de type CI, adaptés à exécuter pour chaque pull request.
+* `CI` - définir à `true` sinon il ne fonctionnera pas
+* `GITHUB_TOKEN` - mettre la même chose que `ELECTRON_GITHUB_TOKEN`
+* `SURF_TEMP` - définir `C:\Temp` sur Windows pour empêcher les problèmes de chemin d’accès trop long
+* `TARGET_ARCH` - définir en `ia32` ou `x64` 
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. Dans `script/upload.py`, vous *devez* définir `ELECTRON_REPO` à votre fork (`MYORG/electron`), surtout si vous êtes un contributeur d'Electron approprié.
 
 2. `surf-build -r https://github.com/MYORG/electron -s VOTRE_COMMIT -n 'surf-PLATFORM-ARCH'`
 
