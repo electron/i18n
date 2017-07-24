@@ -1,14 +1,14 @@
-# Releasing
+# Créer une nouvelle version d'Electron
 
-This document describes the process for releasing a new version of Electron.
+Ce document décrit le processus pour créer une nouvelle version d’Electron.
 
-## Compile release notes
+## Compiler les notes de publication
 
-The current process is to maintain a local file, keeping track of notable changes as pull requests are merged. For examples of how to format the notes, see previous releases on [the releases page](https://github.com/electron/electron/releases).
+Le processus actuel est de maintenir un fichier local, en faisant un suivi des changements notables que vous verrez dans les pull request qui sont merged. Pour obtenir des exemples de comment mettre en forme les notes, voir les versions précédentes sur [la page de parutions](https://github.com/electron/electron/releases).
 
-## Create a temporary branch
+## Créer une branche temporaire
 
-Create a new branch from `master` named `release`.
+Créer une nouvelle branche depuis `master` nommée `release`.
 
 ```sh
 git checkout master
@@ -16,38 +16,38 @@ git pull
 git checkout -b release
 ```
 
-This branch is created as a precaution to prevent any merged PRs from sneaking into a release between the time the temporary release branch is created and the CI builds are complete.
+Cette branche est créée comme une mesure de précaution pour empêcher tout PRs fusionnées de se faufiler dans un communiqué, entre le moment où la branche temporaire de nouvelle version est créée et les builds de CI sont terminés.
 
-## Bump the version
+## Changer le numéro de version
 
-Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
+Exécutez le script de `bump-version`, et mettre `majeure`, `mineure` ou `patch` comme argument :
 
 ```sh
 npm run bump-version -- patch
 git push origin HEAD
 ```
 
-This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
+Cela va changer le numéro de version dans plusieurs fichiers. Voir [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) pour exemple.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+La plupart des nouvelles versions seront des `patch`. Les mises à jour de Chrome ou d'autres changements majeurs doivent utiliser `minor`. Pour plus d’informations, consultez [electron-versioning](/docs/tutorial/electron-versioning.md).
 
-## Edit the release draft
+## Modifier le projet de communiqué
 
-  1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-  2. Edit the release and add release notes.
-  3. Click 'Save draft'. **Do not click 'Publish release'!**
-  4. Wait for all the builds to pass. :hourglass_flowing_sand:
+1. Visitez [la page de parutions](https://github.com/electron/electron/releases) et vous verrez un nouveau projet de version avec les notes de publication.
+2. Modifiez la version et ajouter des notes de publication.
+3. Cliquez sur 'Save draft'. **Ne pas cliquer sur 'Publish release'!**
+4. Attendez que toutes les builds passent. :hourglass_flowing_sand:
 
-## Merge temporary branch
+## Fusionner une branche temporaire
 
-Merge the temporary back into master, without creating a merge commit:
+Fusionner la branche temporaire dans master, sans créer un merge commit :
 
 ```sh
 git merge release master --no-commit
 git push origin master
 ```
 
-If this fails, rebase with master and rebuild:
+Si cela échoue, rebase avec master et rebuild :
 
 ```sh
 git pull
@@ -56,20 +56,20 @@ git rebase master
 git push origin HEAD
 ```
 
-## Run local debug build
+## Exécuter un build de debug local
 
-Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
+Exécutez la version de debug local pour vérifier que vous créez la version que vous souhaitez. Parfois, vous pensiez que vous faisiez une nouvelle version, mais vous ne le faites pas.
 
 ```sh
 npm run build
 npm start
 ```
 
-Verify the window is displaying the current updated version.
+Vérifiez que la fenêtre affiche la version de mise à jour actuelle.
 
-## Set environment variables
+## Définir les variables d'environnement
 
-You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
+Vous devrez définir les variables d’environnement suivantes pour publier une nouvelle version. Demandez à un autre membre de l’équipe pour ces informations d’identification.
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
@@ -80,13 +80,13 @@ Vous aurez besoin de le faire seulement une fois.
 
 ## Publier la release
 
-This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
+Ce script va télécharger les fichiers binaires et générer les headers de node et l’éditeur de liens .lib utilisé sur Windows par node-gyp pour build les modules natifs.
 
 ```sh
 npm run release
 ```
 
-Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
+Remarque: Beaucoup de distributions de Python sont toujours livrés avec de vieux certificats HTTPS. Vous pouvez voir un `InsecureRequestWarning`, mais c'est négligeable.
 
 ## Supprimer la branche temporaire
 

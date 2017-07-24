@@ -1,4 +1,4 @@
-# Electron Versioning
+# Electron 버전 관리
 
 If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
 
@@ -20,7 +20,7 @@ A simple mnemonic for remembering this scheme is as follows:
     breaking.feature.fix
     
 
-## Electron Versioning
+## Electron 버전 관리
 
 Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **You should therefore always reference a specific version of Electron.**
 

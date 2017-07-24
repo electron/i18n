@@ -1,4 +1,4 @@
-# Build Instructions (Windows)
+# 빌드 명령 (윈도)
 
 Follow the guidelines below for building Electron on Windows.
 

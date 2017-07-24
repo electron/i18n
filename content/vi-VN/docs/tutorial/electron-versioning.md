@@ -1,36 +1,36 @@
 # Phiên bản Electron
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+Nếu bạn đã sử dụng Node và npm một thời gian, bạn có thể sẽ biết [Semantic Versioning](http://semver.org) (SemVer). It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
 
 ## Tổng qua về Semantic Versioning
 
-Semantic versions are always made up of three numbers:
+Thông số phiên bản luôn được tạo thành từ cặp ba số:
 
     major.minor.patch
     
 
-Semantic version numbers are bumped (incremented) using the following rules:
+Các số trong cặp ba số trên được tạo ra dựa trên các quy tắc:
 
-* **Major** is for changes that break backwards compatibility.
-* **Minor** is for new features that don't break backwards compatibility.
-* **Patch** is for bug fixes and other minor changes.
+* **Major** là các thay đổi sẽ phá vỡ khả năng tương thích ngược.
+* **Minor** là các thay đổi cập nhật các tính năng mới nhưng không phá vỡ tính năng tương thích ngược.
+* **Patch** là các thay đổi cho việc sửa các lỗi hoặc các thay đổi nhỏ khác.
 
-A simple mnemonic for remembering this scheme is as follows:
+Cách ghi nhớ đơn giản cho cấu trúc này như sau:
 
     breaking.feature.fix
     
 
 ## Phiên bản Electron
 
-Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **You should therefore always reference a specific version of Electron.**
+Do sự phụ thuộc vào Node và Chromium, khiến cho Electron không thể nào tuân theo hoàn toàn các chính sách về phiên bản - SemVer. **You should therefore always reference a specific version of Electron.**
 
-Electron version numbers are bumped using the following rules:
+Các số trong cặp ba số trên phiên bản của Electron được tạo ra dựa trên các quy tắc:
 
 * **Major** is for breaking changes in Electron's API. If you upgrade from `0.37.0` to `1.0.0`, you will have to make changes to your app.
 * **Minor** is for major Chrome and minor Node upgrades, or significant Electron changes. If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
 * **Patch** is for new features and bug fixes. If you upgrade from `1.6.2` to `1.6.3`, your app will continue to work as-is.
 
-We recommend that you set a fixed version when installing Electron from npm:
+Chúng tôi đề nghị bạn thiết lập một phiên bản cố định khi cài đặt Electron từ npm:
 
 ```sh
 npm install electron --save-exact --save-dev

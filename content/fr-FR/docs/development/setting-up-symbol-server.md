@@ -1,30 +1,30 @@
-# Setting Up Symbol Server in Debugger
+# Configuration du serveur de symboles dans le déboggueur
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](http://support.microsoft.com/kb/311503) so the documentation there can be useful.
+Les symboles de déboggage vous permettent d’avoir de meilleurs sessions de déboggage. Ils ont des informations sur les fonctions contenues dans les fichiers exécutables et les bibliothèques dynamiques et vous fournissent des renseignements pour obtenir des piles d’appels propre. Un serveur de symboles permet au déboggueur de charger les symboles appropriés, les fichiers binaires et les fichiers sources automatiquement, sans forcer les utilisateurs à télécharger de gros fichiers de déboggage. Documentation sur [Le serveur de symboles de Microsoft](http://support.microsoft.com/kb/311503).
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Notez que parce que Electron est fortement optimisé, le déboggage n’est pas toujours facile. Le déboggueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’inlining, queue d’appels et autres optimisations du compilateur. La seule solution est de build une version locale non optimisée.
 
-The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+L’URL du serveur symbole officiel pour Electron est https://electron-symbols.githubapp.com. Vous ne pouvez pas visiter cette URL directement, vous devez l’ajouter au chemin de symbole de votre outil de déboggage. Dans les exemples ci-dessous, un répertoire de cache local est utilisé pour éviter la lecture à plusieurs reprises du PDB sur le serveur. Remplacez `c:\code\symbols` par un répertoire de cache approprié sur votre ordinateur.
 
-## Using the Symbol Server in Windbg
+## À l’aide du serveur de symboles dans Windbg
 
-The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Le chemin de symbole Windbg est configuré avec un string délimité par des : *. Pour utiliser uniquement le serveur de symboles d’Electron, ajoutez l’entrée suivante à votre chemin de symbole (**Remarque :** vous pouvez remplacer `c:\code\symbols` par n’importe quel répertoire accessible en écriture sur votre ordinateur, si vous préférez un emplacement différent pour les symboles téléchargés) :
 
     SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
     
 
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Définissez le string à `_NT_SYMBOL_PATH` dans l’environnement, en utilisant les menus de Windbg, ou en tapant la commande `.sympath`. Si vous souhaitez obtenir les symboles du serveur de symboles Microsoft, vous devez indiquer cela :
 
     SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
     
 
-## Using the symbol server in Visual Studio
+## À l’aide du serveur de symboles dans Visual Studio
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
-## Troubleshooting: Symbols will not load
+## Problèmes : Les symboles ne se chargent pas
 
-Type the following commands in Windbg to print why symbols are not loading:
+Tapez les commandes suivantes dans Windbg pour savoir pourquoi les symboles ne se chargent pas:
 
     > !sym noisy
     > .reload /f electron.exe

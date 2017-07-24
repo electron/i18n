@@ -1,4 +1,4 @@
-# Mac App Store Submission Guide
+# 맥 앱스토어 제출 안내서
 
 Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 

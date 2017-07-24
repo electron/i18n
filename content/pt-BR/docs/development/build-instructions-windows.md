@@ -92,9 +92,9 @@ Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
 
 If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
 
-### Fatal internal compiler error: C1001
+### Erro do compilador interno fatal: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Verifique se você tem a atualização mais recente do Visual Studio instalada.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
@@ -114,24 +114,24 @@ If building under Cygwin, you may see `bootstrap.py` failed with following error
     subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
     
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Isso é causado por um bug ao usar o Cygwin Python e Win32 juntos. A solução ao usar o Python Win32 para executar o script de inicialização (supondo que você tenha instalado o Python em `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: não é possível abrir o arquivo 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Tente reinstalar o Node.js 32bit.
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### Erro: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Simplesmente criando esse diretório [deve corrigir o problema](http://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp não é reconhecido como um comando interno ou externo
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Você pode obter este erro se você estiver usando Git Bash para construção, você deve usar o PowerShell ou VS2015 Command Prompt.

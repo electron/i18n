@@ -1,34 +1,34 @@
-# DevTools Extension
+# Ekstensi DevTools
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Elektron mendukung [Ekstensi DevTools Chrome](https://developer.chrome.com/extensions/devtools), yang dapat digunakan untuk memperluas kemampuan devtools untuk debugging kerangka web populer.
 
-## How to load a DevTools Extension
+## Cara memuat ekstensi DevTools
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Dokumen ini menjelaskan proses untuk secara manual memuat ekstensi. Anda juga dapat mencoba [elektron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), alat pihak ketiga yang mengunduh ekstensi langsung dari Chrome WebStore.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Untuk memuat ekstensi elektron, Anda perlu mengunduh di peramban Chrome, gunakan path filesystem, dan kemudian muat dengan memanggil API `BrowserWindow.addDevToolsExtension(extension)`.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Menggunakan [Alat-alat pengembang React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) sebagai contoh:
 
-  1. Install it in Chrome browser.
-  2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-  3. Find out filesystem location used by Chrome for storing extensions: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
+1. Menginstal di peramban Chrome.
+2. Navigasikan ke `chrome://extensions`, dan cari ID ekstensi, yang merupakan hash string seperti `fmkadmapgofadopljbjfkapdkoienihi`.
+3. Cari lokasi filesystem yang digunakan oleh Chrome untuk menyimpan ekstensi: 
+    * pada Windows berada di `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * pada Linux bisa berada di: 
         * `~/.config/google-chrome/Default/Extensions/`
         * `~/.config/google-chrome-beta/Default/Extensions/`
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-  4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+    * pada macOS berada di `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+4. Gunakan lokasi ekstensi API `BrowserWindow.addDevToolsExtension`, untuk React Developer Tools, Ini seperti: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Catatan:** `BrowserWindow.addDevToolsExtension` API tidak disebut sebelum event siap saat modul app dibunyikan.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+Nama ekstensi dikembalikan oleh `BrowserWindow.addDevToolsExtension`, dan Anda dapat melewati nama ekstensi ke `BrowserWindow.removeDevToolsExtension` API untuk membongkar itu.
 
-## Supported DevTools Extensions
+## Dukungan Ekstensi DevTool
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Elektron hanya mendukung seperangkat terbatas API `chrome.*`, sehingga beberapa ekstensi yang menggunakan tidak mendukung API `chrome.*` untuk fitur ekstensi chrome mungkin tidak bekerja. Ekstensi Devtools berikut diuji dan dijamin bekerja di elektron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -39,8 +39,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-### What should I do if a DevTools Extension is not working?
+### Apa yang harus saya lakukan jika Ekstensi DevTools tidak bekerja?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Pertama pastikan ekstensi tetap dikelola, beberapa ekstensi bahkan tidak bisa bekerja untuk versi terbaru dari Chrome browser, dan kita tidak mampu melakukan apa pun untuk mereka.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Kemudian mengajukan bug di Daftar persoalan elektron 's, dan menjelaskan bagian mana dari ekstensi tidak bekerja seperti yang diharapkan.

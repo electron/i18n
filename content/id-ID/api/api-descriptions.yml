@@ -1,20 +1,20 @@
-app.description: Control your application's event lifecycle.
+app.description: Kontrol siklus hidup acara aplikasi Anda.
 app.methods.quit.description: >-
-  Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+  Coba untuk menutup semua jendela. Berhenti sebelum event akan dibunyikan pertama. Jika semua jendela berhasil menutup, event akan berhenti akan dibunyikan dan secara default, aplikasi akan berakhir. Metode ini menjamin bahwa semua event handler beforeunload dan unload dilaksanakan dengan benar. Dimungkinkan bahwa jendela membatalkan berhenti dengan mengembalikan nilai false di beforeunload event handler.
 app.methods.exit.description: >-
-  Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
+  Keluar segera dengan exitCode.  exitCode default 0. Semua jendela akan ditutup segera tanpa meminta izin pengguna dan peristiwa sebelum berhenti dan berhenti akan tidak akan dibunyikan.
 app.methods.relaunch.description: >-
-  Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
-app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
+  Luncurkan ulang aplikasi saat instance saat ini keluar. Secara default instance baru akan menggunakan direktori dan argumen perintah yang sama dengan instance saat ini. Ketika argumen ditentukan, argumen akan dilewatkan sebagai argumen baris perintah. Ketika execPath ditentukan, execPath akan dieksekusi untuk diluncurkan kembali bukan aplikasi saat ini. Perhatikan bahwa metode ini tidak berhenti dari aplikasi saat dijalankan, Anda harus menghubungi app.quit atau app.exit setelah memanggil app.relaunch untuk membuat aplikasi diulang. Ketika app.relaunch dipanggil untuk beberapa kali, beberapa instance akan dimulai setelah instance saat ini keluar. Contoh untuk me-restart instance saat ini segera dan menambahkan argumen baris perintah baru ke instance baru:
+app.methods.isReady.returns.description: 'true jika electron selesai diinisialisasi, false jika sebaliknya.'
 app.methods.focus.description: >-
-  On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-app.methods.hide.description: Hides all application windows without minimizing them.
+  Pada Linux, berfokus pada jendela terlihat pertama. Pada macOS, membuat aplikasi app aktif. Pada Windows, berfokus pada aplikasi pertama jendela.
+app.methods.hide.description: Menyembunyikan semua jendela aplikasi tanpa meminimalkannya.
 app.methods.show.description: >-
-  Shows application windows after they were hidden. Does not automatically focus them.
-app.methods.getAppPath.returns.description: The current application directory.
-app.methods.getPath.description: 'You can request the following paths by the name:'
+  Menampilkan jendela aplikasi setelah disembunyikan. Tidak secara otomatis fokus.
+app.methods.getAppPath.returns.description: Direktori aplikasi saat ini.
+app.methods.getPath.description: 'Anda dapat meminta jalur berikut dengan nama:'
 app.methods.getPath.returns.description: >-
-  A path to a special directory or file associated with name. On failure an Error is thrown.
+  Path ke direktori khusus atau file yang terkait dengan nama. Kegagalan Error dilemparkan.
 app.methods.getFileIcon.description: >-
   Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
 app.methods.setPath.description: >-
@@ -25,34 +25,34 @@ app.methods.getName.description: >-
   Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
 app.methods.getName.returns.description: >-
   The current application's name, which is the name in the application's package.json file.
-app.methods.setName.description: Overrides the current application's name.
+app.methods.setName.description: Mengabaikan nama aplikasi saat ini.
 app.methods.getLocale.description: >-
   Note: When distributing your packaged app, you have to also ship the locales folder. Note: On Windows you have to call it after the ready events gets emitted.
 app.methods.getLocale.returns.description: The current application locale. Possible return values are documented here.
 app.methods.addRecentDocument.description: >-
   Adds path to the recent documents list. This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
-app.methods.clearRecentDocuments.description: Clears the recent documents list.
+app.methods.clearRecentDocuments.description: Bersihkan daftar dokumen terakhir.
 app.methods.setAsDefaultProtocolClient.description: >-
   This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
   The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 app.methods.setAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.setAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.setAsDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
 app.methods.removeAsDefaultProtocolClient.description: >-
   This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
+app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'Nama protokol anda, tanpa '': //''.'
 app.methods.removeAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.removeAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.removeAsDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.removeAsDefaultProtocolClient.returns.description: Whether the call succeeded.
 app.methods.isDefaultProtocolClient.description: >-
   This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-app.methods.isDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
+app.methods.isDefaultProtocolClient.parameters.protocol.description: 'Nama protokol anda, tanpa '': //''.'
 app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.isDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.isDefaultProtocolClient.parameters.args.description: Default untuk array kosong
 app.methods.setUserTasks.description: >-
   Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
-app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
+app.methods.setUserTasks.parameters.tasks.description: Array objek 'Task'
 app.methods.setUserTasks.returns.description: Whether the call succeeded.
 app.methods.getJumpListSettings.returns.properties.0.description: >-
   The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
@@ -75,14 +75,14 @@ app.methods.setUserActivity.parameters.userInfo.description: App-specific state 
 app.methods.setUserActivity.parameters.webpageURL.description: >-
   The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 app.methods.getCurrentActivityType.returns.description: The type of the currently running activity.
-app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
+app.methods.setAppUserModelId.description: Mengubah aplikasi Model Pengguna ID ke id.
 app.methods.importCertificate.description: >-
   Imports the certificate in pkcs12 format into the platform certificate store. callback is called with the result of import operation, a value of 0 indicates success while any other value indicates failure according to chromium net_error_list.
-app.methods.importCertificate.parameters.options.properties.certificate.description: Path for the pkcs12 file.
-app.methods.importCertificate.parameters.options.properties.password.description: Passphrase for the certificate.
-app.methods.importCertificate.parameters.callback.parameters.result.description: Result of import.
+app.methods.importCertificate.parameters.options.properties.certificate.description: Path untuk file pkcs12.
+app.methods.importCertificate.parameters.options.properties.password.description: Passphrase untuk sertifikat.
+app.methods.importCertificate.parameters.callback.parameters.result.description: Hasil impor.
 app.methods.disableHardwareAcceleration.description: >-
-  Disables hardware acceleration for current app. This method can only be called before app is ready.
+  Menonaktifkan akselerasi hardware untuk aplikasi saat ini. Metode ini hanya dapat panggil sebelum aplikasi siap.
 app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
@@ -96,11 +96,11 @@ app.methods.getLoginItemSettings.parameters.options.properties.path.description:
 app.methods.getLoginItemSettings.parameters.options.properties.args.description: The command-line arguments to compare against. Defaults to an empty array.
 app.methods.getLoginItemSettings.returns.properties.0.properties.0.description: The executable path to compare against. Defaults to process.execPath.
 app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: The command-line arguments to compare against. Defaults to an empty array.
-app.methods.getLoginItemSettings.returns.properties.1.description: true if the app is set to open at login.
+app.methods.getLoginItemSettings.returns.properties.1.description: true jika aplikasi diatur untuk membuka saat login.
 app.methods.getLoginItemSettings.returns.properties.2.description: >-
-  true if the app is set to open as hidden at login. This setting is only supported on macOS.
+  tru jika aplikasi diatur untuk membuka sebagai tersembunyi saat login. Pengaturan ini hanya didukung di macOS.
 app.methods.getLoginItemSettings.returns.properties.3.description: >-
-  true if the app was opened at login automatically. This setting is only supported on macOS.
+  true jika aplikasi dibuka di login secara otomatis. Pengaturan ini hanya didukung di macOS.
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
   true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
@@ -118,10 +118,10 @@ app.methods.isAccessibilitySupportEnabled.returns.description: >-
   true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 app.methods.setAboutPanelOptions.description: >-
   Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: The app's name.
-app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: The app's version.
-app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Copyright information.
-app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Credit information.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Nama aplikasi.
+app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Versi aplikasi.
+app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Informasi hak cipta.
+app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Informasi kredit.
 app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
@@ -150,7 +150,7 @@ app.events.browser-window-created.description: Emitted when a new browserWindow 
 app.events.web-contents-created.description: Emitted when a new webContents is created.
 app.events.certificate-error.description: >-
   Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).
-app.events.certificate-error.returns.error.description: The error code
+app.events.certificate-error.returns.error.description: Kode kesalahan
 app.events.certificate-error.returns.callback.parameters.isTrusted.description: Whether to consider the certificate as trusted
 app.events.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The url corresponds to the navigation entry requesting the client certificate and callback can be called with an entry filtered from the list. Using event.preventDefault() prevents the application from using the first certificate from the store.
@@ -162,7 +162,7 @@ app.events.accessibility-support-changed.description: >-
 app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` when Chrome''s accessibility support is enabled, `false` otherwise.'
 app.properties.commandLine.properties.appendSwitch.description: >-
   Append a switch (with optional value) to Chromium's command line. Note: This will not affect process.argv, and is mainly used by developers to control some low-level Chromium behaviors.
-app.properties.commandLine.properties.appendSwitch.parameters.switch.description: A command-line switch
+app.properties.commandLine.properties.appendSwitch.parameters.switch.description: Saklar baris perintah
 app.properties.commandLine.properties.appendSwitch.parameters.value.description: A value for the given switch
 app.properties.commandLine.properties.appendArgument.description: >-
   Append an argument to Chromium's command line. The argument will be quoted correctly. Note: This will not affect process.argv.
@@ -175,15 +175,15 @@ app.properties.dock.properties.cancelBounce.description: Cancel the bounce of id
 app.properties.dock.properties.downloadFinished.description: Bounces the Downloads stack if the filePath is inside the Downloads folder.
 app.properties.dock.properties.setBadge.description: Sets the string to be displayed in the dock’s badging area.
 app.properties.dock.properties.getBadge.returns.description: The badge string of the dock.
-app.properties.dock.properties.hide.description: Hides the dock icon.
-app.properties.dock.properties.show.description: Shows the dock icon.
+app.properties.dock.properties.hide.description: Sembunyikan ikon dok.
+app.properties.dock.properties.show.description: Tampilkan ikon dok.
 app.properties.dock.properties.isVisible.returns.description: >-
   Whether the dock icon is visible. The app.dock.show() call is asynchronous so this method might not return true immediately after that call.
 app.properties.dock.properties.setMenu.description: Sets the application's dock menu.
 app.properties.dock.properties.setIcon.description: Sets the image associated with this dock icon.
 autoUpdater.description: Enable apps to automatically update themselves.
 autoUpdater.methods.setFeedURL.description: Sets the url and initialize the auto updater.
-autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: HTTP request headers.
+autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: Header permintaan HTTP.
 autoUpdater.methods.getFeedURL.returns.description: The current update feed URL.
 autoUpdater.methods.checkForUpdates.description: >-
   Asks the server whether there is an update. You must call setFeedURL before using this API.
@@ -197,7 +197,7 @@ autoUpdater.events.update-not-available.description: Emitted when there is no av
 autoUpdater.events.update-downloaded.description: >-
   Emitted when an update has been downloaded. On Windows only releaseName is available.
 BrowserView.description: Create and control views.
-BrowserView.constructorMethod.parameters.0.properties.0.description: See .
+BrowserView.constructorMethod.parameters.0.properties.0.description: Lihat.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.description: >-
   If true, the view's width will grow and shrink together with the window. false by default.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
@@ -268,7 +268,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.32.description: >-
   Whether window should have a shadow. This is only implemented on macOS. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.33.description: >-
   Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.34.description: Makes the window . Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.34.description: Membuat jendela. Default false.
 BrowserWindow.constructorMethod.parameters.0.properties.35.description: 'The type of window, default is normal window. See more about this below.'
 BrowserWindow.constructorMethod.parameters.0.properties.36.description: 'The style of window title bar. Default is default. Possible values are:'
 BrowserWindow.constructorMethod.parameters.0.properties.36.possibleValues.0.description: Results in the standard gray opaque Mac title bar.
@@ -284,7 +284,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.39.description: >-
   Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If true, the window will grow to the preferred width of the web page when zoomed, false will cause it to zoom to the width of the screen. This will also affect the behavior when calling maximize() directly. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.40.description: >-
   Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together.
-BrowserWindow.constructorMethod.parameters.0.properties.41.description: Settings of web page's features.
+BrowserWindow.constructorMethod.parameters.0.properties.41.description: Pengaturan fitur halaman web.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.0.description: >-
   Whether to enable DevTools. If it is set to false, can not use BrowserWindow.webContents.openDevTools() to open DevTools. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.1.description: Whether node integration is enabled. Default is true.
@@ -343,7 +343,7 @@ BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window 
 BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
 BrowserWindow.instanceMethods.show.description: Shows and gives focus to the window.
 BrowserWindow.instanceMethods.showInactive.description: Shows the window but doesn't focus on it.
-BrowserWindow.instanceMethods.hide.description: Hides the window.
+BrowserWindow.instanceMethods.hide.description: Sembunyikan jendela.
 BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
 BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
 BrowserWindow.instanceMethods.maximize.description: >-
@@ -380,22 +380,22 @@ BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contains the w
 BrowserWindow.instanceMethods.setResizable.description: Sets whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.isResizable.returns.description: Whether the window can be manually resized by user.
 BrowserWindow.instanceMethods.setMovable.description: Sets whether the window can be moved by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMovable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMovable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isMovable.returns.description: Whether the window can be moved by user.
 BrowserWindow.instanceMethods.setMinimizable.description: >-
   Sets whether the window can be manually minimized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMinimizable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMinimizable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isMinimizable.returns.description: Whether the window can be manually minimized by user
 BrowserWindow.instanceMethods.setMaximizable.description: >-
   Sets whether the window can be manually maximized by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMaximizable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isMaximizable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isMaximizable.returns.description: Whether the window can be manually maximized by user.
 BrowserWindow.instanceMethods.setFullScreenable.description: >-
   Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 BrowserWindow.instanceMethods.isFullScreenable.returns.description: >-
   Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 BrowserWindow.instanceMethods.setClosable.description: Sets whether the window can be manually closed by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isClosable.description: On Linux always returns true.
+BrowserWindow.instanceMethods.isClosable.description: Pada Linux selalu mengembalikan true.
 BrowserWindow.instanceMethods.isClosable.returns.description: Whether the window can be manually closed by user.
 BrowserWindow.instanceMethods.setAlwaysOnTop.description: >-
   Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
@@ -415,7 +415,7 @@ BrowserWindow.instanceMethods.setSheetOffset.description: >-
   Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 BrowserWindow.instanceMethods.flashFrame.description: Starts or stops flashing the window to attract user's attention.
 BrowserWindow.instanceMethods.setSkipTaskbar.description: Makes the window not show in the taskbar.
-BrowserWindow.instanceMethods.setKiosk.description: Enters or leaves the kiosk mode.
+BrowserWindow.instanceMethods.setKiosk.description: Masuk atau keluar dari mode kiosk.
 BrowserWindow.instanceMethods.isKiosk.returns.description: Whether the window is in kiosk mode.
 BrowserWindow.instanceMethods.getNativeWindowHandle.description: >-
   The native type of the handle is HWND on Windows, NSView* on macOS, and Window (unsigned long) on Linux.
@@ -461,19 +461,19 @@ BrowserWindow.instanceMethods.setThumbarButtons.description: >-
 BrowserWindow.instanceMethods.setThumbarButtons.returns.description: Whether the buttons were added successfully
 BrowserWindow.instanceMethods.setThumbnailClip.description: >-
   Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: {x: 0, y: 0, width: 0, height: 0}.
-BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Region of the window
+BrowserWindow.instanceMethods.setThumbnailClip.parameters.region.description: Wilayah jendela
 BrowserWindow.instanceMethods.setThumbnailToolTip.description: >-
   Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
 BrowserWindow.instanceMethods.setAppDetails.description: >-
   Sets the properties for the window's taskbar button. Note: relaunchCommand and relaunchDisplayName must always be set together. If one of those properties is not set, then neither will be used.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appId.description: 'Window''s . It has to be set, otherwise the other options will have no effect.'
-BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconPath.description: Window's .
+BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconPath.description: Jendela.
 BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.appIconIndex.description: >-
   Index of the icon in appIconPath. Ignored when appIconPath is not set. Default is 0.
-BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchCommand.description: Window's .
-BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchDisplayName.description: Window's .
+BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchCommand.description: Jendela.
+BrowserWindow.instanceMethods.setAppDetails.parameters.options.properties.relaunchDisplayName.description: Jendela.
 BrowserWindow.instanceMethods.showDefinitionForSelection.description: Same as webContents.showDefinitionForSelection().
-BrowserWindow.instanceMethods.setIcon.description: Changes window icon.
+BrowserWindow.instanceMethods.setIcon.description: Ubah ikon jendela.
 BrowserWindow.instanceMethods.setAutoHideMenuBar.description: >-
   Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately.
 BrowserWindow.instanceMethods.isMenuBarAutoHide.returns.description: Whether menu bar automatically hides itself.
@@ -491,7 +491,7 @@ BrowserWindow.instanceMethods.setContentProtection.description: >-
 BrowserWindow.instanceMethods.setFocusable.description: Changes whether the window can be focused.
 BrowserWindow.instanceMethods.setParentWindow.description: >-
   Sets parent as current window's parent window, passing null will turn current window into a top-level window.
-BrowserWindow.instanceMethods.getParentWindow.returns.description: The parent window.
+BrowserWindow.instanceMethods.getParentWindow.returns.description: Jendela utama.
 BrowserWindow.instanceMethods.getChildWindows.returns.description: All child windows.
 BrowserWindow.instanceMethods.setAutoHideCursor.description: Controls whether to hide cursor when typing.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
@@ -560,13 +560,13 @@ Certificate.properties.serialNumber.description: Hex value represented string
 Certificate.properties.validStart.description: Start date of the certificate being valid in seconds
 Certificate.properties.validExpiry.description: End date of the certificate being valid in seconds
 Certificate.properties.fingerprint.description: Fingerprint of the certificate
-CertificatePrincipal.properties.commonName.description: Common Name
-CertificatePrincipal.properties.organizations.description: Organization names
-CertificatePrincipal.properties.organizationUnits.description: Organization Unit names
-CertificatePrincipal.properties.locality.description: Locality
-CertificatePrincipal.properties.state.description: State or province
-CertificatePrincipal.properties.country.description: Country or region
-ClientRequest.description: Make HTTP/HTTPS requests.
+CertificatePrincipal.properties.commonName.description: Nama Umum
+CertificatePrincipal.properties.organizations.description: Nama organisasi
+CertificatePrincipal.properties.organizationUnits.description: Nama Unit organisasi
+CertificatePrincipal.properties.locality.description: Tempat
+CertificatePrincipal.properties.state.description: Negara Bagian/Propinsi
+CertificatePrincipal.properties.country.description: Negara atau wilayah
+ClientRequest.description: Membuat permintaan HTTP/HTTPS.
 ClientRequest.constructorMethod.parameters.0.description: >-
   If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
 ClientRequest.instanceMethods.setHeader.description: >-
@@ -607,13 +607,13 @@ ClientRequest.instanceEvents.close.description: >-
 ClientRequest.instanceEvents.redirect.description: >-
   Emitted when there is redirection and the mode is manual. Calling request.followRedirect will continue with the redirection.
 clipboard.description: Perform copy and paste operations on the system clipboard.
-clipboard.methods.readText.returns.description: The content in the clipboard as plain text.
+clipboard.methods.readText.returns.description: Konten dalam clipboard sebagai teks biasa.
 clipboard.methods.writeText.description: Writes the text into the clipboard as plain text.
-clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
-clipboard.methods.writeHTML.description: Writes markup to the clipboard.
-clipboard.methods.readImage.returns.description: The image content in the clipboard.
-clipboard.methods.writeImage.description: Writes image to the clipboard.
-clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
+clipboard.methods.readHTML.returns.description: Konten dalam clipboard sebagai markup.
+clipboard.methods.writeHTML.description: Menulis markup ke clipboard.
+clipboard.methods.readImage.returns.description: Konten gambar dalam clipboard.
+clipboard.methods.writeImage.description: Menulis gambar ke clipboard.
+clipboard.methods.readRTF.returns.description: Konten dalam clipboard sebagai RTF.
 clipboard.methods.writeRTF.description: Writes the text into the clipboard in RTF.
 clipboard.methods.readBookmark.description: >-
   Returns an Object containing title and url keys representing the bookmark in the clipboard. The title and url values will be empty strings when the bookmark is unavailable.
@@ -623,13 +623,13 @@ clipboard.methods.readFindText.returns.description: >-
   The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 clipboard.methods.writeFindText.description: >-
   Writes the text into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
-clipboard.methods.clear.description: Clears the clipboard content.
+clipboard.methods.clear.description: Membersihkan konten clipboard.
 clipboard.methods.availableFormats.returns.description: An array of supported formats for the clipboard type.
 clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
 clipboard.methods.read.returns.description: Reads format type from the clipboard.
 clipboard.methods.readBuffer.returns.description: Reads format type from the clipboard.
-clipboard.methods.write.description: Writes data to the clipboard.
-clipboard.methods.write.parameters.data.properties.bookmark.description: The title of the url at text.
+clipboard.methods.write.description: Menulis data ke clipboard.
+clipboard.methods.write.parameters.data.properties.bookmark.description: Judul url di teks.
 contentTracing.description: |-
   Collect tracing data from Chromium's content module for finding performance
   bottlenecks and slow operations.
@@ -647,11 +647,11 @@ contentTracing.methods.captureMonitoringSnapshot.description: >-
   Get the current monitoring traced data. Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data. Once all child processes have acknowledged the captureMonitoringSnapshot request the callback will be called with a file that contains the traced data.
 contentTracing.methods.getTraceBufferUsage.description: >-
   Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the callback is called.
-Cookie.properties.name.description: The name of the cookie.
-Cookie.properties.value.description: The value of the cookie.
-Cookie.properties.domain.description: The domain of the cookie.
+Cookie.properties.name.description: Nama cookie.
+Cookie.properties.value.description: Nilai cookie.
+Cookie.properties.domain.description: Domain cookie.
 Cookie.properties.hostOnly.description: Whether the cookie is a host-only cookie.
-Cookie.properties.path.description: The path of the cookie.
+Cookie.properties.path.description: Path cookie.
 Cookie.properties.secure.description: Whether the cookie is marked as secure.
 Cookie.properties.httpOnly.description: Whether the cookie is marked as HTTP only.
 Cookie.properties.session.description: >-
@@ -663,8 +663,8 @@ Cookies.instanceMethods.get.description: >-
   Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete. cookies is an Array of cookie objects.
 Cookies.instanceMethods.get.parameters.filter.properties.url.description: >-
   Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
-Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filters cookies by name.
-Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Retrieves cookies whose domains match or are subdomains of domains
+Cookies.instanceMethods.get.parameters.filter.properties.name.description: Menyaring cookie berdasar nama.
+Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Mengambil cookie domain yang sesuai atau adalah subdomain dari domain
 Cookies.instanceMethods.get.parameters.filter.properties.path.description: Retrieves cookies whose path matches path.
 Cookies.instanceMethods.get.parameters.filter.properties.secure.description: Filters cookies by their Secure property.
 Cookies.instanceMethods.get.parameters.filter.properties.session.description: Filters out session or persistent cookies.
@@ -682,11 +682,11 @@ Cookies.instanceMethods.set.parameters.details.properties.expirationDate.descrip
 Cookies.instanceMethods.remove.description: >-
   Removes the cookies matching url and name, callback will called with callback() on complete.
 Cookies.instanceMethods.remove.parameters.url.description: The URL associated with the cookie.
-Cookies.instanceMethods.remove.parameters.name.description: The name of cookie to remove.
-Cookies.instanceMethods.flushStore.description: Writes any unwritten cookies data to disk.
+Cookies.instanceMethods.remove.parameters.name.description: Nama cookie untuk dihapus.
+Cookies.instanceMethods.flushStore.description: Tulis data cookie yang tidak tertulis ke disk.
 Cookies.instanceEvents.changed.description: >-
   Emitted when a cookie is changed because it was added, edited, removed, or expired.
-Cookies.instanceEvents.changed.returns.cookie.description: The cookie that was changed
+Cookies.instanceEvents.changed.returns.cookie.description: Cookie yang berubah
 Cookies.instanceEvents.changed.returns.cause.description: 'The cause of the change with one of the following values:'
 Cookies.instanceEvents.changed.returns.removed.description: '`true` if the cookie was removed, `false` otherwise.'
 CPUUsage.properties.percentCPUUsage.description: >-
@@ -699,7 +699,7 @@ crashReporter.methods.start.description: >-
 crashReporter.methods.start.parameters.options.properties.submitURL.description: URL that crash reports will be sent to as POST.
 crashReporter.methods.start.parameters.options.properties.productName.description: Defaults to app.getName().
 crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Whether crash reports should be sent to the server Default is true.
-crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Default is false.
+crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: Default false.
 crashReporter.methods.start.parameters.options.properties.extra.description: >-
   An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported.
 crashReporter.methods.getLastCrashReport.description: >-
@@ -726,7 +726,7 @@ Debugger.instanceMethods.sendCommand.description: Send given command to the debu
 Debugger.instanceMethods.sendCommand.parameters.method.description: >-
   Method name, should be one of the methods defined by the remote debugging protocol.
 Debugger.instanceMethods.sendCommand.parameters.commandParams.description: JSON object with request parameters.
-Debugger.instanceMethods.sendCommand.parameters.callback.description: Response
+Debugger.instanceMethods.sendCommand.parameters.callback.description: Respon
 Debugger.instanceMethods.sendCommand.parameters.callback.parameters.error.description: Error message indicating the failure of the command.
 Debugger.instanceMethods.sendCommand.parameters.callback.parameters.result.description: >-
   Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
@@ -734,7 +734,7 @@ Debugger.instanceEvents.detach.description: >-
   Emitted when debugging session is terminated. This happens either when webContents is closed or devtools is invoked for the attached webContents.
 Debugger.instanceEvents.detach.returns.reason.description: Reason for detaching debugger.
 Debugger.instanceEvents.message.description: Emitted whenever debugging target issues instrumentation event.
-Debugger.instanceEvents.message.returns.method.description: Method name.
+Debugger.instanceEvents.message.returns.method.description: Nama metode.
 Debugger.instanceEvents.message.returns.params.description: >-
   Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 desktopCapturer.description: |-
@@ -781,7 +781,7 @@ dialog.methods.showMessageBox.parameters.options.properties.buttons.description:
 dialog.methods.showMessageBox.parameters.options.properties.defaultId.description: >-
   Index of the button in the buttons array which will be selected by default when the message box opens.
 dialog.methods.showMessageBox.parameters.options.properties.title.description: 'Title of the message box, some platforms will not show it.'
-dialog.methods.showMessageBox.parameters.options.properties.message.description: Content of the message box.
+dialog.methods.showMessageBox.parameters.options.properties.message.description: Isi kotak pesan.
 dialog.methods.showMessageBox.parameters.options.properties.detail.description: Extra information of the message.
 dialog.methods.showMessageBox.parameters.options.properties.checkboxLabel.description: >-
   If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using callback.
@@ -814,7 +814,7 @@ DownloadItem.instanceMethods.setSavePath.description: >-
 DownloadItem.instanceMethods.setSavePath.parameters.path.description: Set the save file path of the download item.
 DownloadItem.instanceMethods.getSavePath.returns.description: >-
   The save path of the download item. This will be either the path set via downloadItem.setSavePath(path) or the path selected from the shown save dialog.
-DownloadItem.instanceMethods.pause.description: Pauses the download.
+DownloadItem.instanceMethods.pause.description: Jeda unduhan.
 DownloadItem.instanceMethods.isPaused.returns.description: Whether the download is paused.
 DownloadItem.instanceMethods.resume.description: >-
   Resumes the download that has been paused. Note: To enable resumable downloads the server you are downloading from must support range requests and provide both Last-Modified and ETag header values. Otherwise resume() will dismiss previously received bytes and restart the download from the beginning.
@@ -936,7 +936,7 @@ Menu.instanceMethods.popup.parameters.options.properties.async.description: >-
 Menu.instanceMethods.popup.parameters.options.properties.positioningItem.description: >-
   The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 Menu.instanceMethods.closePopup.description: Closes the context menu in the browserWindow.
-Menu.instanceMethods.closePopup.parameters.browserWindow.description: Default is the focused window.
+Menu.instanceMethods.closePopup.parameters.browserWindow.description: Default adalah jendela terfokus.
 Menu.instanceMethods.append.description: Appends the menuItem to the menu.
 Menu.instanceMethods.insert.description: Inserts the menuItem to the pos position of the menu.
 Menu.instanceProperties.items.description: >-
@@ -1675,7 +1675,7 @@ WebContents.instanceEvents.devtools-closed.description: Emitted when DevTools is
 WebContents.instanceEvents.devtools-focused.description: Emitted when DevTools is focused / opened.
 WebContents.instanceEvents.certificate-error.description: >-
   Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.
-WebContents.instanceEvents.certificate-error.returns.error.description: The error code
+WebContents.instanceEvents.certificate-error.returns.error.description: Kode kesalahan
 WebContents.instanceEvents.certificate-error.returns.callback.parameters.isTrusted.description: Indicates whether the certificate can be considered trusted
 WebContents.instanceEvents.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The usage is the same with the select-client-certificate event of app.

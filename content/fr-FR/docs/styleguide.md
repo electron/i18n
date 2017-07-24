@@ -217,6 +217,6 @@ Pour ajouter une autre langue (ou partiellement) :
 * Créez un sous-répertoire nommé par l'abréviation de la langue.
 * Traduisez les fichiers.
 * Mettez à jour le `README.md` avec votre langue pour ajouter un lien redirigeant vers le répertoire contenant les traductions.
-* Ajouter un lien vers votre répertoire de traduction sur le[README](https://github.com/electron/electron#documentation-translations) principal d'Electron.
+* Ajouter un lien vers votre répertoire de traduction sur le [README](https://github.com/electron/electron#documentation-translations) principal d'Electron.
 
 Notez que les fichiers dans le répertoire `docs-translations` doivent inclure uniquement les fichiers traduits, les fichiers d’origine ne doivent pas être copiées là.

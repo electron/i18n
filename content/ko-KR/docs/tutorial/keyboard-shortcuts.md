@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# 키보드 단축기
 
 > Configure local and global keyboard shortcuts
 

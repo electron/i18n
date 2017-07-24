@@ -1,11 +1,11 @@
 # Instructions de Build (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
 ## Prérequis
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Windows 7 / Server 2008 R2 ou supérieur
+* Visual Studio 2015 mise à jour 3 - [Télécharger VS 2015 Community Edition gratuitement](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -13,9 +13,9 @@ Follow the guidelines below for building Electron on Windows.
 
 If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+La compilation d'Electron se fait entièrement avec des scripts en ligne de commande et ne peut se faire avec Visual Studio. Vous pouvez développer Electron avec n’importe quel éditeur, mais le support de la compilation avec Visual Studio viendra dans le futur.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Remarque :** Même si Visual Studio n’est pas utilisé pour la compilation, il est toujours **nécessaire** car nous avons besoin du build toolchains qu'il fournit.
 
 ## Obtenir le Code
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Amorçage
 
-Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Pour information, nous utilisons `ninja` pour compiler Electron, donc il n'y a aucun projet Visual Studio de généré.
 
 ```powershell
 $ cd electron
@@ -34,33 +34,33 @@ $ python script\bootstrap.py -v
 
 ## Compilation
 
-Build both Release and Debug targets:
+Compiler une cible Release et Debug :
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Vous pouvez également compiler seulement une version Debug :
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Après la compilation terminée, vous pouvez trouver `electron.exe` dans le dossier `out\D` (version Debug) ou dans le dossier `out\R` (version Release).
 
-## 32bit Build
+## Compilation 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Pour compiler une version 32bit, vous devez passer `--target_arch=ia32` lors de l'exécution du script bootstrap :
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Les autres étapes pour la compilation sont exactement les mêmes.
 
-## Visual Studio project
+## Projet Visual Studio
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Pour générer un projet Visual Studio, vous pouvez passer le paramètre `--msvs` :
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -88,17 +88,17 @@ Voir [Build System Overview : Tests](build-system-overview.md#tests)
 
 ## Résolution de problème
 
-### Command xxxx not found
+### xxxx commande introuvable
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Si vous avez rencontré une erreur comme `commande xxxx introuvable`, vous pouvez essayez la console de `ligne de commande VS2015` pour exécuter les scripts de compilation.
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Assurez-vous d'avoir la dernière mise à jour de Visual Studio installé.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Si vous compiler via Cygwin, vous pouvez voir `bootstrap.py` échouer avec l'erreur suivante :
 
     Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
     
@@ -114,7 +114,7 @@ If building under Cygwin, you may see `bootstrap.py` failed with following error
     subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
     
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Ceci est causé par un bug lors de l’utilisation de Cygwin Python et Node Win32 ensemble. La solution est d’utiliser Python Win32 pour exécuter le script bootstrap (en supposant que vous avez installé Python dans `C:\Python27`) :
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -122,11 +122,11 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Essayez de réinstaller Node.js 32bit.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Créer simplement ce répertoire [devrait corriger le problème](http://stackoverflow.com/a/25095327/102704) :
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
@@ -134,4 +134,4 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Cette erreur peut se produire si vous utilisez Git Bash pour la compilation, vous devez utiliser PowerShell ou l'invite de commande de VS2015 à la place.

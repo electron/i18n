@@ -63,19 +63,19 @@ app.methods.setJumpList.description: >-
 app.methods.setJumpList.parameters.categories.description: ou `null` Tableau d'objets `JumpListCategory`.
 app.methods.makeSingleInstance.description: >-
   This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit. callback will be called with callback(argv, workingDirectory) when a second instance has been executed. argv is an Array of the second instance's command line arguments, and workingDirectory is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized. The callback is guaranteed to be executed after the ready event of app gets emitted. This method returns false if your process is the primary instance of the application and your app should continue loading. And returns true if your process has sent its parameters to another instance, and you should immediately quit. On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the open-file and open-url events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance. An example of activating the window of primary instance when a second instance starts:
-app.methods.makeSingleInstance.parameters.callback.parameters.argv.description: An array of the second instance's command line arguments
-app.methods.makeSingleInstance.parameters.callback.parameters.workingDirectory.description: The second instance's working directory
+app.methods.makeSingleInstance.parameters.callback.parameters.argv.description: Un tableau d’arguments de ligne de commande de la deuxième instance
+app.methods.makeSingleInstance.parameters.callback.parameters.workingDirectory.description: Répertoire de travail de la deuxième instance
 app.methods.makeSingleInstance.returns.description: '.'
 app.methods.releaseSingleInstance.description: >-
   Libère tous les verrous qui ont été créés par makeSingleInstance. Cela permettra à plusieurs instances de l'application de s'exécuter au même moment.
 app.methods.setUserActivity.description: >-
   Crée une NSUserActivity et la définit comme l'activité actuelle. L'activité est susceptible d'être transférée dans un autre appareil ultérieurement.
-app.methods.setUserActivity.parameters.type.description: Uniquely identifies the activity. Maps to .
+app.methods.setUserActivity.parameters.type.description: Identifie de manière unique l’activité. Maps vers NSUserActivity.activityType.
 app.methods.setUserActivity.parameters.userInfo.description: App-specific state to store for use by another device.
 app.methods.setUserActivity.parameters.webpageURL.description: >-
-  The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+  La page web à charger dans un navigateur si aucune application appropriée n'est installé sur l'appareil. Le schéma doit être `http` ou `https`.
 app.methods.getCurrentActivityType.returns.description: Le type de l'activité en cours d'exécution.
-app.methods.setAppUserModelId.description: Changes the Application User Model ID to id.
+app.methods.setAppUserModelId.description: Modifie le Application User Model ID par un id.
 app.methods.importCertificate.description: >-
   Importe le certificat au format pkcs12 dans le magasin de certificats de la plate-forme. Le callback est appelé avec le résultat de l'opération d'importation, une valeur de 0 indique le succès alors que n'importe qu'elle autre valeur indique un échec selon net_error_list de chromium.
 app.methods.importCertificate.parameters.options.properties.certificate.description: Chemin d'accès du fichier pkcs12.
@@ -84,45 +84,45 @@ app.methods.importCertificate.parameters.callback.parameters.result.description:
 app.methods.disableHardwareAcceleration.description: >-
   Désactive l'accélération matérielle pour l'application en cours. Cette méthode peut uniquement être appelée avant que l'application soit prête.
 app.methods.getAppMemoryInfo.description: >-
-  Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
+  Retourne ProcessMemoryInfo[]; Tableau d'objets ProcessMemoryInfo correspondant aux statistiques d'utilisation de mémoire de tous les processus associés à l'application.
 app.methods.setBadgeCount.description: >-
   Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
 app.methods.setBadgeCount.returns.description: Si l’appel a réussi.
-app.methods.getBadgeCount.returns.description: The current value displayed in the counter badge.
-app.methods.isUnityRunning.returns.description: Whether the current desktop environment is Unity launcher.
+app.methods.getBadgeCount.returns.description: La valeur actuelle affichée dans le compteur du badge.
+app.methods.isUnityRunning.returns.description: Si l’environnement de bureau actuel est le lanceur Unity.
 app.methods.getLoginItemSettings.description: >-
   If you provided path and args options to app.setLoginItemSettings then you need to pass the same arguments here for openAtLogin to be set correctly. Note: This API has no effect on MAS builds.
-app.methods.getLoginItemSettings.parameters.options.properties.path.description: The executable path to compare against. Defaults to process.execPath.
-app.methods.getLoginItemSettings.parameters.options.properties.args.description: The command-line arguments to compare against. Defaults to an empty array.
-app.methods.getLoginItemSettings.returns.properties.0.properties.0.description: The executable path to compare against. Defaults to process.execPath.
-app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: The command-line arguments to compare against. Defaults to an empty array.
-app.methods.getLoginItemSettings.returns.properties.1.description: true if the app is set to open at login.
+app.methods.getLoginItemSettings.parameters.options.properties.path.description: Le chemin d'accès de l'exécutable à comparer. process.execPath par défaut.
+app.methods.getLoginItemSettings.parameters.options.properties.args.description: Les arguments de ligne de commande à comparer. Par défaut un tableau vide.
+app.methods.getLoginItemSettings.returns.properties.0.properties.0.description: Le chemin d'accès de l'exécutable à comparer. process.execPath par défaut.
+app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: Les arguments de ligne de commande à comparer. Par défaut un tableau vide.
+app.methods.getLoginItemSettings.returns.properties.1.description: true si l'application est configurée pour être ouverte à la connexion.
 app.methods.getLoginItemSettings.returns.properties.2.description: >-
-  true if the app is set to open as hidden at login. This setting is only supported on macOS.
+  true si l'application est configurée pour s'ouvrir comme cachée lors de la connexion. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.3.description: >-
-  true if the app was opened at login automatically. This setting is only supported on macOS.
+  true si l'application a été ouverte automatiquement lors de la connexion. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
-  true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+  true si l'application a été ouverte comme un élément de connexion cachée. Cela indique que l'application ne devrait pas ouvrir de fenêtres au démarrage. Ce paramètre est supporté uniquement sur macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
-  true if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+  true si l’application a été ouverte comme item de connexion qui devrait rétablir l’état de la session précédente. Cela indique que l’application doit restaurer les fenêtres qui étaient ouvertes à la dernière fois que l’application a été fermée. Ce paramètre est supporté uniquement sur macOS.
 app.methods.setLoginItemSettings.description: >-
   Set the app's login item settings. To work with Electron's autoUpdater on Windows, which uses Squirrel, you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example: Note: This API has no effect on MAS builds.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.description: >-
-  true to open the app at login, false to remove the app as a login item. Defaults to false.
+  true pour ouvrir l'application lors de la connexion, false pour supprimer l'application comme élément de connexion. false par défaut.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
   true pour ouvrir l'application comme cachée. Par défaut, false. L'utilisateur peut modifier ce paramètre à partir des Préférences Système afin que app.getLoginItemStatus().wasOpenedAsHidden soit vérifié lorsque l'application est ouverte pour connaître la valeur actuelle. Ce paramètre n'est pris en charge que sur MacOS.
 app.methods.setLoginItemSettings.parameters.path.description: L'exécutable à lancer lors de la connexion. Par défaut, `process.execPath`.
 app.methods.setLoginItemSettings.parameters.args.description: >-
   Les arguments de ligne de commande à passer à l'exécutable. Par défaut, un array vide. Veillez à mettre les chemins entre guillemets.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
-  true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+  true si la prise en charge de l'accessibilité de Chrome est activé, sinon false. Cette API retourne true si l'utilisation de technologie d'assistance, comme les lecteurs d'écran, a été détectée. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 app.methods.setAboutPanelOptions.description: >-
-  Set the about panel options. This will override the values defined in the app's .plist file. See the Apple docs for more details.
+  Définit les options du panneau à propos. Cela remplace les valeurs définies dans le fichier .plist de l'application. Voir la documentation Apple pour plus de détails.
 app.methods.setAboutPanelOptions.parameters.options.properties.applicationName.description: Nom de l’application.
 app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersion.description: Version de l’application.
 app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Information sur les droits d'auteur.
 app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Information sur les crédits.
-app.methods.setAboutPanelOptions.parameters.options.properties.version.description: The app's build version number.
+app.methods.setAboutPanelOptions.parameters.options.properties.version.description: Numéro de version de l’application.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
 app.events.ready.description: >-
@@ -142,24 +142,24 @@ app.events.activate.description: >-
   Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 app.events.continue-activity.description: >-
   Emitted during Handoff when an activity from a different device wants to be resumed. You should call event.preventDefault() if you want to handle this event. A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's Info.plist under the NSUserActivityTypes key.
-app.events.continue-activity.returns.type.description: A string identifying the activity. Maps to .
+app.events.continue-activity.returns.type.description: Une chaine de caractère identifiant de manière unique l’activité. Maps vers NSUserActivity.activityType.
 app.events.continue-activity.returns.userInfo.description: Contains app-specific state stored by the activity on another device.
-app.events.browser-window-blur.description: Emitted when a browserWindow gets blurred.
-app.events.browser-window-focus.description: Emitted when a browserWindow gets focused.
-app.events.browser-window-created.description: Emitted when a new browserWindow is created.
-app.events.web-contents-created.description: Emitted when a new webContents is created.
+app.events.browser-window-blur.description: Émis lorsqu'un browserWindow est mis en arrière-plan.
+app.events.browser-window-focus.description: Émis lorsqu’un browserWindow arrive au premier-plan.
+app.events.browser-window-created.description: Émis lorsqu'un browserWindow est créé.
+app.events.web-contents-created.description: Émis lorsqu’un nouveau webContents est créé.
 app.events.certificate-error.description: >-
   Emitted when failed to verify the certificate for url, to trust the certificate you should prevent the default behavior with event.preventDefault() and call callback(true).
-app.events.certificate-error.returns.error.description: The error code
-app.events.certificate-error.returns.callback.parameters.isTrusted.description: Whether to consider the certificate as trusted
+app.events.certificate-error.returns.error.description: Le code d’erreur
+app.events.certificate-error.returns.callback.parameters.isTrusted.description: S'il faut considérer le certificat comme valide
 app.events.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The url corresponds to the navigation entry requesting the client certificate and callback can be called with an entry filtered from the list. Using event.preventDefault() prevents the application from using the first certificate from the store.
 app.events.login.description: >-
   Emitted when webContents wants to do basic auth. The default behavior is to cancel all authentications, to override this you should prevent the default behavior with event.preventDefault() and call callback(username, password) with the credentials.
-app.events.gpu-process-crashed.description: Emitted when the gpu process crashes or is killed.
+app.events.gpu-process-crashed.description: Émis lorsque le processus gpu crash ou est interrompu.
 app.events.accessibility-support-changed.description: >-
-  Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
-app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` when Chrome''s accessibility support is enabled, `false` otherwise.'
+  Émis lors d'un changement dans la prise en charge de l'accessibilité de Chrome. Cet événement se déclenche lorsque les technologies d'assistance, tels que les lecteurs d'écran, sont activées ou désactivées. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
+app.events.accessibility-support-changed.returns.accessibilitySupportEnabled.description: '`true` lorsque les fonctions d''accessibilité de Chrome sont activées, `false` dans le cas contraire.'
 app.properties.commandLine.properties.appendSwitch.description: >-
   Append a switch (with optional value) to Chromium's command line. Note: This will not affect process.argv, and is mainly used by developers to control some low-level Chromium behaviors.
 app.properties.commandLine.properties.appendSwitch.parameters.switch.description: A command-line switch
@@ -184,30 +184,30 @@ app.properties.dock.properties.setIcon.description: Définit l’image associée
 autoUpdater.description: Permet aux apps de se mettre automatiquement à jour d'elles mêmes.
 autoUpdater.methods.setFeedURL.description: Définit l'url et initialise l'auto updater.
 autoUpdater.methods.setFeedURL.parameters.requestHeaders.description: Headers de requête HTTP.
-autoUpdater.methods.getFeedURL.returns.description: The current update feed URL.
+autoUpdater.methods.getFeedURL.returns.description: L'URL courante de flux des mises à jour.
 autoUpdater.methods.checkForUpdates.description: >-
-  Asks the server whether there is an update. You must call setFeedURL before using this API.
+  Demande au serveur s’il y a une mise à jour. Vous devez appeler setFeedURL avant d’utiliser cette API.
 autoUpdater.methods.quitAndInstall.description: >-
   Restarts the app and installs the update after it has been downloaded. It should only be called after update-downloaded has been emitted. Note: autoUpdater.quitAndInstall() will close all application windows first and only emit before-quit event on app after that. This is different from the normal quit event sequence.
-autoUpdater.events.error.description: Emitted when there is an error while updating.
-autoUpdater.events.checking-for-update.description: Emitted when checking if an update has started.
+autoUpdater.events.error.description: Émis lorsqu’il y a une erreur pendant la mise à jour.
+autoUpdater.events.checking-for-update.description: Émis lors de la vérification du commencement d'une mise à jour.
 autoUpdater.events.update-available.description: >-
-  Emitted when there is an available update. The update is downloaded automatically.
-autoUpdater.events.update-not-available.description: Emitted when there is no available update.
+  Émis lorsqu’il y a une mise à jour disponible. La mise à jour est téléchargé automatiquement.
+autoUpdater.events.update-not-available.description: Émis quand il n’y a aucune mise à jour disponible.
 autoUpdater.events.update-downloaded.description: >-
-  Emitted when an update has been downloaded. On Windows only releaseName is available.
-BrowserView.description: Create and control views.
-BrowserView.constructorMethod.parameters.0.properties.0.description: See .
+  Émis lorsqu’une mise à jour a été téléchargée. Sous Windows seulement releaseName est disponible.
+BrowserView.description: Créer et contrôle les fenêtres.
+BrowserView.constructorMethod.parameters.0.properties.0.description: Voir .
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.description: >-
-  If true, the view's width will grow and shrink together with the window. false by default.
+  Si true, la largeur de la vue va s'agrandir et se réduire avec la fenêtre. false par défaut.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
-  If true, the view's height will grow and shrink together with the window. false by default.
-BrowserView.instanceMethods.setBounds.description: Resizes and moves the view to the supplied bounds relative to the window.
-BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.'
-BrowserView.instanceProperties.webContents.description: A WebContents object owned by this view.
-BrowserView.instanceProperties.id.description: A Integer representing the unique ID of the view.
-BrowserWindow.description: Create and control browser windows.
-BrowserWindow.staticMethods.getAllWindows.returns.description: An array of all opened browser windows.
+  Si true, la hauteur de la vue va s'agrandir et se réduire avec la fenêtre. false par défaut.
+BrowserView.instanceMethods.setBounds.description: Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
+BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Couleur au format `#aarrggbb` ou `#argb`. Le canal alpha est facultatif.'
+BrowserView.instanceProperties.webContents.description: Un objet WebContents appartenant a cette vue.
+BrowserView.instanceProperties.id.description: Un entier représentant l’ID unique de la vue.
+BrowserWindow.description: Créer et contrôle des fenêtres navigateur.
+BrowserWindow.staticMethods.getAllWindows.returns.description: Un tableau de toutes les fenêtres de navigateur ouvertes.
 BrowserWindow.staticMethods.getFocusedWindow.returns.description: 'The window that is focused in this application, otherwise returns null.'
 BrowserWindow.staticMethods.fromWebContents.returns.description: The window that owns the given webContents.
 BrowserWindow.staticMethods.fromId.returns.description: The window with the given id.
@@ -316,13 +316,13 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.19.descrip
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.20.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to disable. The full list of supported feature strings can be found in the file.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.description: Sets the default font for the font-family.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.0.description: Defaults to Times New Roman.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.1.description: Defaults to Times New Roman.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.2.description: Defaults to Arial.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.3.description: Defaults to Courier New.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.4.description: Defaults to Script.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Defaults to Impact.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.description: Définit la police par défaut pour le font-family.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.0.description: Times New Roman par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.1.description: Times New Roman par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.2.description: Arial par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.3.description: Courier New par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.4.description: Script par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Impact par défaut.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.22.description: Defaults to 16.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.23.description: Defaults to 13.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: 0 par défaut.
@@ -338,24 +338,24 @@ BrowserWindow.instanceMethods.destroy.description: >-
 BrowserWindow.instanceMethods.close.description: >-
   Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the close event.
 BrowserWindow.instanceMethods.focus.description: Ramène la fenêtre au premier plan.
-BrowserWindow.instanceMethods.blur.description: Removes focus from the window.
-BrowserWindow.instanceMethods.isFocused.returns.description: Whether the window is focused.
-BrowserWindow.instanceMethods.isDestroyed.returns.description: Whether the window is destroyed.
+BrowserWindow.instanceMethods.blur.description: Supprime le focus de la fenêtre.
+BrowserWindow.instanceMethods.isFocused.returns.description: Si la fenêtre est au premier-plan.
+BrowserWindow.instanceMethods.isDestroyed.returns.description: Si la fenêtre est détruite.
 BrowserWindow.instanceMethods.show.description: Affiche la fenêtre et la ramène au premier plan.
 BrowserWindow.instanceMethods.showInactive.description: Affiche la fenêtre, mais ne la ramène pas au premier plan.
 BrowserWindow.instanceMethods.hide.description: Masque la fenêtre.
-BrowserWindow.instanceMethods.isVisible.returns.description: Whether the window is visible to the user.
-BrowserWindow.instanceMethods.isModal.returns.description: Whether current window is a modal window.
+BrowserWindow.instanceMethods.isVisible.returns.description: Si la fenêtre est visible par l’utilisateur.
+BrowserWindow.instanceMethods.isModal.returns.description: Si la fenêtre active est une fenêtre modale.
 BrowserWindow.instanceMethods.maximize.description: >-
-  Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
-BrowserWindow.instanceMethods.unmaximize.description: Unmaximizes the window.
-BrowserWindow.instanceMethods.isMaximized.returns.description: Whether the window is maximized.
+  Agrandit la fenêtre. Cela affichera également (mais pas au premier-plan) la fenêtre si elle n’est pas déjà affichée.
+BrowserWindow.instanceMethods.unmaximize.description: Réduit la fenêtre à sa taille initiale.
+BrowserWindow.instanceMethods.isMaximized.returns.description: Si la fenêtre est agrandie.
 BrowserWindow.instanceMethods.minimize.description: >-
-  Minimizes the window. On some platforms the minimized window will be shown in the Dock.
-BrowserWindow.instanceMethods.restore.description: Restores the window from minimized state to its previous state.
-BrowserWindow.instanceMethods.isMinimized.returns.description: Whether the window is minimized.
-BrowserWindow.instanceMethods.setFullScreen.description: Sets whether the window should be in fullscreen mode.
-BrowserWindow.instanceMethods.isFullScreen.returns.description: Whether the window is in fullscreen mode.
+  Minimise la fenêtre. Sur certaines plateformes la fenêtre réduite sera affichée dans le Dock.
+BrowserWindow.instanceMethods.restore.description: Restaure la fenêtre depuis l'état réduit à son état précédent.
+BrowserWindow.instanceMethods.isMinimized.returns.description: Si la fenêtre est réduite.
+BrowserWindow.instanceMethods.setFullScreen.description: Définit si la fenêtre doit être en mode plein écran.
+BrowserWindow.instanceMethods.isFullScreen.returns.description: Si la fenêtre est en mode plein écran.
 BrowserWindow.instanceMethods.setAspectRatio.description: >-
   This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size. Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
 BrowserWindow.instanceMethods.setAspectRatio.parameters.aspectRatio.description: The aspect ratio to maintain for some portion of the content view.
@@ -366,50 +366,50 @@ BrowserWindow.instanceMethods.previewFile.parameters.path.description: >-
 BrowserWindow.instanceMethods.previewFile.parameters.displayName.description: >-
   The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
 BrowserWindow.instanceMethods.closeFilePreview.description: Closes the currently open Quick Look panel.
-BrowserWindow.instanceMethods.setBounds.description: Resizes and moves the window to the supplied bounds
+BrowserWindow.instanceMethods.setBounds.description: Redimensionne et déplace la fenêtre vers les limites fournies
 BrowserWindow.instanceMethods.setContentBounds.description: >-
-  Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
-BrowserWindow.instanceMethods.setSize.description: Resizes the window to width and height.
-BrowserWindow.instanceMethods.getSize.returns.description: Contains the window's width and height.
-BrowserWindow.instanceMethods.setContentSize.description: Resizes the window's client area (e.g. the web page) to width and height.
-BrowserWindow.instanceMethods.getContentSize.returns.description: Contains the window's client area's width and height.
-BrowserWindow.instanceMethods.setMinimumSize.description: Sets the minimum size of window to width and height.
-BrowserWindow.instanceMethods.getMinimumSize.returns.description: Contains the window's minimum width and height.
-BrowserWindow.instanceMethods.setMaximumSize.description: Sets the maximum size of window to width and height.
-BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contains the window's maximum width and height.
-BrowserWindow.instanceMethods.setResizable.description: Sets whether the window can be manually resized by user.
-BrowserWindow.instanceMethods.isResizable.returns.description: Whether the window can be manually resized by user.
-BrowserWindow.instanceMethods.setMovable.description: Sets whether the window can be moved by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isMovable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isMovable.returns.description: Whether the window can be moved by user.
+  Redimensionne et déplace la zone cliente de la fenêtre (par exemple, la page web) vers les limites fournies.
+BrowserWindow.instanceMethods.setSize.description: Redimensionne la fenêtre à largeur et hauteur.
+BrowserWindow.instanceMethods.getSize.returns.description: Contient la largeur et la hauteur de la fenêtre.
+BrowserWindow.instanceMethods.setContentSize.description: Redimensionne la zone client de la fenêtre (par exemple, la page web) à largeur et hauteur.
+BrowserWindow.instanceMethods.getContentSize.returns.description: Contient la largeur et la hauteur de la zone client de la fenêtre.
+BrowserWindow.instanceMethods.setMinimumSize.description: Définit la taille minimale de la fenêtre à largeur et hauteur.
+BrowserWindow.instanceMethods.getMinimumSize.returns.description: Contient la largeur et la hauteur minimale de la fenêtre.
+BrowserWindow.instanceMethods.setMaximumSize.description: Définit la taille maximale de la fenêtre à largeur et hauteur.
+BrowserWindow.instanceMethods.getMaximumSize.returns.description: Contient la hauteur et la largeur maximale de la fenêtre.
+BrowserWindow.instanceMethods.setResizable.description: Définit si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
+BrowserWindow.instanceMethods.isResizable.returns.description: Si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
+BrowserWindow.instanceMethods.setMovable.description: Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, cela ne fait rien.
+BrowserWindow.instanceMethods.isMovable.description: Sur Linux, cela retourne toujours true.
+BrowserWindow.instanceMethods.isMovable.returns.description: Si la fenêtre peut être déplacée par l’utilisateur.
 BrowserWindow.instanceMethods.setMinimizable.description: >-
-  Sets whether the window can be manually minimized by user. On Linux does nothing.
+  Définit si la fenêtre peut être minimisée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
 BrowserWindow.instanceMethods.isMinimizable.description: Sur Linux, retourne toujours true.
 BrowserWindow.instanceMethods.isMinimizable.returns.description: Que l'utilisateur puisse minimiser manuellement la fenêtre
 BrowserWindow.instanceMethods.setMaximizable.description: >-
   Définit que la fenêtre peut être agrandie manuellement par l’utilisateur. Sous Linux, il ne fait rien.
-BrowserWindow.instanceMethods.isMaximizable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isMaximizable.returns.description: Whether the window can be manually maximized by user.
+BrowserWindow.instanceMethods.isMaximizable.description: Sur Linux, cela retourne toujours true.
+BrowserWindow.instanceMethods.isMaximizable.returns.description: Si la fenêtre peut être agrandie manuellement par l’utilisateur.
 BrowserWindow.instanceMethods.setFullScreenable.description: >-
-  Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+  Définit si le bouton agrandir/zoom de la fenêtre active/désactive le mode plein écran ou agrandit la fenêtre.
 BrowserWindow.instanceMethods.isFullScreenable.returns.description: >-
-  Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
-BrowserWindow.instanceMethods.setClosable.description: Sets whether the window can be manually closed by user. On Linux does nothing.
-BrowserWindow.instanceMethods.isClosable.description: On Linux always returns true.
-BrowserWindow.instanceMethods.isClosable.returns.description: Whether the window can be manually closed by user.
+  Si le bouton Agrandir/zoom de la fenêtre active/désactive le mode plein écran ou agrandit la fenêtre.
+BrowserWindow.instanceMethods.setClosable.description: Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
+BrowserWindow.instanceMethods.isClosable.description: Sur Linux, cela retourne toujours true.
+BrowserWindow.instanceMethods.isClosable.returns.description: Si la fenêtre peut être fermée de manuellement par l’utilisateur.
 BrowserWindow.instanceMethods.setAlwaysOnTop.description: >-
   Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.level.description: >-
-  Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and (Deprecated). The default is `floating`. See the for more details.
+  Les valeurs incluent `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and (Deprecated). La valeur par défaut est `floating`. Consultez le pour plus de détails.
 BrowserWindow.instanceMethods.setAlwaysOnTop.parameters.relativeLevel.description: >-
   The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
-BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Whether the window is always on top of other windows.
-BrowserWindow.instanceMethods.center.description: Moves window to the center of the screen.
+BrowserWindow.instanceMethods.isAlwaysOnTop.returns.description: Si la fenêtre est toujours au-dessus des autres fenêtres.
+BrowserWindow.instanceMethods.center.description: Déplace la fenêtre vers le centre de l’écran.
 BrowserWindow.instanceMethods.setPosition.description: Déplace la fenêtre à x et y.
 BrowserWindow.instanceMethods.getPosition.returns.description: Contient la position actuelle de la fenêtre.
-BrowserWindow.instanceMethods.setTitle.description: Changes the title of native window to title.
+BrowserWindow.instanceMethods.setTitle.description: Remplace le titre de la fenêtre native par title.
 BrowserWindow.instanceMethods.getTitle.description: >-
-  Note: The title of web page can be different from the title of the native window.
+  Remarque : Le titre de page web peut être différent du titre de la fenêtre native.
 BrowserWindow.instanceMethods.getTitle.returns.description: Le titre de la fenêtre native.
 BrowserWindow.instanceMethods.setSheetOffset.description: >-
   Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
@@ -478,12 +478,12 @@ BrowserWindow.instanceMethods.setAutoHideMenuBar.description: >-
   Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single Alt key. If the menu bar is already visible, calling setAutoHideMenuBar(true) won't hide it immediately.
 BrowserWindow.instanceMethods.isMenuBarAutoHide.returns.description: Whether menu bar automatically hides itself.
 BrowserWindow.instanceMethods.setMenuBarVisibility.description: >-
-  Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single Alt key.
-BrowserWindow.instanceMethods.isMenuBarVisible.returns.description: Whether the menu bar is visible.
+  Définit si la barre de menus doit être visible. Si la barre de menu est cachée, les utilisateurs peuvent toujours afficher la barre de menu en appuyant sur la touche Alt.
+BrowserWindow.instanceMethods.isMenuBarVisible.returns.description: Si la barre de menu est visible.
 BrowserWindow.instanceMethods.setVisibleOnAllWorkspaces.description: >-
-  Sets whether the window should be visible on all workspaces. Note: This API does nothing on Windows.
-BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.description: 'Note: This API always returns false on Windows.'
-BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.returns.description: Whether the window is visible on all workspaces.
+  Définit si la fenêtre doit être visible sur tous les espaces de travail. Remarque : Cette API ne fait rien sur Windows.
+BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.description: 'Remarque : Cette API retourne toujours false sur Windows.'
+BrowserWindow.instanceMethods.isVisibleOnAllWorkspaces.returns.description: Si la fenêtre est visible sur tous les espaces de travail.
 BrowserWindow.instanceMethods.setIgnoreMouseEvents.description: >-
   Makes the window ignore all mouse events. All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 BrowserWindow.instanceMethods.setContentProtection.description: >-
@@ -495,16 +495,16 @@ BrowserWindow.instanceMethods.getParentWindow.returns.description: La fenêtre p
 BrowserWindow.instanceMethods.getChildWindows.returns.description: Toutes les fenêtres enfants.
 BrowserWindow.instanceMethods.setAutoHideCursor.description: Contrôle s'il faut masquer le curseur lors de la saisie.
 BrowserWindow.instanceMethods.setVibrancy.description: >-
-  Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window.
+  Ajoute un effet vibrancy à la fenêtre du navigateur. En passant la valeur null ou une chaîne vide, cela supprime l’effet vibrancy sur la fenêtre.
 BrowserWindow.instanceMethods.setVibrancy.parameters.type.description: >-
-  Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the for more details.
+  Peut être `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` ou `ultra-dark`. Consultez le pour plus de détails.
 BrowserWindow.instanceMethods.setTouchBar.description: >-
   Sets the touchBar layout for the current window. Specifying null or undefined clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+. Note: The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 BrowserWindow.instanceMethods.setBrowserView.description: >-
   Note: L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 BrowserWindow.instanceProperties.webContents.description: >-
   A WebContents object this window owns. All web page related events and operations will be done via it. See the webContents documentation for its methods and events.
-BrowserWindow.instanceProperties.id.description: A Integer representing the unique ID of the window.
+BrowserWindow.instanceProperties.id.description: Un entier représentant l’ID unique de la fenêtre.
 BrowserWindow.instanceEvents.page-title-updated.description: >-
   Emitted when the document changed its title, calling event.preventDefault() will prevent the native window's title from changing.
 BrowserWindow.instanceEvents.close.description: >-
@@ -513,40 +513,40 @@ BrowserWindow.instanceEvents.closed.description: >-
   Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 BrowserWindow.instanceEvents.session-end.description: >-
   Emitted when window session is going to end due to force shutdown or machine restart or session log off.
-BrowserWindow.instanceEvents.unresponsive.description: Emitted when the web page becomes unresponsive.
-BrowserWindow.instanceEvents.responsive.description: Emitted when the unresponsive web page becomes responsive again.
-BrowserWindow.instanceEvents.blur.description: Emitted when the window loses focus.
-BrowserWindow.instanceEvents.focus.description: Emitted when the window gains focus.
-BrowserWindow.instanceEvents.show.description: Emitted when the window is shown.
-BrowserWindow.instanceEvents.hide.description: Emitted when the window is hidden.
+BrowserWindow.instanceEvents.unresponsive.description: Émis lorsque la page web cesse de répondre.
+BrowserWindow.instanceEvents.responsive.description: Émis lorsque la page web répond à nouveau.
+BrowserWindow.instanceEvents.blur.description: Émis lorsque la fenêtre perd le focus.
+BrowserWindow.instanceEvents.focus.description: Émis lorsque la fenêtre obtient le focus.
+BrowserWindow.instanceEvents.show.description: Émis lorsque la fenêtre est affichée.
+BrowserWindow.instanceEvents.hide.description: Émis lorsque la fenêtre est masquée.
 BrowserWindow.instanceEvents.ready-to-show.description: >-
-  Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
-BrowserWindow.instanceEvents.maximize.description: Emitted when window is maximized.
-BrowserWindow.instanceEvents.unmaximize.description: Emitted when the window exits from a maximized state.
-BrowserWindow.instanceEvents.minimize.description: Emitted when the window is minimized.
-BrowserWindow.instanceEvents.restore.description: Emitted when the window is restored from a minimized state.
-BrowserWindow.instanceEvents.resize.description: Emitted when the window is being resized.
+  Émis lorsque la page web a été rendue (tout en étant pas affiché) et la fenêtre peut être affiché sans flash visuel.
+BrowserWindow.instanceEvents.maximize.description: Émis lorsque la fenêtre est agrandie.
+BrowserWindow.instanceEvents.unmaximize.description: Émis lorsque la fenêtre quitte un état maximisé.
+BrowserWindow.instanceEvents.minimize.description: Émis lorsque la fenêtre est réduite.
+BrowserWindow.instanceEvents.restore.description: Émis lorsque la fenêtre est restaurée à partir d’un état réduit.
+BrowserWindow.instanceEvents.resize.description: Émis lorsque la fenêtre est redimensionnée.
 BrowserWindow.instanceEvents.move.description: >-
-  Emitted when the window is being moved to a new position. Note: On macOS this event is just an alias of moved.
-BrowserWindow.instanceEvents.moved.description: Emitted once when the window is moved to a new position.
-BrowserWindow.instanceEvents.enter-full-screen.description: Emitted when the window enters a full-screen state.
-BrowserWindow.instanceEvents.leave-full-screen.description: Emitted when the window leaves a full-screen state.
-BrowserWindow.instanceEvents.enter-html-full-screen.description: Emitted when the window enters a full-screen state triggered by HTML API.
-BrowserWindow.instanceEvents.leave-html-full-screen.description: Emitted when the window leaves a full-screen state triggered by HTML API.
+  Émis lorsque la fenêtre est déplacée vers une nouvelle position. Remarque : Sur macOS, cet événement est simplement un alias de `moved`.
+BrowserWindow.instanceEvents.moved.description: Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
+BrowserWindow.instanceEvents.enter-full-screen.description: Émis lorsque la fenêtre passe à un état de plein écran.
+BrowserWindow.instanceEvents.leave-full-screen.description: Émis lorsque la fenêtre revient d'un état de plein écran.
+BrowserWindow.instanceEvents.enter-html-full-screen.description: Émis lorsque la fenêtre entre dans un état de plein écran déclenchée par l’API HTML.
+BrowserWindow.instanceEvents.leave-html-full-screen.description: Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 BrowserWindow.instanceEvents.app-command.description: >-
   Emitted when an App Command is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows. Commands are lowercased, underscores are replaced with hyphens, and the APPCOMMAND_ prefix is stripped off. e.g. APPCOMMAND_BROWSER_BACKWARD is emitted as browser-backward.
-BrowserWindow.instanceEvents.scroll-touch-begin.description: Emitted when scroll wheel event phase has begun.
-BrowserWindow.instanceEvents.scroll-touch-end.description: Emitted when scroll wheel event phase has ended.
-BrowserWindow.instanceEvents.scroll-touch-edge.description: Emitted when scroll wheel event phase filed upon reaching the edge of element.
-BrowserWindow.instanceEvents.swipe.description: 'Emitted on 3-finger swipe. Possible directions are up, right, down, left.'
-BrowserWindow.instanceEvents.sheet-begin.description: Emitted when the window opens a sheet.
-BrowserWindow.instanceEvents.sheet-end.description: Emitted when the window has closed a sheet.
-BrowserWindowProxy.description: Manipulate the child browser window
-BrowserWindowProxy.instanceMethods.blur.description: Removes focus from the child window.
-BrowserWindowProxy.instanceMethods.close.description: Forcefully closes the child window without calling its unload event.
-BrowserWindowProxy.instanceMethods.eval.description: Evaluates the code in the child window.
-BrowserWindowProxy.instanceMethods.focus.description: Focuses the child window (brings the window to front).
-BrowserWindowProxy.instanceMethods.print.description: Invokes the print dialog on the child window.
+BrowserWindow.instanceEvents.scroll-touch-begin.description: Émis lorsque l’événement scroll de la souris a commencé.
+BrowserWindow.instanceEvents.scroll-touch-end.description: Émis lorsque l’événement scroll de la souris est terminée.
+BrowserWindow.instanceEvents.scroll-touch-edge.description: Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
+BrowserWindow.instanceEvents.swipe.description: 'Émis par le balayage à 3 doigts. Les orientations possibles sont haut, droite, bas, gauche.'
+BrowserWindow.instanceEvents.sheet-begin.description: Émis lorsque la fenêtre ouvre une feuille.
+BrowserWindow.instanceEvents.sheet-end.description: Émis lorsque la fenêtre a fermé une feuille.
+BrowserWindowProxy.description: Manipuler la fenêtre de navigateur enfant
+BrowserWindowProxy.instanceMethods.blur.description: Supprime focus à partir de la fenêtre enfant.
+BrowserWindowProxy.instanceMethods.close.description: Force la fermeture de la fenêtre enfant sans appeler l'événement unload.
+BrowserWindowProxy.instanceMethods.eval.description: Évalue le code dans la fenêtre enfant.
+BrowserWindowProxy.instanceMethods.focus.description: Donne le focus à la fenêtre enfant (met la fenêtre au premier-plan).
+BrowserWindowProxy.instanceMethods.print.description: Appelle la boîte de dialogue Impression sur la fenêtre enfant.
 BrowserWindowProxy.instanceMethods.postMessage.description: >-
   Sends a message to the child window with the specified origin or * for no origin preference. In addition to these methods, the child window implements window.opener object with no properties and a single method.
 BrowserWindowProxy.instanceProperties.closed.description: A Boolean that is set to true after the child window gets closed.
@@ -610,10 +610,10 @@ clipboard.description: Perform copy and paste operations on the system clipboard
 clipboard.methods.readText.returns.description: The content in the clipboard as plain text.
 clipboard.methods.writeText.description: Writes the text into the clipboard as plain text.
 clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
-clipboard.methods.writeHTML.description: Writes markup to the clipboard.
-clipboard.methods.readImage.returns.description: The image content in the clipboard.
+clipboard.methods.writeHTML.description: Écrit markup dans le presse-papiers.
+clipboard.methods.readImage.returns.description: Le contenu de l’image dans le presse-papiers.
 clipboard.methods.writeImage.description: Écrit l'image dans le presse-papiers.
-clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
+clipboard.methods.readRTF.returns.description: Le contenu dans le presse-papiers au format RTF.
 clipboard.methods.writeRTF.description: Écrit le texte dans le presse-papiers en RTF.
 clipboard.methods.readBookmark.description: >-
   Returns an Object containing title and url keys representing the bookmark in the clipboard. The title and url values will be empty strings when the bookmark is unavailable.
@@ -623,13 +623,13 @@ clipboard.methods.readFindText.returns.description: >-
   The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 clipboard.methods.writeFindText.description: >-
   Writes the text into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
-clipboard.methods.clear.description: Clears the clipboard content.
-clipboard.methods.availableFormats.returns.description: An array of supported formats for the clipboard type.
-clipboard.methods.has.returns.description: Whether the clipboard supports the specified format.
-clipboard.methods.read.returns.description: Reads format type from the clipboard.
-clipboard.methods.readBuffer.returns.description: Reads format type from the clipboard.
-clipboard.methods.write.description: Writes data to the clipboard.
-clipboard.methods.write.parameters.data.properties.bookmark.description: The title of the url at text.
+clipboard.methods.clear.description: Efface le contenu du presse-papiers.
+clipboard.methods.availableFormats.returns.description: Tableau de formats pris en charge pour le presse-papiers type.
+clipboard.methods.has.returns.description: Si le presse-papiers prend en charge le format spécifié.
+clipboard.methods.read.returns.description: Lectures de format type à partir du presse-papiers.
+clipboard.methods.readBuffer.returns.description: Lectures de format type à partir du presse-papiers.
+clipboard.methods.write.description: Écrit les données dans le presse-papiers.
+clipboard.methods.write.parameters.data.properties.bookmark.description: Le titre de l’url dans text.
 contentTracing.description: |-
   Collect tracing data from Chromium's content module for finding performance
   bottlenecks and slow operations.
@@ -653,9 +653,9 @@ Cookie.properties.domain.description: Le domaine du cookie.
 Cookie.properties.hostOnly.description: Si le cookie est un cookie hôte uniquement.
 Cookie.properties.path.description: Le chemin d’accès du cookie.
 Cookie.properties.secure.description: Si le cookie est marqué comme sécurisé.
-Cookie.properties.httpOnly.description: Whether the cookie is marked as HTTP only.
+Cookie.properties.httpOnly.description: Si le cookie est marqué comme HTTP uniquement.
 Cookie.properties.session.description: >-
-  Whether the cookie is a session cookie or a persistent cookie with an expiration date.
+  Si le cookie est un cookie de session ou un cookie persistant avec une date d’expiration.
 Cookie.properties.expirationDate.description: >-
   The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
 Cookies.description: Query and modify a session's cookies.
@@ -1435,24 +1435,24 @@ Tray.instanceEvents.drop-text.returns.text.description: the dropped text string
 Tray.instanceEvents.drag-enter.description: Emitted when a drag operation enters the tray icon.
 Tray.instanceEvents.drag-leave.description: Emitted when a drag operation exits the tray icon.
 Tray.instanceEvents.drag-end.description: Emitted when a drag operation ends on the tray or ends at another location.
-UploadBlob.properties.type.description: blob.
-UploadBlob.properties.blobUUID.description: UUID of blob data to upload.
-UploadData.properties.bytes.description: Content being sent.
-UploadData.properties.file.description: Path of file being uploaded.
-UploadData.properties.blobUUID.description: UUID of blob data. Use method to retrieve the data.
-UploadFile.properties.type.description: file.
-UploadFile.properties.filePath.description: Path of file to be uploaded.
+UploadBlob.properties.type.description: objet blob.
+UploadBlob.properties.blobUUID.description: UUID des données blob à télécharger.
+UploadData.properties.bytes.description: Contenu envoyé.
+UploadData.properties.file.description: Chemin d'accès du fichier en cours de téléchargement.
+UploadData.properties.blobUUID.description: UUID des données blob. Méthode utilisée pour récupérer les données.
+UploadFile.properties.type.description: fichier.
+UploadFile.properties.filePath.description: Chemin d’accès du fichier à télécharger.
 UploadFile.properties.offset.description: 0 par défaut.
-UploadFile.properties.length.description: Number of bytes to read from offset. Defaults to 0.
+UploadFile.properties.length.description: Nombre d’octets à lire depuis l'offset. 0 par défaut.
 UploadFile.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
-UploadFileSystem.properties.type.description: fileSystem.
+UploadFileSystem.properties.type.description: système de fichiers.
 UploadFileSystem.properties.filsSystemURL.description: FileSystem url to read data for upload.
 UploadFileSystem.properties.offset.description: 0 par défaut.
-UploadFileSystem.properties.length.description: Number of bytes to read from offset. Defaults to 0.
+UploadFileSystem.properties.length.description: Nombre d’octets à lire depuis l'offset. 0 par défaut.
 UploadFileSystem.properties.modificationTime.description: Last Modification time in number of seconds sine the UNIX epoch.
-UploadRawData.properties.type.description: rawData.
-UploadRawData.properties.bytes.description: Data to be uploaded.
-webContents.description: Render and control web pages.
+UploadRawData.properties.type.description: données brutes.
+UploadRawData.properties.bytes.description: Données devant être téléchargées.
+webContents.description: Contrôle et rendu des pages web.
 webContents.methods.getAllWebContents.returns.description: >-
   An array of all WebContents instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 webContents.methods.getFocusedWebContents.returns.description: 'The web contents that is focused in this application, otherwise returns null.'
@@ -1490,23 +1490,23 @@ WebContents.instanceMethods.goToOffset.description: Navigates to the specified o
 WebContents.instanceMethods.isCrashed.returns.description: Whether the renderer process has crashed.
 WebContents.instanceMethods.setUserAgent.description: Overrides the user agent for this web page.
 WebContents.instanceMethods.getUserAgent.returns.description: The user agent for this web page.
-WebContents.instanceMethods.insertCSS.description: Injects CSS into the current web page.
+WebContents.instanceMethods.insertCSS.description: Injecte du CSS dans la page web actuelle.
 WebContents.instanceMethods.executeJavaScript.description: >-
   Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation. If the result of the executed code is a promise the callback result will be the resolved value of the promise.  We recommend that you use the returned Promise to handle code that results in a Promise.
-WebContents.instanceMethods.executeJavaScript.parameters.userGesture.description: Default is `false`.
-WebContents.instanceMethods.executeJavaScript.parameters.callback.description: Called after script has been executed.
+WebContents.instanceMethods.executeJavaScript.parameters.userGesture.description: '`false` par défaut.'
+WebContents.instanceMethods.executeJavaScript.parameters.callback.description: Appelé après que le script ai été exécuté.
 WebContents.instanceMethods.executeJavaScript.returns.description: >-
   A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 WebContents.instanceMethods.setAudioMuted.description: Mute the audio on the current web page.
 WebContents.instanceMethods.isAudioMuted.returns.description: Whether this page has been muted.
 WebContents.instanceMethods.setZoomFactor.description: >-
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-WebContents.instanceMethods.setZoomFactor.parameters.factor.description: Zoom factor.
+WebContents.instanceMethods.setZoomFactor.parameters.factor.description: Niveau de Zoom.
 WebContents.instanceMethods.getZoomFactor.description: >-
   Sends a request to get current zoom factor, the callback will be called with callback(zoomFactor).
 WebContents.instanceMethods.setZoomLevel.description: >-
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
-WebContents.instanceMethods.setZoomLevel.parameters.level.description: Zoom level
+WebContents.instanceMethods.setZoomLevel.parameters.level.description: Niveau de zoom
 WebContents.instanceMethods.getZoomLevel.description: >-
   Sends a request to get current zoom level, the callback will be called with callback(zoomLevel).
 WebContents.instanceMethods.setZoomLevelLimits.description: >-
@@ -1564,10 +1564,10 @@ WebContents.instanceMethods.removeWorkSpace.description: Removes the specified p
 WebContents.instanceMethods.openDevTools.description: Opens the devtools.
 WebContents.instanceMethods.openDevTools.parameters.options.properties.mode.description: >-
   Opens the devtools with specified dock state, can be right, bottom, undocked, detach. Defaults to last used dock state. In undocked mode it's possible to dock back. In detach mode it's not.
-WebContents.instanceMethods.closeDevTools.description: Closes the devtools.
+WebContents.instanceMethods.closeDevTools.description: Ferme les devtools.
 WebContents.instanceMethods.isDevToolsOpened.returns.description: Whether the devtools is opened.
 WebContents.instanceMethods.isDevToolsFocused.returns.description: Whether the devtools view is focused .
-WebContents.instanceMethods.toggleDevTools.description: Toggles the developer tools.
+WebContents.instanceMethods.toggleDevTools.description: Active/désactive les outils développeur.
 WebContents.instanceMethods.inspectElement.description: 'Starts inspecting element at position (x, y).'
 WebContents.instanceMethods.inspectServiceWorker.description: Opens the developer tools for the service worker context.
 WebContents.instanceMethods.send.description: >-
@@ -1595,13 +1595,13 @@ WebContents.instanceMethods.sendInputEvent.parameters.event.properties.modifiers
   An array of modifiers of the event, can include shift, control, alt, meta, isKeypad, isAutoRepeat, leftButtonDown, middleButtonDown, rightButtonDown, capsLock, numLock, left, right.
 WebContents.instanceMethods.beginFrameSubscription.description: >-
   Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer, dirtyRect) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format). The dirtyRect is an object with x, y, width, height properties that describes which part of the page was repainted. If onlyDirty is set to true, frameBuffer will only contain the repainted area. onlyDirty defaults to false.
-WebContents.instanceMethods.beginFrameSubscription.parameters.onlyDirty.description: Defaults to `false`
+WebContents.instanceMethods.beginFrameSubscription.parameters.onlyDirty.description: '`false` par défaut'
 WebContents.instanceMethods.endFrameSubscription.description: End subscribing for frame presentation events.
 WebContents.instanceMethods.startDrag.description: >-
   Sets the item as dragging item for current drag-drop operation, file is the absolute path of the file to be dragged, and icon is the image showing under the cursor when dragging.
 WebContents.instanceMethods.startDrag.parameters.item.properties.file.description: or files Array The path(s) to the file(s) being dragged.
 WebContents.instanceMethods.startDrag.parameters.item.properties.icon.description: The image must be non-empty on macOS.
-WebContents.instanceMethods.savePage.parameters.fullPath.description: The full file path.
+WebContents.instanceMethods.savePage.parameters.fullPath.description: Le chemin d’accès complet du fichier.
 WebContents.instanceMethods.savePage.parameters.saveType.description: Specify the save type.
 WebContents.instanceMethods.savePage.parameters.callback.description: '`(error) => {}`.'
 WebContents.instanceMethods.savePage.returns.description: true if the process of saving page has been initiated successfully.
@@ -1675,7 +1675,7 @@ WebContents.instanceEvents.devtools-closed.description: Emitted when DevTools is
 WebContents.instanceEvents.devtools-focused.description: Emitted when DevTools is focused / opened.
 WebContents.instanceEvents.certificate-error.description: >-
   Emitted when failed to verify the certificate for url. The usage is the same with the certificate-error event of app.
-WebContents.instanceEvents.certificate-error.returns.error.description: The error code
+WebContents.instanceEvents.certificate-error.returns.error.description: Le code d’erreur
 WebContents.instanceEvents.certificate-error.returns.callback.parameters.isTrusted.description: Indicates whether the certificate can be considered trusted
 WebContents.instanceEvents.select-client-certificate.description: >-
   Emitted when a client certificate is requested. The usage is the same with the select-client-certificate event of app.
@@ -1695,11 +1695,11 @@ WebContents.instanceEvents.update-target-url.description: >-
 WebContents.instanceEvents.cursor-changed.description: >-
   Emitted when the cursor's type changes. The type parameter can be default, crosshair, pointer, text, wait, help, e-resize, n-resize, ne-resize, nw-resize, s-resize, se-resize, sw-resize, w-resize, ns-resize, ew-resize, nesw-resize, nwse-resize, col-resize, row-resize, m-panning, e-panning, n-panning, ne-panning, nw-panning, s-panning, se-panning, sw-panning, w-panning, move, vertical-text, cell, context-menu, alias, progress, nodrop, copy, none, not-allowed, zoom-in, zoom-out, grab, grabbing, custom. If the type parameter is custom, the image parameter will hold the custom cursor image in a NativeImage, and scale, size and hotspot will hold additional information about the custom cursor.
 WebContents.instanceEvents.cursor-changed.returns.scale.description: scaling factor for the custom cursor
-WebContents.instanceEvents.cursor-changed.returns.size.description: the size of the `image`
+WebContents.instanceEvents.cursor-changed.returns.size.description: la taille de `image`
 WebContents.instanceEvents.cursor-changed.returns.hotspot.description: coordinates of the custom cursor's hotspot
 WebContents.instanceEvents.context-menu.description: Emitted when there is a new context menu that needs to be handled.
-WebContents.instanceEvents.context-menu.returns.params.properties.x.description: x coordinate
-WebContents.instanceEvents.context-menu.returns.params.properties.y.description: y coordinate
+WebContents.instanceEvents.context-menu.returns.params.properties.x.description: coordonnée x
+WebContents.instanceEvents.context-menu.returns.params.properties.y.description: coordonnée y
 WebContents.instanceEvents.context-menu.returns.params.properties.linkURL.description: URL of the link that encloses the node the context menu was invoked on.
 WebContents.instanceEvents.context-menu.returns.params.properties.linkText.description: >-
   Text associated with the link. May be an empty string if the contents of the link are an image.
@@ -1752,11 +1752,11 @@ WebContents.instanceEvents.will-attach-webview.returns.params.description: >-
 webFrame.description: Customize the rendering of the current web page.
 webFrame.methods.setZoomFactor.description: >-
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-webFrame.methods.setZoomFactor.parameters.factor.description: Zoom factor.
+webFrame.methods.setZoomFactor.parameters.factor.description: Niveau de Zoom.
 webFrame.methods.getZoomFactor.returns.description: The current zoom factor.
 webFrame.methods.setZoomLevel.description: >-
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
-webFrame.methods.setZoomLevel.parameters.level.description: Zoom level
+webFrame.methods.setZoomLevel.parameters.level.description: Niveau de zoom
 webFrame.methods.getZoomLevel.returns.description: The current zoom level.
 webFrame.methods.setZoomLevelLimits.description: >-
   Deprecated: Call setVisualZoomLevelLimits instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
@@ -1771,16 +1771,16 @@ webFrame.methods.registerURLSchemeAsBypassingCSP.description: >-
   Resources will be loaded from this scheme regardless of the current page's Content Security Policy.
 webFrame.methods.registerURLSchemeAsPrivileged.description: >-
   Registers the scheme as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API. Specify an option with the value of false to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.secure.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.bypassCSP.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.allowServiceWorkers.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.supportFetchAPI.description: Default true.
-webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.corsEnabled.description: Default true.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.secure.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.bypassCSP.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.allowServiceWorkers.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.supportFetchAPI.description: True par défaut.
+webFrame.methods.registerURLSchemeAsPrivileged.parameters.options.properties.corsEnabled.description: True par défaut.
 webFrame.methods.insertText.description: Inserts text to the focused element.
 webFrame.methods.executeJavaScript.description: >-
   Evaluates code in page. In the browser window some HTML APIs like requestFullScreen can only be invoked by a gesture from the user. Setting userGesture to true will remove this limitation.
-webFrame.methods.executeJavaScript.parameters.userGesture.description: Default is `false`.
-webFrame.methods.executeJavaScript.parameters.callback.description: Called after script has been executed.
+webFrame.methods.executeJavaScript.parameters.userGesture.description: '`false` par défaut.'
+webFrame.methods.executeJavaScript.parameters.callback.description: Appelé après que le script ai été exécuté.
 webFrame.methods.executeJavaScript.returns.description: >-
   A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 webFrame.methods.getResourceUsage.description: >-
@@ -1855,8 +1855,8 @@ webviewTag.methods.getUserAgent.returns.description: The user agent for guest pa
 webviewTag.methods.insertCSS.description: Injects CSS into the guest page.
 webviewTag.methods.executeJavaScript.description: >-
   Evaluates code in page. If userGesture is set, it will create the user gesture context in the page. HTML APIs like requestFullScreen, which require user action, can take advantage of this option for automation.
-webviewTag.methods.executeJavaScript.parameters.userGesture.description: Default `false`.
-webviewTag.methods.executeJavaScript.parameters.callback.description: Called after script has been executed.
+webviewTag.methods.executeJavaScript.parameters.userGesture.description: '`false` par défaut.'
+webviewTag.methods.executeJavaScript.parameters.callback.description: Appelé après que le script ai été exécuté.
 webviewTag.methods.openDevTools.description: Opens a DevTools window for guest page.
 webviewTag.methods.closeDevTools.description: Closes the DevTools window of guest page.
 webviewTag.methods.isDevToolsOpened.returns.description: Whether guest page has a DevTools window attached.
@@ -1909,10 +1909,10 @@ webviewTag.methods.sendInputEvent.description: >-
   Sends an input event to the page. See webContents.sendInputEvent for detailed description of event object.
 webviewTag.methods.setZoomFactor.description: >-
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-webviewTag.methods.setZoomFactor.parameters.factor.description: Zoom factor.
+webviewTag.methods.setZoomFactor.parameters.factor.description: Niveau de Zoom.
 webviewTag.methods.setZoomLevel.description: >-
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
-webviewTag.methods.setZoomLevel.parameters.level.description: Zoom level
+webviewTag.methods.setZoomLevel.parameters.level.description: Niveau de zoom
 webviewTag.methods.showDefinitionForSelection.description: Shows pop-up dictionary that searches the selected word on the page.
 webviewTag.methods.getWebContents.returns.description: The web contents associated with this webview.
 webviewTag.attributes.src.description: >-
@@ -1960,7 +1960,7 @@ webviewTag.domEvents.dom-ready.description: Fired when document in the given fra
 webviewTag.domEvents.page-title-updated.description: >-
   Fired when page title is set during navigation. explicitSet is false when title is synthesized from file url.
 webviewTag.domEvents.page-favicon-updated.description: Fired when page receives favicon urls.
-webviewTag.domEvents.page-favicon-updated.returns.favicons.description: Array of URLs.
+webviewTag.domEvents.page-favicon-updated.returns.favicons.description: Array d'URL.
 webviewTag.domEvents.enter-html-full-screen.description: Fired when page enters fullscreen triggered by HTML API.
 webviewTag.domEvents.leave-html-full-screen.description: Fired when page leaves fullscreen triggered by HTML API.
 webviewTag.domEvents.console-message.description: >-

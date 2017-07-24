@@ -2,36 +2,36 @@
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
 
-## Generating `asar` Archive
+## Génerer une archive `asar`
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Une archive [asar](https://github.com/electron/asar) est un simple format d'archive comme tar, qui concatène les fichiers en un seul fichier. Electron peut lire les fichiers arbitrairement sans avoir a décompresser l'archive.
 
-Steps to package your app into an `asar` archive:
+Étapes pour empaqueter votre application dans une archive `asar` :
 
-### 1. Install the asar Utility
+### 1. Installez l'utilitaire asar
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### Empaquetez avec `asar pack`
 
 ```bash
-$ asar pack your-app app.asar
+$ asar pack votre-application app.asar
 ```
 
-## Using `asar` Archives
+## Lire une archive `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Il y a deux méthodes dans les APIs d'Electron : Node APIs fournies par Node.js et Web APIs fournies par Chromium. Les deux APIs prennent en charge la lecture de fichier provenant d'archives `asar`.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Avec les patchs spéciaux d'Electron, `fs.readFile` et `require` traite les archives `asar` comme des répertoires virtuels et les fichiers qu’il contiennent, comme des fichiers normaux dans le système de fichiers.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Par exemple, supposons que nous ayons une archive `exemple.asar` dans `/chemin/vers` :
 
 ```bash
-$ asar list /path/to/example.asar
+$ asar list /chemin/vers/exemple.asar
 /app.js
 /file.txt
 /dir/module.js
@@ -40,32 +40,32 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Lire un fichier dans l’archive `asar` :
 
 ```javascript
 const fs = require('fs')
-fs.readFileSync('/path/to/example.asar/file.txt')
+fs.readFileSync('/chemin/vers/exemple.asar/fichier.txt')
 ```
 
-List all files under the root of the archive:
+Lister tous les fichiers à la racine de l’archive :
 
 ```javascript
 const fs = require('fs')
-fs.readdirSync('/path/to/example.asar')
+fs.readdirSync('/chemin/vers/exemple.asar')
 ```
 
-Use a module from the archive:
+Utiliser un module de l’archive :
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+require('/chemin/vers/exemple.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Vous pouvez également afficher une page web se trouvant dans une archive `asar` avec `BrowserWindow` :
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('file:///path/to/example.asar/static/index.html')
+win.loadURL('file:///chemin/vers/exemple.asar/static/index.html')
 ```
 
 ### Web API
@@ -77,19 +77,19 @@ For example, to get a file with `$.get`:
 ```html
 <script>
 let $ = require('./jquery.min.js')
-$.get('file:///path/to/example.asar/file.txt', (data) => {
+$.get('file:///chemin/vers/exemple.asar/fichier.txt', (data) => {
   console.log(data)
 })
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Traiter une archive `asar` comme un fichier normal
 
 For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
 
 ```javascript
 const originalFs = require('original-fs')
-originalFs.readFileSync('/path/to/example.asar')
+originalFs.readFileSync('/chemin/vers/exemple.asar')
 ```
 
 You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
@@ -97,14 +97,14 @@ You can also set `process.noAsar` to `true` to disable the support for `asar` in
 ```javascript
 const fs = require('fs')
 process.noAsar = true
-fs.readFileSync('/path/to/example.asar')
+fs.readFileSync('/chemin/vers/exemple.asar')
 ```
 
-## Limitations of the Node API
+## Limites de Node API
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
-### Archives Are Read-only
+### Les archives sont en lecture seule
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 
@@ -122,7 +122,7 @@ APIs that requires extra unpacking are:
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - utilisé par `require` sur des modules natifs
 
 ### Fake Stat Information of `fs.stat`
 

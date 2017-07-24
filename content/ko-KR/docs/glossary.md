@@ -1,6 +1,6 @@
-# Glossary
+# 용어 사전
 
-This page defines some terminology that is commonly used in Electron development.
+이 페이지는 Electron 개발에 흔히 사용되는 용어를 정의합니다.
 
 ### ASAR
 

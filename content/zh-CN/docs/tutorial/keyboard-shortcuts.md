@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# 键盘快捷键
 
 > Configure local and global keyboard shortcuts
 
