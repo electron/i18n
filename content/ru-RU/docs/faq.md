@@ -4,13 +4,13 @@
 
 Chrome для Electron обычно выпускается в течение одной или двух недель после выпуска стабильной версии Chrome. Этот срок не является гарантированным и зависит от объема работ связанных с обновлением.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Используются только стабильные версии Chrome. Если необходимо внести важные исправления в beta или dev версии, мы произведем бэкпорт.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Для получения дополнительной информации, пожалуйста, просмотрите [Введение в обеспечение безопасности](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Когда Electron производит обновление до последней версии Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+После выпуска новой версии Node.js, мы обычно ждем примерно месяц до обновления в Electron. Так мы можем избежать воздействия ошибок в новых версиях Node.js, что случается очень часто.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
