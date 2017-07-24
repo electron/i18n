@@ -1,8 +1,8 @@
 # Distribution de l'Application
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Pour distribuer votre application avec Electron, vous devez télécharger les [binaires précompilés](https://github.com/electron/electron/releases) d'Electron. Ensuite, le dossier qui contient votre application devrait être nommé `app` et placé dans le répertoire de ressources d'Electron, comme illustré dans les exemples suivants. Notez que l’emplacement des binaires précompilés d'Electron est indiquée par `electron/` dans les exemples ci-dessous.
 
-On macOS:
+Sur macOS :
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Sur Windows et Linux :
 
 ```text
 electron/resources/app
@@ -20,29 +20,29 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Puis exécutez `Electron.app` (ou `electron` sous Linux, `electron.exe` sous Windows), et Electron va exécuter votre application. Le répertoire `electron` sera alors votre distribution à fournir aux utilisateurs finaux.
 
-## Packaging Your App into a File
+## Empaqueter votre application dans un fichier
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Au lieu de distribuer votre application en copiant tous les fichiers source, vous pouvez aussi empaqueter votre application dans une archive [asar](https://github.com/electron/asar) pour éviter l'exposition de votre code source aux utilisateurs.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l'archive en `app.asar` et placez-la dans le dossier ressources d'Electron comme ci-dessous. Ainsi, Electron va essayer de lire l'archive et de se lancer à partir de celle-ci.
 
-On macOS:
+Sur macOS :
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Sur Windows et Linux :
 
 ```text
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Plus de détails se trouvent dans [Empaqueter une application](application-packaging.md).
 
 ## Rebranding with Downloaded Binaries
 
@@ -66,27 +66,29 @@ The structure of a renamed app would be like:
     MyApp.app/Contents
     ├── Info.plist
     ├── MacOS/
-    │   └── MyApp
+    │   └── MyApp
     └── Frameworks/
         ├── MyApp Helper EH.app
         |   ├── Info.plist
         |   └── MacOS/
-        |       └── MyApp Helper EH
+        |       └── MyApp Helper EH
         ├── MyApp Helper NP.app
         |   ├── Info.plist
         |   └── MacOS/
-        |       └── MyApp Helper NP
+        |       └── MyApp Helper NP
         └── MyApp Helper.app
             ├── Info.plist
             └── MacOS/
-                └── MyApp Helper
+                └── MyApp Helper
+     
+    Context | Request Context
     
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Vous pouvez renommer l'exécutable `electron` par ce que vous voulez.
 
-## Packaging Tools
+## Outils d’empaquetage
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
@@ -109,20 +111,20 @@ Creating a custom fork of Electron is almost certainly not something you will ne
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
-#### Creating a Custom Release with surf-build
+#### Création d’une version Custom avec surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Installer [Surf](https://github.com/surf-build/surf), par l’intermédiaire de npm : `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Créez un nouveau bucket S3 et créez la structure de répertoire vide suivante :
     
         - atom-shell/
           - symbols/
           - dist/
         
 
-3. Set the following Environment Variables:
+3. Définir les Variables d’environnement suivantes :
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
+* `ELECTRON_GITHUB_TOKEN` - un jeton qui peut créer des releases sur GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
@@ -132,6 +134,6 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+2. `surf-build -r https://github.com/MYORG/electron -s VOTRE_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Attendre très, très longtemps que la compilation finisse.
