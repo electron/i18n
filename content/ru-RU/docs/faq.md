@@ -114,7 +114,7 @@ delete window.module;
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+и затем проверьте, в такой ли он форме:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
