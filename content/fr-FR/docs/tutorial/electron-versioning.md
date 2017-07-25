@@ -27,10 +27,10 @@ En raison de sa dépendance sur Node et Chromium, il n’est pas possible pour l
 Les numéros de version d'Electron sont incrémentés en utilisant les règles suivantes :
 
 * **Majeur** est pour les changements non rétro-compatible dans l'API Electron. Si vous mettez à jour de la `0.37.0` à la `1.0.0`, vous devrez apporter des modifications à votre application.
-* **Minor** is for major Chrome and minor Node upgrades, or significant Electron changes. If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
-* **Patch** is for new features and bug fixes. If you upgrade from `1.6.2` to `1.6.3`, your app will continue to work as-is.
+* **Mineur** est pour les mises à jour majeur pour Chrome et mineur pour Node, ou d'importantes modifications d'Electron. Si vous passez de la `1.5.0` à la `1.6.0`, votre application est supposée toujours fonctionner, mais vous devrez peut-être avoir quelques petites modifications.
+* **Patch** est pour les nouvelles fonctionnalités et corrections de bugs. Si vous passez de la `1.6.2` à la `1.6.3`, votre application continuera de fonctionner sans problème.
 
-We recommend that you set a fixed version when installing Electron from npm:
+Nous vous recommandons de définir une version fixe lors de l’installation d'Electron depuis npm :
 
 ```sh
 npm install electron --save-exact --save-dev
