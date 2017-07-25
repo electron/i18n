@@ -6,10 +6,10 @@ Electron utilise [gyp](https://gyp.gsrc.io/) pour la génération de projet et [
 
 Les fichiers `gyp` suivants contiennent des principales règles pour compiler Electron :
 
-* `Electron.gyp` définit comment Electron lui-même est compilé.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `vendor/brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `vendor/brightray/brightray.gypi` includes general build configurations about building.
+* `electron.gyp` définit comment Electron lui-même est compilé.
+* `common.gypi` ajuste les configurations de compilation de Node à faire compiler avec Chromium.
+* `vendor/brightray/brightray.gyp` définit comment `brightray` est compilé et inclut les configurations par défaut pour la liaison avec Chromium.
+* `vendor/brightray/brightray.gypi` inclut les configurations de compilation générale sur la compilation.
 
 ## Component Build
 
@@ -44,19 +44,19 @@ This only affects developers, if you are just building Electron for rebranding y
 
 ## Tests
 
-Test your changes conform to the project coding style using:
+Pour tester que vos changements soient conforme avec le code style du projet :
 
 ```bash
 $ npm run lint
 ```
 
-Test functionality using:
+Pour tester les fonctionnalités :
 
 ```bash
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Chaque fois que vous apportez des modifications au code source d'Electron, vous devez ré-exécuter la compilation avant les tests :
 
 ```bash
 $ npm run build && npm test
@@ -78,7 +78,7 @@ $ npm test -- --grep child_process
 
 Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
 
-To run the tests with the release build use:
+Pour exécuter les tests avec le build release :
 
 ```bash
 $ npm test -- -R
