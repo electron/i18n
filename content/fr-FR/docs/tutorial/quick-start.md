@@ -54,25 +54,25 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Gardez l'objet window dans une constante global, sinon la fenêtre sera fermée
+// automatiquement quand l'objet JavaScript voudra récupérer de la mémoire.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Créer le browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // et charge le index.html de l'application.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Ouvre le DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Émit lorsque la fenêtre est fermée.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
