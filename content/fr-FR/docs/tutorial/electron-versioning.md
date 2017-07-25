@@ -1,23 +1,23 @@
 # Versioning d'Electron
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+Si vous utilisez Node et npm depuis un moment, vous êtes probablement au courant du [versioning sémantique](http://semver.org), ou SemVer en abrégé. Il s’agit d’une convention pour les numéros de version pour les logiciel permettant de communiquer les intentions de vos mises à jour pour les utilisateurs.
 
-## Overview of Semantic Versioning
+## Vue d’ensemble du versionnage sémantique
 
-Semantic versions are always made up of three numbers:
+Les versions sémantiques sont toujours constituées de trois nombres :
 
-    major.minor.patch
+    majeur.mineur.patch
     
 
-Semantic version numbers are bumped (incremented) using the following rules:
+Les numéros de version sémantiques sont incrémentés en utilisant les règles suivantes :
 
-* **Major** is for changes that break backwards compatibility.
-* **Minor** is for new features that don't break backwards compatibility.
-* **Patch** is for bug fixes and other minor changes.
+* **Majeur** est pour les modifications pouvant casser la rétro-compatibilité.
+* **Mineur** est pour les nouvelles fonctionnalités ne cassant pas la rétro-compatibilité.
+* **Patch** est pour les corrections de bugs et autres modifications mineures.
 
-A simple mnemonic for remembering this scheme is as follows:
+Une simple mnémotechnique pour se rappeler de ce schéma :
 
-    breaking.feature.fix
+    breaking.feature.fix (brisant.fonctionnalité.fixe)
     
 
 ## Versioning d'Electron
