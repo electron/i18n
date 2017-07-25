@@ -42,7 +42,7 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## WebDriverJs の設定
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 

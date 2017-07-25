@@ -1,22 +1,22 @@
 # Utilisation du plugin Pepper Flash
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Electron prend en charge le plugin Pepper Flash. Pour utiliser le plugin Pepper Flash dans Electron, vous devez spécifier manuellement l'emplacement du plugin Pepper flash et puis l'activer dans votre application.
 
-## Prepare a Copy of Flash Plugin
+## Préparer une copie du Plugin Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+Sur macOS et Linux, on trouvera les détails du plugin Pepper Flash en accédant à `chrome://plugins` dans le navigateur Chrome. Son emplacement et sa version sont utiles pour le support de Pepper Flash dans Electron. Vous pouvez également le copier vers un autre emplacement.
 
 ## Add Electron Switch
 
 You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
 
-For example:
+Par exemple :
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// Spécifie l'emplacement de flash, en supposant qu'il est placé dans le même dossier que main.js.
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -31,7 +31,7 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// Optionnel: Spécifier la version de flash, par exemple : v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
 app.on('ready', () => {
@@ -49,9 +49,9 @@ app.on('ready', () => {
 
 You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Activez le Plugin Flash dans une balise `<webview>`
 
-Add `plugins` attribute to `<webview>` tag.
+Ajoutez l'attribut `plugins` à la balise `<webview>`.
 
 ```html
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>

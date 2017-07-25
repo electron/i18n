@@ -12,7 +12,7 @@ Chrome для Electron обычно выпускается в течение о�
 
 После выпуска новой версии Node.js, мы обычно ждем примерно месяц до обновления в Electron. Так мы можем избежать воздействия ошибок в новых версиях Node.js, что случается очень часто.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Новые возможности Node.js обычно входят в обновления V8, так как Electron использует V8, поставляемый с браузером Chrome, новейшие возможности JavaScript в новом Node.js версии обычно уже входят в Electron.
 
 ## Как передавать данные между страницами?
 
@@ -114,16 +114,16 @@ delete window.module;
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+и затем проверьте, в такой ли он форме:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, или переименовать его.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Однако если вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, вы используете модуль в неподходящем процессе. Например `electron.app` может быть использован только в главном процессе, в то время как `electron.webFrame` доступен только в процессах рендеринга.

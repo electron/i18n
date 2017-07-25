@@ -6,38 +6,38 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 * **Un debug build d'Electron** : le moyen le plus simple est généralement de le compiler vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour Windows](build-instructions-windows.md). Alors que vous pouvez facilement débogguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le déboggage sensiblement plus difficile : le déboggueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’inlining, liste d’appels et autres optimisations du compilateur.
 
-* **Outils Visual Studio C++** : les éditions de la communauté gratuite de Visual Studio 2013 et Visual Studio 2015 fonctionnent tous les deux. Une fois installé, [configurer Visual Studio pour utiliser le serveur GitHub symbolique d'Electron](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Outils Visual Studio C++** : les éditions de la communauté gratuite de Visual Studio 2013 et Visual Studio 2015 fonctionnent tous les deux. Une fois installé, [configurer Visual Studio pour utiliser le serveur GitHub symbolique d'Electron](setting-up-symbol-server.md). Il permettra à Visual Studio d’acquérir une meilleure compréhension de ce qui se passe à l’intérieur d'Electron, rendant plus facile l'affichage des variables dans un format lisible par l’homme.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon** : l'[outil gratuit de SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) vous permet d’inspecter un paramètres de processus, gère les fichiers et les opérations de registre.
 
-## Attaching to and Debugging Electron
+## Attacher et débogage d'Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Pour démarrer une session de débogage, ouvrez PowerShell/CMD et exécutez votre version debug d'Electron, utilisant votre application comme paramètre.
 
 ```powershell
-$ ./out/D/electron.exe ~/my-electron-app/
+$ ./out/D/electron.exe ~/mon-app-electron/
 ```
 
-### Setting Breakpoints
+### Définition de points d’arrêt
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Vous pouvez ouvrir Visual Studio. Electron n’est pas compilé avec Visual Studio et par conséquent ne contient pas de fichier de projet - vous pouvez cependant ouvrir les fichiers de code source « Comme fichier », ce qui signifie que Visual Studio va les ouvrir par eux-mêmes. Vous pouvez quand même définir des points d’arrêt - Visual Studio cherchera automatiquement le code source correspond au code qui s’exécute dans le processus attaché et le stopper en conséquence.
 
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./vendor/brightray/browser` and `./vendor/brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
+Les fichiers de code appropriés peuvent se trouver dans `./atom/`, comme pour Brightray, se trouvant dans `./vendor/brightray/browser` et `./vendor/brightray/common`. Si vous êtes hardcore, vous pouvez également débogguer Chromium directement, qui se trouve évidemment dans `chromium_src`.
 
-### Attaching
+### Attacher
 
-You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+Vous pouvez attacher le débogueur Visual Studio à un processus en cours d’exécution sur un ordinateur local ou distant. Lorsque le processus est en cours d’exécution, cliquez sur déboguer/attacher au processus (ou appuyez sur `CTRL+ALT+P`) pour ouvrir la boîte de dialogue « Attacher au processus ». Vous pouvez utiliser cette fonctionnalité pour déboguer des applications qui s'exécutent sur un ordinateur local ou distant, déboguer plusieurs processus simultanément.
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Si Electron s’exécute sous un compte d’utilisateur différent, sélectionnez la case `afficher les processus de tous les utilisateurs`. Notez que selon le nombre de BrowserWindows ouvert de votre application, vous verrez plusieurs processus. Une application typique avec une seule fenêtre se traduira dans Visual Studio par présenter juste deux entrées d'`Electron.exe` - l'un pour le processus principal et l’autre pour le processus de rendu. Étant donné que la liste vous donne seulement des noms, il n’y a actuellement aucun moyen fiable de savoir qui est qui.
 
-### Which Process Should I Attach to?
+### Quel processus dois-je attacher ?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Le code exécuté dans le processus principal (qui est le code se trouvant ou est lancé par votre fichier JavaScript main) ainsi que de code appelé à l’aide de remote (`require('electron').remote`) se lancera à l’intérieur du processus principale, tandis que le reste du code s’exécutera à l’intérieur de son processus de rendu respectifs.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Vous pouvez être attaché à plusieurs programmes lorsque vous déboguez, mais un seul programme est actif dans le débogueur à tout moment. Vous pouvez configurer le programme actif dans la barre d’outils `Emplacement de débogage` ou de la `fenêtre de processus`.
 
-## Using ProcMon to Observe a Process
+## Utilisation de ProcMon pour observer un processus
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Alors que Visual Studio est fantastique pour l’inspection de code spécifiques, la force de ProcMon est vraiment dans l'observation de tout ce que fait votre application avec le système d’exploitation - il capture les fichiers, registre, réseau, processus et fait un profilage des processus. Il tente de logguer **tous** les événements qui se produisent et peut être assez écrasant, mais si vous cherchez à comprendre pourquoi et comment votre application fonctionne avec le système d’exploitation, il peut être une ressource précieuse.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+Pour une introduction aux fonctionnalités de débogage de base et avancées de ProcMon, allez voir [ce tutoriel vidéo](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) fourni par Microsoft.
