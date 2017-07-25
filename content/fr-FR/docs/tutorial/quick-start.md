@@ -187,14 +187,14 @@ Clonez et exécutez le code dans ce tutoriel en utilisant le repository [`electr
 **Remarque** : l’exécution nécessite [Git](https://git-scm.com) et [Node.js](https://nodejs.org/en/download/) (qui comprend [npm](https://npmjs.org)) sur votre système.
 
 ```bash
-# Clone the repository
+# Cloner the repository
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Aller dans le dossier
 $ cd electron-quick-start
-# Install dependencies
+# Installer les dépendances
 $ npm install
-# Run the app
+# Lancer l'application
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+Pour plus d'exemples, voir la [liste de boilerplates](https://electron.atom.io/community/#boilerplates) créée par la superbe communauté Electron.
