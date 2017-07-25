@@ -14,13 +14,13 @@ Pour soumettre votre application sur le Mac App Store, vous devez d’abord obte
 
 ### Obtenir un Team ID
 
-Avant de signer votre application, vous devez connaître le Team ID de votre compte. Pour trouver votre Team ID, connectez-vous sur [Apple Developer Center](https://developer.apple.com/account/), cliquez sur Membership dans la barre latérale. Your Team ID appears in the Membership Information section under the team name.
+Avant de signer votre application, vous devez connaître le Team ID de votre compte. Pour trouver votre Team ID, connectez-vous sur [Apple Developer Center](https://developer.apple.com/account/), cliquez sur Membership dans la barre latérale. Votre Team ID apparaît dans la section informations Membership sous le nom d’équipe.
 
 ### Signer votre App
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Après avoir terminé les préparatifs, vous pouvez empaqueter votre application en suivant [Distribution de l'application](application-distribution.md) et passer ensuite à la signature de votre application.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+Tout d’abord, vous devez ajouter une clé `ElectronTeamID` au fichier `Info.plist` de votre application, qui possède le Team ID comme valeur :
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare two entitlements files.
+Ensuite, vous devez préparer les deux fichiers suivant.
 
 `child.plist` :
 
@@ -64,9 +64,9 @@ Then, you need to prepare two entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Vous devez remplacer `TEAM_ID` par votre Team ID et remplacez `votre.bundle.id` par le Bundle ID de votre application.
 
-And then sign your app with the following script:
+Et puis signez votre application avec le script suivant :
 
 ```bash
 #!/bin/bash
@@ -74,13 +74,13 @@ And then sign your app with the following script:
 # Nom de votre app.
 APP="VotreApp"
 # Le chemin de votre app à signer.
-APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+APP_PATH="/chemin/vers/VotreApp.app"
+# Le chemin d'accès où vous voulez mettre l'empaquetage signé.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# Le nom du certificat que vous demandez.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Le chemin d'accès de vos fichiers plist.
 CHILD_PLIST="/chemin/vers/child.plist"
 PARENT_PLIST="/chemon/vers/parent.plist"
 
@@ -111,7 +111,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```bash
-electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+electron-osx-sign VotreApp.app VotreApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
