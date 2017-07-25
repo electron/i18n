@@ -1,8 +1,8 @@
 # Intégration de l’environnement de bureau
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Différents systèmes d’exploitation fournissent des fonctionnalités différentes pour intégrer des applications bureautiques dans leurs environnements de bureau. Par exemple, sous Windows, les applications peuvent mettre des raccourcis dans la JumpList de barre des tâches, et sur Mac, les applications peuvent mettre un menu personnalisé dans le menu du dock.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Ce guide explique comment intégrer votre application dans les environnements de bureau avec les APIs d'Electron.
 
 ## Notifications
 
@@ -10,7 +10,7 @@ Voir les [Notifications](notifications.md)
 
 ## Documents récents (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows et macOS permettent d’accéder facilement à une liste des documents récemment ouverts par l’application via JumpList ou dock menu, respectivement.
 
 **JumpList :**
 
@@ -20,27 +20,27 @@ Windows and macOS provide easy access to a list of recent documents opened by th
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Pour ajouter un fichier aux documents récents, vous pouvez utiliser l'API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) :
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+Et l'API [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) vous permet de vider la liste des documents récents :
 
 ```javascript
 const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Remarques Windows
 
 In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
-### macOS Notes
+### Remarques macOS
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
