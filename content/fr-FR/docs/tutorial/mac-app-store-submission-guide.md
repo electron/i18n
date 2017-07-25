@@ -4,19 +4,19 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 **Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
-## How to Submit Your App
+## Comment soumettre votre App
 
 The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
 
-### Get Certificate
+### Obtenir un certificat
 
 To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
 
-### Get Team ID
+### Obtenir un Team ID
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
-### Sign Your App
+### Signer votre App
 
 After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
 
@@ -34,7 +34,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 
 Then, you need to prepare two entitlements files.
 
-`child.plist`:
+`child.plist` :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -49,7 +49,7 @@ Then, you need to prepare two entitlements files.
 </plist>
 ```
 
-`parent.plist`:
+`parent.plist` :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,7 +59,7 @@ Then, you need to prepare two entitlements files.
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <string>TEAM_ID.votre.bundle.id</string>
   </dict>
 </plist>
 ```
@@ -71,9 +71,9 @@ And then sign your app with the following script:
 ```bash
 #!/bin/bash
 
-# Name of your app.
-APP="YourApp"
-# The path of your app to sign.
+# Nom de votre app.
+APP="VotreApp"
+# Le chemin de votre app à signer.
 APP_PATH="/path/to/YourApp.app"
 # The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -81,8 +81,8 @@ RESULT_PATH="~/Desktop/$APP.pkg"
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
 # The path of your plist files.
-CHILD_PLIST="/path/to/child.plist"
-PARENT_PLIST="/path/to/parent.plist"
+CHILD_PLIST="/chemin/vers/child.plist"
+PARENT_PLIST="/chemon/vers/parent.plist"
 
 FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
 
