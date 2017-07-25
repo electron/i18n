@@ -116,15 +116,15 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
-### Upload Your App
+### Envoyer votre App
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
-### Submit Your App for Review
+### Soumettre votre App à une révision
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+Après ces étapes, vous pouvez [soumettre votre application à une révision](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## Limitation de MAS Build
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
