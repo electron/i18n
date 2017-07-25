@@ -26,7 +26,7 @@ En raison de sa dépendance sur Node et Chromium, il n’est pas possible pour l
 
 Les numéros de version d'Electron sont incrémentés en utilisant les règles suivantes :
 
-* **Major** is for breaking changes in Electron's API. If you upgrade from `0.37.0` to `1.0.0`, you will have to make changes to your app.
+* **Majeur** est pour les changements non rétro-compatible dans l'API Electron. Si vous mettez à jour de la `0.37.0` à la `1.0.0`, vous devrez apporter des modifications à votre application.
 * **Minor** is for major Chrome and minor Node upgrades, or significant Electron changes. If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
 * **Patch** is for new features and bug fixes. If you upgrade from `1.6.2` to `1.6.3`, your app will continue to work as-is.
 
