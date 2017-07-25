@@ -34,11 +34,11 @@ $ ./script/build.py -c D
 
 Electron se relie avec différents jeux de bibliothèques pour les compilations `Release` et `Debug`. `gyp`, cependant, ne supporte pas les configuration de différents paramètres de liaison pour différentes configurations.
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+Pour contourner cela, Electron utilise la variable `libchromiumcontent_component` pour `gyp` pour contrôler quelle configuration de liaison à utiliser et génère uniquement une seule cible lors de l’exécution de `gyp`.
 
 ## Noms de destination
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+Contrairement à la plupart des projets qui utilisent `Release` et `Debug` comme noms de cibles, Electrons utilise à la place `R` et `D`. C’est parce que `gyp` se bloque aléatoirement si il n’y a qu’une seule `Release` ou `Debug` configuration de compilation de définie, et Electron doit générer seulement une seule cible à la fois comme indiqué ci-dessus.
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
