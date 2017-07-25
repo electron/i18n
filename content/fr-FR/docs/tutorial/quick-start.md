@@ -103,11 +103,10 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// Dans ce fichier, vous pouvez inclure le reste de votre code spécifique au processus principal. Vous pouvez également le mettre dans des fichiers séparés et les inclure ici.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Enfin l'`index.html` est la page web à afficher :
 
 ```html
 <!DOCTYPE html>
@@ -118,20 +117,20 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    Nous utilisons Node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    et Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
 
-## Run your app
+## Exécuter votre application
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Une fois que vous avez créé votre premier `main.js`, `index.html` et `package.json`, vous voudriez probablement exécuter votre application localement afin de le tester et vous assurez qu’il fonctionne comme prévu.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) est un module `npm` contenant les version pré-compilées d'Electron.
 
 If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 
