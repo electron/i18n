@@ -132,13 +132,13 @@ Une fois que vous avez créé votre premier `main.js`, `index.html` et `package.
 
 [`electron`](https://github.com/electron-userland/electron-prebuilt) est un module `npm` contenant les version pré-compilées d'Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Si vous l'avez installé globalement avec `npm`, alors vous devrez exécuter seulement la commande suivante dans le répertoire source de votre application :
 
 ```bash
 electron .
 ```
 
-If you've installed it locally, then run:
+Si vous l'avez installé localement, alors exécutez :
 
 #### macOS / Linux
 
@@ -152,9 +152,9 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-### Manually Downloaded Electron Binary
+### Binaire d'Electron téléchargé manuellement
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Si vous avez téléchargé Electron manuellement, vous pouvez également utiliser le binaire inclus pour exécuter votre application.
 
 #### macOS
 
@@ -174,17 +174,17 @@ $ ./electron/electron votre-app/
 $ .\electron\electron.exe votre-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` ici, fait partie des versions empaquetées d’Electron, vous pouvez le télécharger [ici](https://github.com/electron/electron/releases).
 
 ### Exécuter en tant qu’une distribution
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Après avoir fini d'écrire votre application, vous pouvez créer une distribution en suivant le guide [Distribution d'une application](./application-distribution.md) et exécuter l'application empaquetée.
 
-### Essayez cet exemple
+### Essayer cet exemple
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clonez et exécutez le code dans ce tutoriel en utilisant le repository [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Remarque** : l’exécution nécessite [Git](https://git-scm.com) et [Node.js](https://nodejs.org/en/download/) (qui comprend [npm](https://npmjs.org)) sur votre système.
 
 ```bash
 # Clone the repository
