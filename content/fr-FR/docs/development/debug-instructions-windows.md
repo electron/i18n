@@ -38,6 +38,6 @@ Vous pouvez être attaché à plusieurs programmes lorsque vous déboguez, mais 
 
 ## Utilisation de ProcMon pour observer un processus
 
-Alors que Visual Studio est fantastique pour l’inspection de code spécifiques, la force de ProcMon est vraiment dans l'observation de tout ce que fait votre application avec le système d’exploitation - il capture les fichiers, registre, réseau, processus et fait un profilage des processus. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Alors que Visual Studio est fantastique pour l’inspection de code spécifiques, la force de ProcMon est vraiment dans l'observation de tout ce que fait votre application avec le système d’exploitation - il capture les fichiers, registre, réseau, processus et fait un profilage des processus. Il tente de logguer **tous** les événements qui se produisent et peut être assez écrasant, mais si vous cherchez à comprendre pourquoi et comment votre application fonctionne avec le système d’exploitation, il peut être une ressource précieuse.
 
 Pour une introduction aux fonctionnalités de débogage de base et avancées de ProcMon, allez voir [ce tutoriel vidéo](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) fourni par Microsoft.
