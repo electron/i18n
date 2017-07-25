@@ -22,9 +22,9 @@ Une simple mnémotechnique pour se rappeler de ce schéma :
 
 ## Versioning d'Electron
 
-Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **You should therefore always reference a specific version of Electron.**
+En raison de sa dépendance sur Node et Chromium, il n’est pas possible pour le projet Electron à adhérer à une politique SemVer. **Vous devriez donc toujours faire référence à une version spécifique d'Electron.**
 
-Electron version numbers are bumped using the following rules:
+Les numéros de version d'Electron sont incrémentés en utilisant les règles suivantes :
 
 * **Major** is for breaking changes in Electron's API. If you upgrade from `0.37.0` to `1.0.0`, you will have to make changes to your app.
 * **Minor** is for major Chrome and minor Node upgrades, or significant Electron changes. If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
