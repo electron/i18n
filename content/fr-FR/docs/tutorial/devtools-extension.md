@@ -6,7 +6,7 @@ Electron prend en charge [l'extension DevTools de Chrome](https://developer.chro
 
 Ce document décrit le processus pour charger manuellement une extension. Vous pouvez également essayer [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), un outil tiers qui télécharge les extensions directement à partir du WebStore de Chrome.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Pour charger une extension dans Electron, vous avez besoin de le télécharger dans le navigateur Chrome, de localiser son chemin d’accès au système de fichiers et ensuite de le charger en appelant l'API `BrowserWindow.addDevToolsExtension(extension)`.
 
 En utilisant [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) comme exemple :
 
@@ -22,7 +22,7 @@ En utilisant [React Developer Tools](https://chrome.google.com/webstore/detail/r
     * sur macOS c’est `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Remarque :** L'API `BrowserWindow.addDevToolsExtension` ne peut pas être appelée avant que l’événement ready du module app est émis.
 
 The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
 
