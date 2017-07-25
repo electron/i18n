@@ -74,30 +74,30 @@ function createWindow () {
 
   // Émit lorsque la fenêtre est fermée.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Dé-référence l'objet window , normalement, vous stockeriez les fenêtres
+    // dans un tableau si votre application supporte le multi-fenêtre. C'est le moment
+    // où vous devez supprimer l'élément correspondant.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Cette méthode sera appelée quant Electron aura fini
+// de s'initialiser et sera prêt à créer des fenêtres de navigation.
+// Certaines APIs peuvent être utilisées uniquement quant cet événement est émit.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Quitte l'application quand toutes les fenêtres sont fermées.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // Sur macOS, il est commun pour une application et leur barre de menu
+  // de rester active tant que l'utilisateur ne quitte pas explicitement avec Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // Sur macOS, il est commun de re-créer une fenêtre de l'application quand
+  // l'icône du dock est cliquée et qu'il n'y a pas d'autres fenêtres d'ouvertes.
   if (win === null) {
     createWindow()
   }
@@ -160,28 +160,28 @@ If you downloaded Electron manually, you can also use the included binary to exe
 #### macOS
 
 ```bash
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron votre-app/
 ```
 
 #### Linux
 
 ```bash
-$ ./electron/electron your-app/
+$ ./electron/electron votre-app/
 ```
 
 #### Windows
 
 ```bash
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe votre-app\
 ```
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Exécuter en tant qu’une distribution
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### Essayez cet exemple
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
