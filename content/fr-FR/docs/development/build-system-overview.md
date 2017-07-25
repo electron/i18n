@@ -13,15 +13,15 @@ Les fichiers `gyp` suivants contiennent des principales règles pour compiler El
 
 ## Component Build
 
-Étant donné que Chrome est un sacré gros projet, la dernière étape de reliage (linking) peut prendre quelques minutes, ce qui rend le développement difficile. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Étant donné que Chrome est un sacré gros projet, la dernière étape de reliage (linking) peut prendre quelques minutes, ce qui rend le développement difficile. Afin de résoudre ce problème, Chrome a introduit le « component build », qui compile chaque composant comme une bibliothèque partagée distincte, faisant le lien très rapidement mais sacrifie la taille de fichier et la performance.
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Pour Electron, nous avons pris une approche très similaire : pour les versions `Debug`, le binaire sera lié à une version de bibliothèque partagée des composants de Chrome pour avoir des temps de liaison rapide ; pour les versions `Release`, le binaire sera lié aux versions de la bibliothèque statique, donc nous pouvons avoir la plus petite taille binaire et les meilleures performances possible.
 
 ## Amorçage minimal
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+Tous les binaires précompilés de Chrome (`libchromiumcontent`) sont téléchargés lorsque vous exécutez le script bootstrap. Par défaut les bibliothèques statiques et les bibliothèques partagées seront téléchargés et la taille finale devrait être entre 800 Mo et 2 Go selon la plateforme.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+Par défaut, `libchromiumcontent` est téléchargé depuis Amazon Web Services. Si la variable d’environnement `LIBCHROMIUMCONTENT_MIRROR` est définie, le script bootstrap l'utilisera comme lien de téléchargement. [`libchromiumcontent-qiniu-miroir`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) est un miroir pour `libchromiumcontent`. Si vous avez des difficultés à accéder à AWS, vous pouvez changer l’adresse de téléchargement avec `export LIBCHROMIUMCONTENT_MIRROR = http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
 If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
 
