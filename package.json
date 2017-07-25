@@ -14,11 +14,13 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "check-for-leaks": "^1.2.0",
     "del": "^2.2.2",
     "dotenv-safe": "^4.0.4",
     "electron-docs": "^3.0.2",
     "github": "^9.2.0",
     "got": "^6.7.1",
+    "husky": "^0.14.3",
     "js-yaml": "^3.8.4",
     "json": "^9.0.6",
     "make-dir": "^1.0.0",
@@ -32,7 +34,9 @@
   "scripts": {
     "build": "script/build.js",
     "test": "mocha",
-    "release": "script/release.sh"
+    "release": "script/release.sh",
+    "prepack": "check-for-leaks",
+    "prepush": "check-for-leaks"
   },
   "engines": {
     "node": ">=6"
