@@ -28,9 +28,9 @@ Les fichiers de code appropriés peuvent se trouver dans `./atom/`, comme pour B
 
 Vous pouvez attacher le débogueur Visual Studio à un processus en cours d’exécution sur un ordinateur local ou distant. Lorsque le processus est en cours d’exécution, cliquez sur déboguer/attacher au processus (ou appuyez sur `CTRL+ALT+P`) pour ouvrir la boîte de dialogue « Attacher au processus ». Vous pouvez utiliser cette fonctionnalité pour déboguer des applications qui s'exécutent sur un ordinateur local ou distant, déboguer plusieurs processus simultanément.
 
-Si Electron s’exécute sous un compte d’utilisateur différent, sélectionnez la case `afficher les processus de tous les utilisateurs`. Notez que selon le nombre de BrowserWindows ouvert de votre application, vous verrez plusieurs processus. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Si Electron s’exécute sous un compte d’utilisateur différent, sélectionnez la case `afficher les processus de tous les utilisateurs`. Notez que selon le nombre de BrowserWindows ouvert de votre application, vous verrez plusieurs processus. Une application typique avec une seule fenêtre se traduira dans Visual Studio par présenter juste deux entrées d'`Electron.exe` - l'un pour le processus principal et l’autre pour le processus de rendu. Étant donné que la liste vous donne seulement des noms, il n’y a actuellement aucun moyen fiable de savoir qui est qui.
 
-### Which Process Should I Attach to?
+### Quel processus dois-je attacher ?
 
 Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
 
