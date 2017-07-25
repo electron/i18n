@@ -32,12 +32,12 @@ Si Electron s’exécute sous un compte d’utilisateur différent, sélectionne
 
 ### Quel processus dois-je attacher ?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Le code exécuté dans le processus principal (qui est le code se trouvant ou est lancé par votre fichier JavaScript main) ainsi que de code appelé à l’aide de remote (`require('electron').remote`) se lancera à l’intérieur du processus principale, tandis que le reste du code s’exécutera à l’intérieur de son processus de rendu respectifs.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Vous pouvez être attaché à plusieurs programmes lorsque vous déboguez, mais un seul programme est actif dans le débogueur à tout moment. Vous pouvez configurer le programme actif dans la barre d’outils `Emplacement de débogage` ou de la `fenêtre de processus`.
 
-## Using ProcMon to Observe a Process
+## Utilisation de ProcMon pour observer un processus
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Alors que Visual Studio est fantastique pour l’inspection de code spécifiques, la force de ProcMon est vraiment dans l'observation de tout ce que fait votre application avec le système d’exploitation - il capture les fichiers, registre, réseau, processus et fait un profilage des processus. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+Pour une introduction aux fonctionnalités de débogage de base et avancées de ProcMon, allez voir [ce tutoriel vidéo](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) fourni par Microsoft.
