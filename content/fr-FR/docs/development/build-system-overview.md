@@ -23,7 +23,7 @@ Tous les binaires précompilés de Chrome (`libchromiumcontent`) sont téléchar
 
 Par défaut, `libchromiumcontent` est téléchargé depuis Amazon Web Services. Si la variable d’environnement `LIBCHROMIUMCONTENT_MIRROR` est définie, le script bootstrap l'utilisera comme lien de téléchargement. [`libchromiumcontent-qiniu-miroir`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) est un miroir pour `libchromiumcontent`. Si vous avez des difficultés à accéder à AWS, vous pouvez changer l’adresse de téléchargement avec `export LIBCHROMIUMCONTENT_MIRROR = http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
+Si vous souhaitez compiler Electron rapidement pour des tests ou le développement, vous pouvez télécharger seulement les versions de bibliothèque partagée en passant le paramètre `--dev` :
 
 ```bash
 $ ./script/bootstrap.py --dev
@@ -32,7 +32,7 @@ $ ./script/build.py -c D
 
 ## Génération de projet en deux phases
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+Electron se relie avec différents jeux de bibliothèques pour les compilations `Release` et `Debug`. `gyp`, cependant, ne supporte pas les configuration de différents paramètres de liaison pour différentes configurations.
 
 To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
 
