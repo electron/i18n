@@ -36,6 +36,6 @@ Nous vous recommandons de définir une version fixe lors de l’installation d'E
 npm install electron --save-exact --save-dev
 ```
 
-The `--save-exact` flag will add `electron` to your `package.json` file without using a `^` or `~`, e.g. `1.6.2` instead of `^1.6.2`. This practice ensures that all upgrades of Electron are a manual operation made by you, the developer.
+Le flag `--save-exact` ajoutera `electron` a votre fichier `package.json` sans avoir le `^` ou `~`, par exemple `1.6.2` au lieu de `^1.6.2`. This practice ensures that all upgrades of Electron are a manual operation made by you, the developer.
 
 Alternatively, you can use the `~` prefix in your SemVer range, like `~1.6.2`. This will lock your major and minor version, but allow new patch versions to be installed.
