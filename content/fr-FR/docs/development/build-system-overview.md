@@ -1,12 +1,12 @@
-# Aperçu du Système de Build
+# Aperçu du Système de compilation
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron utilise [gyp](https://gyp.gsrc.io/) pour la génération de projet et [ninja](https://ninja-build.org/) pour la compilation. Les configurations de projet se trouvent dans les fichiers `.gyp` et `.gypi`.
 
 ## Fichiers gyp
 
-Following `gyp` files contain the main rules for building Electron:
+Les fichiers `gyp` suivants contiennent des principales règles pour compiler Electron :
 
-* `electron.gyp` defines how Electron itself is built.
+* `Electron.gyp` définit comment Electron lui-même est compilé.
 * `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
 * `vendor/brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
 * `vendor/brightray/brightray.gypi` includes general build configurations about building.
