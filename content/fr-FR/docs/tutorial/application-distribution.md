@@ -44,13 +44,13 @@ electron/resources/
 
 Plus de détails se trouvent dans [Empaqueter une application](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Renommer avec les binaires téléchargés
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Après avoir empaqueté votre application dans Electron, vous voudrez renommer votre application avant de la distribuer aux utilisateurs.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Vous pouvez renommer `electron.exe` en n'importe quel nom qui vous plaît, et modifier son icône et d'autres informations avec des outils tels que [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
