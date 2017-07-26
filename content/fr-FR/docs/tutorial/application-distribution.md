@@ -26,7 +26,7 @@ Puis exécutez `Electron.app` (ou `electron` sous Linux, `electron.exe` sous Win
 
 Au lieu de distribuer votre application en copiant tous les fichiers source, vous pouvez aussi empaqueter votre application dans une archive [asar](https://github.com/electron/asar) pour éviter l'exposition de votre code source aux utilisateurs.
 
-Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l'archive en `app.asar` et placez-la dans le dossier ressources d'Electron comme ci-dessous. Ainsi, Electron va essayer de lire l'archive et de se lancer à partir de celle-ci.
+Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l'archive en `app.asar` et la placer dans le dossier ressources d'Electron comme ci-dessous. Ainsi, Electron va essayer de lire l'archive et de se lancer à partir de celle-ci.
 
 Sur macOS :
 
@@ -44,24 +44,24 @@ electron/resources/
 
 Plus de détails se trouvent dans [Empaqueter une application](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Renommer avec les binaires téléchargés
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Après avoir empaqueté votre application dans Electron, vous voudrez renommer votre application avant de la distribuer aux utilisateurs.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Vous pouvez renommer `electron.exe` en n'importe quel nom qui vous plaît, et modifier son icône et d'autres informations avec des outils tels que [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Vous pouvez renommer `Electron.app` en n'importe quel nom qui vous plaît, et vous devrez aussi renommer les champs `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` dans les fichiers suivants :
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Vous pouvez aussi renommer l'application d'aide pour éviter d'afficher `Electron Helper` dans le moniteur d'activité, mais assurez vous d'avoir renommé le nom du fichier exécutable de l'application d'aide.
 
-The structure of a renamed app would be like:
+La structure d'une application renommée serait comme :
 
     MyApp.app/Contents
     ├── Info.plist
@@ -95,19 +95,19 @@ Au lieu d'empaqueter votre application manuellement, vous pouvez également choi
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Renommer en recompilant Electron à partir du code source
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Il est également possible de renommer Electron en changeant le nom de produit et en le compilant depuis le code source. Pour ce faire, vous devrez modifier le fichier `atom.gyp` et avoir une recompilation propre.
 
 ### grunt-build-atom-shell
 
-Manually checking out Electron's code and rebuilding could be complicated, so a Grunt task has been created that will handle this automatically: [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
+Vérifier manuellement le code d'Electron et recompiler peut-être compliqué, une tâche Grunt qui gère cela automatiquement a donc été créée : [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
 
-This task will automatically handle editing the `.gyp` file, building from source, then rebuilding your app's native Node modules to match the new executable name.
+Cette tâche se chargera automatiquement d'éditer le fichier `.gyp`, compiler depuis le code source, puis recompiler les modules Node natifs de votre application pour correspondre au nouveau nom du fichier exécutable.
 
-### Creating a Custom Electron Fork
+### Créer un fork personnalisé d'Electron
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-builder` will allow you to "Rebrand" Electron without having to do these steps.
+Créer un fork personnalisé d'Electron n'est certainement quelque chose que vous devez faire pour compiler votre application, même pour les applications au "Niveau de Production". Utiliser un outil tel que `electron-packager` ou `electron-builder` va vous permettre de "Rebaptiser" Electron sans avoir à faire ces étapes.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
