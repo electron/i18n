@@ -70,9 +70,9 @@ win.loadURL('file:///chemin/vers/exemple.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Dans une page web, les fichiers dans une archive peuvent être requis avec le protocole `file:`. Comme dans l'API Node, les archives `asar` sont considérés comme des répertoires.
 
-For example, to get a file with `$.get`:
+Par exemple, pour obtenir un fichier avec `$.get`:
 
 ```html
 <script>
@@ -85,7 +85,7 @@ $.get('file:///chemin/vers/exemple.asar/fichier.txt', (data) => {
 
 ### Traiter une archive `asar` comme un fichier normal
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. Pour cela, vous pouvez utiliser le module `original-fs` intégré qui fournit l'API original `fs` sans le support `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
