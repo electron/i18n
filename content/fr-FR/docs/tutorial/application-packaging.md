@@ -70,7 +70,7 @@ win.loadURL('file:///chemin/vers/exemple.asar/static/index.html')
 
 ### Web API
 
-Dans une page web, les fichiers dans une archive peuvent être requis avec le protocole `file:`. Comme dans l'API Node, les archives `asar` sont considérés comme des répertoires.
+Dans une page web, les fichiers dans une archive peuvent être requis avec le protocole `file:`. Comme dans Node API, les archives `asar` sont considérés comme des répertoires.
 
 Par exemple, pour obtenir un fichier avec `$.get`:
 
@@ -92,7 +92,7 @@ const originalFs = require('original-fs')
 originalFs.readFileSync('/chemin/vers/exemple.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+Vous pouvez également définir `process.noAsar` à `true` pour désactiver le support de `asar` dans le module `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -102,15 +102,15 @@ fs.readFileSync('/chemin/vers/exemple.asar')
 
 ## Limites de Node API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Même si nous avons durement essayé de faire que les archives `asar` dans Node API fonctionnent comme des répertoires autant que possible, il existe encore des restrictions en raison de la nature bas niveau de Node API.
 
 ### Les archives sont en lecture seule
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Les archives ne peuvent pas être modifiées, donc toutes les API Node qui peuvent modifier les fichiers ne fonctionneront pas avec les archives `asar`.
 
 ### Working Directory Can Not Be Set to Directories in Archive
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Bien que les archives `asar` sont traités comme des répertoires, il n'y a réellement aucun répertoire dans le système de fichiers, donc vous ne pourrez jamais définir l'espace de travail dans les archives `asar`. Les passer en tant qu'option de `cwd` de certains APIs occasionnera aussi des erreurs.
 
 ### Extra Unpacking on Some APIs
 
