@@ -107,7 +107,7 @@ Cette tâche se chargera automatiquement d'éditer le fichier `.gyp`, compiler d
 
 ### Créer un fork personnalisé d'Electron
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-builder` will allow you to "Rebrand" Electron without having to do these steps.
+Créer un fork personnalisé d'Electron n'est certainement quelque chose que vous devez faire pour compiler votre application, même pour les applications au "Niveau de Production". Utiliser un outil tel que `electron-packager` ou `electron-builder` va vous permettre de "Rebaptiser" Electron sans avoir à faire ces étapes.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
