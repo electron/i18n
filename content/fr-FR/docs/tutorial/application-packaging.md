@@ -144,4 +144,4 @@ Pour contourner ce problème, vous pouvez dépaqueter certains fichiers en créa
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+Après l'exécution de la commande, en dehors de `app.asar`, il y a également un dossier `app.asar.unpacked` généré qui contient les fichiers dépaquetés, vous devez le copier avec `app.asar` en l'envoyant aux utilisateurs.
