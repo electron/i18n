@@ -54,14 +54,14 @@ Vous pouvez renommer `electron.exe` en n'importe quel nom qui vous plaît, et mo
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Vous pouvez renommer `Electron.app` en n'importe quel nom qui vous plaît, et vous devrez aussi renommer les champs `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` dans les fichiers suivants :
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Vous pouvez aussi renommer l'application d'aide pour éviter d'afficher `Electron Helper` dans le moniteur d'activité, mais assurez vous d'avoir renommé le nom du fichier exécutable de l'application d'aide.
 
-The structure of a renamed app would be like:
+La structure d'une application renommée serait comme :
 
     MyApp.app/Contents
     ├── Info.plist
@@ -95,17 +95,17 @@ Au lieu d'empaqueter votre application manuellement, vous pouvez également choi
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Renommer en recompilant Electron à partir du code source
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Il est également possible de renommer Electron en changeant le nom de produit et en le compilant depuis le code source. Pour ce faire, vous devrez modifier le fichier `atom.gyp` et avoir une recompilation propre.
 
 ### grunt-build-atom-shell
 
-Manually checking out Electron's code and rebuilding could be complicated, so a Grunt task has been created that will handle this automatically: [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
+Vérifier manuellement le code d'Electron et recompiler peut-être compliqué, une tâche Grunt qui gère cela automatiquement a donc été créée : [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
 
-This task will automatically handle editing the `.gyp` file, building from source, then rebuilding your app's native Node modules to match the new executable name.
+Cette tâche se chargera automatiquement d'éditer le fichier `.gyp`, compiler depuis le code source, puis recompiler les modules Node natifs de votre application pour correspondre au nouveau nom du fichier exécutable.
 
-### Creating a Custom Electron Fork
+### Créer un fork personnalisé d'Electron
 
 Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-builder` will allow you to "Rebrand" Electron without having to do these steps.
 
