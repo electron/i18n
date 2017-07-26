@@ -65,4 +65,4 @@ L'architecture du plugin Pepper Flash doit correspondre à celle d'Electron. Sur
 
 Sur Windows, le chemin d'accès passé au `--ppapi-flash-path` doit utiliser `` en tant que délimiteur de chemin d'accès, utiliser des chemin d'accès du style POSIX ne fonctionnera pas.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Pour certaines opérations, telles que le streaming média en utilisant le protocole RTMP, il est nécessaire d'accorder des permissions plus larges aux lecteurs de fichier `.swf`. Une façon d'y parvenir est d'utiliser [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
