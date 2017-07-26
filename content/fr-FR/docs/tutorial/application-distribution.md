@@ -26,7 +26,7 @@ Puis exécutez `Electron.app` (ou `electron` sous Linux, `electron.exe` sous Win
 
 Au lieu de distribuer votre application en copiant tous les fichiers source, vous pouvez aussi empaqueter votre application dans une archive [asar](https://github.com/electron/asar) pour éviter l'exposition de votre code source aux utilisateurs.
 
-Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l'archive en `app.asar` et placez-la dans le dossier ressources d'Electron comme ci-dessous. Ainsi, Electron va essayer de lire l'archive et de se lancer à partir de celle-ci.
+Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l'archive en `app.asar` et la placer dans le dossier ressources d'Electron comme ci-dessous. Ainsi, Electron va essayer de lire l'archive et de se lancer à partir de celle-ci.
 
 Sur macOS :
 
