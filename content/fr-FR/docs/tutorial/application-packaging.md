@@ -132,13 +132,13 @@ Les objets `Stats` retournés par `fs.stat` et ses amis sur les fichiers dans le
 
 Il existe des APIs Node qui peuvent exécuter des binaires tels que `child_process.exec`, `child_process.spawn` et`child_process.execFile`, mais seulement `execFile` est supporté pour exécuter des binaires dans une archive `asar`.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+C'est parce que `exec` et `spawn` acceptent `command` au lieu de `file` en entrée, et les `command` sont exécutées sous shell. Il n'y a pas de moyen fiable de déterminer si une commande utilise un fichier dans une archive asar, et même si nous le faisons, nous ne pouvons pas être sûrs de pouvoir remplacer les chemins d'accès dans la commande sans effets secondaires.
 
-## Adding Unpacked Files in `asar` Archive
+## Ajouter des fichiers non empaquetés dans une archive `asar`
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+Comme indiqué ci-dessus, certains APIs Node vont dépaqueter le fichier du système de fichiers lors de l'appel, mis à part les problèmes de performance, cela pourrait également conduire à de fausses alertes de scanners antivirus.
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+Pour contourner ce problème, vous pouvez dépaqueter certains fichiers en créant des archives en utilisant l'option `--unpack`, un exemple d'exclusion des librairies partagées des modules natifs est :
 
 ```bash
 $ asar pack app app.asar --unpack *.node
