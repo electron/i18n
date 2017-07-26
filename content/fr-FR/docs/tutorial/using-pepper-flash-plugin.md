@@ -59,10 +59,10 @@ Ajoutez l'attribut `plugins` à la balise `<webview>`.
 
 ## Résolution de problème
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Vous pouvez vérifier si le plugin Pepper Flash a été chargé en inspectant `navigator.plugins` dans la console des outils de développement (bien que vous ne puissiez pas savoir si le chemin d'accès du plugin est correct).
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+L'architecture du plugin Pepper Flash doit correspondre à celle d'Electron. Sur Windows, une erreur courante est d'utiliser une version 32 bits du plugin flash avec la version 64 bits d'Electron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Sur Windows, le chemin d'accès passé au `--ppapi-flash-path` doit utiliser `` en tant que délimiteur de chemin d'accès, utiliser des chemin d'accès du style POSIX ne fonctionnera pas.
 
 For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
