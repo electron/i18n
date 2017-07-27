@@ -1,4 +1,4 @@
-# Application Distribution
+# 应用程序的分发
 
 To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
 
@@ -22,7 +22,7 @@ electron/resources/app
 
 Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
 
-## Packaging Your App into a File
+## 打包你的应用为一个文件
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
@@ -44,7 +44,7 @@ electron/resources/
 
 More details can be found in [Application packaging](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## 使用下载的二进制文件重生成
 
 After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
 
@@ -86,7 +86,7 @@ The structure of a renamed app would be like:
 
 You can rename the `electron` executable to any name you like.
 
-## Packaging Tools
+## 打包工具
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
@@ -111,16 +111,16 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 #### Creating a Custom Release with surf-build
 
-  1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-  2. Create a new S3 bucket and create the following empty directory structure:
+2. Create a new S3 bucket and create the following empty directory structure:
     
         - atom-shell/
           - symbols/
           - dist/
         
 
-  3. Set the following Environment Variables:
+3. Set the following Environment Variables:
 
 * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
@@ -130,8 +130,8 @@ You need to fork Electron when you have custom C++ code that you have patched di
 * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
 * `TARGET_ARCH` - set to `ia32` or `x64` 
 
-  1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
-  2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-  3. Wait a very, very long time for the build to complete.
+3. Wait a very, very long time for the build to complete.
