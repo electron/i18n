@@ -117,13 +117,13 @@ Il est illustré par le site MSDN :
 
 > Cette barre d'outils est simplement un outil de la famille des barres d'outils standards. Il a un maximum de sept boutons. Chaque identifiant, image, info-bulle et état du bouton sont spécifiés dans une structure, qui est ensuite passée à la barre des tâches. L'application peut afficher, activer, désactiver ou masquer des boutons de la barre d'outils miniature comme requis par son état actuel.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Par exemple, le lecteur Windows Media Player peut offrir un support standard de contrôles tels que lecture, pause, muet et arrêt.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Barre d'outils miniature de Windows Media Player:**
 
 ![lecteur](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+Vous pouvez utiliser [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) pour définir la barre d'outil miniature dans votre application :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Pour vider les boutons de la barre des tâches miniature, il suffit d'appeler `BrowserWindow.setThumbarButtons` avec un tableau vide :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -159,25 +159,25 @@ win.setThumbarButtons([])
 
 ## Lanceur de raccourcis Unity (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Dans Unity, vous pouvez ajouter des entrées personnalisées dans son lanceur en modifiant le fichier `.desktop`, consultez [Ajouter des raccourcis à un lanceur](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Raccourcis du lanceur d'Audacious :**
 
 ![audacieux](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## Barre de progression dans la barre des tâches (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Sous Windows, un bouton de la barre des tâches peut être utilisé pour afficher une barre de progression. Cela permet à la fenêtre de fournir des informations de progression à l'utilisateur sans qu'il ait à basculer de fenêtre.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Sous macOS, la barre de progression s'affichera dans le cadre de l'icône du dock.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Le Unity DE possède également une fonctionnalité similaire qui vous permet de spécifier la barre de progression dans le lanceur.
 
 **Barre de progression dans le bouton de la barre des tâches :**
 
 ![Barre de progression personnalisée](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Pour définir la barre de progression d'une fenêtre, vous pouvez utiliser l'API [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
