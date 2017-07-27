@@ -51,7 +51,7 @@ need_help:
   description: '在 <a href=''https://discuss.atom.io/c/electron''> 讨论</a> 论坛或我们的 <a href=''http://atom-slack.herokuapp.com/''> Slack</a> 提问。关注<a href="https://twitter.com/ElectronJS"> @ElectronJS</a> 上的重要公告。必须要私下里获取援手？发电子邮件到 <a href="mailto:electron@github.com"> electron@github.com</a>。'
 apps:
   title: 使用 Electron 构建的应用
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'Electron 让你为你的公司或想法创建桌面端应用变得很简单。最初为 GitHub 的 <a href=''https://atom.io'' target=''_blank''> Atom 编辑器</a> 开发，Electron 已被像微软、 Facebook、 Slack和Docker 这样的公司用于创建应用程序了。'
   view_more: 查看更多应用
   submit_your_own: 提交你的应用
 or: 或者
