@@ -1,8 +1,8 @@
-# Build Instructions (Linux)
+# 构建介绍(Linux)
 
 Follow the guidelines below for building Electron on Linux.
 
-## Prerequisites
+## 先决条件
 
 * At least 25GB disk space and 8GB RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
@@ -40,13 +40,13 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-## Getting the Code
+## 获取代码
 
 ```bash
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## 引导
 
 The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
@@ -55,7 +55,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-### Cross compilation
+### 交叉编译
 
 If you want to build for an `arm` target you should also install the following dependencies:
 
@@ -70,7 +70,7 @@ And to cross compile for `arm` or `ia32` targets, you should pass the `--target_
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## 构建
 
 If you would like to build both `Release` and `Debug` targets:
 
@@ -94,7 +94,7 @@ $ ./script/build.py -c D
 
 After building is done, you can find the `electron` debug binary under `out/D`.
 
-## Cleaning
+## 清理
 
 To clean the build files:
 
@@ -110,9 +110,9 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## 故障排查
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### 加载共享库时出现错误： libtinfo.so.5
 
 Prebulit `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
@@ -120,11 +120,11 @@ Prebulit `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## 测试
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## 高级话题
 
 The default building configuration is targeted for major desktop Linux distributions, to build for a specific distribution or device, following information may help you.
 
@@ -153,7 +153,7 @@ $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using other compilers other than `clang`
+### 使用`clang`之外的其它编译器
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
@@ -164,7 +164,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disab
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### 环境变量
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
