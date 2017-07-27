@@ -1,4 +1,4 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+กรุณาดูคู่มือที่ใช้ว่าตรงกับเวอร์ชั่นของ Electron หมายเลยเวอร์ชั่นจะเป็นส่วนหนึ่งของ URL หากถ้าเกิดไม่ใช่ คุณอาจจะใช้เอกสารประกอบของรุ่นพัฒนาซึ่งอาจจะมีการเปลี่ยนแปลงของ API ที่ไม่สามารถใช้ร่วมกับเวอร์ชั่นของ Electron ที่คุณใช้อยู่ได้ To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## คำถามที่พบบ่อย
 
