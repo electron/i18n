@@ -203,13 +203,13 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## Cadre flash (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Sous Windows, vous pouvez accentuer le bouton de la barre des tâches pour attirer l'attention de l'utilisateur. Ceci est similaire au rebondissement de l'icône de dock sous macOS. D'après la documentation MSDN de référence :
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> En règle générale, une fenêtre clignote pour informer l'utilisateur que la fenêtre nécessite de l'attention alors qu'elle n'a pas le focus clavier.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Pour accentuer le bouton de la barre des tâches de BrowserWindow, vous pouvez utiliser l'API [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,7 +218,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+N'oubliez pas d'appeler la méthode `flashFrame` avec la valeur `false` pour désactiver le flash. Dans l'exemple ci-dessus, elle est appelée quand la fenêtre est focalisée, mais vous pouvez utiliser un délai ou un autre événement pour la désactiver.
 
 ## Represented File of Window (macOS)
 
