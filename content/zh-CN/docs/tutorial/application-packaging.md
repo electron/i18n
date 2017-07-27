@@ -2,25 +2,25 @@
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
 
-## Generating `asar` Archive
+## 生成 `asar` 包
 
 An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
 Steps to package your app into an `asar` archive:
 
-### 1. Install the asar Utility
+### 1.安装 asar 程序
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2.使用 `asar 包`进行打包
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## 使用 `asar` 包
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
@@ -83,7 +83,7 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### 把`asar` 包当作一个正常的文件
 
 For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
 
@@ -100,15 +100,15 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Node API 的限制
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
-### Archives Are Read-only
+### 包是只读的
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### 工作目录不能设置为包里的目录
 
 Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
 
