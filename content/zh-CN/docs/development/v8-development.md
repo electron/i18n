@@ -1,6 +1,6 @@
-# V8 Development
+# V8 开发
 
-> A collection of resources for learning and using V8
+> 学习和使用 v8 引擎的资源集合
 
 * [V8 Tracing](https://github.com/v8/v8/wiki/Tracing-V8)
 * [V8 Profiler](https://github.com/v8/v8/wiki/V8-Profiler) - Profiler combinations which are useful for profiling: `--prof`, `--trace-ic`, `--trace-opt`, `--trace-deopt`, `--print-bytecode`, `--print-opt-code`
@@ -8,4 +8,4 @@
 * [Optimizing compiler](https://github.com/v8/v8/wiki/TurboFan)
 * [V8 GDB Debugging](https://github.com/v8/v8/wiki/GDB-JIT-Interface)
 
-See also [Chromium Development](chromium-development.md)
+查看 [Chromium Development](chromium-development.md)
