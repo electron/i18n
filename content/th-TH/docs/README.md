@@ -23,16 +23,16 @@
 * [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [การใช้ปลั้กอิน Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
+* [ปุ่มลัดแป้นพิมพ์](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## การใช้งานเบื้องต้น
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [เริ่มต้นแบบรวดเร็ว](tutorial/quick-start.md)
+* [การตั้งค่า Environment บนเดสท็อป](tutorial/desktop-environment-integration.md)
+* [การตรวจสอบอีเวนท์แบบออนไลน์และออฟไลน์](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [การแจ้งเตือนแบบเนทีฟ](tutorial/notifications.md)
 
 ## API References
 
