@@ -1,18 +1,18 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用
 nav:
-  docs: Docs
-  blog: Blog
-  community: Community
-  apps: Apps
-  userland: Userland
-  releases: Releases
-  contact: Contact
+  docs: 文档
+  blog: 博客
+  community: 社区
+  apps: 应用
+  userland: 用户区
+  releases: 版本发布
+  contact: 联络
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  title: 它比你想象的要容易
+  description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
+  video_link: 观看视频
 web_technologies:
-  title: Web Technologies
+  title: Web 技术
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
   title: Open Source
