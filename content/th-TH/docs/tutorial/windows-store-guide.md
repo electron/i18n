@@ -1,4 +1,4 @@
-# Windows Store Guide
+# คู่มือการส่งวินโดวส์สโตร์ (Windows Store)
 
 With Windows 8, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
 

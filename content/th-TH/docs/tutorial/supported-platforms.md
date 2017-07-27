@@ -1,4 +1,4 @@
-# Supported Platforms
+# แพลตฟอร์มที่รองรับ
 
 Following platforms are supported by Electron:
 

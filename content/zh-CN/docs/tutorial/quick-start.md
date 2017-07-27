@@ -4,17 +4,17 @@ Electron enables you to create desktop applications with pure JavaScript by prov
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
-### Main Process
+### 主进程
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**。 运行在主进程中的脚本将以创建 web 页面的方式显示一个 GUI。
 
-### Renderer Process
+### 渲染进程
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+由于 Electron 使用 Chromium 来显示 web 页面，所以 Chromium 的多进程架构也是可用的。 每个 Electron 中的 web 页面运行在它的叫**渲染进程**的进程中。
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+在常规的浏览器中, web 页面通常运行在一个叫沙盒的环境中，并不被允许访问原生资源。 Electron 的用户有能力使用 web 页面中的 Node.js APIs 进行低等级的操作系统交互。
 
-### Differences Between Main Process and Renderer Process
+### 主进程和渲染进程之间的区别
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
@@ -24,9 +24,9 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## 写出你的第一个 Electron 应用程序
 
-Generally, an Electron app is structured like this:
+通常来说，一个 Electron 应用的结构是这样的:
 
 ```text
 your-app/
@@ -125,7 +125,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## 运行你的应用
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
@@ -153,7 +153,7 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-### Manually Downloaded Electron Binary
+### 手工下载二进制格式的 Electron
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
@@ -177,11 +177,11 @@ $ .\electron\electron.exe your-app\
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### 作为分发版本运行
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### 尝试这个示例
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 

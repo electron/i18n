@@ -6,7 +6,7 @@ Like NW.js, Electron provides a platform to write desktop applications with Java
 
 But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
 
-**1. Entry of Application**
+**1. 程序的入口**
 
 In NW.js the main entry point of an application is a web page. You specify a main page URL in the `package.json` and it is opened in a browser window as the application's main window.
 
@@ -14,15 +14,15 @@ In Electron, the entry point is a JavaScript script. Instead of providing a URL 
 
 Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
-**2. Build System**
+**2. 构建系统**
 
 In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
 
-**3. Node Integration**
+**3. 节点集成**
 
 In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
 
-**4. Multi-context**
+**4. 多上下文语境**
 
 If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
 

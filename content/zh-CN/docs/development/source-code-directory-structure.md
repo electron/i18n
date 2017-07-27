@@ -1,16 +1,16 @@
-# Source Code Directory Structure
+# 源代码的目录结构
 
 The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
 
 You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
-## Structure of Source Code
+## 源代码的目录结构
 
     Electron
-    ├── atom/ - C++ source code.
-    |   ├── app/ - System entry code.
-    |   ├── browser/ - The frontend including the main window, UI, and all of the
-    |   |   main process things. This talks to the renderer to manage web pages.
+    ├── atom/ - C++ 源代码.
+    |   ├── app/ - 系统入口代码.
+    |   ├── browser/ - 包含了主窗口,UI和所有主
+    |   |   进程相关的东西. This talks to the renderer to manage web pages.
     |   |   ├── ui/ - Implementation of UI stuff for different platforms.
     |   |   |   ├── cocoa/ - Cocoa specific source code.
     |   |   |   ├── win/ - Windows GUI specific source code.
@@ -43,7 +43,7 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
         components like `node` and `breakpad`.
     
 
-## Structure of Other Directories
+## 其他目录的结构
 
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
@@ -53,7 +53,7 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
 
-## Keeping Git Submodules Up to Date
+## 让 Git 子模块保持最新
 
 The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
 

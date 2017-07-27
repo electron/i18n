@@ -74,17 +74,17 @@ app.dock.setMenu(dockMenu)
 
 Sur Windows, vous pouvez spécifier des actions personnalisées dans la catégorie `tâches` de la JumpList, cité depuis le site MSDN :
 
-> Les applications définissent des tâches basées sur les caractéristiques du programme et les fonctionnalités clés que l'utilisateur est censé utiliser. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Les applications définissent des tâches basées sur les caractéristiques du programme et les fonctionnalités clés que l'utilisateur est censé utiliser. Les tâches doivent être indépendantes du contexte, c'est à dire qu'elles n'ont pas besoin de s'exécuter pour fonctionner. Il devrait également il y avoir les actions statistiquement plus courantes qu'un utilisateur normal utiliserait dans une application, comme rédiger un message électronique ou ouvrir le calendrier dans un logiciel de messagerie, ou créer un nouveau document dans un traitement de texte, lancer une application dans un certain mode, ou lancer une des ses sous-commandes. Une application ne doit pas encombrer le menu avec des fonctions avancées que les utilisateurs standards n'auraient pas besoin ou des actions ponctuelles telles que l'inscription. Ne pas utiliser les tâches pour les articles promotionnels tels que les mises à niveau ou des offres spéciales.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> Il est fortement recommandé que la liste des tâches soit statique. Il devrait rester le même quelque soit l'état ou le statut de l'application. Bien qu'il soit possible de faire varier la liste dynamiquement, vous devez envisager que cela puisse confondre l'utilisateur qui n'attend pas que cette portion de la liste puisse changer.
 
 **Tâches d’Internet Explorer :**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+A la différence du menu dock de macOS qui est un véritable menu, les tâches utilisateur dans Windows fonctionnent comme les raccourcis d'application tels que lorsque l'utilisateur clique sur une tâche, un programme sera exécuté avec les arguments spécifiés.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Pour définir les tâches utilisateur de votre application, vous pouvez utiliser l'API [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) :
 
 ```javascript
 const {app} = require('electron')
@@ -94,36 +94,36 @@ app.setUserTasks([
     arguments: '--new-window',
     iconPath: process.execPath,
     iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
+    title: 'Nouvelle fenêtre',
+    description: 'Créer une nouvelle fenêtre'
   }
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Pour nettoyer votre liste de tâches, il suffit d'appeler `app.setUserTasks` avec un tableau vide :
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Les tâches utilisateur seront visibles même après la fermeture de votre application, donc l'icône et le chemin d'accès du programme spécifié pour une tâche doivent exister jusqu'à ce que votre application soit désinstallée.
 
 ## Barres d’outils miniatures
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+Sur Windows, vous pouvez ajouter une barre d'outils miniature avec des boutons spécifiés dans une disposition de la barre des tâches d'une fenêtre d'application. Il offre aux utilisateurs un moyen d'accéder aux commandes particulières d'une fenêtre sans avoir à restaurer ou réactiver la fenêtre.
 
-From MSDN, it's illustrated:
+Il est illustré par le site MSDN :
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Cette barre d'outils est simplement un outil de la famille des barres d'outils standards. Il a un maximum de sept boutons. Chaque identifiant, image, info-bulle et état du bouton sont spécifiés dans une structure, qui est ensuite passée à la barre des tâches. L'application peut afficher, activer, désactiver ou masquer des boutons de la barre d'outils miniature comme requis par son état actuel.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Par exemple, le lecteur Windows Media Player peut offrir un support standard de contrôles tels que lecture, pause, muet et arrêt.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Barre d'outils miniature de Windows Media Player:**
 
 ![lecteur](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+Vous pouvez utiliser [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) pour définir la barre d'outil miniature dans votre application :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Pour vider les boutons de la barre des tâches miniature, il suffit d'appeler `BrowserWindow.setThumbarButtons` avec un tableau vide :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -159,25 +159,25 @@ win.setThumbarButtons([])
 
 ## Lanceur de raccourcis Unity (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Dans Unity, vous pouvez ajouter des entrées personnalisées dans son lanceur en modifiant le fichier `.desktop`, consultez [Ajouter des raccourcis à un lanceur](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Raccourcis du lanceur d'Audacious :**
 
 ![audacieux](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## Barre de progression dans la barre des tâches (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Sous Windows, un bouton de la barre des tâches peut être utilisé pour afficher une barre de progression. Cela permet à la fenêtre de fournir des informations de progression à l'utilisateur sans qu'il ait à basculer de fenêtre.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Sous macOS, la barre de progression s'affichera dans le cadre de l'icône du dock.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Le Unity DE possède également une fonctionnalité similaire qui vous permet de spécifier la barre de progression dans le lanceur.
 
 **Barre de progression dans le bouton de la barre des tâches :**
 
 ![Barre de progression personnalisée](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Pour définir la barre de progression d'une fenêtre, vous pouvez utiliser l'API [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -187,15 +187,15 @@ win.setProgressBar(0.5)
 
 ## Icônes superposée dans la barre des tâches (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Sous Windows, un bouton de la barre des tâches peut permettre une petite superposition pour afficher l'état de l'application, comme cité dans MSDN :
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Les superpositions d'icônes servent en tant que notification contextuelle du statut, et sont destinées à dénier la nécessité d'une zone de notification séparée pour communiquer cette information à l'utilisateur. Par exemple, le nouveau statut de messagerie de Microsoft Outlook, actuellement affiché dans la zone de notification, est maintenant indiqué par une superposition dans sur le bouton de la barre des tâches. Encore une fois, vous devez décider au cours de votre cycle de développement quelle méthode est la meilleure pour votre application. Les icônes de recouvrement sont destinées à fournir une information importante et de long terme, telle que l'état du réseau, un statut de messagerie ou de nouveaux messages. L'utilisateur ne devrait pas se retrouver face à des superpositions ou des animations en constante évolution.
 
-**Overlay on taskbar button:**
+**Superposition sur le bouton de la barre des tâches :**
 
 ![Overlay sur le bouton de la barre des tâches](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+Pour définir l'icône de superposition d'une fenêtre, vous pouvez utiliser l'API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -203,13 +203,13 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## Cadre flash (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Sous Windows, vous pouvez accentuer le bouton de la barre des tâches pour attirer l'attention de l'utilisateur. Ceci est similaire au rebondissement de l'icône de dock sous macOS. D'après la documentation MSDN de référence :
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> En règle générale, une fenêtre clignote pour informer l'utilisateur que la fenêtre nécessite de l'attention alors qu'elle n'a pas le focus clavier.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Pour accentuer le bouton de la barre des tâches de BrowserWindow, vous pouvez utiliser l'API [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,19 +218,19 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+N'oubliez pas d'appeler la méthode `flashFrame` avec la valeur `false` pour désactiver le flash. Dans l'exemple ci-dessus, elle est appelée quand la fenêtre est focalisée, mais vous pouvez utiliser un délai ou un autre événement pour la désactiver.
 
-## Represented File of Window (macOS)
+## Fichier représenté par la fenêtre (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Sous macOS, une fenêtre peut définir son fichier représenté, de manière à ce que l'icône de fichier s'affiche dans la barre de titre et que quand les utilisateurs Commande-clic ou Control-clic sur le titre un popup de chemin d'accès s'affiche.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Vous pouvez également définir l'état d'édition d'une fenêtre pour que l'icône de fichier indique si le document de cette fenêtre a été modifié.
 
-**Represented file popup menu:**
+**Menu contextuel de fichier représenté :**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+Pour définir le fichier représenté par la fenêtre, vous pouvez utiliser les API [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) et [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,9 +239,9 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## Faire glisser les fichiers en dehors de la fenêtre
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Pour certains types d'application qui nécessitent de manipuler des fichiers, il est important d'être en mesure de faire glisser des fichiers depuis Electron vers d'autres applications. Pour implémenter cette fonctionnalité dans votre application, vous devez appeler l'API `webContents.startDrag(item)` sur l’événement `ondragstart`.
 
 Dans une page web :
 

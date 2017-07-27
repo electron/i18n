@@ -1,11 +1,11 @@
-# Build Instructions (Windows)
+# 构建介绍(Windows)
 
-Follow the guidelines below for building Electron on Windows.
+遵循下面的原则在 Windows 平台上构建 Electron。
 
-## Prerequisites
+## 先决条件
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Windows 7 / Server 2008 R2 或更高
+* Visual Studio 2015 Update 3 - [下载免费的 VS 2015 Community Edition ](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -17,38 +17,38 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## 获取代码
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## 引导
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+引导脚本将会下载全部必要的构建依赖，并创建和构建项目文件。 需要注意的是我们使用`ninja`创建 Electron，这样的话旧不需要生成 Visual Studio 项目了。
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## 构建
 
-Build both Release and Debug targets:
+构建发布和调试版本：
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+你也可以仅构建调试版本:
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+完成构建后，你可在 `out\D` (调试目标) 或者在`out\R`(发布版本)找到`electron.exe`。
 
-## 32bit Build
+## 32 位版本
 
 To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
@@ -58,7 +58,7 @@ $ python script\bootstrap.py -v --target_arch=ia32
 
 The other building steps are exactly the same.
 
-## Visual Studio project
+## Visual Studio 项目
 
 To generate a Visual Studio project, you can pass the `--msvs` parameter:
 
@@ -66,9 +66,9 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## 清理
 
-To clean the build files:
+清理构建文件:
 
 ```powershell
 $ npm run clean
@@ -82,11 +82,11 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## 测试
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+查看[构建系统概览: 测试](build-system-overview.md#tests)
 
-## Troubleshooting
+## 故障排查
 
 ### Command xxxx not found
 

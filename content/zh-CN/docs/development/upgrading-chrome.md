@@ -1,4 +1,4 @@
-# Upgrading Chrome Checklist
+# 更新 Chrome 的检查清单
 
 This document is meant to serve as an overview of what steps are needed on each Chrome upgrade in Electron.
 
@@ -18,27 +18,27 @@ These are things to do in addition to updating the Electron code for any Chrome/
   - This should include upgrading the submodules in `vendor/` as needed
 - Verify debug builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - 32 位 Windows
+  - 64 位Windows
+  - 32 位 Linux
+  - 64 位 Linux
   - ARM Linux
 - Verify release builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - 32 位 Windows
+  - 64 位Windows
+  - 32 位 Linux
+  - 64 位 Linux
   - ARM Linux
 - Verify tests pass on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - 32 位 Windows
+  - 64 位Windows
+  - 32 位 Linux
+  - 64 位 Linux
   - ARM Linux
 
-## Verify ffmpeg Support
+## 验证 ffmpeg 支持
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
@@ -72,6 +72,6 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Links
+## 链接
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Chrome 发布日程](https://www.chromium.org/developers/calendar)

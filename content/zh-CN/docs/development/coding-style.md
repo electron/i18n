@@ -1,10 +1,10 @@
-# 代码规范
+# 编码风格
 
 These are the style guidelines for coding in Electron.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
-## C++ and Python
+## C + + 和 Python
 
 For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
@@ -22,7 +22,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
-## Naming Things
+## 命名相关
 
 Electron APIs uses the same capitalization scheme as Node.js:
 

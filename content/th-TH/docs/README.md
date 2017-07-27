@@ -1,38 +1,38 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+กรุณาดูคู่มือที่ใช้ว่าตรงกับเวอร์ชั่นของ Electron หมายเลยเวอร์ชั่นจะเป็นส่วนหนึ่งของ URL หากถ้าเกิดไม่ใช่ คุณอาจจะใช้เอกสารประกอบของรุ่นพัฒนาซึ่งอาจจะมีการเปลี่ยนแปลงของ API ที่ไม่สามารถใช้ร่วมกับเวอร์ชั่นของ Electron ที่คุณใช้อยู่ได้ เพื่อที่จะดูเอกสารเวอร์ชั่นเก่าๆ คุณสามารถ[เรียกดูตามแท็ก](https://github.com/electron/electron/tree/v1.4.0)บน Github โดยการเลือกรายการ "เปลี่ยนสาขา/แท็ก" ในเมนูดรอปดาวน์และเลือกแท็กที่ตรงตามที่คุณต้องการ
 
 ## คำถามที่พบบ่อย
 
-There are questions that are asked quite often. Check this out before creating an issue:
+คุณควรจะตรวจสอบคำถามที่ถูกถามบ่อยๆก่อนที่จะสร้างกระทู้ปัญหา:
 
-* [Electron FAQ](faq.md)
+* [คำถามที่พบบ่อยของ Electron](faq.md)
 
 ## คู่มือ
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [อภิธานศัพท์](glossary.md)
+* [แพลตฟอร์มที่รองรับ](tutorial/supported-platforms.md)
+* [ความปลอดภัย](tutorial/security.md)
+* [การกำหนดเวอร์ชั่นของอิเล็กตรอน](tutorial/electron-versioning.md)
+* [การเผยแพร่แอพพลิเคชั่น](tutorial/application-distribution.md)
+* [คู่มือการส่งแม็คแอพสโตร์ (Mac App Store)](tutorial/mac-app-store-submission-guide.md)
+* [คู่มือการส่งวินโดวส์สโตร์ (Windows Store)](tutorial/windows-store-guide.md)
+* [การแพ็กเกจแอพพลิเคชั่น](tutorial/application-packaging.md)
+* [การใช้โมดูล Node ที่เนทีฟ](tutorial/using-native-node-modules.md)
+* [การดีบัคกระบวนการหลัก](tutorial/debugging-main-process.md)
+* [การใช้ Selenium และ WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)
+* [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [การใช้ปลั้กอิน Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
+* [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
+* [ปุ่มลัดแป้นพิมพ์](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## การใช้งานเบื้องต้น
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [เริ่มต้นแบบรวดเร็ว](tutorial/quick-start.md)
+* [การตั้งค่า Environment บนเดสท็อป](tutorial/desktop-environment-integration.md)
+* [การตรวจสอบอีเวนท์แบบออนไลน์และออฟไลน์](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [การแจ้งเตือนแบบเนทีฟ](tutorial/notifications.md)
 
 ## API References
 

@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# ปุ่มลัดแป้นพิมพ์
 
 > Configure local and global keyboard shortcuts
 

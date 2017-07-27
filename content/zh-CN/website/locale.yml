@@ -1,57 +1,57 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用
 nav:
-  docs: Docs
-  blog: Blog
-  community: Community
-  apps: Apps
-  userland: Userland
-  releases: Releases
-  contact: Contact
+  docs: 文档
+  blog: 博客
+  community: 社区
+  apps: 应用
+  userland: 用户区
+  releases: 版本发布
+  contact: 联络
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  title: 它比你想象的要容易
+  description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
+  video_link: 观看视频
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: Web 技术
+  description: Electron 基于 Chromium 和 Node.js, 使用 HTML, CSS 和 JavaScript 构建你的应用。
 open_source:
-  title: Open Source
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: 开源
+  desciption: Electron 是一个由 GitHub 和由贡献者组成的活跃社区维护的开源项目。
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: 跨平台
+  description: Electron 兼容 Mac, Windows 和 Linux， 它构建的应用可在这三个操作系统上面运行。
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: 困难的部分变得更便捷
+  automatic_updates: 自动更新
+  native_menus_and_notifications: 原生的菜单 & 通知
+  crash_reporting: 崩溃报告
+  debugging_and_profiling: 调试 & 性能分析
+  windows_installers: Windows 安装程序
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: 开始吧
+  description: 若要开始使用 Electron ，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 APIs ，以及生成的安装程序。
 explore:
-  title: Explore the Electron APIs
+  title: 探讨 Electron 的 APIs
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+    - '<a href="https://github.com/electron/electron-api-demos"> Electron API 演示应用程序</a>'
+    - 交互式演示 Electron API 最重要的功能。
+    - 通过示例带么和有用的提示, 看看 Electron 能做什么
+    - 构建你的应用程序。
+download_from_github: 从 GitHub 下载
+view_all_releases_on_github: '在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
-  dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
+  title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'> 快速启动</a> 应用程序，看看 Electron 是如何运转的："
+  description: 一个有帮助内容的 Electron 应用。
+  clone: 克隆示例项目的仓库
+  go_into_repo: 进入这个仓库
+  install_deps: 安装依赖并运行
+  dive_deeper: '或潜得更深，并阅读 <a href=''https://electron.atom.io/docs/''> 文档</a>。'
 need_help:
-  title: Need Help?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  title: 需要帮助？
+  description: '在 <a href=''https://discuss.atom.io/c/electron''> 讨论</a> 论坛或我们的 <a href=''http://atom-slack.herokuapp.com/''> Slack</a> 提问。关注<a href="https://twitter.com/ElectronJS"> @ElectronJS</a> 上的重要公告。必须要私下里获取援手？发电子邮件到 <a href="mailto:electron@github.com"> electron@github.com</a>。'
 apps:
-  title: Apps built on Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
-or: or
+  title: 使用 Electron 构建的应用
+  description: 'Electron 让你为你的公司或想法创建桌面端应用变得很简单。最初为 GitHub 的 <a href=''https://atom.io'' target=''_blank''> Atom 编辑器</a> 开发，Electron 已被像微软、 Facebook、 Slack和Docker 这样的公司用于创建应用程序了。'
+  view_more: 查看更多应用
+  submit_your_own: 提交你的应用
+or: 或者
