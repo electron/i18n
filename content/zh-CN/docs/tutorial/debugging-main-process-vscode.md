@@ -1,13 +1,13 @@
 # 在 VSCode 中调试主进程
 
-### 1. Open an Electron project in VSCode.
+### 1.在 VSCode 中打开一个 Electron 项目。
 
 ```bash
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2.添加具有以下配置的文件 `.vscode/launch.json` ：
 
 ```json
 {
@@ -25,10 +25,10 @@ $ code electron-quick-start
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**注意：**对于Windows，为 `runtimeExecutable`使用 `"${workspaceRoot}/node_modules/.bin/electron.cmd"` 。
 
-### 3. Debugging
+### 3. 调试
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+在 `main.js`中设置一些断点，并在 [Debug 视图](https://code.visualstudio.com/docs/editor/debugging) 中开始调试。你应该能够命中断点。
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+这是一个预先配置的项目，你可以下载并直接在 VSCode中调试: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
