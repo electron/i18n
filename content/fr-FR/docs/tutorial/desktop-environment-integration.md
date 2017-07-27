@@ -220,17 +220,17 @@ win.flashFrame(true)
 
 N'oubliez pas d'appeler la méthode `flashFrame` avec la valeur `false` pour désactiver le flash. Dans l'exemple ci-dessus, elle est appelée quand la fenêtre est focalisée, mais vous pouvez utiliser un délai ou un autre événement pour la désactiver.
 
-## Represented File of Window (macOS)
+## Fichier représenté par la fenêtre (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Sous macOS, une fenêtre peut définir son fichier représenté, de manière à ce que l'icône de fichier s'affiche dans la barre de titre et que quand les utilisateurs Commande-clic ou Control-clic sur le titre un popup de chemin d'accès s'affiche.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Vous pouvez également définir l'état d'édition d'une fenêtre pour que l'icône de fichier indique si le document de cette fenêtre a été modifié.
 
-**Represented file popup menu:**
+**Menu contextuel de fichier représenté :**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+Pour définir le fichier représenté par la fenêtre, vous pouvez utiliser les API [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) et [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,9 +239,9 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## Faire glisser les fichiers en dehors de la fenêtre
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Pour certains types d'application qui nécessitent de manipuler des fichiers, il est important d'être en mesure de faire glisser des fichiers depuis Electron vers d'autres applications. Pour implémenter cette fonctionnalité dans votre application, vous devez appeler l'API `webContents.startDrag(item)` sur l’événement `ondragstart`.
 
 Dans une page web :
 
