@@ -1,4 +1,4 @@
-# About Electron
+# 关于Electron
 
 [Electron](https://electron.atom.io) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
 
@@ -8,15 +8,15 @@ It has since become a popular tool used by open source developers, startups, and
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 
-## Core Team and Contributors
+## 核心团队和贡献者
 
 Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## Releases
+## 版本发布
 
 [Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
 
-### Updating Dependencies
+### 更新依赖
 
 Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
 
@@ -24,7 +24,7 @@ When a new version of Node.js is released, Electron usually waits about a month 
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
-### Versioning
+### 版本
 
 Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
 
@@ -34,7 +34,7 @@ Long term support of older versions of Electron does not currently exist. If you
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
-## Core Philosophy
+## 核心理念
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
@@ -42,7 +42,7 @@ For instance, Electron uses just the rendering library from Chromium rather than
 
 New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
 
-## History
+## 历史
 
 Below are milestones in Electron's history.
 
