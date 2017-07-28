@@ -111,7 +111,7 @@ app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.desc
   true to open the app at login, false to remove the app as a login item. Defaults to false.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
   trả về true nếu mở app trong tình trạng hidden. Mặc định trả về false. Người dùng có thể thay đổi các cài đặt trong System Preferences, vì vậy app.getLoginItemStatus().wasOpenedAsHidden cần được kiểm tra khi ứng dụng được mở để biết giá trị hiện tại. Cài đặt này chỉ hỗ trợ cho macOS.
-app.methods.setLoginItemSettings.parameters.path.description: The executable to launch at login. Defaults to `process.execPath`.
+app.methods.setLoginItemSettings.parameters.path.description: Tập tin thực thi để khởi động lúc đăng nhập. Mặc định là `process.execPath`.
 app.methods.setLoginItemSettings.parameters.args.description: >-
   The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
@@ -251,7 +251,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.19.description: Whether 
 BrowserWindow.constructorMethod.parameters.0.properties.20.description: Chế độ kiosk. Mặc định là false.
 BrowserWindow.constructorMethod.parameters.0.properties.21.description: Tiêu đề mặc định của cửa sổ. Mặc định là "Electron".
 BrowserWindow.constructorMethod.parameters.0.properties.22.description: >-
-  The window icon. On Windows it is recommended to use ICO icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
+  Biểu tượng cửa cửa sổ. Trên Windows, khuyến khích sử dụng biểu tượng có định dạng ICO để có được hiệu ứng hình ảnh tốt nhất, bạn cũng có thể để lại nó undefined để biểu tượng của định dạng exe được sử dụng.
 BrowserWindow.constructorMethod.parameters.0.properties.23.description: Whether window should be shown when created. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.24.description: Specify false to create a . Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.25.description: Xác định cửa sổ cha. Mặc định là null.
@@ -310,7 +310,7 @@ BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.descrip
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Cho phép hỗ trợ WebAudio. Mặc định là true.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.15.description: Whether plugins should be enabled. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.16.description: Enables Chromium's experimental features. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Enables Chromium's experimental canvas features. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Cho phép các tính năng thử nghiệm canvas. Mặc định là false.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.18.description: Enables scroll bounce (rubber banding) effect on macOS. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.41.properties.19.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.
@@ -497,7 +497,7 @@ BrowserWindow.instanceMethods.setAutoHideCursor.description: Controls whether to
 BrowserWindow.instanceMethods.setVibrancy.description: >-
   Adds a vibrancy effect to the browser window. Passing null or an empty string will remove the vibrancy effect on the window.
 BrowserWindow.instanceMethods.setVibrancy.parameters.type.description: >-
-  Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the for more details.
+  Có thể là `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` hoặc `ultra-dark`. Xem thêm chi tiết.
 BrowserWindow.instanceMethods.setTouchBar.description: >-
   Sets the touchBar layout for the current window. Specifying null or undefined clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+. Note: The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 BrowserWindow.instanceMethods.setBrowserView.description: >-
@@ -612,7 +612,7 @@ clipboard.methods.writeText.description: Writes the text into the clipboard as p
 clipboard.methods.readHTML.returns.description: The content in the clipboard as markup.
 clipboard.methods.writeHTML.description: Writes markup to the clipboard.
 clipboard.methods.readImage.returns.description: The image content in the clipboard.
-clipboard.methods.writeImage.description: Writes image to the clipboard.
+clipboard.methods.writeImage.description: Copy hình ảnh vào bộ nhớ tạm.
 clipboard.methods.readRTF.returns.description: The content in the clipboard as RTF.
 clipboard.methods.writeRTF.description: Writes the text into the clipboard in RTF.
 clipboard.methods.readBookmark.description: >-
