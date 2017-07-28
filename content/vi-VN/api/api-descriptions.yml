@@ -169,7 +169,7 @@ app.properties.commandLine.properties.appendArgument.description: >-
 app.properties.commandLine.properties.appendArgument.parameters.value.description: The argument to append to the command line
 app.properties.dock.properties.bounce.description: >-
   When critical is passed, the dock icon will bounce until either the application becomes active or the request is canceled. When informational is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
-app.properties.dock.properties.bounce.parameters.type.description: Can be `critical` or `informational`. The default is `informational`
+app.properties.dock.properties.bounce.parameters.type.description: Có thể là `critical` hoặc `informational`. Mặc định là `informational`
 app.properties.dock.properties.bounce.returns.description: một ID đại diện cho request.
 app.properties.dock.properties.cancelBounce.description: Cancel the bounce of id.
 app.properties.dock.properties.downloadFinished.description: Bounces the Downloads stack if the filePath is inside the Downloads folder.
@@ -201,7 +201,7 @@ BrowserView.constructorMethod.parameters.0.properties.0.description: Hãy xem .
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.width.description: >-
   Nếu là true, chiều rộng của view sẽ to ra và co lại theo các cửa sổ. false thì theo mặc định.
 BrowserView.instanceMethods.setAutoResize.parameters.options.properties.height.description: >-
-  If true, the view's height will grow and shrink together with the window. false by default.
+  Nếu là true, chiều cao của view sẽ to ra và co lại theo các cửa sổ. false thì theo mặc định.
 BrowserView.instanceMethods.setBounds.description: Resizes and moves the view to the supplied bounds relative to the window.
 BrowserView.instanceMethods.setBackgroundColor.parameters.color.description: 'Màu sắc được viết dưới dạng ''#aarrggbb'' hoặc ''#argb''. Mã đuôi alpha có thể có hoặc không.'
 BrowserView.instanceProperties.webContents.description: A WebContents object owned by this view.
@@ -775,7 +775,7 @@ dialog.methods.showSaveDialog.returns.description: >-
 dialog.methods.showMessageBox.description: >-
   Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button. The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. If a callback is passed, the API call will be asynchronous and the result will be passed via callback(response).
 dialog.methods.showMessageBox.parameters.options.properties.type.description: >-
-  Can be "none", "info", "error", "question" or "warning". On Windows, "question" displays the same icon as "info", unless you set an icon using the "icon" option. On macOS, both "warning" and "error" display the same warning icon.
+  Có thể là "none", "info", "error", "question" hoặc "warning". Trên Windows, "question" được hiển thị với icon giống với "info", trừng khi bạn cài đặt một icon bằng tùy chọn "icon". Trên macOS, cả "warning" và "error" hiển thị với một icon cảnh báo.
 dialog.methods.showMessageBox.parameters.options.properties.buttons.description: >-
   Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
 dialog.methods.showMessageBox.parameters.options.properties.defaultId.description: >-
@@ -807,8 +807,8 @@ dialog.methods.showCertificateTrustDialog.parameters.options.properties.message.
 Display.properties.id.description: Unique identifier associated with the display.
 Display.properties.rotation.description: 'Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.'
 Display.properties.scaleFactor.description: Output device's pixel scale factor.
-Display.properties.touchSupport.description: 'Can be available, unavailable, unknown.'
-DownloadItem.description: Control file downloads from remote sources.
+Display.properties.touchSupport.description: 'Có thể là available, unavailable, unknown.'
+DownloadItem.description: Kiểm soát các tập tin tải về từ một nguồn từ xa.
 DownloadItem.instanceMethods.setSavePath.description: >-
   The API is only available in session's will-download callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
 DownloadItem.instanceMethods.setSavePath.parameters.path.description: Set the save file path of the download item.
@@ -825,7 +825,7 @@ DownloadItem.instanceMethods.getMimeType.returns.description: Mime type của c�
 DownloadItem.instanceMethods.hasUserGesture.returns.description: Whether the download has user gesture.
 DownloadItem.instanceMethods.getFilename.description: >-
   Note: The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
-DownloadItem.instanceMethods.getFilename.returns.description: The file name of the download item.
+DownloadItem.instanceMethods.getFilename.returns.description: Tên tập tin của các mục tải về.
 DownloadItem.instanceMethods.getTotalBytes.description: 'Nếu kích thước là unknown, nó trả về 0.'
 DownloadItem.instanceMethods.getTotalBytes.returns.description: The total size in bytes of the download item.
 DownloadItem.instanceMethods.getReceivedBytes.returns.description: The received bytes of the download item.
@@ -865,9 +865,9 @@ IncomingMessage.instanceEvents.end.description: Indicates that response body has
 IncomingMessage.instanceEvents.aborted.description: Emitted when a request has been canceled during an ongoing HTTP transaction.
 IncomingMessage.instanceEvents.error.description: >-
   error Error - Typically holds an error string identifying failure root cause. Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an error event will be emitted on the response object and a close event will subsequently follow on the request object.
-IOCounters.properties.readOperationCount.description: The number of I/O read operations.
-IOCounters.properties.writeOperationCount.description: The number of I/O write operations.
-IOCounters.properties.otherOperationCount.description: Then number of I/O other operations.
+IOCounters.properties.readOperationCount.description: Số lượng các I/O đọc hoạt động.
+IOCounters.properties.writeOperationCount.description: Số lượng các I/O viết hoạt động.
+IOCounters.properties.otherOperationCount.description: Sau đó số lượng các I/O khác hoạt động.
 IOCounters.properties.readTransferCount.description: The number of I/O read transfers.
 IOCounters.properties.writeTransferCount.description: The number of I/O write transfers.
 IOCounters.properties.otherTransferCount.description: Then number of I/O other transfers.
@@ -1128,10 +1128,10 @@ screen.events.display-added.description: Emitted when newDisplay has been added.
 screen.events.display-removed.description: Emitted when oldDisplay has been removed.
 screen.events.display-metrics-changed.description: >-
   Emitted when one or more metrics change in a display. The changedMetrics is an array of strings that describe the changes. Possible changes are bounds, workArea, scaleFactor and rotation.
-ScrubberItem.properties.label.description: The text to appear in this item
-ScrubberItem.properties.icon.description: The image to appear in this item
-SegmentedControlSegment.properties.label.description: The text to appear in this segment
-SegmentedControlSegment.properties.icon.description: The image to appear in this segment
+ScrubberItem.properties.label.description: Văn bản xuất hiện trong mục này
+ScrubberItem.properties.icon.description: Hình ảnh xuất hiện trong mục này
+SegmentedControlSegment.properties.label.description: Văn bản xuất hiện trong phân khúc này
+SegmentedControlSegment.properties.icon.description: Hình ảnh xuất hiện trong phân khúc này
 SegmentedControlSegment.properties.enabled.description: 'Whether this segment is selectable. Default: true'
 session.description: 'Manage browser sessions, cookies, cache, proxy settings, etc.'
 session.methods.fromPartition.description: >-
@@ -1154,7 +1154,7 @@ Session.instanceMethods.clearStorageData.parameters.callback.description: Đư�
 Session.instanceMethods.flushStorageData.description: Writes any unwritten DOMStorage data to disk.
 Session.instanceMethods.setProxy.description: >-
   Sets the proxy settings. When pacScript and proxyRules are provided together, the proxyRules option is ignored and pacScript configuration is applied. The proxyRules has to follow the rules below: For example: The proxyBypassRules is a comma separated list of rules described below:
-Session.instanceMethods.setProxy.parameters.config.properties.pacScript.description: The URL associated with the PAC file.
+Session.instanceMethods.setProxy.parameters.config.properties.pacScript.description: URL liên kết với tập tin PAC.
 Session.instanceMethods.setProxy.parameters.config.properties.proxyRules.description: Rules indicating which proxies to use.
 Session.instanceMethods.setProxy.parameters.config.properties.proxyBypassRules.description: Rules indicating which URLs should bypass the proxy settings.
 Session.instanceMethods.setProxy.parameters.callback.description: Được gọi là khi hoạt động đã hoàn thành việc thực thi.
@@ -1204,9 +1204,9 @@ Session.instanceMethods.createInterruptedDownload.parameters.options.properties.
 Session.instanceMethods.createInterruptedDownload.parameters.options.properties.startTime.description: Time when download was started in number of seconds since UNIX epoch.
 Session.instanceMethods.clearAuthCache.description: Clears the session’s HTTP authentication cache.
 Session.instanceMethods.clearAuthCache.parameters.callback.description: Được gọi là khi hoạt động đã hoàn thành việc thực thi
-Session.instanceProperties.cookies.description: A Cookies object for this session.
+Session.instanceProperties.cookies.description: Một object Cookies cho session này.
 Session.instanceProperties.webRequest.description: Một object WebRequest cho session này.
-Session.instanceProperties.protocol.description: A Protocol object for this session.
+Session.instanceProperties.protocol.description: Một object Protocol cho session này.
 Session.instanceEvents.will-download.description: >-
   Emitted when Electron is about to download item in webContents. Calling event.preventDefault() will cancel the download and item will not be available from next tick of the process.
 shell.description: Manage files and URLs using their default applications.
@@ -1224,12 +1224,12 @@ shell.methods.moveItemToTrash.description: Move the given file to trash and retu
 shell.methods.moveItemToTrash.returns.description: Whether the item was successfully moved to the trash
 shell.methods.beep.description: Play the beep sound.
 shell.methods.writeShortcutLink.description: Creates or updates a shortcut link at shortcutPath.
-shell.methods.writeShortcutLink.parameters.operation.description: 'Default is `create`, can be one of following:'
+shell.methods.writeShortcutLink.parameters.operation.description: 'Mặc định là `create`, có thể làm một trong những:'
 shell.methods.writeShortcutLink.returns.description: Whether the shortcut was created successfully
 shell.methods.readShortcutLink.description: >-
   Resolves the shortcut link at shortcutPath. An exception will be thrown when any error happens.
 ShortcutDetails.properties.target.description: The target to launch from this shortcut.
-ShortcutDetails.properties.cwd.description: The working directory. Default is empty.
+ShortcutDetails.properties.cwd.description: Thư mục làm việc. Mặc định là empty.
 ShortcutDetails.properties.args.description: >-
   The arguments to be applied to target when launching from this shortcut. Default is empty.
 ShortcutDetails.properties.description.description: The description of the shortcut. Default is empty.
@@ -1254,7 +1254,7 @@ systemPreferences.methods.unsubscribeLocalNotification.description: >-
 systemPreferences.methods.getUserDefault.description: >-
   Get the value of key in system preferences. This API uses NSUserDefaults on macOS. Some popular key and types are:
 systemPreferences.methods.getUserDefault.parameters.type.description: >-
-  Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+  Có thể là `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 systemPreferences.methods.setUserDefault.description: >-
   Set the value of key in system preferences. Note that type should match actual type of value. An exception is thrown if they don't. This API uses NSUserDefaults on macOS. Some popular key and types are:
 systemPreferences.methods.setUserDefault.parameters.type.description: 'See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]'
@@ -1280,7 +1280,7 @@ Task.properties.iconPath.description: >-
 Task.properties.iconIndex.description: >-
   The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
 ThumbarButton.properties.icon.description: The icon showing in thumbnail toolbar.
-ThumbarButton.properties.tooltip.description: The text of the button's tooltip.
+ThumbarButton.properties.tooltip.description: Văn bản chú thích của nút.
 ThumbarButton.properties.flags.description: >-
   Control specific states and behaviors of the button. By default, it is ['enabled'].
 TouchBar.description: Create TouchBar layouts for native macOS applications
