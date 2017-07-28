@@ -85,14 +85,14 @@ $.get('file:///chemin/vers/exemple.asar/fichier.txt', (data) => {
 
 ### Traiter une archive `asar` comme un fichier normal
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. Pour cela, vous pouvez utiliser le module `original-fs` intégré qui fournit l'API original `fs` sans le support `asar`:
+Dans certains cas comme la vérification checksum d'une archive `asar`, nous devons lire le contenu d'une archive `asar` sous forme de fichier. Pour cela, vous pouvez utiliser le module `original-fs` intégré qui fournit l'API `fs` sans le support de `asar` :
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/chemin/vers/exemple.asar')
 ```
 
-Vous pouvez également définir `process.noAsar` à `true` pour désactiver le support de `asar` dans le module `fs`:
+Vous pouvez également définir `process.noAsar` à `true` pour désactiver le support de `asar` dans le module `fs` :
 
 ```javascript
 const fs = require('fs')
@@ -106,13 +106,13 @@ Même si nous avons durement essayé de faire que les archives `asar` dans Node 
 
 ### Les archives sont en lecture seule
 
-Les archives ne peuvent pas être modifiées, donc toutes les API Node qui peuvent modifier les fichiers ne fonctionneront pas avec les archives `asar`.
+Les archives ne peuvent pas être modifiées, donc toutes les APIs Node qui peuvent modifier les fichiers ne fonctionneront pas avec les archives `asar`.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Le dossier de travail ne peux pas être définie comme dossier dans une archive
 
-Bien que les archives `asar` sont traités comme des répertoires, il n'y a réellement aucun répertoire dans le système de fichiers, donc vous ne pourrez jamais définir l'espace de travail dans les archives `asar`. Les passer en tant qu'option de `cwd` de certains APIs occasionnera aussi des erreurs.
+Bien que les archives `asar` sont traités comme des répertoires, il n'y a réellement aucun répertoire dans le système de fichiers, donc vous ne pourrez jamais définir l'espace de travail dans les archives `asar`. Les passer en tant qu'option de `cwd` de certaines APIs occasionnera aussi des erreurs.
 
-### Extra Unpacking on Some APIs
+### Dépaquetage supplémentaire sur certaines APIs
 
 La plupart des APIs `fs` peuvent lire un fichier ou obtenir les informations d'un fichier depuis les archives `asar` sans les dépaqueter, mais pour certaines APIs qui dépendent du passage du chemin d'accès réel aux appels système sous-jacents, Electron va dépaqueter le fichier requis dans un fichier temporaire et passer le chemin d'accès du fichier temporaire aux API pour les faire fonctionner. Cela ajoute un traitement supplémentaire pour ces APIs.
 
@@ -136,7 +136,7 @@ C'est parce que `exec` et `spawn` acceptent `command` au lieu de `file` en entr�
 
 ## Ajouter des fichiers non empaquetés dans une archive `asar`
 
-Comme indiqué ci-dessus, certains APIs Node vont dépaqueter le fichier du système de fichiers lors de l'appel, mis à part les problèmes de performance, cela pourrait également conduire à de fausses alertes de scanners antivirus.
+Comme indiqué ci-dessus, certaines APIs Node vont dépaqueter le fichier du système de fichiers lors de l'appel, mis à part les problèmes de performance, cela pourrait également conduire à de fausses alertes de scanners antivirus.
 
 Pour contourner ce problème, vous pouvez dépaqueter certains fichiers en créant des archives en utilisant l'option `--unpack`, un exemple d'exclusion des librairies partagées des modules natifs est :
 
