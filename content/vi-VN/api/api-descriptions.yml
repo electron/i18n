@@ -14,7 +14,7 @@ app.methods.show.description: >-
 app.methods.getAppPath.returns.description: Thư mục ứng dụng hiện tại.
 app.methods.getPath.description: 'You can request the following paths by the name:'
 app.methods.getPath.returns.description: >-
-  A path to a special directory or file associated with name. On failure an Error is thrown.
+  Một đường dẫn đến một thư mục hoặc liên kết tới tên tập tin. Hoặc sẽ ném ra một Error nếu thất bại.
 app.methods.getFileIcon.description: >-
   Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
 app.methods.setPath.description: >-
