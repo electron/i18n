@@ -13,7 +13,7 @@ electron_is_easy:
   video_link: ชมวิดีโอ
 web_technologies:
   title: เทคโนโลยีเว็บ
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  description: Electron ใช้ Chromium และ Node.js ดังนั้นคุณจึงสามารถสร้างแอปของคุณด้วย HTML, CSS และ JavaScript
 open_source:
   title: โอเพ่นซอร์ส
   desciption: Electron เป็นโครงการโอเพ่นซอร์สที่ดูแลโดย GitHub และผู้ใช้งานที่มีส่วนร่วมจากชุมชน
@@ -23,28 +23,28 @@ cross_platform:
 benefits:
   hard_parts_made_easy: ทำให้ส่วนที่ยากง่ายขึ้น
   automatic_updates: อัพเดตอัตโนมัติ
-  native_menus_and_notifications: Native menus & notifications
+  native_menus_and_notifications: เมนูและการแจ้งเตือนของระบบ
   crash_reporting: รายงานข้อผิดพลาด
   debugging_and_profiling: ตรวจแก้จุดบกพร่องและสร้างโพรไฟล์
   windows_installers: ตัวติดตั้ง Windows
 get_started:
   title: เริ่มต้น
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: เริ่มต้นกับ Electron ลองดูทรัพยากรด้านล่าง เรียนรู้วิธีหุ้มเว็บแอปด้วย Electron เข้าถึง API ทั้งหมด และสร้างตัวติดตั้ง
 explore:
-  title: Explore the Electron APIs
+  title: สำรวจ API ของ Electron
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
+    - '<a href="https://github.com/electron/electron-api-demos">สาธิตการใช้งาน API ของ Electron</a>'
+    - การสาธิตมีการโต้ตอบกับคุณสมบัติสำคัญๆ ของ Electron API
+    - ลองดูความเป็นไปด้วยด้วย Electron ด้วยตัวอย่างโค้ดและเคล็ดลับที่เป็นประโยชน์สำหรับ
     - สร้างแอปของคุณ
 download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  title: "หมุน<a href='https://github.com/electron/electron-quick-start' target='_blank'>เริ่มต้นอย่างรวดเร็ว</a>ขึ้น เพื่อดูการใช้ Electron ในเชิงปฏิบัติ"
+  description: แอป Electron เล็กๆ น้อยๆ พร้อมความช่วยเหลือ
+  clone: ดึงข้อมูลและแหล่งเก็บข้อมูลการใช้งานอย่างรวดเร็ว
+  go_into_repo: ไปยังที่เก็บข้อมูล
+  install_deps: ติดตั้งส่วนที่ต้องการและเรียกใช้
   dive_deeper: 'Or dive deeper and read the <a href=''https://electron.atom.io/docs/''>documentation</a>.'
 need_help:
   title: ต้องการความช่วยเหลือ
