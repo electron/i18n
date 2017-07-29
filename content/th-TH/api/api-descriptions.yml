@@ -1,4 +1,4 @@
-app.description: Control your application's event lifecycle.
+app.description: ควบคุมวงรอบชีวิตของแอป
 app.methods.quit.description: >-
   Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
 app.methods.exit.description: >-
@@ -67,7 +67,7 @@ app.methods.makeSingleInstance.parameters.callback.parameters.argv.description: 
 app.methods.makeSingleInstance.parameters.callback.parameters.workingDirectory.description: The second instance's working directory
 app.methods.makeSingleInstance.returns.description: '.'
 app.methods.releaseSingleInstance.description: >-
-  Releases all locks that were created by makeSingleInstance. This will allow multiple instances of the application to once again run side by side.
+  ปลดล็อคทั้งหมดซึ่งสร้างโดย makeSingleInstance ซึ่งนี้จะยอมให้เกิดการสร้างแอปอื่นขึ้นมาคู่กัน
 app.methods.setUserActivity.description: >-
   Creates an NSUserActivity and sets it as the current activity. The activity is eligible for Handoff to another device afterward.
 app.methods.setUserActivity.parameters.type.description: Uniquely identifies the activity. Maps to .
