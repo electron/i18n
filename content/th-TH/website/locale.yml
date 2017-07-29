@@ -1,21 +1,21 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: สร้างแอปที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS
 nav:
-  docs: Docs
-  blog: Blog
-  community: Community
-  apps: Apps
+  docs: เอกสาร
+  blog: บล็อก
+  community: ชุมชน
+  apps: แอป
   userland: Userland
-  releases: Releases
-  contact: Contact
+  releases: การเผยแพร่
+  contact: ติดต่อ
 electron_is_easy:
-  title: It's easier than you think
+  title: ง่ายกว่าที่คุณคิด
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  video_link: ชมวิดีโอ
 web_technologies:
-  title: Web Technologies
+  title: เทคโนโลยีเว็บ
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
-  title: Open Source
+  title: โอเพ่นซอร์ส
   desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: Cross Platform
@@ -54,4 +54,4 @@ apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: View more apps
   submit_your_own: submit your own
-or: or
+or: หรือ
