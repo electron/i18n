@@ -1,6 +1,6 @@
 app.description: ควบคุมวงรอบชีวิตของแอป
 app.methods.quit.description: >-
-  Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+  เมื่อปิดหน้าต่างทั้งหมด เหตุการณ์ before-quit จะถูกปล่อยออกมา หลังจากหน้าต่างทั้งหมดปิดลงแล้ว เหตุการณ์ will-quit ก็จะปล่อยออกมา และแอปก็จะสิ้นสุดการทำงาน ด้วยวิธีนี้สามารถการันตีได้ว่าเหตุการณ์ beforeunload และ unload นั้นทำงานอย่างถูกต้อง ซึ่งเป็นไปได้ว่าหน้าต่างสามารถปฏิเสธการออกจากแอปด้วยการคืนค่าเท็จในช่วงจัดการเหตุการณ์ beforeunload
 app.methods.exit.description: >-
   Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
 app.methods.relaunch.description: >-
@@ -52,7 +52,7 @@ app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `pr
 app.methods.isDefaultProtocolClient.parameters.args.description: Defaults to an empty array
 app.methods.setUserTasks.description: >-
   Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
-app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
+app.methods.setUserTasks.parameters.tasks.description: อาร์เรย์ของวัตถุ `Task`
 app.methods.setUserTasks.returns.description: Whether the call succeeded.
 app.methods.getJumpListSettings.returns.properties.0.description: >-
   The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
