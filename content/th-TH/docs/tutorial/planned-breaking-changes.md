@@ -110,7 +110,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Tray`
+## `ถาด`
 
 ```js
 // Deprecated
