@@ -47,39 +47,39 @@
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
-### Modules for the Main Process:
+### โมดูลสำหรับกระบวนการหลัก:
 
-* [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
+* [แอพ](api/app.md)
+* [ตัวอัพเดทอัตโนมัติ](api/auto-updater.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
+* [กล่องโต้ตอบ](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
 * [เมนู](api/menu.md)
-* [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [รายการบนเมนู](api/menu-item.md)
+* [เน็ต](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
-* [session](api/session.md)
+* [โปรโทคอล](api/protocol.md)
+* [เซสชั่น](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### โมดูลสำหรับกระบวนการเรนเดอร์ (หน้าเว็บ):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### โมดูลสำหรับกระบวนการทั้งสอง:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
+* [หน้าจอ](api/screen.md)
 * [shell](api/shell.md)
 
 ## การพัฒนา
