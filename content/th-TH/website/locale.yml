@@ -1,9 +1,9 @@
-tagline: สร้างแอพที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS
+tagline: สร้างแอปที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS
 nav:
   docs: เอกสาร
   blog: บล็อก
   community: ชุมชน
-  apps: แอพ
+  apps: แอป
   userland: Userland
   releases: การเผยแพร่
   contact: ติดต่อ
@@ -19,7 +19,7 @@ open_source:
   desciption: Electron เป็นโครงการโอเพ่นซอร์สที่ดูแลโดย GitHub และผู้ใช้งานที่มีส่วนร่วมจากชุมชน
 cross_platform:
   title: ข้ามแพลตฟอร์ม
-  description: เข้าได้กับ Mac, WIndows และ Linux ซึ่ง​Electron นี้สร้างและเรียกใช้งานผ่านสามแพลตฟอร์ม
+  description: เข้าได้กับ Mac, Windows และ Linux ซึ่ง ​Electron นี้สร้างและเรียกใช้งานผ่านสามแพลตฟอร์ม
 benefits:
   hard_parts_made_easy: ทำให้ส่วนที่ยากง่ายขึ้น
   automatic_updates: อัพเดตอัตโนมัติ
@@ -41,7 +41,7 @@ download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub'
 quick_start:
   title: "หมุน<a href='https://github.com/electron/electron-quick-start' target='_blank'>เริ่มต้นอย่างรวดเร็ว</a>ขึ้น เพื่อดูการใช้ Electron ในเชิงปฏิบัติ"
-  description: แอพ Electron เล็กๆ น้อยๆ พร้อมความช่วยเหลือ
+  description: แอป Electron เล็กๆ น้อยๆ พร้อมความช่วยเหลือ
   clone: ดึงข้อมูลและแหล่งเก็บข้อมูลการใช้งานอย่างรวดเร็ว
   go_into_repo: ไปยังที่เก็บข้อมูล
   install_deps: ติดตั้งส่วนที่ต้องการและเรียกใช้
@@ -50,8 +50,8 @@ need_help:
   title: ต้องการความช่วยเหลือ
   description: 'ถาม<a href=''https://discuss.atom.io/c/electron''>คำถาม</a>ในฟอรัม หรือช่อง <a href=''http://atom-slack.herokuapp.com/''>Slack</a> ฟอลโล<a href="https://twitter.com/ElectronJS">@ElectronJS</a> บน Twitter สำหรับประกาศสำคัญ หรือถ้าต้องการความเป็นส่วนตัว? อีเมล์ <a href="mailto:electron@github.com">electron@github.com</a>'
 apps:
-  title: แอพที่สร้างขึ้นจาก Electron
+  title: แอปที่สร้างขึ้นจาก Electron
   description: 'Electron ช่วยให้การสร้างแอปสำหรับเดสก์ท็อปสำหรับบริษัทของคุณ หรือแนวคิดเป็นเรื่องง่าย เริ่มพัฒนาขึ้นเพื่อ <a href=''https://atom.io'' target=''_blank''>Atom</a> จาก GitHub ซึ่ง Electronเอง ก็ได้เริ่มมีการนำมาใช้งานโดย Microsoft, Facebook, Slack และ Docker'
-  view_more: ดูแอพเพิ่ม
+  view_more: ดูแอปเพิ่ม
   submit_your_own: ส่งของคุณเอง
 or: หรือ
