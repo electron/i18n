@@ -4,13 +4,13 @@
 
 เวอร์ชั่นของ Chrome ใน Electron นั้นจะถูกอัพเกรดภายในหนึ่งถึงสองสัปดาห์หลังจากที่มีการปล่อย Chrome รุ่นที่เสถียรออกมา การประเมินที่เป็นแค่การคาดเดาและขึ้นอยู่กับจำนวนของงานที่เกี่ยวข้องในการอัพเดรด
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+เฉพาะช่องที่เสถียรของ Chrome ทีจะถูกใช้ หากมีการแก้ไขที่สำคัญที่ช่องเบต้าหรือช่องพัฒนา เราจะนำมันเข้ามาในเวอร์ชั่นที่ใช้อยู่
 
-For more information, please see the [security introduction](tutorial/security.md).
+สำหรับข้อมูลเพิ่มเติม โปรดดู[บทนำความปลอดภัย](tutorial/security.md)
 
-## When will Electron upgrade to latest Node.js?
+## เมื่อไหร่ Electron จะอัพเกรดเป็น Node.js ตัวล่าสุด?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+เมื่อมีเวอร์ชั่นใหม่ของ Node.js ออกมา เราจะรอประมาณหนึ่งเดือนก่อนที่จะอัพเกรดมันใน Electron เพื่อที่ว่าเราจะได้หลีกเลี่ยงผลกระทบจากจุดบกพร่องต่างๆใน Node.js เวอร์ชั่นใหม่ซึ่งเกิดขึ้นอยู่บ่อยครั้ง
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
