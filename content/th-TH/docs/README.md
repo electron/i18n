@@ -37,13 +37,13 @@
 ## การอ้างอิง API
 
 * [บทย่อ](api/synopsis.md)
-* [Process Object](api/process.md)
+* [กระบวนการของวัตถุ](api/process.md)
 * [รองรับการสลับคำสั่งของ Chrome](api/chrome-command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 
 ### การสร้างสมาชิก DOM
 
-* [`File` Object](api/file-object.md)
+* [ออบเจค `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [ฟังก์ชัน `window.open`](api/window-open.md)
 
@@ -64,14 +64,14 @@
 * [โพรโทคอล](api/protocol.md)
 * [เซสชั่น](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [Tray](api/tray.md)
+* [ถาด](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### โมดูลสำหรับกระบวนการเรนเดอร์ (หน้าเว็บ):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [ระยะไกล](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### โมดูลสำหรับกระบวนการทั้งสอง:
@@ -80,7 +80,7 @@
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [หน้าจอ](api/screen.md)
-* [shell](api/shell.md)
+* [เชลล์](api/shell.md)
 
 ## การพัฒนา
 
