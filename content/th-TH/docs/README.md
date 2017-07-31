@@ -34,9 +34,9 @@
 * [REPL](tutorial/repl.md)
 * [การแจ้งเตือนแบบเนทีฟ](tutorial/notifications.md)
 
-## API References
+## การอ้างอิง API
 
-* [Synopsis](api/synopsis.md)
+* [บทย่อ](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
@@ -82,20 +82,20 @@
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## การพัฒนา
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [ลักษณะการเขียนโค้ด](development/coding-style.md)
+* [การใช้รูปแบบ clang ในโค้ด C++](development/clang-format.md)
+* [โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ](development/source-code-directory-structure.md)
+* [ความแตกต่างทางเทคนิคระหว่าง NW.js (node-webkit ในอดีต)](development/atom-shell-vs-node-webkit.md)
+* [สร้างภาพรวมของระบบ](development/build-system-overview.md)
+* [คำแนะนำการสร้าง (macOS)](development/build-instructions-osx.md)
+* [คำแนะนำการสร้าง (Windows)](development/build-instructions-windows.md)
+* [คำแนะนำการสร้าง (Linux)](development/build-instructions-linux.md)
+* [คำแนะนำการดีบัก (macOS)](development/debugging-instructions-macos.md)
+* [คำแนะนำการดีบัก (Windows)](development/debug-instructions-windows.md)
+* [การตั้งค่าเซิร์ฟเวอร์ในตัวดีบักเกอร์](development/setting-up-symbol-server.md)
+* [เอกสารประกอบแนวทางลักษณะ](styleguide.md)
+* [อัพเกรดโครม](development/upgrading-chrome.md)
+* [การพัฒนาโครเมี่ยม](development/chromium-development.md)
+* [การพัฒนา V8](development/v8-development.md)
