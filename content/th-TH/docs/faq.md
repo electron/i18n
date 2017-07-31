@@ -1,8 +1,8 @@
 # คำถามที่พบบ่อยของ Electron
 
-## When will Electron upgrade to latest Chrome?
+## เมื่อไหร่ Electron จะอัพเกรดเป็น Chrome ตัวล่าสุด?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+เวอร์ชั่นของ Chrome ใน Electron นั้นจะถูกอัพเกรดภายในหนึ่งถึงสองสัปดาห์หลังจากที่มีการปล่อย Chrome รุ่นที่เสถียรออกมา การประเมินที่เป็นแค่การคาดเดาและขึ้นอยู่กับจำนวนของงานที่เกี่ยวข้องในการอัพเดรด
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
