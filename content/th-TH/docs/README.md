@@ -38,14 +38,14 @@
 
 * [บทย่อ](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [รองรับการสลับคำสั่งของ Chrome](api/chrome-command-line-switches.md)
+* [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 
-### Custom DOM Elements:
+### การสร้างสมาชิก DOM
 
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [ฟังก์ชัน `window.open`](api/window-open.md)
 
 ### โมดูลสำหรับกระบวนการหลัก:
 
@@ -61,7 +61,7 @@
 * [เน็ต](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [โปรโทคอล](api/protocol.md)
+* [โพรโทคอล](api/protocol.md)
 * [เซสชั่น](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
