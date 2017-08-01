@@ -1,6 +1,6 @@
-# Glossary
+# อภิธานศัพท์
 
-This page defines some terminology that is commonly used in Electron development.
+หน้านี้กำหนดคำศัพท์ที่ใช้ทั่วไปในการพัฒนาของ Electron
 
 ### ASAR
 

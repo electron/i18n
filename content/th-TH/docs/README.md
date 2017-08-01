@@ -34,68 +34,68 @@
 * [REPL](tutorial/repl.md)
 * [การแจ้งเตือนแบบเนทีฟ](tutorial/notifications.md)
 
-## API References
+## การอ้างอิง API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [บทย่อ](api/synopsis.md)
+* [กระบวนการของวัตถุ](api/process.md)
+* [รองรับการสลับคำสั่งของ Chrome](api/chrome-command-line-switches.md)
+* [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 
-### Custom DOM Elements:
+### การสร้างสมาชิก DOM
 
-* [`File` Object](api/file-object.md)
+* [ออบเจค `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [ฟังก์ชัน `window.open`](api/window-open.md)
 
-### Modules for the Main Process:
+### โมดูลสำหรับกระบวนการหลัก:
 
-* [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
+* [แอพ](api/app.md)
+* [ตัวอัพเดทอัตโนมัติ](api/auto-updater.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
+* [กล่องโต้ตอบ](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
 * [เมนู](api/menu.md)
-* [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [รายการบนเมนู](api/menu-item.md)
+* [เน็ต](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
-* [session](api/session.md)
+* [โพรโทคอล](api/protocol.md)
+* [เซสชั่น](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [Tray](api/tray.md)
+* [ถาด](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### โมดูลสำหรับกระบวนการเรนเดอร์ (หน้าเว็บ):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [ระยะไกล](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### โมดูลสำหรับกระบวนการทั้งสอง:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
-* [shell](api/shell.md)
+* [หน้าจอ](api/screen.md)
+* [เชลล์](api/shell.md)
 
-## Development
+## การพัฒนา
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [ลักษณะการเขียนโค้ด](development/coding-style.md)
+* [การใช้รูปแบบ clang ในโค้ด C++](development/clang-format.md)
+* [โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ](development/source-code-directory-structure.md)
+* [ความแตกต่างทางเทคนิคระหว่าง NW.js (node-webkit ในอดีต)](development/atom-shell-vs-node-webkit.md)
+* [สร้างภาพรวมของระบบ](development/build-system-overview.md)
+* [คำแนะนำการสร้าง (macOS)](development/build-instructions-osx.md)
+* [คำแนะนำการสร้าง (Windows)](development/build-instructions-windows.md)
+* [คำแนะนำการสร้าง (Linux)](development/build-instructions-linux.md)
+* [คำแนะนำการดีบัก (macOS)](development/debugging-instructions-macos.md)
+* [คำแนะนำการดีบัก (Windows)](development/debug-instructions-windows.md)
+* [การตั้งค่าเซิร์ฟเวอร์ในตัวดีบักเกอร์](development/setting-up-symbol-server.md)
+* [เอกสารประกอบแนวทางลักษณะ](styleguide.md)
+* [อัพเกรดโครม](development/upgrading-chrome.md)
+* [การพัฒนาโครเมี่ยม](development/chromium-development.md)
+* [การพัฒนา V8](development/v8-development.md)

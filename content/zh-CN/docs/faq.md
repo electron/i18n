@@ -67,7 +67,7 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## 我在 Electron 中无法使用 jQuery、RequireJS、Meteor、AngularJS。
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
@@ -98,7 +98,7 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` 未定义。
 
 When using Electron's built-in module you might encounter an error like this:
 

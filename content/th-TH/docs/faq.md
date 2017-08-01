@@ -1,39 +1,39 @@
 # คำถามที่พบบ่อยของ Electron
 
-## When will Electron upgrade to latest Chrome?
+## เมื่อไหร่ Electron จะอัพเกรดเป็น Chrome ตัวล่าสุด?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+เวอร์ชั่นของ Chrome ใน Electron นั้นจะถูกอัพเกรดภายในหนึ่งถึงสองสัปดาห์หลังจากที่มีการปล่อย Chrome รุ่นที่เสถียรออกมา การประเมินที่เป็นแค่การคาดเดาและขึ้นอยู่กับจำนวนของงานที่เกี่ยวข้องในการอัพเดรด
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+เฉพาะช่องที่เสถียรของ Chrome ทีจะถูกใช้ หากมีการแก้ไขที่สำคัญที่ช่องเบต้าหรือช่องพัฒนา เราจะนำมันเข้ามาในเวอร์ชั่นที่ใช้อยู่
 
-For more information, please see the [security introduction](tutorial/security.md).
+สำหรับข้อมูลเพิ่มเติม โปรดดู[บทนำความปลอดภัย](tutorial/security.md)
 
-## When will Electron upgrade to latest Node.js?
+## เมื่อไหร่ Electron จะอัพเกรดเป็น Node.js ตัวล่าสุด?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+เมื่อมีเวอร์ชั่นใหม่ของ Node.js ออกมา เราจะรอประมาณหนึ่งเดือนก่อนที่จะอัพเกรดมันใน Electron เพื่อที่ว่าเราจะได้หลีกเลี่ยงผลกระทบจากจุดบกพร่องต่างๆใน Node.js เวอร์ชั่นใหม่ซึ่งเกิดขึ้นอยู่บ่อยครั้ง
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+คุณลักษณะใหม่ของ Node.js นั้นมักจะมาโดยการอัพเกรด V8 เนื่องจาก Electron นั้นใช้ V8 ที่มาพร้อมกับเบราว์เซอร์ Chrome คุณลักษณะใหม่ของ Node.js เวอร์ชั่นใหม่นั้นโดยส่วนมากจะมีอยู่ใน Electron แล้ว
 
-## How to share data between web pages?
+## วิธีการแชร์ข้อมูลระหว่างหน้าเว็บ?
 
 To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
-// In the main process.
+// ในกระบวนการหลัก
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// ในหน้า 1
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// ในหน้า 2
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -56,7 +56,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+เป็นดังต่อไปนี้:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -74,7 +74,6 @@ Due to the Node.js integration of Electron, there are some extra symbols inserte
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {

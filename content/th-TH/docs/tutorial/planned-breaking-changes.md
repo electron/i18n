@@ -97,7 +97,7 @@ process.versions.electron
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
-## `session`
+## `เซสชั่น`
 
 ```js
 // Deprecated
@@ -110,7 +110,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Tray`
+## `ถาด`
 
 ```js
 // Deprecated
