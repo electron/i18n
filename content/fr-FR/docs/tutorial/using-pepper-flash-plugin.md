@@ -8,7 +8,7 @@ Sur macOS et Linux, on trouvera les détails du plugin Pepper Flash en accédant
 
 ## Ajout de paramètres Electron
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Vous pouvez directement ajouter `--ppapi-flash-path` et `--ppapi-flash-version` à la ligne de commande d'Electron ou en utilisant la méthode `app.commandLine.appendSwitch` avant l’événement ready de l'application. Aussi, veuillez activer l'option `plugins` de `BrowserWindow`.
 
 Par exemple :
 
