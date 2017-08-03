@@ -1,10 +1,10 @@
 # Electron 常见问题
 
-## When will Electron upgrade to latest Chrome?
+## Electron 会在什么时候升级到最新版本的 Chrome？
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+通常来说，在稳定版的 Chrome 发布后一到两周内，我们会更新 Electron 内的 Chrome 版本。 这个只是个估计且不能保证，取决于与升级所涉及的工作量。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+我们只会使用 stable 版本的 Chrome。但如果在 beta 或 dev 版本中有一个重要的更新，我们会把补丁应用到现版本的 Chrome 上。
 
 For more information, please see the [security introduction](tutorial/security.md).
 
