@@ -6,9 +6,9 @@ Electron prend en charge le plugin Pepper Flash. Pour utiliser le plugin Pepper 
 
 Sur macOS et Linux, on trouvera les détails du plugin Pepper Flash en accédant à `chrome://plugins` dans le navigateur Chrome. Son emplacement et sa version sont utiles pour le support de Pepper Flash dans Electron. Vous pouvez également le copier vers un autre emplacement.
 
-## Add Electron Switch
+## Ajout de paramètres Electron
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Vous pouvez directement ajouter `--ppapi-flash-path` et `--ppapi-flash-version` à la ligne de commande d'Electron ou en utilisant la méthode `app.commandLine.appendSwitch` avant l’événement ready de l'application. Aussi, veuillez activer l'option `plugins` de `BrowserWindow`.
 
 Par exemple :
 
@@ -47,7 +47,7 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+Vous pouvez aussi essayer de charger le plugin Pepper Flash depuis le système au lieu de le distribuer vous-même. Son chemin d'accès peut être donné en appelant `app.getPath('pepperFlashSystemPlugin')`.
 
 ## Activez le Plugin Flash dans une balise `<webview>`
 
