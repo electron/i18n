@@ -46,7 +46,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 * [内存管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [变量作用域](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+如果你只是要一个快速的修复方案，你可以用下面的方式改变变量的作用域，防止这个变量被垃圾回收。
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -56,7 +56,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+改为
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -69,12 +69,12 @@ app.on('ready', () => {
 
 ## 我在 Electron 中无法使用 jQuery、RequireJS、Meteor、AngularJS。
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+因为 Electron 在运行环境中引入了 Node.js，所以在 DOM 中有一些额外的变量，比如 `module`、`exports` 和` require`。 这导致 了许多库不能正常运行，因为它们也需要将同名的变量加入运行环境中。
 
-To solve this, you can turn off node integration in Electron:
+我们可以通过禁用 Node.js 来解决这个问题，在Electron里用如下的方式：
 
 ```javascript
-// In the main process.
+// 在主进程中
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -84,7 +84,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+假如你依然需要使用 Node.js 和 Electron 提供的 API，你需要在引入那些库之前将这些变量重命名，比如：
 
 ```html
 <head>
@@ -100,15 +100,15 @@ delete window.module;
 
 ## `require('electron').xxx` 未定义。
 
-When using Electron's built-in module you might encounter an error like this:
+在使用 Electron 的提供的模块时，你可能会遇到和以下类似的错误：
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+这是因为你在项目中或者在全局中安装了[npm 上获取的 `electron` 模块](https://www.npmjs.com/package/electron)，它把 Electron 的内置模块覆写了。
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+你可以通过以下方式输出 `electron` 模块的路径来确认你是否使用了正确的模块。
 
 ```javascript
 console.log(require.resolve('electron'))
