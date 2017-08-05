@@ -1,10 +1,10 @@
 # 键盘快捷键
 
-> Configure local and global keyboard shortcuts
+> 配置本地和全局键盘快捷键
 
 ## 本地快捷键
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+您可以使用 [Menu] 模块来配置快捷键，只有在 app 处于焦点状态时才可以触发快捷键。 为此，在创建 [MenuItem](../api/menu-item.md)时必须指定一个 [`accelerator`] 属性。
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+还可以很容易的根据用户的操作系统配置不同的组合键。
 
 ```js
 {
@@ -27,7 +27,7 @@ It's easy to configure different key combinations based on the user's operating 
 
 ## 全局快捷键
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+当应用程序不处于焦点状态时，你可以使用 [globalShortcut](../api/global-shortcut.md) 模块来检测键盘事件，
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -41,37 +41,37 @@ app.on('ready', () => {
 
 ## 在浏览器窗口内的快捷方式
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+如果你想处理 [BrowserWindow](../api/browser-window.md)中的键盘快捷键，你可以监听渲染进程中 window 对象的 `keyup` 和 `keydown` 事件。
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+注意第三个参数 `true`，这意味着监听器总是在其他监听器之前接收按键，所以它们不能对它们调用 `stopPropagation`。
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+如果您不想手动进行快捷键解析，可以使用一些库来进行高级的按键检测。例如 [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// 组合
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// 将多个组合映射到相同的回调
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // 返回 false 以防止默认行为，并阻止事件冒泡
   return false
 })
 
-// gmail style sequences
+//  gmail 风格序列
 Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
-// konami code!
+// konami 代码
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
