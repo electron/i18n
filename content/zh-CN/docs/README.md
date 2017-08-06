@@ -1,8 +1,8 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+请确认你的使用的文档匹配你的 Electron 版本。 你可以在页面的 URL 中找到版本号。 如果不是，你可能在使用开发分支版本的文档，其中包括了一些与你的 Electron 版本不兼容的 API。 如果想要访问老版本的文档，你可以通过 GitHub 的[切换分支功能](https://github.com/electron/electron/tree/v1.4.0)，在下拉菜单中选择与你的版本匹配的分支。
 
 ## 常见问题
 
-There are questions that are asked quite often. Check this out before creating an issue:
+这里是一些被经常问到的问题，在提 issue 之前请先看一下这里。
 
 * [Electron 常见问题](faq.md)
 
@@ -12,9 +12,9 @@ There are questions that are asked quite often. Check this out before creating a
 * [支持平台](tutorial/supported-platforms.md)
 * [安全](tutorial/security.md)
 * [Electron 版本管理](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
+* [分发应用](tutorial/application-distribution.md)
 * [Mac App Store 应用程序提交指南](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
+* [Windows 商店提交指南](tutorial/windows-store-guide.md)
 * [应用程序打包](tutorial/application-packaging.md)
 * [使用 Node 原生模块](tutorial/using-native-node-modules.md)
 * [主进程调试](tutorial/debugging-main-process.md)
@@ -29,25 +29,25 @@ There are questions that are asked quite often. Check this out before creating a
 ## 教程
 
 * [快速入门](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [桌面环境集成](tutorial/desktop-environment-integration.md)
+* [在线/离线事件探测](tutorial/online-offline-events.md)
 * [交互式解释器 (REPL)](tutorial/repl.md)
 * [系统原生通知](tutorial/notifications.md)
 
 ## API 参考
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [简介](api/synopsis.md)
+* [进程对象](api/process.md)
+* [支持的 Chrome 命令行开关](api/chrome-command-line-switches.md)
+* [环境变量](api/environment-variables.md)
 
-### Custom DOM Elements:
+### 自定义的 DOM 元素:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`File` 对象](api/file-object.md)
+* [`<webview>`标签](api/webview-tag.md)
+* [`window.open` 函数](api/window-open.md)
 
-### Modules for the Main Process:
+### 在主进程内可用的模块:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -67,14 +67,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### 在渲染进程（网页）内可用的模块:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### 在两种进程中都可用的模块:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -85,15 +85,15 @@ There are questions that are asked quite often. Check this out before creating a
 ## 开发
 
 * [代码规范](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
+* [在 C++ 代码中使用 clang-format 工具](development/clang-format.md)
+* [源码目录结构](development/source-code-directory-structure.md)
+* [与 NW.js（原 node-webkit）在技术上的差异](development/atom-shell-vs-node-webkit.md)
+* [构建系统概览](development/build-system-overview.md)
+* [构建步骤（macOS）](development/build-instructions-osx.md)
+* [构建步骤（Windows）](development/build-instructions-windows.md)
+* [构建步骤（Linux）](development/build-instructions-linux.md)
+* [调试步骤 (macOS)](development/debugging-instructions-macos.md)
+* [调试步骤 (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
 * [Upgrading Chrome](development/upgrading-chrome.md)
