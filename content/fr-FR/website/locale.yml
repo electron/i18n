@@ -8,7 +8,7 @@ nav:
   releases: Versions
   contact: Contact
 electron_is_easy:
-  title: C'est plus facile que vous ne le pensiez
+  title: C'est plus facile que vous ne le pensez
   description: Si vous pouvez développer un site, vous pouvez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme le JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
   video_link: Voir la vidéo
 web_technologies:
