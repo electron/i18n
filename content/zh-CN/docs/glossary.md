@@ -10,33 +10,33 @@ ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray) 是能够简单的让 [libchromiumcontent](#libchromiumcontent) 在应用中使用的一个静态库 It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
+[Brightray](https://github.com/electron/brightray) 是能够简单的让 [libchromiumcontent](#libchromiumcontent) 在应用中使用的一个静态库 它是专门为 Electron 创建的。但如果不是基于 Electron 的原生应用使用了 Chromium ，同样可使用该库。
 
-Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
+Brightray 是 Electron 中的一个低级别的依赖，大部分的 Electron 用户不用关心它。
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+是指在 macOS 上使用的苹果系统的磁盘镜像打包格式。 DMG 文件通常被用来分发应用的 "installers"（安装包）。 [electron-builder ](https://github.com/electron-userland/electron-builder)支持使用 dmg 来作为编译目标。
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在[main(主进程)](#main-process)和[renderer(渲染进程)](#renderer-process)之间传递 JSON 信息。
 
 ### libchromiumcontent
 
-A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
+一个单独的开源库，包含了 Chromium 的模块以及全部依赖（比如 Blink, [V8](#v8) 等）。
 
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+主进程，通常是值` main.js` 文件，是每个 Electron 应用的入口文件。它控制着整个 APP 的生命周期，从打开到关闭。 它也管理着原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+每个 app 的主进程文件都定义在 `package.json` 中的 `main` 属性当中。这也是为什么 `electron.` 能够知道应该使用哪个文件来启动。
 
-See also: [process](#process), [renderer process](#renderer-process)
+参见： [process](#process), [renderer](#renderer-process) process
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
+苹果系统上的 Mac App Store 的缩略词。有关于如何提交你的 app 至 MAS ，详见 [Mac App Store Submission Guide ](tutorials/mac-app-store-submission-guide.md)。
 
 ### native modules
 
