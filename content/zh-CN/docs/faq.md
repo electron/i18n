@@ -6,7 +6,7 @@
 
 我们只会使用 stable 版本的 Chrome。但如果在 beta 或 dev 版本中有一个重要的更新，我们会把补丁应用到现版本的 Chrome 上。
 
-For more information, please see the [security introduction](tutorial/security.md).
+更多信息，请看[安全介绍](tutorial/security.md)
 
 ## Electron 会在什么时候升级到最新版本的 Node.js？
 

@@ -35,7 +35,7 @@ explore:
   description:
     - '<a href="https://github.com/electron/electron-api-demos"> Electron API 演示应用程序</a>'
     - 交互式演示 Electron API 最重要的功能。
-    - 通过示例带么和有用的提示, 看看 Electron 能做什么
+    - 通过示例demo和有用的提示, 看看 Electron 能做什么
     - 构建你的应用程序。
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: '在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>'

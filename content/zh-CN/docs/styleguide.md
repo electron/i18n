@@ -1,16 +1,16 @@
-# Electron Documentation Styleguide
+# Electron 文档风格指南
 
-These are the guidelines for writing Electron documentation.
+这里是一些编写 Electron 文档的指南.
 
-## Titles
+## 标题
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* 每个页面顶部必须有一个单独的 `＃`级标题。
+* 同一页面中的章节必须有` ##` 级标题。
+* 子章节需要根据它们的嵌套深度增加标题中的`＃`数量
+* 页面标题中的所有单词首字母都必须大写，除了 “of” 和 “and” 之类的连接词。
+* 只有章节标题的第一个单词首字母必须是大写.
 
-Using `Quick Start` as example:
+举一个`Quick Start`的例子:
 
 ```markdown
 # Quick Start
@@ -38,31 +38,31 @@ Using `Quick Start` as example:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+对于 API 参考, 可以例外于这些规则.
 
-## Markdown rules
+## Markdown 规则
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* 在代码块中使用`bash`而不是`cmd`（由于语法高亮问题）.
+* 行长度应该控制在80列内.
+* 列表嵌套不超出2级 (由于 Markdown 渲染问题).
+* 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## 用词选择
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* 在描述结果时，使用 “will” 而不是 “would”。
+* 首选 "in the ___ process" 而不是 "on".
 
-## API references
+## API 参考
 
-The following rules only apply to the documentation of APIs.
+以下规则仅适用于 API 的文档。
 
-### Page title
+### 页面标题
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+每个页面必须使用由 `require（'electron'）` 返回的实际对象名称作为标题，例如` BrowserWindow`，`autoUpdater` 和 `session`。
 
-Under the page tile must be a one-line description starting with `>`.
+在页面标题下必须是以`>`开头的单行描述。
 
-Using `session` as example:
+举一个 `session` 的例子:
 
 ```markdown
 # session
@@ -70,11 +70,11 @@ Using `session` as example:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### 模块方法和事件
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+对于非类的模块，它们的方法和事件必须在 `## Methods` 和 `## Events `章节中列出
 
-Using `autoUpdater` as an example:
+举一个 `autoUpdater` 的例子:
 
 ```markdown
 # autoUpdater
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### 类
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
