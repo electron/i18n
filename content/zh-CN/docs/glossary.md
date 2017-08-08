@@ -1,4 +1,4 @@
-# Glossary
+# 术语表
 
 这篇文档说明了一些经常在 Electron 开发中使用的专业术语。
 
@@ -10,7 +10,7 @@ ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray) is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications. It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
+[Brightray](https://github.com/electron/brightray) 是能够简单的让 [libchromiumcontent](#libchromiumcontent) 在应用中使用的一个静态库 It was created specifically for Electron, but can be used to enable Chromium's renderer in native apps that are not based on Electron.
 
 Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
 
