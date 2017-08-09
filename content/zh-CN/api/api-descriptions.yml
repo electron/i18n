@@ -1,16 +1,17 @@
 app.description: 控制你的应用程序的事件生命周期。
 app.methods.quit.description: >-
-  Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+  试图关掉所有的窗口。before-quit 事件将会最先被触发。如果所有的窗口都被成功关闭了， will-quit 事件将会被触发，默认下应用将会被关闭。这个方法保证了所有的 beforeunload 和 unload 事件处理器被正确执行。假如一个窗口的 beforeunload 事件处理器返回 false，那么整个应用可能会取消退出。
 app.methods.exit.description: >-
-  Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
+  退出应用时带着 exitCode，exitCode 默认为0。所有的窗口会被立刻关闭，不会询问用户。before-quit 和 will-quit 这2个事件不会被触发
 app.methods.relaunch.description: >-
-  Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
-app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
+  当前实例退出，重启应用。默认情况下，新的实例会和当前实例使用相同的工作目录以及命令行参数。当指定了 args 参数时， args 将会被作为替换的命令行参数。当指定了 execPath 参数时，execPath 将会作为执行的目录。注意，这个方法不会退出正在执行的应用。你需要在调用app.relaunch方法后再执行app.quit或者app.exit 来让应用重启。调用多次app.relaunch方法，当前实例退出后多个实例会被启动。例子：立即重启当前实例并向新的实例添加一个新的命令行参数：
+app.methods.isReady.returns.description: 'true 如果Electron 初始化完成, false 为其他情况.'
 app.methods.focus.description: >-
-  On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-app.methods.hide.description: Hides all application windows without minimizing them.
+  
+  在Linux系统中, 让第一个可见窗口会获取焦点。在 macOS 系统中, 让该应用成为活动应用程序。在 Windows 系统中, 使应用的第一个窗口获取焦点.
+app.methods.hide.description: 隐藏所有的应用窗口，不是最小化.
 app.methods.show.description: >-
-  Shows application windows after they were hidden. Does not automatically focus them.
+  隐藏后重新显示所有的窗口，不会自动选中他们。
 app.methods.getAppPath.returns.description: The current application directory.
 app.methods.getPath.description: 'You can request the following paths by the name:'
 app.methods.getPath.returns.description: >-
