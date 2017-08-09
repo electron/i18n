@@ -2,15 +2,15 @@
 
 Read-Eval-Print-Loop (REPL, レプル) は、単一のユーザー入力 (すなわち単一の式) を受け取り、それらを評価して、結果をユーザーに返す、単純な対話型評価環境です。
 
-The `repl` module provides a REPL implementation that can be accessed using:
+`repl`モジュールは、以下を使用してアクセスできるREPL実装を提供します。
 
-* Assuming you have `electron` or `electron-prebuilt` installed as a local project dependency:
+* ローカルプロジェクトの依存関係として`electron`または`electron-prebuilt`がインストールされていると仮定します。
     
     ```sh
 ./node_modules/.bin/electron --interactive
 ```
 
-* Assuming you have `electron` or `electron-prebuilt` installed globally:
+* グローバルに`electron`または`electron-prebuilt`がインストールされていると仮定します。
     
     ```sh
 electron --interactive
