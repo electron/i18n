@@ -4,7 +4,7 @@
 
 ## ローカルショートカット
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+[Menu](../api/menu.md)モジュールを使用して、アプリケーションにフォーカスがあるときにのみ起動されるキーボードショートカットを設定できます。 これを行うには、[MenuItem](../api/menu-item.md)を作成するときは、[`accelerator`] プロパティを使用します。
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+ユーザーのオペレーティングシステムに基づいて異なるキーの組み合わせを構成することは簡単です。
 
 ```js
 {
@@ -41,15 +41,15 @@ app.on('ready', () => {
 
 ## BrowserWindow 内のショートカット
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+[BrowserWindow](../api/browser-window.md)のキーボードショートカットを処理する場合は、レンダラープロセス内のウィンドウオブジェクトで`keyup`および`keydown`イベントリスナーを使用できます。
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+3番目のパラメータ`true`に注意してください。これは、リスナーが他のリスナーの前に常にキー押下を受け取り、`stopPropagation()`を呼び出すことができないことを意味します。
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+実行したくない場合は[mousetrap](https://github.com/ccampbell/mousetrap)などキーを検出高度なマニュアル ショートカット解析を行うライブラリがあります。
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
