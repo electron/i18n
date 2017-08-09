@@ -1,8 +1,8 @@
 app.description: 控制你的应用程序的事件生命周期。
 app.methods.quit.description: >-
-  Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
+  试图关掉所有的窗口。before-quit 事件将会最先被触发。如果所有的窗口都被成功关闭了， will-quit 事件将会被触发，默认下应用将会被关闭。这个方法保证了所有的 beforeunload 和 unload 事件处理器被正确执行。假如一个窗口的 beforeunload 事件处理器返回 false，那么整个应用可能会取消退出。
 app.methods.exit.description: >-
-  Exits immediately with exitCode.  exitCode defaults to 0. All windows will be closed immediately without asking user and the before-quit and will-quit events will not be emitted.
+  退出应用时带着 exitCode，exitCode 默认为0。所有的窗口会被立刻关闭，不会询问用户。before-quit 和 will-quit 这2个事件不会被触发
 app.methods.relaunch.description: >-
   Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
 app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
