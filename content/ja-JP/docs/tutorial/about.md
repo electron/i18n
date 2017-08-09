@@ -42,7 +42,7 @@ For instance, Electron uses just the rendering library from Chromium rather than
 
 New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
 
-## 沿革
+## 履歴
 
 Electronのマイルストーンは以下の通りです。
 
