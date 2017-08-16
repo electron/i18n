@@ -35,7 +35,6 @@
     "build": "script/build.js",
     "test": "mocha",
     "release": "script/release.sh",
-    "prepack": "check-for-leaks",
     "prepush": "check-for-leaks"
   },
   "engines": {
