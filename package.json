@@ -1,5 +1,6 @@
 {
   "name": "electron-i18n",
+  "private": true,
   "version": "1.0.0",
   "description": "The home of Electron's translateable content",
   "main": "index.js",
@@ -35,7 +36,6 @@
     "build": "script/build.js",
     "test": "mocha",
     "release": "script/release.sh",
-    "prepack": "check-for-leaks",
     "prepush": "check-for-leaks"
   },
   "engines": {
