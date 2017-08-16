@@ -1,5 +1,6 @@
 {
   "name": "electron-i18n",
+  "private": true,
   "version": "1.0.0",
   "description": "The home of Electron's translateable content",
   "main": "index.js",
