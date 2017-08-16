@@ -33,10 +33,10 @@ Most releases will be `patch` level. Upgrades to Chrome or other major changes s
 
 ## リリースのドラフトを編集する
 
-  1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-  2. リリースを編集し、リリースノートを追加します。
-  3. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
-  4. すべてのビルドがパスするのを待ちます :hourglass_flowing_sand:
+1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
+2. リリースを編集し、リリースノートを追加します。
+3. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
+4. すべてのビルドがパスするのを待ちます :hourglass_flowing_sand:
 
 ## テンポラリなブランチをマージ
 
@@ -56,7 +56,7 @@ git rebase master
 git push origin HEAD
 ```
 
-## Run local debug build
+## ローカルのデバッグビルドを実行する
 
 Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
 

@@ -17,13 +17,13 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## コードを取得する
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## ブートストラップ
 
 The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
@@ -32,7 +32,7 @@ $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## ビルド
 
 Build both Release and Debug targets:
 
@@ -48,7 +48,7 @@ $ python script\build.py -c D
 
 After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
 
-## 32bit Build
+## 32ビットビルド
 
 To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
@@ -58,7 +58,7 @@ $ python script\bootstrap.py -v --target_arch=ia32
 
 The other building steps are exactly the same.
 
-## Visual Studio project
+## Visual Studio プロジェクト
 
 To generate a Visual Studio project, you can pass the `--msvs` parameter:
 
@@ -82,11 +82,11 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## テスト
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Troubleshooting
+## トラブルシューティング
 
 ### Command xxxx not found
 
