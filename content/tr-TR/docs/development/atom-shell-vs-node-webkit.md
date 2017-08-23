@@ -1,6 +1,6 @@
-# Technical Differences Between Electron and NW.js (formerly node-webkit)
+# Electron.js ve NW.js arasındaki teknik farklılıklar (eskiden node-webkit)
 
-**Note: Electron was previously named Atom Shell.**
+**Not: Electron önceden Atom Shell olarak adlandırılmıştı.**
 
 Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
 
