@@ -2,7 +2,7 @@
 
 **Not: Electron önceden Atom Shell olarak adlandırılmıştı.**
 
-Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
+NW.js gibi Electron, JavaScript ve HTML ile masaüstü uygulamaları yazmak için bir platform sağlar ve web sayfalarından düşük düzeyde sisteme erişim vermek Node entegrasyon vardır.
 
 But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
 
