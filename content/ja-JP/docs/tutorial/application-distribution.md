@@ -59,9 +59,9 @@ Electronにアプリバンドルした後、ユーザーに配布する前に、
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+アクティビティモニタ上で`Electron Helper`と表示されるのを避けるために、ヘルパーアプリケーションの名前を変更することも出来ます。ただし、ヘルパーアプリの実行可能ファイルの名前の変更を行っていることを今一度確認してください。
 
-The structure of a renamed app would be like:
+名前を変更したアプリケーションの構造は以下のようになります：
 
     MyApp.app/Contents
     ├── Info.plist
@@ -84,18 +84,18 @@ The structure of a renamed app would be like:
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+実行可能ファイル `electron`の名前は任意の名前に変更できます。
 
-## Packaging Tools
+## パッケージ化ツール
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+アプリのパッケージ化を手動で行う代わりに、サードパーティー製の自動パッケージ化ツールを使用できます。
 
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Electronをソースからリビルドしてカスタマイズ
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+ソースから製品名を変更してビルドすることで、Electronをカスタマイズすることも可能です。これを行うためには、`atom.gyp`を編集して、一からリビルドを行う必要があります。
 
 ### grunt-build-atom-shell
 
