@@ -36,11 +36,11 @@ NodeとChromiumに強く依存しているので、Electronは少し難しい位
 
 ## 基本理念
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Electronのファイルサイズを小さく、そして依存とAPIを維持可能なものとするために、本プロジェクトの扱う領域は制限されます。
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+例えば、ElectronはChromiumのすべてを使用するわけではなく、Chromiumのレンダリングライブラリのみを使用します。 これにより、使用しているChromiumのアップデートをしやすくしますが、Google Chromeにある機能のうちいくつかがElectronにはふくまれないことになります。
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Electronに追加される新しい機能はネイティブAPIであるべきです。 If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
 
 ## 履歴
 
