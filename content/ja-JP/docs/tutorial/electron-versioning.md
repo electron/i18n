@@ -1,33 +1,33 @@
 # Electronのバージョン管理
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+もしあなたが経験豊富なNodeプログラマなら、SemVer([セマンティックバージョニング](http://semver.org)) のことはご存知でしょう。 これは、ソフトウェア使用者にどのソフトウェアバージョン番号を指定するべきかを知らせるための慣習です。
 
-## Overview of Semantic Versioning
+## セマンティックバージョニングの概要
 
-Semantic versions are always made up of three numbers:
+セマンティックバージョン番号は常に3つの数字から成り立っています：
 
     major.minor.patch
     
 
-Semantic version numbers are bumped (incremented) using the following rules:
+セマンティックバージョン番号は次のルールに従って上げられます：
 
-* **Major** is for changes that break backwards compatibility.
-* **Minor** is for new features that don't break backwards compatibility.
-* **Patch** is for bug fixes and other minor changes.
+* **Major**は、後方互換性が壊れる変更がある場合。
+* **Minor**は、後方互換性が壊れない新しい機能の場合。
+* **Patch** は、バグ修正とその他のマイナーな変更です。
 
-A simple mnemonic for remembering this scheme is as follows:
+このルールの簡単な覚え方がこうです：
 
     breaking.feature.fix
     
 
 ## Electronのバージョン管理
 
-Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **You should therefore always reference a specific version of Electron.**
+NodeとChromiumに依存しているため、ElectronはSemVerに完全に従うことが出来ません。 **そのため、いつでも特定バージョンのElectronを指定しないといけません。**
 
-Electron version numbers are bumped using the following rules:
+セマンティックバージョン番号は次のルールに従って上げられます：
 
-* **Major** is for breaking changes in Electron's API. If you upgrade from `0.37.0` to `1.0.0`, you will have to make changes to your app.
-* **Minor** is for major Chrome and minor Node upgrades, or significant Electron changes. If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
+* **Major**はElectron APIの大きな変更があるときです。例えば、`0.37.0`から`1.0.0`にアップデートした場合、アプリを変更する必要があります。
+* **Minor**はChromiumのメジャー番号の変更・Nodeのマイナーアップデート・Electronの大きな変更があった場合です。 If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
 * **Patch** is for new features and bug fixes. If you upgrade from `1.6.2` to `1.6.3`, your app will continue to work as-is.
 
 We recommend that you set a fixed version when installing Electron from npm:
