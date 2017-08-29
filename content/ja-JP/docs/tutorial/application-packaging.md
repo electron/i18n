@@ -144,4 +144,4 @@ Node APIで、`asar` アーカイブがディレクトリのように動作す�
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+このコマンドを実行した後、`app.asar` とは別に、アンパックされたファイルを含んだ`app.asar.unpacked` フォルダーが生成されます。ユーザーに提供するときには、`app.asar` と一緒にコピーしなければなりません
