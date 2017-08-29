@@ -18,9 +18,9 @@ ElectronはGitHubのチームと、コミュニティで[活動中の開発貢�
 
 ### 依存関係の更新
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electronに含まれるChromiumのバージョンは、新しい安定版のChromiumがリリースされてから、変更内容の大きさに応じて、1〜2週間以内にアップデートされます。
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Node.js の新しいバージョンがリリースされたとき、より安定したバージョンを使用できるように、Electron の Node.js を更新するのを通常約1か月待ちます。
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
