@@ -7,12 +7,12 @@ app.methods.relaunch.description: >-
   Relaunches the app when current instance exits. By default the new instance will use the same working directory and command line arguments with current instance. When args is specified, the args will be passed as command line arguments instead. When execPath is specified, the execPath will be executed for relaunch instead of current app. Note that this method does not quit the app when executed, you have to call app.quit or app.exit after calling app.relaunch to make the app restart. When app.relaunch is called for multiple times, multiple instances will be started after current instance exited. An example of restarting current instance immediately and adding a new command line argument to the new instance:
 app.methods.isReady.returns.description: 'true if Electron has finished initializing, false otherwise.'
 app.methods.focus.description: >-
-  On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
-app.methods.hide.description: Hides all application windows without minimizing them.
+  在 Linux，會將焦點放在第一個可見的視窗。在 macOS，會使應用程式活躍。在 Windows，會將焦點放在應用程式的第一個視窗。
+app.methods.hide.description: 將所有應用程式視窗隱藏但沒有將視窗縮到最小。
 app.methods.show.description: >-
-  Shows application windows after they were hidden. Does not automatically focus them.
+  在應用程式視窗隱藏後顯示它們。不會自動將焦點移到視窗上。
 app.methods.getAppPath.returns.description: 當前的應用程式目錄。
-app.methods.getPath.description: 'You can request the following paths by the name:'
+app.methods.getPath.description: '您可以通過名稱請求以下路徑：'
 app.methods.getPath.returns.description: >-
   A path to a special directory or file associated with name. On failure an Error is thrown.
 app.methods.getFileIcon.description: >-
@@ -38,7 +38,7 @@ app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
   The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 app.methods.setAsDefaultProtocolClient.parameters.path.description: 預設值為 `process.execPath`
 app.methods.setAsDefaultProtocolClient.parameters.args.description: 預設值為一個空陣列
-app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+app.methods.setAsDefaultProtocolClient.returns.description: 調用是否成功。
 app.methods.removeAsDefaultProtocolClient.description: >-
   This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: '你的協定名稱，不包含 `://` 部分。'
@@ -87,7 +87,7 @@ app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
   Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
-app.methods.setBadgeCount.returns.description: Whether the call succeeded.
+app.methods.setBadgeCount.returns.description: 調用是否成功。
 app.methods.getBadgeCount.returns.description: The current value displayed in the counter badge.
 app.methods.isUnityRunning.returns.description: Whether the current desktop environment is Unity launcher.
 app.methods.getLoginItemSettings.description: >-
