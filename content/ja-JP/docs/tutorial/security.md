@@ -4,7 +4,7 @@ Web開発者は通常、ブラウザの強力なセキュリティ機能のお�
 
 Electronで開発を行う時、「Electronはブラウザではない」ということを認識する必要があります。 使い慣れたWeb技術を用いて豊富な機能を持つデスクトップアプリケーションを作成することができますが、Webアプリを書く時に比べて、あなたの書くコードが大きな力を持つことになります。 JavaScriptがファイルシステムやシェルなどにアクセスできます。 これはつまり、質の高いネイティブアプリケーションを作成することができる反面、あなたの書くコードに与えられた権限に応じて固有のセキュリティリスクが増加するということです。
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. 実際、Atom, Slack, Visual Studio Codeといった人気のあるElectronアプリケーションは、主にローカル（あるいは信頼されており、なおかつNode integrationを使用しないリモート）のコンテンツを取り扱います。もしあなたのアプリケーションがオンライン上のリソースからコードを実行する場合、あなたの責任の下でそのコードが悪意のあるものではないことを確認する必要があります。
+そのことを頭に入れて、信頼できないソースから得られた任意の内容を表示することは、Electronが意図しない重要なセキュリティリスクを生み出すことに注意してください。 実際、Atom, Slack, Visual Studio Codeといった人気のあるElectronアプリケーションは、主にローカル（あるいは信頼されており、なおかつNode integrationを使用しないリモート）のコンテンツを取り扱います。もしあなたのアプリケーションがオンライン上のリソースからコードを実行する場合、あなたの責任の下でそのコードが悪意のあるものではないことを確認する必要があります。
 
 ## セキュリティ問題の報告
 
@@ -12,15 +12,15 @@ For information on how to properly disclose an Electron vulnerability, see [SECU
 
 ## Chromiumのセキュリティ問題とアップグレード
 
-While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+Electronは新しいバージョンのChromiumを出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることを後理解ください。 たくさんのリソースと貢献を受けていますが、ElectronはChromium最新版に追いついてないこともあり、数日・数週間遅れることがあります。
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+現在のChromiumコンポーネントのアップデートシステムは、使用できるリソースとほとんどのアプリケーションの需要を満たす、適切なバランスの場所にあると思います。 我々は、Electronを使用する個々のケースに関する意見をいただきたいと思っています。 この件に関するPull requestと貢献をいつでも歓迎します。
 
-## Ignoring Above Advice
+## 上記の忠告を無視した場合
 
-A security issue exists whenever you receive code from a remote destination and execute it locally. As an example, consider a remote website being displayed inside a browser window. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+リモートで得られたコードをローカルで実行した場合、セキュリティ問題が発生することになります。 例えば、ブラウザでリモートのウェブサイトを表示することを考えてみてください。 もし攻撃者がどうにかして(情報源そのものの攻撃や中間者攻撃によって)得られる内容を変更した場合、ユーザーのPC上でネイティブコードを実行できることになります。
 
-> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: Node integration有効な環境で、リモートコードの読み込みと実行を行うべきではありません。 代わりに、Nodeコードの実行には(アプリケーション内の)ローカルのファイルを使用してください。 リモートのデータの内容を表示するには`webview`を使用して、`nodeIntegration`を無効にしてください。
 
 #### チェックリスト
 
@@ -30,12 +30,12 @@ A security issue exists whenever you receive code from a remote destination and 
 * リモートのコンテンツを表示するすべてのレンダラプロセスにおいて、Node integrationを無効にする(`webPreferences`において`nodeIntegration`を`false`にする)
 * Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
 * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
+* `webSecurity`を無効にしないください。無効にすると、same-origin policyが無効になります。
+* [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)を定義して、スクリプトの読み込み元を制限してください。(例: `script-src 'self'`)
+* [`eval`を無効にしてください。](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) evalは文字列をコードとして実行してしまいます。
 * `allowRunningInsecureContent`をtrueにしない
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
+* しっかり理解していない限りは`experimentalFeatures`や`experimentalCanvasFeatures`を有効にしないでください。
+* しっかり理解していない限りは`blinkFeatures`を有効にしないでください。
 * WebViews: `nodeintegration`属性を追加しない
 * WebViews: `disablewebsecurity`を使用しない
 * WebViews: `allowpopups`を使用しない

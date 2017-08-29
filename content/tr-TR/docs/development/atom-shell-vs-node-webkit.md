@@ -4,7 +4,7 @@
 
 NW.js gibi Electron, JavaScript ve HTML ile masaüstü uygulamaları yazmak için bir platform sağlar ve web sayfalarından düşük düzeyde sisteme erişim vermek Node entegrasyon vardır.
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+Ancak Electron'u NW.js'den tamamen ayrı bir ürün haline getiren iki proje arasında da temel farklılıklar bulunmaktadır:
 
 **1. Entry of Application**
 

@@ -1,46 +1,46 @@
 # Electron について
 
-[Electron](https://electron.atom.io) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electron.atom.io)は、HTML, CSS, JavaScriptで作られたクロスプラットフォーム デスクトップ アプリケーションを作成するために、GitHubによって開発されたオープンソースライブラリです。 Electronは、[Chromium](https://www.chromium.org/Home)と[Node.js](https://nodejs.org)を一つのランタイムとして組み合わせることで、この目的を達成しており、Mac, Windows, Linux用にアプリをパッケージ化することが出来ます。
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electronは、GitHubのカスタマイズ可能なテキストエディタである[Atom](https://atom.io)用のフレームワークとして2013年に開発が始まりました。ElectronとAtomは2014年の春にオープンソースになっています。
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
+そのときから、オープンソース開発者、ベンチャー企業、古参の企業で使われる人気のツールになっています。Electronによって[どんなアプリケーションが作られているか](https://electron.atom.io/apps/)も見てみてください。
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Electronの開発者やリリースについてもっと詳しく知りたいか、Electronでアプリケーションの開発を進めたい場合は、[クイックスタートガイド](quick-start.md)をお読みください。
 
-## コアチームおよびコントリビューター
+## コアチームと貢献者
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+ElectronはGitHubのチームと、コミュニティで[活動中の開発貢献者](https://github.com/electron/electron/graphs/contributors)によってメンテナンスされています。 貢献者には、個人の開発者の方も居れば、Electronでアプリを作成中の大企業で働いている方も居ます。 頻繁に貢献している方を、プロジェクトのメンテナとしてよろこんで迎えたいと思っています。 詳しくは、[Electronへの貢献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)をご覧ください。
 
 ## リリース
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electronは頻繁にリリースされます](https://github.com/electron/electron/releases)。明らかなバグ修正・新しいAPI・ChromiumまたはNode.jsのアップデートがあるときあたらしいバージョンがリリースされます。
 
 ### 依存関係の更新
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electronに含まれるChromiumのバージョンは、新しい安定版のChromiumがリリースされてから、変更内容の大きさに応じて、1〜2週間以内にアップデートされます。
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Node.js の新しいバージョンがリリースされたとき、より安定したバージョンを使用できるように、Electron の Node.js を更新するのを通常約1か月待ちます。
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Electronでは、Node.jsとChromiumで使用しているV8は単一インスタンス、通常ではChromiumが使用している物が共用されます。ほとんどの場合でこのアプローチは*うまいこといきます*が、時折、Node.jsにパッチを当てて改修する作業が必要になります。
 
 ### バージョン管理
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+NodeとChromiumに強く依存しているので、Electronは少し難しい位置付けにあって[`semvar`にきっちり従っていません](http://semver.org)。 そのため、いつでも特定バージョンのElectronを参照しないといけません。 [Electronのバージョン管理](https://electron.atom.io/docs/tutorial/electron-versioning/) または [現在使用中のバージョン](https://electron.atom.io/#electron-versions) を参照してください。
 
 ### LTS（長期サポート版）
 
-現在のところ、長期的にサポートを行うElectronの古いバージョンは存在しません。 If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+現在のところ、長期的にサポートを行うElectronの古いバージョンは存在しません。 Electronの現在のバージョンでうまく動作しているなら、そのバージョンを使い続けることが出来ます。 もし新しく入ってきた機能を使っていきたいなら、新しいバージョンにアップグレードしていかなければなりません。
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+大きな更新が`v.1.0.0`でありました。 もしこのバージョンを使用していない場合は、[`v1.0.0`での変更について](https://electron.atom.io/blog/2016/05/11/electron-1-0)をお読みください。
 
 ## 基本理念
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Electronのファイルサイズを小さく、そして依存とAPIを維持可能なものとするために、本プロジェクトの扱う領域は制限されます。
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+例えば、ElectronはChromiumのすべてを使用するわけではなく、Chromiumのレンダリングライブラリのみを使用します。 これにより、使用しているChromiumのアップデートをしやすくしますが、Google Chromeにある機能のうちいくつかがElectronにはふくまれないことになります。
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Electronに追加される新しい機能はネイティブAPIであるべきです。 If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
 
 ## 履歴
 

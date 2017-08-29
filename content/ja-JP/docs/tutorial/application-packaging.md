@@ -1,34 +1,34 @@
 # アプリケーションのパッケージ化
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Windows上の[長いパス名周りの問題](https://github.com/joyent/node/issues/6960)を軽減したり、`require`を若干スピードアップしたり、簡単な調査からソースコードを隠したりするために、ソースコードを少々変更して、アプリケーションを [asar](https://github.com/electron/asar) アーカイブとしてパッケージ化することもできます。
 
-## Generating `asar` Archive
+## `asar` アーカイブの生成
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+[asar](https://github.com/electron/asar) アーカイブは、ファイルを1つに連結するtarライクなシンプルなフォーマットです。 Electron はファイル全体を展開しなくても任意のファイルを読み込めます。
 
-Steps to package your app into an `asar` archive:
+アプリを `asar` アーカイブにパッケージ化する手順：
 
-### 1. Install the asar Utility
+### 1. asar ユーティリティをインストール
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### `asar pack`でパッケージ化
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## `asar` アーカイブを使用する
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electronには、2組のAPIがあります：Node.js により提供される Node API、そして Chromium により提供される Web API です。どちらの API も `asar` アーカイブからのファイル読み込みに対応しています。
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+ElectronではNode.jsを改修し、`fs.readFile` や `require` のようなNode APIは、`asar` アーカイブを仮想ディレクトリのように扱い、ファイルをファイルシステム上の通常のファイルのように扱います。
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+例えば、`/path/to` 配下に、`example.asar` アーカイブがあると仮定します:
 
 ```bash
 $ asar list /path/to/example.asar
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+`asar` アーカイブ内のファイルを読み込む:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+アーカイブのルート配下にあるすべてのファイルの一覧を取得する:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+アーカイブからモジュールを使用する:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+`BrowserWindow` を使って `asar` アーカイブ内の Web ページを表示することもできます:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -70,9 +70,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Webページで、アーカイブ内のファイルを `file:` プロトコルでリクエストできます。 Node API と同様、`asar` アーカイブはディレクトリのように扱われます。
 
-For example, to get a file with `$.get`:
+例えば、`$.get` でファイルを取得するには:
 
 ```html
 <script>
@@ -83,16 +83,16 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### `asar` アーカイブを通常のファイルのように扱う
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+`asar`アーカイブそのもののチェックサムを検証する等のいくつかのケースでは、`asar` アーカイブをファイルとして読み込む必要があります。 この目的のために、 `asar` サポートしないオリジナルの `fs` API を提供するビルトインの `original-fs` モジュールを使用できます。
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+もしくは、`process.noAssar` に `true` をセットして `fs` モジュールの `asar` サポートを無効にすることができます：
 
 ```javascript
 const fs = require('fs')
@@ -100,48 +100,48 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Node API の制限
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Node APIで、`asar` アーカイブがディレクトリのように動作するよう可能な限り懸命に作成していますが、低レベル環境での Node API に起因した制限がいくつかあります。
 
-### Archives Are Read-only
+### アーカイブは読み取り専用
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+アーカイブは修正できないため、ファイルを変更できる変更できる全ての Node API は `asar` アーカイブに対して動作しません。
 
-### Working Directory Can Not Be Set to Directories in Archive
+### 作業ディレクトリは、アーカイブ内のディレクトリに設定できません
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+`asar` アーカイブはディレクトリのように扱われるにも関わらず、ファイルシステム上には実際のディレクトリが存在しないため、`asar` アーカイブ内のディレクトリを作業ディレクトリとして設定することはできません。 いくつかの API の `cwd`の引数としてアーカイブ内のディレクトリを渡すのも同様にエラーの原因になります。
 
-### Extra Unpacking on Some APIs
+### いくつかのAPIで追加の展開がされます
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+たいていの `fs` APIは展開せずに、 `asar` アーカイブからファイルを読み込んだり、ファイル情報を取得できます。しかし、システムコールに実際のファイルパスを渡すようになっている幾つかの API では、Electron は必要なファイルを一時ファイルとして展開し、API に一時ファイルのパスを渡して、API が動作するようにします。 このため、当該 API には多少のオーバーヘッドがあります。
 
-APIs that requires extra unpacking are:
+追加の展開が必要なAPIです:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - ネイティブモジュールの`require`で使用されます。
 
-### Fake Stat Information of `fs.stat`
+### `fs.stat` の偽の統計情報
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+`asar` アーカイブ内のファイルはファイルシステム上に存在しないので、`fs.stat` および `asar` アーカイブ内のファイルへの関連情報によって返される<0>Stats</0> オブジェクトは、推測して生成されます。 ファイルサイズの取得とファイルタイプのチェックを除いて、 `Stats` オブジェクトを信頼すべきではありません。
 
-### Executing Binaries Inside `asar` Archive
+### `asar` アーカイブ内のバイナリの実行
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+`child_process.exec`, `child_process.spawn`, `child_process.execFile` のようなバイナリを実行できるNode APIがあります。しかし、`execFile` だけが、`asar` アーカイブ内でのバイナリ実行をサポートしています。
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+なぜならば、`exec` と `spawn` は入力として `file` の代わりに `command` を受け取り、`command` はシェル配下で実行されるからです。 コマンドが asar アーカイブ内のファイルを使うかどうかを決定するための信頼できる方法はありませんし、そうするとしてもコマンドで使うファイルパスを副作用なしに置き換えることができるかどうかを確認することはできません。
 
-## Adding Unpacked Files in `asar` Archive
+## `asar` アーカイブ内のファイルを展開して追加
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+上記のように、いくつかのNode APIが呼ばれると、ファイルシステム上にファイルを展開しますが，パフォーマンス問題は別として、ウィルススキャナーの誤報につながる可能性があります。
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+これに対応するために、`--unpack` オプションを使用して、アーカイブを作成する際に、いくつかのファイルを含めないようにできます。例えば、ネイティブモジュールの共有ライブラリを除く場合：
 
 ```bash
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+このコマンドを実行した後、`app.asar` とは別に、アンパックされたファイルを含んだ`app.asar.unpacked` フォルダーが生成されます。ユーザーに提供するときには、`app.asar` と一緒にコピーしなければなりません
