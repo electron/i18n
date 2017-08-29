@@ -14,11 +14,11 @@ Mac App Store にアプリを提出するには、Appleからまず証明書を�
 
 ### チーム ID の取得
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+アプリに署名する前にアカウントのチーム ID を知っておく必要があります。 チーム ID を知るには、[Apple Developer Center](https://developer.apple.com/account/)にサインインし、サイドバーでMembershipをクリックします。 チーム IDは、Team nameの、Membership Information セクションに表示されます。
 
-### Sign Your App
+### アプリの署名
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+準備作業を終えた後は、[アプリケーションの配布](application-distribution.md)に従って、アプリをパッケージ化して、アプリの署名に進みます。
 
 First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
 
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare two entitlements files.
+つぎに、2 つの資格ファイルを準備する必要があります。
 
 `child.plist`:
 
@@ -64,9 +64,9 @@ Then, you need to prepare two entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+`TEAM_ID`をあなたのチーム IDに入れ替えて、`your.bundle.id` をアプリのバンドル ID に置き換えてください。
 
-And then sign your app with the following script:
+そして、次のスクリプトでアプリを署名します。
 
 ```bash
 #!/bin/bash
@@ -102,11 +102,11 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+macOSでのアプリのサンドボックス化を行うことが初めてなら、Appleの[Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html)を通読し、基本的な考え方を確認してから、権利ファイル(entitlement file) にアプリに必要なパーミッションキーを追加します。
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+署名を手動で行う代わりに、[electron-osx-sign](https://github.com/electron-userland/electron-osx-sign)モジュールを使用することも出来ます。
 
-#### Sign Native Modules
+#### ネイティブ モジュールに署名
 
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
@@ -116,27 +116,27 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
-### Upload Your App
+### Appをアップロードする。
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+アプリに署名後、iTunes ConnectにアップロードするためにApplication Loaderを使用できます。アップロードする前に[レコードを作成していること](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)を確認してください。
 
-### Submit Your App for Review
+### アプリケーションを審査に提出
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+これらのステップを終えた後、[レビュー用にアプリを登録](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html)できます。
 
-## Limitations of MAS Build
+## MAS Buildの制限
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+アプリのサンドボックスですべての要件を満たすために、MASビルドで次のモジュールを無効にしてください。
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+次の挙動を変更してください。
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
-* APIs for launching apps at login are disabled. See https://github.com/electron/electron/issues/7312#issuecomment-249479237
+* ビデオキャプチャーはいくつかのマシンで動作しないかもしれません。
+* 一部のアクセシビリティ機能が動作しないことがあります。
+* アプリはDNSの変更を認識しません。
+* ログイン時にアプリケーションを起動するための API は使用できません。https://github.com/electron/electron/issues/7312#issuecomment-249479237 を参照してください。
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
 
