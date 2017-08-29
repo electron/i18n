@@ -22,17 +22,17 @@ Electronに含まれるChromiumのバージョンは、新しい安定版のChro
 
 Node.js の新しいバージョンがリリースされたとき、より安定したバージョンを使用できるように、Electron の Node.js を更新するのを通常約1か月待ちます。
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Electronでは、Node.jsとChromiumで使用しているV8は単一インスタンス、通常ではChromiumが使用している物が共用されます。ほとんどの場合でこのアプローチは*うまいこといきます*が、時折、Node.jsにパッチを当てて改修する作業が必要になります。
 
 ### バージョン管理
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+NodeとChromiumに強く依存しているので、Electronは少し難しい位置付けにあって[`semvar`にきっちり従っていません](http://semver.org)。 そのため、いつでも特定バージョンのElectronを参照しないといけません。 [Electronのバージョン管理](https://electron.atom.io/docs/tutorial/electron-versioning/) または [現在使用中のバージョン](https://electron.atom.io/#electron-versions) を参照してください。
 
 ### LTS（長期サポート版）
 
-現在のところ、長期的にサポートを行うElectronの古いバージョンは存在しません。 If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+現在のところ、長期的にサポートを行うElectronの古いバージョンは存在しません。 Electronの現在のバージョンでうまく動作しているなら、そのバージョンを使い続けることが出来ます。 もし新しく入ってきた機能を使っていきたいなら、新しいバージョンにアップグレードしていかなければなりません。
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+大きな更新が`v.1.0.0`でありました。 もしこのバージョンを使用していない場合は、[`v1.0.0`での変更について](https://electron.atom.io/blog/2016/05/11/electron-1-0)をお読みください。
 
 ## 基本理念
 
