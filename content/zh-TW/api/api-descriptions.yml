@@ -1,4 +1,4 @@
-app.description: Control your application's event lifecycle.
+app.description: 控制你的應用程式事件生命週期。
 app.methods.quit.description: >-
   Try to close all windows. The before-quit event will be emitted first. If all windows are successfully closed, the will-quit event will be emitted and by default the application will terminate. This method guarantees that all beforeunload and unload event handlers are correctly executed. It is possible that a window cancels the quitting by returning false in the beforeunload event handler.
 app.methods.exit.description: >-
@@ -11,7 +11,7 @@ app.methods.focus.description: >-
 app.methods.hide.description: Hides all application windows without minimizing them.
 app.methods.show.description: >-
   Shows application windows after they were hidden. Does not automatically focus them.
-app.methods.getAppPath.returns.description: The current application directory.
+app.methods.getAppPath.returns.description: 當前的應用程式目錄。
 app.methods.getPath.description: 'You can request the following paths by the name:'
 app.methods.getPath.returns.description: >-
   A path to a special directory or file associated with name. On failure an Error is thrown.
@@ -25,35 +25,35 @@ app.methods.getName.description: >-
   Usually the name field of package.json is a short lowercased name, according to the npm modules spec. You should usually also specify a productName field, which is your application's full capitalized name, and which will be preferred over name by Electron.
 app.methods.getName.returns.description: >-
   The current application's name, which is the name in the application's package.json file.
-app.methods.setName.description: Overrides the current application's name.
+app.methods.setName.description: 重寫當前應用程式的名稱。
 app.methods.getLocale.description: >-
   Note: When distributing your packaged app, you have to also ship the locales folder. Note: On Windows you have to call it after the ready events gets emitted.
 app.methods.getLocale.returns.description: The current application locale. Possible return values are documented here.
 app.methods.addRecentDocument.description: >-
   Adds path to the recent documents list. This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
-app.methods.clearRecentDocuments.description: Clears the recent documents list.
+app.methods.clearRecentDocuments.description: 清除最近使用的文件清單。
 app.methods.setAsDefaultProtocolClient.description: >-
   This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
   The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-app.methods.setAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.setAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.setAsDefaultProtocolClient.parameters.path.description: 預設值為 `process.execPath`
+app.methods.setAsDefaultProtocolClient.parameters.args.description: 預設值為一個空陣列
 app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
 app.methods.removeAsDefaultProtocolClient.description: >-
   This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.removeAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.removeAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
-app.methods.removeAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: '你的協定名稱，不包含 `://` 部分。'
+app.methods.removeAsDefaultProtocolClient.parameters.path.description: 預設值為 `process.execPath`
+app.methods.removeAsDefaultProtocolClient.parameters.args.description: 預設值為一個空陣列
+app.methods.removeAsDefaultProtocolClient.returns.description: 調用是否成功。
 app.methods.isDefaultProtocolClient.description: >-
   This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-app.methods.isDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.isDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.isDefaultProtocolClient.parameters.protocol.description: '你的協定名稱，不包含 `://` 部分。'
+app.methods.isDefaultProtocolClient.parameters.path.description: 預設值為 `process.execPath`
+app.methods.isDefaultProtocolClient.parameters.args.description: 預設值為一個空陣列
 app.methods.setUserTasks.description: >-
   Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
-app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
-app.methods.setUserTasks.returns.description: Whether the call succeeded.
+app.methods.setUserTasks.parameters.tasks.description: '`Task` 物件陣列'
+app.methods.setUserTasks.returns.description: 調用是否成功。
 app.methods.getJumpListSettings.returns.properties.0.description: >-
   The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
 app.methods.getJumpListSettings.returns.properties.1.description: >-
