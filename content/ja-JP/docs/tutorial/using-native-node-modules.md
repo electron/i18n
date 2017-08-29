@@ -1,16 +1,16 @@
 # ネイティブのNodeモジュールを使用する
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
-## How to install native modules
+## ネイティブモジュールのインストール方法
 
-Three ways to install native modules:
+ネイティブモジュールのインストールには3通りの方法があります。
 
 ### `npm`を使用
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+いくつかの環境変数を設定することにより、モジュールを直接インストールするのに `npm` を使用できます。
 
-An example of installing all dependencies for Electron:
+Electronにすべての依存モジュールをインストールする例
 
 ```bash
 # Electron's version.
@@ -28,7 +28,7 @@ export npm_config_build_from_source=true
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### モジュールをインストールしてElectronをリビルド
 
 You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
 
