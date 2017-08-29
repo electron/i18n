@@ -1,34 +1,34 @@
 # アプリケーションのパッケージ化
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Windows上の[長いパス名周りの問題](https://github.com/joyent/node/issues/6960)を軽減したり、`require`を若干スピードアップしたり、簡単な調査からソースコードを隠したりするために、ソースコードを少々変更して、アプリケーションを [asar](https://github.com/electron/asar) アーカイブとしてパッケージ化することもできます。
 
-## Generating `asar` Archive
+## `asar` アーカイブの生成
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+[asar](https://github.com/electron/asar) アーカイブは、ファイルを1つに連結するtarライクなシンプルなフォーマットです。 Electron はファイル全体を展開しなくても任意のファイルを読み込めます。
 
-Steps to package your app into an `asar` archive:
+アプリを `asar` アーカイブにパッケージ化する手順：
 
-### 1. Install the asar Utility
+### 1. asar ユーティリティをインストール
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### `asar pack`でパッケージ化
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## `asar` アーカイブを使用する
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electronには、2組のAPIがあります：Node.js により提供される Node API、そして Chromium により提供される Web API です。どちらの API も `asar` アーカイブからのファイル読み込みに対応しています。
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+ElectronではNode.jsを改修し、`fs.readFile` や `require` のようなNode APIは、`asar` アーカイブを仮想ディレクトリのように扱い、ファイルをファイルシステム上の通常のファイルのように扱います。
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+例えば、`/path/to` 配下に、`example.asar` アーカイブがあると仮定します:
 
 ```bash
 $ asar list /path/to/example.asar
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+`asar` アーカイブ内のファイルを読み込む:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+アーカイブのルート配下にあるすべてのファイルの一覧を取得する:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+アーカイブからモジュールを使用する:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+`BrowserWindow` を使って `asar` アーカイブ内の Web ページを表示することもできます:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -70,9 +70,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Webページで、アーカイブ内のファイルを `file:` プロトコルでリクエストできます。 Node API と同様、`asar` アーカイブはディレクトリのように扱われます。
 
-For example, to get a file with `$.get`:
+例えば、`$.get` でファイルを取得するには:
 
 ```html
 <script>
@@ -83,9 +83,9 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### `asar` アーカイブを通常のファイルのように扱う
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+`asar`アーカイブそのもののチェックサムを検証する等のいくつかのケースでは、`asar` アーカイブをファイルとして読み込む必要があります。 この目的のために、 `asar` サポートしないオリジナルの `fs` API を提供するビルトインの `original-fs` モジュールを使用できます。
 
 ```javascript
 const originalFs = require('original-fs')
