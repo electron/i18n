@@ -27,15 +27,15 @@ NodeとChromiumに依存しているため、ElectronはSemVerに完全に従う
 セマンティックバージョン番号は次のルールに従って上げられます：
 
 * **Major**はElectron APIの大きな変更があるときです。例えば、`0.37.0`から`1.0.0`にアップデートした場合、アプリを変更する必要があります。
-* **Minor**はChromiumのメジャー番号の変更・Nodeのマイナーアップデート・Electronの大きな変更があった場合です。 If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
-* **Patch** is for new features and bug fixes. If you upgrade from `1.6.2` to `1.6.3`, your app will continue to work as-is.
+* **Minor**はChromiumのメジャー番号の変更・Nodeのマイナーアップデート・Electronの大きな変更があった場合です。 `1.5.0` から `1.6.0` にアップグレードする場合、アプリはまだ動作することが期待できますが、小さな変更を行う必要があるかもしれません。
+* **Patch** は、新しい機能とバグ修正です。`1.6.2`から`1.6.3` にアップグレードする場合、あなたのアプリはそのまま動くはずです。
 
-We recommend that you set a fixed version when installing Electron from npm:
+npmからElectronをインストールする場合は、バージョンを固定して設定することをお勧めします。
 
 ```sh
 npm install electron --save-exact --save-dev
 ```
 
-The `--save-exact` flag will add `electron` to your `package.json` file without using a `^` or `~`, e.g. `1.6.2` instead of `^1.6.2`. This practice ensures that all upgrades of Electron are a manual operation made by you, the developer.
+`--save-exact`を指定すると、`^`や`~` を使用せず、`package.json`に`electron` を追加します。例えば `^1.6.2`ではなく、`1.6.2`と記録します。 これによりElectronのすべてのアップグレードは開発者(あなたです) によって手動で行われます。
 
-Alternatively, you can use the `~` prefix in your SemVer range, like `~1.6.2`. This will lock your major and minor version, but allow new patch versions to be installed.
+または、`~1.6.2` のように`~` プレフィックスを使用してSemVer 範囲を指定できます。これは、メジャーおよびマイナー バージョンは固定しますが、新しいパッチのバージョンのインストールを許可します。
