@@ -1,18 +1,18 @@
 # Mac App Storeへの公開ガイド
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+v0.34.0から、ElectronはMac App Store (MAS) にパッケージ化したアプリを登録することができます。このガイドでは、MASビルド用の制限とアプリを登録する方法についての情報を提供します。
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意:** Mac App Storeにアプリを登録するには、[Apple Developer Program](https://developer.apple.com/support/compare-memberships/)に登録する必要があります。これには費用がかかります。
 
-## How to Submit Your App
+## アプリを登録する方法
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+Mac App Store にアプリを提出する簡単な方法をご紹介します。 これらの手順は、アプリがAppleによって承認することを保証しているわけではありません。Mac App Storeの登録要件を満たすために、Appleの[アプリを登録するには](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html)ガイドも読んでおく必要があります。
 
-### Get Certificate
+### 証明書の取得
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Mac App Store にアプリを提出するには、Appleからまず証明書を取得する必要があります。 詳しくは、[こちらのガイド](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)をご覧ください。
 
-### Get Team ID
+### チーム ID の取得
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
