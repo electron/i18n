@@ -73,23 +73,4 @@ describe('electron-i18n', () => {
       expect(tree).to.include('en/website/locale.yml')
     })
   })
-
-  describe('translated content', () => {
-    it('preserves YAML formatting of API descriptions', () => {
-      function getKeys (locale) {
-        const filename = path.join(contentDir, `${locale}/api/api-descriptions.yml`)
-        const yml = requireYAML(filename)
-        return Object.keys(yml)
-      }
-
-      const sourceKeys = getKeys('en')
-      expect(sourceKeys).to.include('app.description')
-      expect(sourceKeys).to.include('app.events.continue-activity.returns.type.description')
-
-      expect(i18n.locales.length).to.be.above(10)
-      i18n.locales.forEach(locale => {
-        expect(sourceKeys).to.deep.equal(getKeys(locale), `${locale} API descriptions tree does not match source content`)
-      })
-    })
-  })
 })
