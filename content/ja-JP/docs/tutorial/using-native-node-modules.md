@@ -44,28 +44,28 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### Electron用にマニュアルリビルド
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+もしあなたがネイティブモジュールの開発者でElectronでの動作を検証したいのであれば、Electron用にモジュールを手動で再構築したいことと思います。 `node-gyp`を使用することで、モジュールをElectron用にビルドできます。
 
 ```bash
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+`HOME=~/.electron-gyp`は開発用のヘッダーを探す場所によって変わります。 `--target=1.2.3`はElectronのバージョンです。 `--dist-url=...`では、ヘッダーのダウンロードのためのURLを指定します。 `--arch=x64`は、モジュールを64bitシステム用にビルドすることを意味しています。
 
-## Troubleshooting
+## トラブルシューティング
 
-If you installed a native module and found it was not working, you need to check following things:
+もしネイティブモジュールがインストールされているがうまく動いていないことが分かった場合は、下記のことを確認してみてください：
 
-* The architecture of module has to match Electron's architecture (ia32 or x64).
-* After you upgraded Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* モジュールのアーキテクチャがElectronのアーキテクチャと一致する(ia32 または x64)
+* Electronのアップグレード後は、モジュールをリビルドする必要があります。
+* 何かおかしいと思ったら、まず`electron-rebuild`を走らせてみてください。
 
-## Modules that rely on `prebuild`
+## `prebuild`を使用したモジュール
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild)は、様々なバージョンのNodeやElectron用のビルド済みのバイナリを含んだネイティブNodeモジュールを簡単に公開する方法を提供します。
 
 If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
