@@ -4,17 +4,17 @@
 
 Electronは、GitHubのカスタマイズ可能なテキストエディタである[Atom](https://atom.io)用のフレームワークとして2013年に開発が始まりました。ElectronとAtomは2014年の春にオープンソースになっています。
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
+そのときから、オープンソース開発者、ベンチャー企業、古参の企業で使われる人気のツールになっています。Electronによって[どんなアプリケーションが作られているか](https://electron.atom.io/apps/)も見てみてください。
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Electronの開発者やリリースについてもっと詳しく知りたいか、Electronでアプリケーションの開発を進めたい場合は、[クイックスタートガイド](quick-start.md)をお読みください。
 
-## コアチームおよびコントリビューター
+## コアチームと貢献者
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+ElectronはGitHubのチームと、コミュニティで[活動中の開発貢献者](https://github.com/electron/electron/graphs/contributors)によってメンテナンスされています。 貢献者には、個人の開発者の方も居れば、Electronでアプリを作成中の大企業で働いている方も居ます。 頻繁に貢献している方を、プロジェクトのメンテナとしてよろこんで迎えたいと思っています。 詳しくは、[Electronへの貢献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)をご覧ください。
 
 ## リリース
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electronは頻繁にリリースされます](https://github.com/electron/electron/releases)。明らかなバグ修正・新しいAPI・ChromiumまたはNode.jsのアップデートがあるときあたらしいバージョンがリリースされます。
 
 ### 依存関係の更新
 
