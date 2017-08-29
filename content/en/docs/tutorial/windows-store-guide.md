@@ -1,6 +1,6 @@
 # Windows Store Guide
 
-With Windows 8, the good old win32 executable got a new sibling: The Universal
+With Windows 10, the good old win32 executable got a new sibling: The Universal
 Windows Platform. The new `.appx` format does not only enable a number of new
 powerful APIs like Cortana or Push Notifications, but through the Windows Store,
 also simplifies installation and updating.
@@ -109,7 +109,7 @@ In order to run your package, your users will need Windows 10 with the so-called
 In opposition to traditional UWP apps, packaged apps currently need to undergo a
 manual verification process, for which you can apply [here][centennial-campaigns].
 In the meantime, all users will be able to just install your package by double-clicking it,
-so a submission to the store might not be necessary if you're simply looking for an 
+so a submission to the store might not be necessary if you're simply looking for an
 easier installation method. In managed environments (usually enterprises), the
 `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion][add-appxpackage].
 
