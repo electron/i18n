@@ -22,11 +22,11 @@ electron/resources/app
 
 配置が終わったら、`Electron.app` (Linuxでは`electron`, Windowsでは`electron.exe`)を実行すれば、アプリが開始されます。`electron`フォルダがアプリケーションの実際の使用者に配布されるフォルダになります。
 
-## Packaging Your App into a File
+## アプリのパッケージ化
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+すべてのソースコードをコピーすることでアプリケーションを提供する方法とは別に、アプリケーションのソースコードをユーザーに見えるのを避けるために、[asar](https://github.com/electron/asar) にアーカイブしてアプリケーションをパッケージ化することができます。
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+`app` フォルダの代わりに `asar` アーカイブを使用するためには、アーカイブファイルを `app.asar` という名前に変更し、Electron のリソースディレクトリに以下のように配置する必要があります。そうすれば、Electron はアーカイブを読み込みを試み、そこから起動します。
 
 macOS:
 
@@ -42,19 +42,19 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+詳細については、[アプリケーションのパッケージ化](application-packaging.md) でご確認ください。
 
-## Rebranding with Downloaded Binaries
+## ビルド済みバイナリのカスタマイゼーション
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Electronにアプリバンドルした後、ユーザーに配布する前に、 Electronのカスタマイズを行いたいことと思います。
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+`electron.exe` のファイル名は、任意の名前に変更することが出来ます。また、アイコンやその他の情報を [rcedit](https://github.com/atom/rcedit) のようなツールで編集出来ます。
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+`Electron.app` のファイル名は、任意の名前に変更することが出来ます。また、下記ファイル中の`CFBundleDisplayName`, `CFBundleIdentifier`, `CFBundleName`も変更する必要があります。
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
