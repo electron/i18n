@@ -6,7 +6,7 @@ Electronに含まれるChromiumのバージョンは、通常、新しいChromiu
 
 また、Chromiumのstableチャンネルのみを使用し、もし、重要な修正がbetaまたはdevチャンネルにある場合、それをバックポートします。
 
-For more information, please see the [security introduction](tutorial/security.md).
+より詳しく知りたい場合は、[セキュリティについて](tutorial/security.md)をご参照ください。
 
 ## Electronはいつ最新版のNode.jsにアップグレードされるのですか？
 
@@ -56,7 +56,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+を、こう変更します：
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -69,9 +69,9 @@ app.on('ready', () => {
 
 ## jQuery/RequireJS/Meteor/AngularJSがElectronで使えません
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Electronに組み込まれているNode.jsの影響で、`module`, `exports`, `require`のようなシンボルがDOMに追加されています。 このため、いくつかのライブラリでは同名のシンボルを追加しようとして問題が発生することがあります。
 
-To solve this, you can turn off node integration in Electron:
+これを解決するために、Electronなnode integrationを無効にすることができます。
 
 ```javascript
 // In the main process.
@@ -84,7 +84,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+しかし、Node.jsとElectron APIを使用した機能を維持したい場合は、ほかのライブラリを読み込む前に、ページのシンボルをリネームする必要があります。
 
 ```html
 <head>
@@ -98,23 +98,23 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx`が定義されていません。
 
-When using Electron's built-in module you might encounter an error like this:
+Electronの組み込みモジュールを使うとに、次のようなエラーに遭遇するかもしれません。
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+これは、ローカルまたはグローバルのどちらかで[npm `electron` module](https://www.npmjs.com/package/electron)をインストールしたことが原因で、Electronの組み込みモジュールを上書きしてしまいます。
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+正しい組み込みモジュールを使用しているかを確認するために、`electron`モジュールのパスを出力します。
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+そして、次の形式に従っているかどうかを確認します。
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
@@ -126,4 +126,4 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+しかし、組み込みモジュールを使用しているのに、まだこのエラーが出る場合、不適切なプロセスでモジュールを使用しようとしている可能性が高いです。 For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
