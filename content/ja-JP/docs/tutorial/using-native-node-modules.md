@@ -30,9 +30,9 @@ HOME=~/.electron-gyp npm install
 
 ### モジュールをインストールしてElectronをリビルド
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+他のNodeプロジェクト同様にモジュールをインストールすることを選ぶこともでき、[`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild)でElectron用にモジュールをリビルドすることも出来ます。 このモジュールは、Electronのバージョンを取得し、ヘッダのダウンロードとアプリ用にネイティブモジュールをビルドする手動の手順を処理できます。
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+`electron-rebuild`をインストールして、モジュールをリビルドする手順の例です：
 
 ```bash
 npm install --save-dev electron-rebuild
