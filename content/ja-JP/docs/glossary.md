@@ -24,23 +24,23 @@ IPCはプロセス間通信 (Inter-Process Communication) の略語です。Elec
 
 ### libchromiumcontent
 
-A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
+Chromiumコンテントモジュールとその依存関係(例：Blink, [V8](#v8)など)を含んだ単一共有ライブラリです。
 
 ### メインプロセス (main process)
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+メインプロセスは通常は`main.js`というファイル名で配置され、Electronアプリの開始ポイントになります。アプリケーションが開始されてから終了されるまでを制御します。 また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 メインプロセスは、アプリ中のレンダラプロセスの作成も担当しています。完全なNode APIを使用できます。
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+アプリのメインプロセスファイルは、`package.json` の `main`プロパティで指定されます。これをもとに`Electron`は起動時に実行するファイルを知ることが出来ます。
 
-See also: [process](#process), [renderer process](#renderer-process)
+[プロセス](#process)、[レンダラープロセス](#renderer-process)についても参照してください。
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
+AppleのMac App Storeの略語です。MASへアプリを投稿する歳の詳細については、[Mac App Store 提出ガイド](tutorials/mac-app-store-submission-guide.md)をご参照ください。
 
 ### ネイティブモジュール (native module)
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+ネイティブ モジュールはNode.js では[アドオン](https://nodejs.org/api/addons.html) とも呼ばれ、requireによってNode.jsやElectronへ読み込むことの出来る、C またはC++でかかれたモジュールです。通常のNode.jsモジュールと童謡に使用することが出来ます。 They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
