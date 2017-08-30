@@ -44,13 +44,13 @@ This only affects developers, if you are just building Electron for rebranding y
 
 ## Testes
 
-Test your changes conform to the project coding style using:
+Teste suas modificações de acordo com o projeto, usando o estilo de codificação:
 
 ```bash
 $ npm run lint
 ```
 
-Test functionality using:
+Teste a funcionalidade usando:
 
 ```bash
 $ npm test
