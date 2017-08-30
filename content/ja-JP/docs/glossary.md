@@ -40,11 +40,11 @@ AppleのMac App Storeの略語です。MASへアプリを投稿する歳の詳�
 
 ### ネイティブモジュール (native module)
 
-ネイティブ モジュールはNode.js では[アドオン](https://nodejs.org/api/addons.html) とも呼ばれ、requireによってNode.jsやElectronへ読み込むことの出来る、C またはC++でかかれたモジュールです。通常のNode.jsモジュールと童謡に使用することが出来ます。 They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+ネイティブ モジュールはNode.js では[アドオン](https://nodejs.org/api/addons.html) とも呼ばれ、requireによってNode.jsやElectronへ読み込むことの出来る、C またはC++でかかれたモジュールです。通常のNode.jsモジュールと童謡に使用することが出来ます。 主に、Node.jsで実行されているJavaScript と C/C++ のライブラリ間のインタフェースを提供するために使用されます。
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+[ネイティブNodeモジュールを使用する](tutorial/using-native-node-modules.md)についても参照してください.
 
 ## NSIS
 
