@@ -12,8 +12,8 @@ O fluxo de trabalho para formatar o seu código alterado:
 
 1. Fazer alterações de código no repositório do Electron.
 2. Use `git add your_changed_file.cc`.
-3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
+3. Use `git-clang-format`, e você vai provavelmente ver uma notificação em `your_changed_file.cc`, essas modificações são geradas do `clang-format`.
+4. Use `git add your_changed_file.cc`, e confirme a sua alteração.
 5. Now the branch is ready to be opened as a pull request.
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
