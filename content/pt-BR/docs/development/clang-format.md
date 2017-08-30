@@ -14,11 +14,11 @@ O fluxo de trabalho para formatar o seu código alterado:
 2. Use `git add your_changed_file.cc`.
 3. Use `git-clang-format`, e você vai provavelmente ver uma notificação em `your_changed_file.cc`, essas modificações são geradas do `clang-format`.
 4. Use `git add your_changed_file.cc`, e confirme a sua alteração.
-5. Now the branch is ready to be opened as a pull request.
+5. Agora a branch está pronto para ser aberto em uma solicitação de pull request.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Se você deseja formatar o seu código alterado em seu mais recente git commit (HEAD), você pode usar `git-clang-format HEAD~1` Veja mais detalhes usando `git-clang-format -h`.
 
-## Editor Integration
+## Integração com Editor
 
 You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
