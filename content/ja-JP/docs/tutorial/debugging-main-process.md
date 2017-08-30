@@ -1,14 +1,14 @@
 # メインプロセスのデバッグ
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--debug` or `--debug-brk` switch.
+ElectronブラウザウィンドウのDevToolは、そのウィンドウで実行されているJavaScript(例えば、ウェブページ)のみデバッグできます。 メインプロセス中のJavaScriptをデバッグしたい場合は、Electronを`--debug`または、`--debug-brk`フラグ付きで起動し、外部デバッガを使用する必要があります。
 
 ## コマンドライン オプション
 
-Use one of the following command line switches to enable debugging of the main process:
+Electronのメインプロセスをデバッグするためには、次のコマンドラインスイッチを使用してください：
 
 ### `--debug=[port]`
 
-Electron will listen for V8 debugger protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+このスイッチを使ったとき、Electronは、 `port` 上でV8デバッガープロトコルメッセージをリッスンします。デフォルトの `port` は `5858`です。
 
 ```shell
 electron --debug=5858 your/app
@@ -16,11 +16,11 @@ electron --debug=5858 your/app
 
 ### `--debug-brk=[port]`
 
-Like `--debug` but pauses execution on the first line of JavaScript.
+`--debug`と同様ですが、最初の行でスクリプトを中断します。
 
 ## 外部デバッガ
 
-You will need to use a debugger that supports the V8 debugger protocol, the following guides should help you to get started:
+V8デバッガープロトコルをサポートしたデバッガを使用する必要があります。下記の解説が役に立つことと思います。
 
 - [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
 - [Debugging the Main Process in node-inspector](debugging-main-process-node-inspector.md)
