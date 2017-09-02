@@ -12,25 +12,23 @@ Estas son cosas que hacer además de actualizar el código Electronico de cambio
 - Actualización `vendor/depot_tools` para cualquier construcción herramientas cambios necesarios
 - Actualizar el `libchromiumcontent` SHA-1 para descargar en `script/lib/config.py`
 - Abrir una solicitud de extracción en `electron/libchromiumcontent` con los cambios
-- Abrir una solicitud de extracción de `Electron/brightray` con los cambios 
-  - Esto debe incluir el mejoramiento del submódulo de `vendor/libchromiumcontent`
-- Abrir una solicitud de extracción de `Electron/Electron` con los cambios 
-  - Esto debe incluir la actualización de los submódulos en `vendor/` según sea necesario
-- Verificar compilaciones de depuración tuvo éxito en: 
+- Abrir una solicitud de extracción de `electron/electron` con los cambios 
+  - This should include upgrading the submodules in `vendor/` as needed
+- Verify debug builds succeed on: 
   - MacOS
   - Windows de 32 bits
   - Ventana de 64-bit
   - Linux de 32 bits
   - Linux de 64 bits
   - BRAZO de Linux
-- Verificar estructuras de liberación tuvo éxito en: 
+- Verify release builds succeed on: 
   - MacOS
   - Windows de 32 bits
   - Ventana de 64-bit
   - Linux de 32 bits
   - Linux de 64 bits
   - BRAZO de Linux
-- Verificar pruebas pasan: 
+- Verify tests pass on: 
   - MacOS
   - Windows de 32 bits
   - Ventana de 64-bit
