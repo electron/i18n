@@ -34,7 +34,9 @@ window.addEventListener ('keyup', HacerAlgo, true)
 
 Tenga en cuenta el tercer `true` parámetro que significa que el oyente recibirá siempre pulsaciones de teclas antes de otros oyentes por lo que no tienen `stopPropagation () ` llamado sobre ellos.
 
-Si no quieres hacer acceso directo manual análisis hay librerías que hacen avanzaron detección de clave como [mousetrap](https://github.com/ccampbell/mousetrap).
+The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+
+If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.BIND ('4,' () => {console.log('4')}) Mousetrap.bind ('? ', () = > {console.log ('Mostrar atajos!')})
