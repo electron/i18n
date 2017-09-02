@@ -50,7 +50,10 @@ Puede que necesite familiarizarse con architecture</a> múltiples procesos de Ch
 El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). De vez en cuando podría ver un mensaje como este cuando se ejecuta `git status`:
 
 ```sh
-Estado de git $ modificado: proveedor/brightray (nuevos commits) modificado: proveedor/nodo (nuevo confía)
+$ git status
+
+    modified:   vendor/libchromiumcontent (new commits)
+    modified:   vendor/node (new commits)
 ```
 
 Para actualizar estas dependencias vendored, ejecute el siguiente comando:
