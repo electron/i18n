@@ -16,7 +16,7 @@ Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Ele
 
 **2. compilar el sistema**
 
-Con el fin de evitar la complejidad de la construcción de todos los de cromo, Electron utiliza [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) para tener acceso API contenido de cromo. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de cromo y todas sus dependencias. Los usuarios no necesitan una máquina potente para compilar Electron.
+In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de cromo y todas sus dependencias. Los usuarios no necesitan una máquina potente para compilar Electron.
 
 **3. nodos integración**
 
