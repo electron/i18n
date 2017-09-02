@@ -40,7 +40,7 @@ explore:
 download_from_github: Descargar desde GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View todos releases</a> en GitHub'
 quick_start:
-  title: "Girar la aplicación de Start</a> de <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick ver Electron en acción:"
+  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank' rel='noopener'>Quick Start</a> app to see Electron in action:"
   description: Una mínima aplicación de Electron con útiles anotaciones.
   clone: Clonar el repositorio de inicio rápido
   go_into_repo: Ir al repositorio
@@ -51,7 +51,7 @@ need_help:
   description: 'Preguntas en el foro de <a href=''https://discuss.atom.io/c/electron''>Discuss</a> o en nuestro canal de <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Sigue <a href="https://twitter.com/ElectronJS">@ElectronJS</a> en Twitter para avisos importantes. ¿Necesidad privada llegar? Correo Electronico <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
   title: Aplicaciones en Electron
-  description: 'Con el Electron, es fácil crear una aplicación de escritorio para su empresa o idea. Inicialmente desarrollado para editor</a> de <a href=''https://atom.io'' target=''_blank''>Atom de GitHub, Electron se desde entonces ha utilizado para crear aplicaciones por empresas como Microsoft, Facebook, holgura y Docker.'
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank'' rel=''noopener''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: Ver más aplicaciones
   submit_your_own: enviar su propio
 or: o
