@@ -90,6 +90,7 @@ Electronにアプリバンドルした後、ユーザーに配布する前に、
 
 アプリのパッケージ化を手動で行う代わりに、サードパーティー製の自動パッケージ化ツールを使用できます。
 
+* [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
@@ -97,15 +98,9 @@ Electronにアプリバンドルした後、ユーザーに配布する前に、
 
 ソースから製品名を変更してビルドすることで、Electronをカスタマイズすることも可能です。これを行うためには、`atom.gyp`を編集して、一からリビルドを行う必要があります。
 
-### grunt-build-atom-shell
-
-Manually checking out Electron's code and rebuilding could be complicated, so a Grunt task has been created that will handle this automatically: [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
-
-This task will automatically handle editing the `.gyp` file, building from source, then rebuilding your app's native Node modules to match the new executable name.
-
 ### Creating a Custom Electron Fork
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-builder` will allow you to "Rebrand" Electron without having to do these steps.
+Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
