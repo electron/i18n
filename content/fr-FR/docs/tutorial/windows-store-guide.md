@@ -1,6 +1,6 @@
 # Guide Windows Store
 
-Avec Windows 8, le bon vieux win32 executable a un nouveau frère: La plateforme Universelle de Windows. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
+With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. Le nouveau format `.appx` ne permet pas seulement d'avoir de nouvelles API puissantes comme Cortana ou Push Notifications, mais via le Windows Store, il simplifie également les installations et les mises à jour.
 
 Microsoft [à développé un outil qui compile les apps Electron en packages `.appx`](https://github.com/catalystcode/electron-windows-store), permettant aux développeurs d'utiliser une partie des goodies trouvés dans le nouveau modèle d'application. Ce guide explique comment l'utiliser - et quelles sont les capacités et les limites d'un package Electron AppX.
 
@@ -70,7 +70,7 @@ Une fois les fichiers AppX élargis sont créés, l’outil utilise le Windows A
 
 Afin d’exécuter votre paquet, vos utilisateurs auront besoin de Windows 10 "Anniversaire Update" - plus de détails sur comment mettre à jour Windows peuvent être trouvés [ici](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-En opposition aux traditionelles apps UWP, actuellement les apps empaquetées doivent subir un processus de vérification manuelle, pour lequel vous pouvez appliquer [ici](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). En attendant, tous les utilisateurs seront en mesure d’installer votre paquet en double-cliquant dessus, donc une présentation dans le magasin ne sera ne peut-être pas nécessaire si vous cherchez simplement une méthode d’installation plus facile. Dans des environnements gérés (généralement des entreprises), l'`Add-AppxPackage` [applet de commande PowerShell permet de l'installer de façon automatisée](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+En opposition aux traditionelles apps UWP, actuellement les apps empaquetées doivent subir un processus de vérification manuelle, pour lequel vous pouvez appliquer [ici](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. Dans des environnements gérés (généralement des entreprises), l'`Add-AppxPackage` [applet de commande PowerShell permet de l'installer de façon automatisée](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Une autre limitation importante est que le paquet AppX compilé contient un fichier exécutable win32 - toujours et qu’il ne fonctionnera donc pas sur Xbox, HoloLens ou téléphones.
 
