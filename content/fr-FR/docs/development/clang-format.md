@@ -10,11 +10,11 @@ Pour automatiquement formater un fichier selon le style de code C++ d'Electron, 
 
 Suivez ces étapes pour changer votre code :
 
-  1. Apportez des modifications de codes dans le repository d'Electron.
-  2. Exécutez `git add votre_fichier.cc`.
-  3. Exécutez `git-clang-format` et vous verrez problablement des modifications dans `votre_fichier.cc`, ces modifications sont générées à partir de `clang-format`.
-  4. Exécutez `git add votre_fichier.cc` et commiter vos modifications.
-  5. Maintenant la branche est prête pour être en pull request.
+1. Apportez des modifications de codes dans le repository d'Electron.
+2. Exécutez `git add votre_fichier.cc`.
+3. Exécutez `git-clang-format` et vous verrez problablement des modifications dans `votre_fichier.cc`, ces modifications sont générées à partir de `clang-format`.
+4. Exécutez `git add votre_fichier.cc` et commiter vos modifications.
+5. Maintenant la branche est prête pour être en pull request.
 
 Si vous voulez formater le code changé sur votre dernier git commit (HEAD), vous pouvez exécuter `git-clang-format HEAD~1`. Voir `git-clang-format-h` pour plus de détails.
 
@@ -24,3 +24,4 @@ Vous pouvez également intégrer `clang-format` directement dans vos éditeurs p
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
+- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
