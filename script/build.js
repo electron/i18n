@@ -7,9 +7,7 @@ const electronDocs = require('electron-docs')
 const fs = require('fs')
 const got = require('got')
 const mkdir = require('make-dir').sync
-const objectifyArray = require('objectify-array')
 const path = require('path')
-const shakeTree = require('shake-tree')
 const YAML = require('js-yaml')
 
 const englishBasepath = path.join(__dirname, '..', 'content', 'en')
@@ -28,7 +26,6 @@ del(englishBasepath)
   .then(writeDocs)
   .then(fetchApiData)
   .then(writeApiData)
-  .then(writeApiDescriptions)
   .then(fetchWebsiteContent)
   .then(writeWebsiteContent)
 
@@ -101,17 +98,6 @@ function writeApiData (apis) {
   console.log(`Writing ${path.relative(englishBasepath, filename)} (without changes)`)
   fs.writeFileSync(filename, JSON.stringify(apis, null, 2))
   return Promise.resolve(apis)
-}
-
-function writeApiDescriptions (apis) {
-  const tree = objectifyArray(apis)
-  const descriptions = shakeTree(tree, 'description', {flat: true})
-  const filename = path.join(englishBasepath, 'api', 'api-descriptions.yml')
-  mkdir(path.dirname(filename))
-  console.log(`Writing ${path.relative(englishBasepath, filename)}`)
-  fs.writeFileSync(filename, YAML.safeDump(descriptions))
-
-  return Promise.resolve()
 }
 
 function fetchWebsiteContent () {
