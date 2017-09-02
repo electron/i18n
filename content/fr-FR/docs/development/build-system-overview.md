@@ -8,8 +8,8 @@ Les fichiers `gyp` suivants contiennent des principales règles pour compiler El
 
 * `electron.gyp` définit comment Electron lui-même est compilé.
 * `common.gypi` ajuste les configurations de compilation de Node à faire compiler avec Chromium.
-* `vendor/brightray/brightray.gyp` définit comment `brightray` est compilé et inclut les configurations par défaut pour la liaison avec Chromium.
-* `vendor/brightray/brightray.gypi` inclut les configurations de compilation générale sur la compilation.
+* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
+* `brightray/brightray.gypi` includes general build configurations about building.
 
 ## Component Build
 
