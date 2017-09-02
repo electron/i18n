@@ -6,7 +6,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 * **Un debug build d'Electron** : le moyen le plus simple est généralement de le build vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-osx.md). Alors que vous pouvez facilement débogguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le déboggage sensiblement plus difficile : le déboggueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’in-Lining, queue d’appels et autres optimisations du compilateur.
 
-* **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le déboggueur par défaut dans Xcode sur Mac OS X. Il prend en charge le déboggage C, Objective-C et C++ sur les ordinateurs et les appareils iOS et simulateur.
+* **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
 ## Déboggage d'Electrons
 
@@ -22,7 +22,7 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 LLDB est un outil puissant et supporte plusieurs stratégies d'inspection de code. Pour cette introduction basique, assumons que vous exécutez une commande JavaScript qui ne se comporte pas correctement - donc vous aimeriez voir l'equivalent de cette commande en C++.
 
-Les fichiers de code appropriés peuvent se trouver dans `./atom/`, comme pour Brightray, se trouvant dans `./vendor/brightray/browser` et `./vendor/brightray/common`. Si vous êtes hardcore, vous pouvez également débogguer Chromium directement, qui se trouve évidemment dans `chromium_src`.
+Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. Si vous êtes hardcore, vous pouvez également débogguer Chromium directement, qui se trouve évidemment dans `chromium_src`.
 
 Supposons que vous souhaitez débogguer `app.setName()`, qui est définie dans `browser.cc` comme `Browser::SetName()`. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et la ligne à couper :
 
@@ -64,7 +64,7 @@ Pour afficher les arguments et les variables locales pour le frame en cours, ex�
 }
 ```
 
-Pour faire une étape au niveau source dans le thread actuellement sélectionné, exécutez `step` (ou `s`). Cela vous amènerait dans `name_override_.empty()`. Pour continuer et refaire une étape, exécutez `next` (ou `n`).
+Pour faire une étape au niveau source dans le thread actuellement sélectionné, exécutez `step` (ou `s`). This would take you into `name_override_.empty()`. Pour continuer et refaire une étape, exécutez `next` (ou `n`).
 
 ```bash
 (lldb) step
