@@ -10,9 +10,9 @@ To load an extension in Electron, you need to download it in Chrome browser, loc
 
 Ví dụ như [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
 
-  1. Cài đặt nó trên trình duyệt Chrome.
-  2. Điều hướng đến `chrome://extensions`, và tìm thấy ID của phần mở rộng đó, là một chuỗi băm giống như `fmkadmapgofadopljbjfkapdkoienihi`.
-  3. Find out filesystem location used by Chrome for storing extensions: 
+1. Cài đặt nó trên trình duyệt Chrome.
+2. Điều hướng đến `chrome://extensions`, và tìm thấy ID của phần mở rộng đó, là một chuỗi băm giống như `fmkadmapgofadopljbjfkapdkoienihi`.
+3. Find out filesystem location used by Chrome for storing extensions: 
     * trên Windows nó là `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * trên Linux nó sẽ là: 
         * `~/.config/google-chrome/Default/Extensions/`
@@ -20,7 +20,7 @@ Ví dụ như [React Developer Tools](https://chrome.google.com/webstore/detail/
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * trên macOS thì nó là `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-  4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
