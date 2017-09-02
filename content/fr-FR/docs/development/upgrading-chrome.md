@@ -12,25 +12,23 @@ Ce sont des choses à faire en plus de mettre à jour le code d'Electron pour to
 - Mettre à jour `vendor/depot_tools` pour tout changement des outils de build nécessaire
 - Mettre à jour le `libchromiumcontent` SHA-1 à télécharger dans `script/lib/config.py`
 - Ouvrez une pull request dans `electron/libchromiumcontent` avec les modifications
-- Ouvrez une pull request dans `electron/brightray` avec les modifications 
-  - Cela devrait inclure la mise à niveau du sous-module `vendor/libchromiumcontent`
 - Ouvrez une pull request dans `electron/electron` avec les modifications 
-  - Cela devrait inclure la mise à niveau des sous-modules dans `vendor/` au besoin
-- Vérifiez que les version de debug réussissent sur : 
+  - This should include upgrading the submodules in `vendor/` as needed
+- Verify debug builds succeed on: 
   - macOS
   - Windows 32 bits
   - Windows 64 bits
   - Linux 32 bits
   - Linux 64 bits
   - ARM Linux
-- Vérifiez que les versions de release réussissent sur : 
+- Verify release builds succeed on: 
   - macOS
   - Windows 32 bits
   - Windows 64 bits
   - Linux 32 bits
   - Linux 64 bits
   - ARM Linux
-- Vérifiez que les tests passent sur : 
+- Verify tests pass on: 
   - macOS
   - Windows 32 bits
   - Windows 64 bits
