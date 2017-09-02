@@ -4,34 +4,102 @@ La siguiente lista incluye las API que se suprimirá en Electron 2.0.
 
 No hay ningún calendario para cuando ocurrirá esta versión pero las advertencias de degradación se añadirá al menos 90 días de antelación.
 
+## `aplicación`
+
+```js
+// Deprecated
+app.getAppMemoryInfo()
+// Replace with
+app.getAppMetrics()
+```
+
 ## `BrowserWindow`
 
 ```js
-OptionsA deje obsoleto = {webPreferences: {blinkFeatures: ''}} que windowA = nuevo BrowserWindow(optionsA) / / reemplazar con optionsB que = {webPreferences: {enableBlinkFeatures: ''}} que windowB = BrowserWindow(optionsB) nuevo
+// Deprecated
+let optionsA = {webPreferences: {blinkFeatures: ''}}
+let windowA = new BrowserWindow(optionsA)
+// Replace with
+let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+let windowB = new BrowserWindow(optionsB)
+```
+
+```js
+// Deprecated
+let optionsA = {titleBarStyle: 'hidden-inset'}
+let windowA = new BrowserWindow(optionsA)
+// Replace with
+let optionsB = {titleBarStyle: 'hiddenInset'}
+let windowB = new BrowserWindow(optionsB)
 ```
 
 ## `Portapapeles`
 
 ```js
-Ya no se utiliza clipboard.readRtf() / / reemplazar con clipboard.readRTF() / / clipboard.writeRtf() en desuso / / reemplazar con clipboard.writeRTF() / / clipboard.readHtml() en desuso / / reemplazar con clipboard.readHTML() / / clipboard.writeHtml() en desuso / / reemplazar con clipboard.writeHTML()
+// Deprecated
+clipboard.readRtf()
+// Replace with
+clipboard.readRTF()
+
+// Deprecated
+clipboard.writeRtf()
+// Replace with
+clipboard.writeRTF()
+
+// Deprecated
+clipboard.readHtml()
+// Replace with
+clipboard.readHTML()
+
+// Deprecated
+clipboard.writeHtml()
+// Replace with
+clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-Obsoleto crashReporter.start ({companyName: 'Crashly', submitURL: 'https://crash.server.com', autoSubmit: true}) / / reemplazar con crashReporter.start ({nombre de la empresa: 'Crashly', submitURL: 'https://crash.server.com', uploadToServer: true})
+// Deprecated
+crashReporter.start({
+  companyName: 'Crashly',
+  submitURL: 'https://crash.server.com',
+  autoSubmit: true
+})
+// Replace with
+crashReporter.start({
+  companyName: 'Crashly',
+  submitURL: 'https://crash.server.com',
+  uploadToServer: true
+})
 ```
 
-## `menú`
+## `menu`
 
 ```js
-Obsoleto menu.popup (browserWindow, 100, 200, 2) / / reemplazar con menu.popup (browserWindow, {x: 100, y: 200, positioningItem: 2})
+// Deprecated
+menu.popup(browserWindow, 100, 200, 2)
+// Replace with
+menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-Ya no se utiliza nativeImage.toPng() / / reemplazar con nativeImage.toPNG() / / nativeImage.toJpeg() en desuso / / reemplazar con nativeImage.toJPEG() / / nativeImage.createFromBuffer (buffer, 1.0) en desuso / / reemplazar con nativeImage.createFromBuffer (buffer, {
+// Deprecated
+nativeImage.toPng()
+// Replace with
+nativeImage.toPNG()
+
+// Deprecated
+nativeImage.toJpeg()
+// Replace with
+nativeImage.toJPEG()
+
+// Deprecated
+nativeImage.createFromBuffer(buffer, 1.0)
+// Replace with
+nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
@@ -39,7 +107,10 @@ Ya no se utiliza nativeImage.toPng() / / reemplazar con nativeImage.toPNG() / / 
 ## `proceso`
 
 ```js
-Obsoleto process.versions ['atom-shell'] / / reemplazar con process.versions.electron
+// Deprecated
+process.versions['atom-shell']
+// Replace with
+process.versions.electron
 ```
 
 * `process.Versions.electron` y `process.version.chrome` estarán propiedades de sólo lectura para la consistencia con las propiedades de `process.versions` por nodo.
@@ -47,41 +118,90 @@ Obsoleto process.versions ['atom-shell'] / / reemplazar con process.versions.ele
 ## `período de sesiones`
 
 ```js
-Ses.setCertificateVerifyProc en desuso (función (nombre de host, certificado, callback) {callback(true)}) / / reemplazar con ses.setCertificateVerifyProc (función (petición, devolución de llamada) {callback(0)})
+// Deprecated
+ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+  callback(true)
+})
+// Replace with
+ses.setCertificateVerifyProc(function (request, callback) {
+  callback(0)
+})
 ```
 
 ## `Bandeja`
 
 ```js
-Ya no se utiliza tray.setHighlightMode(true) / / reemplazar con tray.setHighlightMode('on') / / tray.setHighlightMode(false) en desuso / / reemplazar con tray.setHighlightMode('off')
+// Deprecated
+tray.setHighlightMode(true)
+// Replace with
+tray.setHighlightMode('on')
+
+// Deprecated
+tray.setHighlightMode(false)
+// Replace with
+tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-WebContents.openDevTools({detach: true}) en desuso / / reemplazar con webContents.openDevTools({mode: 'detach'})
+// Deprecated
+webContents.openDevTools({detach: true})
+// Replace with
+webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-WebContents.setZoomLevelLimits (1, 2) en desuso / / reemplazar con webContents.setVisualZoomLevelLimits (1, 2)
+// Deprecated
+webContents.setZoomLevelLimits(1, 2)
+// Replace with
+webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-WebFrame.setZoomLevelLimits (1, 2) en desuso / / reemplazar con webFrame.setVisualZoomLevelLimits (1, 2) / / webFrame.registerURLSchemeAsSecure('app') en desuso / / reemplazar con protocol.registerStandardSchemes (['app'], {secure: true}) / / webFrame.registerURLSchemeAsPrivileged ('app', {secure: true}) en desuso / / reemplazar con protocol.registerStandardSchemes (['app'], {secure: true})
+// Deprecated
+webFrame.setZoomLevelLimits(1, 2)
+// Replace with
+webFrame.setVisualZoomLevelLimits(1, 2)
+
+// Deprecated
+webFrame.registerURLSchemeAsSecure('app')
+// Replace with
+protocol.registerStandardSchemes(['app'], {secure: true})
+
+// Deprecated
+webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+// Replace with
+protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-Webview.setZoomLevelLimits (1, 2) en desuso / / reemplazar con webview.setVisualZoomLevelLimits (1, 2)
+// Deprecated
+webview.setZoomLevelLimits(1, 2)
+// Replace with
+webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Nodo enlace de cabeceras
+## Node Headers URL
 
 Esta es la dirección URL especificada como `disturl` en un archivo `.npmrc` o como ` - dist-url` bandera de línea de comandos al compilar los módulos nativos de nodo.
 
 Obsoleto: https://atom.io/download/atom-shell
 
 Reemplazar con: https://atom.io/download/electron
+
+## Duplicate ARM Assets
+
+Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+
+The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+
+For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+
+## `FIXME` comments
+
+The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
