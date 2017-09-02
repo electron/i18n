@@ -8,8 +8,8 @@ Después de `gyp` los archivos contienen las principales normas para la construc
 
 * `electron.gyp` define cómo se construye el Electron sí mismo.
 * `common.gypi` ajusta las configuraciones de compilación de nodo para compilar junto con cromo.
-* `vendor/brightray/brightray.gyp` define cómo `brightray` está construido e incluye las configuraciones predeterminadas para enlazar con el cromo.
-* `vendor/brightray/brightray.gypi` incluye configuraciones de generación general sobre edificio.
+* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
+* `brightray/brightray.gypi` includes general build configurations about building.
 
 ## Compilar componente
 
