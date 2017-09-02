@@ -40,5 +40,24 @@ Electronは新しいバージョンのChromiumを出来るだけ早くサポー�
 * WebViews: `disablewebsecurity`を使用しない
 * WebViews: `allowpopups`を使用しない
 * WebViews: `insertCSS` や `executeJavaScript` をリモートのCSS/JSと共に使用しない
+* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+
+```js
+app.on('web-contents-created', (event, contents) => {
+  contents.on('will-attach-webview', (event, webPreferences, params) => {
+    // Strip away preload scripts if unused or verify their location is legitimate
+    delete webPreferences.preload
+    delete webPreferences.preloadURL
+
+    // Disable node integration
+    webPreferences.nodeIntegration = false
+
+    // Verify URL being loaded
+    if (!params.src.startsWith('https://yourapp.com/')) {
+      event.preventDefault()
+    }
+  })
+})
+```
 
 繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にWebサイトを表示するという目的であれば、Electronアプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
