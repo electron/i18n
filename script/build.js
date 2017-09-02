@@ -58,13 +58,10 @@ function fetchDocs () {
   console.log(`Fetching ${release.tag_name} docs from electron/electron repo`)
 
   return electronDocs(release.tag_name)
-    .then(docs => {
-      const nonApiDocs = docs.filter(doc => !doc.filename.split(path.sep).includes('api'))
-      return Promise.resolve(nonApiDocs)
-  }).catch(err => {
-    console.error(`Unable to fetch docs for Electron ${release.tag_name}`)
-    throw err
-  })
+    .catch(err => {
+      console.error(`Unable to fetch docs for Electron ${release.tag_name}`)
+      throw err
+    })
 }
 
 function writeDocs (docs) {
