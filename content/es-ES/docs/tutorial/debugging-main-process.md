@@ -1,26 +1,26 @@
 # Los principales procesos de depuración
 
-Las DevTools en una ventana del navegador del Electron sólo puede depurar JavaScript que se ejecuta en la ventana (es decir, las páginas web). Para depurar JavaScript que se ejecuta en el proceso principal que usted necesitará utilizar un depurador externo y lanzar electrones con el ` - debug` o `--debug-brk` interruptor.
+Las DevTools en una ventana del navegador del Electron sólo puede depurar JavaScript que se ejecuta en la ventana (es decir, las páginas web). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
 
 ## Línea de comandos
 
 Utilice uno de los siguientes modificadores de línea de comandos para habilitar la depuración del proceso principal:
 
-### `--debug =[port]`
+### `--inspect=[port]`
 
-Electrón se escucha mensajes de protocolo de depurador de V8 en el `port` especificado, un depurador externo necesitará conectarse a este puerto. El `port` por defecto es `5858`.
+Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
-Electron--debug = 5858 su / app
+electron --inspect=5858 your/app
 ```
 
-### `--debug-brk =[port]`
+### `--inspect-brk=[port]`
 
-Como `--debug` pero detiene temporalmente la ejecución de la primera línea de JavaScript.
+Like `--inspector` but pauses execution on the first line of JavaScript.
 
 ## Depuradores externos
 
-Usted necesitará utilizar un depurador que soporta el protocolo del debugger de V8, las siguientes guías le ayudarán a empezar:
+You will need to use a debugger that supports the V8 inspector protocol.
 
+- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
 - [Depurar el proceso principal en VSCode](debugging-main-process-vscode.md)
-- [Depurar el proceso del principal inspector de nodo](debugging-main-process-node-inspector.md)
