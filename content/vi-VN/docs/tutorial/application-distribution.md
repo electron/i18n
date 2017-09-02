@@ -90,6 +90,7 @@ Bạn có thể đổi tên file thực thi `electron` thành bất cứ tên n�
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
+* [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
@@ -97,30 +98,24 @@ Apart from packaging your app manually, you can also choose to use third party p
 
 It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
 
-### grunt-build-atom-shell
-
-Manually checking out Electron's code and rebuilding could be complicated, so a Grunt task has been created that will handle this automatically: [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
-
-This task will automatically handle editing the `.gyp` file, building from source, then rebuilding your app's native Node modules to match the new executable name.
-
 ### Creating a Custom Electron Fork
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-builder` will allow you to "Rebrand" Electron without having to do these steps.
+Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
 #### Creating a Custom Release with surf-build
 
-  1. Cài đặt [Surf](https://github.com/surf-build/surf), từ npm: `npm install -g surf-build@latest`
+1. Cài đặt [Surf](https://github.com/surf-build/surf), từ npm: `npm install -g surf-build@latest`
 
-  2. Tạo một bucket S3 và tạo một cây thư mục như sau vào trong đó:
+2. Tạo một bucket S3 và tạo một cây thư mục như sau vào trong đó:
     
         - atom-shell/
           - symbols/
           - dist/
         
 
-  3. Thiết lập các biến môi trường sau đây:
+3. Thiết lập các biến môi trường sau đây:
 
 * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
@@ -130,8 +125,8 @@ You need to fork Electron when you have custom C++ code that you have patched di
 * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
 * `TARGET_ARCH` - set to `ia32` or `x64` 
 
-  1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
-  2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-  3. Wait a very, very long time for the build to complete.
+3. Wait a very, very long time for the build to complete.
