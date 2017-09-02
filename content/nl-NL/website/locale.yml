@@ -40,7 +40,7 @@ explore:
 download_from_github: Downloaden van GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Toon alle releases</a> op GitHub'
 quick_start:
-  title: "Activeer de <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app om Electron in actie te zien:"
+  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank' rel='noopener'>Quick Start</a> app to see Electron in action:"
   description: Een minimale Electron app met nuttige notaties.
   clone: Het Quick Start archief klonen
   go_into_repo: Ga naar het archief
@@ -51,7 +51,7 @@ need_help:
   description: 'Stel vragen in het <a href=''https://discuss.atom.io/c/electron''>Discussie</a>forum of ons <a href=''http://atom-slack.herokuapp.com/''>Slack</a> kanaal. Volg <a href="https://twitter.com/ElectronJS">@ElectronJS</a> op Twitter voor belangrijke mededelingen. Moet je ons privé bereiken? Mail naar <a href="mailto:electron@github.com">electron@github.vom</a>.'
 apps:
   title: Apps gebouwd op Electron
-  description: 'Met Electron is het maken van een desktop applicatie voor jouw bedrijf of idee simpel. Oorspronkelijk ontworpen voor GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, is Electron sinds dien ook gebruikt om applicaties te maken door bedrijven als Microsoft, Facebook, Slack, en Docker.'
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank'' rel=''noopener''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: Meer apps weergeven
   submit_your_own: dien je eigen in
 or: of
