@@ -49,13 +49,22 @@ Si encuentra este problema, los siguientes artículos pueden resultar útiles:
 Si quieres una solución rápida, puede hacer las variables global, cambiando el código de este:
 
 ```javascript
-const {app, Tray} = require('electron') app.on ('listo', () => {bandeja const = new Tray('/path/to/icon.png') tray.setTitle ('Hola mundo')})
+const {app, Tray} = require('electron')
+app.on('ready', () => {
+  const tray = new Tray('/path/to/icon.png')
+  tray.setTitle('Hola mundo')
+})
 ```
 
 a esto:
 
 ```javascript
-const {app, Tray} = bandeja dejar require('electron') = null app.on ('listo', () => {bandeja = new Tray('/path/to/icon.png') tray.setTitle ('Hola mundo')})
+const {app, Tray} = require('electron')
+let tray = null
+app.on('ready', () => {
+  tray = new Tray('/path/to/icon.png')
+  tray.setTitle('Hola mundo')
+})
 ```
 
 ## No puedo usar jQuery/RequireJS/meteorito/AngularJS en electrones.
