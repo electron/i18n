@@ -13,19 +13,29 @@ Siga las pautas a continuación para la construcción de Electron en Linux.
 En Ubuntu, instalar las siguientes librerías:
 
 ```bash
-$ sudo apt-get instalar build-essential clang libdbus-1-dev libgtk2.0-dev \ libnotify-dev libgnome-llavero-dev libgconf2-dev \ libcups2-dev de libcap-dev libasound2-dev libxtst-dev \ libxss1 libnss3-dev gcc-multilib g ++-enrollamiento multilib \ gperf bisonte
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
+                       libnotify-dev libgnome-keyring-dev libgconf2-dev \
+                       libasound2-dev libcap-dev libcups2-dev libxtst-dev \
+                       libxss1 libnss3-dev gcc-multilib g++-multilib curl \
+                       gperf bison
 ```
 
 En RHEL / CentOS, instalar las siguientes librerías:
 
 ```bash
-$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \ libgnome-llavero-devel xorg-x11-servidor-utils libcap-devel \ tazas-devel libXtst-devel alsa-lib-devel libXrandr-devel \ GConf2-devel nss-devel
+$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
+                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   GConf2-devel nss-devel
 ```
 
 En Fedora, instalar las siguientes librerías:
 
 ```bash
-$ sudo dnf instalar clang dbus-devel gtk2-devel libnotify-devel \ libgnome-llavero-devel xorg-x11-servidor-utils libcap-devel \ tazas-devel libXtst-devel alsa-lib-devel libXrandr-devel \ GConf2-devel nss-devel
+$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
+                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   GConf2-devel nss-devel
 ```
 
 Otras distribuciones pueden ofrecer paquetes similares para instalación a través de gestores de paquetes como pacman. O uno puede compilar desde el código fuente.
