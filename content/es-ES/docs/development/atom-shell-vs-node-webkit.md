@@ -14,7 +14,7 @@ En Electron, el punto de entrada es un script de JavaScript. En lugar de proporc
 
 Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Electron son inferiores por lo que puede utilizar para navegador de pruebas en lugar de [PhantomJS](http://phantomjs.org/).
 
-**2. compilar el sistema**
+**2. Compilar el Sistema**
 
 In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de cromo y todas sus dependencias. Los usuarios no necesitan una máquina potente para compilar Electron.
 
