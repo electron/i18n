@@ -40,7 +40,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Otras distribuciones pueden ofrecer paquetes similares para instalación a través de gestores de paquetes como pacman. O uno puede compilar desde el código fuente.
 
-## Obtener el código de
+## Obteniendo Código
 
 ```bash
 $ git clone https://github.com/electron/electron.git
@@ -48,10 +48,11 @@ $ git clone https://github.com/electron/electron.git
 
 ## De arranque
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Debe tener Python 2.7 para la escritura tener éxito. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando`ninja` para compilar Electron no hay `Makefile` generado.
+El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Debe tener Python 2.7 para la escritura tener éxito. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando `ninja` para compilar Electron no hay `Makefile` generado.
 
 ```bash
-$ cd Electronico $./script/bootstrap.py - v
+$ cd electron
+$ ./script/bootstrap.py -v
 ```
 
 ### Cruz de compilación
@@ -59,13 +60,14 @@ $ cd Electronico $./script/bootstrap.py - v
 Si usted quiere compilar para un objetivo de `arm` también debe instalar las siguientes dependencias:
 
 ```bash
-$ sudo apt-get instala libc6-dev-armhf-cross linux-libc-dev-armhf-Cruz \ g ++-arm-linux-gnueabihf
+$ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
+                       g++-arm-linux-gnueabihf
 ```
 
 Y para cruzar la compilación para objetivos `arm` o `ia32`, debe pasar el `--target_arch` parámetro al script `bootstrap.py`:
 
 ```bash
-$./script/bootstrap.py - v--target_arch = brazo
+$ ./script/bootstrap.py -v --target_arch=arm
 ```
 
 ## Edificio
@@ -73,21 +75,21 @@ $./script/bootstrap.py - v--target_arch = brazo
 Si desea compilar metas `Release` y `Debug`:
 
 ```bash
-$./script/build.py
+$ ./script/build.py
 ```
 
 Este script hará que un Electron muy grande ejecutable en el directorio `out/R`. El tamaño del archivo es superior a 1,3 gigabytes. Esto sucede porque el objetivo de lanzamiento binario contiene símbolos de depuración. Para reducir el tamaño del archivo, ejecute el script `create-dist.py`:
 
 ```bash
-$./script/create-dist.py
+$ ./script/create-dist.py
 ```
 
-Esto pondrá una distribución del trabajo con mucho menor tamaño de archivo en el directorio `dist`. Después de ejecutar el script de crear dist.py, puede que desee quitar el 1.3 + gigabyte binario que todavía está en `out/R`.
+Esto pondrá una distribución del trabajo con mucho menor tamaño de archivo en el directorio `dist`. Después de ejecutar el script de crear dist.py, puede que desee quitar el 1.3+ gigabyte binario que todavía está en `out/R`.
 
 También puede crear el objetivo de `Debug` solamente:
 
 ```bash
-$./script/build.py - c D
+$ ./script/build.py -c D
 ```
 
 Después de edificio, usted puede encontrar la depuración `electron` binario bajo `out/D`.
@@ -97,13 +99,13 @@ Después de edificio, usted puede encontrar la depuración `electron` binario ba
 Para limpiar los archivos de la compilación:
 
 ```bash
-$ MNP correr limpio
+$ npm run clean
 ```
 
 Limpiar sólo los directorios `out` y `dist`:
 
 ```bash
-$ MNP ejecutar limpieza y construcción
+$ npm run clean-build
 ```
 
 **Note:** que ambos comandos limpiamos requieren corriente `bootstrap` antes de edificio.
@@ -131,13 +133,13 @@ El valor predeterminado configuración de construcción destinado a principales 
 Para evitar el uso de los binarios pre-compilados de la `libchromiumcontent`, puede pasar el `--build_libchromiumcontent` interruptor `bootstrap.py` script:
 
 ```bash
-$./script/bootstrap.py - v--build_libchromiumcontent
+$ ./script/bootstrap.py -v --build_libchromiumcontent
 ```
 
 Tenga en cuenta que por defecto no se construye la configuración de `shared_library`, por lo que sólo se puede compilar `Release` versión del Electron Si utilizas este modo:
 
 ```bash
-$./script/build.py - c R
+$ ./script/build.py -c R
 ```
 
 ### Uso de sistema `clang` en lugar de binarios descargado `clang`
@@ -147,7 +149,8 @@ Por defecto el Electron está construido con binarios precompilados `clang` prop
 Por ejemplo Si instalaste `clang` en `/usuario/local/bin/clang`:
 
 ```bash
-$./script/bootstrap.py - v--build_libchromiumcontent--clang_dir/usr/local $./script/build.py - c R
+$ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
+$ ./script/build.py -c R
 ```
 
 ### Usar otros compiladores que no sean `clang`
@@ -157,7 +160,8 @@ Compilar Electron con compiladores como `g ++`, primera necesidad para desactiva
 Edificio por ejemplo con cadena de herramientas GCC:
 
 ```bash
-env $ CC = gcc CXX = g ++./script/bootstrap.py - v--build_libchromiumcontent--disable_clang $./script/build.py - c R
+$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disable_clang
+$ ./script/build.py -c R
 ```
 
 ### Variables de entorno
@@ -170,7 +174,7 @@ Aparte de `CC` y `CXX`, también puede establecer siguiendo las variables de ent
 * `CFLAGS_host`
 * `CXXFLAGS`
 * `CXXFLAGS_host`
-* `Ar`
+* `AR`
 * `AR_host`
 * `CC`
 * `CC_host`
