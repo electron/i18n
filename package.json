@@ -43,7 +43,8 @@
     "build": "npm run compile-docs",
     "compile-docs": "script/compile-docs.js",
     "test": "mocha",
-    "prepush": "check-for-leaks"
+    "prepush": "check-for-leaks",
+    "pretest": "npm run build"
   },
   "engines": {
     "node": ">=6"
