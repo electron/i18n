@@ -8,6 +8,7 @@ const apis = require('./lib/apis')
 const tree = objectifyArray(apis)
 const locales = require('./lib/locales')
 const slugs = require('./lib/get-slugs')(apis)
+const docs = require('./docs.json')
 
 module.exports = {
   api: {
@@ -20,8 +21,8 @@ module.exports = {
 
 function getApi (apiName, locale = 'en') {
   assert(locales.includes(locale), `Unsupported locale: ${locale}`)
-  const tree = JSON.parse(translatedTrees[locale])
-  const api = tree[apiName] || tree[slugs[apiName]]
+  
+  const api = docs.find(doc => doc.locale === locale && [doc.slug, doc.name].includes(apiName))
   assert(api, `Unsupported API: ${api}`)
   return api
 }

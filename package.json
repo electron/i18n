@@ -16,6 +16,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "check-for-leaks": "^1.2.0",
+    "cheerio": "^1.0.0-rc.2",
     "del": "^2.2.2",
     "dotenv-safe": "^4.0.4",
     "electron-docs": "^3.0.2",
@@ -27,13 +28,20 @@
     "make-dir": "^1.0.0",
     "mocha": "^3.3.0",
     "ora": "^1.2.0",
+    "pify": "^3.0.0",
+    "remark": "^8.0.0",
+    "remark-highlight.js": "^5.0.0",
+    "remark-html": "^6.0.1",
+    "remark-slug": "^4.2.3",
     "shake-tree": "^1.1.0",
     "standard": "^10.0.2",
     "standard-markdown": "^2.3.0",
-    "walk-sync": "^0.3.1"
+    "walk-sync": "^0.3.2"
   },
   "scripts": {
-    "build": "script/build.js",
+    "collect": "script/collect.js",
+    "build": "npm run compile-docs",
+    "compile-docs": "script/compile-docs.js",
     "test": "mocha",
     "prepush": "check-for-leaks"
   },

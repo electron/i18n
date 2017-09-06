@@ -32,26 +32,27 @@ describe('electron-i18n', () => {
     })
 
     describe('api.get', () => {
-      it('is a method for getting translated structured API docs by locale', () => {
+      it('is a method for getting API by slug and locale', () => {
         let app = i18n.api.get('app')
+        expect(app.title).to.equal('app')
         expect(app.description).to.include('Control your application')
 
-        app = i18n.api.get('app', 'fr-FR')
-        expect(app.description).to.include('Contrôle le cycle de vie')
-        expect(app.methods.quit.description).to.include('Essaye de fermer toutes les fenêtres')
+        // app = i18n.api.get('app', 'fr-FR')
+        // expect(app.description).to.include('Contrôle le cycle de vie')
+        // expect(app.methods.quit.description).to.include('Essaye de fermer toutes les fenêtres')
 
-        app = i18n.api.get('app', 'vi-VN')
-        expect(app.description).to.include('Kiểm soát các vòng')
-        expect(app.methods.relaunch.description).to.include('ứng dụng khi thoát khỏi')
+        // app = i18n.api.get('app', 'vi-VN')
+        // expect(app.description).to.include('Kiểm soát các vòng')
+        // expect(app.methods.relaunch.description).to.include('ứng dụng khi thoát khỏi')
       })
 
-      it('allows lookup by API name or url-friendly slug', () => {
-        const api1 = i18n.api.get('BrowserWindow')
-        expect(api1).to.be.an('object')
-        const api2 = i18n.api.get('browser-window')
-        expect(api2).to.be.an('object')
-        expect(api1).to.deep.equal(api2)
-      })
+      // it('allows lookup by API name or url-friendly slug', () => {
+      //   const api1 = i18n.api.get('BrowserWindow')
+      //   expect(api1).to.be.an('object')
+      //   const api2 = i18n.api.get('browser-window')
+      //   expect(api2).to.be.an('object')
+      //   expect(api1).to.deep.equal(api2)
+      // })
     })
   })
 
@@ -59,18 +60,6 @@ describe('electron-i18n', () => {
     it('includes tutorials and development docs', () => {
       expect(tree).to.include('en/docs/tutorial/accessibility.md')
       expect(tree).to.include('en/docs/development/coding-style.md')
-    })
-
-    it('ignores API docs', () => {
-      expect(tree.some(path => path.includes('docs/api/'))).to.equal(false)
-    })
-
-    it('includes API descriptions in YAML format', () => {
-      expect(tree).to.include('en/api/api-descriptions.yml')
-    })
-
-    it('includes website content', () => {
-      expect(tree).to.include('en/website/locale.yml')
     })
   })
 })
