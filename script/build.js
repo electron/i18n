@@ -93,7 +93,7 @@ function fetchApiData () {
 }
 
 function writeApiData (apis) {
-  const filename = path.join(englishBasepath, 'api', 'electron-api.json')
+  const filename = path.join(englishBasepath, 'electron-api.json')
   mkdir(path.dirname(filename))
   console.log(`Writing ${path.relative(englishBasepath, filename)} (without changes)`)
   fs.writeFileSync(filename, JSON.stringify(apis, null, 2))
