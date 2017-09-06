@@ -8,7 +8,6 @@ const apis = require('./lib/apis')
 const tree = objectifyArray(apis)
 const locales = require('./lib/locales')
 const slugs = require('./lib/get-slugs')(apis)
-const translatedTrees = require('./lib/pretranslate')()
 
 module.exports = {
   api: {
