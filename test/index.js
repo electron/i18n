@@ -26,9 +26,20 @@ describe('i18n.api.tree', () => {
 
 describe('i18n.api.get', () => {
   it('is a method for getting API by slug and locale', () => {
-    let app = i18n.api.get('app')
+    const app = i18n.api.get('app')
     app.title.should.equal('app')
     app.description.should.include('Control your application')
+  })
+
+  it('includes all expected properties on each doc', () => {
+    const app = i18n.api.get('app')
+    app.title.should.equal('app')
+    app.description.should.include('Control your application')
+    app.locale.should.equal('en')
+    app.slug.should.equal('app')
+    app.category.should.equal('api')
+    app.markdown.should.be.a('string')
+    app.html.should.be.a('string')
   })
 
   it('accepts an optional locale argument')
@@ -37,6 +48,21 @@ describe('i18n.api.get', () => {
   // app.methods.quit.description.should.include('Essaye de fermer toutes les fenêtres')
 
   it('allows lookup by API name or url-friendly slug')
+})
+
+describe('i18n.guides.list', () => {
+  it('is a method for getting a list of guide metadata', () => {
+    const guides = i18n.guides.list()
+    guides.should.be.an('array')
+  })
+})
+
+describe('i18n.guides.get', () => {
+  it('is a method for getting a guide by slug and locale', () => {
+    const guide = i18n.guides.get('quick-start')
+    guide.title.should.equal('Quick Start')
+    guide.locale.should.equal('en')
+  })
 })
 
 describe('i18n.locales', () => {

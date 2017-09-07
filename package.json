@@ -17,6 +17,7 @@
     "chai": "^3.5.0",
     "check-for-leaks": "^1.2.0",
     "cheerio": "^1.0.0-rc.2",
+    "clean-deep": "^3.0.2",
     "del": "^2.2.2",
     "dotenv-safe": "^4.0.4",
     "electron-docs": "^3.0.2",

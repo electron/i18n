@@ -3,6 +3,7 @@
 const walk = require('walk-sync')
 const path = require('path')
 const fs = require('fs')
+const cleanDeep = require('clean-deep')
 const markdown = require('../lib/markdown')
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -30,10 +31,10 @@ async function parseFile(file) {
   file.description = $('blockquote').text()
   file.category = file.relativePath
     .split(path.sep)
-    .slice(1, -1) // remove locale and filename
+    .slice(2, -1) // {locale}/docs/api/{filename} -> api
     .join(path.sep)
 
-  return file
+  return cleanDeep(file)
 }
 
 parseDocs().then(docs => {

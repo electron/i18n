@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const assert = require('assert')
 const objectifyArray = require('objectify-array')
-const flat = require('flat')
+const {chain, pick} = require('lodash')
 const contentDir = path.join(__dirname, './content')
 const apis = require('./lib/apis')
 const tree = objectifyArray(apis)
@@ -16,7 +16,23 @@ module.exports = {
     tree: tree,
     get: getApi
   },
+  guides: {
+    list: listGuides,
+    get: getGuide
+  },
   locales: locales
+}
+
+function listGuides(locale = 'en') {
+  return chain(docs)
+    .filter(doc => doc.locale === locale && ['tutorial', 'development'].includes(doc.category))
+    .map(doc => pick(doc, ['slug', 'title', 'description', 'category', 'locale']))
+    .orderBy('title', 'asc')
+    .value()
+}
+
+function getGuide(slug, locale = 'en') {
+  return listGuides(locale).find(guide => guide.slug === slug)
 }
 
 function getApi (apiName, locale = 'en') {
