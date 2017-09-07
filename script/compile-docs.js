@@ -9,37 +9,31 @@ const cheerio = require('cheerio')
 
 async function parseDocs () {
   return Promise.all(
-    walk(contentDir)
-      .filter(file => /\.md$/.test(file))
-      .map(async (file) => {
-        const doc = await parseDoc(contentDir, file)
-        return doc
-      })
+    walk.entries(contentDir)
+      .filter(file => /\.md$/.test(file.relativePath))
+      .map(async (file) => await parseFile(file))
   )
 }
 
-async function parseDoc(contentDir, relativeFilename) {
-  const fullpath = path.join(contentDir, relativeFilename)
-  const locale = relativeFilename.split('/')[0]
-  const slug = path.basename(relativeFilename, '.md')
-  const md = fs.readFileSync(fullpath, 'utf8')
-  const parsed = await markdown(md)
-  const html = parsed.contents
-  const $ = cheerio.load(html)
-  const title = $('h1').text()
-  const description = $('blockquote').text()
+async function parseFile(file) {
+  file.fullPath = path.join(file.basePath, file.relativePath)
+  file.locale = file.relativePath.split('/')[0]
+  file.slug = path.basename(file.relativePath, '.md')
+  file.markdown = fs.readFileSync(file.fullPath, 'utf8')
+  
+  const parsed = await markdown(file.markdown)
+  file.html = parsed.contents
+  
+  const $ = cheerio.load(file.html)
 
-  const doc = {
-    slug: slug,
-    locale: locale,
-    title: title,
-    description: description,
-    fullpath: fullpath,
-    md: md,
-    html: html
-  }
+  file.title = $('h1').text()
+  file.description = $('blockquote').text()
+  file.category = file.relativePath
+    .split(path.sep)
+    .slice(1, -1) // remove locale and filename
+    .join(path.sep)
 
-  return doc
+  return file
 }
 
 parseDocs().then(docs => {
