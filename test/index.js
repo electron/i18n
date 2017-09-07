@@ -1,5 +1,5 @@
+require('chai').should()
 const {before, describe, it} = require('mocha')
-const {expect} = require('chai')
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
@@ -13,53 +13,44 @@ describe('electron-i18n', () => {
     const i18n = require('..')
     
     it('exports structured API data as arrays', () => {
-      expect(i18n.api.array).to.be.an('array')
+      i18n.api.array.should.be.an('array')
       const apiNames = i18n.api.array.map(api => api.name)
-      expect(apiNames).to.include('app')
-      expect(apiNames).to.include('BrowserWindow')
+      apiNames.should.include('app')
+      apiNames.should.include('BrowserWindow')
     })
 
     it('exports structured API data as a tree', () => {
-      expect(i18n.api.tree).to.be.an('object')
-      expect(i18n.api.tree.BrowserWindow.instanceMethods).to.be.an('object')
+      i18n.api.tree.should.be.an('object')
+      i18n.api.tree.BrowserWindow.instanceMethods.should.be.an('object')
     })
 
     it('exports a list of locales', () => {
-      expect(i18n.locales).to.be.an('array')
-      expect(i18n.locales.length).to.be.above(15)
-      expect(i18n.locales).to.include('en')
-      expect(i18n.locales).to.include('fr-FR')
+      i18n.locales.should.be.an('array')
+      i18n.locales.length.should.be.above(15)
+      i18n.locales.should.include('en')
+      i18n.locales.should.include('fr-FR')
     })
 
     describe('api.get', () => {
       it('is a method for getting API by slug and locale', () => {
         let app = i18n.api.get('app')
-        expect(app.title).to.equal('app')
-        expect(app.description).to.include('Control your application')
-
-        // app = i18n.api.get('app', 'fr-FR')
-        // expect(app.description).to.include('Contrôle le cycle de vie')
-        // expect(app.methods.quit.description).to.include('Essaye de fermer toutes les fenêtres')
-
-        // app = i18n.api.get('app', 'vi-VN')
-        // expect(app.description).to.include('Kiểm soát các vòng')
-        // expect(app.methods.relaunch.description).to.include('ứng dụng khi thoát khỏi')
+        app.title.should.equal('app')
+        app.description.should.include('Control your application')
       })
 
-      // it('allows lookup by API name or url-friendly slug', () => {
-      //   const api1 = i18n.api.get('BrowserWindow')
-      //   expect(api1).to.be.an('object')
-      //   const api2 = i18n.api.get('browser-window')
-      //   expect(api2).to.be.an('object')
-      //   expect(api1).to.deep.equal(api2)
-      // })
+      it('accepts an optional locale argument')
+      // app = i18n.api.get('app', 'fr-FR')
+      // app.description.should.include('Contrôle le cycle de vie')
+      // app.methods.quit.description.should.include('Essaye de fermer toutes les fenêtres')
+
+      it('allows lookup by API name or url-friendly slug')
     })
   })
 
   describe('source content', () => {
     it('includes tutorials and development docs', () => {
-      expect(tree).to.include('en/docs/tutorial/accessibility.md')
-      expect(tree).to.include('en/docs/development/coding-style.md')
+      tree.should.include('en/docs/tutorial/accessibility.md')
+      tree.should.include('en/docs/development/coding-style.md')
     })
   })
 })
