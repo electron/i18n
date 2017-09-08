@@ -8,7 +8,6 @@ const fs = require('fs')
 const got = require('got')
 const mkdir = require('make-dir').sync
 const path = require('path')
-const YAML = require('js-yaml')
 
 const englishBasepath = path.join(__dirname, '..', 'content', 'en')
 const GitHub = require('github')
@@ -21,7 +20,7 @@ const github = new GitHub({
 let release
 
 del(englishBasepath)
-  .then(fetchRelease)
+  .then(fetchLatestRelease)
   .then(fetchDocs)
   .then(writeDocs)
   .then(fetchApiData)
@@ -29,19 +28,10 @@ del(englishBasepath)
   .then(fetchWebsiteContent)
   .then(writeWebsiteContent)
 
-function fetchRelease (tag) {
-  let fetcher
+function fetchLatestRelease () {
   let repo = {owner: 'electron', repo: 'electron'}
 
-  if (false && tag && tag.length) {
-    console.log(`Fetching Electron ${tag}`)
-    fetcher = github.repos.getReleaseByTag(Object.assign(repo, {tag: tag}))
-  } else {
-    console.log('Fetching the latest release of Electron')
-    fetcher = github.repos.getLatestRelease(repo)
-  }
-
-  return fetcher
+  github.repos.getLatestRelease(repo)
   .catch(err => {
     console.error(`Unable to fetch latest Electron release`)
     throw err
