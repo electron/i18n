@@ -1,21 +1,19 @@
 {
   "name": "electron-i18n",
-  "private": true,
-  "version": "1.0.0",
-  "description": "The home of Electron's translateable content",
-  "main": "index.js",
+  "version": "0.0.8",
+  "description": "A home for Electron's translated documentation.",
+  "main": "index.json",
+  "files": [
+    "index.json"
+  ],
   "repository": "https://github.com/electron/electron-i18n",
   "author": "zeke",
   "license": "MIT",
-  "dependencies": {
-    "flat": "^2.0.1",
-    "lodash": "^4.17.4",
-    "objectify-array": "^1.0.1",
-    "require-yml": "^1.3.1"
-  },
   "devDependencies": {
     "chai": "^3.5.0",
     "check-for-leaks": "^1.2.0",
+    "cheerio": "^1.0.0-rc.2",
+    "clean-deep": "^3.0.2",
     "del": "^2.2.2",
     "dotenv-safe": "^4.0.4",
     "electron-docs": "^3.0.2",
@@ -23,21 +21,26 @@
     "got": "^6.7.1",
     "husky": "^0.14.3",
     "js-yaml": "^3.8.4",
-    "json": "^9.0.6",
+    "lodash": "^4.17.4",
     "make-dir": "^1.0.0",
     "mocha": "^3.3.0",
-    "ora": "^1.2.0",
-    "shake-tree": "^1.1.0",
+    "pify": "^3.0.0",
+    "remark": "^8.0.0",
+    "remark-autolink-headings": "^5.0.0",
+    "remark-github": "^7.0.2",
+    "remark-highlight.js": "^5.0.0",
+    "remark-html": "^6.0.1",
+    "remark-inline-links": "^3.0.4",
+    "remark-slug": "^4.2.3",
     "standard": "^10.0.2",
-    "standard-markdown": "^2.3.0",
-    "walk-sync": "^0.3.1"
+    "walk-sync": "^0.3.2"
   },
   "scripts": {
+    "collect": "script/collect.js",
+    "translation-status": "script/translation-status.js",
     "build": "script/build.js",
-    "test": "mocha",
-    "prepush": "check-for-leaks"
-  },
-  "engines": {
-    "node": ">=6"
+    "test": "mocha && standard --fix",
+    "prepush": "check-for-leaks",
+    "pretest": "npm run build"
   }
 }

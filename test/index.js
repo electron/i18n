@@ -1,76 +1,54 @@
-const {before, describe, it} = require('mocha')
-const {expect} = require('chai')
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const requireYAML = require('require-yml')
-const contentDir = path.join(__dirname, '../content')
-const tree = walk(contentDir)
+require('chai').should()
+const {describe, it} = require('mocha')
 const i18n = require('..')
 
-describe('electron-i18n', () => {
-    describe('module', () => {
-    const i18n = require('..')
-    
-    it('exports structured API data as arrays', () => {
-      expect(i18n.api.array).to.be.an('array')
-      const apiNames = i18n.api.array.map(api => api.name)
-      expect(apiNames).to.include('app')
-      expect(apiNames).to.include('BrowserWindow')
-    })
-
-    it('exports structured API data as a tree', () => {
-      expect(i18n.api.tree).to.be.an('object')
-      expect(i18n.api.tree.BrowserWindow.instanceMethods).to.be.an('object')
-    })
-
-    it('exports a list of locales', () => {
-      expect(i18n.locales).to.be.an('array')
-      expect(i18n.locales.length).to.be.above(15)
-      expect(i18n.locales).to.include('en')
-      expect(i18n.locales).to.include('fr-FR')
-    })
-
-    describe('api.get', () => {
-      it('is a method for getting translated structured API docs by locale', () => {
-        let app = i18n.api.get('app')
-        expect(app.description).to.include('Control your application')
-
-        app = i18n.api.get('app', 'fr-FR')
-        expect(app.description).to.include('Contrôle le cycle de vie')
-        expect(app.methods.quit.description).to.include('Essaye de fermer toutes les fenêtres')
-
-        app = i18n.api.get('app', 'vi-VN')
-        expect(app.description).to.include('Kiểm soát các vòng')
-        expect(app.methods.relaunch.description).to.include('ứng dụng khi thoát khỏi')
-      })
-
-      it('allows lookup by API name or url-friendly slug', () => {
-        const api1 = i18n.api.get('BrowserWindow')
-        expect(api1).to.be.an('object')
-        const api2 = i18n.api.get('browser-window')
-        expect(api2).to.be.an('object')
-        expect(api1).to.deep.equal(api2)
-      })
-    })
+describe('i18n.docs', () => {
+  it('is an object with locales as keys', () => {
+    const locales = Object.keys(i18n.docs)
+    locales.should.include('en')
+    locales.should.include('fr-FR')
+    locales.length.should.be.above(10)
   })
 
-  describe('source content', () => {
-    it('includes tutorials and development docs', () => {
-      expect(tree).to.include('en/docs/tutorial/accessibility.md')
-      expect(tree).to.include('en/docs/development/coding-style.md')
-    })
+  it('is an object with docs objects as values', () => {
+    const docs = i18n.docs.en
+    docs.should.be.an('object')
+    docs['/docs/api/accelerator'].should.be.an('object')
+  })
+})
 
-    it('ignores API docs', () => {
-      expect(tree.some(path => path.includes('docs/api/'))).to.equal(false)
-    })
+describe('API Doc', () => {
+  it('includes all expected properties', () => {
+    const app = i18n.docs['en']['/docs/api/app']
+    app.isApiDoc.should.equal(true)
+    app.title.should.equal('app')
+    app.description.should.include('Control your application')
+    app.href.should.equal('/docs/api/app')
+    app.locale.should.equal('en')
+    app.slug.should.equal('app')
+    app.category.should.equal('api')
+    app.markdown.should.be.a('string')
+    app.html.should.be.a('string')
+  })
+})
 
-    it('includes API descriptions in YAML format', () => {
-      expect(tree).to.include('en/api/api-descriptions.yml')
-    })
+describe('API Structure', () => {
+  it('has expected properties', () => {
+    const doc = i18n.docs['en']['/docs/api/structures/gpu-feature-status']
+    doc.title.should.equal('GPUFeatureStatus Object')
+    doc.category.should.equal('api/structures')
+    doc.categoryFancy.should.equal('API Structures')
+    doc.isApiStructureDoc.should.equal(true)
+  })
+})
 
-    it('includes website content', () => {
-      expect(tree).to.include('en/website/locale.yml')
-    })
+describe('i18n.locales', () => {
+  it('is an array of locale objects', () => {
+    i18n.locales.should.be.an('array')
+    i18n.locales.length.should.be.above(15)
+
+    const vi = i18n.locales.find(locale => locale.code === 'vi')
+    vi.name.should.equal('Vietnamese')
+    vi.translated_progress.should.be.a('number')
   })
 })
