@@ -37,6 +37,7 @@
   },
   "scripts": {
     "collect": "script/collect.js",
+    "translation-status": "script/translation-status.js",
     "build": "script/build.js",
     "test": "mocha && standard --fix",
     "prepush": "check-for-leaks",

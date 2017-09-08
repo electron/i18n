@@ -84,7 +84,7 @@ parseDocs().then(docs => {
     path.join(__dirname, '../index.json'),
     JSON.stringify({
       docs: docs,
-      locales: locales
+      locales: require('../locales.json')
     }, null, 2)
   )
 })
