@@ -1,18 +1,18 @@
-# Glosario
+# Glossary
 
-Esta página define algunos términos que comúnmente se utilizan en el desarrollo de la Electron.
+This page defines some terminology that is commonly used in Electron development.
 
 ### ASAR
 
-ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar](https://github.com/electron/asar) es un simple formato de`tar`-como que concatena archivos en un solo archivo. Electrón puede leer archivos arbitrarios de él sin desempacar el archivo entero.
+ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
-El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows... TODO
+The ASAR format was created primarily to improve performance on Windows... TODO
 
 ### Brightray
 
 Brightray is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications.
 
-Brightray es una dependencia bajo nivel del Electron que no se refiere a la mayoría de los usuarios de la Electron.
+Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
 
 ### CRT
 
@@ -74,7 +74,7 @@ See also: [main process](#main-process), [renderer process](#renderer-process)
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-En los navegadores normales, páginas web generalmente se ejecutan en un entorno de espacio aislado y no se permite el acceso a recursos nativos. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
+In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
 See also: [process](#process), [main process](#main-process)
 
