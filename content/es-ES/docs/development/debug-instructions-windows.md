@@ -22,7 +22,7 @@ $./out/D/electron.exe ~/my-electron-app/
 
 A continuación, abra Visual Studio. Electrón no se construye con Visual Studio y por lo tanto no contiene un archivo de proyecto - sin embargo usted puede abrir los archivos de código fuente "Como archivo", lo que significa que Visual Studio abrirá los por sí mismos. Usted puede todavía establecer puntos de interrupción - Visual Studio automáticamente se imaginará que la fuente de código acerca de los partidos el código que se ejecuta en el proceso de atado y en consecuencia de la rotura.
 
-Archivos de código relevante pueden encontrarse en `./atom/`, así como en Brightray, en `./vendor/brightray/browser` y `./vendor/brightray/common`. Si eres hardcore, también puede depurar cromo directamente, que obviamente se encuentra en `chromium_src`.
+Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. Si eres hardcore, también puede depurar cromo directamente, que obviamente se encuentra en `chromium_src`.
 
 ### Asociar
 

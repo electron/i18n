@@ -10,13 +10,21 @@ ASAR 格式目標主要是為提高 Windows 的性能... TODO
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray)是一個靜態程式庫，使[libchromiumcontent](#libchromiumcontent)便於使用。 這是為 Electron 專門開發的，但不基於 Electron 的應用程式也可通過它使用 Chromium 的渲染器。
+Brightray is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications.
 
 Brightray is a low-level dependency of Electron that does not concern the majority of Electron users.
+
+### CRT
+
+The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
 An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+
+### IME
+
+Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IPC
 
@@ -36,7 +44,7 @@ See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorials/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### native modules
 
@@ -46,9 +54,13 @@ Native Node modules are supported by Electron, but since Electron is very likely
 
 See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
-## NSIS
+### NSIS
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+
+## OSR
+
+Off-screen rendering.
 
 ### process
 

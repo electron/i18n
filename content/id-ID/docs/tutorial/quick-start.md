@@ -149,9 +149,8 @@ $ ./node_modules/.bin/electron .
 
 #### Windows
 
-```bash
-$ .\node_modules\.bin\electron .
-```
+    $ .\node_modules\.bin\electron .
+    
 
 ### Mengunduh Binari Electron secara Manual
 
@@ -171,9 +170,8 @@ $ ./electron/electron your-app/
 
 #### Windows
 
-```bash
-$ .\electron\electron.exe your-app\
-```
+    $ .\electron\electron.exe your-app\
+    
 
 `Electron.app` di sini adalah bagian dari elektron paket rilis, Anda dapat men-download dari [sini](https://github.com/electron/electron/releases).
 

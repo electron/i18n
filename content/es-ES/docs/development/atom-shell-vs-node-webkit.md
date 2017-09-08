@@ -14,18 +14,18 @@ En Electron, el punto de entrada es un script de JavaScript. En lugar de proporc
 
 Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Electron son inferiores por lo que puede utilizar para navegador de pruebas en lugar de [PhantomJS](http://phantomjs.org/).
 
-**2. compilar el sistema**
+**2. Compilar el Sistema**
 
-Con el fin de evitar la complejidad de la construcción de todos los de cromo, Electron utiliza [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) para tener acceso API contenido de cromo. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de cromo y todas sus dependencias. Los usuarios no necesitan una máquina potente para compilar Electron.
+In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de Chromium y todas sus dependencias. Los usuarios no necesitan una máquina potente para compilar Electron.
 
-**3. nodos integración**
+**3. Node Integración**
 
-En NW.js, la integración de nodos en las páginas web requiere parches de cromo para trabajar, mientras que en Electron optamos por una forma diferente de integrar el circuito de libuv con bucle de mensajes de la plataforma para evitar piratería de cromo. Ver el código de[`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) por lo fue hecho.
+En NW.js, la integración de Node en las páginas web requiere parches de Chromium para trabajar, mientras que en Electron optamos por una forma diferente de integrar el circuito de libuv con bucle de mensajes de la plataforma para evitar hacking de Chromium. Ver el código de [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) por lo fue hecho.
 
-**4. multi-contexto**
+**4. Multi-contexto**
 
-Si eres un usuario experimentado de NW.js, debe estar familiarizado con el concepto de nodo contexto y contexto de la web. Estos conceptos fueron inventados por cómo fue implementado NW.js.
+Si eres un usuario experimentado de NW.js, debe estar familiarizado con el concepto de Node contexto y contexto de la web. Estos conceptos fueron inventados por cómo fue implementado NW.js.
 
-Mediante la función [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) del nodo, Electron no introduce un nuevo contexto de JavaScript en páginas web.
+Mediante la función [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) del Node, Electron no introduce un nuevo contexto de JavaScript en páginas web.
 
-Nota: NW.js ha apoyado opcionalmente contexto múltiples desde 0.13.
+Nota: NW.js ha apoyado opcionalmente contexto multi-contexto desde 0.13.

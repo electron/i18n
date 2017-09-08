@@ -9,7 +9,22 @@ $ git clone git@github.com:electron / Electron-rápido-start.git $ código Elect
 ### 2. Añadir un archivo `.vscode/launch.json` con la siguiente configuración:
 
 ```json
-{"versión": "0.2.0", "configuraciones": [{"name": "Debug proceso principal", "tipo": "nodo", "solicitud": "lanzar", "cwd": "${workspaceRoot}", "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", "programa": "${workspaceRoot}/main.js"}]}
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Main Process",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+      },
+      "args" : ["."]
+    }
+  ]
+}
 ```
 
 **Note:** para Windows, utilice `"${workspaceRoot}/node_modules/.bin/electron.cmd"` para `runtimeExecutable`.

@@ -51,6 +51,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
+* [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)

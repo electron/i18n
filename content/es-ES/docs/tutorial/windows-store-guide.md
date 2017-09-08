@@ -1,6 +1,6 @@
 # Guía de Windows Store
 
-Con Windows 8, la buena win32 viejo ejecutable tiene un nuevo hermano: la plataforma Universal de Windows. El nuevo formato de `.appx` no sólo permite a un número de nuevas API de gran alcance como Cortana o notificaciones Push, pero a través de la tienda de Windows, también simplifica la instalación y actualización.
+With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. El nuevo formato de `.appx` no sólo permite a un número de nuevas API de gran alcance como Cortana o notificaciones Push, pero a través de la tienda de Windows, también simplifica la instalación y actualización.
 
 Microsoft [developed una herramienta que compila aplicaciones de la Electron como `.appx` packages](https://github.com/catalystcode/electron-windows-store), permitiendo a los desarrolladores a utilizar algunas de las golosinas se encuentra en el nuevo modelo de aplicación. Esta guía explica cómo utilizarlo - y cuáles son las capacidades y limitaciones de un paquete de electrones AppX.
 
@@ -45,7 +45,7 @@ Una vez creados los archivos AppX ampliados, la herramienta utiliza al empaqueta
 
 Para poder ejecutar el paquete, los usuarios necesitarán 10 de Windows con el supuesto "aniversario de actualización" - encontrará información sobre cómo actualizar Windows [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-En oposición a los tradicionales UWP apps, apps paquetes necesitan someterse a un proceso de verificación manual, para lo cual se puede aplicar [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Mientras tanto, todos los usuarios podrán sólo tiene que instalar el paquete de doble clic en él, por lo que una presentación a la tienda no sería necesaria si simplemente estás buscando un método de instalación más fácil. En entornos administrados (generalmente empresas), el`Add-AppxPackage` [PowerShell Cmdlet puede utilizarse para instalar en un fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx) automatizado.
+En oposición a los tradicionales UWP apps, apps paquetes necesitan someterse a un proceso de verificación manual, para lo cual se puede aplicar [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. En entornos administrados (generalmente empresas), el`Add-AppxPackage` [PowerShell Cmdlet puede utilizarse para instalar en un fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx) automatizado.
 
 Otra limitación importante es que el paquete compilado de AppX todavía contiene un ejecutable de win32 - y por lo tanto no funciona en Xbox, HoloLens o los teléfonos.
 
@@ -61,8 +61,8 @@ Para generar el paquete de AppX, CLI `electron-windows-store` utiliza una planti
 
 Antes de ejecutar el CLI para el, tienes que instalar el "Windows Desktop App convertidor". Esto le llevará unos pocos minutos, pero no te preocupes, sólo tienes que hacer esto una vez. Descarga y escritorio de la aplicación convertidor de [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Usted recibirá dos archivos: `DesktopAppConverter.zip` y `BaseImage-14316.wim`.
 
-  1. Unzip `DesktopAppConverter.zip`. De un PowerShell elevada (abrió con "ejecutar como administrador", asegúrese de que su política de ejecución de sistemas nos permite realizar todo lo que se pretende ejecutar llamando al bypass</code> de `Set-ExecutionPolicy.</li>
+1. Unzip `DesktopAppConverter.zip`. De un PowerShell elevada (abrió con "ejecutar como administrador", asegúrese de que su política de ejecución de sistemas nos permite realizar todo lo que se pretende ejecutar llamando al bypass</code> de `Set-ExecutionPolicy.</li>
 <li>A continuación, ejecute la instalación del convertidor de la aplicación de escritorio, pasando en el lugar de la imagen base de Windows (descargada como <code>BaseImage-14316.wim`), llamando al `.\DesktopAppConverter.ps1-.\BaseImage-14316.wim` - BaseImage de configuración.
-  2. Si ejecuta las instrucciones de comando anteriores por un reinicio, reinicie su máquina y ejecutar el comando anterior otra vez después de un recomenzar acertado.
+2. Si ejecuta las instrucciones de comando anteriores por un reinicio, reinicie su máquina y ejecutar el comando anterior otra vez después de un recomenzar acertado.
 
 Una vez que la instalación tuvo éxito, puede ir a compilar su aplicación Electron.

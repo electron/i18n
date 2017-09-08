@@ -51,9 +51,10 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
+* [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialoog](api/dialog.md)
+* [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
@@ -61,9 +62,9 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocool](api/protocol.md)
+* [protocol](api/protocol.md)
 * [sessie](api/session.md)
-* [systeemVoorkeuren](api/system-preferences.md)
+* [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 

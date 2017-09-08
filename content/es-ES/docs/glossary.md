@@ -10,76 +10,88 @@ El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows
 
 ### Brightray
 
-[Brightray](https://github.com/electron/brightray) es una biblioteca estática que hace que [libchromiumcontent](#libchromiumcontent) más fácil de usar en aplicaciones. Fue creado específicamente para el Electron, pero puede utilizarse para habilitar a renderer del cromo en aplicaciones nativas que no están basadas en la Electron.
+Brightray is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications.
 
 Brightray es una dependencia bajo nivel del Electron que no se refiere a la mayoría de los usuarios de la Electron.
 
+### CRT
+
+The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+
 ### DMG
 
-Una imagen de disco de Apple es un formato de embalaje utilizado por macOS. Archivos DMG se utilizan comúnmente para la distribución de aplicaciones "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) soporta `dmg` como objetivo compilar.
+An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
-### CIP
+### IME
 
-IPC está parado para la comunicación entre procesos. Electrónica usa IPC para enviar serializado JSON mensajes entre los procesos de [main](#main-process) y [renderer](#renderer-process).
+Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+
+### IPC
+
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
-Una biblioteca única, compartida que incluye el módulo de contenido de cromo y todas sus dependencias (por ejemplo, Blink, [V8](#v8), etcetera).
+A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
 
-### proceso principal
+### main process
 
-El proceso principal, comúnmente un archivo llamado `main.js`, es el punto de entrada a la aplicación de cada Electron. Controla la vida de la aplicación, de abrir a cerrar. También maneja elementos nativos como el menú, barra de menú, muelle, bandeja, etcetera. El proceso principal es responsable de crear cada nuevo proceso de renderizado de la aplicación. Todo el nodo API está construido.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Archivo de proceso principal de cada aplicación se especifica en la propiedad `main` en `package.json`. Esto es cómo `electron .` sabe qué archivo a ejecutar al inicio.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-Vea también: [process](#process), [renderer process](#renderer-process)
+See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acrónimo de Mac App Store de Apple. Para obtener más información sobre cómo enviar su aplicación a las MAS, vea la Guide</a> de presentación Mac App Store.</p> 
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### módulos nativos
+### native modules
 
-Los módulos nativos (también llamados [addons](https://nodejs.org/api/addons.html) en Node.js) son módulos escritos en C o C++ que puede ser cargado en Node.js o Electron mediante la función include() y utilizado como si fueran un módulo ordinario de Node.js. Se utilizan principalmente para proporcionar una interfaz entre en Node.js y C/C++ bibliotecas JavaScript.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
-Nativo nodo módulos están soportados por el Electron, pero puesto que el Electron es muy probable que utilice una versión V8 del nodo binario instalada en su sistema, usted tiene que especificar manualmente la ubicación de cabeceras del Electron al compilar los módulos nativos.
+Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-Véase también [Using Modules](tutorial/using-native-node-modules.md) nativa de nodo.
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
-## NSIS
+### NSIS
 
-Nullsoft Scriptable Install System es un instalador basada en secuencias de comandos de herramienta de edición para Microsoft Windows. Está liberado bajo una combinación de licencias de software libre y es una alternativa ampliamente utilizado a productos comerciales como InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) soporta NSIS como objetivo compilar.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+
+## OSR
+
+Off-screen rendering.
 
 ### proceso
 
-Un proceso es una instancia de un programa informático que está siendo ejecutado. Aplicaciones de Electron que hacen usan de la [main](#main-process) y uno o muchos procesos [renderer](#renderer-process) están ejecutando varios programas simultáneamente.
+A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
-En Node.js y Electron, cada proceso en ejecución tiene un objeto de `process`. Este objeto es un global que proporciona información sobre y control sobre, el proceso actual. Como una global, está siempre disponible para aplicaciones sin utilizar require().
+In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-Vea también: [main process](#main-process), [renderer process](#renderer-process)
+See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### proceso de renderizado
+### renderer process
 
-El proceso de renderizado es una ventana del navegador en su aplicación. A diferencia del proceso principal, pueden existir varios de estos y cada uno se ejecutan en un proceso separado. También pueden ser ocultadas.
+The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 En los navegadores normales, páginas web generalmente se ejecutan en un entorno de espacio aislado y no se permite el acceso a recursos nativos. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
-Vea también: [process](#process), [main process](#main-process)
+See also: [process](#process), [main process](#main-process)
 
-### Ardilla
+### Squirrel
 
-Ardilla es un marco de código abierto que permite a aplicaciones de Electron actualizar automáticamente como se liberan nuevas versiones. Consulte la API de [autoUpdater](api/auto-updater.md) para información sobre cómo empezar a ardilla.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
-### entorno de usuario
+### userland
 
-Este término que se originó en la comunidad Unix, donde "userland" o "userspace" que se refiere a programas que se ejecutan fuera del núcleo del sistema operativo. Más recientemente, el término ha sido popularizado en la comunidad nodo y MNP para distinguir entre las funciones disponibles en el "Nodo central" versus paquetes publicado en el registro de la nueva gestión pública de la comunidad de "el usuario" mucho más grande.
+This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
-Como nodo, Electron se centra en tener un pequeño conjunto de APIs que proporcionan a todas las primitivas necesarias para el desarrollo de aplicaciones de escritorio multiplataformas. Esta filosofía de diseño permite Electron a seguir siendo una herramienta flexible sin ser excesivamente prescriptivas sobre cómo deben utilizarse. Modo de usuario permite a los usuarios crear y compartir herramientas que proporcionan funcionalidad adicional sobre lo que está disponible en "core".
+Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 
-V8 es el motor de JavaScript de código abierto de Google. Está escrito en C++ y utiliza en Google Chrome. V8 puede funcionar independiente, o puede ser embebido en cualquier aplicación C++.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
-### WebView
+### webview
 
-`webview` etiquetas se utilizan para incrustar contenido de 'guest' (como páginas web externas) en su aplicación Electron. Son similares a `iframe`s, pero se diferencian en que cada vista Web se ejecuta en un proceso separado. No tiene los mismos permisos que su página web y todas las interacciones entre su aplicación y contenido incrustado será asincrónicas. Esto protege a su aplicación de contenido incrustado.
+`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.

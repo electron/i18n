@@ -1,15 +1,15 @@
 # Build System Overview
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Configurações do projeto podem ser encontradas em arquivos `.gyp` e `.gypi`.
 
-## Gyp Files
+## Arquivos Gyp
 
 Following `gyp` files contain the main rules for building Electron:
 
 * `electron.gyp` defines how Electron itself is built.
 * `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `vendor/brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `vendor/brightray/brightray.gypi` includes general build configurations about building.
+* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
+* `brightray/brightray.gypi` includes general build configurations about building.
 
 ## Component Build
 
@@ -44,13 +44,13 @@ This only affects developers, if you are just building Electron for rebranding y
 
 ## Testes
 
-Test your changes conform to the project coding style using:
+Teste suas modificações de acordo com o projeto, usando o estilo de codificação:
 
 ```bash
 $ npm run lint
 ```
 
-Test functionality using:
+Teste a funcionalidade usando:
 
 ```bash
 $ npm test

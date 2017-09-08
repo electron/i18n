@@ -87,9 +87,8 @@ $./node_modules/.bin/electron.
 
 #### Windows
 
-```bash
-$.\node_modules\.bin\electron.
-```
+    $.\node_modules\.bin\electron.
+    
 
 ### Electrón descargado manualmente binario
 
@@ -109,9 +108,8 @@ $ su-./electron/electron de aplicación /
 
 #### Windows
 
-```bash
-$ su-.\electron\electron.exe app\
-```
+    $ su-.\electron\electron.exe app\
+    
 
 `Electron.app` aquí es parte del paquete de liberación de electrones, se puede descargar desde [here](https://github.com/electron/electron/releases).
 

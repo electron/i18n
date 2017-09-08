@@ -30,10 +30,10 @@ Comunicados de la mayoría será a nivel de `patch`. Actualizaciones de Chrome u
 
 ## Editar el proyecto de liberación
 
-  1. Visite [the lanza page](https://github.com/electron/electron/releases) y verás un nuevo proyecto de liberación con notas de la versión de marcador de posición.
-  2. El lanzamiento de editar y añadir notas.
-  3. Haga clic en 'guardar borrador'. **Do no, haga clic en 'Publicar comunicado'!**
-  4. Espere a que todas las estructuras pasar. :hourglass_flowing_sand:
+1. Visite [the lanza page](https://github.com/electron/electron/releases) y verás un nuevo proyecto de liberación con notas de la versión de marcador de posición.
+2. El lanzamiento de editar y añadir notas.
+3. Haga clic en 'guardar borrador'. **Do no, haga clic en 'Publicar comunicado'!**
+4. Espere a que todas las estructuras pasar. :hourglass_flowing_sand:
 
 ## Fusionar la rama temporal
 

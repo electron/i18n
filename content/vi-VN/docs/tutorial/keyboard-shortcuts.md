@@ -49,7 +49,9 @@ window.addEventListener('keyup', doSomething, true)
 
 Lưu ý, biến số thứ ba `true` có nghĩa là listener sẽ luôn nhận được giá trị của nút đã nhấn trước khi các listener khác `stopPropagation()` nó.
 
-Nếu bạn không muốn làm ra một hướng dẫn sử dụng phím tắt mà không có sẳn trong thư viện thì bạn phải làm các phát hiện sự kiện chủ chốt như một [bẫy chuột](https://github.com/ccampbell/mousetrap).
+The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+
+If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

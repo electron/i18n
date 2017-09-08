@@ -2,7 +2,7 @@
 
 Todos los tres sistemas operativos proporcionan medios para aplicaciones enviar notificaciones al usuario. Electrón convenientemente permite a los desarrolladores enviar notificaciones con la API</a> HTML5 de notificación, mediante notificación nativos del sistema operativo ejecutando APIs para mostrarlo.</p> 
 
-**Note:** ya que es una API de HTML5 sólo está disponible en el proceso de renderizado.
+**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
 
 ```javascript
 que myNotification = nueva notificación ('Título', {
