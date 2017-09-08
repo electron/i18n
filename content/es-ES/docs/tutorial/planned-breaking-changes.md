@@ -1,10 +1,10 @@
-# Planea romper cambios de API
+# Planned Breaking API Changes
 
-La siguiente lista incluye las API que se suprimirá en Electron 2.0.
+The following list includes the APIs that will be removed in Electron 2.0.
 
-No hay ningún calendario para cuando ocurrirá esta versión pero las advertencias de degradación se añadirá al menos 90 días de antelación.
+There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
-## `aplicación`
+## `app`
 
 ```js
 // Deprecated
@@ -33,7 +33,7 @@ let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `Portapapeles`
+## `clipboard`
 
 ```js
 // Deprecated
@@ -113,7 +113,7 @@ process.versions['atom-shell']
 process.versions.electron
 ```
 
-* `process.Versions.electron` y `process.version.chrome` estarán propiedades de sólo lectura para la consistencia con las propiedades de `process.versions` por nodo.
+* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
 ## `período de sesiones`
 
@@ -188,11 +188,11 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ## Node Headers URL
 
-Esta es la dirección URL especificada como `disturl` en un archivo `.npmrc` o como ` - dist-url` bandera de línea de comandos al compilar los módulos nativos de nodo.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Obsoleto: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Reemplazar con: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 ## Duplicate ARM Assets
 
