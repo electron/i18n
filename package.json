@@ -1,7 +1,7 @@
 {
   "name": "electron-i18n",
   "version": "0.0.8",
-  "description": "The home of Electron's translateable content",
+  "description": "A home for Electron's translated documentation.",
   "main": "index.json",
   "files": [
     "index.json"
@@ -42,8 +42,5 @@
     "test": "mocha && standard --fix",
     "prepush": "check-for-leaks",
     "pretest": "npm run build"
-  },
-  "engines": {
-    "node": ">=6"
   }
 }
