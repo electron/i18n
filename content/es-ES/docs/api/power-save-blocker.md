@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Por ejemplo:
+For example:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Métodos
+## Methods
 
 The `powerSaveBlocker` module has the following methods:
 

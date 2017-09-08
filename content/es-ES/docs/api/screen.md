@@ -1,4 +1,4 @@
-# pantalla
+# screen
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Eventos
+## Events
 
 The `screen` module emits the following events:
 
@@ -81,7 +81,7 @@ Returns:
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Métodos
+## Methods
 
 The `screen` module has the following methods:
 

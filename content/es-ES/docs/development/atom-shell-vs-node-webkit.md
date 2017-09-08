@@ -1,4 +1,4 @@
-# Diferencias técnicas entre Electron y NW.js (antes nodo-webkit)
+# Technical Differences Between Electron and NW.js (formerly node-webkit)
 
 **Nota: Electron fue nombrado anteriormente "Atom Shell".**
 
@@ -16,7 +16,7 @@ Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Ele
 
 **2. Compilar el Sistema**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de Chromium y todas sus dependencias. Los usuarios no necesitan una máquina potente para compilar Electron.
+In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de Chromium y todas sus dependencias. Users don't need a powerful machine to build Electron.
 
 **3. Node Integración**
 

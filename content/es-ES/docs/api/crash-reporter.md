@@ -24,13 +24,13 @@ For setting up a server to accept and process crash reports, you can use followi
 
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
-## Métodos
+## Methods
 
 The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `options` Objeto 
+* `options` Object 
   * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.

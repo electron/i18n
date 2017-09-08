@@ -1,4 +1,4 @@
-# cáscara
+# shell
 
 > Manage files and URLs using their default applications.
 
@@ -14,7 +14,7 @@ const {shell} = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Métodos
+## Methods
 
 The `shell` module has the following methods:
 
@@ -37,9 +37,9 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
-* `options` Object (optional) *MacOS* 
+* `options` Object (optional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *MacOS* 
+* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.

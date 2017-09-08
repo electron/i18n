@@ -93,7 +93,7 @@ To mark an image as a template image, its filename should end with the word `Tem
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
-## Métodos
+## Methods
 
 The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
 

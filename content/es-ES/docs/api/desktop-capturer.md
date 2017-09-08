@@ -60,13 +60,13 @@ const constraints = {
 }
 ```
 
-## Métodos
+## Methods
 
 The `desktopCapturer` module has the following methods:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `options` Objeto 
+* `options` Object 
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
 * `callback` Function 

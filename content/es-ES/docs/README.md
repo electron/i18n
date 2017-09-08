@@ -1,55 +1,55 @@
-Por favor, asegúrese de que utilizar los documentos que coinciden con su versión de Electron. El número de versión debe ser parte de la URL de la página. Si no es así, probablemente está utilizando la documentación de una rama de desarrollo que puede contener cambios de API que no son compatibles con su versión Electron. Para ver las versiones más antiguas de la documentación, usted puede[browse tag](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable "Interruptor ramas/etiquetas" y seleccionar la etiqueta que coincida con su versión.
+Por favor, asegúrese de que utilizar los documentos que coinciden con su versión de Electron. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
-## Preguntas más frecuentes
+## FAQ
 
-Hay preguntas que se hacen a menudo. Mira bien antes de crear un tema:
+There are questions that are asked quite often. Check this out before creating an issue:
 
-* [Electrónica FAQ](faq.md)
+* [Electron FAQ](faq.md)
 
-## Guías de
+## Guides
 
-* [Glosario de términos](glossary.md)
-* [Plataformas soportadas](tutorial/supported-platforms.md)
-* [Seguridad](tutorial/security.md)
-* [Versión Electron](tutorial/electron-versioning.md)
-* [Distribución de aplicaciones](tutorial/application-distribution.md)
-* [Guía de presentación de Mac App Store](tutorial/mac-app-store-submission-guide.md)
-* [Guía de Windows Store](tutorial/windows-store-guide.md)
-* [Empaquetado de la aplicación](tutorial/application-packaging.md)
-* [Mediante módulos de nodo nativo](tutorial/using-native-node-modules.md)
-* [Proceso principal de depuración](tutorial/debugging-main-process.md)
-* [Uso de selenio y WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools extensión](tutorial/devtools-extension.md)
-* [Usando el Plugin de Flash de pimienta](tutorial/using-pepper-flash-plugin.md)
-* [Usando el Plugin MDL Widevine](tutorial/using-widevine-cdm-plugin.md)
-* [Pruebas de sistemas de CI sin cabeza (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
-* [Métodos abreviados de teclado](tutorial/keyboard-shortcuts.md)
+* [Glossary of Terms](glossary.md)
+* [Supported Platforms](tutorial/supported-platforms.md)
+* [Security](tutorial/security.md)
+* [Electron Versioning](tutorial/electron-versioning.md)
+* [Application Distribution](tutorial/application-distribution.md)
+* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
+* [Windows Store Guide](tutorial/windows-store-guide.md)
+* [Application Packaging](tutorial/application-packaging.md)
+* [Using Native Node Modules](tutorial/using-native-node-modules.md)
+* [Debugging Main Process](tutorial/debugging-main-process.md)
+* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [DevTools Extension](tutorial/devtools-extension.md)
+* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 
-## Tutoriales
+## Tutorials
 
-* [Inicio rápido](tutorial/quick-start.md)
-* [Integración del entorno de escritorio](tutorial/desktop-environment-integration.md)
-* [Detección de eventos online y Offline](tutorial/online-offline-events.md)
+* [Quick Start](tutorial/quick-start.md)
+* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
+* [Online/Offline Event Detection](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Notificaciones nativas](tutorial/notifications.md)
+* [Native Notifications](tutorial/notifications.md)
 
-## Referencias de API
+## API References
 
-* [Sinopsis](api/synopsis.md)
-* [Objeto de proceso](api/process.md)
-* [Apoyo cromo línea de comando interruptores](api/chrome-command-line-switches.md)
-* [Variables de entorno](api/environment-variables.md)
+* [Synopsis](api/synopsis.md)
+* [Process Object](api/process.md)
+* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Environment Variables](api/environment-variables.md)
 
-### Elementos de DOM personalizado:
+### Custom DOM Elements:
 
-* [Objeto `File`](api/file-object.md)
-* [`<webview>` etiqueta](api/webview-tag.md)
-* [Función `window.open`](api/window-open.md)
+* [`File` Object](api/file-object.md)
+* [`<webview>` Tag](api/webview-tag.md)
+* [`window.open` Function](api/window-open.md)
 
-### Módulos para el proceso principal:
+### Modules for the Main Process:
 
-* [aplicación](api/app.md)
+* [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -68,35 +68,35 @@ Hay preguntas que se hacen a menudo. Mira bien antes de crear un tema:
 * [Bandeja](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Módulos para el proceso de renderizado (Página Web):
+### Modules for the Renderer Process (Web Page):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remoto](api/remote.md)
+* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Módulos para ambos procesos:
+### Modules for Both Processes:
 
-* [Portapapeles](api/clipboard.md)
+* [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [pantalla](api/screen.md)
-* [cáscara](api/shell.md)
+* [screen](api/screen.md)
+* [shell](api/shell.md)
 
-## Desarrollo
+## Development
 
-* [Estilo de codificación](development/coding-style.md)
-* [Clang-formato en código C++](development/clang-format.md)
-* [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
-* [Diferencias técnicas a NW.js (antes nodo-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Compilar sistemas](development/build-system-overview.md)
-* [Compilar instrucciones (macOS)](development/build-instructions-osx.md)
-* [Compilar instrucciones (Windows)](development/build-instructions-windows.md)
-* [Compilar instrucciones (Linux)](development/build-instructions-linux.md)
-* [Depurar instrucciones (macOS)](development/debugging-instructions-macos.md)
-* [Depurar instrucciones (Windows)](development/debug-instructions-windows.md)
-* [Configuración por servidor de símbolos en el depurador](development/setting-up-symbol-server.md)
-* [Manual de estilo de documentación](styleguide.md)
-* [Actualización de Chrome](development/upgrading-chrome.md)
-* [Desarrollo de cromo](development/chromium-development.md)
-* [Desarrollo de V8](development/v8-development.md)
+* [Coding Style](development/coding-style.md)
+* [Using clang-format on C++ Code](development/clang-format.md)
+* [Source Code Directory Structure](development/source-code-directory-structure.md)
+* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Build System Overview](development/build-system-overview.md)
+* [Build Instructions (macOS)](development/build-instructions-osx.md)
+* [Build Instructions (Windows)](development/build-instructions-windows.md)
+* [Build Instructions (Linux)](development/build-instructions-linux.md)
+* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
+* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
+* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
+* [Documentation Styleguide](styleguide.md)
+* [Upgrading Chrome](development/upgrading-chrome.md)
+* [Chromium Development](development/chromium-development.md)
+* [V8 Development](development/v8-development.md)

@@ -18,14 +18,14 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Métodos
+## Methods
 
 The `session` module has the following methods:
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Objeto 
+* `options` Object 
   * `cache` Boolean - Whether to enable cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -34,7 +34,7 @@ If `partition` starts with `persist:`, the page will use a persistent session av
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Propiedades
+## Properties
 
 The `session` module has the following properties:
 
@@ -113,7 +113,7 @@ Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Objeto 
+* `config` Object 
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
@@ -132,7 +132,7 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-Por ejemplo:
+For example:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -188,7 +188,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Objeto 
+* `options` Object 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -215,7 +215,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function 
-  * `request` Objeto 
+  * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Verification result from chromium.
@@ -311,7 +311,7 @@ Returns `Blob` - The blob data associated with the `identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Objeto 
+* `options` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)

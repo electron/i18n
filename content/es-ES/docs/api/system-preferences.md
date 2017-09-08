@@ -9,7 +9,7 @@ const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Eventos
+## Events
 
 The `systemPreferences` object emits the following events:
 
@@ -33,7 +33,7 @@ Returns:
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
-## Métodos
+## Methods
 
 ### `systemPreferences.isDarkMode()` *macOS*
 

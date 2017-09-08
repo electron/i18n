@@ -1,27 +1,41 @@
-# Representación fuera de la pantalla
+# Offscreen Rendering
 
-Representación fuera de la pantalla le permite obtener el contenido de una ventana del navegador en un mapa de bits, por lo que se puede representar en cualquier lugar, por ejemplo en una textura en una escena 3D. El procesamiento fuera de la pantalla en Electron utiliza un enfoque similar que el proyecto de Framework</a> integrado de Chromium.</p> 
+Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-Pueden utilizarse dos modos de representación y sólo la zona sucia se pasa en el caso de</code> de 'pintar'` para ser más eficientes. La prestación puede ser detenida, continuó y se puede establecer la velocidad de fotogramas. La velocidad de fotogramas especificada es un valor límite superior, cuando no hay nada pasando en una página web, no se generan Marcos. La velocidad de fotogramas máxima es 60, porque encima de no existe ningún beneficio, sólo pérdida de rendimiento.</p>
+Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
 
-<p><strong>Note:</strong> una ventana fuera de la pantalla siempre se crea como un Window</a> de <a href="../api/frameless-window.md">Frameless.</p>
+**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-<h2>Dos modos de representación</h2>
+## Two modes of rendering
 
-<h3>Acelerada de la GPU</h3>
+### GPU accelerated
 
-<p>GPU acelerada representación significa que la GPU se utiliza para la composición. Debido a que el marco tiene que copiarse de la GPU que exige más rendimiento, por lo tanto, este modo es un poco más lento que el otro. La ventaja de este modo que se soportan WebGL y 3D animaciones CSS.</p>
+GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
 
-<h3>Dispositivo de salida de software</h3>
+### Software output device
 
-<p>Este modo utiliza un dispositivo de salida de software para procesamiento en la CPU, por lo que la generación de marco es mucho más rápida, por lo tanto este modo es preferido sobre la GPU acelerada uno.</p>
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
 
-<p>Para activar este modo de aceleración de la GPU tiene que desactivar llamando al<a href="../api/app.md#appdisablehardwareacceleration"><code>app.disableHardwareAcceleration ()`</a> API.
+To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-## Uso
+## Usage
 
 ```javascript
-const {app, BrowserWindow} = require('electron') app.disableHardwareAcceleration() que ganar app.once ('listo', () => {ganar = new BrowserWindow ({webPreferences: {
+const {app, BrowserWindow} = require('electron')
+
+app.disableHardwareAcceleration()
+
+let win
+app.once('ready', () => {
+  win = new BrowserWindow({
+    webPreferences: {
       offscreen: true
-    }}) win.loadURL ('http://github.com') win.webContents.on ('pintura', (evento, sucio, la imagen) = > {/ / updateBitmap (sucio, image.getBitmap())}) win.webContents.setFrameRate(30)})
+    }
+  })
+  win.loadURL('http://github.com')
+  win.webContents.on('paint', (event, dirty, image) => {
+    // updateBitmap(dirty, image.getBitmap())
+  })
+  win.webContents.setFrameRate(30)
+})
 ```

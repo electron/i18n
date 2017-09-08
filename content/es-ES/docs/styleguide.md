@@ -1,151 +1,222 @@
-# Manual de estilo de documentación de Electron
+# Electron Documentation Styleguide
 
-Estas son las directrices para la documentación de Electron de la escritura.
+These are the guidelines for writing Electron documentation.
 
-## Títulos
+## Titles
 
-* Cada página debe tener un título de nivel #</code> ` solo en la parte superior.</li>
-<li>Capítulos en la misma página deben tener títulos de ##` nivel de `.</li>
-<li>Subcapítulos que aumentar el número de <code> #` en el título según su profundidad de anidamiento.
-* Todas las palabras en el título de la página deben escribirse con mayúscula, excepto conjunciones como "de" y "y".
-* Debe escribirse con mayúscula sólo la primera palabra de un título de capítulo.
+* Each page must have a single `#`-level title at the top.
+* Chapters in the same page must have `##`-level titles.
+* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
+* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
+* Only the first word of a chapter title must be capitalized.
 
-Uso de Start</code> de `Quick como ejemplo:</p>
-
-<pre><code class="markdown"># Inicio rápido... ## proceso principal... ## proceso Renderer... ## ejecutar tu aplicación... ### ejecutar como una distribución... ### manualmente descargar Electron binaria...
-`</pre> 
-
-Para referencias de API, hay excepciones a esta regla.
-
-## Reglas de descuento
-
-* Utilice `bash` en lugar de `cmd` en bloques de código (debido al resaltador de sintaxis).
-* Las líneas deben estar envueltos en 80 columnas.
-* No anidar listas de más de 2 niveles (debido al renderizador de descuento).
-* Todos los bloques de código `js` y `javascript` son linted con[standard-markdown](http://npm.im/standard-markdown).
-
-## Recogiendo palabras
-
-* Utilice "a" "d" al describir los resultados.
-* Prefieren "en el proceso de ___" en "on".
-
-## Referencias de API
-
-Las siguientes reglas sólo se aplican a la documentación del API.
-
-### Título de la página
-
-Cada página debe usar el nombre real del objeto devuelto por `require` ('Electron') como el título, como `BrowserWindow`, `autoUpdater` y `session`.
-
-En la página de azulejo debe ser una descripción de una línea a partir de `>`.
-
-Uso de `session` como ejemplo:
+Using `Quick Start` as example:
 
 ```markdown
-# sesión> administrar sesiones de navegador, cookies, caché, configuración de proxy, etcetera.
-```
+# Quick Start
 
-### Eventos y métodos del módulo
+...
 
-Para los módulos que no son clases, sus métodos y los eventos deben figurar bajo el ` ## Methods` y ` ## Events` capítulos.
+## Main process
 
-Uso de `autoUpdater` como ejemplo:
+...
 
-```markdown
-# autoUpdater ## eventos ### evento: 'error' ## métodos ### 'autoUpdater.setFeedURL (url [, requestHeaders])'
-```
+## Renderer process
 
-### Clases
+...
 
-* Clases de la API o clases que forman parte de los módulos deben figurar bajo una clase de` ##: TheClassName` capítulo.
-* Una página puede tener múltiples clases.
-* Constructores deben figurar con títulos de ###</code> nivel de `.</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static">Static Methods</a> debe aparecer en un capítulo <code> ### Methods` estática.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) debe aparecer en un capítulo ` ### Methods` de instancia.
-* Todos los métodos que tienen un valor de retorno deben comenzar su descripción con "rendimientos `[TYPE]` -Descripción de volver " 
-  * Si el método devuelve un `Object`, su estructura puede especificarse con un coma seguida de un salto de línea entonces una lista desordenada de viviendas en el mismo estilo como parámetros de la función.
-* Eventos de la instancia deben aparecer bajo un capítulo ` ### Events` de instancia.
-* Propiedades de instancia deben figurar bajo un `### Propiedades de instancia` capítulo. 
-  * Propiedades de instancia deben empezar con "un [tipo]..."
+## Run your app
 
-Con las clases `Session` y `Cookies` como ejemplo:
+...
 
-```markdown
-sesión # ## métodos ### session.fromPartition(partition) ## propiedades ### session.defaultSession ## clase: sesión ### instancia eventos ### evento: 'voluntad-download' ### métodos de instancia ### 'ses.getCacheSize(callback)' ### propiedades de instancia ### 'ses.cookies' ## clase: galletas ### métodos de instancia ### 'cookies.get (filtro, callback)'
-```
+### Run as a distribution
 
-### Métodos
+...
 
-El capítulo de métodos debe ser de la siguiente forma:
-
-```markdown
-### ' objectName.methodName (requiere [, opcional]))' * 'requiere' String - una descripción del parámetro.
-* '' entero opcional (opcional) - otra descripción del parámetro.
+### Manually downloaded Electron binary
 
 ...
 ```
 
-El título puede ser `` ### ` ### `-niveles o dependiendo de si es un método de una clase o un módulo.
+For API references, there are exceptions to this rule.
 
-Para los módulos, el `objectName` es nombre del módulo. Para las clases, debe ser el nombre de la instancia de la clase y no debe ser el mismo que el nombre del módulo.
+## Markdown rules
 
-Por ejemplo, los métodos de la clase `Session` en el módulo de `session` deben utilizar `ses` como el `objectName`.
+* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Lines should be wrapped at 80 columns.
+* No nesting lists more than 2 levels (due to the markdown renderer).
+* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
-Los argumentos opcionales son notated por corchetes ` []` que rodea el argumento opcional, así como la coma si este argumento opcional sigue otro argumento:
+## Picking words
 
-    necesario [, opcional]
+* Use "will" over "would" when describing outcomes.
+* Prefer "in the ___ process" over "on".
+
+## API references
+
+The following rules only apply to the documentation of APIs.
+
+### Page title
+
+Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+
+Under the page tile must be a one-line description starting with `>`.
+
+Using `session` as example:
+
+```markdown
+# session
+
+> Manage browser sessions, cookies, cache, proxy settings, etc.
+```
+
+### Module methods and events
+
+For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+
+Using `autoUpdater` as an example:
+
+```markdown
+# autoUpdater
+
+## Events
+
+### Event: 'error'
+
+## Methods
+
+### `autoUpdater.setFeedURL(url[, requestHeaders])`
+```
+
+### Classes
+
+* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
+* One page can have multiple classes.
+* Constructors must be listed with `###`-level titles.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
+* Instance Events must be listed under an `### Instance Events` chapter.
+* Instance Properties must be listed under an `### Instance Properties` chapter. 
+  * Instance properties must start with "A [Property Type] ..."
+
+Using the `Session` and `Cookies` classes as an example:
+
+```markdown
+# session
+
+## Methods
+
+### session.fromPartition(partition)
+
+## Properties
+
+### session.defaultSession
+
+## Class: Session
+
+### Instance Events
+
+#### Event: 'will-download'
+
+### Instance Methods
+
+#### `ses.getCacheSize(callback)`
+
+### Instance Properties
+
+#### `ses.cookies`
+
+## Class: Cookies
+
+### Instance Methods
+
+#### `cookies.get(filter, callback)`
+```
+
+### Methods
+
+The methods chapter must be in the following form:
+
+```markdown
+### `objectName.methodName(required[, optional]))`
+
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
+
+...
+```
+
+The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+
+For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+
+The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+
+    required[, optional]
     
 
-A continuación el método es la información más detallada sobre cada uno de los argumentos. El tipo de argumento se realiza por cualquiera de los tipos comunes:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`Cadena`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Número`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Objeto`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Arreglo de discos`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* O un tipo personalizado como [`WebContent`](api/web-contents.md) del Electron
+* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
-Si un argumento o un método es único en ciertas plataformas, las plataformas se denotaron usando una lista en cursiva delimitado siguiendo el tipo de datos. Valores pueden ser `macOS`, `Windows` o `Linux`.
-
-```markdown
-* ' animar' Boolean _macOS_ (opcional) _Windows_ - animar la cosa.
-```
-
-Argumentos de tipo `Array` deben especificar qué elementos de la matriz se puede incluir en la descripción a continuación.
-
-La descripción de argumentos de tipo `Function` debe dejar claro cómo se puede llamar y enumerar los tipos de los parámetros que se pasan a él.
-
-### Eventos
-
-El capítulo de eventos debe ser en la forma siguiente:
+If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
 ```markdown
-### Evento: 'despertador' devuelve: * cadena de tiempo...
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-El título puede ser `` ### ` ### `-niveles o dependiendo de si es un evento de una clase o un módulo.
+`Array` type arguments must specify what elements the array may include in the description below.
 
-Los argumentos de un evento siguen las mismas reglas que los métodos.
+The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Propiedades
+### Events
 
-El capítulo de propiedades debe ser en la forma siguiente:
+The events chapter must be in following form:
 
 ```markdown
-### session.defaultSession...
+### Event: 'wake-up'
+
+Returns:
+
+* `time` String
+
+...
 ```
 
-El título puede ser `` ### ` ### `-niveles o dependiendo de si es una propiedad de una clase o un módulo.
+The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
 
-## Traducciones de documentación
+The arguments of an event follow the same rules as methods.
 
-Las traducciones de la documentación de Electron se encuentra dentro del directorio `docs-translations`.
+### Properties
 
-Para agregar otro sistema (o conjunto parcial):
+The properties chapter must be in following form:
 
-* Cree un subdirectorio denominado por la abreviatura del idioma.
-* Traducir los archivos.
-* Actualización de la `README.md` en el directorio de tu lengua para vincular a los archivos que se han traducido.
-* Agregar un enlace al directorio de tu traducción en las principales[README](https://github.com/electron/electron#documentation-translations) de electrones.
+```markdown
+### session.defaultSession
 
-Tenga en cuenta que los archivos en `docs translations` sólo deben incluir los traducidos, los archivos originales del inglés no deben copiar allí.
+...
+```
+
+The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+
+## Documentation Translations
+
+Translations of the Electron docs are located within the `docs-translations` directory.
+
+To add another set (or partial set):
+
+* Create a subdirectory named by language abbreviation.
+* Translate the files.
+* Update the `README.md` within your language directory to link to the files you have translated.
+* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+
+Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.

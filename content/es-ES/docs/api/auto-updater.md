@@ -17,7 +17,7 @@ You can quickly launch a multi-platform release server for distributing your app
 
 Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
 
-### MacOS
+### macOS
 
 On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
 
@@ -37,7 +37,7 @@ Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file hos
 
 There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Eventos
+## Events
 
 The `autoUpdater` object emits the following events:
 
@@ -75,7 +75,7 @@ Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
-## Métodos
+## Methods
 
 The `autoUpdater` object has the following methods:
 

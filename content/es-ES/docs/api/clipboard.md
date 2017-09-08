@@ -1,4 +1,4 @@
-# Portapapeles
+# clipboard
 
 > Perform copy and paste operations on the system clipboard.
 
@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Métodos
+## Methods
 
 The `clipboard` module has the following methods:
 
@@ -159,7 +159,7 @@ Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Objeto 
+* `data` Object 
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)

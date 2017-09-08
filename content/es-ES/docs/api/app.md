@@ -1,4 +1,4 @@
-# aplicación
+# app
 
 > Control your application's event lifecycle.
 
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Eventos
+## Events
 
 The `app` object emits the following events:
 
@@ -213,11 +213,11 @@ Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Objeto 
+* `request` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Objeto 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -258,7 +258,7 @@ Returns:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-## Métodos
+## Methods
 
 The `app` object has the following methods:
 
@@ -350,7 +350,7 @@ You can request the following paths by the name:
 
 * `path` String
 * `options` Object (optional) 
-  * `size` Cadena 
+  * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
@@ -616,7 +616,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Objeto 
+* `options` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
@@ -688,7 +688,7 @@ Returns `Object`:
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Objeto 
+* `settings` Object 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
@@ -696,7 +696,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Por ejemplo:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -721,7 +721,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Objeto 
+* `options` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
