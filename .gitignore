@@ -1,3 +1,4 @@
 .env
 .npmrc
 index.json
+locales.json
