@@ -38,7 +38,7 @@
   "scripts": {
     "collect": "script/collect.js",
     "translation-status": "script/translation-status.js",
-    "build": "script/build.js",
+    "build": "npm run translation-status && script/build.js",
     "test": "mocha && standard --fix",
     "prepush": "check-for-leaks",
     "pretest": "npm run build"

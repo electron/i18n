@@ -11,6 +11,6 @@ got(url)
   .then(data => {
     fs.writeFileSync(
       path.join(__dirname, '../locales.json'),
-      JSON.stringify(data.body, null, 2)
+      data.body
     )
   })

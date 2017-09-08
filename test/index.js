@@ -43,10 +43,12 @@ describe('API Structure', () => {
 })
 
 describe('i18n.locales', () => {
-  it('is an array of locale strings', () => {
+  it('is an array of locale objects', () => {
     i18n.locales.should.be.an('array')
     i18n.locales.length.should.be.above(15)
-    i18n.locales.should.include('en')
-    i18n.locales.should.include('fr-FR')
+
+    const vi = i18n.locales.find(locale => locale.code === 'vi')
+    vi.name.should.equal('Vietnamese')
+    vi.translated_progress.should.be.a('number')
   })
 })
