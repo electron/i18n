@@ -1,45 +1,45 @@
-# Seguridad, capacidades nativas y su responsabilidad
+# Security, Native Capabilities, and Your Responsibility
 
-Como desarrolladores web, generalmente disfrutamos de la red del explorador de seguridad fuerte - los riesgos asociados con el código que escribimos son relativamente pequeños. Nuestros sitios web se concede limitado energías en un sandbox, y confiamos en que nuestros usuarios disfruten de un navegador construido por un gran equipo de ingenieros que sea capaces de responder rápidamente a las amenazas de seguridad descubiertas recientemente.
+As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
 
-Cuando se trabaja con la Electron, es importante entender que el Electron no es un navegador web. Te permite crear numerosas aplicaciones con tecnologías web familiares, pero su código tiene mucho mayor poder. JavaScript puede acceder el sistema de archivos y shell de usuario. Esto le permite crear aplicaciones nativas de alta calidad, pero los riesgos de seguridad inherentes de la escala con los poderes adicionales otorgados a su código.
+When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
 
-Con esto en mente, ten en cuenta que mostrar contenido arbitrario de poses de untrusted fuentes un grave riesgo de seguridad que Electron no está diseñado manejar. De hecho, las más populares aplicaciones de Electron (átomo, holgura, código de Visual Studio, etcetera) Mostrar principalmente contenido local (o contenido remoto confiable y seguro sin integración de nodos) – si la aplicación ejecuta código desde una fuente en línea, es su responsabilidad asegurar que el código no es malicioso.
+With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
-## Reportando problemas de seguridad
+## Reporting Security Issues
 
-Para obtener información sobre cómo revelar correctamente una vulnerabilidad de Electron, ver [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Actualizaciones y problemas de seguridad cromo
+## Chromium Security Issues and Upgrades
 
-Mientras que el Electron se esfuerza para apoyar nuevas versiones de cromo tan pronto como sea posible, los desarrolladores deben ser conscientes que actualizar es una empresa seria - con edición de mano decenas o incluso cientos de archivos. Dados los recursos y contribuciones disponibles en la actualidad, Electron a menudo no estará en la versión más reciente de cromo, rezagados ya sea por días o semanas.
+While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
 
-Creemos que nuestro sistema actual de actualizar el componente de cromo golpea un equilibrio adecuado entre los recursos que tenemos disponibles y las necesidades de la mayoría de aplicaciones construcción sobre el framework. Definitivamente estamos interesados en saber más acerca de casos de uso específicos de la gente que construye cosas sobre Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre muy bienvenidas.
+We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
 
-## Haciendo caso omiso sobre el Consejo
+## Ignoring Above Advice
 
-Existe un problema de seguridad cada vez que usted recibe el código de un destino remoto y ejecuta localmente. Como ejemplo, considere un sitio Web remoto se muestra en una ventana del navegador. Si un atacante logra de alguna manera cambiar dicho contenido (ya sea atacando directamente a la fuente, o por estar entre su aplicación y el destino real), será capaces de ejecutar código nativo en la máquina del usuario.
+A security issue exists whenever you receive code from a remote destination and execute it locally. As an example, consider a remote website being displayed inside a browser window. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
-> :warning: bajo ninguna circunstancia se debe cargar y ejecutar código remoto con integración del nodo activado. En cambio, utilizan archivos sólo locales (empaquetados junto con su solicitud) para ejecutar código de nodo. Para mostrar contenido remoto, utilice la etiqueta de `webview` y asegúrese de desactivar el `nodeIntegration`.
+> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
 
-#### Lista de verificación
+#### Checklist
 
-Esto no es a prueba de balas, pero al menos, usted debería tratar de los siguientes:
+This is not bulletproof, but at the least, you should attempt the following:
 
-* Sólo mostrar contenido seguro (https)
-* Deshabilitar la integración de nodos en todos los renders que mostrar contenido remoto (configuración de `nodeIntegration` para `false` en `webPreferences`)
-* Habilitar aislamiento de contexto en todos los renders que mostrar contenido remoto (configuración de `contextIsolation` para `true` en `webPreferences`)
-* Utilice `ses.setPermissionRequestHandler ()` en todas las sesiones que cargan contenido remoto
-* Deshabilitar `webSecurity`. Deshabilitarlo deshabilitará la política del mismo origen.
-* Definir un [`Content-seguridad-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) y utilizar normas restrictivas (es decir, `script-fuente ` 'uno mismo')
-* [Override y desactivar el `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8), que permite cadenas ser ejecutado como código.
-* No establezca `allowRunningInsecureContent` en true.
-* No permite `experimentalFeatures` o `experimentalCanvasFeatures` a menos que sepas lo que estás haciendo.
-* No utilice `blinkFeatures` a menos que sepas lo que estás haciendo.
-* WebViews: No agregue el atributo `nodeintegration`.
-* WebViews: No use `disablewebsecurity`
-* WebViews: No use `allowpopups`
-* WebViews: No utilice `insertCSS` o `executeJavaScript` con control remoto CSS/JS.
+* Only display secure (https) content
+* Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
+* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
+* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
+* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
+* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
+* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
+* Do not set `allowRunningInsecureContent` to true.
+* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
+* Do not use `blinkFeatures` unless you know what you're doing.
+* WebViews: Do not add the `nodeintegration` attribute.
+* WebViews: Do not use `disablewebsecurity`
+* WebViews: Do not use `allowpopups`
+* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
 * WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
 
 ```js
@@ -60,4 +60,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-De nuevo, esta lista sólo minimiza el riesgo, no quitarlo. Si su objetivo es mostrar una página web, un navegador será una opción más segura.
+Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
