@@ -1,11 +1,11 @@
-# PrinterInfo Object
+# شئ PrinterInfo
 
-* `name` String
-* `description` String
-* `status` Number
-* `isDefault` Boolean
+* `name` رشته
+* `description` رشته
+* `status` عدد
+* `isDefault` بولین
 
-## Example
+## مثال
 
 Below is an example of some of the additional options that may be set which may be different on each platform.
 
