@@ -1,4 +1,4 @@
-# CrashReport Object
+# شئ CrashReport
 
-* `date` String
-* `ID` Integer
+* `date` رشته
+* `ID` عدد صحیح
