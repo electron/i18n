@@ -87,33 +87,33 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ms      | مالایی                    |
 | mt      | مالتی                     |
 | nb      | نروژی (بوکمل)             |
-| ne      | Nepali                    |
-| nl      | Dutch                     |
-| nn      | Norwegian (Nynorsk)       |
-| no      | Norwegian                 |
-| oc      | Occitan                   |
-| om      | Oromo                     |
-| یا      | Oriya                     |
-| pa      | Punjabi                   |
-| pl      | Polish                    |
-| ps      | Pashto                    |
-| pt      | Portuguese                |
-| pt-BR   | Portuguese (Brazil)       |
-| pt-PT   | Portuguese (Portugal)     |
-| qu      | Quechua                   |
-| rm      | Romansh                   |
-| ro      | Romanian                  |
-| ru      | Russian                   |
-| sd      | Sindhi                    |
-| sh      | Serbo-Croatian            |
-| si      | Sinhalese                 |
-| sk      | Slovak                    |
-| sl      | Slovenian                 |
-| sn      | Shona                     |
-| so      | Somali                    |
-| sq      | Albanian                  |
-| sr      | Serbian                   |
-| st      | Sesotho                   |
+| ne      | نپالی                     |
+| nl      | هلندی                     |
+| nn      | نروژی (نینورسک)           |
+| no      | نروژی                     |
+| oc      | اکسیتان                   |
+| om      | اورومو                    |
+| or      | اوریه                     |
+| pa      | پنجابی                    |
+| pl      | لهستانی                   |
+| ps      | پشتو                      |
+| pt      | پرتغالی                   |
+| pt-BR   | پرتغالی (برزیل)           |
+| pt-PT   | پرتغالی (پرتغال)          |
+| qu      | کچوا                      |
+| rm      | رومانش                    |
+| ro      | رومانیایی                 |
+| ru      | روسی                      |
+| sd      | سندی                      |
+| sh      | صربی‌کرواتی               |
+| si      | سینهالی                   |
+| sk      | اسلواکی                   |
+| sl      | اسلونیایی                 |
+| sn      | شونا                      |
+| so      | سومالیایی                 |
+| sq      | آلبانیایی                 |
+| sr      | صربی                      |
+| st      | سوتو                      |
 | su      | Sundanese                 |
 | sv      | Swedish                   |
 | sw      | Swahili                   |
