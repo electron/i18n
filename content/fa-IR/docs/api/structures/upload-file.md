@@ -1,4 +1,4 @@
-# UploadFile Object
+# شئ UploadFile
 
 * `type` String - `file`.
 * `filePath` String - Path of file to be uploaded.

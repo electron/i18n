@@ -1,4 +1,4 @@
-# UploadFileSystem Object
+# شئ UploadFileSystem
 
 * `type` String - `fileSystem`.
 * `filsSystemURL` String - FileSystem url to read data for upload.

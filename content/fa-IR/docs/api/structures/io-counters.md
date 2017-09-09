@@ -1,4 +1,4 @@
-# IOCounters Object
+# شئ IOCounters
 
 * `readOperationCount` Number - The number of I/O read operations.
 * `writeOperationCount` Number - The number of I/O write operations.

@@ -1,4 +1,4 @@
 # Point Object
 
-* `x` Number
-* `y` Number
+* `x` عدد
+* `y` عدد
