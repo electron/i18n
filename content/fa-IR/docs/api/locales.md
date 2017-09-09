@@ -76,17 +76,17 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ky      | قرقیزی                    |
 | la      | لاتین                     |
 | ln      | لینگالایی                 |
-| lo      | Laothian                  |
-| lt      | Lithuanian                |
-| lv      | Latvian                   |
-| mk      | Macedonian                |
-| ml      | Malayalam                 |
-| mn      | Mongolian                 |
-| mo      | Moldavian                 |
-| mr      | Marathi                   |
-| ms      | Malay                     |
-| mt      | Maltese                   |
-| nb      | Norwegian (Bokmal)        |
+| lo      | لائو                      |
+| lt      | لیتوانیایی                |
+| lv      | لتونیایی                  |
+| mk      | مقدونی                    |
+| ml      | مالایالم                  |
+| mn      | مغولی                     |
+| mo      | مولدووا                   |
+| mr      | مراتی                     |
+| ms      | مالایی                    |
+| mt      | مالتی                     |
+| nb      | نروژی (بوکمل)             |
 | ne      | Nepali                    |
 | nl      | Dutch                     |
 | nn      | Norwegian (Nynorsk)       |
