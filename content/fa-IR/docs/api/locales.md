@@ -136,6 +136,6 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | yi      | ییدیش                     |
 | yo      | یوروبایی                  |
 | zh      | چینی                      |
-| zh-CN   | Chinese (Simplified)      |
-| zh-TW   | Chinese (Traditional)     |
-| zu      | Zulu                      |
+| zh-CN   | چینی (ساده‌شده)           |
+| zh-TW   | چینی (سنتی)               |
+| zu      | زولو                      |
