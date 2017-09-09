@@ -6,19 +6,19 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 
 | کد زبان | نام زبان                |
 | ------- | ----------------------- |
-| af      | Afrikaans               |
-| am      | Amharic                 |
-| ar      | Arabic                  |
-| az      | Azerbaijani             |
-| be      | Belarusian              |
-| bg      | Bulgarian               |
-| bh      | Bihari                  |
-| bn      | Bengali                 |
-| br      | Breton                  |
-| bs      | Bosnian                 |
-| ca      | Catalan                 |
-| co      | Corsican                |
-| cs      | Czech                   |
+| af      | آفریکانس                |
+| am      | اَمهاری                 |
+| ar      | عربی                    |
+| az      | آذربایجانی              |
+| be      | بلاروسی                 |
+| bg      | بلغاری                  |
+| bh      | بیهاری                  |
+| bn      | بنگالی                  |
+| br      | برتون                   |
+| bs      | بوسنیایی                |
+| ca      | کاتالان                 |
+| co      | کرسی                    |
+| cs      | چکی                     |
 | cy      | Welsh                   |
 | da      | Danish                  |
 | de      | German                  |
