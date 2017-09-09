@@ -15,35 +15,35 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Distribuição de Aplicativos](tutorial/application-distribution.md)
 * [Guia para Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guia para Windows Store](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
+* [Empacotamento de Aplicativos](tutorial/application-packaging.md)
+* [Usando Módulos Nativos do Node](tutorial/using-native-node-modules.md)
 * [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Extensão de DevTools](tutorial/devtools-extension.md)
+* [Usando o Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Usando o Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Tutoriais
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Início Rápido](tutorial/quick-start.md)
+* [Integração com Ambiente de Trabalho](tutorial/desktop-environment-integration.md)
+* [Detecção de Evento Online/Offline](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Notificações Nativas](tutorial/notifications.md)
 
-## API References
+## Referências da API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
+* [Sinopse](api/synopsis.md)
+* [Processamento de Objeto](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Variáveis de Ambiente](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Elementos de DOM Personalizado:
 
-* [`File` Object](api/file-object.md)
+* [`Arquivo` Objeto](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
