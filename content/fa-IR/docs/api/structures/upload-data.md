@@ -1,4 +1,4 @@
-# UploadData Object
+# شئ UploadData
 
 * `bytes` Buffer - Content being sent.
 * `file` String - Path of file being uploaded.
