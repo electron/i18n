@@ -1,4 +1,4 @@
 # شئ BluetoothDevice
 
-* رشته `deviceName`
-* رشته `deviceId`
+* `deviceName` رشته
+* `deviceId` رشته
