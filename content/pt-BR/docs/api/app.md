@@ -1,4 +1,4 @@
-# app
+# aplicativo
 
 > Control your application's event lifecycle.
 
