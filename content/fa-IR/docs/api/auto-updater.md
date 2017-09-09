@@ -33,7 +33,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
 
-### Linux
+### لینوکس
 
 There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
