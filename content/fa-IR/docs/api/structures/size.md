@@ -1,4 +1,4 @@
-# Size Object
+# شئ Size
 
-* `width` Number
-* `height` Number
+* `width` عدد
+* `height` عدد
