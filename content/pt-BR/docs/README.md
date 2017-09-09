@@ -1,20 +1,20 @@
-Certifique-se de usar a documentação correspondente a versão do Electron que você esta usando. A versão faz parte da URL desta página. Se não, você provavelmente esta usando a documentação da branch de desenvolvimento qual pode conter mudanças da API que pode não ser compatível com a sua versão do Electron. Para ver documentação de versão anteriores, você pode [navegar pelos tags](https://github.com/electron/electron/tree/v1.4.0) no GitHub, para isso, abra o menu "Switch branches/tags" e selecione a tag da versão que você gostaria de ver.
+Certifique-se de usar a documentação correspondente a versão do Electron que você esta usando. A versão faz parte da URL desta página. Se não, você provavelmente esta usando a documentação da branch de desenvolvimento qual pode conter mudanças da API que pode não ser compatível com a sua versão do Electron. Para ver a documentação de versões anteriores, você pode [procurar pelas tags](https://github.com/electron/electron/tree/v1.4.0) no GitHub, para isso, abra o menu "Switch branches/tags" e selecione a tag da versão que você gostaria de ver.
 
-## FAQ
+## Perguntas Frequentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Guias
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
+* [Glossário de Termos](glossary.md)
+* [Plataformas Suportadas](tutorial/supported-platforms.md)
+* [Segurança](tutorial/security.md)
+* [Versionamento do Electron](tutorial/electron-versioning.md)
+* [Distribuição de Aplicativos](tutorial/application-distribution.md)
+* [Guia para Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Guia para Windows Store](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
 * [Using Native Node Modules](tutorial/using-native-node-modules.md)
 * [Debugging Main Process](tutorial/debugging-main-process.md)
