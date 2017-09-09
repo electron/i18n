@@ -19,19 +19,19 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ca      | کاتالان                 |
 | co      | کرسی                    |
 | cs      | چکی                     |
-| cy      | Welsh                   |
-| da      | Danish                  |
-| de      | German                  |
-| de-AT   | German (Austria)        |
-| de-CH   | German (Switzerland)    |
-| de-DE   | German (Germany)        |
-| el      | Greek                   |
-| en      | English                 |
-| en-AU   | English (Australia)     |
-| en-CA   | English (Canada)        |
-| en-GB   | English (UK)            |
-| en-NZ   | English (New Zealand)   |
-| en-US   | English (US)            |
+| cy      | ولزی                    |
+| da      | دانمارکی                |
+| de      | آلمانی                  |
+| de-AT   | آلمانی (اتریش)          |
+| de-CH   | آلمانی (سوئیس)          |
+| de-DE   | آلمانی (آلمان)          |
+| el      | یونانی                  |
+| en      | انگلیسی                 |
+| en-AU   | انگلیسی (استرالیا)      |
+| en-CA   | انگلیسی (کانادا)        |
+| en-GB   | انگلیسی (انگلستان)      |
+| en-NZ   | انگلیسی (نیوزیلند)      |
+| en-US   | انگلیسی (آمریکا)        |
 | en-ZA   | English (South Africa)  |
 | eo      | Esperanto               |
 | es      | Spanish                 |
