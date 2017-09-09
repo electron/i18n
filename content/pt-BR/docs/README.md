@@ -45,11 +45,11 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 * [`Arquivo` Objeto](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`window.open` Função](api/window-open.md)
 
-### Modules for the Main Process:
+### Módulos para o Processo Principal:
 
-* [app](api/app.md)
+* [aplicativo](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -68,7 +68,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Módulos para o Processo de Renderização (Página Web):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
