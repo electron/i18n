@@ -1,4 +1,4 @@
-# `window.open` Function
+# `window.open` Função
 
 > Open a new window and load a URL.
 
