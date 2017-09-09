@@ -1,4 +1,4 @@
-# ScrubberItem Object
+# شئ ScrubberItem
 
 * `label` String - (optional) The text to appear in this item
 * `icon` NativeImage - (optional) The image to appear in this item
