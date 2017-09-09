@@ -1,4 +1,4 @@
-# BluetoothDevice Object
+# شئ BluetoothDevice
 
 * رشته `deviceName`
 * رشته `deviceId`
