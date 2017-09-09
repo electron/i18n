@@ -55,27 +55,27 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ha      | هوسه                      |
 | haw     | هاوایی                    |
 | he      | عبری                      |
-| hi      | Hindi                     |
-| hr      | Croatian                  |
-| hu      | Hungarian                 |
-| hy      | Armenian                  |
-| ia      | Interlingua               |
-| id      | Indonesian                |
-| is      | Icelandic                 |
-| it      | Italian                   |
-| it-CH   | Italian (Switzerland)     |
-| it-IT   | Italian (Italy)           |
-| ja      | Japanese                  |
-| jw      | Javanese                  |
-| ka      | Georgian                  |
-| kk      | Kazakh                    |
-| km      | Cambodian                 |
-| kn      | Kannada                   |
-| ko      | Korean                    |
-| ku      | Kurdish                   |
-| ky      | Kyrgyz                    |
-| la      | Latin                     |
-| ln      | Lingala                   |
+| hi      | هندی                      |
+| hr      | کرواتی                    |
+| hu      | مجاری                     |
+| hy      | ارمنی                     |
+| ia      | اینترلینگوا               |
+| id      | اندونزیایی                |
+| is      | ایسلندی                   |
+| it      | ایتالیایی                 |
+| it-CH   | ایتالیایی (سوئیس)         |
+| it-IT   | ایتالیایی (ایتالیا)       |
+| ja      | ژاپنی                     |
+| jw      | جاوه‌ای                   |
+| ka      | گرجی                      |
+| kk      | قزاقی                     |
+| km      | کامبوج                    |
+| kn      | کانارا                    |
+| ko      | کره‌ای                    |
+| ku      | کردی                      |
+| ky      | قرقیزی                    |
+| la      | لاتین                     |
+| ln      | لینگالایی                 |
 | lo      | Laothian                  |
 | lt      | Lithuanian                |
 | lv      | Latvian                   |
