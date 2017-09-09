@@ -83,10 +83,10 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Desenvolvimento
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
+* [Estilo de Codificação](development/coding-style.md)
+* [Usando clang-format em Código C++](development/clang-format.md)
 * [Source Code Directory Structure](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Overview](development/build-system-overview.md)
@@ -97,6 +97,6 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Debug Instructions (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Atualizando o Chrome](development/upgrading-chrome.md)
+* [Desenvolvimento do Chromium](development/chromium-development.md)
+* [V8 Desenvolvimento](development/v8-development.md)
