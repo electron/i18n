@@ -86,7 +86,7 @@ Returns:
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Méthodes d’instance
 
 Objects created with `new Notification` have the following instance methods:
 
