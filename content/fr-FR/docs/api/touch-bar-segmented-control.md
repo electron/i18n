@@ -2,12 +2,12 @@
 
 > Créer un contrôle segmenté (un groupe de bouton) où un seul bouton a un état sélectionné
 
-Processus : [Principal](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Objet 
-  * `segmentStyle` Chaîne de caractères - (facultatif) Style des segments : 
+* `options` Object 
+  * `segmentStyle` String - (facultatif) Style des segments : 
     * `automatic` - Par défaut. L’apparence du contrôle segmenté est déterminé automatiquement selon le type de fenêtre dans lequel le contrôle est affiché et la position dans la fenêtre.
     * `rounded` - Le contrôle est affiché en utilisant le style arrondi.
     * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé.
