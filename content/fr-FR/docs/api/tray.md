@@ -195,14 +195,14 @@ Définit le titre affiché à côté de l’icône dans la barre d’État.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` Chaîne de caractères - mode de surbrillance avec l'une des valeurs suivante : 
+  * `selection` - Met en surbrillance l'icône de la barre d'État lorsqu'il est cliqué et quand son menu contextuel est ouvert. C'est la valeur par défaut.
+  * `always` - Toujours mettre en surbrillance l’icône.
+  * `never` - Jamais mettre en surbrillance l’icône.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -224,9 +224,9 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Objet 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `icon` ([NativeImage](native-image.md) | Chaîne de caractères) - (facultatif)
+  * `title` Chaîne de caractères - (facultatif)
+  * `content` Chaîne de caractères - (facultatif)
 
 Displays a tray balloon.
 
