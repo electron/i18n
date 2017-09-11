@@ -2,34 +2,34 @@
 
 > Ajoute des icônes et des menus contextuels à la zone de notification du système.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
 
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'},
     {label: 'Item3', type: 'radio', checked: true},
     {label: 'Item4', type: 'radio'}
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Ceci est mon application.')
   tray.setContextMenu(contextMenu)
 })
 ```
 
-**Platform limitations:**
+**Limitations selon les plateformes :**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Sur Linux, l'indicateur d'application sera utilisé s'il est pris en charge, sinon `GtkStatusIcon` sera utilisé à la place.
+* Sur les distributions Linux qui ont seulement le support de l'indicateur d'application, vous devrez installer `libappindicator1` pour faire fonctionner l'icône.
+* L'indicateur d'application sera affiché seulement lorsqu'il a un menu contextuel.
+* Lorsque l'indicateur d'application est utilisé sur Linux, l'événement `click` est ignoré.
+* Sur Linux, afin que les modifications apportées à chaque `MenuItem` prennent effet, vous devrez appeler `setContextMenu` à nouveau. Par exemple :
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
