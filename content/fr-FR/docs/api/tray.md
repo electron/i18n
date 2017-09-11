@@ -2,7 +2,7 @@
 
 > Ajoute des icônes et des menus contextuels à la zone de notification du système.
 
-Processus : [Principal](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 `Tray` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -56,7 +56,7 @@ Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes,
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | Chaîne de caractères)
+* `image` ([NativeImage](native-image.md) | String)
 
 Créer une nouvelle icône dans la barre de notification avec l'`image`.
 
@@ -66,33 +66,33 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'click'
 
-* `event` Événement 
-  * `altKey` Booléen
-  * `shiftKey` Booléen
-  * `ctrlKey` Booléen
-  * `metaKey` Booléen
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
 #### Événement : 'right-click' *macOS* *Windows*
 
-* `event` Événement 
-  * `altKey` Booléen
-  * `shiftKey` Booléen
-  * `ctrlKey` Booléen
-  * `metaKey` Booléen
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
 #### Événement : 'double-click' *macOS* *Windows*
 
-* `event` Événement 
-  * `altKey` Booléen
-  * `shiftKey` Booléen
-  * `ctrlKey` Booléen
-  * `metaKey` Booléen
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
 Émis lorsque l’utilisateur double clique sur l’icône.
@@ -115,15 +115,15 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'drop-files' *macOS*
 
-* `event` Événement
-* `files` Chaîne de caractères[] - les chemins d’accès des fichiers déposés.
+* `event` Event
+* `files` String[] - les chemins d’accès des fichiers déposés.
 
 Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
 #### Événement : 'drop-text' *macOS*
 
-* `event` Événement
-* `text` Chaîne de caractères - le texte déposé
+* `event` Event
+* `text` String - le texte déposé
 
 Émis lorsqu'un texte est déposé sur l’icône.
 
@@ -141,22 +141,22 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'mouse-enter' *macOS*
 
-* `event` Événement 
-  * `altKey` Booléen
-  * `shiftKey` Booléen
-  * `ctrlKey` Booléen
-  * `metaKey` Booléen
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
 * `position` [Point](structures/point.md) - la position de l’événement
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
 #### Événement : 'mouse-leave' *macOS*
 
-* `event` Événement 
-  * `altKey` Booléen
-  * `shiftKey` Booléen
-  * `ctrlKey` Booléen
-  * `metaKey` Booléen
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
 * `position` [Point](structures/point.md) - la position de l’événement
 
 Émis lorsque la souris sort de la zone de l’icône.
@@ -171,7 +171,7 @@ Détruit l’icône immédiatement.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | Chaîne de caractères)
+* `image` ([NativeImage](native-image.md) | String)
 
 Définit l’`image` associée à l'icône.
 
@@ -183,19 +183,19 @@ Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
 
 #### `tray.setToolTip(toolTip)`
 
-* `toolTip` Chaîne de caractères
+* `toolTip` String
 
 Définit le texte au survol pour l'icône.
 
 #### `tray.setTitle(title)` *macOS*
 
-* `title` Chaîne de caractères
+* `title` String
 
 Définit le titre affiché à côté de l’icône dans la barre d’État.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` Chaîne de caractères - mode de surbrillance avec l'une des valeurs suivante : 
+* `mode` String - mode de surbrillance avec l'une des valeurs suivante : 
   * `selection` - Met en surbrillance l'icône de la barre d'État lorsqu'il est cliqué et quand son menu contextuel est ouvert. C'est la valeur par défaut.
   * `always` - Toujours mettre en surbrillance l’icône.
   * `never` - Jamais mettre en surbrillance l’icône.
@@ -223,10 +223,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Objet 
-  * `icon` ([NativeImage](native-image.md) | Chaîne de caractères) - (facultatif)
-  * `title` Chaîne de caractères - (facultatif)
-  * `content` Chaîne de caractères - (facultatif)
+* `options` Object 
+  * `icon` ([NativeImage](native-image.md) | String) - (facultatif)
+  * `title` String - (facultatif)
+  * `content` String - (facultatif)
 
 Affiche une bulle dans la barre d'État.
 
@@ -253,4 +253,4 @@ Les `limites` de l'icône de la barre d’État en tant qu'`Objet`.
 
 #### `tray.isDestroyed()`
 
-Retourne `Booléen` - si l’icône est détruite.
+Retourne `Boolean` - si l’icône est détruite.
