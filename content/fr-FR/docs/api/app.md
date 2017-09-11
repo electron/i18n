@@ -2,7 +2,7 @@
 
 > Contrôle le cycle de vie des événements de votre application.
 
-Processus : [Principal](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 L’exemple suivant montre comment quitter l’application lorsque la dernière fenêtre est fermée :
 
