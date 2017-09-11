@@ -56,12 +56,12 @@ Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Émet un signal sonore.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
-* `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
+* `shortcutPath` Chaîne de caractères
+* `operation` Chaîne de caractères (facultatif) - La valeur par défaut est `create`, peut être une des valeurs suivantes : 
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
@@ -73,9 +73,9 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
-* `shortcutPath` String
+* `shortcutPath` Chaîne de caractères
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Retourne [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
