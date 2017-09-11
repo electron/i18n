@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> Contrôle le cycle de vie des événements de votre application.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+L’exemple suivant montre comment quitter l’application lorsque la dernière fenêtre est fermée :
 
 ```javascript
 const {app} = require('electron')
@@ -15,63 +15,63 @@ app.on('window-all-closed', () => {
 
 ## Événements
 
-The `app` object emits the following events:
+L'objet `app` émet les événements suivants :
 
-### Event: 'will-finish-launching'
+### Événement : 'will-finish-launching'
 
 Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
-### Event: 'ready'
+### Événement : 'ready'
 
-Returns:
+Retourne :
 
-* `launchInfo` Object *macOS*
+* `launchInfo` Objet *macOS*
 
 Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
-### Event: 'window-all-closed'
+### Événement : 'window-all-closed'
 
-Emitted when all windows have been closed.
+Émis lorsque toutes les fenêtres ont été fermées.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
-### Event: 'before-quit'
+### Événement : 'before-quit'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-### Event: 'will-quit'
+### Événement : 'will-quit'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
-### Event: 'quit'
+### Événement : 'quit'
 
-Returns:
+Retourne :
 
-* `event` Event
-* `exitCode` Integer
+* `event` Événement
+* `exitCode` Entier
 
-Emitted when the application is quitting.
+Émis lorsque l'application se quitte.
 
-### Event: 'open-file' *macOS*
+### Événement : 'open-file' *macOS*
 
-Returns:
+Retourne :
 
-* `event` Event
-* `path` String
+* `event` Événement
+* `path` Chaîne de caractères
 
 Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
@@ -81,10 +81,10 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Retourne :
 
-* `event` Event
-* `url` String
+* `event` Événement
+* `url` Chaîne de caractères
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
@@ -92,18 +92,18 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `hasVisibleWindows` Boolean
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contains app-specific state stored by the activity on another device.
 
@@ -113,55 +113,55 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `window` BrowserWindow
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` WebContents
 
 Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `url` String
+* `url` Chaîne de caractères
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -185,9 +185,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -209,9 +209,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
@@ -242,18 +242,18 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
@@ -348,7 +348,7 @@ You can request the following paths by the name:
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` String
+* `path` Chaîne de caractères
 * `options` Object (optional) 
   * `size` String 
     * `small` - 16x16
@@ -370,7 +370,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.setPath(name, path)`
 
 * `name` String
-* `path` String
+* `path` Chaîne de caractères
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
@@ -404,7 +404,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` String
+* `path` Chaîne de caractères
 
 Adds `path` to the recent documents list.
 
