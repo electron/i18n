@@ -22,13 +22,13 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## Remarques
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Sur Linux et Windows, la touche `Command` n'a aucun effet, donc utilisez `CommandOrControl` qui représente `Command` sur macOS et `Control` sur Linux et Windows, pour définir certains accelerators.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Utilisez `Alt` au lieu de `Option`. La touche `Option` n’existe que sur macOS, tandis que la touche `Alt` est disponible sur toutes les plateformes.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+La touche `Super` est mappée à la touche `Windows` sur Windows et Linux et `Cmd` sur macOS.
 
 ## Modificateurs disponibles
 
@@ -44,20 +44,20 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 ## Touches disponibles
 
 * `` à `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* `A` à `Z`
+* `F1` à `F24`
+* Signes de ponctuation comme `~`, `!`, `@`, `#`, `` $, etc.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (ou `Enter` comme alias)
+* `Up`, `Down`, `Left` et `Right`
+* `Home` et `End`
+* `PageUp` et `PageDown`
+* `Escape` (ou `Esc` pour faire court)
+* `VolumeUp`, `VolumeDown` et `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` et `MediaPlayPause`
 * `PrintScreen`
