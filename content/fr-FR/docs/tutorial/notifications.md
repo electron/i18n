@@ -2,7 +2,7 @@
 
 Les trois systèmes d’exploitation permettent aux applications d’envoyer des notifications à l’utilisateur. Electron permet aux développeurs d'envoyer des notifications avec l' [API de Notification HTML5](https://notifications.spec.whatwg.org/), utilisant l'API de notifications natives du système d’exploitation en cours d’exécution pour l’afficher.
 
-**Remarque :** Depuis qu'il s'agit d'une API HTML5, c'est seulement disponible dans le processus de rendu. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Remarque :** Depuis qu'il s'agit d'une API HTML5, c'est seulement disponible dans le processus de rendu. Si vous souhaitez afficher des Notifications depuis le processus principal, veuillez voir le module de [Notification](../api/notification.md).
 
 ```javascript
 let myNotification = new Notification('Title', {
