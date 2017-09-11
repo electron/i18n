@@ -16,8 +16,8 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarLabel
 
 #### `touchBarLabel.label`
 
-Une `Chaîne de caractères` représentant le texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
+Un `String` représentant le texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
 
 #### `touchBarLabel.textColor`
 
-Une `Chaîne de caractères` représentant la couleur du texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
+Un `String` représentant la couleur du texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
