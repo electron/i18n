@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -46,25 +46,25 @@ Objects created with `new Notification` emit the following events:
 
 #### Event: 'show'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
 #### Event: 'click'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted when the notification is clicked by the user.
 
 #### Event: 'close'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -72,18 +72,18 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' *macOS*
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `reply` String - The string the user entered into the inline reply field
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
 #### Event: 'action' *macOS*
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `index` Number - The index of the action that was activated
 
 ### Méthodes d’instance
