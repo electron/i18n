@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Processus : [Principal](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
