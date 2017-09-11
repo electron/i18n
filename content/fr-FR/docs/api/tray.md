@@ -1,6 +1,6 @@
-## Class: Tray
+## Classe : Tray
 
-> Add icons and context menus to the system's notification area.
+> Ajoute des icônes et des menus contextuels à la zone de notification du système.
 
 Process: [Main](../glossary.md#main-process)
 
