@@ -18,8 +18,8 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarColor
 
 #### `touchBarColorPicker.availableColors`
 
-Un tableau de `Chaîne de caractères[]` représentant les couleurs disponible du sélecteur de couleur. Changer cette valeur met à jour immédiatement le sélecteur de couleur dans la touch bar.
+Un tableau de `String[]` représentant les couleurs disponible du sélecteur de couleur. Changer cette valeur met à jour immédiatement le sélecteur de couleur dans la touch bar.
 
 #### `touchBarColorPicker.selectedColor`
 
-Une `Chaîne de caractères` contenant un code hexadécimal représentant la couleur sélectionné dans le sélecteur de couleur. Changer cette valeur met à jour immédiatement le sélecteur de couleur dans la touch bar.
+Un `String` contenant un code hexadécimal représentant la couleur sélectionné dans le sélecteur de couleur. Changer cette valeur met à jour immédiatement le sélecteur de couleur dans la touch bar.
