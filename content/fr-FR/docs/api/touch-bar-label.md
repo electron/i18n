@@ -2,13 +2,13 @@
 
 > Créer un label dans la touch bar pour les applications native macOS
 
-Processus : [Principal](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarLabel(options)` *Experimental*
 
 * `options` Object 
-  * `label` Chaîne de caractères (facultatif) - Texte à afficher.
-  * `textColor` Chaîne de caractères (facultatif) - Couleur hexadécimal du texte, c.-à-d. `#ABCDEF`.
+  * `label` String (facultatif) - Texte à afficher.
+  * `textColor` String (facultatif) - Couleur hexadécimal du texte, c.-à-d. `#ABCDEF`.
 
 ### Propriétés d'instance
 
