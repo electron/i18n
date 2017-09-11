@@ -1,13 +1,13 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Accède aux informations sur les sources de médias qui peut être utilisé pour capturer l'audio et la vidéo à partir du bureau en utilisant l'API [`navigator.mediaDevices.getUserMedia`].
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+L'exemple suivant montre comment faire pour capturer la vidéo à partir d'une fenêtre dont le titre est `Electron` :
 
 ```javascript
-// In the renderer process.
+// Dans le processus de rendu.
 const {desktopCapturer} = require('electron')
 
 desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
@@ -62,15 +62,15 @@ const constraints = {
 
 ## Méthodes
 
-The `desktopCapturer` module has the following methods:
+Le module `desktopCapturer` dispose des méthodes suivantes :
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `options` Object 
+* `options` Objet 
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
-* `callback` Function 
-  * `error` Error
+* `callback` Fonction 
+  * `error` Erreur
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
 Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
