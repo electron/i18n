@@ -531,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 Retourne :
 
-* `url` Chaîne de caractères
+* `url` String
 * `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
@@ -668,7 +668,7 @@ console.log(requestId)
 
 Retourne :
 
-* `url` Chaîne de caractères
+* `url` String
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
@@ -693,7 +693,7 @@ webview.addEventListener('new-window', (e) => {
 
 Retourne :
 
-* `url` Chaîne de caractères
+* `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -707,7 +707,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 Retourne :
 
-* `url` Chaîne de caractères
+* `url` String
 
 Emitted when a navigation is done.
 
@@ -718,7 +718,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 Retourne :
 
 * `isMainFrame` Boolean
-* `url` Chaîne de caractères
+* `url` String
 
 Emitted when an in-page navigation happened.
 
@@ -811,7 +811,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Retourne :
 
-* `url` Chaîne de caractères
+* `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
