@@ -104,7 +104,7 @@ Il est également possible de renommer Electron en changeant le nom de produit e
 
 Créer un fork personnalisé d'Electron n'est certainement pas quelque chose que vous devriez faire pour compiler votre application, même pour les applications en "production". Utiliser un outil tel que `electron-packager` ou `electron-builder` va vous permettre de "Rebaptiser" Electron sans avoir à faire ces étapes.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer directement dans Electron, qui ne peux pas être upstreamed ou qui a été rejeté de la version officiel. En tant que mainteneurs d'Electron, nous sommes beaucoup à vouloir voir votre travail fonctionner, alors essayez du mieux que vous pouvez pour voir vos modifications dans la version officiel d'Electron. Cela sera plus simple pour vous et nous apprécierons votre aide.
 
 #### Création d’une version Custom avec surf-build
 
