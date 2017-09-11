@@ -14,17 +14,17 @@ Créer une nouvelle touch bar avec les éléments spécifiés. `BrowserWindow.se
 
 **Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Astuce :** Si vous n’avez pas un MacBook avec Touch Bar, vous pouvez utiliser [Touch Bar simulator](https://github.com/sindresorhus/touch-bar-simulator) pour tester la Touch Bar dans votre application.
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `TouchBar`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBar` :
 
 #### `touchBar.escapeItem`
 
 The `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
-## Examples
+## Exemples
 
 Below is an example of a simple slot machine touch bar game with a button and some labels.
 
