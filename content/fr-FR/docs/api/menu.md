@@ -46,7 +46,7 @@ Generally, the `template` is just an array of `options` for constructing a [Menu
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods
+### Méthodes d’instance
 
 The `menu` object has the following instance methods:
 
@@ -80,7 +80,7 @@ Appends the `menuItem` to the menu.
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Instance Properties
+### Propriétés d'instance
 
 `menu` objects also have the following properties:
 
