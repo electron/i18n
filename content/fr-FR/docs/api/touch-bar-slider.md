@@ -20,7 +20,7 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarSlide
 
 #### `touchBarSlider.label`
 
-Une `Chaîne de caractères` représentant le texte du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
+Un `String` représentant le texte du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.value`
 
