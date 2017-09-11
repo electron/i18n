@@ -20,16 +20,16 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarSlide
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+Une `Chaîne de caractères` représentant le texte du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+Un `Nombre` représentant la valeur du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+Un `Nombre` représentant la valeur minimale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+Un `Nombre` représentant la valeur maximale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
