@@ -4,7 +4,7 @@
 
 **Remarque :** L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 
-Processus : [Principal](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
@@ -31,8 +31,8 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Objet (facultatif) 
-  * `webPreferences` Objet (facultatif) - Voir [BrowserWindow](browser-window.md).
+* `options` Object (facultatif) 
+  * `webPreferences` Object (facultatif) - Voir [BrowserWindow](browser-window.md).
 
 ### Propriétés d'instance
 
@@ -52,7 +52,7 @@ Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `options` Objet 
+* `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
