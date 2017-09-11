@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Processus : [Principal](../glossary.md#main-process), [Rendu](../glossary.md#renderer-process)
+Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -20,7 +20,7 @@ Le module `shell` dispose des méthodes suivantes :
 
 ### `shell.showItemInFolder(fullPath)`
 
-* `fullPath` Chaîne de caractères
+* `fullPath` String
 
 Returns `Boolean` - Whether the item was successfully shown
 
@@ -28,7 +28,7 @@ Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
-* `fullPath` Chaîne de caractères
+* `fullPath` String
 
 Returns `Boolean` - Whether the item was successfully opened.
 
@@ -36,11 +36,11 @@ Open the given file in the desktop's default manner.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` Chaîne de caractères
-* `options` Objet (facultatif) *macOS* 
+* `url` String
+* `options` Object (facultatif) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
-  * `error` Erreur
+  * `error` Error
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
 
@@ -60,8 +60,8 @@ Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
-* `shortcutPath` Chaîne de caractères
-* `operation` Chaîne de caractères (facultatif) - La valeur par défaut est `create`, peut être une des valeurs suivantes : 
+* `shortcutPath` String
+* `operation` String (facultatif) - La valeur par défaut est `create`, peut être une des valeurs suivantes : 
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
@@ -73,7 +73,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
-* `shortcutPath` Chaîne de caractères
+* `shortcutPath` String
 
 Retourne [`ShortcutDetails`](structures/shortcut-details.md)
 
