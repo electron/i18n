@@ -10,15 +10,15 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` Chaîne de caractères
-* `frameName` String (optional)
-* `features` String (optional)
+* `url` String
+* `frameName` String (facultatif)
+* `features` String (facultatif)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
-**Notes:**
+**Remarque :**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -27,8 +27,8 @@ The `features` string follows the format of standard browser, but each feature h
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` Chaîne de caractères
-* `targetOrigin` Chaîne de caractères
+* `message` String
+* `targetOrigin` String
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
