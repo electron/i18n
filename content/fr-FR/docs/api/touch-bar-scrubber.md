@@ -1,4 +1,4 @@
-## Class: TouchBarScrubber
+## Classe : TouchBarScrubber
 
 > Create a scrubber (a scrollable selector)
 
@@ -6,7 +6,7 @@ Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
-* `options` Object 
+* `options` Objet 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
   * `select` Function - Called when the user taps an item that was not the last tapped item 
     * `selectedIndex` Integer - The index of the item the user selected
@@ -20,7 +20,7 @@ Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarScrubber`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarScrubber` :
 
 #### `touchBarSegmentedControl.items`
 
