@@ -194,11 +194,11 @@ Déprécié : https://atom.io/download/atom-shell
 
 Remplacé par : https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## Versions ARM dupliquées
 
-Chaque version d'Electron comprend deux versions identiques ARM avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Chaque version d'Electron comprend deux versions identiques ARM avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. La version avec le préfix `v7l` a été ajoutée pour clarifier aux utilisateurs quelle version ARM il supporte, et pour éliminer l'ambiguÏté des futures version armv6l et arm64 pouvant être produites.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Le fichier *sans le préfixe* est toujours publié pour éviter d’interrompre les configurations qui peuvent être consommées. À partir de la version 2.0, le fichier non préfixé ne sera plus publié.
 
 Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
 
