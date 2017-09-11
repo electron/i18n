@@ -48,7 +48,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 ### `shell.moveItemToTrash(fullPath)`
 
-* `fullPath` Chaîne de caractères
+* `fullPath` String
 
 Returns `Boolean` - Whether the item was successfully moved to the trash
 
