@@ -114,7 +114,7 @@ $ npm run clean-build
 
 ### Erreur lors du chargement Shared Libraries : libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Pré-compiler `clang` va permettre d'essayer de faire un lien vers `libtinfo.so.5`. Selon l'architecture de l'hôte, avoir `libncurses` comme lien symbolique est plus approprié :
 
 ```bash
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
