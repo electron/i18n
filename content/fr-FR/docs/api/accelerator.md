@@ -1,23 +1,23 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> Définit des raccourcis clavier.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Les accelerators sont des chaînes de caractères pouvant contenir plusieurs modificateurs et codes de touche, combinés avec le caractère `+`. Ils sont utilisés pour définir des raccourcies clavier dans votre application.
 
-Examples:
+Exemples :
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Les raccourcis sont enregistrés avec le module [`globalShortcut`](global-shortcut.md) en utilisant la méthode [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), c.-à-d.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // Enregistre un écouteur de raccourci 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // Lance le code ici quand Y et Command/Control sont pressés en même temps.
   })
 })
 ```
