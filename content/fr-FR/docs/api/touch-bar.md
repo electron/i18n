@@ -26,7 +26,7 @@ Le `TouchBarItem` remplacera le bouton "esc" sur la touch bar lorsqu’elle sera
 
 ## Exemples
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Voici un exemple d’un jeu de machine à sous dans la touch bar avec un bouton et quelques labels.
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -48,7 +48,7 @@ const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### Exécution de l’exemple ci-dessus
 
 To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
 
