@@ -8,10 +8,10 @@ Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 * `options` Objet 
   * `label` Chaîne de caractères (facultatif) - Texte du bouton.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * `backgroundColor` Chaîne de caractères (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
+  * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton.
+  * `iconPosition` Chaîne de caractères -Peut être `left`, `right` ou `overlay`.
+  * `click` Fonction (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
 
 ### Propriétés d'instance
 
@@ -19,12 +19,12 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarButto
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Une `Chaîne de caractères` représentant le texte du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Une `Chaîne de caractères` représentant la couleur du fond du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+Une `NativeImage` représentant l'icône du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
