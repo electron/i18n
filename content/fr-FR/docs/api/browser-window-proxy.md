@@ -1,12 +1,12 @@
-## Class: BrowserWindowProxy
+## Classe : BrowserWindowProxy
 
-> Manipulate the child browser window
+> Manipule la fenêtre enfant
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
-### Instance Methods
+### Méthodes d’instance
 
 The `BrowserWindowProxy` object has the following instance methods:
 
@@ -20,7 +20,7 @@ Forcefully closes the child window without calling its unload event.
 
 #### `win.eval(code)`
 
-* `code` String
+* `code` Chaîne de caractères
 
 Evaluates the code in the child window.
 
@@ -34,14 +34,14 @@ Invokes the print dialog on the child window.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `message` Chaîne de caractères
+* `targetOrigin` Chaîne de caractères
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instance Properties
+### Propriétés d'instance
 
 The `BrowserWindowProxy` object has the following instance properties:
 
