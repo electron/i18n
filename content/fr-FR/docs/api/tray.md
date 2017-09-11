@@ -36,64 +36,64 @@ const {app, Menu, Tray} = require('electron')
 
 let appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'}
   ])
 
-  // Make a change to the context menu
+  // Fait un changement au menu contextuel
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // Appelé à nouveau pour Linux car nous avons modifié le menu contextuel
   appIcon.setContextMenu(contextMenu)
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Sur Windows, il est recommandé d'utiliser des icônes du type `ICO` pour obtenir les meilleurs effets visuels.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes, vous ne devriez pas vous appuyez sur l'événement `click` et toujours fixer un menu contextuel sur l'icône.
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([NativeImage](native-image.md) | Chaîne de caractères)
 
-Creates a new tray icon associated with the `image`.
+Créer une nouvelle icône dans la barre de notification avec l'`image`.
 
-### Instance Events
+### Événements d’instance
 
-The `Tray` module emits the following events:
+Le module `Tray` émet les événements suivants :
 
-#### Event: 'click'
+#### Événement : 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `event` Événement 
+  * `altKey` Booléen
+  * `shiftKey` Booléen
+  * `ctrlKey` Booléen
+  * `metaKey` Booléen
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
-Emitted when the tray icon is clicked.
+Émis lorsque l’utilisateur clique sur l’icône.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `event` Événement 
+  * `altKey` Booléen
+  * `shiftKey` Booléen
+  * `ctrlKey` Booléen
+  * `metaKey` Booléen
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
 Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `event` Événement 
+  * `altKey` Booléen
+  * `shiftKey` Booléen
+  * `ctrlKey` Booléen
+  * `metaKey` Booléen
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
 Emitted when the tray icon is double clicked.
 
@@ -141,22 +141,22 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` Événement 
+  * `altKey` Booléen
+  * `shiftKey` Booléen
+  * `ctrlKey` Booléen
+  * `metaKey` Booléen
 * `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` Événement 
+  * `altKey` Booléen
+  * `shiftKey` Booléen
+  * `ctrlKey` Booléen
+  * `metaKey` Booléen
 * `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the mouse exits the tray icon.
