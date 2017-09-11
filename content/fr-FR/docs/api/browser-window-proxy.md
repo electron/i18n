@@ -2,7 +2,7 @@
 
 > Manipule la fenêtre enfant
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
@@ -20,7 +20,7 @@ Forcefully closes the child window without calling its unload event.
 
 #### `win.eval(code)`
 
-* `code` Chaîne de caractères
+* `code` String
 
 Evaluates the code in the child window.
 
@@ -34,8 +34,8 @@ Invokes the print dialog on the child window.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` Chaîne de caractères
-* `targetOrigin` Chaîne de caractères
+* `message` String
+* `targetOrigin` String
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.
 
