@@ -111,87 +111,87 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'drop' *macOS*
 
-Émis lorsque un ou des éléments sont déplacés et déposés sur l’icône.
+Émis lorsque un ou des éléments sont glissés et déposés sur l’icône.
 
 #### Événement : 'drop-files' *macOS*
 
 * `event` Événement
 * `files` Chaîne de caractères[] - les chemins d’accès des fichiers déposés.
 
-Émis lorsque des fichiers sont déplacés et déposés sur l’icône.
+Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
 #### Événement : 'drop-text' *macOS*
 
 * `event` Événement
-* `text` Chaîne de caractères - la chaîne de texte déposée
+* `text` Chaîne de caractères - le texte déposé
 
-Emitted when dragged text is dropped in the tray icon.
+Émis lorsqu'un texte est déposé sur l’icône.
 
-#### Event: 'drag-enter' *macOS*
+#### Événement : 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Émis lorsqu’une opération glisser entre dans la zone de l’icône.
 
-#### Event: 'drag-leave' *macOS*
+#### Événement : 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Émis lorsqu’une opération glisser sort de la zone de l’icône.
 
-#### Event: 'drag-end' *macOS*
+#### Événement : 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
 
-#### Event: 'mouse-enter' *macOS*
-
-* `event` Événement 
-  * `altKey` Booléen
-  * `shiftKey` Booléen
-  * `ctrlKey` Booléen
-  * `metaKey` Booléen
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse enters the tray icon.
-
-#### Event: 'mouse-leave' *macOS*
+#### Événement : 'mouse-enter' *macOS*
 
 * `event` Événement 
   * `altKey` Booléen
   * `shiftKey` Booléen
   * `ctrlKey` Booléen
   * `metaKey` Booléen
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - la position de l’événement
 
-Emitted when the mouse exits the tray icon.
+Émis lorsque la souris entre dans la zone de l’icône.
 
-### Instance Methods
+#### Événement : 'mouse-leave' *macOS*
 
-The `Tray` class has the following methods:
+* `event` Événement 
+  * `altKey` Booléen
+  * `shiftKey` Booléen
+  * `ctrlKey` Booléen
+  * `metaKey` Booléen
+* `position` [Point](structures/point.md) - la position de l’événement
+
+Émis lorsque la souris sort de la zone de l’icône.
+
+### Méthodes d’instance
+
+La classe `Tray` dispose des méthodes suivantes :
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Détruit l’icône immédiatement.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([NativeImage](native-image.md) | Chaîne de caractères)
 
-Sets the `image` associated with this tray icon.
+Définit l’`image` associée à l'icône.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
 
 #### `tray.setToolTip(toolTip)`
 
-* `toolTip` String
+* `toolTip` Chaîne de caractères
 
-Sets the hover text for this tray icon.
+Définit le texte au survol pour l'icône.
 
 #### `tray.setTitle(title)` *macOS*
 
-* `title` String
+* `title` Chaîne de caractères
 
-Sets the title displayed aside of the tray icon in the status bar.
+Définit le titre affiché à côté de l’icône dans la barre d’État.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
