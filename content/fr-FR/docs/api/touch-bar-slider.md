@@ -2,17 +2,17 @@
 
 > Créer un curseur dans la touch bar pour les applications native macOS
 
-Processus : [Principal](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 
-* `options` Objet 
-  * `label` Chaîne de caractères (facultatif) - Texte du label.
-  * `value` Entier (facultatif) - Valeur sélectionnée.
-  * `minValue` Entier (facultatif) - Valeur minimale.
-  * `maxValue` Entier (facultatif) - Valeur maximale.
-  * `change` Fonction (facultatif) - Fonction à appeler lorsque que le curseur est modifié. 
-    * `newValue` Nombre - La valeur que l'utilisateur a sélectionnée sur le curseur
+* `options` Object 
+  * `label` String (facultatif) - Texte du label.
+  * `value` Integer (facultatif) - Valeur sélectionnée.
+  * `minValue` Integer (facultatif) - Valeur minimale.
+  * `maxValue` Integer (facultatif) - Valeur maximale.
+  * `change` Function (facultatif) - Fonction à appeler lorsque que le curseur est modifié. 
+    * `newValue` Number - La valeur que l'utilisateur a sélectionnée sur le curseur
 
 ### Propriétés d'instance
 
@@ -24,12 +24,12 @@ Une `Chaîne de caractères` représentant le texte du curseur actuel. Changer c
 
 #### `touchBarSlider.value`
 
-Un `Nombre` représentant la valeur du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
+Un `Number` représentant la valeur du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.minValue`
 
-Un `Nombre` représentant la valeur minimale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
+Un `Number` représentant la valeur minimale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.maxValue`
 
-Un `Nombre` représentant la valeur maximale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
+Un `Number` représentant la valeur maximale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
