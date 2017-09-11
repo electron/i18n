@@ -10,7 +10,7 @@ Le format ASAR a été créé principalement pour améliorer les performances su
 
 ### Brightray
 
-Brightray is a static library that makes [libchromiumcontent](#libchromiumcontent) easier to use in applications.
+Brightray est une librairie statique permettant l'utilisation de [libchromiumcontent](#libchromiumcontent) plus facile dans les applications.
 
 Brightray est une dépendance de bas niveau d’Electron qui ne concerne pas la majorité des utilisateurs d'Electron.
 
@@ -32,27 +32,27 @@ IPC stands for Inter-Process Communication. Electron uses IPC to send serialized
 
 ### libchromiumcontent
 
-A single, shared library that includes the Chromium Content module and all its dependencies (e.g., Blink, [V8](#v8), etc.).
+C'est une bibliothèque unique et partagée qui inclut le module Chromium Content et toutes ses dépendances (par ex., Blink, [V8](#v8), etc..).
 
-### main process
+### main process (processus principal)
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Acronyme pour Mac App Store d'Apple. Pour plus d’informations sur la soumission de votre application pour le MAS, consultez le [Guide de soumission sur le Mac App Store](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### modules natifs
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Les modules natifs (également appelés [addons](https://nodejs.org/api/addons.html) dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l’aide de la fonction require() et sont utilisés comme si ils étaient des modules de Node.js ordinaire. Ils sont utilisés principalement pour fournir une interface entre JavaScript s’exécutant dans les librairies Node.js et C/C++.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d’utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l’emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Voir aussi [Utilisation des modules natifs de Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -60,7 +60,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ## OSR
 
-Off-screen rendering.
+Rendu hors d'écran.
 
 ### processus (process)
 
@@ -68,15 +68,15 @@ A process is an instance of a computer program that is being executed. Electron 
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Voir aussi : [processus principal](#main-process), [processus de rendu](#renderer-process)
 
-### renderer process
+### processus de rendu (renderer process)
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 Dans un navigateur normal, les pages web sont habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder aux ressources natives. Cependant, les utilisateurs d'Electron peuvent utiliser l'API Node.js dans les pages web, ce qui permet des interactions de niveau bas avec le système d'exploitation.
 
-See also: [process](#process), [main process](#main-process)
+Voir aussi : [processus](#process), [processus principal](#main-process)
 
 ### Squirrel
 
