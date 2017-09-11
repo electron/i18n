@@ -17,20 +17,20 @@ The `systemPreferences` object emits the following events:
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
 ## Méthodes
