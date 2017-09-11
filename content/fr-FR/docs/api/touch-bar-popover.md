@@ -18,7 +18,7 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarPopov
 
 #### `touchBarPopover.label`
 
-Une `Chaîne de caractères` représentant le texte du bouton du popover actuel. Changer cette valeur met à jour immédiatement le popover dans la touch bar.
+Un `String` représentant le texte du bouton du popover actuel. Changer cette valeur met à jour immédiatement le popover dans la touch bar.
 
 #### `touchBarPopover.icon`
 
