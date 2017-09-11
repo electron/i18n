@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
 ### Instance Events
 
@@ -53,9 +53,9 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -65,9 +65,9 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -82,9 +82,9 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -98,9 +98,9 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -113,27 +113,27 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-Returns:
+Retourne :
 
-* `event` Event
-* `url` String
+* `event` Événement
+* `url` Chaîne de caractères
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
@@ -157,10 +157,10 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-Returns:
+Retourne :
 
-* `event` Event
-* `url` String
+* `event` Événement
+* `url` Chaîne de caractères
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -172,10 +172,10 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-Returns:
+Retourne :
 
-* `event` Event
-* `url` String
+* `event` Événement
+* `url` Chaîne de caractères
 
 Emitted when a navigation is done.
 
@@ -183,10 +183,10 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Returns:
+Retourne :
 
-* `event` Event
-* `url` String
+* `event` Événement
+* `url` Chaîne de caractères
 * `isMainFrame` Boolean
 
 Emitted when an in-page navigation happened.
@@ -195,9 +195,9 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -224,18 +224,18 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `name` String
 * `version` String
 
@@ -247,9 +247,9 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -290,10 +290,10 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-Returns:
+Retourne :
 
-* `event` Event
-* `url` String
+* `event` Événement
+* `url` Chaîne de caractères
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -305,9 +305,9 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -319,9 +319,9 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `request` Object 
   * `method` String
   * `url` URL
@@ -342,9 +342,9 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -372,18 +372,18 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+Retourne :
 
-* `event` Event
-* `url` String
+* `event` Événement
+* `url` Chaîne de caractères
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -396,9 +396,9 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -438,9 +438,9 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
@@ -468,9 +468,9 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -492,9 +492,9 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -508,7 +508,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
+* `url` Chaîne de caractères
 * `options` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
@@ -526,7 +526,7 @@ webContents.loadURL('https://github.com', options)
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* `url` Chaîne de caractères
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
@@ -913,7 +913,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* `path` String
+* `path` Chaîne de caractères
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -927,7 +927,7 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* `path` String
+* `path` Chaîne de caractères
 
 Removes the specified path from DevTools workspace.
 
