@@ -2,7 +2,7 @@
 
 > Définit des raccourcis clavier.
 
-Les accelerators sont des chaînes de caractères pouvant contenir plusieurs modificateurs et codes de touche, combinés avec le caractère `+`. Ils sont utilisés pour définir des raccourcies clavier dans votre application.
+Les accelerators sont des chaînes de caractères pouvant contenir plusieurs modificateurs et touches, combinés avec le caractère `+`. Ils sont utilisés pour définir des raccourcies clavier dans votre application.
 
 Exemples :
 
@@ -30,20 +30,20 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Available modifiers
+## Modificateurs disponibles
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (ou `Cmd` pour faire court)
+* `Control` (ou `Ctrl` pour faire court)
+* `CommandOrControl` (ou `CmdOrCtrl` pour faire court)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Touches disponibles
 
-* `` to `9`
+* `` à `9`
 * `A` to `Z`
 * `F1` to `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
