@@ -27,8 +27,8 @@ The `features` string follows the format of standard browser, but each feature h
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `message` Chaîne de caractères
+* `targetOrigin` Chaîne de caractères
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
