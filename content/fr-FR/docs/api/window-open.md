@@ -10,7 +10,7 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` String
+* `url` Chaîne de caractères
 * `frameName` String (optional)
 * `features` String (optional)
 
