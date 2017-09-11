@@ -57,7 +57,7 @@ Le module `screen` émet les événements suivants :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 Émis lorsque `newDisplay` a été ajouté.
@@ -66,7 +66,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
 Émis lorsque `oldDisplay` a été retiré.
@@ -75,9 +75,9 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `display` [Display](structures/display.md)
-* `changedMetrics` Chaîne de caractères[]
+* `changedMetrics` String[]
 
 Émis lorsqu’un ou plusieurs métrics changent dans un `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
