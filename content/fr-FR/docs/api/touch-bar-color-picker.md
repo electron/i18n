@@ -7,19 +7,19 @@ Processus : [Principal](../tutorial/quick-start.md#main-process)
 ### `new TouchBarColorPicker(options)` *Experimental*
 
 * `options` Objet 
-  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
-  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker
+  * `availableColors` Chaîne de caractères[] (facultatif) - Tableau de chaîne de caractères de couleurs en hexadécimal pouvant être choisi.
+  * `selectedColor` Chaîne de caractères (facultatif) - La couleur en hexadécimal selectionné dans le sélecteur, c.-à-d. `#ABCDEF`.
+  * `change` Fonction (facultatif) - Fonction à appeler lorsque qu'une couleur est sélectionnée. 
+    * `color` Chaîne de caractères - La couleur que l'utilisateur a sélectionnée dans le sélecteur
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarColorPicker`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarColorPicker` :
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Un tableau de `Chaîne de caractères[]` représentant les couleurs disponible du sélecteur de couleur. Changer cette valeur met à jour immédiatement le sélecteur de couleur dans la touch bar.
 
 #### `touchBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+Une `Chaîne de caractères` contenant un code hexadécimal représentant la couleur sélectionné dans le sélecteur de couleur. Changer cette valeur met à jour immédiatement le sélecteur de couleur dans la touch bar.
