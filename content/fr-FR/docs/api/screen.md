@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Processus : [Principal](../glossary.md#main-process), [Rendu](../glossary.md#renderer-process)
+Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready` du module `app` soit émis.
 
