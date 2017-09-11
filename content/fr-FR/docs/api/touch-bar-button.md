@@ -19,11 +19,11 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarButto
 
 #### `touchBarButton.label`
 
-Une `Chaîne de caractères` représentant le texte du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
+Un `String` représentant le texte du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-Une `Chaîne de caractères` représentant la couleur du fond du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
+Un `String` représentant la couleur du fond du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
 
 #### `touchBarButton.icon`
 
