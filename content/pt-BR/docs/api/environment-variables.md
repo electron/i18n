@@ -1,4 +1,4 @@
-# Environment Variables
+# Variáveis de Ambiente
 
 > Control application configuration and behavior without changing code.
 
