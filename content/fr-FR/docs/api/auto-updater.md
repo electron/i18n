@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
 The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
 
@@ -43,7 +43,7 @@ The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Retourne :
 
 * `error` Error
 
@@ -63,9 +63,9 @@ Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
-Returns:
+Retourne :
 
-* `event` Event
+* `event` Événement
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -81,7 +81,7 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
+* `url` Chaîne de caractères
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
 Sets the `url` and initialize the auto updater.
