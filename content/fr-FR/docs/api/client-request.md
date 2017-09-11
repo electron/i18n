@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Processus : [Principal](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
