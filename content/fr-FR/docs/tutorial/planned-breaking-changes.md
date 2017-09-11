@@ -7,28 +7,28 @@ Il n'y a aucune date prévue pour cette prochaine version, mais les avertissemen
 ## `app`
 
 ```js
-// Deprecated
+// Déprécié
 app.getAppMemoryInfo()
-// Replace with
+// Remplacé par
 app.getAppMetrics()
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Remplacé par
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Remplacé par
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -36,37 +36,37 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// Déprécié
 clipboard.readRtf()
-// Replace with
+// Remplacé par
 clipboard.readRTF()
 
-// Deprecated
+// Déprécié
 clipboard.writeRtf()
-// Replace with
+// Remplacé par
 clipboard.writeRTF()
 
-// Deprecated
+// Déprécié
 clipboard.readHtml()
-// Replace with
+// Remplacé par
 clipboard.readHTML()
 
-// Deprecated
+// Déprécié
 clipboard.writeHtml()
-// Replace with
+// Remplacé par
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Déprécié
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Remplacé par
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
