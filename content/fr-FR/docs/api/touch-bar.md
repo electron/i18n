@@ -50,10 +50,10 @@ const spin = new TouchBarButton({
 
 ### Exécution de l’exemple ci-dessus
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+Pour exécuter l’exemple ci-dessus, vous devrez (en supposant que vous avez un terminal ouvert dans le répertoire où vous souhaitez exécuter l’exemple) :
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. Enregistrez le fichier ci-dessus sur votre ordinateur comme `touchbar.js`
+2. Installez Electron via `npm install electron`
+3. Exécutez l’exemple avec Electron : `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Vous devriez alors voir une nouvelle fenêtre Electron et l’application en cours d’exécution dans votre touch bar (ou touch bar emulator).
