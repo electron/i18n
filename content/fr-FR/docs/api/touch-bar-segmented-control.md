@@ -1,21 +1,21 @@
-## Class: TouchBarSegmentedControl
+## Classe : TouchBarSegmentedControl
 
-> Create a segmented control (a button group) where one button has a selected state
+> Créer un contrôle segmenté (un groupe de bouton) où un seul bouton a un état sélectionné
 
 Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Object 
-  * `segmentStyle` String - (optional) Style of the segments: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style
-    * `small-square` - The control is displayed using the small square style.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
+* `options` Objet 
+  * `segmentStyle` Chaîne de caractères - (facultatif) Style des segments : 
+    * `automatic` - Par défaut. L’apparence du contrôle segmenté est déterminé automatiquement selon le type de fenêtre dans lequel le contrôle est affiché et la position dans la fenêtre.
+    * `rounded` - Le contrôle est affiché en utilisant le style arrondi.
+    * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé.
+    * `round-rect` - Le contrôle est affiché en utilisant le style arrondi rect.
+    * `textured-square` - Le contrôle est affiché en utilisant le style carré texturé.
+    * `capsule` - Le contrôle s’affiche selon le style capsule
+    * `small-square` - Le contrôle est affiché en utilisant le style petit carré.
+    * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas.
   * `mode` String - (optional) The selection mode of the control: 
     * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
     * `multiple` - Multiple items can be selected at a time.
@@ -28,7 +28,7 @@ Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarSegmentedControl` :
 
 #### `touchBarSegmentedControl.segmentStyle`
 
