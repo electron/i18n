@@ -75,7 +75,7 @@ Le module `Tray` émet les événements suivants :
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
-#### Event: 'right-click' *macOS* *Windows*
+#### Événement : 'right-click' *macOS* *Windows*
 
 * `event` Événement 
   * `altKey` Booléen
@@ -84,9 +84,9 @@ Le module `Tray` émet les événements suivants :
   * `metaKey` Booléen
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
-Emitted when the tray icon is right clicked.
+Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Événement : 'double-click' *macOS* *Windows*
 
 * `event` Événement 
   * `altKey` Booléen
@@ -95,35 +95,35 @@ Emitted when the tray icon is right clicked.
   * `metaKey` Booléen
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
-Emitted when the tray icon is double clicked.
+Émis lorsque l’utilisateur double clique sur l’icône.
 
-#### Event: 'balloon-show' *Windows*
+#### Événement : 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Émis lorsque le ballon de la barre d’État s’affiche.
 
-#### Event: 'balloon-click' *Windows*
+#### Événement : 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Émis lorsque l’utilisateur clique sur le ballon de la barre d'État.
 
-#### Event: 'balloon-closed' *Windows*
+#### Événement : 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Émis lorsque le ballon de la barre d’État est fermé en raison du délai d’attente dépassé ou de l’utilisateur le ferme manuellement.
 
-#### Event: 'drop' *macOS*
+#### Événement : 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Émis lorsque un ou des éléments sont déplacés et déposés sur l’icône.
 
-#### Event: 'drop-files' *macOS*
+#### Événement : 'drop-files' *macOS*
 
-* `event` Event
-* `files` String[] - The paths of the dropped files.
+* `event` Événement
+* `files` Chaîne de caractères[] - les chemins d’accès des fichiers déposés.
 
-Emitted when dragged files are dropped in the tray icon.
+Émis lorsque des fichiers sont déplacés et déposés sur l’icône.
 
-#### Event: 'drop-text' *macOS*
+#### Événement : 'drop-text' *macOS*
 
-* `event` Event
-* `text` String - the dropped text string
+* `event` Événement
+* `text` Chaîne de caractères - la chaîne de texte déposée
 
 Emitted when dragged text is dropped in the tray icon.
 
@@ -223,7 +223,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `options` Objet 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)
