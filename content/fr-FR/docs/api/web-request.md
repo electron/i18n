@@ -39,7 +39,7 @@ The following methods are available on instances of `WebRequest`:
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` Chaîne de caractères
+    * `url` String
     * `method` String
     * `resourceType` String
     * `timestamp` Double
@@ -65,7 +65,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
 
 * `details` Object 
   * `id` Integer
-  * `url` Chaîne de caractères
+  * `url` String
   * `method` String
   * `resourceType` String
   * `timestamp` Double
@@ -84,7 +84,7 @@ The `callback` has to be called with an `response` object.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` Chaîne de caractères
+    * `url` String
     * `method` String
     * `resourceType` String
     * `timestamp` Double
@@ -102,7 +102,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
 
 * `details` Object 
   * `id` String
-  * `url` Chaîne de caractères
+  * `url` String
   * `method` String
   * `resourceType` String
   * `timestamp` Double
@@ -124,7 +124,7 @@ The `callback` has to be called with an `response` object.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` Chaîne de caractères
+    * `url` String
     * `method` String
     * `resourceType` String
     * `timestamp` Double
@@ -142,7 +142,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 * `listener` Function 
   * `details` Object 
     * `id` String
-    * `url` Chaîne de caractères
+    * `url` String
     * `method` String
     * `resourceType` String
     * `timestamp` Double
@@ -161,7 +161,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` Chaîne de caractères
+    * `url` String
     * `method` String
     * `resourceType` String
     * `timestamp` Double
@@ -179,7 +179,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` Chaîne de caractères
+    * `url` String
     * `method` String
     * `resourceType` String
     * `timestamp` Double
