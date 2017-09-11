@@ -977,7 +977,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// Dans le processus principal.
+// Dans le processus main.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
