@@ -1,13 +1,13 @@
-## Class: TouchBarButton
+## Classe : TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Créer un bouton dans la touch bar pour les applications native macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `options` Object 
-  * `label` String (optional) - Button text.
+* `options` Objet 
+  * `label` Chaîne de caractères (facultatif) - Texte du bouton.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.
   * `iconPosition` String - Can be `left`, `right` or `overlay`.
@@ -15,7 +15,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarButton`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarButton` :
 
 #### `touchBarButton.label`
 
