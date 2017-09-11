@@ -2,7 +2,7 @@
 
 > Detect keyboard events when the application does not have keyboard focus.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
@@ -36,12 +36,12 @@ app.on('will-quit', () => {
 
 ## Méthodes
 
-The `globalShortcut` module has the following methods:
+Le module `globalShortcut` dispose des méthodes suivantes :
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `callback` Fonction
 
 Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
