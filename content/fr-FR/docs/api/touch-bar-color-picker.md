@@ -2,15 +2,15 @@
 
 > Créer un sélecteur de couleur dans la touch bar pour les applications native macOS
 
-Processus : [Principal](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
-* `options` Objet 
-  * `availableColors` Chaîne de caractères[] (facultatif) - Tableau de chaîne de caractères de couleurs en hexadécimal pouvant être choisi.
-  * `selectedColor` Chaîne de caractères (facultatif) - La couleur en hexadécimal selectionné dans le sélecteur, c.-à-d. `#ABCDEF`.
-  * `change` Fonction (facultatif) - Fonction à appeler lorsque qu'une couleur est sélectionnée. 
-    * `color` Chaîne de caractères - La couleur que l'utilisateur a sélectionnée dans le sélecteur
+* `options` Object 
+  * `availableColors` String[] (facultatif) - Tableau de chaîne de caractères de couleurs en hexadécimal pouvant être choisi.
+  * `selectedColor` String (facultatif) - La couleur en hexadécimal selectionné dans le sélecteur, c.-à-d. `#ABCDEF`.
+  * `change` Function (facultatif) - Fonction à appeler lorsque qu'une couleur est sélectionnée. 
+    * `color` String - La couleur que l'utilisateur a sélectionnée dans le sélecteur
 
 ### Propriétés d'instance
 
