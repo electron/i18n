@@ -1,23 +1,23 @@
-## Class: TouchBarLabel
+## Classe : TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Créer un label dans la touch bar pour les applications native macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarLabel(options)` *Experimental*
 
 * `options` Object 
-  * `label` String (optional) - Text to display.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `label` Chaîne de caractères (facultatif) - Texte à afficher.
+  * `textColor` Chaîne de caractères (facultatif) - Couleur hexadécimal du texte, c.-à-d. `#ABCDEF`.
 
-### Instance Properties
+### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarLabel`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarLabel` :
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Une `Chaîne de caractères` représentant le texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Une `Chaîne de caractères` représentant la couleur du texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
