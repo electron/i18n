@@ -228,12 +228,12 @@ win.on('hide', () => {
   * `title` Chaîne de caractères - (facultatif)
   * `content` Chaîne de caractères - (facultatif)
 
-Displays a tray balloon.
+Affiche une bulle dans la barre d'État.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (facultatif)
+* `position` [Point](structures/point.md) (facultatif) - Position de la popup.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
