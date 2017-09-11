@@ -1,6 +1,6 @@
-## Class: TouchBarColorPicker
+## Classe : TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> Créer un sélecteur de couleur dans la touch bar pour les applications native macOS
 
 Processus : [Principal](../tutorial/quick-start.md#main-process)
 
