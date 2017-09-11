@@ -65,7 +65,7 @@ Emitted when there is no available update.
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -81,7 +81,7 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` Chaîne de caractères
+* `url` String
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
 Sets the `url` and initialize the auto updater.
