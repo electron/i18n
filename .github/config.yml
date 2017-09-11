@@ -1,0 +1,16 @@
+# Configuration for https://github.com/behaviorbot/welcome
+
+newIssueWelcomeComment: >
+  👋 Thanks for opening your first issue here!
+
+newPRWelcomeComment: >
+  Thanks for opening your first pull request on this repo! 
+
+  Note that translations should be made on [Crowdin](https://crowdin.com/project/electron) and _should not_ be submitted manually here as a pull request.
+
+  Please check out our [contributing guidelines](contributing.md).
+
+  🙏
+
+firstPRMergeComment: >
+  Thanks for your contribution! You are awesome. 💛
