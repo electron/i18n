@@ -1,8 +1,8 @@
-# RemovePassword Object
+# Objet RemovePassword
 
 * `type` String - `password`.
-* `origin` String (optional) - When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.
-* `scheme` String (optional) - Scheme of the authentication. Can be `basic`, `digest`, `ntlm`, `negotiate`. Must be provided if removing by `origin`.
-* `realm` String (optional) - Realm of the authentication. Must be provided if removing by `origin`.
-* `username` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
-* `password` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
+* `origin` String (facultatif) - Si renseigné, uniquement l'information d'authentification lié à l'origine sera supprimé, sinon la totalité du cache sera supprimé.
+* `scheme` String (facultatif) - Schéma de l'authentification. Peut être `basic`, `digest`, `ntlm`, `negotiate`. Doit être renseigné si supprimé par l'`origine`.
+* `realm` String (facultatif) - Domaine de l'authentification. Doit être renseigné si supprimé par l'`origine`.
+* `username` String (facultatif) - Identifiants de la authentification. Doit être renseigné si supprimé par l'`origine`.
+* `password` String (facultatif) - Identifiants de la authentification. Doit être renseigné si supprimé par l'`origine`.
