@@ -767,44 +767,44 @@ Returns `Integer` an ID representing the request.
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Annule le rebond de l'`id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Fait rebondir la pile de téléchargements si le chemin d'accès se trouve le dossier Téléchargements.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Définit la chaîne de caractères à afficher dans la zone du badge du dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Retourne `String` - Le texte du badge du dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Masque l’icône du dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Affiche l’icône du dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Retourne `Boolean` - Si l'icône du dock est visible. L'appel `app.dock.show()` est asynchrone, donc cette méthode peut ne pas retourner true immédiatement après cet appel.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Définit le [menu du dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) de l'application.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Définit l’`image` associée à l'icône du dock.
