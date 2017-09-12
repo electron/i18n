@@ -162,10 +162,10 @@ Retourne :
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - Le code d'erreur
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Détermine si le certificat doit être considéré comme digne de confiance
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
@@ -174,7 +174,7 @@ const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // Logique de vérification.
     event.preventDefault()
     callback(true)
   } else {
@@ -183,7 +183,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Événement : 'select-client-certificate'
 
 Retourne :
 
@@ -192,7 +192,7 @@ Retourne :
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (facultatif)
 
 Emitted when a client certificate is requested.
 
@@ -207,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Événement : 'login'
 
 Retourne :
 
@@ -240,27 +240,27 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Événement : 'gpu-process-crashed'
 
 Retourne :
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Émis lorsque le processus gpu crash ou est interrompu.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Événement : 'accessibility-support-changed' *macOS* *Windows*
 
 Retourne :
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` quand le support de l'accessibilité de Chrome est activé, sinon `false`.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Méthodes
 
-The `app` object has the following methods:
+L'objet `app` dispose des méthodes suivantes :
 
 **Note:** Some methods are only available on specific operating systems and are labeled as such.
 
@@ -272,7 +272,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (facultatif)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -280,9 +280,9 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (facultatif) 
+  * `args` String[] - (facultatif)
+  * `execPath` String (facultatif)
 
 Relaunches the app when current instance exits.
 
@@ -349,11 +349,11 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (facultatif) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 sur *Linux*, 32x32 sur *Windows*, non pris en charge sur *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -670,7 +670,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` Object (facultatif) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
