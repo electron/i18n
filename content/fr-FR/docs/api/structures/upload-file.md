@@ -1,7 +1,7 @@
-# UploadFile Object
+# Objet UploadFile
 
 * `type` String - `file`.
-* `filePath` String - Path of file to be uploaded.
+* `filePath` String - Chemin du fichier à télécharger.
 * `offset` Integer - `` par défaut.
 * `length` Integer - Nombre d'octets à lire dans l'`offset`. `` par défaut.
-* `modificationTime` Double - Last Modification time in number of seconds sine the UNIX epoch.
+* `modificationTime` Double - Dernière date de modification en nombre de secondes depuis l'epoch UNIX.
