@@ -20,15 +20,15 @@ En utilisant [React Developer Tools](https://chrome.google.com/webstore/detail/r
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * sur macOS c’est `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+4. Indiquez l'emplacement de l'extension à l'API `BrowserWindow.addDevToolsExtension`, pour l'extension React Developer Tools, c'est quelque chose comme : `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
 **Remarque :** L'API `BrowserWindow.addDevToolsExtension` ne peut pas être appelée avant que l’événement ready du module app est émis.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+Le nom de l'extension est retourné par `BrowserWindow.addDevToolsExtension`, et vous pouvez donner le nom de l'extension à l'API `BrowserWindow.removeDevToolsExtension` pour le décharger.
 
 ## Extensions DevTools prises en charge
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron supporte uniquement un ensemble limité d'APIs `chrome.*`, donc certaines extensions fonctionnant avec des APIs `chrome.*` non supportées ne pourront pas fonctionner. Les Extensions Devtools suivantes sont testées et garanties de fonctionner dans Electron :
 
 * [Inspecteur Ember](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [Outils de développement React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
