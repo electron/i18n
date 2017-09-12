@@ -80,11 +80,15 @@ parseDocs().then(docs => {
       return result
     }, {})
 
+  const latestStableVersion = require('../content/en/electron-api.json')[0].version
+
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify({
       docs: docs,
-      locales: require('../locales.json')
+      locales: require('../locales.json'),
+      electronLatestStableVersion: latestStableVersion,
+      electronLatestStableTag: `v` + latestStableVersion
     }, null, 2)
   )
 })
