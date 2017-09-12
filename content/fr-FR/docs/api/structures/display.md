@@ -1,4 +1,4 @@
-# Display Object
+# Objet Display
 
 * `id` Number - Unique identifier associated with the display.
 * `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
