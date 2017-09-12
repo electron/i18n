@@ -32,6 +32,7 @@
     "remark-html": "^6.0.1",
     "remark-inline-links": "^3.0.4",
     "remark-slug": "^4.2.3",
+    "require-yaml": "^0.0.1",
     "standard": "^10.0.2",
     "walk-sync": "^0.3.2"
   },
