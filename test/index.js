@@ -17,7 +17,7 @@ describe('i18n.docs', () => {
   })
 })
 
-describe('API Doc', () => {
+describe('API Docs', () => {
   it('includes all expected properties', () => {
     const app = i18n.docs['en']['/docs/api/app']
     app.isApiDoc.should.equal(true)
@@ -32,8 +32,8 @@ describe('API Doc', () => {
   })
 })
 
-describe('API Structure', () => {
-  it('has expected properties', () => {
+describe('API Structures', () => {
+  it('includes all expected properties', () => {
     const doc = i18n.docs['en']['/docs/api/structures/gpu-feature-status']
     doc.title.should.equal('GPUFeatureStatus Object')
     doc.category.should.equal('api/structures')
@@ -52,3 +52,25 @@ describe('i18n.locales', () => {
     vi.translated_progress.should.be.a('number')
   })
 })
+
+describe('i18n.electronLatestStableVersion', () => {
+  it('exists', () => {
+    i18n.electronLatestStableVersion.should.be.a('string')
+  })
+
+  it('is a version number', () => {
+    i18n.electronLatestStableVersion.should.match(/^\d+\.\d+\.\d+$/)
+  })
+})
+
+describe('i18n.electronLatestStableTag', () => {
+  it('exists', () => {
+    i18n.electronLatestStableTag.should.be.a('string')
+  })
+
+  it('is a tag name', () => {
+    i18n.electronLatestStableTag.should.match(/^v\d+\.\d+\.\d+$/)
+    i18n.electronLatestStableTag.should.eq('v' + i18n.electronLatestStableVersion)
+  })
+})
+
