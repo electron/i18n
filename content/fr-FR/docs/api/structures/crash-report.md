@@ -1,4 +1,4 @@
-# CrashReport Object
+# Objet CrashReport
 
 * `date` String
 * `ID` Integer
