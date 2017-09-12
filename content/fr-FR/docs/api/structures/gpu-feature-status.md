@@ -6,18 +6,18 @@
 * `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
 * `gpu_compositing` String - Compositing
 * `multiple_raster_threads` String - Multiple Raster Threads
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
+* `native_gpu_memory_buffers` String - GpuMemoryBuffers natif
 * `rasterization` String - Rasterization
-* `video_decode` String - Video Decode
-* `video_encode` String - Video Encode
-* `vpx_decode` String - VPx Video Decode
+* `video_decode` String - Décodage vidéo
+* `video_encode` String - Encodage vidéo
+* `vpx_decode` String - Décodage vidéo VPx
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+Valeurs possibles :
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
+* `disabled_software` - Logiciel uniquement. Accélération matérielle désactivée (jaune)
+* `disabled_off` - Désactivé (rouge)
 * `disabled_off_ok` - Disabled (yellow)
 * `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
 * `unavailable_off` - Unavailable (red)
