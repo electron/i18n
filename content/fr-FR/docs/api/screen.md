@@ -2,11 +2,11 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready` du module `app` soit émis.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 **Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
 
@@ -51,43 +51,43 @@ app.on('ready', () => {
 
 ## Événements
 
-The `screen` module emits the following events:
+Le module `screen` émet les événements suivants :
 
-### Event: 'display-added'
+### Événement : 'display-added'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Émis lorsque `newDisplay` a été ajouté.
 
-### Event: 'display-removed'
+### Événement : 'display-removed'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Émis lorsque `oldDisplay` a été retiré.
 
-### Event: 'display-metrics-changed'
+### Événement 'display-metrics-changed'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Émis lorsqu’un ou plusieurs métrics changent dans un `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Méthodes
 
-The `screen` module has the following methods:
+Le module `screen` dispose des méthodes suivantes :
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Retourne [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 

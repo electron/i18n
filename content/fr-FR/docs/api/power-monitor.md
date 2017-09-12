@@ -1,10 +1,10 @@
 # powerMonitor
 
-> Monitor power state changes.
+> Surveille les changements d'état de puissance.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready` du module `app` soit émis.
 
 Par exemple :
 
@@ -14,27 +14,27 @@ const {app} = electron
 
 app.on('ready', () => {
   electron.powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
+    console.log('Le système va se mettre en veille')
   })
 })
 ```
 
 ## Événements
 
-The `powerMonitor` module emits the following events:
+Le module `powerMonitor` émet les événements suivants :
 
-### Event: 'suspend'
+### Événement : 'suspend'
 
-Emitted when the system is suspending.
+Émis lorsque le système est suspendu.
 
-### Event: 'resume'
+### Événement : 'resume'
 
-Emitted when system is resuming.
+Émis lorsque le système reprend.
 
-### Event: 'on-ac' *Windows*
+### Événement : 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+Émis lorsque le système est branché sur prise.
 
-### Event: 'on-battery' *Windows*
+### Événement : 'on-battery' *Windows*
 
-Emitted when system changes to battery power.
+Émis lorsque le système passe sur batterie.

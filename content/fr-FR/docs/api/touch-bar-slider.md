@@ -1,35 +1,35 @@
-## Class: TouchBarSlider
+## Classe : TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> Créer un curseur dans la touch bar pour les applications native macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 
 * `options` Object 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+  * `label` String (facultatif) - Texte du label.
+  * `value` Integer (facultatif) - Valeur sélectionnée.
+  * `minValue` Integer (facultatif) - Valeur minimale.
+  * `maxValue` Integer (facultatif) - Valeur maximale.
+  * `change` Function (facultatif) - Fonction à appeler lorsque que le curseur est modifié. 
+    * `newValue` Number - La valeur que l'utilisateur a sélectionnée sur le curseur
 
-### Instance Properties
+### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarSlider`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarSlider` :
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+Un `String` représentant le texte du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+Un `Number` représentant la valeur du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+Un `Number` représentant la valeur minimale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+Un `Number` représentant la valeur maximale du curseur actuel. Changer cette valeur met à jour immédiatement le curseur dans la touch bar.

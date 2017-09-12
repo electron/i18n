@@ -1,208 +1,208 @@
-## Class: Tray
+## Classe : Tray
 
-> Add icons and context menus to the system's notification area.
+> Ajoute des icônes et des menus contextuels à la zone de notification du système.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
 
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'},
     {label: 'Item3', type: 'radio', checked: true},
     {label: 'Item4', type: 'radio'}
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Ceci est mon application.')
   tray.setContextMenu(contextMenu)
 })
 ```
 
-**Platform limitations:**
+**Limitations selon les plateformes :**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Sur Linux, l'indicateur d'application sera utilisé s'il est pris en charge, sinon `GtkStatusIcon` sera utilisé à la place.
+* Sur les distributions Linux qui ont seulement le support de l'indicateur d'application, vous devrez installer `libappindicator1` pour faire fonctionner l'icône.
+* L'indicateur d'application sera affiché seulement lorsqu'il a un menu contextuel.
+* Lorsque l'indicateur d'application est utilisé sur Linux, l'événement `click` est ignoré.
+* Sur Linux, afin que les modifications apportées à chaque `MenuItem` prennent effet, vous devrez appeler `setContextMenu` à nouveau. Par exemple :
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
 
 let appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'}
   ])
 
-  // Make a change to the context menu
+  // Fait un changement au menu contextuel
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // Appelé à nouveau pour Linux car nous avons modifié le menu contextuel
   appIcon.setContextMenu(contextMenu)
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Sur Windows, il est recommandé d'utiliser des icônes du type `ICO` pour obtenir les meilleurs effets visuels.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes, vous ne devriez pas vous appuyez sur l'événement `click` et toujours fixer un menu contextuel sur l'icône.
 
 ### `new Tray(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Creates a new tray icon associated with the `image`.
+Créer une nouvelle icône dans la barre de notification avec l'`image`.
 
-### Instance Events
+### Événements d’instance
 
-The `Tray` module emits the following events:
+Le module `Tray` émet les événements suivants :
 
-#### Event: 'click'
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-
-Emitted when the tray icon is clicked.
-
-#### Event: 'right-click' *macOS* *Windows*
+#### Événement : 'click'
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
-Emitted when the tray icon is right clicked.
+Émis lorsque l’utilisateur clique sur l’icône.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Événement : 'right-click' *macOS* *Windows*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
-Emitted when the tray icon is double clicked.
+Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
-#### Event: 'balloon-show' *Windows*
+#### Événement : 'double-click' *macOS* *Windows*
 
-Emitted when the tray balloon shows.
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
 
-#### Event: 'balloon-click' *Windows*
+Émis lorsque l’utilisateur double clique sur l’icône.
 
-Emitted when the tray balloon is clicked.
+#### Événement : 'balloon-show' *Windows*
 
-#### Event: 'balloon-closed' *Windows*
+Émis lorsque le ballon de la barre d’État s’affiche.
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+#### Événement : 'balloon-click' *Windows*
 
-#### Event: 'drop' *macOS*
+Émis lorsque l’utilisateur clique sur le ballon de la barre d'État.
 
-Emitted when any dragged items are dropped on the tray icon.
+#### Événement : 'balloon-closed' *Windows*
 
-#### Event: 'drop-files' *macOS*
+Émis lorsque le ballon de la barre d’État est fermé en raison du délai d’attente dépassé ou de l’utilisateur le ferme manuellement.
+
+#### Événement : 'drop' *macOS*
+
+Émis lorsque un ou des éléments sont glissés et déposés sur l’icône.
+
+#### Événement : 'drop-files' *macOS*
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - les chemins d’accès des fichiers déposés.
 
-Emitted when dragged files are dropped in the tray icon.
+Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
-#### Event: 'drop-text' *macOS*
+#### Événement : 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string
+* `text` String - le texte déposé
 
-Emitted when dragged text is dropped in the tray icon.
+Émis lorsqu'un texte est déposé sur l’icône.
 
-#### Event: 'drag-enter' *macOS*
+#### Événement : 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Émis lorsqu’une opération glisser entre dans la zone de l’icône.
 
-#### Event: 'drag-leave' *macOS*
+#### Événement : 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Émis lorsqu’une opération glisser sort de la zone de l’icône.
 
-#### Event: 'drag-end' *macOS*
+#### Événement : 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
 
-#### Event: 'mouse-enter' *macOS*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse enters the tray icon.
-
-#### Event: 'mouse-leave' *macOS*
+#### Événement : 'mouse-enter' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - la position de l’événement
 
-Emitted when the mouse exits the tray icon.
+Émis lorsque la souris entre dans la zone de l’icône.
 
-### Instance Methods
+#### Événement : 'mouse-leave' *macOS*
 
-The `Tray` class has the following methods:
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - la position de l’événement
+
+Émis lorsque la souris sort de la zone de l’icône.
+
+### Méthodes d’instance
+
+La classe `Tray` dispose des méthodes suivantes :
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Détruit l’icône immédiatement.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Définit l’`image` associée à l'icône.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Définit le texte au survol pour l'icône.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar.
+Définit le titre affiché à côté de l’icône dans la barre d’État.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String - mode de surbrillance avec l'une des valeurs suivante : 
+  * `selection` - Met en surbrillance l'icône de la barre d'État lorsqu'il est cliqué et quand son menu contextuel est ouvert. C'est la valeur par défaut.
+  * `always` - Toujours mettre en surbrillance l’icône.
+  * `never` - Jamais mettre en surbrillance l’icône.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -224,33 +224,33 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `icon` ([NativeImage](native-image.md) | String) - (facultatif)
+  * `title` String - (facultatif)
+  * `content` String - (facultatif)
 
-Displays a tray balloon.
+Affiche une bulle dans la barre d'État.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (facultatif)
+* `position` [Point](structures/point.md) (facultatif) - Position du menu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Ouvre le menu contextuel de l’icône. Lorsque le `menu` est passé, le `menu` s’affichera au lieu du menu contextuel de l’icône de la barre d’État.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu
 
-Sets the context menu for this icon.
+Définit le menu contextuel de l'icône.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+Retourne [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Les `limites` de l'icône de la barre d’État en tant qu'`Objet`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Retourne `Boolean` - si l’icône est détruite.

@@ -1,8 +1,8 @@
-## Class: Debugger
+## Classe : Debugger
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### Méthodes d’instance
 
 #### `debugger.attach([protocolVersion])`
 
@@ -51,25 +51,25 @@ Detaches the debugger from the `webContents`.
 
 * `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
 * `commandParams` Object (optional) - JSON object with request parameters.
-* `callback` Function (optional) - Response 
+* `callback` Function (facultatif) - Réponse 
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
 Send given command to the debugging target.
 
-### Instance Events
+### Événements d’instance
 
-#### Event: 'detach'
+#### Événement : 'detach'
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### Événement : 'message'
 
 * `event` Event
-* `method` String - Method name.
+* `method` String - Nom de la méthode.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever debugging target issues instrumentation event.

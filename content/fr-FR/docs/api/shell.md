@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 ## Méthodes
 
-The `shell` module has the following methods:
+Le module `shell` dispose des méthodes suivantes :
 
 ### `shell.showItemInFolder(fullPath)`
 
@@ -37,7 +37,7 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
-* `options` Object (optional) *macOS* 
+* `options` Object (facultatif) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
@@ -56,12 +56,12 @@ Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Émet un signal sonore.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
+* `operation` String (facultatif) - La valeur par défaut est `create`, peut être une des valeurs suivantes : 
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
@@ -75,7 +75,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Retourne [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 

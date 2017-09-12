@@ -39,7 +39,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Ma fenêtre/icône de mon application a disparu au bout de quelques minutes.
 
-Cela se produit lorsque la variable qui sert à stocker la fenêtre/icône est détruite.
+Cela se produit lorsque la variable qui sert à stocker la fenêtre/icône est détruite par le ramasse-miettes.
 
 Si vous rencontrez ce problème, les articles suivants peuvent s’avérer utiles :
 

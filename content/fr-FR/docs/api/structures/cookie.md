@@ -1,11 +1,11 @@
-# Cookie Object
+# Objet Cookie
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `name` String - Nom du cookie.
+* `value` String - La valeur du cookie.
+* `domain` String (facultatif) - Le domaine du cookie.
+* `hostOnly` Boolean (facultatif) - Si le cookie est cookie hôte uniquement.
+* `path` String (facultatif) - Le chemin du cookie.
+* `secure` Boolean (optional) - Si le cookie est marqué comme étant sécurisé.
+* `httpOnly` Boolean (facultatif) - Si le cookie est marqué comme HTTP uniquement.
+* `session` Boolean (facultatif) - Si le cookie est un cookie de session ou un cookie persistant avec une date d'expiration.
+* `expirationDate` Double (facultatif) - La date d’expiration du cookie en nombre de secondes depuis l'epoch UNIX. Non fournit par les cookies de session.

@@ -1,9 +1,9 @@
-# MemoryInfo Object
+# Objet MemoryInfo
 
-* `pid` Integer - Process id of the process.
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM. On macOS its value will always be 0.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `pid` Integer - Id du processus.
+* `workingSetSize` Integer - La quantité de mémoire actuellement épinglé à la RAM physique.
+* `peakWorkingSetSize` Integer - La quantité maximale de mémoire n'aillant jamais été épinglé à la RAM physique. Sur macOS, sa valeur sera toujours 0.
+* `privateBytes` Integer - La quantité de mémoire non partagée par d'autres processus, tel que des empilements de JS ou du contenu HTML.
+* `sharedBytes` Integer - La quantité de mémoire partagée entre processus, généralement la mémoire consommée par Electron lui-même
 
-Note that all statistics are reported in Kilobytes.
+Notez que toutes les statistiques sont en kilo-octets.

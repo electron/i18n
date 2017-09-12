@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -38,13 +38,13 @@ const request = net.request({
 
 #### Event: 'response'
 
-Returns:
+Retourne :
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Événement : 'login'
 
-Returns:
+Retourne :
 
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Event: 'error'
 
-Returns:
+Retourne :
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Returns:
+Retourne :
 
 * `statusCode` Integer
 * `method` String
@@ -114,7 +114,7 @@ Returns:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Propriétés d'instance
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A Boolean specifying whether the request will use HTTP chunked transfer encoding
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### Méthodes d’instance
 
 #### `request.setHeader(name, value)`
 

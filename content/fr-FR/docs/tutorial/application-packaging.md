@@ -1,6 +1,6 @@
 # Créer une archive
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Pour atténuer les [problèmes](https://github.com/joyent/node/issues/6960) autour des noms de chemins longs sous Windows, en accélérant légèrement `require` et dissimulant votre code source de l'inspection superficielle, vous pouvez empaqueter votre application dans une archive de [asar](https://github.com/electron/asar) avec peu de modifications à votre code source.
 
 ## Génerer une archive `asar`
 

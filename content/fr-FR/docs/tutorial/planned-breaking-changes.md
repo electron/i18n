@@ -7,28 +7,28 @@ Il n'y a aucune date prévue pour cette prochaine version, mais les avertissemen
 ## `app`
 
 ```js
-// Deprecated
+// Déprécié
 app.getAppMemoryInfo()
-// Replace with
+// Remplacé par
 app.getAppMetrics()
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Remplacé par
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Remplacé par
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -36,37 +36,37 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// Déprécié
 clipboard.readRtf()
-// Replace with
+// Remplacé par
 clipboard.readRTF()
 
-// Deprecated
+// Déprécié
 clipboard.writeRtf()
-// Replace with
+// Remplacé par
 clipboard.writeRTF()
 
-// Deprecated
+// Déprécié
 clipboard.readHtml()
-// Replace with
+// Remplacé par
 clipboard.readHTML()
 
-// Deprecated
+// Déprécié
 clipboard.writeHtml()
-// Replace with
+// Remplacé par
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Déprécié
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Remplacé par
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -77,28 +77,28 @@ crashReporter.start({
 ## `menu`
 
 ```js
-// Deprecated
+// Déprécié
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// Remplacé par
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Déprécié
 nativeImage.toPng()
-// Replace with
+// Remplacé par
 nativeImage.toPNG()
 
-// Deprecated
+// Déprécié
 nativeImage.toJpeg()
-// Replace with
+// Remplacé par
 nativeImage.toJPEG()
 
-// Deprecated
+// Déprécié
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Remplacé par
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -107,9 +107,9 @@ nativeImage.createFromBuffer(buffer, {
 ## `processus (process)`
 
 ```js
-// Deprecated
+// Déprécié
 process.versions['atom-shell']
-// Replace with
+// Remplacé par
 process.versions.electron
 ```
 
@@ -118,11 +118,11 @@ process.versions.electron
 ## `session`
 
 ```js
-// Deprecated
+// Déprécié
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Remplacé par
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -131,58 +131,58 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// Déprécié
 tray.setHighlightMode(true)
-// Replace with
+// Remplacé par
 tray.setHighlightMode('on')
 
-// Deprecated
+// Déprécié
 tray.setHighlightMode(false)
-// Replace with
+// Remplacé par
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// Déprécié
 webContents.openDevTools({detach: true})
-// Replace with
+// Remplacé par
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
+// Déprécié
 webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// Remplacé par
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Déprécié
 webFrame.setZoomLevelLimits(1, 2)
-// Replace with
+// Remplacé par
 webFrame.setVisualZoomLevelLimits(1, 2)
 
-// Deprecated
+// Déprécié
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Remplacé par
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// Déprécié
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// Remplacé par
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
+// Déprécié
 webview.setZoomLevelLimits(1, 2)
-// Replace with
+// Remplacé par
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -194,14 +194,14 @@ Déprécié : https://atom.io/download/atom-shell
 
 Remplacé par : https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## Versions ARM dupliquées
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Chaque version d'Electron comprend deux versions identiques ARM avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. La version avec le préfix `v7l` a été ajoutée pour clarifier aux utilisateurs quelle version ARM il supporte, et pour éliminer l'ambiguÏté des futures version armv6l et arm64 pouvant être produites.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Le fichier *sans le préfixe* est toujours publié pour éviter d’interrompre les configurations qui peuvent être consommées. À partir de la version 2.0, le fichier non préfixé ne sera plus publié.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## commentaires `FIXME`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+La chaîne de caractère `FIXME` est utilisée dans les commentaires de code pour désigner les choses qu’il convient de fixer pour la version 2.0. Voir https://github.com/electron/electron/search?q=fixme

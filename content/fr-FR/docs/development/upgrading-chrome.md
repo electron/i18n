@@ -13,22 +13,22 @@ Ce sont des choses à faire en plus de mettre à jour le code d'Electron pour to
 - Mettre à jour le `libchromiumcontent` SHA-1 à télécharger dans `script/lib/config.py`
 - Ouvrez une pull request dans `electron/libchromiumcontent` avec les modifications
 - Ouvrez une pull request dans `electron/electron` avec les modifications 
-  - This should include upgrading the submodules in `vendor/` as needed
-- Verify debug builds succeed on: 
+  - Cela devrait inclure la mise à niveau des sous-modules dans `vendor/` au besoin
+- Vérifie que les versions de debug réussissent sur : 
   - macOS
   - Windows 32 bits
   - Windows 64 bits
   - Linux 32 bits
   - Linux 64 bits
   - ARM Linux
-- Verify release builds succeed on: 
+- Vérifie que les versions de release réussissent sur : 
   - macOS
   - Windows 32 bits
   - Windows 64 bits
   - Linux 32 bits
   - Linux 64 bits
   - ARM Linux
-- Verify tests pass on: 
+- Vérifie que les tests passent sur : 
   - macOS
   - Windows 32 bits
   - Windows 64 bits

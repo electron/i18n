@@ -1,8 +1,8 @@
-## Class: TouchBarScrubber
+## Classe : TouchBarScrubber
 
 > Create a scrubber (a scrollable selector)
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
@@ -18,9 +18,9 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarScrubber`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarScrubber` :
 
 #### `touchBarSegmentedControl.items`
 

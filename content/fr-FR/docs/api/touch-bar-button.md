@@ -1,30 +1,30 @@
-## Class: TouchBarButton
+## Classe : TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Créer un bouton dans la touch bar pour les applications native macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
 * `options` Object 
-  * `label` String (optional) - Button text.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * `label` String (facultatif) - Texte du bouton.
+  * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
+  * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton.
+  * `iconPosition` String -Peut être `left`, `right` ou `overlay`.
+  * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
 
-### Instance Properties
+### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarButton`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarButton` :
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Un `String` représentant le texte du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Un `String` représentant la couleur du fond du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+Une `NativeImage` représentant l'icône du bouton actuel. Changer cette valeur met à jour immédiatement le bouton dans la touch bar.

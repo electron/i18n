@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> Contrôle le cycle de vie des événements de votre application.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+L’exemple suivant montre comment quitter l’application lorsque la dernière fenêtre est fermée :
 
 ```javascript
 const {app} = require('electron')
@@ -15,31 +15,31 @@ app.on('window-all-closed', () => {
 
 ## Événements
 
-The `app` object emits the following events:
+L'objet `app` émet les événements suivants :
 
-### Event: 'will-finish-launching'
+### Événement : 'will-finish-launching'
 
 Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
-### Event: 'ready'
+### Événement : 'ready'
 
-Returns:
+Retourne :
 
 * `launchInfo` Object *macOS*
 
 Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
-### Event: 'window-all-closed'
+### Événement : 'window-all-closed'
 
-Emitted when all windows have been closed.
+Émis lorsque toutes les fenêtres ont été fermées.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
-### Event: 'before-quit'
+### Événement : 'before-quit'
 
-Returns:
+Retourne :
 
 * `event` Event
 
@@ -47,9 +47,9 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-### Event: 'will-quit'
+### Événement : 'will-quit'
 
-Returns:
+Retourne :
 
 * `event` Event
 
@@ -57,18 +57,18 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
-### Event: 'quit'
+### Événement : 'quit'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Émis lorsque l'application se quitte.
 
-### Event: 'open-file' *macOS*
+### Événement : 'open-file' *macOS*
 
-Returns:
+Retourne :
 
 * `event` Event
 * `path` String
@@ -79,9 +79,9 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' *macOS*
+### Événement : 'open-url' *macOS*
 
-Returns:
+Retourne :
 
 * `event` Event
 * `url` String
@@ -90,65 +90,65 @@ Emitted when the user wants to open a URL with the application. Your application
 
 You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'activate' *macOS*
+### Événement : 'activate' *macOS*
 
-Returns:
+Retourne :
 
 * `event` Event
 * `hasVisibleWindows` Boolean
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
-### Event: 'continue-activity' *macOS*
+### Événement : 'continue-activity' *macOS*
 
-Returns:
+Retourne :
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contient l'état d'app spécifique stocké par l'activité sur un autre périphérique.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'new-window-for-tab' *macOS*
+### Événement : 'new-window-for-tab' *macOS*
 
-Returns:
+Retourne :
 
 * `event` Event
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Événement : 'browser-window-blur'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### Événement : 'browser-window-focus'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### Événement : 'browser-window-created'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `window` BrowserWindow
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### Événement : 'web-contents-created'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `webContents` WebContents
@@ -157,15 +157,15 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - Le code d'erreur
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Détermine si le certificat doit être considéré comme digne de confiance
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
@@ -174,7 +174,7 @@ const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // Logique de vérification.
     event.preventDefault()
     callback(true)
   } else {
@@ -183,16 +183,16 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Événement : 'select-client-certificate'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (facultatif)
 
 Emitted when a client certificate is requested.
 
@@ -207,9 +207,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Événement : 'login'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -240,27 +240,27 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Événement : 'gpu-process-crashed'
 
-Returns:
+Retourne :
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Émis lorsque le processus gpu crash ou est interrompu.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Événement : 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Retourne :
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` quand le support de l'accessibilité de Chrome est activé, sinon `false`.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Méthodes
 
-The `app` object has the following methods:
+L'objet `app` dispose des méthodes suivantes :
 
 **Note:** Some methods are only available on specific operating systems and are labeled as such.
 
@@ -272,7 +272,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (facultatif)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -280,9 +280,9 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (facultatif) 
+  * `args` String[] - (facultatif)
+  * `execPath` String (facultatif)
 
 Relaunches the app when current instance exits.
 
@@ -349,11 +349,11 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (facultatif) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 sur *Linux*, 32x32 sur *Windows*, non pris en charge sur *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -420,7 +420,7 @@ Clears the recent documents list.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
@@ -436,7 +436,7 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
@@ -446,7 +446,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean`
+Retourne `Boolean`
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -456,19 +456,19 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+* `tasks` [Task[]](structures/task.md) - Tableau d'objets `Task`
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Retourne `Object`:
 
 * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
@@ -505,7 +505,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // A un nom, donc `type` est mis par défaut en "custom"
     name: 'Tools',
     items: [
       {
@@ -529,7 +529,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // Pas de nom et pas de type, donc `type` est mis par défaut en "tasks"
     items: [
       {
         type: 'task',
@@ -557,7 +557,7 @@ app.setJumpList([
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
-Returns `Boolean`.
+Retourne `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
@@ -606,7 +606,7 @@ Creates an `NSUserActivity` and sets it as the current activity. The activity is
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Retourne `String` - le type de l’activité en cours d’exécution.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
@@ -620,7 +620,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
-  * `result` Integer - Result of import.
+  * `result` Integer - Résultat de l'importation.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -652,7 +652,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
@@ -670,13 +670,13 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` Object (facultatif) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
@@ -722,11 +722,11 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `applicationName` String (optional) - Nom de l'application.
+  * `applicationVersion` String (optional) - Version de l'application.
+  * `copyright` String (optional) - Information copyright.
+  * `credits` String (optional) - Information crédit.
+  * `version` String (optional) - Numéro de version de l'application.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
@@ -767,44 +767,44 @@ Returns `Integer` an ID representing the request.
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Annule le rebond de l'`id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Fait rebondir la pile de téléchargements si le chemin d'accès se trouve le dossier Téléchargements.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Définit la chaîne de caractères à afficher dans la zone du badge du dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Retourne `String` - Le texte du badge du dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Masque l’icône du dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Affiche l’icône du dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Retourne `Boolean` - Si l'icône du dock est visible. L'appel `app.dock.show()` est asynchrone, donc cette méthode peut ne pas retourner true immédiatement après cet appel.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Définit le [menu du dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) de l'application.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Définit l’`image` associée à l'icône du dock.

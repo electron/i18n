@@ -1,14 +1,14 @@
-# `File` Object
+# Objet `File`
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+> L'API HTML5 `File` permet de travailler nativement avec les fichiers sur le système de fichiers.
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+L'interface de fichier du DOM fournit une abstraction autour des fichiers natifs afin de permettre aux utilisateurs de travailler sur des fichiers natifs directement avec l'API HTML5 File. Electron a ajouté un attribut `path` à l'interface `File` qui expose le chemin réel du fichier sur le système de fichiers.
 
-Example of getting a real path from a dragged-onto-the-app file:
+Exemple pour obtenir le chemin réel d'un fichier glissé dans l'application :
 
 ```html
 <div id="holder">
-  Drag your file here
+  Glissez vos fichiers ici
 </div>
 
 <script>
@@ -22,7 +22,7 @@ Example of getting a real path from a dragged-onto-the-app file:
   holder.ondrop = (e) => {
     e.preventDefault()
     for (let f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
+      console.log('Fichier(s) que vous avez déposé : ', f.path)
     }
     return false;
   }

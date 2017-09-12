@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Process: [Main](../glossary.md#main-process)
+Processus : [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
@@ -47,7 +47,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### Méthodes d’instance
 
 The following methods are available on instances of `Cookies`:
 

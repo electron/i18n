@@ -1,32 +1,32 @@
-## Class: TouchBar
+## Classe : TouchBar
 
-> Create TouchBar layouts for native macOS applications
+> Créer une disposition TouchBar pour les applications natives macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
 * `options` - Object 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (facultatif)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+Créer une nouvelle touch bar avec les éléments spécifiés. `BrowserWindow.setTouchBar` permet d'ajouter la `TouchBar` à une fenêtre.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Astuce :** Si vous n’avez pas un MacBook avec Touch Bar, vous pouvez utiliser [Touch Bar simulator](https://github.com/sindresorhus/touch-bar-simulator) pour tester la Touch Bar dans votre application.
 
-### Instance Properties
+### Propriétés d'instance
 
-The following properties are available on instances of `TouchBar`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBar` :
 
 #### `touchBar.escapeItem`
 
-The `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+Le `TouchBarItem` remplacera le bouton "esc" sur la touch bar lorsqu’elle sera définie. Le définir à `null` restaurera le bouton "esc". Changer cette valeur immédiatement met à jour le bouton "esc" dans la touch bar.
 
-## Examples
+## Exemples
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Voici un exemple d’un jeu de machine à sous dans la touch bar avec un bouton et quelques labels.
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -48,12 +48,12 @@ const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### Exécution de l’exemple ci-dessus
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+Pour exécuter l’exemple ci-dessus, vous devrez (en supposant que vous avez un terminal ouvert dans le répertoire où vous souhaitez exécuter l’exemple) :
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. Enregistrez le fichier ci-dessus sur votre ordinateur comme `touchbar.js`
+2. Installez Electron via `npm install electron`
+3. Exécutez l’exemple avec Electron : `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Vous devriez alors voir une nouvelle fenêtre Electron et l’application en cours d’exécution dans votre touch bar (ou touch bar emulator).

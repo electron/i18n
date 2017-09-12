@@ -55,7 +55,7 @@ const path = require('path')
 const url = require('url')
 
 // Gardez l'objet window dans une constante global, sinon la fenêtre sera fermée
-// automatiquement quand l'objet JavaScript voudra récupérer de la mémoire.
+// automatiquement quand l'objet JavaScript sera collecté par le ramasse-miettes.
 let win
 
 function createWindow () {
