@@ -41,6 +41,6 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 
 ### Que dois-je faire si une extension DevTools ne fonctionne pas ?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Tout d’abord, assurez-vous que l’extension est encore maintenu, certaines extensions ne peuvent plus fonctionner pour les versions récentes du navigateur Chrome, et nous ne sommes pas en mesure de faire quelque chose pour eux.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Ensuite, faites un rapport de bogue dans les issues d'Electron, puis décrivez quelle partie de l'extension ne fonctionne pas comme prévu.
