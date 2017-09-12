@@ -111,7 +111,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'new-window-for-tab' *macOS*
+### Événement : 'new-window-for-tab' *macOS*
 
 Retourne :
 
@@ -119,7 +119,7 @@ Retourne :
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Événement : 'browser-window-blur'
 
 Retourne :
 
@@ -128,7 +128,7 @@ Retourne :
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### Événement : 'browser-window-focus'
 
 Retourne :
 
@@ -137,7 +137,7 @@ Retourne :
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### Événement : 'browser-window-created'
 
 Retourne :
 
@@ -146,7 +146,7 @@ Retourne :
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### Événement : 'web-contents-created'
 
 Retourne :
 
