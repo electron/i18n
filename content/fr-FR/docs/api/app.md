@@ -420,7 +420,7 @@ Clears the recent documents list.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
@@ -436,7 +436,7 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
@@ -446,7 +446,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean`
+Retourne `Boolean`
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -456,19 +456,19 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+* `tasks` [Task[]](structures/task.md) - Tableau d'objets `Task`
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Retourne `Object`:
 
 * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
@@ -505,7 +505,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // A un nom, donc `type` est mis par défaut en "custom"
     name: 'Tools',
     items: [
       {
@@ -529,7 +529,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // Pas de nom et pas de type, donc `type` est mis par défaut en "tasks"
     items: [
       {
         type: 'task',
@@ -557,7 +557,7 @@ app.setJumpList([
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
-Returns `Boolean`.
+Retourne `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -606,7 +606,7 @@ Creates an `NSUserActivity` and sets it as the current activity. The activity is
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Retourne `String` - le type de l’activité en cours d’exécution.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
@@ -620,7 +620,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
-  * `result` Integer - Result of import.
+  * `result` Integer - Résultat de l'importation.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -652,7 +652,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Si l'appel a réussi.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
@@ -676,7 +676,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
@@ -722,11 +722,11 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `applicationName` String (optional) - Nom de l'application.
+  * `applicationVersion` String (optional) - Version de l'application.
+  * `copyright` String (optional) - Information copyright.
+  * `credits` String (optional) - Information crédit.
+  * `version` String (optional) - Numéro de version de l'application.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
