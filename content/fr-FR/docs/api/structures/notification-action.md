@@ -5,15 +5,15 @@
 
 ## Support Plateforme / Action
 
-| Type d'action | Support Plateforme | Usage du `text`               | `text` par défaut | Limitations                                                                                                                                                         |
-| ------------- | ------------------ | ----------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`      | macOS              | Utilisé comme label du bouton | "Show"            | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Type d'action | Support Plateforme | Usage du `text`               | `text` par défaut | Limitations                                                                                                                                                                                         |
+| ------------- | ------------------ | ----------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`      | macOS              | Utilisé comme label du bouton | "Show"            | Un bouton maximum, si plusieurs boutons sont fournis, uniquement le dernier sera utilisé. Cette action est également incompatible avec `hasReply` et sera ignorée si `hasReply` a la valeur `true`. |
 
-### Button support on macOS
+### Support des boutons sur macOS
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+Afin que les boutons dans les notifications fonctionnent sur macOS, votre application doit répondre aux critères suivants :
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* L'application est signée
+* L'application a la valeur `alert` pour `NSUserNotificationAlertStyle` dans le `info.plist`.
 
-If either of these requirements are not met the button simply won't appear.
+Si l'une de ces exigences n'est pas remplie, alors le bouton n'apparaîtra pas tout simplement.
