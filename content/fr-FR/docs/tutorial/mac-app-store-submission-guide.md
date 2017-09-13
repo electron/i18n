@@ -180,7 +180,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
 
-## Known issues
+## Problèmes connus
 
 ### `shell.openItem(filePath)`
 
