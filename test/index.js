@@ -17,6 +17,20 @@ describe('i18n.docs', () => {
   })
 })
 
+describe('i18n.website', () => {
+  it('is an object with locales as keys', () => {
+    const locales = Object.keys(i18n.website)
+    locales.should.include('en')
+    locales.should.include('fr-FR')
+    locales.length.should.be.above(10)
+  })
+
+  it('contains localized strings', () => {
+    i18n.website.en.tagline.should.contain('desktop apps')
+    i18n.website['fr-FR'].tagline.should.contain('applications desktop')
+  })
+})
+
 describe('API Docs', () => {
   it('includes all expected properties', () => {
     const app = i18n.docs['en']['/docs/api/app']
@@ -73,4 +87,3 @@ describe('i18n.electronLatestStableTag', () => {
     i18n.electronLatestStableTag.should.eq('v' + i18n.electronLatestStableVersion)
   })
 })
-

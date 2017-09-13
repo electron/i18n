@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
+require('require-yaml')
+
 const walk = require('walk-sync')
 const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
 const markdown = require('../lib/markdown')
-const locales = require('../lib/locales')
+const locales = require('../lib/locales') // [en, FR-fr...]
+// TODO normalize locales.js vs locales.json
+
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
 const categoryNames = {
@@ -68,16 +72,22 @@ async function parseFile (file) {
 }
 
 parseDocs().then(docs => {
-  docs = locales
-    .reduce((result, locale) => {
-      result[locale] = docs
+  const docsByLocale = locales
+    .reduce((acc, locale) => {
+      acc[locale] = docs
         .filter(doc => doc.locale === locale)
-        .reduce((o, doc) => {
-          o[doc.href] = doc
-          return o
+        .reduce((allDocs, doc) => {
+          allDocs[doc.href] = doc
+          return allDocs
         }, {})
 
-      return result
+      return acc
+    }, {})
+
+  const websiteStringsByLocale = locales
+    .reduce((acc, locale) => {
+      acc[locale] = require(`../content/${locale}/website/locale.yml`)
+      return acc
     }, {})
 
   const latestStableVersion = require('../content/en/electron-api.json')[0].version
@@ -85,10 +95,11 @@ parseDocs().then(docs => {
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify({
-      docs: docs,
+      docs: docsByLocale,
       locales: require('../locales.json'),
       electronLatestStableVersion: latestStableVersion,
-      electronLatestStableTag: `v` + latestStableVersion
+      electronLatestStableTag: `v` + latestStableVersion,
+      website: websiteStringsByLocale
     }, null, 2)
   )
 })
