@@ -1,15 +1,13 @@
 files:
-  - source: /content/en/docs/*.md
+  - source: /content/en-US/docs/*.md
     translation: /content/%locale%/docs/%original_file_name%
-  - source: /content/en/docs/development/*.md
+  - source: /content/en-US/docs/development/*.md
     translation: /content/%locale%/docs/development/%original_file_name%
-  - source: /content/en/docs/tutorial/*.md
+  - source: /content/en-US/docs/tutorial/*.md
     translation: /content/%locale%/docs/tutorial/%original_file_name%
-  - source: /content/en/website/*.yml
+  - source: /content/en-US/website/*.yml
     translation: /content/%locale%/website/%original_file_name%
-  - source: /content/en/api/*.yml
-    translation: /content/%locale%/api/%original_file_name%
-  - source: /content/en/docs/api/*.md
+  - source: /content/en-US/docs/api/*.md
     translation: /content/%locale%/docs/api/%original_file_name%
-  - source: /content/en/docs/api/structures/*.md
+  - source: /content/en-US/docs/api/structures/*.md
     translation: /content/%locale%/docs/api/structures/%original_file_name%
