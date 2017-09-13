@@ -1,6 +1,6 @@
 {
   "name": "electron-i18n",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "description": "A home for Electron's translated documentation.",
   "main": "index.json",
   "files": [
