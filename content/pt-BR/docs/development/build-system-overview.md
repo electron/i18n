@@ -56,7 +56,7 @@ Teste a funcionalidade usando:
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Sempre que fizer alterações no seu código Electron, terá de reconstruir antes de rodar os testes:
 
 ```bash
 $ npm run build && npm test
