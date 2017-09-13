@@ -1,6 +1,6 @@
 {
   "name": "electron-i18n",
-  "version": "0.2.0",
+  "version": "0.0.0-development",
   "description": "A home for Electron's translated documentation.",
   "main": "index.json",
   "files": [
@@ -34,7 +34,8 @@
     "remark-slug": "^4.2.3",
     "require-yaml": "^0.0.1",
     "standard": "^10.0.2",
-    "walk-sync": "^0.3.2"
+    "walk-sync": "^0.3.2",
+    "semantic-release": "^7.0.2"
   },
   "scripts": {
     "collect": "script/collect.js",
@@ -42,7 +43,8 @@
     "build": "script/build.js",
     "test": "mocha && standard --fix",
     "prepush": "check-for-leaks",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "accept-language-parser": "^1.4.1",
