@@ -7,7 +7,7 @@ const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
 const markdown = require('../lib/markdown')
-const locales = require('../lib/locales') // [en, FR-fr...]
+const locales = require('../lib/locales')
 const defaultLocale = 'en-US'
 // TODO normalize locales.js vs locales.json
 
@@ -73,7 +73,7 @@ async function parseFile (file) {
 }
 
 parseDocs().then(docs => {
-  const docsByLocale = locales
+  const docsByLocale = Object.keys(locales)
     .reduce((acc, locale) => {
       acc[locale] = docs
         .filter(doc => doc.locale === locale)
@@ -85,7 +85,7 @@ parseDocs().then(docs => {
       return acc
     }, {})
 
-  const websiteStringsByLocale = locales
+  const websiteStringsByLocale = Object.keys(locales)
     .reduce((acc, locale) => {
       acc[locale] = require(`../content/${locale}/website/locale.yml`)
       return acc
@@ -99,7 +99,6 @@ parseDocs().then(docs => {
       electronLatestStableVersion: latestStableVersion,
       electronLatestStableTag: `v` + latestStableVersion,
       locales: locales,
-      stats: require('../stats.json'),
       docs: docsByLocale,
       website: websiteStringsByLocale
     }, null, 2)
