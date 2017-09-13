@@ -95,10 +95,11 @@ parseDocs().then(docs => {
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify({
-      docs: docsByLocale,
-      locales: require('../locales.json'),
       electronLatestStableVersion: latestStableVersion,
       electronLatestStableTag: `v` + latestStableVersion,
+      locales: locales,
+      stats: require('../stats.json'),
+      docs: docsByLocale,
       website: websiteStringsByLocale
     }, null, 2)
   )

@@ -57,11 +57,21 @@ describe('API Structures', () => {
 })
 
 describe('i18n.locales', () => {
-  it('is an array of locale objects', () => {
+  it('is an array of locale strings', () => {
     i18n.locales.should.be.an('array')
-    i18n.locales.length.should.be.above(15)
+    i18n.locales.should.include('en')
+    i18n.locales.should.include('fr-FR')
+    i18n.locales.should.include('zh-TW')
+    i18n.locales.should.include('pt-BR')
+  })
+})
 
-    const vi = i18n.locales.find(locale => locale.code === 'vi')
+describe('i18n.stats', () => {
+  it('is an array of language translation status objects', () => {
+    i18n.stats.should.be.an('array')
+    i18n.stats.length.should.be.above(15)
+
+    const vi = i18n.stats.find(locale => locale.code === 'vi')
     vi.name.should.equal('Vietnamese')
     vi.translated_progress.should.be.a('number')
   })
