@@ -87,4 +87,3 @@ describe('i18n.electronLatestStableTag', () => {
     i18n.electronLatestStableTag.should.eq('v' + i18n.electronLatestStableVersion)
   })
 })
-

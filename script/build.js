@@ -72,8 +72,7 @@ async function parseFile (file) {
 }
 
 parseDocs().then(docs => {
-
-  docsForLocale = locales
+  const docsByLocale = locales
     .reduce((acc, locale) => {
       acc[locale] = docs
         .filter(doc => doc.locale === locale)
@@ -85,7 +84,7 @@ parseDocs().then(docs => {
       return acc
     }, {})
 
-  websiteStringsForLocale = locales
+  const websiteStringsByLocale = locales
     .reduce((acc, locale) => {
       acc[locale] = require(`../content/${locale}/website/locale.yml`)
       return acc
@@ -96,11 +95,11 @@ parseDocs().then(docs => {
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify({
-      docs: docsForLocale,
+      docs: docsByLocale,
       locales: require('../locales.json'),
       electronLatestStableVersion: latestStableVersion,
       electronLatestStableTag: `v` + latestStableVersion,
-      website: websiteStringsForLocale
+      website: websiteStringsByLocale
     }, null, 2)
   )
 })
