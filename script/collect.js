@@ -9,7 +9,7 @@ const got = require('got')
 const mkdir = require('make-dir').sync
 const path = require('path')
 
-const englishBasepath = path.join(__dirname, '..', 'content', 'en')
+const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 const GitHub = require('github')
 const github = new GitHub({
   debug: false,
