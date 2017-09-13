@@ -8,6 +8,7 @@ const fs = require('fs')
 const cleanDeep = require('clean-deep')
 const markdown = require('../lib/markdown')
 const locales = require('../lib/locales') // [en, FR-fr...]
+const defaultLocale = 'en-US'
 // TODO normalize locales.js vs locales.json
 
 const contentDir = path.join(__dirname, '../content')
@@ -90,7 +91,7 @@ parseDocs().then(docs => {
       return acc
     }, {})
 
-  const latestStableVersion = require('../content/en/electron-api.json')[0].version
+  const latestStableVersion = require(`../content/${defaultLocale}/electron-api.json`)[0].version
 
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
