@@ -38,10 +38,14 @@
   },
   "scripts": {
     "collect": "script/collect.js",
-    "translation-status": "script/translation-status.js",
+    "stats": "script/stats.js",
     "build": "script/build.js",
     "test": "mocha && standard --fix",
     "prepush": "check-for-leaks",
     "pretest": "npm run build"
+  },
+  "dependencies": {
+    "accept-language-parser": "^1.4.1",
+    "express-request-language": "^1.1.12"
   }
 }
