@@ -7,8 +7,8 @@
 
 Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `enabled` - Le bouton est actif et disponible à l'utilisateur.
+* `disabled` - Le bouton est désactivé. Il est présent, mais il a un état visual indiquant qu'il ne répondra pas à l'action de l'utilisateur.
 * `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
 * `nobackground` - Do not draw a button border, use only the image.
 * `hidden` - The button is not shown to the user.
