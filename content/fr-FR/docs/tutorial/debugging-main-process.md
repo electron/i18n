@@ -22,5 +22,5 @@ Comme `--inspector` mais interrompt l'exécution sur la première ligne de Javas
 
 Vous devrez utiliser un débogueur supportant le protocole de l'inspecteur V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [Déboguer le processus principal dans VSCode](debugging-main-process-vscode.md)
+- Connectez Chrome en visitant `chrome://inspect` et sélectionnez inspecter l'application Electron lancé présente ici.
+- [Débogguer le main process dans VSCode](debugging-main-process-vscode.md)
