@@ -1,11 +1,11 @@
 # Objet ThumbarButton
 
-* `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
+* `icon` [NativeImage](../native-image.md) - L'icône s'affichant dans la miniature dans la barre d'outils.
 * `click` Function
-* `tooltip` String (optional) - The text of the button's tooltip.
-* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+* `tooltip` String (facultatif) - Le texte dans l'info-bulle du bouton.
+* `flags` String[] (facultatif) - Contrôle les états et comportements spécifiques du bouton. `['enabled']` par défaut.
 
-The `flags` is an array that can include following `String`s:
+Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 
 * `enabled` - The button is active and available to the user.
 * `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
