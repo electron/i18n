@@ -1,22 +1,22 @@
-# Débogguer le Processus Principal
+# Débogguer le Main Process
 
-Les DevTools dans une fenêtre de navigateur d’Electron peut seulement débogguer le JavaScript qui est exécuté dans cette fenêtre (c'est-à-dire les pages web). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+Les DevTools dans une fenêtre de navigateur d’Electron peut seulement débogguer le JavaScript qui est exécuté dans cette fenêtre (c'est-à-dire les pages web). Pour débogguer le code JavaScript qui s’exécute dans le main process, vous devrez utiliser un déboggueur externe et lancer Electron avec les variables d'environnement `--inspect` ou `--inspect-brk`.
 
-## Commutateurs de ligne de commande
+## Variables d'environnement
 
-Utilisez un des commutateurs de ligne de commande suivants pour activer le déboggage du processus principal :
+Utilisez une des variables d'environnement de ligne de commande suivantes pour activer le déboggage du main process :
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron doit écouter les messages de protocole de l'inspecteur V8 sur le `port` spécifié, un déboggueur externe devra se connecter sur ce port. Le `port` par défaut est `5858`.
 
 ```shell
-electron --inspect=5858 your/app
+electron --inspect=5858 votre/app
 ```
 
 ### `--inspect-brk=[port]`
 
-Like `--inspector` but pauses execution on the first line of JavaScript.
+Comme `--inspector` mais interrompt l'exécution sur la première ligne de Javascript.
 
 ## Déboggueurs externes
 
