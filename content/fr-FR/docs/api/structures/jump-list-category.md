@@ -1,11 +1,11 @@
 # Objet JumpListCategory
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
-* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+* `type` String (facultatif) - Une des valeurs suivantes : 
+  * `tasks` - Les éléments de cette catégorie seront placée la catégorie standard `Tasks`. Il ne peut y avoir qu'une seule catégorie de ce type, et elle sera toujours affichée en bas de la liste de raccourcis.
+  * `frequent` - Affiche une liste de fichiers ouverts fréquemment par l'application, le nom de la catégorie et ses éléments sont définies par Windows.
+  * `recent` - Affiche une liste de fichiers ouverts récemment par l'application, le nom de la catégorie et ses éléments sont définies par Windows. Des éléments peuvent être ajoutés à cette catégorie indirectement à l'aide de `app.addRecentDocument(path)`.
+  * `custom` - Affiche des tâches ou des liens de fichier, le `name` doit être définie par l'application.
+* `name` String (facultatif) - Doit être définie si le `type` est `custom`, sinon il doit être omis.
+* `items` JumpListItem[] (facultatif) - Tableau d'objets [`JumpListItem`](jump-list-item.md) si le `type` est `tasks` ou `custom`, sinon il doit être omis.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` de défini, alors le `type` est assumé être `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
