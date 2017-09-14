@@ -18,7 +18,7 @@ export npm_config_target=1.2.3
 # L'architecture d'Electron, peut être ia32 ou x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Télécharge les headers pour Electron.
+# Télécharge les en-têtes pour Electron.
 export npm_config_disturl=https://atom.io/download/electron
 # Indique à node-pre-gyp que l'on compile pour Electron.
 export npm_config_runtime=electron
@@ -32,21 +32,21 @@ HOME=~/.electron-gyp npm install
 
 Vous pouvez également choisir d'installer des modules comme les autres projets Node, et puis compiler les modules pour Electron avec le paquet [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Ce module peut obtenir la version d'Electron et gérer les étapes manuelles de téléchargements des ent-têtes et compiler les modules natifs pour votre application.
 
-Un exemple d'installation de `electron-rebuild` et du rebuild des modules avec:
+Un exemple d'installation d'`electron-rebuild` et de la recompilation des modules avec :
 
 ```bash
 npm install --save-dev electron-rebuild
 
-# À chaque fois que vous exécutez "npm install", exécutez ça:
+# À chaque fois que vous exécutez "npm install", exécutez :
 ./node_modules/.bin/electron-rebuild
 
-# Sur Windows si vous rencontrez des problèmes, essayez:
+# Sur Windows si vous rencontrez des problèmes, essayez :
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
 ### Compilation manuel pour Electron
 
-Si vous êtes un développeur développant un module natif et que vous voulez le tester avec Electron, vous pouvez recompiler le module pour Electron manuellement. Vous pouvez utiliser `node-gyp` directement pour build pour Electron:
+Si vous êtes un développeur développant un module natif et que vous voulez le tester avec Electron, vous pouvez recompiler le module pour Electron manuellement. Vous pouvez utiliser `node-gyp` directement pour compiler pour Electron:
 
 ```bash
 cd /path-to-module/
@@ -57,19 +57,19 @@ Le `HOME=~/.electron-gyp` indique où trouver les en-têtes pour le développeme
 
 ## Résolution de problème
 
-If you installed a native module and found it was not working, you need to check following things:
+Si vous avez installé un module natif et trouvé que cela ne fonctionnait pas, vous devez vérifier ces éléments suivants :
 
-* The architecture of module has to match Electron's architecture (ia32 or x64).
-* After you upgraded Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* L'architecture du module doit correspondre à l'architecture d'Electron (ia32 ou x64).
+* Après avoir mise à jour Electron, vous devez habituellement recompiler les modules.
+* En cas de doute, exécutez d'abord `electron-rebuild`.
 
-## Modules that rely on `prebuild`
+## Les modules s'appuyant sur `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) permet de publier facilement des modules natifs Node avec des binaires précompilés pour plusieurs version de Node et d'Electron.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Si des modules fournissent des binaires pour Electron, assurez-vous d'omettre les variables d'environnement `--build-from-source` et `npm_config_build_from_source` pour profiter pleinement des binaires précompilés.
 
-## Modules that rely on `node-pre-gyp`
+## Les modules s'appuyant sur `node-pre-gyp`
 
 The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
 
