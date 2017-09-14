@@ -1,6 +1,6 @@
-# Utiliser Modules Natifs de Node
+# Utiliser des Modules Natifs de Node
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est susceptible d’utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l’emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
 ## Comment installer des modules natifs
 
@@ -18,19 +18,19 @@ export npm_config_target=1.2.3
 # L'architecture d'Electron, peut être ia32 ou x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Télécharger les headers pour Electron.
+# Télécharge les headers pour Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# Indique à node-pre-gyp que l'on compile pour Electron.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# Indique à node-pre-gyp de compiler les modules depuis leur code source.
 export npm_config_build_from_source=true
-# Installe toutes les dependances, et met en cache à ~/.electron-gyp.
+# Installe toutes les dépendances, et met en cache à ~/.electron-gyp.
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### Installation et compilation de modules pour Electron
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+Vous pouvez également choisir d'installer des modules comme les autres projets Node, et puis compiler les modules pour Electron avec le paquet [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Ce module peut obtenir la version d'Electron et gérer les étapes manuelles de téléchargements des ent-têtes et compiler les modules natifs pour votre application.
 
 Un exemple d'installation de `electron-rebuild` et du rebuild des modules avec:
 
@@ -44,16 +44,16 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Build manuellement pour Electron
+### Compilation manuel pour Electron
 
-Si vous êtes un développeur développant un module natif et que vous voulez le tester avec Electron, vous pouvez rebuild le module pour Electron manuellement. Vous pouvez utiliser `node-gyp` directement pour build pour Electron:
+Si vous êtes un développeur développant un module natif et que vous voulez le tester avec Electron, vous pouvez recompiler le module pour Electron manuellement. Vous pouvez utiliser `node-gyp` directement pour build pour Electron:
 
 ```bash
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. Le paramètre `--arch=x64` dit que le module est prévu pour un système 64bits.
+Le `HOME=~/.electron-gyp` indique où trouver les en-têtes pour le développement. `--target=1.2.3` est la version d'Electron. Le `--dist-url=...` indique où télécharger les en-têtes. Le paramètre `--arch=x64` dit que le module est prévu pour un système 64bits.
 
 ## Résolution de problème
 
