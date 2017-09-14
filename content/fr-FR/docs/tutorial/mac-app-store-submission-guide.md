@@ -106,7 +106,7 @@ If you are new to app sandboxing under macOS, you should also read through Apple
 
 Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
 
-#### Sign Native Modules
+#### Signer des modules natifs
 
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
@@ -144,7 +144,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
-#### Network Access
+#### Accès réseau
 
 Enable outgoing network connections to allow your app to connect to a server:
 
