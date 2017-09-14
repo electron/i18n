@@ -20,7 +20,7 @@ Comme `--inspector` mais interrompt l'exécution sur la première ligne de Javas
 
 ## Déboggueurs externes
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Vous devrez utiliser un débogueur supportant le protocole de l'inspecteur V8.
 
 - Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
 - [Déboguer le processus principal dans VSCode](debugging-main-process-vscode.md)
