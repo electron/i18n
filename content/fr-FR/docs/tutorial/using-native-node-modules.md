@@ -71,8 +71,8 @@ Si des modules fournissent des binaires pour Electron, assurez-vous d'omettre le
 
 ## Les modules s'appuyant sur `node-pre-gyp`
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+[`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) fournit un moyen de déployer des modules natifs Node avec des binaires précompilés, beaucoup de modules populaires l'utilisent.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+Habituellement, ces modules fonctionnent très bien avec Electron, mais parfois lorsque qu'Electron utilise une version de V8 plus récente que Node et qu'il y a des changements dans l'ABI, de mauvaises choses peuvent arriver. Donc, en général, il est recommandé de toujours compiler les modules natifs depuis leur code source.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Si vous suivez la méthode d'installation du module via `npm`, alors cela est fait par défaut, sinon vous devrez passer la variable d'environnement `--build-from-source` à `npm`, ou définir la variable d'environnement `npm_config_build_from_source`.
