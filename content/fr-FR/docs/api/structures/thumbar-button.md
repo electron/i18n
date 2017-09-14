@@ -10,6 +10,6 @@ Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 * `enabled` - Le bouton est actif et disponible à l'utilisateur.
 * `disabled` - Le bouton est désactivé. Il est présent, mais il a un état visual indiquant qu'il ne répondra pas à l'action de l'utilisateur.
 * `dismissonclick` - Lorsque le bouton est cliqué, la fenêtre de miniature se ferme immédiatement.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
+* `nobackground` - Utilise uniquement l'image et ne dessine pas de bordure sur le bouton.
+* `hidden` - Le bouton n'est pas affiché à l'utilisateur.
 * `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
