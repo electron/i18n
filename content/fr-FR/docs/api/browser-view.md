@@ -6,7 +6,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Un `BrowserView` peut être utilisé pour intégrer des contenus web supplémentaire dans un `BrowserWindow`. C'est comme une fenêtre enfant, sauf qu'il est positionné par rapport à sa fenêtre propriétaire. Il se veut être une alternative à la balise `webview`.
 
 ## Exemple
 
@@ -36,31 +36,31 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### Propriétés d'instance
 
-Objects created with `new BrowserView` have the following properties:
+Les objets créés avec `new BrowserView` ont les propriétés suivantes :
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Un objet [`WebContents`](web-contents.md) appartient à cette vue.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Un`Integer` représentant l’ID unique de la vue.
 
 ### Méthodes d’instance
 
-Objects created with `new BrowserView` have the following instance methods:
+Les objets créés avec `new BrowserView` ont les méthodes d’instance suivant :
 
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Si `true`, la largeur de la vue va se redimensionner pour être de la même largeur que la fenêtre. `false` par défaut.
+  * `height` Boolean - Si `true`, la hauteur de la vue va se redimensionner pour être de la même hauteur que la fenêtre. `false` par défaut.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
