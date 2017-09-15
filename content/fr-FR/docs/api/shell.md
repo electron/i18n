@@ -30,19 +30,19 @@ Affiche le fichier donné dans un gestionnaire de fichier. Si possible, sélecti
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Retourne `Boolean` - Si l'élément s'est bien ouvert.
 
-Open the given file in the desktop's default manner.
+Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
 * `options` Object (facultatif) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `activate` Boolean - `true` pour mettre l'application ouverte au premier-plan. La valeur par défaut est `true`.
+* `callback` Function (facultatif) - Si spécifié, l'ouverture sera fera de façon asynchrone. *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+Retourne `Boolean` - Si une application à pu ouvrir l'URL. Si le callback est spécifié, cela retournera toujours true.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
