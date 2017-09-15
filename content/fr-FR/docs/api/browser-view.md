@@ -64,4 +64,4 @@ Redimensionne et déplace la vue vers les limites fournies par rapport à la fen
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Couleur dans le format `#aarrggbb` ou `#argb`. Le canal alpha est facultatif.
