@@ -102,19 +102,19 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+Si vous êtes nouveau dans l'app sandboxing sur macOS, vous devriez également lire le guide d'Apple [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) pour avoir une idée de base. Puis ajoutez les clés pour les autorisations requises par votre application aux fichiers de droits.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Au lieu de signer manuellement votre application, vous pouvez également choisir d'utiliser le module [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) pour faire le boulot.
 
 #### Signer des modules natifs
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Les modules natifs utilisés dans votre application doivent également être signés. Si vous utilisez electron-osx-sign, n'oubliez pas d'inclure le chemin d'accès des binaires générés dans la liste d'arguments :
 
 ```bash
 electron-osx-sign VotreApp.app VotreApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Remarquez que les modules natifs peuvent avoir des fichiers intermédiaires générés qui ne doivent pas être inclus (car ils devront aussi être signée). Si vous utilisez [electron-packager](https://github.com/electron-userland/electron-packager) avant la version 8.1.0, ajoutez `--ignore=.+\.o$` à vos étapes de compilation pour ignorer ces fichiers. La version 8.1.0 et ultérieur ignore ces fichiers par défaut.
 
 ### Envoyer votre App
 
