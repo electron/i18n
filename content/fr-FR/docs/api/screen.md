@@ -1,6 +1,6 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Récupère les informations sur la taille, l'écran, la position du curseur, etc.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -8,9 +8,9 @@ Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready`
 
 `screen` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Remarque :** Dans le renderer / DevTools, `window.screen` est une propriété réservée au DOM, alors écrire `let {screen} = require('electron')` ne fonctionnera pas.
 
-An example of creating a window that fills the whole screen:
+Un exemple de création d'une fenêtre qui prendra tout l'écran :
 
 ```javascript
 const electron = require('electron')
@@ -25,7 +25,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+Un autre exemple de création d'une fenêtre dans l'écran externe :
 
 ```javascript
 const electron = require('electron')
@@ -79,7 +79,7 @@ Retourne :
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Émis lorsqu’un ou plusieurs métrics changent dans un `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Émis lorsqu’un ou plusieurs métrics changent dans un `display`. `changedMetrics` est un tableau de chaîne de caractères décrivant les modifications. Les modifications possibles sont `bounds`, `workArea`, `scaleFactor` et `rotation`.
 
 ## Méthodes
 
@@ -89,19 +89,19 @@ Le module `screen` dispose des méthodes suivantes :
 
 Retourne [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+La position absolue du pointeur de la souris.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+Retourne `Integer` - La hauteur de la barre de menu en pixels.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Retourne [`Display`](structures/display.md) - L'écran principal.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Retourne [`Display[]`](structures/display.md) - Un tableau d'écrans qui sont actuellement disponibles.
 
 ### `screen.getDisplayNearestPoint(point)`
 
