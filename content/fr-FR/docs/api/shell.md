@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> Gère des fichiers et URLs à l'aide de leurs applications par défaut.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+Le module `shell` fournit des fonctions liées à l'intégration bureau.
 
-An example of opening a URL in the user's default browser:
+Un exemple d'ouverture d'une URL dans le navigateur par défaut de l'utilisateur :
 
 ```javascript
 const {shell} = require('electron')
@@ -22,9 +22,9 @@ Le module `shell` dispose des méthodes suivantes :
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+Retourne `Boolean` - Si l'élément s'est bien affiché
 
-Show the given file in a file manager. If possible, select the file.
+Affiche le fichier donné dans un gestionnaire de fichier. Si possible, sélectionne le fichier.
 
 ### `shell.openItem(fullPath)`
 
