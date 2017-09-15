@@ -118,7 +118,7 @@ Remarquez que les modules natifs peuvent avoir des fichiers intermédiaires gén
 
 ### Envoyer votre App
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+Après avoir signé votre application, vous pouvez utiliser Application Loader pour envoyer votre application sur iTunes Connect pour le traitement, en s'assurant que vous avez [créé un enregistrement](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) avant l'envoi.
 
 ### Soumettre votre App à une révision
 
@@ -126,17 +126,17 @@ Après ces étapes, vous pouvez [soumettre votre application à une révision](h
 
 ## Limitation de MAS Build
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Afin de satisfaire toutes les exigences pour l'app sandboxing, les modules suivants ont été désactivé dans la compilation MAS :
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+et les comportements suivants ont été modifiés :
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
-* APIs for launching apps at login are disabled. See https://github.com/electron/electron/issues/7312#issuecomment-249479237
+* La capture vidéo peut ne pas fonctionner pour certaines machines.
+* Certaines fonctionnalités d'accessibilité peuvent ne pas fonctionner.
+* Les applications ne seront pas au courant des changements DNS.
+* Les APIs pour le lancement des applications à la connexion est désactivé. Voir https://github.com/electron/electron/issues/7312#issuecomment-249479237
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
 
