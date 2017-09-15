@@ -142,25 +142,25 @@ De plus, en raison de l'utilisation de l'app sandboxing, les ressources étant a
 
 ### Droits supplémentaires
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Selon quelles APIs d'Electron votre application utilise, vous devrez peut-être ajouter des droits supplémentaires à votre fichier `parent.plist` pour pouvoir utiliser ces APIs à partir de votre application Mac App Store.
 
 #### Accès réseau
 
-Enable outgoing network connections to allow your app to connect to a server:
+Activez les connexions sortantes du réseau pour permettre votre application de se connecter à un serveur :
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Activez les connexion entrantes du réseau pour permettre votre application d'ouvrir un système d'écoute socket :
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+Voir la [documentation Activer les accès réseaux](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) pour plus de détails.
 
 #### dialog.showOpenDialog
 
@@ -169,7 +169,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Voir la [documentation Activer les fichiers sélectionnés par l'utilisateur](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) pour plus de détails.
 
 #### dialog.showSaveDialog
 
@@ -178,13 +178,13 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Voir la [documentation Activer les fichiers sélectionnés par l'utilisateur](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) pour plus de détails.
 
 ## Problèmes connus
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Cela échoue quand l'application est signée pour la distribution dans le Mac App Store. Abonnez-vous à [#9005](https://github.com/electron/electron/issues/9005) pour les prochaines informations.
 
 #### Workaround
 
