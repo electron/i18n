@@ -138,9 +138,9 @@ et les comportements suivants ont été modifiés :
 * Les applications ne seront pas au courant des changements DNS.
 * Les APIs pour le lancement des applications à la connexion est désactivé. Voir https://github.com/electron/electron/issues/7312#issuecomment-249479237
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+De plus, en raison de l'utilisation de l'app sandboxing, les ressources étant accessibles par l'application sont strictement limitées. Vous pouvez lire [App Sandboxing](https://developer.apple.com/app-sandboxing/) pour plus d'informations.
 
-### Additional Entitlements
+### Droits supplémentaires
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
