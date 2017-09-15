@@ -1,6 +1,6 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Bloquer le système de passer en mode de faible puissance (sommeil).
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -17,7 +17,7 @@ powerSaveBlocker.stop(id)
 
 ## Méthodes
 
-The `powerSaveBlocker` module has the following methods:
+Le module `powerSaveBlocker` dispose des méthodes suivantes :
 
 ### `powerSaveBlocker.start(type)`
 
