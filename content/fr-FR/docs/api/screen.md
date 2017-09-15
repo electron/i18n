@@ -107,10 +107,10 @@ Retourne [`Display[]`](structures/display.md) - Un tableau d'écrans qui sont ac
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Retourne [`Display`](structures/display.md) - L'écran le plus proche du point spécifié.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Retourne [`Display`](structures/display.md) - L'écran qui croise le plus les limites d'intersection données.
