@@ -23,9 +23,9 @@ Le module `powerSaveBlocker` dispose des méthodes suivantes :
 
 * `type` String - Type de powerSaveBlocker. 
   * `prevent-app-suspension` - Empêche l'application d'être suspendu. Maintient le système actif mais permet l'écran de s'éteindre. Exemple d'utilisation : Le téléchargement d'un fichier ou la lecture audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+  * `prevent-display-sleep` - Empêche l'écran de s'éteindre. Maintient le système et l'écran actif. Exemple d'utilisation : Lecture vidéo.
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker
+Retourne `Integer` - L'ID du blocage assigné à ce power blocker
 
 Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
