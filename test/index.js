@@ -152,6 +152,13 @@ describe('i18n.locales', () => {
     i18n.locales['en-US'].stats.translated_progress.should.equal(100)
     i18n.locales['en-US'].stats.approved_progress.should.equal(100)
   })
+
+  it('sorts locales by translation progress', () => {
+    const progress = Object.keys(i18n.locales).map(locale => i18n.locales[locale].stats.translated_progress)
+    progress[0].should.be.above(progress[1])
+    progress[1].should.be.above(progress[2])
+    console.log(progress)
+  })
 })
 
 describe('i18n.electronLatestStableVersion', () => {
