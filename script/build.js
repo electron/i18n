@@ -77,6 +77,7 @@ parseDocs().then(docs => {
     .reduce((acc, locale) => {
       acc[locale] = docs
         .filter(doc => doc.locale === locale)
+        .sort((a, b) => a.slug.localeCompare(b.slug))
         .reduce((allDocs, doc) => {
           allDocs[doc.href] = doc
           return allDocs
