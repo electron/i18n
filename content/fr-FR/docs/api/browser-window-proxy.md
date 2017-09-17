@@ -4,47 +4,47 @@
 
 Processus : [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+L'objet `BrowserWindowProxy` est retournée par `window.open` et fournit les fonctionnalités limitées avec la fenêtre enfant.
 
 ### Méthodes d’instance
 
-The `BrowserWindowProxy` object has the following instance methods:
+L’objet `BrowserWindowProxy` dispose des méthodes d’instance suivantes :
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Retire le focus de la fenêtre enfant.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Force la fermeture de la fenêtre enfant sans appeler l'événement unload.
 
 #### `win.eval(code)`
 
 * `code` String
 
-Evaluates the code in the child window.
+Évalue le code dans la fenêtre enfant.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Donne le focus à la fenêtre enfant (met la fenêtre au premier-plan).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Appelle la boîte de dialogue Impression sur la fenêtre enfant.
 
 #### `win.postMessage(message, targetOrigin)`
 
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Envoie un message à la fenêtre enfant avec l'origine spécifié ou `*` pour aucune préférence d'origine.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+En plus de ces méthodes, la fenêtre enfant implémente l'objet `window.opener` avec aucune propriété et une méthode unique.
 
 ### Propriétés d'instance
 
-The `BrowserWindowProxy` object has the following instance properties:
+L’objet `BrowserWindowProxy` dispose des propriétés d’instance suivantes :
 
 #### `win.closed`
 
-A Boolean that is set to true after the child window gets closed.
+Un booléen qui à la valeur true après que la fenêtre enfant soit fermée.

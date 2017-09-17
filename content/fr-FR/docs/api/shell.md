@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> Gère des fichiers et URLs à l'aide de leurs applications par défaut.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+Le module `shell` fournit des fonctions liées à l'intégration bureau.
 
-An example of opening a URL in the user's default browser:
+Un exemple d'ouverture d'une URL dans le navigateur par défaut de l'utilisateur :
 
 ```javascript
 const {shell} = require('electron')
@@ -22,37 +22,37 @@ Le module `shell` dispose des méthodes suivantes :
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+Retourne `Boolean` - Si l'élément s'est bien affiché
 
-Show the given file in a file manager. If possible, select the file.
+Affiche le fichier donné dans un gestionnaire de fichier. Si possible, sélectionne le fichier.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Retourne `Boolean` - Si l'élément s'est bien ouvert.
 
-Open the given file in the desktop's default manner.
+Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
 * `options` Object (facultatif) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `activate` Boolean - `true` pour mettre l'application ouverte au premier-plan. La valeur par défaut est `true`.
+* `callback` Function (facultatif) - Si spécifié, l'ouverture sera fera de façon asynchrone. *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+Retourne `Boolean` - Si une application à pu ouvrir l'URL. Si le callback est spécifié, cela retournera toujours true.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Ouvre le protocole externe donné dans la manière par défaut de l'ordinateur. (Par exemple, les URLs mailto: dans l'agent de messagerie par défaut de l'utilisateur).
 
 ### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+Retourne `Boolean` - Si l'élément s'est bien déplacé dans la poubelle
 
-Move the given file to trash and returns a boolean status for the operation.
+Déplace le fichier donné dans la poubelle et retourne un booléen.
 
 ### `shell.beep()`
 
@@ -62,14 +62,14 @@ Move the given file to trash and returns a boolean status for the operation.
 
 * `shortcutPath` String
 * `operation` String (facultatif) - La valeur par défaut est `create`, peut être une des valeurs suivantes : 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+  * `create` - Créer un nouveau raccourci, écrase si besoin.
+  * `update` - Met à jour les propriétés seulement sur un raccourci existant.
+  * `replace` - Remplace un raccourci existant, échoue si le raccourci n'existe pas.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+Retourne `Boolean` - Si le raccourci a été créé avec succès
 
-Creates or updates a shortcut link at `shortcutPath`.
+Créer ou met à jour un lien raccourci à `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
@@ -77,6 +77,6 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 Retourne [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Résout le lien raccourci à `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Une exception sera levée lorsqu’une erreur se produit.
