@@ -9,7 +9,6 @@ const cleanDeep = require('clean-deep')
 const markdown = require('../lib/markdown')
 const locales = require('../lib/locales')
 const defaultLocale = 'en-US'
-// TODO normalize locales.js vs locales.json
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
