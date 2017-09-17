@@ -44,6 +44,27 @@ describe('API Docs', () => {
     app.markdown.should.be.a('string')
     app.html.should.be.a('string')
   })
+
+  it('sorts docs by slug per locale', () => {
+    const locales = Object.keys(i18n.locales)
+    locales.length.should.be.above(10)
+    locales.forEach(locale => {
+      const docs = Object.keys(i18n.docs[locale]).map(key => i18n.docs[locale][key])
+      docs.length.should.be.above(10)
+
+      const slugs = docs.map(doc => doc.slug)
+      slugs.length.should.be.above(10)
+
+      const sortedSlugs = slugs.slice(0).sort((a, b) => a.localeCompare(b))
+      const a = slugs.indexOf('app')
+      const b = slugs.indexOf('browser-window')
+      a.should.be.above(-1)
+      b.should.be.above(-1)
+      b.should.be.above(a)
+
+      sortedSlugs.should.deep.equal(slugs)
+    })
+  })
 })
 
 describe('API Structures', () => {
