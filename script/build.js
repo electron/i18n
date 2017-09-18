@@ -44,6 +44,8 @@ async function parseFile (file) {
 
   file.href = path.join('/docs', file.category, file.slug)
 
+  file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
+
   // convenience booleans for use in templates
   file.isTutorial = file.category === 'tutorial'
   file.isApiDoc = file.category === 'api'
