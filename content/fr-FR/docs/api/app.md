@@ -19,7 +19,7 @@ L'objet `app` émet les événements suivants :
 
 ### Événement : 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Émis lorsque l'application a terminé son démarrage de base. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
