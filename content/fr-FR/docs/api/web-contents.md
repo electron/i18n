@@ -288,7 +288,7 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Événement 'certificate-error'
 
 Retourne :
 
@@ -313,7 +313,7 @@ Retourne :
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Émis lorsqu'un certificat client est demandé.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -336,7 +336,7 @@ Retourne :
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Émis lorsque `webContents` veut faire une authentification normale.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
