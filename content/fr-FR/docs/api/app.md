@@ -126,7 +126,7 @@ Retourne :
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Émis lorsqu'un [browserWindow](browser-window.md) perd le focus.
 
 ### Événement : 'browser-window-focus'
 
@@ -135,7 +135,7 @@ Retourne :
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Émis lorsqu'un [browserWindow](browser-window.md) gagne le focus.
 
 ### Événement : 'browser-window-created'
 
@@ -144,7 +144,7 @@ Retourne :
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Émis lorsqu'un nouveau [browserWindow](browser-window.md) est créé.
 
 ### Événement : 'web-contents-created'
 
@@ -153,9 +153,9 @@ Retourne :
 * `event` Event
 * `webContents` WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+Émis lorsqu'un nouveau [webContents](web-contents.md) est créé.
 
-### Event: 'certificate-error'
+### Événement 'certificate-error'
 
 Retourne :
 
@@ -194,7 +194,7 @@ Retourne :
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (facultatif)
 
-Emitted when a client certificate is requested.
+Émis lorsqu'un certificat client est demandé.
 
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
@@ -227,7 +227,7 @@ Retourne :
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Émis lorsque `webContents` veut faire une authentification normale.
 
 The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
@@ -284,7 +284,7 @@ All windows will be closed immediately without asking user and the `before-quit`
   * `args` String[] - (facultatif)
   * `execPath` String (facultatif)
 
-Relaunches the app when current instance exits.
+Relance l’application lorsque l’instance en cours se termine.
 
 By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Masque toutes les fenêtres de l'application sans les minimiser.
 
 ### `app.show()` *macOS*
 
@@ -319,7 +319,7 @@ Shows application windows after they were hidden. Does not automatically focus t
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Retourne `String` - Répertoire courant de l'application.
 
 ### `app.getPath(name)`
 
