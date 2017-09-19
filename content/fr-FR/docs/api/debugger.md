@@ -1,10 +1,10 @@
 ## Classe : Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Un transport alternatif pour le protocole de débogage distant de Chrome.
 
 Processus : [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Les outils de développement de chrome a une [liaison spéciale](https://developer.chrome.com/devtools/docs/debugger-protocol) disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (facultatif) - Version de protocole de débogage demandée.
 
 Attaches the debugger to the `webContents`.
 
