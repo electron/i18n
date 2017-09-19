@@ -15,6 +15,13 @@ describe('i18n.docs', () => {
     docs.should.be.an('object')
     docs['/docs/api/accelerator'].should.be.an('object')
   })
+
+  it('sets githubUrl on every doc', () => {
+    const base = 'https://github.com/electron/electron/tree/master'
+    const docs = i18n.docs['en-US']
+    docs['/docs/api/accelerator'].githubUrl.should.equal(`${base}/docs/api/accelerator.md`)
+    docs['/docs/tutorial/electron-versioning'].githubUrl.should.equal(`${base}/docs/tutorial/electron-versioning.md`)
+  })
 })
 
 describe('i18n.website', () => {
@@ -157,7 +164,6 @@ describe('i18n.locales', () => {
     const progress = Object.keys(i18n.locales).map(locale => i18n.locales[locale].stats.translated_progress)
     progress[0].should.be.above(progress[1])
     progress[1].should.be.above(progress[2])
-    console.log(progress)
   })
 })
 
