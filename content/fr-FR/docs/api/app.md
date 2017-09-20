@@ -35,7 +35,7 @@ Retourne :
 
 Émis lorsque toutes les fenêtres ont été fermées.
 
-Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont fermées, le comportement par défaut consiste à quitter l'application. Toutefois, si vous vous abonnez, vous pouvez contrôler le fait que l'application se ferme ou non. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont fermées, le comportement par défaut consiste à quitter l'application. Toutefois, si vous vous abonnez, vous pouvez contrôler le fait que l'application se ferme ou non. Si l'utilisateur appuie sur `Cmd + Q`, ou le développeur appelle `app.quit()`, Electron essaie d'abord de fermer toutes les fenêtres et puis émet l'événement `will-quit` et dans ce cas, l'événement `window-all-closed` ne sera pas émit.
 
 ### Événement : 'before-quit'
 
@@ -43,9 +43,9 @@ Retourne :
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Émis avant que l'application ferme ses fenêtres. Appeler `event.preventDefault()` permet de stopper le comportement par défaut, qui quitte l'application.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Remarque :** Si l'interruption de l'application a été initié par `autoUpdater.quitAndInstall()`, alors l'événement `before-quit` est émis *après* avoir émis l'événement `close` sur toutes les fenêtres et leur fermeture.
 
 ### Événement : 'will-quit'
 
