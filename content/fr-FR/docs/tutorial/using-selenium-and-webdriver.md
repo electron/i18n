@@ -57,7 +57,7 @@ Démarre ChromeDriver (v2.10.291558) sur le port 9515
 Seulement les connexions locales sont autorisées.
 ```
 
-N’oubliez pas le numéro du port `9515`, qui servira plus tard
+N'oubliez pas le numéro du port `9515`, qui servira plus tard
 
 ### 2. installer WebDriverJS
 
