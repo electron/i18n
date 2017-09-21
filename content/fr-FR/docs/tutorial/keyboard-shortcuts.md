@@ -4,7 +4,7 @@
 
 ## Raccourcis Locaux
 
-Vous pouvez utiliser le module [Menu](../api/menu.md) pour configurer les raccourcis clavier qui se déclencheront uniquement lorsque l’application est au premier plan. Pour ce faire, spécifiez une propriété [`accelerator`] lors de la création d’un [MenuItem](../api/menu-item.md).
+Vous pouvez utiliser le module [Menu](../api/menu.md) pour configurer les raccourcis clavier qui se déclencheront uniquement lorsque l’application est au premier plan. Pour ce faire, spécifiez une propriété [`accelerator`] lors de la création d'un [MenuItem](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-Il est facile de configurer différentes combinaisons de touches basées sur le système d’exploitation de l’utilisateur.
+Il est facile de configurer différentes combinaisons de touches basées sur le système d'exploitation de l’utilisateur.
 
 ```js
 {
@@ -27,7 +27,7 @@ Il est facile de configurer différentes combinaisons de touches basées sur le 
 
 ## Raccourcis globaux
 
-Vous pouvez utiliser le module [globalShortcut](../api/global-shortcut.md) pour détecter les événements de clavier, même lorsque l’application n’a pas le focus clavier.
+Vous pouvez utiliser le module [globalShortcut](../api/global-shortcut.md) pour détecter les événements de clavier, même lorsque l'application n’a pas le focus clavier.
 
 ```js
 const {app, globalShortcut} = require('electron')
