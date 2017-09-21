@@ -46,15 +46,15 @@ Une chaîne de caractère représentant le message d'état HTTP.
 
 #### `response.headers`
 
-An Object representing the response HTTP headers. The `headers` object is formatted as follows:
+Un objet représentant les en-têtes de la réponse HTTP. L'objet d'`en-têtes` est formaté comme suit :
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Tous les noms d’en-têtes sont en minuscules.
+* Chaque nom d’en-tête créer une propriété de tableau sur l’objet d'en-têtes.
+* Chaque valeur d'en-tête est ajouté dans le tableau associé à son nom d'en-tête.
 
 #### `response.httpVersion`
 
-A String indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Une chaîne de caractère indiquant le numéro de version du protocole HTTP. Les valeurs habituelles sont '1.0' ou '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
 
 #### `response.httpVersionMajor`
 
