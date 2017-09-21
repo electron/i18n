@@ -54,12 +54,12 @@ Un objet représentant les en-têtes de la réponse HTTP. L'objet d'`en-têtes` 
 
 #### `response.httpVersion`
 
-Une chaîne de caractère indiquant le numéro de version du protocole HTTP. Les valeurs habituelles sont '1.0' ou '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Une chaîne de caractère indiquant le numéro de version du protocole HTTP. Les valeurs habituelles sont '1.0' ou '1.1'. De plus, `httpVersionMajor` et `httpVersionMinor` sont deux propriétés entières lisibles qui retournent respectivement les numéros de version principale et secondaire de HTTP.
 
 #### `response.httpVersionMajor`
 
-An Integer indicating the HTTP protocol major version number.
+Un entier indiquant le numéro de version majeur du protocol HTTP.
 
 #### `response.httpVersionMinor`
 
-An Integer indicating the HTTP protocol minor version number.
+Un entier indiquant le numéro de version mineur du protocol HTTP.
