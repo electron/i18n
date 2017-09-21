@@ -73,11 +73,11 @@ Retourne :
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Émis lorsque l’utilisateur souhaite ouvrir un fichier avec l’application. L’événement `open-file` est habituellement émis lorsque l’application est déjà ouvert et le système d’exploitation souhaite réutiliser l’application pour ouvrir le fichier. `open-file` est également émis lorsqu’un fichier est déposé sur le dock et l’application n’est pas encore en cours d’exécution. Assurez-vous d’écouter l’événement `open-file` très tôt dans le démarrage votre l’application pour gérer ce cas (même avant que l’événement `ready` soit émis).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+Sur Windows, vous devrez analyser `process.argv` (dans le main process) pour obtenir le chemin d'accès.
 
 ### Événement : 'open-url' *macOS*
 
@@ -88,7 +88,7 @@ Retourne :
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
 
 ### Événement : 'activate' *macOS*
 
