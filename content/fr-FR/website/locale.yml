@@ -47,7 +47,7 @@ quick_start:
   install_deps: Installez les dépendances et lancez l'app
   dive_deeper: 'Ou allez plus loin en lisant la <a href=''https://electron.atom.io/docs/''>documentation</a>.'
 need_help:
-  title: Besoin d’aide ?
+  title: Besoin d'aide ?
   description: 'Posez vos questions sur le forum <a href=''https://discuss.atom.io/c/electron''>Discussion</a> ou sur notre channel <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Suivez <a href="https://twitter.com/ElectronJS">@ElectronJS</a> sur Twitter pour les annonces importantes. Besoin de nous contacter directement ? Envoyez un email à <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
   title: Apps développées sur Electron
