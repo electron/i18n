@@ -16,7 +16,7 @@ Nei browser normali, le pagine web vengono eseguite in un ambiente circoscritto 
 
 ### Differenze tra processo principale (main) e di rendering (renderer)
 
-Il processo principale crea pagine web mediante la creazione di istanze di `BrowserWindow`. In ogni istanza di `BrowserWindow` viene eseguita la pagina web nel proprio processo di rendering. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Il processo principale crea pagine web mediante la creazione di istanze di `BrowserWindow`. In ogni istanza di `BrowserWindow` viene eseguita la pagina web nel proprio processo di rendering. Quando viene eliminata un'istanza di `BrowserWindow`, il processo di rendering corrispondente viene anch'esso terminato.
 
 The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
