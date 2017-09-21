@@ -40,7 +40,7 @@ explore:
 download_from_github: Scarica da GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Tutte le versioni</a> su GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank' rel='noopener'>Quick Start</a> app to see Electron in action:"
+  title: "Inizia con l'app <a href='https://github.com/electron/electron-quick-start' target='_blank' rel='noopener'>Quick Start</a> per vedere Electron in azione:"
   description: Una semplice app Electron con utili commenti.
   clone: Clona il repository Quick Start
   go_into_repo: Vai al repository
