@@ -16,9 +16,9 @@ Les nouvelles fonctionnalités de Node.js sont généralement ajoutées dans les
 
 ## Comment partager les données entre les pages web ?
 
-Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d’utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Quelques choix possible sont [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) et [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d'utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Quelques choix possible sont [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) et [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Ou vous pouvez utiliser le système IPC, qui est spécifique à Electron, pour stocker des objets dans le processus principal comme une variable globale, puis d’y accéder depuis les moteurs de rendu via la propriété `remote` du module `electron` :
+Ou vous pouvez utiliser le système IPC, qui est spécifique à Electron, pour stocker des objets dans le processus principal comme une variable globale, puis d'y accéder depuis les moteurs de rendu via la propriété `remote` du module `electron` :
 
 ```javascript
 // Dans le processus principal. 
@@ -41,7 +41,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 Cela se produit lorsque la variable qui sert à stocker la fenêtre/icône est détruite par le ramasse-miettes.
 
-Si vous rencontrez ce problème, les articles suivants peuvent s’avérer utiles :
+Si vous rencontrez ce problème, les articles suivants peuvent s'avérer utiles :
 
 * [Gestion de la mémoire](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Portée des variables](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
@@ -69,9 +69,9 @@ app.on('ready', () => {
 
 ## Je ne peux pas utiliser jQuery/RequireJS/Meteor/AngularJS avec Electron.
 
-En raison de l’intégration de Node.js dans Electron, il y a quelques symboles supplémentaires insérés dans le DOM comme `module`, `exports`, `require`. Cela pose des problèmes pour certaines bibliothèques, puisqu’ils veulent insérer des symboles avec les mêmes noms.
+En raison de l'intégration de Node.js dans Electron, il y a quelques symboles supplémentaires insérés dans le DOM comme `module`, `exports`, `require`. Cela pose des problèmes pour certaines bibliothèques, puisqu'ils veulent insérer des symboles avec les mêmes noms.
 
-Pour résoudre ce problème, vous pouvez désactiver l’intégration de node dans Electron :
+Pour résoudre ce problème, vous pouvez désactiver l'intégration de node dans Electron :
 
 ```javascript
 // In the main process.
@@ -84,7 +84,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-Mais si vous voulez garder la possibilité d’utiliser Node.js et l'API Electron, vous devez renommer les symboles dans la page avant d’inclure d’autres bibliothèques :
+Mais si vous voulez garder la possibilité d'utiliser Node.js et l'API Electron, vous devez renommer les symboles dans la page avant d’inclure d'autres bibliothèques :
 
 ```html
 <head>
@@ -106,9 +106,9 @@ Lorsque vous utilisez le module intégré d'Electron, vous pouvez obtenir une er
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-C’est parce que vous avez le [module `Electron` npm](https://www.npmjs.com/package/electron) installé localement ou en global, qui remplace le module intégré d'Electron.
+C'est parce que vous avez le [module `Electron` npm](https://www.npmjs.com/package/electron) installé localement ou en global, qui remplace le module intégré d'Electron.
 
-Pour vérifier si vous utilisez le module intégré correct, vous pouvez afficher le chemin d’accès du module `Electron` ainsi :
+Pour vérifier si vous utilisez le module intégré correct, vous pouvez afficher le chemin d'accès du module `Electron` ainsi :
 
 ```javascript
 console.log(require.resolve('electron'))
@@ -119,11 +119,11 @@ et ensuite vérifier si elle est sous la forme suivante :
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-Si c’est quelque chose comme `node_modules/electron/index.js`, vous devrez retirer le module `Electron` de npm ou le renommer.
+Si c'est quelque chose comme `node_modules/electron/index.js`, vous devrez retirer le module `Electron` de npm ou le renommer.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-Cependant si vous utilisez le module intégré et que vous avez toujours cette erreur, il est très probable que vous utilisiez le module dans le mauvais processus. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n’est disponible que dans les processus de rendu.
+Cependant si vous utilisez le module intégré et que vous avez toujours cette erreur, il est très probable que vous utilisiez le module dans le mauvais processus. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
