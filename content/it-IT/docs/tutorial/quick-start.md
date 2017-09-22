@@ -45,34 +45,34 @@ La struttura del file `package.json` è esattamente la stessa di quella dei modu
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Note**: Se il campo `main` non è presente nel file `package.json`, Electron tenterà di caricare un file `index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+Il `main.js` dovrebbe creare finestre e gestire gli eventi di sistema, di seguito un esempio:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Mantenere un riferimento globale dell'oggetto window, altrimenti la finestra verrà 
+// chiusa automaticamente quando l'oggetto JavaScript è raccolto nel Garbage Collector.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Creazione della finestra del browser.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // e viene caricato il file index.html della nostra app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Apertura degli strumenti per sviluppatori.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Emesso quando la finestra viene chiusa.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
