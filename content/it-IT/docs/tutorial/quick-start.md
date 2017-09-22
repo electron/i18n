@@ -103,11 +103,11 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// in questo file possiamo includere il codice specifico necessario 
+// alla nostra app. Si può anche mettere il codice in file separati e richiederlo qui.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Infine il file `index. html` è la pagina web che si desidera visualizzare:
 
 ```html
 <!DOCTYPE html>
@@ -118,14 +118,14 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    Stiamo utilizzando Node.js <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    ed Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
 
-## Run your app
+## Esegui la tua applicazione
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
