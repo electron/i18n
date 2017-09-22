@@ -74,30 +74,30 @@ function createWindow () {
 
   // Emesso quando la finestra viene chiusa.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Eliminiamo il riferimento dell'oggetto window;  solitamente si tiene traccia delle finestre
+    // in array se l'applicazione supporta più finestre, questo è il momento in cui 
+    // si dovrebbe eliminare l'elemento corrispondente.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Questo metodo viene chiamato quando Electron ha finito
+// l'inizializzazione ed è pronto a creare le finestre browser.
+// Alcune API possono essere utilizzate solo dopo che si verifica questo evento.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Terminiamo l'App quando tutte le finestre vengono chiuse.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // Su macOS è comune che l'applicazione e la barra menù 
+  // restano attive finché l'utente non esce espressamente tramite i tasti Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // Su macOS è comune ri-creare la finestra dell'app quando
+  // viene cliccata l'icona sul dock e non ci sono altre finestre aperte.
   if (win === null) {
     createWindow()
   }
