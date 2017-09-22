@@ -20,26 +20,26 @@ Il processo principale crea pagine web mediante la creazione di istanze di `Brow
 
 Il processo principale gestisce tutte le pagine web ed i corrispondenti processi di rendering. Ogni processo di rendering è isolato e si preoccupa solo della pagina web in esecuzione in esso.
 
-Nelle pagine web, chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse nelle pagine web è molto pericolosa and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Nelle pagine web, chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse nelle pagine web è molto pericolosa and it is easy to leak resources. Se si desidera eseguire operazioni di GUI in una pagina web, il processo di rendering della pagina web deve comunicare con il processo principale per richiedere che il processo principale esegua tali operazioni.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+In Electron, ci sono diversi modi di comunicare tra i processi di rendering e processo principale. Come i moduli [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) per l'invio di messaggi e il modulo [remote](../api/remote.md) per la comunicazione in stile RPC. C'è anche una voce FAQ su [come condividere dati tra le pagine web](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Scrivere la prima App di Electron
 
-Generally, an Electron app is structured like this:
+In genere, un'app di Electron è strutturata come questo:
 
 ```text
-your-app/
+tua-app/
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+La struttura del file `package.json` è esattamente la stessa di quella dei moduli di Node.js, e lo script specificato dal campo `main` è lo script di avvio dell'app, che eseguirà il processo principale. Un esempio del tuo file `package.json` potrebbe essere come questo:
 
 ```json
 {
-  "name"    : "your-app",
+  "name"    : "tua-app",
   "version" : "0.1.0",
   "main"    : "main.js"
 }
