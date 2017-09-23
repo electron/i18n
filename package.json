@@ -4,7 +4,8 @@
   "description": "A home for Electron's translated documentation.",
   "main": "index.json",
   "files": [
-    "index.json"
+    "index.json",
+    "lib/markdown.js"
   ],
   "repository": "https://github.com/electron/electron-i18n",
   "author": "zeke",
