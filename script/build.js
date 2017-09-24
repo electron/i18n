@@ -6,7 +6,7 @@ const walk = require('walk-sync')
 const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
-const markdown = require('../lib/markdown')
+const hubdown = require('hubdown')
 const locales = require('../lib/locales')
 const defaultLocale = 'en-US'
 
@@ -54,7 +54,7 @@ async function parseFile (file) {
 
   // parse markdown
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
-  const parsed = await markdown(file.markdown)
+  const parsed = await hubdown(file.markdown)
   file.html = parsed.contents
 
   // derive props from the HTML
