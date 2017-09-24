@@ -46,9 +46,5 @@
     "prepush": "check-for-leaks",
     "pretest": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  },
-  "dependencies": {
-    "accept-language-parser": "^1.4.1",
-    "express-request-language": "^1.1.12"
   }
 }
