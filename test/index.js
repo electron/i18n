@@ -132,10 +132,12 @@ describe('i18n.locales', () => {
     })
     i18n.locales['en-US'].languageName.should.equal('English')
     i18n.locales['pt-BR'].languageName.should.equal('Portuguese')
+  })
 
-    // Make sure Chinese is differntiated
+  it('sets some custom language names', () => {
     i18n.locales['zh-TW'].languageName.should.equal('Chinese Traditional')
     i18n.locales['zh-CN'].languageName.should.equal('Chinese Simplified')
+    i18n.locales['en-CA'].languageName.should.equal('English (Canada)')
   })
 
   it('includes languageNativeName for every locale', () => {
