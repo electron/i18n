@@ -266,17 +266,17 @@ L'objet `app` dispose des méthodes suivantes :
 
 ### `app.quit()`
 
-Essaye de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Essaye de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et mettra fin à l’application par défaut.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Cette méthode garantit que tous les écouteurs d’événements de `beforeunload` et `unload` seront correctement exécutées. Il est possible qu’une fenêtre annule la fermeture en retournant `false` dans l'écouteur d’événement `beforeunload`.
 
 ### `app.exit([exitCode])`
 
 * `exitCode` Integer (facultatif)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Ferme immédiatement avec `exitCode`. `exitCode` est 0 par défaut.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Toutes les fenêtres se ferment immédiatement sans prévenir l’utilisateur et les événements `before-quit` et `will-quit` ne seront pas émis.
 
 ### `app.relaunch([options])`
 
@@ -286,7 +286,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 Relance l’application lorsque l’instance en cours se termine.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Par défaut, la nouvelle instance utilisera le même répertoire de travail et les arguments de ligne de commande avec l’instance actuelle. Si `args` est spécifié, `args` sera passé comme argument de ligne de commande à la place. Lorsque `execPath` est spécifié, `execPath` sera exécuté pour redémarrer à la de l’application actuelle.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
