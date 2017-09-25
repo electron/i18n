@@ -167,7 +167,7 @@ Retourne :
 * `callback` Function 
   * `isTrusted` Boolean - Détermine si le certificat doit être considéré comme digne de confiance
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Émis lorsque la vérification du `certificate` pour l'`url` a échouée. Pour approuver le certificat, vous devez empêcher le comportement par défaut avec `event.preventDefault()` et appeler `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -196,7 +196,7 @@ Retourne :
 
 Émis lorsqu'un certificat client est demandé.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+L' `url` correspondant à l’entrée de navigation demande le certificat client et le `callback` peut être appelée avec une entrée filtrée dans la liste. L’utilisation de `event.preventDefault()` empêche l’application d’utiliser le premier certificat du store.
 
 ```javascript
 const {app} = require('electron')
@@ -229,7 +229,7 @@ Retourne :
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Le comportement par défaut consiste à annuler toutes les authentifications, pour remplacer cela vous devez empêcher le comportement par défaut avec `event.preventDefault()` et appelez le `callback(username, password)` avec les informations d’identification.
 
 ```javascript
 const {app} = require('electron')
@@ -256,17 +256,17 @@ Retourne :
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` quand le support de l'accessibilité de Chrome est activé, sinon `false`.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Émis lorsque le support de l’accessibilité du Chrome change. Cet événement se déclenche lorsque les technologies d’assistance, tels que les lecteurs d’écran sont activés ou désactivés. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 
 ## Méthodes
 
 L'objet `app` dispose des méthodes suivantes :
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Remarque :** Certaines méthodes sont disponibles uniquement sur les systèmes d’exploitation spécifiques et sont étiquetés comme tels.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Essaye de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
