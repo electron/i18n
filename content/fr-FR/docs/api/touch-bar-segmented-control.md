@@ -16,10 +16,10 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
     * `capsule` - Le contrôle s’affiche selon le style capsule
     * `small-square` - Le contrôle est affiché en utilisant le style petit carré.
     * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas.
-  * `mode` String - (optional) The selection mode of the control: 
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
+  * `mode` String - (facultatif) Le mode sélection du contrôle : 
+    * `single` - Par défaut. Un élément sélectionné à la fois, en sélectionner un va désélectionner l'élément précédemment sélectionné.
+    * `multiple` - Plusieurs éléments peuvent être sélectionnés simultanément.
+    * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
   * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
   * `change` Function - Called when the user selects a new segment 
@@ -32,11 +32,11 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarSegme
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Un `String` représentant le texte du contrôle actuel. Changer cette valeur met à jour immédiatement le contrôle dans la touch bar.
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Un tableau de `SegmentedControlSegment[]`, qui représente les segments dans ce contrôle. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Changer une propriété dans le tableau **ne met pas à jour la touch bar**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
