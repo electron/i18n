@@ -1,12 +1,12 @@
-# Instruções de Compilação (macOs)
+# Instruções de Compilação (macOS)
 
 Siga as instruções abaixo para compilar o Electron no macOS.
 
 ## Pré-requisitos
 
-- macOs => 10.11.6
+- macOS => 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](http://nodejs.org) (externo)
 
 Se você esta usando o Python baixado pelo o Homebrew, você precisa instalar o seguinte modulo:
 
@@ -16,7 +16,7 @@ Se você esta usando o Python baixado pelo o Homebrew, você precisa instalar o 
 
 Se você esta somente desenvolvimento com Electron e não seja distribuir sua customização, talvez você queira pular esta seção.
 
-Para que algumas funcionalidades possam funcionar corretamente, por exemplo pinch-zoom. Você precisa utilizar o SDK 10,10 do macOS.
+Para que algumas funcionalidades possam funcionar corretamente, por exemplo pinch-zoom. Você precisa utilizar o SDK 10.10 do macOS.
 
 Oficialmente a compilação do Electron é feita pelo [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), que não contém no SDK 10.0 por padrão. Para obtê-lo, é preciso fazer o download do [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG e executar.
 
@@ -29,7 +29,7 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 Você também precisará habilitar o Xcode para compilar junto com 10.10 SDK:
 
 - Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Veja o `MinimumSDKVersion` to `10.10`
+- Definir o `MinimumSDKVersion` para `10.10`
 - Salve o arquivo
 
 ## Obtendo o código fonte
