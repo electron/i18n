@@ -17,7 +17,7 @@ A configuração do Electron é feita totalmente por linha de comando, não é p
 
 **Note:** Mesmo que o Visual Studio não seja utilizado para desenvolver com Electron, ainda é preciso ter instalado. **required** Porque é necessário a toolchains fornecida.
 
-## Obtendo o código fonte
+## Obtendo o Código Fonte
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
