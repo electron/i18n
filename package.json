@@ -4,7 +4,8 @@
   "description": "A home for Electron's translated documentation.",
   "main": "index.json",
   "files": [
-    "index.json"
+    "index.json",
+    "lib/markdown.js"
   ],
   "repository": "https://github.com/electron/electron-i18n",
   "author": "zeke",
@@ -25,14 +26,6 @@
     "lodash": "^4.17.4",
     "make-dir": "^1.0.0",
     "mocha": "^3.3.0",
-    "pify": "^3.0.0",
-    "remark": "^8.0.0",
-    "remark-autolink-headings": "^5.0.0",
-    "remark-github": "^7.0.2",
-    "remark-highlight.js": "^5.0.0",
-    "remark-html": "^6.0.1",
-    "remark-inline-links": "^3.0.4",
-    "remark-slug": "^4.2.3",
     "require-yaml": "^0.0.1",
     "semantic-release": "^7.0.2",
     "standard": "^10.0.2",
@@ -48,7 +41,14 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
-    "accept-language-parser": "^1.4.1",
-    "express-request-language": "^1.1.12"
+    "gray-matter": "^3.0.6",
+    "pify": "^3.0.0",
+    "remark": "^8.0.0",
+    "remark-autolink-headings": "^5.0.0",
+    "remark-github": "^7.0.2",
+    "remark-highlight.js": "^5.0.0",
+    "remark-html": "^6.0.1",
+    "remark-inline-links": "^3.0.4",
+    "remark-slug": "^4.2.3"
   }
 }
