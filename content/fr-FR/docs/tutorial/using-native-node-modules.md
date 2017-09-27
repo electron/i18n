@@ -6,11 +6,11 @@ Les modules natifs de Node sont pris en charge par Electron, mais étant donné 
 
 Il y a trois façons d'installer des modules natifs :
 
-### À l’aide de `npm`
+### À l'aide de `npm`
 
 En définissant quelques variables d’environnement, vous pouvez utiliser `npm` pour installer des modules directement.
 
-Un exemple d’installation de toutes les dépendances pour Electron:
+Un exemple d'installation de toutes les dépendances pour Electron:
 
 ```bash
 # Version d'Electron.

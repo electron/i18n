@@ -1,6 +1,6 @@
 # `window.open` Function
 
-> Open a new window and load a URL.
+> Ouvre une nouvelle fenêtre et charge une URL.
 
 When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
@@ -14,7 +14,7 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 * `frameName` String (facultatif)
 * `features` String (facultatif)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Retourne [`BrowserWindowProxy`](browser-window-proxy.md) - Créer une nouvelle fenêtre et retourne une instance de la classe `BrowserWindowProxy`.
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
@@ -32,7 +32,7 @@ The `features` string follows the format of standard browser, but each feature h
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
-### Using Chrome's `window.open()` implementation
+### Utiliser l'implémentation `window.open()` de Chrome
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
@@ -44,7 +44,7 @@ This option can also be set on `<webview>` tags as well:
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+La création du `BrowserWindow` est personnalisable via un événement `new-window` de `WebContents`.
 
 ```javascript
 // main process
@@ -57,7 +57,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // Ouvre la fenêtre comme fenêtre modale
     event.preventDefault()
     Object.assign(options, {
       modal: true,

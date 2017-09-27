@@ -16,15 +16,15 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
     * `capsule` - Le contrôle s’affiche selon le style capsule
     * `small-square` - Le contrôle est affiché en utilisant le style petit carré.
     * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas.
-  * `mode` String - (optional) The selection mode of the control: 
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment 
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+  * `mode` String - (facultatif) Le mode sélection du contrôle : 
+    * `single` - Par défaut. Un élément sélectionné à la fois, en sélectionner un va désélectionner l'élément précédemment sélectionné.
+    * `multiple` - Plusieurs éléments peuvent être sélectionnés simultanément.
+    * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif.
+  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un tableau de segments à placer dans ce contrôle.
+  * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. Lorsque le mode est multiple, cela sera le dernier élément sélectionné.
+  * `change` Function - Appelé lorsque l'utilisateur sélectionne un nouveau segment 
+    * `selectedIndex` Integer - L'index du segment que l'utilisateur a sélectionné.
+    * `isSelected` Boolean - Si après la selection de l'utilisateur, le segment est selectionné ou non.
 
 ### Propriétés d'instance
 
@@ -32,12 +32,12 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarSegme
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Un `String` représentant le texte du contrôle actuel. Changer cette valeur met à jour immédiatement le contrôle dans la touch bar.
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Un tableau de `SegmentedControlSegment[]`, qui représente les segments dans ce contrôle. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Changer une propriété dans le tableau **ne met pas à jour la touch bar**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+Un `Integer` qui représente le segment sélectionné. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Une interaction utilisateur avec la touch bar mettra à jour cette valeur automatiquement.

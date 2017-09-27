@@ -1,10 +1,10 @@
 ## Classe : IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> Gère les réponses aux requêtes HTTP/HTTPS.
 
 Processus : [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` Implémente l'interface [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) et est donc un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### Événements d’instance
 
@@ -12,54 +12,54 @@ Processus : [Main](../glossary.md#main-process)
 
 Retourne :
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Un segment de données du corps de réponse.
 
-The `data` event is the usual method of transferring response data into applicative code.
+L'événement `data` est la méthode habituelle de transfert des données de réponse dans le code applicatif.
 
 #### Événement : 'end'
 
-Indicates that response body has ended.
+Indique que le corps de réponse est terminée.
 
 #### Événement : 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Émis lorsqu’une requête a été annulée lors d’une transaction HTTP en cours.
 
 #### Événement : 'error'
 
 Retourne :
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Error - Retourne généralement une chaîne de caractères d’erreur identifiant les causes d’échec.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Émis lorsqu’une erreur s’est produite pendant le transfert d’événements de données de réponse. Par exemple, si le serveur ferme la connexion alors que la réponse est toujours en transfert, un événement `error` retentit sur l’objet de réponse et un événement `close` suivra par la suite sur l’objet de la demande.
 
 ### Propriétés d'instance
 
-An `IncomingMessage` instance has the following readable properties:
+Une instance `IncomingMessage` possède les propriétés suivantes :
 
 #### `response.statusCode`
 
-An Integer indicating the HTTP response status code.
+Un entier indiquant le code d'état de la réponse HTTP.
 
 #### `response.statusMessage`
 
-A String representing the HTTP status message.
+Une chaîne de caractère représentant le message d'état HTTP.
 
 #### `response.headers`
 
-An Object representing the response HTTP headers. The `headers` object is formatted as follows:
+Un objet représentant les en-têtes de la réponse HTTP. L'objet d'`en-têtes` est formaté comme suit :
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Tous les noms d’en-têtes sont en minuscules.
+* Chaque nom d’en-tête créer une propriété de tableau sur l’objet d'en-têtes.
+* Chaque valeur d'en-tête est ajouté dans le tableau associé à son nom d'en-tête.
 
 #### `response.httpVersion`
 
-A String indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Une chaîne de caractère indiquant le numéro de version du protocole HTTP. Les valeurs habituelles sont '1.0' ou '1.1'. De plus, `httpVersionMajor` et `httpVersionMinor` sont deux propriétés entières lisibles qui retournent respectivement les numéros de version principale et secondaire de HTTP.
 
 #### `response.httpVersionMajor`
 
-An Integer indicating the HTTP protocol major version number.
+Un entier indiquant le numéro de version majeur du protocol HTTP.
 
 #### `response.httpVersionMinor`
 
-An Integer indicating the HTTP protocol minor version number.
+Un entier indiquant le numéro de version mineur du protocol HTTP.
