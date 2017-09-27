@@ -7,6 +7,6 @@
 * `subject` [CertificatePrincipal](certificate-principal.md) - Assunto principal
 * `subjectName` String - Nome comum do sujeito
 * `serialNumber` String - Uma valor Hex representado por uma string
-* `validStart` Number - Start date of the certificate being valid in seconds
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `validStart` Number - Data do inicio de validade do certificado em segundos
+* `validExpiry` Number - Data do fim da validade do certificado em segundos
+* `fingerprint` String - Impressão digital do certificado
