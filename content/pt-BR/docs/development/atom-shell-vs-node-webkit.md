@@ -2,17 +2,17 @@
 
 **Nota: Anteriormente o Electron era chamado de Atom Shell.**
 
-Como o NW.JS, o Electron fornece uma plataforma para escrever aplicações desktops com JavaScript e HTML, e tem também integração com o Node, permitindo acesso no sistema das páginas webs.
+Como o NW.JS, o Electron fornece uma plataforma para escrever aplicações desktops com JavaScript e HTML, e também tem integração com o Node, permitindo acesso no sistema das páginas webs.
 
 Mas existe também uma diferença fundamental entre os dois projetos que faz com que o Electron seja um pouco diferente do NW.js:
 
-**1. Ponto de entrada da aplicação**
+**1. Ponto de Entrada da Aplicação**
 
-No NW.js o ponto de entrada principal da aplicação é uma página web. Você especifica uma URL da página principal no arquivo package.json e a mesma é aberta em um navegador como a janela principal da aplicação.
+No NW.js o ponto de entrada principal da aplicação é uma página web. Você especifica uma URL da página principal no arquivo `package.json` e a mesma é aberta em um navegador como a janela principal da aplicação.
 
 No Electron, o ponto de entrada é um arquivo JavaScript. Ao invés de fornecer uma URL, você cria uma janela do navegador e carrega um arquivo HTML usando a API. Você também pode "ouvir" eventos das janelas para decidir quando parar a aplicação.
 
-Electron funciona como o Node.js em tempo de execução. As APIs do Electron são de níveis baixo, você pode usa-las em um navegador no lugar do PhantomJS.
+Electron funciona como o Node.js em tempo de execução. As APIs do Electron são de níveis baixo, você pode usa-las em um navegador no lugar do [PhantomJS](http://phantomjs.org/).
 
 **2. Configurar o Sistema**
 
