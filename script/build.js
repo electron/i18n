@@ -46,6 +46,7 @@ async function parseFile (file) {
 
   file.href = path.join('/docs', file.category, file.slug)
 
+  // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
 
   // convenience booleans for use in templates
@@ -57,10 +58,10 @@ async function parseFile (file) {
   // parse markdown
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
   const parsed = await hubdown(file.markdown)
-  file.html = parsed.contents
+  file.html = parsed.content
 
   // derive props from the HTML
-  const $ = cheerio.load(file.html)
+  const $ = cheerio.load(file.html || '')
   file.title = $('h1').text()
   file.description = $('blockquote').text()
 
