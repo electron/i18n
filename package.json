@@ -36,6 +36,7 @@
     "stats": "script/stats.js",
     "build": "script/build.js",
     "test": "mocha && standard --fix",
+    "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
     "pretest": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
