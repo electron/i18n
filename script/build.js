@@ -20,11 +20,13 @@ const categoryNames = {
 }
 
 async function parseDocs () {
-  return Promise.all(
-    walk.entries(contentDir)
-      .filter(file => /\.md$/.test(file.relativePath))
-      .map(async (file) => parseFile(file))
-  )
+  console.time('parsed docs in')
+  const markdownFiles = walk.entries(contentDir)
+    .filter(file => file.relativePath.endsWith('.md'))
+  console.log(`processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`)
+  const docs = await Promise.all(markdownFiles.map(parseFile))
+  console.timeEnd('parsed docs in')
+  return docs
 }
 
 async function parseFile (file) {
