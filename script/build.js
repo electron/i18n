@@ -6,7 +6,7 @@ const walk = require('walk-sync')
 const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
-const markdown = require('../lib/markdown')
+const hubdown = require('hubdown')
 const locales = require('../lib/locales')
 const defaultLocale = 'en-US'
 
@@ -20,11 +20,13 @@ const categoryNames = {
 }
 
 async function parseDocs () {
-  return Promise.all(
-    walk.entries(contentDir)
-      .filter(file => /\.md$/.test(file.relativePath))
-      .map(async (file) => parseFile(file))
-  )
+  console.time('parsed docs in')
+  const markdownFiles = walk.entries(contentDir)
+    .filter(file => file.relativePath.endsWith('.md'))
+  console.log(`processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`)
+  const docs = await Promise.all(markdownFiles.map(parseFile))
+  console.timeEnd('parsed docs in')
+  return docs
 }
 
 async function parseFile (file) {
@@ -44,6 +46,7 @@ async function parseFile (file) {
 
   file.href = path.join('/docs', file.category, file.slug)
 
+  // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
 
   // convenience booleans for use in templates
@@ -54,11 +57,11 @@ async function parseFile (file) {
 
   // parse markdown
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
-  const parsed = await markdown(file.markdown)
-  file.html = parsed.contents
+  const parsed = await hubdown(file.markdown)
+  file.html = parsed.content
 
   // derive props from the HTML
-  const $ = cheerio.load(file.html)
+  const $ = cheerio.load(file.html || '')
   file.title = $('h1').text()
   file.description = $('blockquote').text()
 
