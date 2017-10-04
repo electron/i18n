@@ -392,7 +392,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
@@ -412,7 +412,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Efface la liste des documents récents.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
