@@ -1,10 +1,10 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> 启用自动更新来更新程序自己
 
 线程：[主线程](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+` autoUpdater`模块提供一个借口给[ Squirrel](https://github.com/Squirrel)框架
 
 You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
 
