@@ -127,7 +127,7 @@ Infine il file `index. html` è la pagina web che si desidera visualizzare:
 
 ## Esegui la tua applicazione
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Una volta creato i tuoi file `main.js`,`index.html` e il `package.json` iniziale, probabilmente vorrai provare ad avviare la tua applicazione in locale per testarla ed essere sicuro che si avvii come previsto.
 
 ### `electron`
 
