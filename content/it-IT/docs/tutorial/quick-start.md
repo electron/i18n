@@ -131,15 +131,15 @@ Una volta creato i tuoi file `main.js`,`index.html` e il `package.json` iniziale
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) è un modulo di `npm` che contiene le versioni pre-compilate di Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Se le hai installate globalmente con `npm`, allora nella directory della tua app ti basta eseguire il comando seguente:
 
 ```bash
 electron .
 ```
 
-If you've installed it locally, then run:
+Se invece l'hai installato localmente esegui:
 
 #### macOS / Linux
 
@@ -173,7 +173,7 @@ $ ./electron/electron your-app/
     $ .\electron\electron.exe your-app\
     
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` è parte del Electron's release package, lo puoi scaricare da [qui](https://github.com/electron/electron/releases).
 
 ### Run as a distribution
 
@@ -186,13 +186,13 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
 ```bash
-# Clone the repository
+# Clona la repository
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Vai nella repository
 $ cd electron-quick-start
-# Install dependencies
+# Installa le dependencies
 $ npm install
-# Run the app
+# Avvia l'app
 $ npm start
 ```
 
