@@ -175,9 +175,9 @@ $ ./electron/electron your-app/
 
 `Electron.app` è parte del Electron's release package, lo puoi scaricare da [qui](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Esegui come distribuzione
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Dopo aver finito di scrivere la tua app puoi creare una distribuzione seguendo la guida: [Application Distribution](./application-distribution.md) e eseguire l'app.
 
 ### Prova questo esempio
 
