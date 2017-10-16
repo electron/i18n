@@ -152,9 +152,9 @@ $ ./node_modules/.bin/electron .
     $ .\node_modules\.bin\electron .
     
 
-### Manually Downloaded Electron Binary
+### File binario scaricato manualemente
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Se hai scaricato Electron manualmente, è possibile utilizzare anche il file binario incluso per eseguire l'app direttamente.
 
 #### macOS
 
@@ -179,9 +179,9 @@ $ ./electron/electron your-app/
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### Prova questo esempio
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clona ed esegui questo tutorial usando la repository:[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
