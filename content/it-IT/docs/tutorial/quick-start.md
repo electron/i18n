@@ -183,7 +183,7 @@ After you're done writing your app, you can create a distribution by following t
 
 Clona ed esegui questo tutorial usando la repository:[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Nota**: Per essere eseguita richiede [Git](https://git-scm.com) e [Node.js](https://nodejs.org/en/download/) (che include [npm](https://npmjs.org)) sul tuo sistema.
 
 ```bash
 # Clona la repository
@@ -196,4 +196,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+Per altre app di esempio guarda la [lista di boilerplates](https://electron.atom.io/community/#boilerplates) creata dalla fantastica community di Electron.
