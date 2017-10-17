@@ -12,10 +12,10 @@ app.methods.focus.description: >-
 app.methods.hide.description: 隐藏所有的应用窗口，不是最小化.
 app.methods.show.description: >-
   隐藏后重新显示所有的窗口，不会自动选中他们。
-app.methods.getAppPath.returns.description: The current application directory.
-app.methods.getPath.description: 'You can request the following paths by the name:'
+app.methods.getAppPath.returns.description: 当前应用程序目录.
+app.methods.getPath.description: '你可以通过名称请求以下路径:'
 app.methods.getPath.returns.description: >-
-  A path to a special directory or file associated with name. On failure an Error is thrown.
+  与名称相关联的特殊目录或文件的路径。 在失败时抛出错误。
 app.methods.getFileIcon.description: >-
   Fetches a path's associated icon. On Windows, there a 2 kinds of icons: On Linux and macOS, icons depend on the application associated with file mime type.
 app.methods.setPath.description: >-
@@ -36,25 +36,25 @@ app.methods.clearRecentDocuments.description: Clears the recent documents list.
 app.methods.setAsDefaultProtocolClient.description: >-
   This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with your-protocol:// will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter. On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches. Note: On macOS, you can only register protocols that have been added to your app's info.plist, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 app.methods.setAsDefaultProtocolClient.parameters.protocol.description: >-
-  The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-app.methods.setAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.setAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
-app.methods.setAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+  你的协议名称， 不带 `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+app.methods.setAsDefaultProtocolClient.parameters.path.description: 默认到 `process.execPath`
+app.methods.setAsDefaultProtocolClient.parameters.args.description: 默认为空数组
+app.methods.setAsDefaultProtocolClient.returns.description: 不论是否调用成功.
 app.methods.removeAsDefaultProtocolClient.description: >-
   This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.removeAsDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.removeAsDefaultProtocolClient.parameters.args.description: Defaults to an empty array
-app.methods.removeAsDefaultProtocolClient.returns.description: Whether the call succeeded.
+app.methods.removeAsDefaultProtocolClient.parameters.protocol.description: '你的协议名称， 不带 `://`.'
+app.methods.removeAsDefaultProtocolClient.parameters.path.description: 默认到 `process.execPath`
+app.methods.removeAsDefaultProtocolClient.parameters.args.description: 默认为空数组
+app.methods.removeAsDefaultProtocolClient.returns.description: 不论是否调用成功.
 app.methods.isDefaultProtocolClient.description: >-
   This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-app.methods.isDefaultProtocolClient.parameters.protocol.description: 'The name of your protocol, without `://`.'
-app.methods.isDefaultProtocolClient.parameters.path.description: Defaults to `process.execPath`
-app.methods.isDefaultProtocolClient.parameters.args.description: Defaults to an empty array
+app.methods.isDefaultProtocolClient.parameters.protocol.description: '你的协议名称， 不带 `://`.'
+app.methods.isDefaultProtocolClient.parameters.path.description: 默认到 `process.execPath`
+app.methods.isDefaultProtocolClient.parameters.args.description: 默认为空数组
 app.methods.setUserTasks.description: >-
   Adds tasks to the Tasks category of the JumpList on Windows. tasks is an array of Task objects. Note: If you'd like to customize the Jump List even more use app.setJumpList(categories) instead.
-app.methods.setUserTasks.parameters.tasks.description: Array of `Task` objects
-app.methods.setUserTasks.returns.description: Whether the call succeeded.
+app.methods.setUserTasks.parameters.tasks.description: `Task` 对象的数组
+app.methods.setUserTasks.returns.description: 不论是否调用成功.
 app.methods.getJumpListSettings.returns.properties.0.description: >-
   The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the ).
 app.methods.getJumpListSettings.returns.properties.1.description: >-
@@ -88,33 +88,33 @@ app.methods.getAppMemoryInfo.description: >-
   Returns ProcessMemoryInfo[]:  Array of ProcessMemoryInfo objects that correspond to memory usage statistics of all the processes associated with the app.
 app.methods.setBadgeCount.description: >-
   Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
-app.methods.setBadgeCount.returns.description: Whether the call succeeded.
+app.methods.setBadgeCount.returns.description: 不论是否调用成功.
 app.methods.getBadgeCount.returns.description: The current value displayed in the counter badge.
 app.methods.isUnityRunning.returns.description: Whether the current desktop environment is Unity launcher.
 app.methods.getLoginItemSettings.description: >-
   If you provided path and args options to app.setLoginItemSettings then you need to pass the same arguments here for openAtLogin to be set correctly. Note: This API has no effect on MAS builds.
 app.methods.getLoginItemSettings.parameters.options.properties.path.description: The executable path to compare against. Defaults to process.execPath.
-app.methods.getLoginItemSettings.parameters.options.properties.args.description: The command-line arguments to compare against. Defaults to an empty array.
+app.methods.getLoginItemSettings.parameters.options.properties.args.description: The command-line arguments to compare against. 默认为空数组.
 app.methods.getLoginItemSettings.returns.properties.0.properties.0.description: The executable path to compare against. Defaults to process.execPath.
-app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: The command-line arguments to compare against. Defaults to an empty array.
+app.methods.getLoginItemSettings.returns.properties.0.properties.1.description: The command-line arguments to compare against. 默认为空数组.
 app.methods.getLoginItemSettings.returns.properties.1.description: true if the app is set to open at login.
 app.methods.getLoginItemSettings.returns.properties.2.description: >-
-  true if the app is set to open as hidden at login. This setting is only supported on macOS.
+  true if the app is set to open as hidden at login. 这个设置只支持 macOS.
 app.methods.getLoginItemSettings.returns.properties.3.description: >-
-  true if the app was opened at login automatically. This setting is only supported on macOS.
+  true if the app was opened at login automatically. 这个设置只支持 macOS.
 app.methods.getLoginItemSettings.returns.properties.4.description: >-
-  true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+  true if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. 这个设置只支持 macOS.
 app.methods.getLoginItemSettings.returns.properties.5.description: >-
-  true if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+  true if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. 这个设置只支持 macOS.
 app.methods.setLoginItemSettings.description: >-
   Set the app's login item settings. To work with Electron's autoUpdater on Windows, which uses Squirrel, you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example: Note: This API has no effect on MAS builds.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.description: >-
   true to open the app at login, false to remove the app as a login item. Defaults to false.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
-  true to open the app as hidden. Defaults to false. The user can edit this setting from the System Preferences so app.getLoginItemStatus().wasOpenedAsHidden should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+  true to open the app as hidden. Defaults to false. The user can edit this setting from the System Preferences so app.getLoginItemStatus().wasOpenedAsHidden should be checked when the app is opened to know the current value. 这个设置只支持 macOS.
 app.methods.setLoginItemSettings.parameters.path.description: The executable to launch at login. Defaults to `process.execPath`.
 app.methods.setLoginItemSettings.parameters.args.description: >-
-  The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  The command-line arguments to pass to the executable. 默认为空数组. Take care to wrap paths in quotes.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
   true if Chrome's accessibility support is enabled, false otherwise. This API will return true if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 app.methods.setAboutPanelOptions.description: >-
@@ -1966,35 +1966,35 @@ webviewTag.domEvents.enter-html-full-screen.description: Fired when page enters 
 webviewTag.domEvents.leave-html-full-screen.description: Fired when page leaves fullscreen triggered by HTML API.
 webviewTag.domEvents.console-message.description: >-
   Fired when the guest window logs a console message. The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
-webviewTag.domEvents.found-in-page.description: Fired when a result is available for webview.findInPage request.
-webviewTag.domEvents.found-in-page.returns.result.properties.activeMatchOrdinal.description: Position of the active match.
-webviewTag.domEvents.found-in-page.returns.result.properties.matches.description: Number of Matches.
-webviewTag.domEvents.found-in-page.returns.result.properties.selectionArea.description: Coordinates of first match region.
+webviewTag.domEvents.found-in-page.description: 当结果可用于 webview.findInPage 请求时触发.
+webviewTag.domEvents.found-in-page.returns.result.properties.activeMatchOrdinal.description: 现行匹配的位置.
+webviewTag.domEvents.found-in-page.returns.result.properties.matches.description: 匹配的数量.
+webviewTag.domEvents.found-in-page.returns.result.properties.selectionArea.description: 第一匹配区域的坐标.
 webviewTag.domEvents.new-window.description: >-
-  Fired when the guest page attempts to open a new browser window. The following example code opens the new url in system's default browser.
+  访客页面尝试打开新的浏览器窗口时触发. 以下示例代码在系统的默认浏览器中打开新的 URL.
 webviewTag.domEvents.new-window.returns.disposition.description: >-
-  Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-webviewTag.domEvents.new-window.returns.options.description: The options which should be used for creating the new `BrowserWindow`.
+  可以是 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 和 `other`.
+webviewTag.domEvents.new-window.returns.options.description: 应该用于创建新的 `BrowserWindow` 的选项.
 webviewTag.domEvents.will-navigate.description: >-
-  Emitted when a user or the page wants to start navigation. It can happen when the window.location object is changed or a user clicks a link in the page. This event will not emit when the navigation is started programmatically with APIs like <webview>.loadURL and <webview>.back. It is also not emitted during in-page navigation, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose. Calling event.preventDefault() does NOT have any effect.
+  当用户或页面将要开始导航时触发. 当 window.location 对象更改或用户单击页面中的链接时，可能会发生这种情况. 当导航使用诸如 <webview>.loadURL 和 <webview>.back 的 API 以编程方式启动时，此事件不会触发. 在页内导航期间也不会触发，例如单击锚点链接或更新 window.location.hash。 为此使用 did-navigate-in-page 事件. 调用 event.preventDefault() 不会有任何效果.
 webviewTag.domEvents.did-navigate.description: >-
-  Emitted when a navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose.
+  导航完成后触发. 页内导航不会发送此事件，例如单击锚链接或更新 window.location.hash. 为此使用 did-navigate-in-page 事件.
 webviewTag.domEvents.did-navigate-in-page.description: >-
-  Emitted when an in-page navigation happened. When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM hashchange event is triggered.
+  当页内导航发生时触发. 当页内导航发生时，页面网址更改不会引起页面外部导航。发生这种情况的例子是当锚点链接被点击时或者当 DOM hashchange 事件被触发时。
 webviewTag.domEvents.close.description: >-
-  Fired when the guest page attempts to close itself. The following example code navigates the webview to about:blank when the guest attempts to close itself.
+  访客页面尝试关闭时触发. 以下示例代码将 webview 导航到关于: 当访客试图关闭自己时遮住.
 webviewTag.domEvents.ipc-message.description: >-
-  Fired when the guest page has sent an asynchronous message to embedder page. With sendToHost method and ipc-message event you can easily communicate between guest page and embedder page:
-webviewTag.domEvents.crashed.description: Fired when the renderer process is crashed.
-webviewTag.domEvents.gpu-crashed.description: Fired when the gpu process is crashed.
-webviewTag.domEvents.plugin-crashed.description: Fired when a plugin process is crashed.
-webviewTag.domEvents.destroyed.description: Fired when the WebContents is destroyed.
-webviewTag.domEvents.media-started-playing.description: Emitted when media starts playing.
-webviewTag.domEvents.media-paused.description: Emitted when media is paused or done playing.
+  访客页面向嵌入页面发送异步消息时触发. 使用 sendToHost 方法和 ipc-message 事件，你可以轻松地在访客页面和嵌入页面之间进行通信:
+webviewTag.domEvents.crashed.description: 当渲染器进程崩溃时触发.
+webviewTag.domEvents.gpu-crashed.description: 当 gpu 进程崩溃时触发.
+webviewTag.domEvents.plugin-crashed.description: 当插件进程崩溃时触发.
+webviewTag.domEvents.destroyed.description: 当 WebContents 销毁时被触发.
+webviewTag.domEvents.media-started-playing.description: 当媒体开始播放时触发.
+webviewTag.domEvents.media-paused.description: 当媒体暂停或播放完毕后触发.
 webviewTag.domEvents.did-change-theme-color.description: >-
-  Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+  当页面的主题颜色发生变化时触发。 这通常是由于遇到元标记:
 webviewTag.domEvents.update-target-url.description: >-
-  Emitted when mouse moves over a link or the keyboard moves the focus to a link.
-webviewTag.domEvents.devtools-opened.description: Emitted when DevTools is opened.
-webviewTag.domEvents.devtools-closed.description: Emitted when DevTools is closed.
-webviewTag.domEvents.devtools-focused.description: Emitted when DevTools is focused / opened.
+  当鼠标移动到链接或键盘焦点移动到链接上时触发.
+webviewTag.domEvents.devtools-opened.description: 当 DevTools 打开时触发.
+webviewTag.domEvents.devtools-closed.description: 当 DevTools 关闭时触发.
+webviewTag.domEvents.devtools-focused.description: 当 DevTools 获得焦点 / 打开时触发.
