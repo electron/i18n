@@ -13,7 +13,7 @@ Hay preguntas que se hacen a frecuentemente. Revise la siguiente liga antes de r
 * [Seguridad](tutorial/security.md)
 * [Versionamiento de Electron](tutorial/electron-versioning.md)
 * [Distribución de la aplicación](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
+* [Guía de publicación en la Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store Guide](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
 * [Using Native Node Modules](tutorial/using-native-node-modules.md)
