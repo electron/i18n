@@ -39,6 +39,17 @@ describe('i18n.website', () => {
 })
 
 describe('API Docs', () => {
+  it('has a title for every doc', () => {
+    const locales = Object.keys(i18n.locales)
+    locales.forEach(locale => {
+      const docs = Object.keys(i18n.docs[locale]).map(key => i18n.docs[locale][key])
+      const titles = docs.map(doc => doc.title)
+      const hasTitle = (title) => title !== ''
+
+      titles.every(hasTitle).should.equal(true)
+    })
+  })
+
   it('includes all expected properties', () => {
     const app = i18n.docs['en-US']['/docs/api/app']
     app.isApiDoc.should.equal(true)
