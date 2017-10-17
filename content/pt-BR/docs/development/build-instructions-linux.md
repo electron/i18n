@@ -40,7 +40,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Outras distribuições podem oferecer estas bibliotecas para serem instaladas através de gerenciadores de pacote, como o pacman. Ou você pode compilar o código fonte.
 
-## Obtendo o código fonte
+## Obtendo o Código Fonte
 
 ```bash
 $ git clone https://github.com/electron/electron.git
@@ -78,7 +78,7 @@ Se você deseja de compilar tanto para `Release` e `Debug`:
 $ ./script/build.py
 ```
 
-O script irá gerar um executável do Electron muito grande para ser gravado no diretório `/R`. O tamanho do arquivo é superior a 1.3 gigabytes. Isso acontece porque o binário contém sinais de depuração. Para reduzir o tamanho do arquivo, execute o script `create-dist.py`:
+O script irá gerar um executável do Electron muito grande para ser gravado no diretório `out/R`. O tamanho do arquivo é superior a 1.3 gigabytes. Isso acontece porque o binário contém sinais de depuração. Para reduzir o tamanho do arquivo, execute o script `create-dist.py`:
 
 ```bash
 $ ./script/create-dist.py

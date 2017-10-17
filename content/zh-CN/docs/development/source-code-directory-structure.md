@@ -61,7 +61,7 @@ Electron信息库有一些被提供的依赖, 在 [/vendor](https://github.com/e
 ```sh
 $ git status
 
-    modified:   vendor/brightray (new commits)
+    modified:   vendor/libchromiumcontent (new commits)
     modified:   vendor/node (new commits)
 ```
 

@@ -33,10 +33,10 @@ Hầu hết các bản phát hành sẽ phát hành ở cấp `patch`. Nâng c�
 
 ## Chỉnh sửa dự thảo phát hành phiên bản
 
-  1. Ghé thăm [trang của các bản phát hành](https://github.com/electron/electron/releases) và bạn sẽ thấy một dự thảo phát hành mới với một giữ chỗ cho các ghi chú phát hành.
-  2. Chỉnh sửa bản phát hành và thêm ghi chú phát hành.
-  3. Nhấn vào 'Save draft'. **Lòng không nhấn vào 'Publish'!**
-  4. Chờ đợi cho tất cả các bản xây dựng thành công. :hourglass_flowing_sand:
+1. Ghé thăm [trang của các bản phát hành](https://github.com/electron/electron/releases) và bạn sẽ thấy một dự thảo phát hành mới với một giữ chỗ cho các ghi chú phát hành.
+2. Chỉnh sửa bản phát hành và thêm ghi chú phát hành.
+3. Nhấn vào 'Save draft'. **Lòng không nhấn vào 'Publish'!**
+4. Chờ đợi cho tất cả các bản xây dựng thành công. :hourglass_flowing_sand:
 
 ## Gộp nhánh tạm thời
 

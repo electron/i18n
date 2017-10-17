@@ -49,7 +49,9 @@ window.addEventListener('keyup', doSomething, true)
 
 3番目のパラメータ`true`に注意してください。これは、リスナーが他のリスナーの前に常にキー押下を受け取り、`stopPropagation()`を呼び出すことができないことを意味します。
 
-実行したくない場合は[mousetrap](https://github.com/ccampbell/mousetrap)などキーを検出高度なマニュアル ショートカット解析を行うライブラリがあります。
+The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+
+If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

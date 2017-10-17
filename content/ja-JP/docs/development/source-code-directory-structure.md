@@ -60,7 +60,7 @@ The Electron repository has a few vendored dependencies, found in the [/vendor](
 ```sh
 $ git status
 
-    modified:   vendor/brightray (new commits)
+    modified:   vendor/libchromiumcontent (new commits)
     modified:   vendor/node (new commits)
 ```
 

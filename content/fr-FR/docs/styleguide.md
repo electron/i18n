@@ -8,7 +8,7 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 * Les chapitres dans la même pages doit avoir un niveau de titre `##`.
 * Les sous-chapitres doivent voir le nombre de `#` augmenter dans le titre selon leur niveau d'imbrication.
 * Tous les mots dans le titre de la page doivent être capitalisés, à l'exception des conjonctions comme « de » et « et ».
-* Seul le premier mot d’un titre de chapitre doit être capitalisé.
+* Seul le premier mot d'un titre de chapitre doit être capitalisé.
 
 Utilisez `Démarrage Rapide` comme exemple :
 
@@ -38,7 +38,7 @@ Utilisez `Démarrage Rapide` comme exemple :
 ...
 ```
 
-Pour les références de l’API, ce sont des exceptions à cette règle.
+Pour les références de l'API, ce sont des exceptions à cette règle.
 
 ## Règles pour le markdown
 
@@ -54,7 +54,7 @@ Pour les références de l’API, ce sont des exceptions à cette règle.
 
 ## Références de l'API
 
-Les règles suivantes s’appliquent uniquement à la documentation des APIs.
+Les règles suivantes s'appliquent uniquement à la documentation des APIs.
 
 ### Titre de la page
 
@@ -94,9 +94,9 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Static Methods`.
-* Les [Méthodes d’instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Instance Methods`.
+* Les [Méthodes d'instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Méthodes d'instance`.
 * Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
-  * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l’aide d’un signe deux-points suivi d’un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
+  * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l'aide d'un signe deux-points suivi d'un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Les événements d'instances doivent être listés sous un chapitre `### Instance Events`.
 * Les propriétés d'instances doivent être listés sous un chapitre `### Instance Properties` . 
   * Les propriétés d'instances doivent commencer par "[Type de la propriété] ..."
@@ -154,7 +154,7 @@ Pour les modules, le `objectName` est le nom du module. Pour les classes, cela d
 
 Par exemple, les méthodes de la classe `Session` sous le module `session` doivent utiliser `ses` pour le `objectName`.
 
-Les arguments optionnels sont notées par les crochets `[]` entourant l’argument facultatif ainsi que la virgule nécessaire si cet argument facultatif suit un autre argument :
+Les arguments optionnels sont notées par les crochets `[]` entourant l'argument facultatif ainsi que la virgule nécessaire si cet argument facultatif suit un autre argument :
 
     required[, optional]
     
@@ -194,7 +194,7 @@ Returns:
 
 Ce titre peut être au niveau `###` ou `####` si c'est un événement d'un module ou d'une classes.
 
-Les arguments d’un événement suivent les mêmes règles que les méthodes.
+Les arguments d'un événement suivent les mêmes règles que les méthodes.
 
 ### Propriétés
 
@@ -206,7 +206,7 @@ Le chapitre des propriétés doit être sous la forme suivante :
 ...
 ```
 
-Ce titre peut être au niveau `###` ou `####` si c'est une propriété d’une classe ou d'un module.
+Ce titre peut être au niveau `###` ou `####` si c'est une propriété d'une classe ou d'un module.
 
 ## Traductions de la documentation
 
@@ -219,4 +219,4 @@ Pour ajouter une autre langue (ou partiellement) :
 * Mettez à jour le `README.md` avec votre langue pour ajouter un lien redirigeant vers le répertoire contenant les traductions.
 * Ajouter un lien vers votre répertoire de traduction sur le [README](https://github.com/electron/electron#documentation-translations) principal d'Electron.
 
-Notez que les fichiers dans le répertoire `docs-translations` doivent inclure uniquement les fichiers traduits, les fichiers d’origine ne doivent pas être copiées là.
+Notez que les fichiers dans le répertoire `docs-translations` doivent inclure uniquement les fichiers traduits, les fichiers d'origine ne doivent pas être copiées là.

@@ -62,7 +62,7 @@ app.methods.setJumpList.description: >-
   Définit ou supprime une liste de raccourcis personnalisés pour l’application et retourne l’une des chaînes suivantes : si categories est null la précédente liste de raccourcis personnalisé (s'il y en a une) sera remplacée par la liste de raccourcis standard de l’application (gérée par Windows). Remarque : Si un objet JumpListCategory n’a ni la propriétés type ni la propriétés name de définit, alors son type sera tasks. Si seulement la propriété name est définit, alors la propriété type sera indiqué comme custom. Remarque : Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows ne permettra pas qu'un élément supprimé soit rajouté dans une catégorie personnalisée avant le prochain appel à app.setJumpList(categories). Toute tentative de rajouter un élément supprimé dans une catégorie personnalisée avant cela se résultera par la suppression totale de la catégorie personnalisée de la liste de raccourcis. La liste d’éléments supprimés peut être obtenue à l’aide de app.getJumpListSettings(). Voici un exemple très simple pour créer une liste de raccourcis personnalisés :
 app.methods.setJumpList.parameters.categories.description: ou `null` Tableau d'objets `JumpListCategory`.
 app.methods.makeSingleInstance.description: >-
-  This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit. callback will be called with callback(argv, workingDirectory) when a second instance has been executed. argv is an Array of the second instance's command line arguments, and workingDirectory is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized. The callback is guaranteed to be executed after the ready event of app gets emitted. This method returns false if your process is the primary instance of the application and your app should continue loading. And returns true if your process has sent its parameters to another instance, and you should immediately quit. On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the open-file and open-url events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance. An example of activating the window of primary instance when a second instance starts:
+  This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit. callback will be called by the first instance with callback(argv, workingDirectory) when a second instance has been executed. argv is an Array of the second instance's command line arguments, and workingDirectory is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized. The callback is guaranteed to be executed after the ready event of app gets emitted. This method returns false if your process is the primary instance of the application and your app should continue loading. And returns true if your process has sent its parameters to another instance, and you should immediately quit. On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the open-file and open-url events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance. An example of activating the window of primary instance when a second instance starts:
 app.methods.makeSingleInstance.parameters.callback.parameters.argv.description: Un tableau d’arguments de ligne de commande de la deuxième instance
 app.methods.makeSingleInstance.parameters.callback.parameters.workingDirectory.description: Répertoire de travail de la deuxième instance
 app.methods.makeSingleInstance.returns.description: '.'
@@ -83,8 +83,13 @@ app.methods.importCertificate.parameters.options.properties.password.description
 app.methods.importCertificate.parameters.callback.parameters.result.description: Résultat de l'importation.
 app.methods.disableHardwareAcceleration.description: >-
   Désactive l'accélération matérielle pour l'application en cours. Cette méthode peut uniquement être appelée avant que l'application soit prête.
-app.methods.getAppMemoryInfo.description: >-
-  Retourne ProcessMemoryInfo[]; Tableau d'objets ProcessMemoryInfo correspondant aux statistiques d'utilisation de mémoire de tous les processus associés à l'application.
+app.methods.disableDomainBlockingFor3DAPIs.description: >-
+  By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour. This method can only be called before app is ready.
+app.methods.getAppMemoryInfo.returns.description: >-
+  Array of ProcessMetric objects that correspond to memory and cpu usage statistics of all the processes associated with the app. Note: This method is deprecated, use app.getAppMetrics() instead.
+app.methods.getAppMetrics.returns.description: >-
+  Array of ProcessMetric objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+app.methods.getGpuFeatureStatus.returns.description: 'The Graphics Feature Status from chrome://gpu/.'
 app.methods.setBadgeCount.description: >-
   Sets the counter badge for current app. Setting the count to 0 will hide the badge. On macOS it shows on the dock icon. On Linux it only works for Unity launcher, Note: Unity launcher requires the existence of a .desktop file to work, for more information please read Desktop Environment Integration.
 app.methods.setBadgeCount.returns.description: Si l’appel a réussi.
@@ -111,9 +116,9 @@ app.methods.setLoginItemSettings.parameters.settings.properties.openAtLogin.desc
   true pour ouvrir l'application lors de la connexion, false pour supprimer l'application comme élément de connexion. false par défaut.
 app.methods.setLoginItemSettings.parameters.settings.properties.openAsHidden.description: >-
   true pour ouvrir l'application comme cachée. Par défaut, false. L'utilisateur peut modifier ce paramètre à partir des Préférences Système afin que app.getLoginItemStatus().wasOpenedAsHidden soit vérifié lorsque l'application est ouverte pour connaître la valeur actuelle. Ce paramètre n'est pris en charge que sur MacOS.
-app.methods.setLoginItemSettings.parameters.path.description: L'exécutable à lancer lors de la connexion. Par défaut, `process.execPath`.
-app.methods.setLoginItemSettings.parameters.args.description: >-
-  Les arguments de ligne de commande à passer à l'exécutable. Par défaut, un array vide. Veillez à mettre les chemins entre guillemets.
+app.methods.setLoginItemSettings.parameters.settings.properties.path.description: The executable to launch at login. Defaults to process.execPath.
+app.methods.setLoginItemSettings.parameters.settings.properties.args.description: >-
+  The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 app.methods.isAccessibilitySupportEnabled.returns.description: >-
   true si la prise en charge de l'accessibilité de Chrome est activé, sinon false. Cette API retourne true si l'utilisation de technologie d'assistance, comme les lecteurs d'écran, a été détectée. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 app.methods.setAboutPanelOptions.description: >-
@@ -123,6 +128,8 @@ app.methods.setAboutPanelOptions.parameters.options.properties.applicationVersio
 app.methods.setAboutPanelOptions.parameters.options.properties.copyright.description: Information sur les droits d'auteur.
 app.methods.setAboutPanelOptions.parameters.options.properties.credits.description: Information sur les crédits.
 app.methods.setAboutPanelOptions.parameters.options.properties.version.description: Numéro de version de l’application.
+app.methods.enableMixedSandbox.description: >-
+  Enables mixed sandbox mode on the app. This method can only be called before app is ready.
 app.events.will-finish-launching.description: >-
   Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler.
 app.events.ready.description: >-
@@ -144,6 +151,8 @@ app.events.continue-activity.description: >-
   Emitted during Handoff when an activity from a different device wants to be resumed. You should call event.preventDefault() if you want to handle this event. A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's Info.plist under the NSUserActivityTypes key.
 app.events.continue-activity.returns.type.description: Une chaine de caractère identifiant de manière unique l’activité. Maps vers NSUserActivity.activityType.
 app.events.continue-activity.returns.userInfo.description: Contains app-specific state stored by the activity on another device.
+app.events.new-window-for-tab.description: >-
+  Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current BrowserWindow has a tabbingIdentifier
 app.events.browser-window-blur.description: Émis lorsqu'un browserWindow est mis en arrière-plan.
 app.events.browser-window-focus.description: Émis lorsqu’un browserWindow arrive au premier-plan.
 app.events.browser-window-created.description: Émis lorsqu'un browserWindow est créé.
@@ -274,65 +283,72 @@ BrowserWindow.constructorMethod.parameters.0.properties.36.description: 'The sty
 BrowserWindow.constructorMethod.parameters.0.properties.36.possibleValues.0.description: Results in the standard gray opaque Mac title bar.
 BrowserWindow.constructorMethod.parameters.0.properties.36.possibleValues.1.description: >-
   Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-BrowserWindow.constructorMethod.parameters.0.properties.36.possibleValues.2.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.36.possibleValues.2.description: 'Deprecated, use <code>hiddenInset</code> instead.'
+BrowserWindow.constructorMethod.parameters.0.properties.36.possibleValues.3.description: >-
   Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
 BrowserWindow.constructorMethod.parameters.0.properties.37.description: >-
-  Use WS_THICKFRAME style for frameless windows on Windows, which adds standard window frame. Setting it to false will remove window shadow and window animations. Default is true.
+  Shows the title in the tile bar in full screen mode on macOS for all titleBarStyle options. Default is false.
 BrowserWindow.constructorMethod.parameters.0.properties.38.description: >-
-  Add a type of vibrancy effect to the window, only on macOS. Can be appearance-based, light, dark, titlebar, selection, menu, popover, sidebar, medium-light or ultra-dark.
+  Use WS_THICKFRAME style for frameless windows on Windows, which adds standard window frame. Setting it to false will remove window shadow and window animations. Default is true.
 BrowserWindow.constructorMethod.parameters.0.properties.39.description: >-
-  Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If true, the window will grow to the preferred width of the web page when zoomed, false will cause it to zoom to the width of the screen. This will also affect the behavior when calling maximize() directly. Default is false.
+  Add a type of vibrancy effect to the window, only on macOS. Can be appearance-based, light, dark, titlebar, selection, menu, popover, sidebar, medium-light or ultra-dark.
 BrowserWindow.constructorMethod.parameters.0.properties.40.description: >-
-  Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together.
-BrowserWindow.constructorMethod.parameters.0.properties.41.description: Settings of web page's features.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.0.description: >-
+  Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If true, the window will grow to the preferred width of the web page when zoomed, false will cause it to zoom to the width of the screen. This will also affect the behavior when calling maximize() directly. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.41.description: >-
+  Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your app and window to receive the new-window-for-tab event.
+BrowserWindow.constructorMethod.parameters.0.properties.42.description: Settings of web page's features.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.0.description: >-
   Whether to enable DevTools. If it is set to false, can not use BrowserWindow.webContents.openDevTools() to open DevTools. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.1.description: Whether node integration is enabled. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.2.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.1.description: Whether node integration is enabled. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.2.description: >-
   Whether node integration is enabled in web workers. Default is false. More about this can be found in .
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.3.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.3.description: >-
   Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example .
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.4.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.4.description: >-
   If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the nodeIntegration option and the APIs available to the preload script are more limited. Read more about the option . This option is currently experimental and may change or be removed in future Electron releases.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.5.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.5.description: >-
   Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the partition option instead, which accepts a partition string. When both session and partition are provided, session will be preferred. Default is the default session.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.6.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.6.description: >-
   Sets the session used by the page according to the session's partition string. If partition starts with persist:, the page will use a persistent session available to all pages in the app with the same partition. If there is no persist: prefix, the page will use an in-memory session. By assigning the same partition, multiple pages can share the same session. Default is the default session.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.7.description: 'The default zoom factor of the page, 3.0 represents 300%. Default is 1.0.'
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.8.description: Enables JavaScript support. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.9.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.7.description: 'The default zoom factor of the page, 3.0 represents 300%. Default is 1.0.'
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.8.description: Enables JavaScript support. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.9.description: >-
   When false, it will disable the same-origin policy (usually using testing websites by people), and set allowRunningInsecureContent to true if this options has not been set by user. Default is true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.10.description: >-
-  Permet à une page https d'exécuter du JavaScript, CSS ou plugins depuis des URL http. False par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.11.description: Permet le support de l’image. True par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.12.description: Rend les éléments TextArea redimensionnable. True par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.13.description: Permet le support de WebGL. True par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.14.description: Permet le support de WebAudio. True par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.15.description: Whether plugins should be enabled. Default is false.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.16.description: Active les fonctionnalités expérimentales de Chromium. False par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.17.description: Active les fonctionnalités expérimentales canvas de Chromium. False par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.18.description: Active le défilement à effet rebond sur macOS. False par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.19.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.10.description: >-
+  Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.11.description: Enables image support. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.12.description: Make TextArea elements resizable. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.13.description: Enables WebGL support. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.14.description: Enables WebAudio support. Default is true.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.15.description: Whether plugins should be enabled. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.16.description: Enables Chromium's experimental features. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.17.description: Enables Chromium's experimental canvas features. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.18.description: Enables scroll bounce (rubber banding) effect on macOS. Default is false.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.19.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.20.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.20.description: >-
   A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to disable. The full list of supported feature strings can be found in the file.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.description: Définit la police par défaut pour le font-family.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.0.description: Times New Roman par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.1.description: Times New Roman par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.2.description: Arial par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.3.description: Courier New par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.4.description: Script par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.21.properties.5.description: Impact par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.22.description: Defaults to 16.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.23.description: Defaults to 13.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.24.description: 0 par défaut.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.25.description: Par défaut, ISO-8859-1.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.26.description: >-
-  Whether to throttle animations and timers when the page becomes background. Defaults to true.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.27.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.21.description: Sets the default font for the font-family.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.21.properties.0.description: Defaults to Times New Roman.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.21.properties.1.description: Defaults to Times New Roman.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.21.properties.2.description: Defaults to Arial.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.21.properties.3.description: Defaults to Courier New.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.21.properties.4.description: Defaults to Script.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.21.properties.5.description: Defaults to Impact.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.22.description: Defaults to 16.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.23.description: Defaults to 13.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.24.description: 0 par défaut.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.25.description: Defaults to ISO-8859-1.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.26.description: >-
+  Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API][#page-visibility]. Defaults to true.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.27.description: >-
   Whether to enable offscreen rendering for the browser window. Defaults to false. See the for more details.
-BrowserWindow.constructorMethod.parameters.0.properties.41.properties.28.description: >-
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.28.description: >-
   Whether to run Electron APIs and the specified preload script in a separate JavaScript context. Defaults to false. The context that the preload script runs in will still have full access to the document and window globals but it will use its own set of JavaScript builtins (Array, Object, JSON, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the preload script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the preload script and any Electron APIs being used. This option uses the same technique used by . You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. This option is currently experimental and may change or be removed in future Electron releases.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.29.description: >-
+  Whether to use native window.open(). Defaults to false. This option is currently experimental.
+BrowserWindow.constructorMethod.parameters.0.properties.42.properties.30.description: >-
+  Whether to enable the . Defaults to the value of the nodeIntegration option. The preload script configured for the <webview> will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a <webview> tag with a possibly malicious preload script. You can use the will-attach-webview event on to strip away the preload script and to validate or alter the <webview>'s initial settings.
 BrowserWindow.instanceMethods.destroy.description: >-
   Force closing the window, the unload and beforeunload event won't be emitted for the web page, and close event will also not be emitted for this window, but it guarantees the closed event will be emitted.
 BrowserWindow.instanceMethods.close.description: >-
@@ -541,6 +557,7 @@ BrowserWindow.instanceEvents.scroll-touch-edge.description: Émis lorsque l’é
 BrowserWindow.instanceEvents.swipe.description: 'Émis par le balayage à 3 doigts. Les orientations possibles sont haut, droite, bas, gauche.'
 BrowserWindow.instanceEvents.sheet-begin.description: Émis lorsque la fenêtre ouvre une feuille.
 BrowserWindow.instanceEvents.sheet-end.description: Émis lorsque la fenêtre a fermé une feuille.
+BrowserWindow.instanceEvents.new-window-for-tab.description: Emitted when the native new tab button is clicked.
 BrowserWindowProxy.description: Manipuler la fenêtre de navigateur enfant
 BrowserWindowProxy.instanceMethods.blur.description: Supprime focus à partir de la fenêtre enfant.
 BrowserWindowProxy.instanceMethods.close.description: Force la fermeture de la fenêtre enfant sans appeler l'événement unload.
@@ -573,8 +590,9 @@ ClientRequest.instanceMethods.setHeader.description: >-
   Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a String, its toString() method will be called to obtain the final value.
 ClientRequest.instanceMethods.setHeader.parameters.name.description: An extra HTTP header name.
 ClientRequest.instanceMethods.setHeader.parameters.value.description: An extra HTTP header value.
-ClientRequest.instanceMethods.getHeader.description: Returns Object - The value of a previously set extra header name.
 ClientRequest.instanceMethods.getHeader.parameters.name.description: Specify an extra header name.
+ClientRequest.instanceMethods.getHeader.returns.description: The value of a previously set extra header name.
+ClientRequest.instanceMethods.getHeader.returns.properties.0.description: Specify an extra header name.
 ClientRequest.instanceMethods.removeHeader.description: >-
   Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 ClientRequest.instanceMethods.removeHeader.parameters.name.description: Specify an extra header name.
@@ -628,6 +646,7 @@ clipboard.methods.availableFormats.returns.description: Tableau de formats pris 
 clipboard.methods.has.returns.description: Si le presse-papiers prend en charge le format spécifié.
 clipboard.methods.read.returns.description: Lectures de format type à partir du presse-papiers.
 clipboard.methods.readBuffer.returns.description: Lectures de format type à partir du presse-papiers.
+clipboard.methods.writeBuffer.description: Writes the buffer into the clipboard as format.
 clipboard.methods.write.description: Écrit les données dans le presse-papiers.
 clipboard.methods.write.parameters.data.properties.bookmark.description: Le titre de l’url dans text.
 contentTracing.description: |-
@@ -660,7 +679,7 @@ Cookie.properties.expirationDate.description: >-
   The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
 Cookies.description: Query and modify a session's cookies.
 Cookies.instanceMethods.get.description: >-
-  Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete. cookies is an Array of cookie objects.
+  Sends a request to get all cookies matching details, callback will be called with callback(error, cookies) on complete.
 Cookies.instanceMethods.get.parameters.filter.properties.url.description: >-
   Retrieves cookies which are associated with url. Empty implies retrieving cookies of all urls.
 Cookies.instanceMethods.get.parameters.filter.properties.name.description: Filtre les cookies par nom.
@@ -668,6 +687,7 @@ Cookies.instanceMethods.get.parameters.filter.properties.domain.description: Ret
 Cookies.instanceMethods.get.parameters.filter.properties.path.description: Retrieves cookies whose path matches path.
 Cookies.instanceMethods.get.parameters.filter.properties.secure.description: Filters cookies by their Secure property.
 Cookies.instanceMethods.get.parameters.filter.properties.session.description: Filters out session or persistent cookies.
+Cookies.instanceMethods.get.parameters.callback.parameters.cookies.description: an array of cookie objects.
 Cookies.instanceMethods.set.description: >-
   Sets a cookie with details, callback will be called with callback(error) on complete.
 Cookies.instanceMethods.set.parameters.details.properties.url.description: The url to associate the cookie with.
@@ -701,7 +721,7 @@ crashReporter.methods.start.parameters.options.properties.productName.descriptio
 crashReporter.methods.start.parameters.options.properties.uploadToServer.description: Si les rapports de crash doivent être envoyés au serveur. True par défaut.
 crashReporter.methods.start.parameters.options.properties.ignoreSystemCrashHandler.description: False par défaut.
 crashReporter.methods.start.parameters.options.properties.extra.description: >-
-  An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported.
+  An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
 crashReporter.methods.getLastCrashReport.description: >-
   Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, null is returned.
 crashReporter.methods.getUploadedReports.description: >-
@@ -713,10 +733,10 @@ crashReporter.methods.setUploadToServer.description: >-
   This would normally be controlled by user preferences. This has no effect if called before start is called. Note: This API can only be called from the main process.
 crashReporter.methods.setUploadToServer.parameters.uploadToServer.description: Whether reports should be submitted to the server
 crashReporter.methods.setExtraParameter.description: >-
-  Set an extra parameter to set be sent with the crash report. The values specified here will be sent in addition to any values set via the extra option when start was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to start you can call start again with the updated extra options.
-crashReporter.methods.setExtraParameter.parameters.key.description: Parameter key.
+  Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the extra option when start was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to start you can call start again with the updated extra options.
+crashReporter.methods.setExtraParameter.parameters.key.description: 'Parameter key, must be less than 64 characters long.'
 crashReporter.methods.setExtraParameter.parameters.value.description: >-
-  Parameter value. Specifying `null` or `undefined` will remove the key from the extra parameters.
+  Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
 Debugger.description: An alternate transport for Chrome's remote debugging protocol.
 Debugger.instanceMethods.attach.description: Attaches the debugger to the webContents.
 Debugger.instanceMethods.attach.parameters.protocolVersion.description: Requested debugging protocol version.
@@ -739,7 +759,7 @@ Debugger.instanceEvents.message.returns.params.description: >-
   Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 desktopCapturer.description: |-
   Access information about media sources that can be used to capture audio and
-  video from the desktop using the navigator.webkitGetUserMedia API.
+  video from the desktop using the navigator.mediaDevices.getUserMedia API.
 desktopCapturer.methods.getSources.description: >-
   Starts gathering information about all available desktop media sources, and calls callback(error, sources) when finished. sources is an array of DesktopCapturerSource objects, each DesktopCapturerSource represents a screen or an individual window that can be captured.
 desktopCapturer.methods.getSources.parameters.options.properties.types.description: >-
@@ -765,6 +785,7 @@ dialog.methods.showOpenDialog.returns.description: >-
   , an array of file paths chosen by the user, if the callback is provided it returns undefined.
 dialog.methods.showSaveDialog.description: >-
   The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. The filters specifies an array of file types that can be displayed, see dialog.showOpenDialog for an example. If a callback is passed, the API call will be asynchronous and the result will be passed via callback(filename)
+dialog.methods.showSaveDialog.parameters.options.properties.defaultPath.description: 'Absolute directory path, absolute file path, or file name to use by default.'
 dialog.methods.showSaveDialog.parameters.options.properties.buttonLabel.description: >-
   Custom label for the confirmation button, when left empty the default label will be used.
 dialog.methods.showSaveDialog.parameters.options.properties.message.description: Message to display above text fields.
@@ -773,7 +794,7 @@ dialog.methods.showSaveDialog.parameters.options.properties.showsTagField.descri
 dialog.methods.showSaveDialog.returns.description: >-
   , the path of the file chosen by the user, if a callback is provided it returns undefined.
 dialog.methods.showMessageBox.description: >-
-  Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button. The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. If a callback is passed, the API call will be asynchronous and the result will be passed via callback(response).
+  Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button. The browserWindow argument allows the dialog to attach itself to a parent window, making it modal. If a callback is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via callback(response).
 dialog.methods.showMessageBox.parameters.options.properties.type.description: >-
   Can be "none", "info", "error", "question" or "warning". On Windows, "question" displays the same icon as "info", unless you set an icon using the "icon" option. On macOS, both "warning" and "error" display the same warning icon.
 dialog.methods.showMessageBox.parameters.options.properties.buttons.description: >-
@@ -849,6 +870,19 @@ globalShortcut.methods.isRegistered.description: >-
 globalShortcut.methods.isRegistered.returns.description: Whether this application has registered accelerator.
 globalShortcut.methods.unregister.description: Unregisters the global shortcut of accelerator.
 globalShortcut.methods.unregisterAll.description: Unregisters all of the global shortcuts.
+GPUFeatureStatus.properties.2d_canvas.description: Canvas
+GPUFeatureStatus.properties.flash_3d.description: Flash
+GPUFeatureStatus.properties.flash_stage3d.description: Flash Stage3D
+GPUFeatureStatus.properties.flash_stage3d_baseline.description: Flash Stage3D Baseline profile
+GPUFeatureStatus.properties.gpu_compositing.description: Compositing
+GPUFeatureStatus.properties.multiple_raster_threads.description: Multiple Raster Threads
+GPUFeatureStatus.properties.native_gpu_memory_buffers.description: Native GpuMemoryBuffers
+GPUFeatureStatus.properties.rasterization.description: Rasterization
+GPUFeatureStatus.properties.video_decode.description: Video Decode
+GPUFeatureStatus.properties.video_encode.description: Video Encode
+GPUFeatureStatus.properties.vpx_decode.description: VPx Video Decode
+GPUFeatureStatus.properties.webgl.description: WebGL
+GPUFeatureStatus.properties.webgl2.description: WebGL2
 IncomingMessage.description: Handle responses to HTTP/HTTPS requests.
 IncomingMessage.instanceProperties.statusCode.description: An Integer indicating the HTTP response status code.
 IncomingMessage.instanceProperties.statusMessage.description: A String representing the HTTP status message.
@@ -878,7 +912,7 @@ ipcMain.methods.once.description: >-
   Adds a one time listener function for the event. This listener is invoked only the next time a message is sent to channel, after which it is removed.
 ipcMain.methods.removeListener.description: >-
   Removes the specified listener from the listener array for the specified channel.
-ipcMain.methods.removeAllListeners.description: 'Removes all listeners, or those of the specified channel.'
+ipcMain.methods.removeAllListeners.description: Removes listeners of the specified channel.
 ipcRenderer.description: Communicate asynchronously from a renderer process to the main process.
 ipcRenderer.methods.on.description: >-
   Listens to channel, when a new message arrives listener would be called with listener(event, args...).
@@ -891,6 +925,7 @@ ipcRenderer.methods.send.description: >-
   Send a message to the main process asynchronously via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The main process handles it by listening for channel with ipcMain module.
 ipcRenderer.methods.sendSync.description: >-
   Send a message to the main process synchronously via channel, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included. The main process handles it by listening for channel with ipcMain module, and replies by setting event.returnValue. Note: Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+ipcRenderer.methods.sendSync.returns.description: The value sent back by the ipcMain handler.
 ipcRenderer.methods.sendToHost.description: >-
   Like ipcRenderer.send but the event will be sent to the <webview> element in the host page instead of the main process.
 JumpListCategory.properties.type.description: 'One of the following:'
@@ -912,7 +947,8 @@ JumpListItem.properties.iconIndex.description: >-
   The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
 MemoryInfo.properties.pid.description: Process id of the process.
 MemoryInfo.properties.workingSetSize.description: The amount of memory currently pinned to actual physical RAM.
-MemoryInfo.properties.peakWorkingSetSize.description: The maximum amount of memory that has ever been pinned to actual physical RAM.
+MemoryInfo.properties.peakWorkingSetSize.description: >-
+  The maximum amount of memory that has ever been pinned to actual physical RAM. On macOS its value will always be 0.
 MemoryInfo.properties.privateBytes.description: >-
   The amount of memory not shared by other processes, such as JS heap or HTML content.
 MemoryInfo.properties.sharedBytes.description: >-
@@ -929,8 +965,10 @@ Menu.staticMethods.buildFromTemplate.description: >-
   Generally, the template is just an array of options for constructing a MenuItem. The usage can be referenced above. You can also attach other fields to the element of the template and they will become properties of the constructed menu items.
 Menu.instanceMethods.popup.description: Pops up this menu as a context menu in the browserWindow.
 Menu.instanceMethods.popup.parameters.browserWindow.description: Default is the focused window.
-Menu.instanceMethods.popup.parameters.options.properties.x.description: Default is the current mouse cursor position.
-Menu.instanceMethods.popup.parameters.options.properties.y.description: ( if x is used) Default is the current mouse cursor position.
+Menu.instanceMethods.popup.parameters.options.properties.x.description: >-
+  Default is the current mouse cursor position. Must be declared if y is declared.
+Menu.instanceMethods.popup.parameters.options.properties.y.description: >-
+  Default is the current mouse cursor position. Must be declared if x is declared.
 Menu.instanceMethods.popup.parameters.options.properties.async.description: >-
   Set to true to have this method return immediately called, false to return after the menu has been selected or closed. Defaults to false.
 Menu.instanceMethods.popup.parameters.options.properties.positioningItem.description: >-
@@ -966,15 +1004,6 @@ MenuItem.instanceProperties.label.description: A String representing the menu it
 MenuItem.instanceProperties.click.description: A Function that is fired when the MenuItem receives a click event
 MimeTypedBuffer.properties.mimeType.description: The mimeType of the Buffer that you are sending
 MimeTypedBuffer.properties.data.description: The actual Buffer content
-nativeImage.description: 'Create tray, dock, and application icons using PNG or JPG files.'
-nativeImage.methods.createEmpty.description: Creates an empty NativeImage instance.
-nativeImage.methods.createFromPath.description: >-
-  Creates a new NativeImage instance from a file located at path. This method returns an empty image if the path does not exist, cannot be read, or is not a valid image.
-nativeImage.methods.createFromBuffer.description: Creates a new NativeImage instance from buffer.
-nativeImage.methods.createFromBuffer.parameters.options.properties.width.description: Required for bitmap buffers.
-nativeImage.methods.createFromBuffer.parameters.options.properties.height.description: Required for bitmap buffers.
-nativeImage.methods.createFromBuffer.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
-nativeImage.methods.createFromDataURL.description: Creates a new NativeImage instance from dataURL.
 NativeImage.description: 'Natively wrap images such as tray, dock, and application icons.'
 NativeImage.instanceMethods.toPNG.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
 NativeImage.instanceMethods.toPNG.returns.description: A Buffer that contains the image's PNG encoded data.
@@ -1012,10 +1041,45 @@ NativeImage.instanceMethods.addRepresentation.parameters.options.properties.widt
 NativeImage.instanceMethods.addRepresentation.parameters.options.properties.height.description: Defaults to 0. Required if a bitmap buffer is specified as buffer.
 NativeImage.instanceMethods.addRepresentation.parameters.options.properties.buffer.description: The buffer containing the raw image data.
 NativeImage.instanceMethods.addRepresentation.parameters.options.properties.dataURL.description: The data URL containing either a base 64 encoded PNG or JPEG image.
+nativeImage.description: 'Create tray, dock, and application icons using PNG or JPG files.'
+nativeImage.methods.createEmpty.description: Creates an empty NativeImage instance.
+nativeImage.methods.createFromPath.description: >-
+  Creates a new NativeImage instance from a file located at path. This method returns an empty image if the path does not exist, cannot be read, or is not a valid image.
+nativeImage.methods.createFromBuffer.description: Creates a new NativeImage instance from buffer.
+nativeImage.methods.createFromBuffer.parameters.options.properties.width.description: Required for bitmap buffers.
+nativeImage.methods.createFromBuffer.parameters.options.properties.height.description: Required for bitmap buffers.
+nativeImage.methods.createFromBuffer.parameters.options.properties.scaleFactor.description: Defaults to 1.0.
+nativeImage.methods.createFromDataURL.description: Creates a new NativeImage instance from dataURL.
 net.description: Issue HTTP/HTTPS requests using Chromium's native networking library
 net.methods.request.description: >-
   Creates a ClientRequest instance using the provided options which are directly forwarded to the ClientRequest constructor. The net.request method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the options object.
 net.methods.request.parameters.options.description: The `ClientRequest` constructor options.
+Notification.description: Create OS desktop notifications
+Notification.staticMethods.isSupported.returns.description: Whether or not desktop notifications are supported on the current system
+Notification.constructorMethod.parameters.0.properties.0.description: >-
+  A title for the notification, which will be shown at the top of the notification window when it is shown
+Notification.constructorMethod.parameters.0.properties.1.description: 'A subtitle for the notification, which will be displayed below the title.'
+Notification.constructorMethod.parameters.0.properties.2.description: >-
+  The body text of the notification, which will be displayed below the title or subtitle
+Notification.constructorMethod.parameters.0.properties.3.description: Whether or not to emit an OS notification noise when showing the notification
+Notification.constructorMethod.parameters.0.properties.4.description: An icon to use in the notification
+Notification.constructorMethod.parameters.0.properties.5.description: Whether or not to add an inline reply option to the notification.
+Notification.constructorMethod.parameters.0.properties.6.description: The placeholder to write in the inline reply input field.
+Notification.constructorMethod.parameters.0.properties.7.description: >-
+  Actions to add to the notification. Please read the available actions and limitations in the NotificationAction documentation
+Notification.instanceMethods.show.description: >-
+  Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a new Notification does not immediately show it to the user, you need to call this method before the OS will display it.
+Notification.instanceEvents.show.description: >-
+  Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the show() method.
+Notification.instanceEvents.click.description: Emitted when the notification is clicked by the user.
+Notification.instanceEvents.close.description: >-
+  Emitted when the notification is closed by manual intervention from the user. This event is not guarunteed to be emitted in all cases where the notification is closed.
+Notification.instanceEvents.reply.description: >-
+  Emitted when the user clicks the "Reply" button on a notification with hasReply: true.
+Notification.instanceEvents.reply.returns.reply.description: The string the user entered into the inline reply field
+Notification.instanceEvents.action.returns.index.description: The index of the action that was activated
+NotificationAction.properties.type.description: 'The type of action, can be button.'
+NotificationAction.properties.text.description: The label for the given action.
 powerMonitor.description: Monitor power state changes.
 powerMonitor.events.suspend.description: Emitted when the system is suspending.
 powerMonitor.events.resume.description: Emitted when system is resuming.
@@ -1032,9 +1096,6 @@ powerSaveBlocker.methods.isStarted.parameters.id.description: The power save blo
 powerSaveBlocker.methods.isStarted.returns.description: Whether the corresponding powerSaveBlocker has started.
 process.description: Extensions to process object.
 process.methods.crash.description: Causes the main thread of the current process crash.
-process.methods.hang.description: Causes the main thread of the current process hang.
-process.methods.setFdLimit.description: >-
-  Sets the file descriptor soft limit to maxDescriptors or the OS hard limit, whichever is lower for the current process.
 process.methods.getProcessMemoryInfo.description: >-
   Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 process.methods.getProcessMemoryInfo.returns.properties.0.description: The amount of memory currently pinned to actual physical RAM.
@@ -1049,23 +1110,36 @@ process.methods.getSystemMemoryInfo.returns.properties.0.description: The total 
 process.methods.getSystemMemoryInfo.returns.properties.1.description: The total amount of memory not being used by applications or disk cache.
 process.methods.getSystemMemoryInfo.returns.properties.2.description: The total amount of swap memory in Kilobytes available to the system.
 process.methods.getSystemMemoryInfo.returns.properties.3.description: The free amount of swap memory in Kilobytes available to the system.
+process.methods.hang.description: Causes the main thread of the current process hang.
+process.methods.setFdLimit.description: >-
+  Sets the file descriptor soft limit to maxDescriptors or the OS hard limit, whichever is lower for the current process.
 process.events.loaded.description: >-
   Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script. It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
-process.properties.noAsar.description: >-
-  A Boolean that controls ASAR support inside your application. Setting this to true will disable the support for asar archives in Node's built-in modules.
-process.properties.type.description: >-
-  A String representing the current process's type, can be "browser" (i.e. main process) or "renderer".
-process.properties.resourcesPath.description: A String representing the path to the resources directory.
-process.properties.mas.description: >-
-  A Boolean. For Mac App Store build, this property is true, for other builds it is undefined.
-process.properties.windowsStore.description: >-
-  A Boolean. If the app is running as a Windows Store app (appx), this property is true, for otherwise it is undefined.
 process.properties.defaultApp.description: >-
   A Boolean. When app is started by being passed as parameter to the default app, this property is true in the main process, otherwise it is undefined.
-process.properties.versions.properties.electron.description: A String representing Electron's version string.
+process.properties.mas.description: >-
+  A Boolean. For Mac App Store build, this property is true, for other builds it is undefined.
+process.properties.noAsar.description: >-
+  A Boolean that controls ASAR support inside your application. Setting this to true will disable the support for asar archives in Node's built-in modules.
+process.properties.noDeprecation.description: >-
+  A Boolean that controls whether or not deprecation warnings are printed to stderr. Setting this to true will silence deprecation warnings.  This property is used instead of the --no-deprecation command line flag.
+process.properties.resourcesPath.description: A String representing the path to the resources directory.
+process.properties.throwDeprecation.description: >-
+  A Boolean that controls whether or not deprecation warnings will be thrown as exceptions.  Setting this to true will throw errors for deprecations.  This property is used instead of the --throw-deprecation command line flag.
+process.properties.traceDeprecation.description: >-
+  A Boolean that controls whether or not deprecations printed to stderr include their stack trace.  Setting this to true will print  stack traces for deprecations. This property is instead of the --trace-deprecation command line flag.
+process.properties.traceProcessWarnings.description: >-
+  A Boolean that controls whether or not process warnings printed to stderr include their stack trace.  Setting this to true will print stack traces for process warnings (including deprecations).  This property is instead of the --trace-warnings command line flag.
+process.properties.type.description: >-
+  A String representing the current process's type, can be "browser" (i.e. main process) or "renderer".
+process.properties.windowsStore.description: >-
+  A Boolean. If the app is running as a Windows Store app (appx), this property is true, for otherwise it is undefined.
 process.properties.versions.properties.chrome.description: A String representing Chrome's version string.
-ProcessMemoryInfo.properties.pid.description: Process id of the process.
-ProcessMemoryInfo.properties.memory.description: Memory information of the process.
+process.properties.versions.properties.electron.description: A String representing Electron's version string.
+ProcessMetric.properties.pid.description: Process id of the process.
+ProcessMetric.properties.type.description: Process type (Browser or Tab or GPU etc).
+ProcessMetric.properties.memory.description: Memory information for the process.
+ProcessMetric.properties.cpu.description: CPU usage of the process.
 protocol.description: Register a custom protocol and intercept existing protocol requests.
 protocol.methods.registerStandardSchemes.description: >-
   A standard scheme adheres to what RFC 3986 calls generic URI syntax. For example http and https are standard schemes, while file is not. Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the file protocol, but without the ability to resolve relative URLs. For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs: Registering a scheme as standard will allow access to files through the FileSystem API. Otherwise the renderer will throw a security error for the scheme. By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the http protocol, you have to register it as a standard scheme: Note: This method can only be used before the ready event of the app module gets emitted.
@@ -1096,8 +1170,10 @@ protocol.methods.interceptHttpProtocol.description: >-
 protocol.methods.interceptHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.contentType.description: MIME type of the content.
 protocol.methods.interceptHttpProtocol.parameters.handler.parameters.callback.parameters.redirectRequest.properties.uploadData.properties.data.description: Content to be sent.
 protocol.methods.uninterceptProtocol.description: Remove the interceptor installed for scheme and restore its original handler.
-Rectangle.properties.x.description: The x coordinate of the origin of the rectangle
-Rectangle.properties.y.description: The y coordinate of the origin of the rectangle
+Rectangle.properties.x.description: The x coordinate of the origin of the rectangle (must be an integer)
+Rectangle.properties.y.description: The y coordinate of the origin of the rectangle (must be an integer)
+Rectangle.properties.width.description: The width of the rectangle (must be an integer)
+Rectangle.properties.height.description: The height of the rectangle (must be an integer)
 remote.description: Use main process modules from the renderer process.
 remote.methods.require.description: e.g.
 remote.methods.require.returns.description: >-
@@ -1120,6 +1196,7 @@ RemovePassword.properties.username.description: Credentials of the authenticatio
 RemovePassword.properties.password.description: Credentials of the authentication. Must be provided if removing by origin.
 screen.description: 'Retrieve information about screen size, displays, cursor position, etc.'
 screen.methods.getCursorScreenPoint.description: The current absolute position of the mouse pointer.
+screen.methods.getMenuBarHeight.returns.description: The height of the menu bar in pixels.
 screen.methods.getPrimaryDisplay.returns.description: The primary display.
 screen.methods.getAllDisplays.returns.description: An array of displays that are currently available.
 screen.methods.getDisplayNearestPoint.returns.description: The display nearest the specified point.
@@ -1251,15 +1328,16 @@ systemPreferences.methods.subscribeLocalNotification.description: >-
   Same as subscribeNotification, but uses NSNotificationCenter for local defaults. This is necessary for events such as NSUserDefaultsDidChangeNotification
 systemPreferences.methods.unsubscribeLocalNotification.description: >-
   Same as unsubscribeNotification, but removes the subscriber from NSNotificationCenter.
-systemPreferences.methods.getUserDefault.description: >-
-  Get the value of key in system preferences. This API uses NSUserDefaults on macOS. Some popular key and types are:
+systemPreferences.methods.getUserDefault.description: 'This API uses NSUserDefaults on macOS. Some popular key and types are:'
 systemPreferences.methods.getUserDefault.parameters.type.description: >-
   Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+systemPreferences.methods.getUserDefault.returns.description: The value of key in system preferences.
 systemPreferences.methods.setUserDefault.description: >-
   Set the value of key in system preferences. Note that type should match actual type of value. An exception is thrown if they don't. This API uses NSUserDefaults on macOS. Some popular key and types are:
 systemPreferences.methods.setUserDefault.parameters.type.description: 'See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]'
 systemPreferences.methods.isAeroGlassEnabled.description: >-
-  This method returns true if DWM composition (Aero Glass) is enabled, and false otherwise. An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+  An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+systemPreferences.methods.isAeroGlassEnabled.returns.description: 'true if DWM composition (Aero Glass) is enabled, and false otherwise.'
 systemPreferences.methods.getAccentColor.returns.description: >-
   The users current system wide accent color preference in RGBA hexadecimal form.
 systemPreferences.methods.getColor.parameters.color.description: 'One of the following values:'
@@ -1435,6 +1513,10 @@ Tray.instanceEvents.drop-text.returns.text.description: the dropped text string
 Tray.instanceEvents.drag-enter.description: Emitted when a drag operation enters the tray icon.
 Tray.instanceEvents.drag-leave.description: Emitted when a drag operation exits the tray icon.
 Tray.instanceEvents.drag-end.description: Emitted when a drag operation ends on the tray or ends at another location.
+Tray.instanceEvents.mouse-enter.description: Emitted when the mouse enters the tray icon.
+Tray.instanceEvents.mouse-enter.returns.position.description: The position of the event
+Tray.instanceEvents.mouse-leave.description: Emitted when the mouse exits the tray icon.
+Tray.instanceEvents.mouse-leave.returns.position.description: The position of the event
 UploadBlob.properties.type.description: objet blob.
 UploadBlob.properties.blobUUID.description: UUID des données blob à télécharger.
 UploadData.properties.bytes.description: Contenu envoyé.
@@ -1470,6 +1552,7 @@ WebContents.instanceMethods.downloadURL.description: >-
 WebContents.instanceMethods.getURL.returns.description: The URL of the current web page.
 WebContents.instanceMethods.getTitle.returns.description: The title of the current web page.
 WebContents.instanceMethods.isDestroyed.returns.description: Whether the web page is destroyed.
+WebContents.instanceMethods.focus.description: Focuses the web page.
 WebContents.instanceMethods.isFocused.returns.description: Whether the web page is focused.
 WebContents.instanceMethods.isLoading.returns.description: Whether web page is still loading resources.
 WebContents.instanceMethods.isLoadingMainFrame.returns.description: >-
@@ -1497,6 +1580,7 @@ WebContents.instanceMethods.executeJavaScript.parameters.userGesture.description
 WebContents.instanceMethods.executeJavaScript.parameters.callback.description: Appelé après que le script ai été exécuté.
 WebContents.instanceMethods.executeJavaScript.returns.description: >-
   A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+WebContents.instanceMethods.setIgnoreMenuShortcuts.description: Ignore application menu shortcuts while this web contents is focused.
 WebContents.instanceMethods.setAudioMuted.description: Mute the audio on the current web page.
 WebContents.instanceMethods.isAudioMuted.returns.description: Whether this page has been muted.
 WebContents.instanceMethods.setZoomFactor.description: >-
@@ -1545,10 +1629,12 @@ WebContents.instanceMethods.hasServiceWorker.description: >-
   Checks if any ServiceWorker is registered and returns a boolean as response to callback.
 WebContents.instanceMethods.unregisterServiceWorker.description: >-
   Unregisters any ServiceWorker if present and returns a boolean as response to callback when the JS promise is fulfilled or false when the JS promise is rejected.
+WebContents.instanceMethods.getPrinters.description: Get the system printer list.
 WebContents.instanceMethods.print.description: >-
-  Prints window's web page. When silent is set to true, Electron will pick up system's default printer and default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false}). Use page-break-before: always; CSS style to force to print to a new page.
+  Prints window's web page. When silent is set to true, Electron will pick the system's default printer if deviceName is empty and the default settings for printing. Calling window.print() in web page is equivalent to calling webContents.print({silent: false, printBackground: false, deviceName: ''}). Use page-break-before: always; CSS style to force to print to a new page.
 WebContents.instanceMethods.print.parameters.options.properties.silent.description: Don't ask user for print settings. Default is false.
 WebContents.instanceMethods.print.parameters.options.properties.printBackground.description: Also prints the background color and image of the web page. Default is false.
+WebContents.instanceMethods.print.parameters.options.properties.deviceName.description: Set the printer device name to use. Default is ''.
 WebContents.instanceMethods.printToPDF.description: >-
   Prints window's web page as PDF with Chromium's preview printing custom settings. The callback will be called with callback(error, data) on completion. The data is a Buffer that contains the generated PDF data. The landscape will be ignored if @page CSS at-rule is used in the web page. By default, an empty options will be regarded as: Use page-break-before: always; CSS style to force to print to a new page. An example of webContents.printToPDF:
 WebContents.instanceMethods.printToPDF.parameters.options.properties.marginsType.description: >-
@@ -1588,7 +1674,7 @@ WebContents.instanceMethods.enableDeviceEmulation.parameters.parameters.properti
   Scale of emulated view inside available space (not in fit to view mode) (default: 1)
 WebContents.instanceMethods.disableDeviceEmulation.description: Disable device emulation enabled by webContents.enableDeviceEmulation.
 WebContents.instanceMethods.sendInputEvent.description: >-
-  Sends an input event to the page. For keyboard events, the event object also have following properties: For mouse events, the event object also have following properties: For the mouseWheel event, the event object also have following properties:
+  Sends an input event to the page. Note: The BrowserWindow containing the contents needs to be focused for sendInputEvent() to work. For keyboard events, the event object also have following properties: For mouse events, the event object also have following properties: For the mouseWheel event, the event object also have following properties:
 WebContents.instanceMethods.sendInputEvent.parameters.event.properties.type.description: >-
   () The type of the event, can be mouseDown, mouseUp, mouseEnter, mouseLeave, contextMenu, mouseWheel, mouseMove, keyDown, keyUp, char.
 WebContents.instanceMethods.sendInputEvent.parameters.event.properties.modifiers.description: >-
@@ -1622,6 +1708,7 @@ WebContents.instanceMethods.getWebRTCIPHandlingPolicy.returns.description: Retur
 WebContents.instanceMethods.setWebRTCIPHandlingPolicy.description: >-
   Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC.  See BrowserLeaks for more details.
 WebContents.instanceMethods.setWebRTCIPHandlingPolicy.parameters.policy.description: Specify the WebRTC IP Handling Policy.
+WebContents.instanceMethods.getOSProcessId.returns.description: The pid of the associated renderer process.
 WebContents.instanceProperties.id.description: A Integer representing the unique ID of this WebContents.
 WebContents.instanceProperties.session.description: A Session object (session) used by this webContents.
 WebContents.instanceProperties.hostWebContents.description: A WebContents instance that might own this WebContents.
@@ -1656,11 +1743,13 @@ WebContents.instanceEvents.did-navigate.description: >-
   Emitted when a navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose.
 WebContents.instanceEvents.did-navigate-in-page.description: >-
   Emitted when an in-page navigation happened. When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM hashchange event is triggered.
+WebContents.instanceEvents.will-prevent-unload.description: >-
+  Emitted when a beforeunload event handler is attempting to cancel a page unload. Calling event.preventDefault() will ignore the beforeunload event handler and allow the page to be unloaded.
 WebContents.instanceEvents.crashed.description: Emitted when the renderer process crashes or is killed.
 WebContents.instanceEvents.plugin-crashed.description: Emitted when a plugin process has crashed.
 WebContents.instanceEvents.destroyed.description: Emitted when webContents is destroyed.
 WebContents.instanceEvents.before-input-event.description: >-
-  Emitted before dispatching the keydown and keyup events in the page. Calling event.preventDefault will prevent the page keydown/keyup events from being dispatched.
+  Emitted before dispatching the keydown and keyup events in the page. Calling event.preventDefault will prevent the page keydown/keyup events and the menu shortcuts. To only prevent the menu shortcuts, use setIgnoreMenuShortcuts:
 WebContents.instanceEvents.before-input-event.returns.input.description: Input properties
 WebContents.instanceEvents.before-input-event.returns.input.properties.type.description: Either keyUp or keyDown
 WebContents.instanceEvents.before-input-event.returns.input.properties.key.description: Equivalent to
@@ -1744,7 +1833,7 @@ WebContents.instanceEvents.paint.description: >-
 WebContents.instanceEvents.paint.returns.image.description: The image data of the whole frame.
 WebContents.instanceEvents.devtools-reload-page.description: Emitted when the devtools window instructs the webContents to reload
 WebContents.instanceEvents.will-attach-webview.description: >-
-  Emitted when a <webview>'s web contents is being attached to this web contents. Calling event.preventDefault() will destroy the guest page. This event can be used to configure webPreferences for the webContents of a <webview> before it's loaded, and provides the ability to set settings that can't be set via <webview> attributes.
+  Emitted when a <webview>'s web contents is being attached to this web contents. Calling event.preventDefault() will destroy the guest page. This event can be used to configure webPreferences for the webContents of a <webview> before it's loaded, and provides the ability to set settings that can't be set via <webview> attributes. Note: The specified preload script option will be appear as preloadURL (not preload) in the webPreferences object emitted with this event.
 WebContents.instanceEvents.will-attach-webview.returns.webPreferences.description: >-
   The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 WebContents.instanceEvents.will-attach-webview.returns.params.description: >-
@@ -1891,6 +1980,7 @@ webviewTag.methods.stopFindInPage.parameters.action.description: Specifies the a
 webviewTag.methods.print.description: 'Prints webview''s web page. Same as webContents.print([options]).'
 webviewTag.methods.print.parameters.options.properties.silent.description: Don't ask user for print settings. Default is false.
 webviewTag.methods.print.parameters.options.properties.printBackground.description: Also prints the background color and image of the web page. Default is false.
+webviewTag.methods.print.parameters.options.properties.deviceName.description: Set the printer device name to use. Default is ''.
 webviewTag.methods.printToPDF.description: >-
   Prints webview's web page as PDF, Same as webContents.printToPDF(options, callback).
 webviewTag.methods.printToPDF.parameters.options.properties.marginsType.description: >-
@@ -1924,7 +2014,7 @@ webviewTag.attributes.nodeintegration.description: >-
 webviewTag.attributes.plugins.description: >-
   When this attribute is present the guest page in webview will be able to use browser plugins. Plugins are disabled by default.
 webviewTag.attributes.preload.description: >-
-  Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either file: or asar:, because it will be loaded by require in guest page under the hood. When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
+  Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either file: or asar:, because it will be loaded by require in guest page under the hood. When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing. Note: This option will be appear as preloadURL (not preload) in the webPreferences specified to the will-attach-webview event.
 webviewTag.attributes.httpreferrer.description: Sets the referrer URL for the guest page.
 webviewTag.attributes.useragent.description: >-
   Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the setUserAgent method to change the user agent.

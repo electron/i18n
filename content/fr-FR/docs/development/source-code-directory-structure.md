@@ -60,7 +60,7 @@ Le repository d'Electron a quelques dépendances tierces, se trouvant dans le do
 ```sh
 $ git status
 
-    modified:   vendor/brightray (new commits)
+    modified:   vendor/libchromiumcontent (new commits)
     modified:   vendor/node (new commits)
 ```
 

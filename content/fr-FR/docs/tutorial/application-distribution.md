@@ -92,6 +92,7 @@ Vous pouvez renommer l'exécutable `electron` par ce que vous voulez.
 
 Au lieu d'empaqueter votre application manuellement, vous pouvez également choisir d'utiliser des outils d'empaquetage pour faire le boulot automatiquement :
 
+* [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
@@ -99,17 +100,11 @@ Au lieu d'empaqueter votre application manuellement, vous pouvez également choi
 
 Il est également possible de renommer Electron en changeant le nom de produit et en le compilant depuis le code source. Pour ce faire, vous devrez modifier le fichier `atom.gyp` et avoir une recompilation propre.
 
-### grunt-build-atom-shell
-
-Vérifier manuellement le code d'Electron et recompiler peut-être compliqué, une tâche Grunt qui gère cela automatiquement a donc été créée : [grunt-build-atom-shell](https://github.com/paulcbetts/grunt-build-atom-shell).
-
-Cette tâche se chargera automatiquement d'éditer le fichier `.gyp`, compiler depuis le code source, puis recompiler les modules Node natifs de votre application pour correspondre au nouveau nom du fichier exécutable.
-
 ### Créer un fork personnalisé d'Electron
 
-Créer un fork personnalisé d'Electron n'est certainement quelque chose que vous devez faire pour compiler votre application, même pour les applications au "Niveau de Production". Utiliser un outil tel que `electron-packager` ou `electron-builder` va vous permettre de "Rebaptiser" Electron sans avoir à faire ces étapes.
+Créer un fork personnalisé d'Electron n'est certainement pas quelque chose que vous devriez faire pour compiler votre application, même pour les applications en "production". Utiliser un outil tel que `electron-packager` ou `electron-builder` va vous permettre de "Rebaptiser" Electron sans avoir à faire ces étapes.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer directement dans Electron, qui ne peux pas être upstreamed ou qui a été rejeté de la version officiel. En tant que mainteneurs d'Electron, nous sommes beaucoup à vouloir voir votre travail fonctionner, alors essayez du mieux que vous pouvez pour voir vos modifications dans la version officiel d'Electron. Cela sera plus simple pour vous et nous apprécierons votre aide.
 
 #### Création d’une version Custom avec surf-build
 

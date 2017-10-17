@@ -1,56 +1,57 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Certifique-se de usar a documentação correspondente a versão do Electron que você esta usando. A versão faz parte da URL desta página. Se não, você provavelmente esta usando a documentação da branch de desenvolvimento qual pode conter mudanças da API que pode não ser compatível com a sua versão do Electron. Para ver a documentação de versões anteriores, você pode [procurar pelas tags](https://github.com/electron/electron/tree/v1.4.0) no GitHub, para isso, abra o menu "Switch branches/tags" e selecione a tag da versão que você gostaria de ver.
 
-## FAQ
+## Perguntas Frequentes
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Guias
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
+* [Glossário de Termos](glossary.md)
+* [Plataformas Suportadas](tutorial/supported-platforms.md)
+* [Segurança](tutorial/security.md)
+* [Versionamento do Electron](tutorial/electron-versioning.md)
+* [Distribuição de Aplicativos](tutorial/application-distribution.md)
+* [Guia para Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Guia para Windows Store](tutorial/windows-store-guide.md)
+* [Empacotamento de Aplicativos](tutorial/application-packaging.md)
+* [Usando Módulos Nativos do Node](tutorial/using-native-node-modules.md)
 * [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Extensão de DevTools](tutorial/devtools-extension.md)
+* [Usando o Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Usando o Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Tutoriais
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Início Rápido](tutorial/quick-start.md)
+* [Integração com Ambiente de Trabalho](tutorial/desktop-environment-integration.md)
+* [Detecção de Evento Online/Offline](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Notificações Nativas](tutorial/notifications.md)
 
-## API References
+## Referências da API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
+* [Sinopse](api/synopsis.md)
+* [Processamento de Objeto](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Variáveis de Ambiente](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Elementos de DOM Personalizado:
 
-* [`File` Object](api/file-object.md)
+* [`Arquivo` Objeto](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`window.open` Função](api/window-open.md)
 
-### Modules for the Main Process:
+### Módulos para o Processo Principal:
 
-* [app](api/app.md)
+* [aplicativo](api/app.md)
 * [autoUpdater](api/auto-updater.md)
+* [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
@@ -67,7 +68,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Módulos para o Processo de Renderização (Página Web):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
@@ -82,10 +83,10 @@ There are questions that are asked quite often. Check this out before creating a
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Desenvolvimento
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
+* [Estilo de Codificação](development/coding-style.md)
+* [Usando clang-format em Código C++](development/clang-format.md)
 * [Source Code Directory Structure](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Overview](development/build-system-overview.md)
@@ -96,6 +97,6 @@ There are questions that are asked quite often. Check this out before creating a
 * [Debug Instructions (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Atualizando o Chrome](development/upgrading-chrome.md)
+* [Desenvolvimento do Chromium](development/chromium-development.md)
+* [V8 Desenvolvimento](development/v8-development.md)

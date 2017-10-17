@@ -40,7 +40,7 @@ explore:
 download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub'
 quick_start:
-  title: "หมุน<a href='https://github.com/electron/electron-quick-start' target='_blank'>เริ่มต้นอย่างรวดเร็ว</a>ขึ้น เพื่อดูการใช้ Electron ในเชิงปฏิบัติ"
+  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank' rel='noopener'>Quick Start</a> app to see Electron in action:"
   description: แอป Electron เล็กๆ น้อยๆ พร้อมความช่วยเหลือ
   clone: ดึงข้อมูลและแหล่งเก็บข้อมูลการใช้งานอย่างรวดเร็ว
   go_into_repo: ไปยังที่เก็บข้อมูล
@@ -51,7 +51,7 @@ need_help:
   description: 'ถาม<a href=''https://discuss.atom.io/c/electron''>คำถาม</a>ในฟอรัม หรือช่อง <a href=''http://atom-slack.herokuapp.com/''>Slack</a> ฟอลโล<a href="https://twitter.com/ElectronJS">@ElectronJS</a> บน Twitter สำหรับประกาศสำคัญ หรือถ้าต้องการความเป็นส่วนตัว? อีเมล์ <a href="mailto:electron@github.com">electron@github.com</a>'
 apps:
   title: แอปที่สร้างขึ้นจาก Electron
-  description: 'Electron ช่วยให้การสร้างแอปสำหรับเดสก์ท็อปสำหรับบริษัทของคุณ หรือแนวคิดเป็นเรื่องง่าย เริ่มพัฒนาขึ้นเพื่อ <a href=''https://atom.io'' target=''_blank''>Atom</a> จาก GitHub ซึ่ง Electronเอง ก็ได้เริ่มมีการนำมาใช้งานโดย Microsoft, Facebook, Slack และ Docker'
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank'' rel=''noopener''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: ดูแอปเพิ่ม
   submit_your_own: ส่งของคุณเอง
 or: หรือ

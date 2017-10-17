@@ -33,10 +33,10 @@ Most releases will be `patch` level. Upgrades to Chrome or other major changes s
 
 ## Edit the release draft
 
-  1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-  2. Edit the release and add release notes.
-  3. Click 'Save draft'. **Do not click 'Publish release'!**
-  4. Wait for all the builds to pass. :hourglass_flowing_sand:
+1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
+2. Edit the release and add release notes.
+3. Click 'Save draft'. **Do not click 'Publish release'!**
+4. Wait for all the builds to pass. :hourglass_flowing_sand:
 
 ## Merge temporary branch
 

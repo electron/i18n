@@ -1,6 +1,6 @@
-# Intégration de l’environnement de bureau
+# Intégration de l'environnement de bureau
 
-Différents systèmes d’exploitation fournissent des fonctionnalités différentes pour intégrer des applications bureautiques dans leurs environnements de bureau. Par exemple, sous Windows, les applications peuvent mettre des raccourcis dans la JumpList de barre des tâches, et sur Mac, les applications peuvent mettre un menu personnalisé dans le menu du dock.
+Différents systèmes d'exploitation fournissent des fonctionnalités différentes pour intégrer des applications bureautiques dans leurs environnements de bureau. Par exemple, sous Windows, les applications peuvent mettre des raccourcis dans la JumpList de barre des tâches, et sur Mac, les applications peuvent mettre un menu personnalisé dans le menu du dock.
 
 Ce guide explique comment intégrer votre application dans les environnements de bureau avec les APIs d'Electron.
 
@@ -10,7 +10,7 @@ Voir les [Notifications](notifications.md)
 
 ## Documents récents (Windows & macOS)
 
-Windows et macOS permettent d’accéder facilement à une liste des documents récemment ouverts par l’application via JumpList ou dock menu, respectivement.
+Windows et macOS permettent d’accéder facilement à une liste des documents récemment ouverts par l'application via JumpList ou dock menu, respectivement.
 
 **JumpList :**
 
@@ -78,7 +78,7 @@ Sur Windows, vous pouvez spécifier des actions personnalisées dans la catégor
 > 
 > Il est fortement recommandé que la liste des tâches soit statique. Il devrait rester le même quelque soit l'état ou le statut de l'application. Bien qu'il soit possible de faire varier la liste dynamiquement, vous devez envisager que cela puisse confondre l'utilisateur qui n'attend pas que cette portion de la liste puisse changer.
 
-**Tâches d’Internet Explorer :**
+**Tâches d'Internet Explorer :**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 

@@ -1,12 +1,12 @@
 # 构建介绍(Linux)
 
-Follow the guidelines below for building Electron on Linux.
+按照以下指南以在 Linux 上构建Electron。
 
-## 先决条件
+## 基本须求
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [Node.js](http://nodejs.org) and compile from source. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* 至少 25 GB 的硬碟空间和 8 GB RAM。
+* Python 2.7.x。一些像 CentOS 6.x 的分发仍然使用 Python 2.6.x，因此您可能需要以 `python-V`检查您的 Python 版本。
+* Node.js. 有多种方法安装 Node.js。 您可以从 [Node.js](http://nodejs.org) 下载从源代码然后从源代码进行编译。 Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * Clang 3.4 or later.
 * Development headers of GTK+ and libnotify.
 
@@ -114,7 +114,7 @@ $ npm run clean-build
 
 ### 加载共享库时出现错误： libtinfo.so.5
 
-Prebulit `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```bash
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5

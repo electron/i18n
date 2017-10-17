@@ -114,7 +114,7 @@ $ npm run clean-build
 
 ### Erreur lors du chargement Shared Libraries : libtinfo.so.5
 
-Pré-compiler `clang` va permettre d'essayer de faire un lien vers `libinfo.so.5`. Selon l'architecture de l'hôte, avoir `libncurses` comme lien symbolique est plus approprié :
+Pré-compiler `clang` va permettre d'essayer de faire un lien vers `libtinfo.so.5`. Selon l'architecture de l'hôte, avoir `libncurses` comme lien symbolique est plus approprié :
 
 ```bash
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -155,7 +155,7 @@ $ ./script/build.py -c R
 
 ### Utiliser un compilateur autre que `clang`
 
-Pour compiler ELectron avec des compilateur comme `g++`, vous devez d'abord désactiver `clang` avec le paramètre `--disable_clang`. Ensuite, vous devez définir les variables d'environnement `CC` et `CXX` avec les compilateur que vous souhaitez.
+Pour compiler Electron avec des compilateur comme `g++`, vous devez d'abord désactiver `clang` avec le paramètre `--disable_clang`. Ensuite, vous devez définir les variables d'environnement `CC` et `CXX` avec les compilateur que vous souhaitez.
 
 Par exemple, compiler avec les outils de compilation GCC :
 

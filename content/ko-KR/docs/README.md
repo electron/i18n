@@ -30,7 +30,7 @@
 
 * [시작하기](tutorial/quick-start.md)
 * [데스크탑 환경 통합](tutorial/desktop-environment-integration.md)
-* [온라인/오프 라인 이벤트 감지](tutorial/online-offline-events.md)
+* [온라인/오프라인 이벤트 감지](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
 * [기본 알림](tutorial/notifications.md)
 
@@ -51,6 +51,7 @@
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
+* [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)

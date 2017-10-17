@@ -1,41 +1,41 @@
 # Electronのバージョン管理
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+もしあなたが経験豊富なNodeプログラマなら、SemVer([セマンティックバージョニング](http://semver.org)) のことはご存知でしょう。 これは、ソフトウェア使用者にどのソフトウェアバージョン番号を指定するべきかを知らせるための慣習です。
 
-## Overview of Semantic Versioning
+## セマンティックバージョニングの概要
 
-Semantic versions are always made up of three numbers:
+セマンティックバージョン番号は常に3つの数字から成り立っています：
 
     major.minor.patch
     
 
-Semantic version numbers are bumped (incremented) using the following rules:
+セマンティックバージョン番号は次のルールに従って上げられます：
 
-* **Major** is for changes that break backwards compatibility.
-* **Minor** is for new features that don't break backwards compatibility.
-* **Patch** is for bug fixes and other minor changes.
+* **Major**は、後方互換性が壊れる変更がある場合。
+* **Minor**は、後方互換性が壊れない新しい機能の場合。
+* **Patch** は、バグ修正とその他のマイナーな変更です。
 
-A simple mnemonic for remembering this scheme is as follows:
+このルールの簡単な覚え方がこうです：
 
     breaking.feature.fix
     
 
 ## Electronのバージョン管理
 
-Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **You should therefore always reference a specific version of Electron.**
+NodeとChromiumに依存しているため、ElectronはSemVerに完全に従うことが出来ません。 **そのため、いつでも特定バージョンのElectronを指定しないといけません。**
 
-Electron version numbers are bumped using the following rules:
+セマンティックバージョン番号は次のルールに従って上げられます：
 
-* **Major** is for breaking changes in Electron's API. If you upgrade from `0.37.0` to `1.0.0`, you will have to make changes to your app.
-* **Minor** is for major Chrome and minor Node upgrades, or significant Electron changes. If you upgrade from `1.5.0` to `1.6.0`, your app is supposed to still work, but you might have to work around small changes.
-* **Patch** is for new features and bug fixes. If you upgrade from `1.6.2` to `1.6.3`, your app will continue to work as-is.
+* **Major**はElectron APIの大きな変更があるときです。例えば、`0.37.0`から`1.0.0`にアップデートした場合、アプリを変更する必要があります。
+* **Minor**はChromiumのメジャー番号の変更・Nodeのマイナーアップデート・Electronの大きな変更があった場合です。 `1.5.0` から `1.6.0` にアップグレードする場合、アプリはまだ動作することが期待できますが、小さな変更を行う必要があるかもしれません。
+* **Patch** は、新しい機能とバグ修正です。`1.6.2`から`1.6.3` にアップグレードする場合、あなたのアプリはそのまま動くはずです。
 
-We recommend that you set a fixed version when installing Electron from npm:
+npmからElectronをインストールする場合は、バージョンを固定して設定することをお勧めします。
 
 ```sh
 npm install electron --save-exact --save-dev
 ```
 
-The `--save-exact` flag will add `electron` to your `package.json` file without using a `^` or `~`, e.g. `1.6.2` instead of `^1.6.2`. This practice ensures that all upgrades of Electron are a manual operation made by you, the developer.
+`--save-exact`を指定すると、`^`や`~` を使用せず、`package.json`に`electron` を追加します。例えば `^1.6.2`ではなく、`1.6.2`と記録します。 これによりElectronのすべてのアップグレードは開発者(あなたです) によって手動で行われます。
 
-Alternatively, you can use the `~` prefix in your SemVer range, like `~1.6.2`. This will lock your major and minor version, but allow new patch versions to be installed.
+または、`~1.6.2` のように`~` プレフィックスを使用してSemVer 範囲を指定できます。これは、メジャーおよびマイナー バージョンは固定しますが、新しいパッチのバージョンのインストールを許可します。

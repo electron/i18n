@@ -16,7 +16,7 @@ Electron fonctionne plus comme le runtime de Node.js. L'API d'Electron est de ni
 
 **2. Développement Système**
 
-Afin d’éviter la complexité du développement de tout chrome, Electron utilise [`libchromiumcontent`](https://github.com/brightray/libchromiumcontent) pour accéder à l'API Chromium Content. `libchromiumcontent` est une bibliothèque partagée et unique qui inclut le module Chromium Content et de toutes ses dépendances. Les utilisateurs n’ont pas besoin d’une machine puissante pour compiler Electron.
+Afin d’éviter la complexité de la compilation de Chromium, Electron utilise [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) pour accéder à l'API Chromium Content. `libchromiumcontent` est une bibliothèque partagée et unique qui inclut le module Chromium Content et de toutes ses dépendances. Les utilisateurs n’ont pas besoin d’une machine puissante pour compiler Electron.
 
 **3. Intégration de Node**
 

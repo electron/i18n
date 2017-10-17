@@ -74,7 +74,7 @@ Vous devrez définir les variables d’environnement suivantes pour publier une 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - un jeton d’accès personnelle avec le scope « repo ».
+- `ELECTRON_GITHUB_TOKEN` - un jeton d'accès personnelle avec le scope « repo ».
 
 Vous aurez besoin de le faire seulement une fois.
 

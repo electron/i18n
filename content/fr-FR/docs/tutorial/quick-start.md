@@ -55,7 +55,7 @@ const path = require('path')
 const url = require('url')
 
 // Gardez l'objet window dans une constante global, sinon la fenêtre sera fermée
-// automatiquement quand l'objet JavaScript voudra récupérer de la mémoire.
+// automatiquement quand l'objet JavaScript sera collecté par le ramasse-miettes.
 let win
 
 function createWindow () {
@@ -148,9 +148,8 @@ $ ./node_modules/.bin/electron .
 
 #### Windows
 
-```bash
-$ .\node_modules\.bin\electron .
-```
+    $ .\node_modules\.bin\electron .
+    
 
 ### Binaire d'Electron téléchargé manuellement
 
@@ -170,9 +169,8 @@ $ ./electron/electron votre-app/
 
 #### Windows
 
-```bash
-$ .\electron\electron.exe votre-app\
-```
+    $ .\electron\electron.exe votre-app\
+    
 
 `Electron.app` ici, fait partie des versions empaquetées d’Electron, vous pouvez le télécharger [ici](https://github.com/electron/electron/releases).
 

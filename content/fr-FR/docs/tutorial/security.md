@@ -40,5 +40,24 @@ Ce n’est pas bulletproof, mais au moins, vous devriez essayer ce qui suit :
 * WebViews : Ne pas utiliser `disablewebsecurity`
 * WebViews : Ne pas utiliser `allowpopups`
 * WebViews : Ne pas utiliser `insertCSS` ou `executeJavaScript` avec CSS/JS distant.
+* WebViews : Vérifie les options et les paramètres de toutes les balises `<webview>` avant d'être attaché à l’aide de l’événement de `will-attach-webview` :
+
+```js
+app.on('web-contents-created', (event, contents) => {
+  contents.on('will-attach-webview', (event, webPreferences, params) => {
+    // Supprime les scripts préchargés si ils ne sont utilisés ou vérifie que leurs emplacements est correct
+    delete webPreferences.preload
+    delete webPreferences.preloadURL
+
+    // Désactive l'intégration Node
+    webPreferences.nodeIntegration = false
+
+    // Vérifie que l'URL est chargée
+    if (!params.src.startsWith('https://yourapp.com/')) {
+      event.preventDefault()
+    }
+  })
+})
+```
 
 Encore une fois, cette liste permet simplement de réduire le risque, elle ne le supprime pas. Si votre but est d’afficher un site Web, un navigateur sera une option plus sûre.

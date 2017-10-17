@@ -2,7 +2,7 @@
 
 Tất cả ba điều hành hệ thống cung cấp phương tiện cho các ứng dụng có thể gửi thông báo cho người dùng. Electron cho phép nhà phát triển để gửi thông báo một các tiện lợi với [API thông báo của HTML5](https://notifications.spec.whatwg.org/), bằng cách sử dụng thông báo của hệ điều hành đang chạy API để hiển thị nó.
 
-**Lưu ý:** Vì đây là một API HTML5 nó chỉ sẵn sàng trong quá trình render.
+**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
 
 ```javascript
 let myNotification = new Notification('Title', {

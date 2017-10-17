@@ -4,6 +4,15 @@ La liste suivante inclut les APIs qui seront supprimés dans Electron 2.0.
 
 Il n'y a aucune date prévue pour cette prochaine version, mais les avertissements des déprécations seront ajoutés au moins 90 jours à l'avance.
 
+## `app`
+
+```js
+// Déprécié
+app.getAppMemoryInfo()
+// Remplacé par
+app.getAppMetrics()
+```
+
 ## `BrowserWindow`
 
 ```js
@@ -12,6 +21,15 @@ let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 // Remplacé par
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+let windowB = new BrowserWindow(optionsB)
+```
+
+```js
+// Déprécié
+let optionsA = {titleBarStyle: 'hidden-inset'}
+let windowA = new BrowserWindow(optionsA)
+// Remplacé par
+let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -175,3 +193,15 @@ Il s’agit de l’URL spécifiée comme `disturl` dans un fichier `.npmrc` ou l
 Déprécié : https://atom.io/download/atom-shell
 
 Remplacé par : https://atom.io/download/electron
+
+## Versions ARM dupliquées
+
+Chaque version d'Electron comprend deux versions identiques ARM avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. La version avec le préfix `v7l` a été ajoutée pour clarifier aux utilisateurs quelle version ARM il supporte, et pour éliminer l'ambiguÏté des futures version armv6l et arm64 pouvant être produites.
+
+Le fichier *sans le préfixe* est toujours publié pour éviter d’interrompre les configurations qui peuvent être consommées. À partir de la version 2.0, le fichier non préfixé ne sera plus publié.
+
+Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
+
+## commentaires `FIXME`
+
+La chaîne de caractère `FIXME` est utilisée dans les commentaires de code pour désigner les choses qu’il convient de fixer pour la version 2.0. Voir https://github.com/electron/electron/search?q=fixme

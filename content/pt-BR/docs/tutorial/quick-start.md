@@ -1,6 +1,6 @@
-# Quick Start
+# Início Rápido
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron permite criar aplicações desktop com JavaScript puro, fornecendo em tempo de execução uma API rica e nativa do sistema operacional. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
@@ -149,9 +149,8 @@ $ ./node_modules/.bin/electron .
 
 #### Windows
 
-```bash
-$ .\node_modules\.bin\electron .
-```
+    $ .\node_modules\.bin\electron .
+    
 
 ### Manually Downloaded Electron Binary
 
@@ -171,9 +170,8 @@ $ ./electron/electron your-app/
 
 #### Windows
 
-```bash
-$ .\electron\electron.exe your-app\
-```
+    $ .\electron\electron.exe your-app\
+    
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 

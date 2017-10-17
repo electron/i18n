@@ -149,9 +149,8 @@ $ ./node_modules/.bin/electron .
 
 #### Windows
 
-```bash
-$ .\node_modules\.bin\electron .
-```
+    $ .\node_modules\.bin\electron .
+    
 
 ### Manually Downloaded Electron Binary
 
@@ -171,9 +170,8 @@ $ ./electron/electron your-app/
 
 #### Windows
 
-```bash
-$ .\electron\electron.exe your-app\
-```
+    $ .\electron\electron.exe your-app\
+    
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 

@@ -1,87 +1,88 @@
 # Instrucciones para compilación (macOS)
 
-Siga las pautas a continuación para crear electrones en macOS.
+Follow the guidelines below for building Electron on macOS.
 
-## Requisitos previos
+## Prerequisites
 
-- macOS > = 10.11.6
-- [Xcode](https://developer.apple.com/technologies/tools/) > = 8.2.1
-- [node.js](http://nodejs.org) (externo)
+- macOS >= 10.11.6
+- [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
+- [node.js](http://nodejs.org) (external)
 
-Si está utilizando el Python descargar Homebrew, también necesitará instalar los siguientes módulos de Python:
+If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
 
-- [PyObjC](https://pythonhosted.org/pyobjc/install.html)
+- [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-Si usted simplemente está desarrollando Electron y no planea redistribuir su generación Electron personalizada, puede saltarse esta sección.
+If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-Para que ciertas funciones (por ejemplo, pinch-zoom) para que funcione correctamente, debe apuntar el macOS 10.10 SDK.
+For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
 
-Estructuras Electron oficiales se construyen con [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), que no contiene el 10.10 SDK por defecto. Para obtenerlo, primero descargue y Monte la[Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
 
-Entonces, suponiendo que el Xcode 6.4 DMG se ha montado en volúmenes/`/Xcode` y la instalación de Xcode 8.2.1 es en `/Applications/Xcode.app`, ejecutar:
+Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
 
 ```bash
-CP - r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
+cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-También necesitará habilitar Xcode compilar contra el SDK 10.10:
+You will also need to enable Xcode to build against the 10.10 SDK:
 
-- `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist` abierto
-- Establezca el `MinimumSDKVersion` en `10.10`
-- Guarde el archivo
+- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- Set the `MinimumSDKVersion` to `10.10`
+- Save the file
 
-## Obtener el código de
+## Obteniendo Código
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## De arranque
+## Bootstrapping
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Aviso que estamos usando [ninja](https://ninja-build.org/) para compilar Electron así que no hay ningún proyecto de Xcode generado.
-
-```bash
-$ cd Electronico $./script/bootstrap.py - v
-```
-
-## Edificio
-
-Compilar objetivos de `Release` y `Debug`:
+The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```bash
-$./script/build.py
+$ cd electron
+$ ./script/bootstrap.py -v
 ```
 
-También sólo puede crear el objetivo de `Debug`:
+## Building
+
+Build both `Release` and `Debug` targets:
 
 ```bash
-$./script/build.py - c D
+$ ./script/build.py
 ```
 
-Después de edificio, usted puede encontrar `Electron.app` bajo `out/D`.
-
-## Soporte de 32 bits
-
-Electrón sólo puede compilar para un objetivo de 64 bits en macOS y hay previsto macOS de 32 bits en el futuro.
-
-## Limpieza
-
-Para limpiar los archivos de la compilación:
+You can also only build the `Debug` target:
 
 ```bash
-$ MNP correr limpio
+$ ./script/build.py -c D
 ```
 
-Limpiar sólo los directorios `out` y `dist`:
+After building is done, you can find `Electron.app` under `out/D`.
+
+## 32bit Support
+
+Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+
+## Cleaning
+
+To clean the build files:
 
 ```bash
-$ MNP ejecutar limpieza y construcción
+$ npm run clean
 ```
 
-**Note:** que ambos comandos limpiamos requieren corriente `bootstrap` antes de edificio.
+To clean only `out` and `dist` directories:
 
-## Pruebas de
+```bash
+$ npm run clean-build
+```
 
-Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
+**Note:** Both clean commands require running `bootstrap` again before building.
+
+## Tests
+
+See [Build System Overview: Tests](build-system-overview.md#tests)

@@ -51,6 +51,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
+* [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
