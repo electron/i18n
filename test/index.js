@@ -41,11 +41,12 @@ describe('i18n.website', () => {
 describe('API Docs', () => {
   it('has a title for every doc', () => {
     const locales = Object.keys(i18n.locales)
+    locales.length.should.be.above(1)
     locales.forEach(locale => {
       const docs = Object.keys(i18n.docs[locale]).map(key => i18n.docs[locale][key])
       const titles = docs.map(doc => doc.title)
       const hasTitle = (title) => title !== ''
-
+      titles.length.should.be.above(1)
       titles.every(hasTitle).should.equal(true)
     })
   })
