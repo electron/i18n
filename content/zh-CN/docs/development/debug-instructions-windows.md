@@ -1,43 +1,48 @@
-# Windows 上的调试
+# 在 Windows 中调试
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+如果你在 Electron 中遇到问题或者引起崩溃，你认为它不是由你的JavaScript应用程序引起的，而是由 Electron 本身引起的。调试可能有点棘手，特别是对于不习惯 native/C++ 调试的开发人员。 然而，使用 Visual Studio，GitHub托管的 Electron Symbol Server 和Electron 源代码，在 Electron 的源代码中启用断点调试是相当容易的。
 
-## 需求
+## 要求
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Electron 的调试版本**: 最简单的方法是自己构建它，使用 [Windows 的构建说明](build-instructions-windows.md) 中列出的工具和先决条件要求。虽然你可以轻松地附加和调试 Electron，因为你可以直接下载它，你会发现，由于大量的优化，使调试实质上更加困难：调试器将无法向您显示所有变量的内容，并且执行路径可能看起来很奇怪，这是因为内联，尾部调用和其他编译器优化。
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio 与 C++ 工具**: Visual Studio 2013 和 Visual Studio 2015 的免费社区版本都可以使用。 安装之后,  [配置 Visual Studio 使用 GitHub 的 Electron Symbol 服务器](setting-up-symbol-server.md). 它将使 Visual Studio 能够更好地理解 Electron 中发生的事情，从而更容易以人类可读的格式呈现变量。
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: [免费的 SysInternals 工具] (https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) 允许您检查进程参数，文件句柄和注册表操作。
 
-## Attaching to and Debugging Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+## 附加并调试 Electron
+
+要启动调试会话，请打开 PowerShell/CMD 并执行 Electron 的调试版本，使用应用程序作为参数打开。
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
 ```
 
-### Setting Breakpoints
+### 设置断点
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+然后，打开 Visual Studio。 Electron 不是使用 Visual Studio 构建的，因此不包含项目文件 - 但是您可以打开源代码文件 "As File"，这意味着 Visual Studio 将自己打开它们。 您仍然可以设置断点 - Visual Studio 将自动确定源代码与附加过程中运行的代码相匹配，并相应地中断。
 
+<<<<<<< HEAD
+相关的代码文件可以在 `./atom/` 以及 Brightray 中找到, 找到 `./brightray/browser` 和 `./brightray/common`. 如果是内核，你也可以直接调试 Chromium，这显然在 `chromium_src` 中。
+=======
 Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
+>>>>>>> electron/master
 
-### Attaching
+### 附加
 
-You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+您可以将 Visual Studio 调试器附加到本地或远程计算机上正在运行的进程。 进程运行后，单击 调试 / 附加 到进程（或按下 `CTRL+ALT+P`）打开“附加到进程”对话框。 您可以使用此功能调试在本地或远程计算机上运行的应用程序，同时调试多个进程。
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+如果Electron在不同的用户帐户下运行，请选中“显示所有用户的进程”复选框。 请注意，根据您的应用程序打开的浏览器窗口数量，您将看到多个进程。 典型的单窗口应用程序将导致 Visual Studio 向您提供两个 `Electron.exe` 条目 - 一个用于主进程，一个用于渲染器进程。 因为列表只给你的名字，目前没有可靠的方法来弄清楚哪个是。
 
-### Which Process Should I Attach to?
+### 我应该附加哪个进程?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+在主进程内部执行的代码（即在主 JavaScript 文件中找到或最终运行的代码）以及使用远程代码调用的代码（`require('electron').remote`）将在主进程内运行，而其他代码将在其相应的渲染器进程内执行。
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+您可以在调试时附加到多个程序，但在任何时候只有一个程序在调试器中处于活动状态。 您可以在 `调试位置` 工具栏或 `进程窗口` 中设置活动程序。
 
-## Using ProcMon to Observe a Process
+## 使用 ProcMon 观察进程
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+虽然 Visual Studio 非常适合检查特定的代码路径，但 ProcMon 的优势在于它可以监视应用程序对操作系统的所有操作 - 捕获进程的文件，注册表，网络，进程和分析详细信息。 它试图记录发生的 **所有** 事件，并且可能是相当压倒性的，而且果你想了解你的应用程序对操作系统做什么和如何做，它则是一个很有价值的资源。
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+有关 ProcMon 的基本和高级调试功能的介绍，请查看Microsoft提供的[视频教程](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) 。
