@@ -1,6 +1,6 @@
 # ビルド手順 (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Linux 版 Electron のビルドについては、以下のガイドラインに従ってください。
 
 ## 必要な環境
 
@@ -10,7 +10,7 @@ Follow the guidelines below for building Electron on Linux.
 * Clang 3.4 or later.
 * Development headers of GTK+ and libnotify.
 
-On Ubuntu, install the following libraries:
+Ubuntu では、以下のライブラリをインストールしてください
 
 ```bash
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+RHEL / CentOS では、以下のライブラリをインストールしてください
 
 ```bash
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Fedora では、以下のライブラリをインストールしてください
 
 ```bash
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -40,13 +40,13 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-## Getting the Code
+## コードを取得する
 
 ```bash
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## ブートストラップ
 
 The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
@@ -70,7 +70,7 @@ And to cross compile for `arm` or `ia32` targets, you should pass the `--target_
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## ビルド
 
 If you would like to build both `Release` and `Debug` targets:
 
@@ -94,7 +94,7 @@ $ ./script/build.py -c D
 
 After building is done, you can find the `electron` debug binary under `out/D`.
 
-## Cleaning
+## クリーン
 
 To clean the build files:
 
@@ -110,7 +110,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## トラブルシューティング
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -120,11 +120,11 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## テスト
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## 高度なトピック
 
 The default building configuration is targeted for major desktop Linux distributions, to build for a specific distribution or device, following information may help you.
 
@@ -164,7 +164,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disab
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### 環境変数
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 

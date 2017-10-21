@@ -74,7 +74,7 @@ Electronに組み込まれているNode.jsの影響で、`module`, `exports`, `r
 これを解決するために、Electronなnode integrationを無効にすることができます。
 
 ```javascript
-// In the main process.
+// メインプロセス内
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -96,6 +96,7 @@ delete window.module;
 </script>
 <script type="text/javascript" src="jquery.js"></script>
 </head>
+
 ```
 
 ## `require('electron').xxx`が定義されていません。
@@ -114,7 +115,7 @@ Electronの組み込みモジュールを使うとに、次のようなエラー
 console.log(require.resolve('electron'))
 ```
 
-そして、次の形式に従っているかどうかを確認します。
+そして、次のような形式になっているかどうかを確認します。
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
