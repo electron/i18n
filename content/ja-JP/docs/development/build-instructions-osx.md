@@ -1,14 +1,14 @@
 # ビルド手順 (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+macOS 版 Electron のビルドについては、以下のガイドラインに従ってください。
 
 ## 必要な環境
 
-- macOS >= 10.11.6
-- [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- macOS 10.11.6 以上
+- [Xcode](https://developer.apple.com/technologies/tools/) 8.2.1 以上
+- [Node.js](http://nodejs.org) (外部)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Homebrew からダウンロードした Python をご利用の場合、以下の Python モジュールのインストールも必要です。
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
@@ -32,13 +32,13 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Save the file
 
-## Getting the Code
+## コードを取得する
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## ブートストラップ
 
 The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
@@ -47,7 +47,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## ビルド
 
 Build both `Release` and `Debug` targets:
 
@@ -63,11 +63,11 @@ $ ./script/build.py -c D
 
 After building is done, you can find `Electron.app` under `out/D`.
 
-## 32bit Support
+## 32 ビット OS のサポート
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
-## Cleaning
+## クリーン
 
 To clean the build files:
 
@@ -83,6 +83,6 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## テスト
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
