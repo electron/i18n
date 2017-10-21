@@ -1,26 +1,26 @@
-# 在 C++ 代码中使用 clang-format 工具
+# 在 C++ 代码中使用clang-format
 
-[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) 是一个自动格式化 C/C++/Objective-C 代码的工具, 可以让开发人员不需要担心代码审查期间的样式问题.
+[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) is a tool to automatically format C/C++/Objective-C code, so that developers don't need to worry about style issues during code reviews.
 
-强烈建议在发起请求之前格式化已更改的 C++ 代码，这将节省您和审阅者的时间.
+It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
 
-你可以通过 `npm install -g clang-format` 安装 `clang-format` 和 `git-clang-format`.
+You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
 
-根据 Electron C++ 代码样式自动格式化文件, 只要运行 `clang-format -i path/to/electron/file.cc` 即可. 它应该能够在 macOS/Linux/Windows 上运行.
+To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
-格式化已更改代码的工作流:
+The workflow to format your changed code:
 
-1. 在 Electron 存储库中更改代码.
-2. 运行 `git add your_changed_file.cc`.
-3. 运行 `git-clang-format`, 然后你将可能会看到修改后的 `your_changed_file.cc`, 这些修改是从 `clang-format` 生成的.
-4. 运行 `git add your_changed_file.cc`, 并提交你的修改.
-5. 现在准备好的分支推送请求已经被打开.
+1. Make codes changes in Electron repository.
+2. Run `git add your_changed_file.cc`.
+3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
+4. Run `git add your_changed_file.cc`, and commit your change.
+5. Now the branch is ready to be opened as a pull request.
 
-如果你想在你最新的 git commit（HEAD）中格式化更改的代码, 你可以运行 `git-clang-format HEAD~1`. 通过 `git-clang-format -h` 可以获得更多详情.
+If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## 编辑器集成
 
-您还可以将 `clang-format` 直接集成到您喜欢的编辑器中, 有关设置编辑器集成的更多指导，请参阅这些页面:
+You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
