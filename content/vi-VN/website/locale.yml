@@ -40,7 +40,7 @@ explore:
 download_from_github: Tải về từ Github
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank' rel='noopener'>Quick Start</a> app to see Electron in action:"
+  title: "Trở về ứng dụng <a href='https://github.com/electron/electron-quick-start' target='_blank' rel='noopener'>Quick Start</a> để xem các Electron hoạt động:"
   description: Một ứng dụng Electron nhỏ hữu ích.
   clone: Clone lại source của Quick Start
   go_into_repo: Đi tới kho source code
@@ -51,7 +51,7 @@ need_help:
   description: 'Đặt câu hỏi trong <a href=''https://discuss.atom.io/c/electron''>Diễn đàn</a> hoặc kênh <a href=''http://atom-slack.herokuapp.com/''>Slack</a> của chúng tôi. Follow <a href="https://twitter.com/ElectronJS">@ElectronJS</a> trên Twitter cho các thông báo quan trọng. Để liên hệ với người phụ trách, vui lòng gửi email về <a href="mailto:electron@github.com">electron@github.com</a>.'
 apps:
   title: Các ứng dụng được xây dựng từ Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank'' rel=''noopener''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'Với Electron, tạo ra một ứng dụng desktop cho công ty hoặc các ý tưởng của bạn thật đơn giản. Ban đầu, Electron được phát triển cho trình soạn thảo <a href=''https://atom.io'' target=''_blank'' rel=''noopener''>Atom</a> của Github, sau đó, Electron đã được sử dụng rộng rãi để tạo ra các ứng dụng của các công ty như Microsoft, Facebook, Slack và Docker.'
   view_more: Xem thêm các ứng dụng khác
   submit_your_own: gửi lên ứng dụng của bạn
 or: hoặc
