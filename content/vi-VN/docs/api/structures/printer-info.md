@@ -7,7 +7,7 @@
 
 ## Ví dụ
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Dưới đây là một ví dụ về một số tùy chọn bổ sung mà bạn có thể thiết lập, có thể khác nhau trên mỗi nền tảng.
 
 ```javascript
 {
