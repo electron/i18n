@@ -8,14 +8,42 @@
 
 Do you speak multiple languages? We need your help! 
 
-See [contributing.md](contributing.md) for info on how to participate.
+To get started translating, visit
+[crowdin.com/projects/electron](https://crowdin.com/projects/electron)
+and log in with your GitHub account.
+
+The following languages are currently being translated, but we can
+[easily add more]((https://github.com/electron/electron-i18n/issues/new?title=new%20language%20request)):
+
+- [Français (French)](https://crowdin.com/projects/electron/fr)
+- [Việt Nam (Vietnamese)](https://crowdin.com/projects/electron/vi)
+- [日本語 (Japanese)](https://crowdin.com/projects/electron/ja)
+- [中文 (Chinese Simplified)](https://crowdin.com/projects/electron/zh)
+- [Indonesian](https://crowdin.com/projects/electron/id)
+- [Português (Portuguese)](https://crowdin.com/projects/electron/pt)
+- [한국어 (Korean)](https://crowdin.com/projects/electron/ko)
+- [Nederlands (Dutch)](https://crowdin.com/projects/electron/nl)
+- [中文 (Chinese Traditional)](https://crowdin.com/projects/electron/zh)
+- [Deutsch (German)](https://crowdin.com/projects/electron/de)
+- [ไทย (Thai)](https://crowdin.com/projects/electron/th)
+- [Русский (Russian)](https://crowdin.com/projects/electron/ru)
+- [język polski (Polish)](https://crowdin.com/projects/electron/pl)
+- [Italiano (Italian)](https://crowdin.com/projects/electron/it)
+- [فارسی (Persian)](https://crowdin.com/projects/electron/fa)
+- [Türkçe (Turkish)](https://crowdin.com/projects/electron/tr)
+- [українська мова (Ukrainian)](https://crowdin.com/projects/electron/uk)
+- [Español (Spanish)](https://crowdin.com/projects/electron/es)
+- [čeština (Czech)](https://crowdin.com/projects/electron/cs)
+
+
 
 ## Installation
 
-If you're just here to translate content, see [contributing.md](contributing.md)
-If you're here to _use_ this translated content for some purpose, read on!
-This project is published to npm as a module containing all the translated 
-docs.
+If you're just here to translate content, see above. ☝️
+
+If you're here to _actually use_ this translated content for some purpose, 
+read on! This project is published to npm as a module containing all the 
+translated docs.
 
 ```sh
 npm install electron-i18n
