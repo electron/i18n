@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> Kiểm soát các vòng đời sự kiện trong ứng dụng của bạn.
 
-Process: [Main](../glossary.md#main-process)
+Quá trình: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Ví dụ sau cho thấy làm thế nào để thoát ứng dụng khi cửa sổ cuối cùng được đóng:
 
 ```javascript
 const {app} = require('electron')
@@ -15,7 +15,7 @@ app.on('window-all-closed', () => {
 
 ## Các sự kiện
 
-The `app` object emits the following events:
+`app` object sẽ tạo ra các sự kiện sau đây:
 
 ### Event: 'will-finish-launching'
 
