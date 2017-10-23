@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
 
-Process: [Main](../glossary.md#main-process)
+Quá trình: [Main](../glossary.md#main-process)
 
 This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
 
