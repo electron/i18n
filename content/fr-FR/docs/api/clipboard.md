@@ -1,8 +1,8 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Permet d'effectuer les opérations copier et coller dans le presse-papier.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The following example shows how to write a string to the clipboard:
 
