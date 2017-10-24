@@ -148,39 +148,39 @@
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的方法。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+对于模块，`objectName` 是模块的名称。 对于类，它必须是类的实例的名称，并且不能与模块的名称相同。
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+可选参数由围绕可选参数的方括号 `[]` 表示，并且如果此可选参数跟随另一个参数，则需要逗号：
 
     required[, optional]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+下面的方法是每个参数更加详细的信息。 参数的类型由常见类型表示:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* 或自定义类型, 就像 Electron 的 [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+如果参数或方法对某些平台是唯一的，那么这些平台将使用数据类型后面的空格分隔的斜体列表来表示。 值可以是 `macOS`，`Windows` 或 `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (optional) _macOS_ _Windows_ - 进行动画处理的事情.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` 类型的参数, 必须在指定数组下面的描述中描述可能包含的元素.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` 类型参数的描述应该清楚描述它是如何被调用的，并列出将被传递给它的参数的类型.
 
-### Events
+### 事件
 
-The events chapter must be in following form:
+事件章节必须采用以下形式:
 
 ```markdown
 ### Event: 'wake-up'
@@ -192,13 +192,13 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的事件。
 
-The arguments of an event follow the same rules as methods.
+事件的参数遵循与方法相同的规则.
 
-### Properties
+### 属性
 
-The properties chapter must be in following form:
+属性章节必须采用以下形式:
 
 ```markdown
 ### session.defaultSession
@@ -206,17 +206,17 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的属性。
 
-## Documentation Translations
+## 文档翻译
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Electron 文档的翻译文件位于 `docs-translations` 目录中.
 
-To add another set (or partial set):
+如要添加另一个设定集(或部分设定集):
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
+* 创建以语言缩写命名的子目录。
+* 翻译文件。
+* 更新您的语言目录中的 `README.md` 文件以链接到已翻译的文件。
 * Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
 
 Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
