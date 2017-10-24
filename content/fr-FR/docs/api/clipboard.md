@@ -11,12 +11,11 @@ const {clipboard} = require('electron')
 clipboard.writeText('Mon exemple')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+Sur les systèmes Windows, il y existe aussi un presse-papiers de sélection. Pour le manipuler, vous devez passer le paramètre `selection` pour chaque méthode :
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String', 'selection')
-console.log(clipboard.readText('selection'))
+clipboard.writeText('Mon exemple', 'selection') console.log(clipboard.readText('selection'))
 ```
 
 ## Méthodes
