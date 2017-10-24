@@ -22,7 +22,7 @@ clipboard.writeText('Mon exemple', 'selection') console.log(clipboard.readText('
 
 Le module `clipboard` dispose des méthodes suivantes :
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Remarque :** Les APIs expérimentales sont marquées comme telles et sont susceptibles d'être supprimés à l'avenir.
 
 ### `clipboard.readText([type])`
 
