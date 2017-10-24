@@ -69,20 +69,20 @@ Electron can only be built for a 64bit target on macOS and there is no plan to s
 
 ## 清理
 
-To clean the build files:
+清理构建文件:
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+清理 `out` 和 `dist` 目录:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**注意:** 两个清理命令都需要在构建之前再次运行 `bootstrap`。
 
 ## 测试
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+查看 [构建系统概述: 测试](build-system-overview.md#tests)
