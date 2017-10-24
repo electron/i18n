@@ -48,7 +48,7 @@ Un `Boolean` si l'on affiche les flèches de sélection à droite et à gauche d
 
 #### `touchBarSegmentedControl.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+Un `String` représentant le mode de ce scrubber. Changer cette valeur immédiatement met à jour dans la touch bar. Valeurs possible :
 
 * `fixed` - Mappé à `NSScrubberModeFixed`
 * `free` - Mappé à `NSScrubberModeFree`
