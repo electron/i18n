@@ -13,9 +13,9 @@ Vous pouvez lancer rapidement un serveur multi-plateforme de publication pour di
 * [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server) : *Un simple serveur node.js pour Squirrel.Mac et Squirrel.Windows utilisant les versions publiées sur GitHub*
 * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server) : *Une simple application PHP pour Squirrel.Windows qui lit les mises à jour depuis un dossier. Prend en charge les mies à jour delta.*
 
-## Platform notices
+## Avertissement sur les plateformes
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+Bien que `autoUpdater` fournit une API uniforme pour différentes plateformes, il y a encore quelques différences subtiles sur chaque plateforme.
 
 ### macOS
 
@@ -41,7 +41,7 @@ There is no built-in support for auto-updater on Linux, so it is recommended to 
 
 The `autoUpdater` object emits the following events:
 
-### Event: 'error'
+### Événement : 'error'
 
 Retourne :
 
@@ -49,19 +49,19 @@ Retourne :
 
 Emitted when there is an error while updating.
 
-### Event: 'checking-for-update'
+### Événement : 'checking-for-update'
 
 Emitted when checking if an update has started.
 
-### Event: 'update-available'
+### Événement : 'update-available'
 
 Emitted when there is an available update. The update is downloaded automatically.
 
-### Event: 'update-not-available'
+### Événement : 'update-not-available'
 
 Emitted when there is no available update.
 
-### Event: 'update-downloaded'
+### Événement : 'update-downloaded'
 
 Retourne :
 
