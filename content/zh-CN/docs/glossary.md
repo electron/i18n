@@ -24,7 +24,7 @@ C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部�
 
 ### IME
 
-输入法编辑器. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+输入法编辑器. 是一个允许用户输入在键盘上找不到的字符和符号的程序。 例如，这允许拉丁语的用户键盘输入中文，日文，韩文和印度文字。
 
 ### IPC
 
