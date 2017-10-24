@@ -48,19 +48,19 @@ $ python script\build.py -c D
 
 完成构建后，你可在 `out\D` (调试目标) 或者在`out\R`(发布版本)找到`electron.exe`。
 
-## 32 位版本
+## 32 位构建
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+要为32位目标构建，运行引导脚本时需要传递 `--target_arch = ia32`：
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+其他构建步骤完全一样。
 
 ## Visual Studio 项目
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+要生成Visual Studio项目，可以传递 `--msvs` 参数：
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -84,21 +84,21 @@ $ npm run clean-build
 
 ## 测试
 
-查看[构建系统概览: 测试](build-system-overview.md#tests)
+查看 [构建系统概览: 测试](build-system-overview.md#tests)
 
 ## 故障排查
 
 ### Command xxxx not found
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+如果你遇到了一个错误，类似 `Command xxxx not found`, 可以尝试使用 `VS2015 Command Prompt` 控制台来执行构建脚本.
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+确保你已经安装了 Visual Studio 的最新安装包.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+如果在 Cygwin 下构建的，你可能会看到 `bootstrap.py` 失败并且附带下面错误:
 
     Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
     
@@ -114,7 +114,7 @@ If building under Cygwin, you may see `bootstrap.py` failed with following error
     subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
     
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+这是由同时使用 Cygwin Python 和 Win32 Node 造成的 bug. 解决办法就是使用 Win32 Python 执行 bootstrap 脚本 (假定你已经在目录 `C:\Python27` 下安装了 Python):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -122,11 +122,11 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+重新安装 32位的 Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+简单的创建那个目录 [应该可以解决问题](http://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
@@ -134,4 +134,4 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+如果你使用 Git Bash 来构建，或许会遇到这个错误，可以使用 PowerShell 或 VS2015 Command Prompt 来代替.
