@@ -20,7 +20,7 @@ clipboard.writeText('Mon exemple', 'selection') console.log(clipboard.readText('
 
 ## Méthodes
 
-The `clipboard` module has the following methods:
+Le module `clipboard` dispose des méthodes suivantes :
 
 **Note:** Experimental APIs are marked as such and could be removed in future.
 
