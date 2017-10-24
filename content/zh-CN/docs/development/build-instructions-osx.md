@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on macOS.
 
-## 基本须求
+## 基本要求
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
@@ -40,7 +40,7 @@ $ git clone https://github.com/electron/electron
 
 ## 引导
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```bash
 $ cd electron
