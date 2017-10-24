@@ -60,7 +60,7 @@ fs.readdirSync('/path/to/example.asar')
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+你也可以使用 `BrowserWindow` 来显示一个 `asar` 档案里的 web 页面：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -70,9 +70,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+在 Web 页面里，用 `file:` 协议可以获取 `asar` 包中文件。和 Node API 一样，视 asar 包如虚拟文件夹。
 
-For example, to get a file with `$.get`:
+例如，用 `$.get` 获取文件:
 
 ```html
 <script>
@@ -83,16 +83,16 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### 把`asar` 包当作一个正常的文件
+### 把 `asar` 档案当作一个普通的文件
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+某些情况下，如：核查 `asar` 档案的校验，我们需要像读取 “文件” 那样读取 `asar` 包的内容。 你可以使用内置的 `original-fs` 提供和 `fs` 一样的 API模块来读取 `asar` 包的真实信息。
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+您也可以将 `process.noAsar` 设置为 `true` 以禁用 `fs` 模块中 `asar` 的支持：
 
 ```javascript
 const fs = require('fs')
@@ -100,15 +100,15 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Node API 的限制
+## Node API 的局限性
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+尽管我们已经尽了最大努力使得 `asar` 包在 Node API 下的应用尽可能的趋向于真实的目录结构，但仍有一些底层 Node API 我们无法保证其正常工作。
 
-### 包是只读的
+### 档案是只读的
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+档案中的内容不可更改，所以 Node APIs 里那些可以用来修改文件的方法在对待 `asar` 包时都无法正常工作.
 
-### 工作目录不能设置为包里的目录
+### 工作目录不能设置为档案里的目录
 
 Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
 
