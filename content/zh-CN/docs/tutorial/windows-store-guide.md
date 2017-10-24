@@ -1,31 +1,31 @@
-# Windows 商店提交指南
+# Windows 商店指南
 
-With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+在 Windows 10 中, 一些不错的旧 win32 程序迎来了一个新朋友: 通用Windows平台. 新的 `.appx` 格式不仅启用了许多新的强大的 API，如 Cortana 或推送通知，而且通过Windows 应用商店，也同时简化了安装和更新。
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft [开发了一个工具，将 Electron 应用程序编译为 `.appx` 软件包](https://github.com/catalystcode/electron-windows-store)，使开发人员能够使用新应用程序模型中的一些好东西。 本指南解释了如何使用它 - 以及 Electron AppX 包的功能和限制。
 
-## Background and Requirements
+## 背景和要求
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+Windows 10 的 "周年更新" 能够运行 win32 `.exe` 程序并且它们的虚拟化文件系统和注册表跟随一起启动。 两者都是通过在 Windows 容器中运行应用程序和安装器编译后创建的，允许 Windows 在安装过程中正确识别操作系统进行了哪些修改。 将可执行文件和虚拟文件系统与虚拟注册表配对, 允许 Windows 启用一键安装和卸载。
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+此外，exe 在 appx 模型内启动 - 这意味着它可以使用通用 Windows 平台可用的许多 API。 为了获得更多的功能，Electron 应用程序可以与一个看不见的 UWP 后台任务配合使用，它与 `exe` 一起启动，作为后台运行任务的接收器，接收推送通知或与其他 UWP 应用程序通信 。
 
-To compile any existing Electron app, ensure that you have the following requirements:
+要编译任何现有的 Electron 应用程序，请确保满足以下要求:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10及周年更新 (2016年8月2日发布的)
+* Windows 10 SDK, [这里下载](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* 最新的 Node 4 (运行 `node -v` 来确认)
 
-Then, go and install the `electron-windows-store` CLI:
+然后, 安装 `electron-windows-store` CLI:
 
     npm install -g electron-windows-store
     
 
-## Step 1: Package Your Electron Application
+## 步骤 1: 打包你的 Electron 应用程序
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
 
-The output should look roughly like this:
+结构输出应该看起来大致像这样:
 
     ├── Ghost.exe
     ├── LICENSE
@@ -50,9 +50,9 @@ The output should look roughly like this:
     └── ui_resources_200_percent.pak
     
 
-## Step 2: Running electron-windows-store
+## 步骤 2: 运行 electron-windows-store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+从提权的 PowerShell(用管理员身份运行它) 中, 以所需的参数运行 `electron-windows-store`，传递输入和输出目录，应用程序的名称和版本，以及确认 `node_modules` 应该是扁平的。
 
     electron-windows-store `
         --input-directory C:\myelectronapp `
@@ -62,15 +62,15 @@ From an elevated PowerShell (run it "as Administrator"), run `electron-windows-s
         --package-name myelectronapp
     
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+一旦执行，工具就开始工作：它接受您的 Electron 应用程序作为输入，展平 `node_modules`。 然后，它将应用程序归档为 `app.zip`。 使用安装程序和 Windows 容器，该工具创建一个“扩展的” AppX 包 - 包括 Windows 应用程序清单 (`AppXManifest.xml`)以及虚拟文件系统和输出文件夹中的虚拟注册表。
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+当创建扩展的 AppX 文件后，该工具使用 Windows App Packager(`MakeAppx.exe`)将磁盘上的这些文件创建为单文件 AppX 包。 最后，该工具可用于在计算机上创建可信证书，以签署新的 AppX 包。 使用签名的 AppX 软件包，CLI也可以自动在您的计算机上安装软件包。
 
-## Step 3: Using the AppX Package
+## 步骤 3: 使用 AppX 包
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+为了运行您的软件包，您的用户将需要将 Windows 10 安装“周年纪念更新” - 有关如何更新Windows的详细信息可以在[这里](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update)找到
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+与传统的UWP应用程序不同，打包应用程序目前需要进行手动验证过程，您可以在[这里](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge)申请. In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 
