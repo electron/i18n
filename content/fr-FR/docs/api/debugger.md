@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `protocolVersion` String (facultatif) - Version de protocole de débogage demandée.
 
-Attaches the debugger to the `webContents`.
+Attache le débogueur au `webContents`.
 
 #### `debugger.isAttached()`
 
