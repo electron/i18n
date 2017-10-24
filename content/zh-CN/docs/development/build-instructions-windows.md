@@ -74,13 +74,13 @@ $ python script\bootstrap.py --msvs
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+清理 `out` 和 `dist` 目录:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**注意:** 两个清理命令都需要在构建之前再次运行 `bootstrap`。
 
 ## 测试
 
