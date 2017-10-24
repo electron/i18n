@@ -28,7 +28,7 @@ Le module `clipboard` dispose des méthodes suivantes :
 
 * `type` String (facultatif)
 
-Retourne `String` - Le contenu dans le presse-papiers en tant que texte brut.
+Retourne `String` - Le contenu du presse-papiers en tant que texte brut.
 
 ### `clipboard.writeText(text[, type])`
 
@@ -41,40 +41,40 @@ Retourne `String` - Le contenu dans le presse-papiers en tant que texte brut.
 
 * `type` String (facultatif)
 
-Retourne `String` - Le contenu dans le presse-papiers en tant que balisage.
+Retourne `String` - Le contenu du presse-papiers en tant que balisage.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
 * `type` String (facultatif)
 
-Writes `markup` to the clipboard.
+Écrit le `markup` dans le presse-papiers.
 
 ### `clipboard.readImage([type])`
 
 * `type` String (facultatif)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Retourne [`NativeImage`](native-image.md) - Le contenu de l'image du presse-papiers.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (facultatif)
 
-Writes `image` to the clipboard.
+Écrit l'`image` dans le presse-papiers.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (facultatif)
 
-Returns `String` - The content in the clipboard as RTF.
+Retourne `String` - Le contenu presse-papiers en RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (facultatif)
 
-Writes the `text` into the clipboard in RTF.
+Écrit le `text` dans le presse-papiers en RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -97,7 +97,7 @@ Writes the `title` and `url` into the clipboard as a bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electron.atom.io', 
   bookmark: 'Electron Homepage'
 })
 ```
@@ -116,7 +116,7 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (facultatif)
 
-Clears the clipboard content.
+Efface le contenu du presse-papiers.
 
 ### `clipboard.availableFormats([type])`
 
