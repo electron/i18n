@@ -4,11 +4,11 @@
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+L'exemple suivant montre comment écrire une chaîne de caractère dans le presse-papiers :
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String')
+clipboard.writeText('Mon exemple')
 ```
 
 On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
