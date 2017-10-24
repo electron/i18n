@@ -55,4 +55,4 @@ Un `String` représentant le mode de ce scrubber. Changer cette valeur immédiat
 
 #### `touchBarSegmentedControl.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+Un `Boolean` représentant si ce scrubber est permanent ou non. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar.
