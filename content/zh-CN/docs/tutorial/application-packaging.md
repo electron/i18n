@@ -136,12 +136,12 @@ Node 中有一些可以执行程序的 API，如 `child_process.exec`，`child_p
 
 ## 添加未打包的文件到`asar`包
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+如上所述，一些 Node API 会在调用时将文件解压到文件系统中，除了效率问题外，也有可能引起杀毒软件的注意！
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+为解决这个问题，你可以在生成 asar 档案时使用 `--unpack` 选项来排除一些文件，使其不打包到 asar 包中， 下面是如何排除一些用作共享用途的 native 模块的方法：
 
 ```bash
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+经过上述命令后，除了生成的 `app.asar` 档案以外，还有一个包含了排除文件的 `app.asar.unpacked` 文件夹， 你需要将这个文件夹与 `app.asar` 一起拷贝，提供给用户。
