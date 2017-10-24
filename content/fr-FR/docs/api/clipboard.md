@@ -83,7 +83,7 @@ Retourne `Object`:
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Retourne un objet contenant les clés `title` et `url` représentant le marque-page du presse-papiers. La valeur des clés `title` et `url` sera une chaîne de caractères vide si le marque-page n'est pas disponible.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -159,11 +159,11 @@ Writes the `buffer` into the clipboard as `format`.
 ### `clipboard.write(data[, type])`
 
 * `data` Object 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
+  * `text` String (facultatif)
+  * `html` String (facultatif)
+  * `image` [NativeImage](native-image.md) (facultatif)
+  * `rtf` String (facultatif)
+  * `bookmark` String (facultatif) - Le titre de l'url dans le `text`.
 * `type` String (facultatif)
 
 ```javascript
@@ -171,4 +171,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+Écrit `data` dans le presse-papiers.
