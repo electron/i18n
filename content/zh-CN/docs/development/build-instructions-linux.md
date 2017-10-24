@@ -1,16 +1,16 @@
-# 构建介绍(Linux)
+# 构建步骤 (Linux)
 
-按照以下指南以在 Linux 上构建Electron。
+遵循下面的步骤，在 Linux 上构建 Electron.
 
-## 基本须求
+## 基本要求
 
-* 至少 25 GB 的硬碟空间和 8 GB RAM。
-* Python 2.7.x。一些像 CentOS 6.x 的分发仍然使用 Python 2.6.x，因此您可能需要以 `python-V`检查您的 Python 版本。
-* Node.js. 有多种方法安装 Node.js。 您可以从 [Node.js](http://nodejs.org) 下载从源代码然后从源代码进行编译。 Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* Clang 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* 至少 25GB 硬盘空间 和 8GB 内存.
+* Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
+* Node.js. 有多种方法安装 Node.js。 您可以从 [Node.js](http://nodejs.org) 下载从源代码然后从源代码进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
+* Clang 3.4 或更新的版本.
+* GTK+ 开发头文件和 libnotify.
 
-On Ubuntu, install the following libraries:
+在 Ubuntu, 安装下面的库:
 
 ```bash
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+在 RHEL / CentOS, 安装下面的库:
 
 ```bash
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+在 Fedora, 安装下面的库:
 
 ```bash
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,7 +38,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+其它版本通过包管理器也可能提供了相似的包来安装，例如 pacman. 或一个可以编译的源文件.
 
 ## 获取代码
 
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## 引导
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 必须使用 Python 2.7.x 来让脚本成功执行. 正确下载文件会花费较长的时间. 注意我们使用的是 `ninja` 来构建 Electron，所以没有生成 `Makefile` 项目.
 
 ```bash
 $ cd electron
@@ -57,14 +57,14 @@ $ ./script/bootstrap.py -v
 
 ### 交叉编译
 
-If you want to build for an `arm` target you should also install the following dependencies:
+如果想创建一个 `arm` target ，应当还要下载下面的依赖:
 
 ```bash
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-And to cross compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+为了编译 `arm` 或 `ia32` targets, 你应当为 `bootstrap.py` 脚本使用 `--target_arch` 参数:
 
 ```bash
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -72,21 +72,21 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## 构建
 
-If you would like to build both `Release` and `Debug` targets:
+如果你想要创建 `Release` 、 `Debug` 目标:
 
 ```bash
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+这个脚本也许会在目录 `out/R` 下创建一个巨大的可执行的 Electron. 文件大小或许会超过 1.3 G. 原因是释放的目标二进制文件包含了调试标识. 运行 `create-dist.py` 脚本来减小文件的大小:
 
 ```bash
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the create-dist.py script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+这会在 `dist` 目录下创建一个有大量小文件的工作空间. 运行 create-dist.py 脚本之后, 或许你想删除仍然在 `out/R` 下的 1.3G+ 二进制文件.
 
-You can also build the `Debug` target only:
+你可以只创建 `Debug` 目标:
 
 ```bash
 $ ./script/build.py -c D
