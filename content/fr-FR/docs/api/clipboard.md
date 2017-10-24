@@ -1,6 +1,6 @@
 # clipboard
 
-> Permet d'effectuer les opérations copier et coller dans le presse-papier.
+> Permet d'effectuer les opérations copier et coller dans le presse-papiers.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -26,53 +26,53 @@ Le module `clipboard` dispose des méthodes suivantes :
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (facultatif)
 
-Returns `String` - The content in the clipboard as plain text.
+Retourne `String` - Le contenu dans le presse-papiers en tant que texte brut.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (facultatif)
 
-Writes the `text` into the clipboard as plain text.
+Écrit le `text` dans le presse-papiers au format texte brut.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` String (facultatif)
 
-Returns `String` - The content in the clipboard as markup.
+Retourne `String` - Le contenu dans le presse-papiers en tant que balisage.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (facultatif)
 
 Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` String (facultatif)
 
 Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (facultatif)
 
 Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (facultatif)
 
 Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (facultatif)
 
 Writes the `text` into the clipboard in RTF.
 
@@ -89,7 +89,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` String
-* `type` String (optional)
+* `type` String (facultatif)
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -114,20 +114,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (facultatif)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (facultatif)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` String (facultatif)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -152,7 +152,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (facultatif)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -164,7 +164,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (facultatif)
 
 ```javascript
 const {clipboard} = require('electron')
