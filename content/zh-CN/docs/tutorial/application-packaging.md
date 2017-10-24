@@ -1,34 +1,34 @@
 # 应用程序打包
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+为缓解 Windows 下路径名过长的 [问题](https://github.com/joyent/node/issues/6960)， 也顺便加速 `require` 以及简单隐匿你的源代码，你可以通过极小的源代码改动将你的应用打包成 [asar](https://github.com/electron/asar)。
 
 ## 生成 `asar` 包
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+[asar](https://github.com/electron/asar) 是一种将多个文件合并成一个文件的类 tar 风格的归档格式。 Electron 可以无需解压，即从其中读取任意文件内容。
 
-Steps to package your app into an `asar` archive:
+参照如下步骤将你的应用打包成 `asar`
 
-### 1.安装 asar 程序
+### 1. 安装 asar 实用程序
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2.使用 `asar 包`进行打包
+### 2. 使用 `asar pack` 打包
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## 使用 `asar` 包
+## 使用 `asar` 档案
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+在 Electron 中有两类 APIs：Node.js 提供的 Node API 和 Chromium 提供的 Web API。 这两种 API 都支持从 `asar` 档案中读取文件。
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+由于 Electron 中打了特别补丁， Node API 中如 `fs.readFile` 或者 `require` 之类 的方法可以将 `asar` 视之为虚拟文件夹，读取 asar 里面的文件就和从真实的文件系统中读取一样。
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+例如，假设我们在 `/path/to` 文件夹下有个 `example.asar` 包：
 
 ```bash
 $ asar list /path/to/example.asar
@@ -40,21 +40,21 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+从 `asar` 档案读取一个文件：
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+列出档案根目录下的所有文件：
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+使用档案中的模块：
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
