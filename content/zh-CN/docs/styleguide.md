@@ -216,7 +216,7 @@ Electron 文档的翻译文件位于 `docs-translations` 目录中.
 
 * 创建以语言缩写命名的子目录。
 * 翻译文件。
-* 更新您的语言目录中的 `README.md` 文件以链接到已翻译的文件。
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* 更新你的语言目录中的 `README.md` 文件以链接到已翻译的文件。
+* 在 Electron 的主 [README](https://github.com/electron/electron#documentation-translations)上添加到翻译目录的链接。
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+请注意，`docs-translations` 下的文件只能包含已被翻译的文件，不应将原始英语文件复制到那里。
