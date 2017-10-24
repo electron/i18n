@@ -91,9 +91,9 @@ Retourne un objet contenant les clés `title` et `url` représentant le marque-p
 * `url` String
 * `type` String (facultatif)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Écrit le `title` et `url` dans le presse-papiers comme marque-page.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Remarque :** La plupart des applications sur Windows ne supportent pas le format marque-page, du coup vous pouvez utiliser `clipboard.write` pour écrire un marque-page et un texte de secours dans le presse-papiers.
 
 ```js
 clipboard.write({
