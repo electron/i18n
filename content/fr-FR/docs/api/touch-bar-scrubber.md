@@ -8,12 +8,12 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
 
 * `options` Object 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Un tableau d'éléments à placer dans ce scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
-    * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
-    * `highlightedIndex` Integer - The index of the item the user touched
-  * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
+  * `select` Function - Appelée lorsque l'utilisateur clique sur un élément qui n'était par le dernier élément cliqué 
+    * `selectedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné
+  * `highlight` Function - Appelée lorsque l'utilisateur clique sur un élément quelconque 
+    * `highlightedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné
+  * `selectedStyle` String - Le style de l'élément sélectionné. `null` par défaut.
+  * `overlayStyle` String - Le style de l'élément superposé. `null` par défaut.
   * `showArrowButtons` Boolean - `false` par défaut.
   * `mode` String - `free` par défaut.
   * `continuous` Boolean - `true` par défaut.
@@ -24,7 +24,7 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarScrub
 
 #### `touchBarSegmentedControl.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
 
 #### `touchBarSegmentedControl.selectedStyle`
 
