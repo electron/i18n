@@ -4,14 +4,14 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+Le module `autoUpdater` fournit une interface pour le framework [Squirrel](https://github.com/Squirrel).
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+Vous pouvez lancer rapidement un serveur multi-plateforme de publication pour distribuer votre application en utilisant l'un de ces projets :
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [nuts](https://github.com/GitbookIO/nuts) : *Un serveur simple pur vos applications, utilisant GitHub comme backend. Mise à jour automatique avec Squirrel (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server) : *Un serveur complet et auto-hébergé pour les applications Electron, compatible avec auto-updater*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server) : *Un simple serveur node.js pour Squirrel.Mac et Squirrel.Windows utilisant les versions publiées sur GitHub*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server) : *Une simple application PHP pour Squirrel.Windows qui lit les mises à jour depuis un dossier. Prend en charge les mies à jour delta.*
 
 ## Platform notices
 
