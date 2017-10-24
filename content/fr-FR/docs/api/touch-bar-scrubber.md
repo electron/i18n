@@ -24,11 +24,11 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarScrub
 
 #### `touchBarSegmentedControl.items`
 
-Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Changer une propriété dans le tableau **ne met pas à jour la touch bar**.
 
 #### `touchBarSegmentedControl.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Un `String` représentant le style des éléments sélectionnés dans le scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarSegmentedControl.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
+Un `String` représentant le style des éléments sélectionnés dans le scrubber. This style is overlayed on top of the scrubber item instead of being placed behind it. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`
