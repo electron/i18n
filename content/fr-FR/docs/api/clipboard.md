@@ -104,7 +104,7 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Retourne `String` - Le texte du pasteboard. Cette méthode utilise l'IPC synchrone quand elle est appelée dans le renderer process. La valeur mise en cache est relue à partir du pasteboard à chaque fois que l'application est activée.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
@@ -129,7 +129,7 @@ Returns `String[]` - An array of supported formats for the clipboard `type`.
 * `format` String
 * `type` String (facultatif)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Retourne `Boolean` - Si le presse-papiers prend en charge le `format` spécifié.
 
 ```javascript
 const {clipboard} = require('electron')
@@ -140,13 +140,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+Retourne `String` - Lit le type de `format` depuis le presse-papiers.
 
 ### `clipboard.readBuffer(format)` *Experimental*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Retourne un `Buffer` - Lit le type de `format` depuis le presse-papiers.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
@@ -154,7 +154,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 * `buffer` Buffer
 * `type` String (facultatif)
 
-Writes the `buffer` into the clipboard as `format`.
+Écrit le `buffer` dans le presse-papiers comme `format`.
 
 ### `clipboard.write(data[, type])`
 
