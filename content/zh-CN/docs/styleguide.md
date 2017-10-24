@@ -90,18 +90,18 @@
 
 ### 类
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* API 类或作为模块一部分的类必须在 `## Class: TheClassName` 章节中列出.
+* 一个页面可以有多个类.
+* 构造函数必须用 `###` 级标题列出.
+* [静态方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) 必须在 `### Static Methods` 章节中列出.
+* [实例方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) 必须在 `### Instance Methods` 章节中列出.
+* 所有具有返回值的方法必须用"Returns `[TYPE]` - Return description" 的形式描述. 
+  * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
+* 实例事件必须在 `### Instance Events` 章节中列出.
+* 实例属性必须在 `### Instance Properties` 章节中列出. 
+  * 实例属性必须以 "A [Property Type] ..." 开始描述.
 
-Using the `Session` and `Cookies` classes as an example:
+这里用 `Session` 和 `Cookies` 类作为例子:
 
 ```markdown
 # session
@@ -135,9 +135,9 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### 方法
 
-The methods chapter must be in the following form:
+方法章节必须采用以下形式：
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
