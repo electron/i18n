@@ -110,7 +110,7 @@ Retourne `String` - Le texte du pasteboard. Cette méthode utilise l'IPC synchro
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+Écrit le `text` dans le pasteboard en texte brut. Cette méthode utilise l'IPC synchrone quand elle est appelée dans le renderer process.
 
 ### `clipboard.clear([type])`
 
@@ -122,7 +122,7 @@ Efface le contenu du presse-papiers.
 
 * `type` String (facultatif)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Retourne `String[]` - Un tableau de format pris en charge pour le `type` du presse-papiers.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
