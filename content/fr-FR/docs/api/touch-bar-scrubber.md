@@ -44,7 +44,7 @@ Un `String` représentant le style des éléments sélectionnés dans le scrubbe
 
 #### `touchBarSegmentedControl.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+Un `Boolean` si l'on affiche les flèches de sélection à droite et à gauche dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar.
 
 #### `touchBarSegmentedControl.mode`
 
