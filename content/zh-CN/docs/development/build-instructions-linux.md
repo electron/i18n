@@ -92,29 +92,29 @@ $ ./script/create-dist.py
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+创建完毕, 可以在 `out/D`下面找到 `electron`.
 
 ## 清理
 
-To clean the build files:
+清理构建文件:
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+清理 `out` 和 `dist` 目录:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**注意:** 两个清理命令都需要在构建之前再次运行 `bootstrap`。
 
 ## 故障排查
 
 ### 加载共享库时出现错误： libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+预构建的 `clang` 会尝试链接到 `libtinfo.so.5`. 取决于 host 架构, 适当的使用 `libncurses`:
 
 ```bash
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -122,42 +122,42 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 测试
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+查看 [构建系统概述: 测试](build-system-overview.md#tests)
 
-## 高级话题
+## 高级提示
 
-The default building configuration is targeted for major desktop Linux distributions, to build for a specific distribution or device, following information may help you.
+默认编译配置是针对主流 Linux 桌面发行版而言, 对于其他特定发行版或平台, 以下信息可能会帮到你.
 
-### Building `libchromiumcontent` locally
+### 本地编译 `libchromiumcontent`
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can pass the `--build_libchromiumcontent` switch to `bootstrap.py` script:
+可以添加参数 `--build_libchromiumcontent` 给 `bootstrap.py` 脚本以避免使用预编译的 `libchromiumcontent` 二进制文件:
 
 ```bash
 $ ./script/bootstrap.py -v --build_libchromiumcontent
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+注意默认情况下不会以 `shared_library` 方式编译, 所以你如果使用以下模式的话, 只能编译 Electron的 `Release` 版本:
 
 ```bash
 $ ./script/build.py -c R
 ```
 
-### Using system `clang` instead of downloaded `clang` binaries
+### 使用系统提供的 `clang` 替换下载的 `clang` 二进制文件
 
-By default Electron is built with prebuilt `clang` binaries provided by Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+默认情况下 Electron 使用 Chromium 项目提供的预编译的 `clang` 进行编译. 如果基于某些原因你想要使用已经安装到系统的 `clang` 进行编译, 可以添加 `--clang_dir=<path>` 参数给 `bootstrap.py` 以指定 `clang` 安装路径. 上面参数告诉编译脚本, 在目录 `<path>/bin/` 下有 `clang` 程序.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+假设你的 `clang` 安装路径为 `/user/local/bin/clang`:
 
 ```bash
 $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### 使用`clang`之外的其它编译器
+### 使用 `clang` 之外的其它编译器
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+要使用其他编译器 如: `g++` 编译 Electron, 首先需要使用参数 `--disable_clang` 禁用 `clang`, 然后设置 `CC` 及 `CXX` 环境变量.
 
-For example building with GCC toolchain:
+假设使用 GCC 工具链:
 
 ```bash
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disable_clang
@@ -166,7 +166,7 @@ $ ./script/build.py -c R
 
 ### 环境变量
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+除了 `CC` 及 `CXX`, 你还可以设置以下环境变量来自定义编译配置:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -182,4 +182,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+以上环境变量需要在执行 `bootstrap.py` 前设置, 在执行 `build.py` 的时候再设置将无效.
