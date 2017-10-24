@@ -36,7 +36,7 @@ Un `String` représentant le style des éléments sélectionnés dans le scrubbe
 
 #### `touchBarSegmentedControl.overlayStyle`
 
-Un `String` représentant le style des éléments sélectionnés dans le scrubber. This style is overlayed on top of the scrubber item instead of being placed behind it. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
+Un `String` représentant le style des éléments sélectionnés dans le scrubber. Ce style est superposé sur le dessus de l'élément scrubber au lieu d'être placé derrière. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`
