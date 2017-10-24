@@ -1,21 +1,21 @@
-# 构建介绍(Windows)
+# 构建步骤 (Windows)
 
-遵循下面的原则在 Windows 平台上构建 Electron。
+遵循下面的步骤, 在 Windows 平台上构建 Electron。
 
-## 先决条件
+## 基本要求
 
 * Windows 7 / Server 2008 R2 或更高
 * Visual Studio 2015 Update 3 - [下载免费的 VS 2015 Community Edition ](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Windows 调试工具](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) 如果你计划从 `symstore.exe` 创建完整的分发用于从 `.pdb` 文件创建 symbol 存储
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+如果您当前没有安装 Windows， [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) 上有时间限制的 Windows 版本，你可以用来构建 Electron。
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+构建 Electron 完全由命令行脚本完成，无法通过 Visual Studio 完成。 您可以使用任何编辑器开发 Electron，但将来将会使用 Visual Studio 构建支持。
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**注意:** 即使 ual Studio 不用于构建，但是仍然**需要**，因为我们需要它提供的构建工具链。
 
 ## 获取代码
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## 引导
 
-引导脚本将会下载全部必要的构建依赖，并创建和构建项目文件。 需要注意的是我们使用`ninja`创建 Electron，这样的话旧不需要生成 Visual Studio 项目了。
+引导脚本将会下载全部必要的构建依赖，并创建和构建项目文件。 需要注意的是我们使用`ninja`创建 Electron，这样的话就不需要生成 Visual Studio 项目了。
 
 ```powershell
 $ cd electron
