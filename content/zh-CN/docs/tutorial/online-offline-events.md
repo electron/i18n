@@ -1,6 +1,6 @@
 # 在线/离线事件探测
 
-Online and offline event detection can be implemented in the renderer process using standard HTML5 APIs, as shown in the following example.
+使用标准 HTML5 APIs 可以实现在线和离线事件的探测，就像以下例子
 
 *main.js*
 
@@ -35,7 +35,7 @@ app.on('ready', () => {
 </html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+也会有人想要在主进程也有回应这些事件的实例。 然后主进程没有 `navigator` 对象因此不能直接探测在线还是离线。 使用 Electron 的进程间通讯工具，事件就可以在主进程被使用，就像下面的例子.
 
 *main.js*
 
@@ -74,4 +74,4 @@ ipcMain.on('online-status-changed', (event, status) => {
 </html>
 ```
 
-**NOTE:** If Electron is not able to connect to a local area network (LAN) or a router, it is considered offline; all other conditions return `true`. So while you can assume that Electron is offline when `navigator.onLine` returns a `false` value, you cannot assume that a `true` value necessarily means that Electron can access the internet. You could be getting false positives, such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always "connected." Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+**注意：** 如果 Electron 无法连接到局域网(LAN) 或 一个路由器，它被认为是离线的; 所有其他条件返回 `true`。 所以，虽然你可以假设 Electron 是离线的，当 `navigator.onLine` 返回一个 `false` 值，你不能假设一个`true` 值必然 意味着 Electron 可以访问互联网。 你可能会获得虚假 连接，例如在计算机运行虚拟化软件的情况下， 具有始终“连接”的虚拟以太网适配器。 因此，如果您真的想确定 Electron 的互联网访问状态， 你应该开发额外的检查手段。
