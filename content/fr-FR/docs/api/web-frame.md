@@ -14,23 +14,23 @@ webFrame.setZoomFactor(2)
 
 ## Méthodes
 
-The `webFrame` module has the following methods:
+Le module `webFrame` dispose des méthodes suivantes :
 
 ### `webFrame.setZoomFactor(factor)`
 
 * `factor` Number - Facteur de zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le pourcentage divisé par 100, donc 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Retourne `Number` - Le facteur de zoom actuel.
 
 ### `webFrame.setZoomLevel(level)`
 
 * `level` Number - Niveau de zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Modifie le niveau de zoom jusqu'au niveau spécifié. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `webFrame.getZoomLevel()`
 
