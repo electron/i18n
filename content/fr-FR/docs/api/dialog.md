@@ -59,9 +59,9 @@ Les `filters` spécifie un tableau de types de fichiers pouvant être affichés 
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+Le tableau d'`extensions` devrait contenir les extensions sans caractères génériques ou de point (par exemple `'png'` est correct, mais `'.png'` et `'*.png'` ne l'est pas). Pour afficher tous les fichiers, utilisez le caractère générique `'*'` (aucun autre caractère générique n'est pris en charge).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+Si un `callback` est passé, l''appel de l'API sera asynchrone et le résultat sera transmis via `callback(filenames)`
 
 **Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
 
