@@ -1,17 +1,17 @@
 # Variables d'environnement
 
-> Control application configuration and behavior without changing code.
+> Contrôle la configuration et le comportement de l'application sans modifier le code.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Certains comportements d'Electron sont contrôlés par les variables d'environnement car ils sont initialisés avant les indicateurs de ligne de commande et le code de l'application.
 
-POSIX shell example:
+Exemple sur un shell POSIX :
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Exemple sur la console Windows :
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
