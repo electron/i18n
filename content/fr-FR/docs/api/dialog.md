@@ -1,10 +1,10 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Affiche une boîte de dialogue du système natif pour ouvrir et enregistrer des fichiers, alertes, etc...
 
 Processus : [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Un exemple d'affichage d'une boîte de dialogue pour sélectionner plusieurs fichiers et dossiers :
 
 ```javascript
 const {dialog} = require('electron')
@@ -20,16 +20,16 @@ console.log(dialog)
 
 ## Méthodes
 
-The `dialog` module has the following methods:
+Le module `dialog` dispose des méthodes suivantes :
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (optional)
 * `options` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
+  * `title` String (facultatif)
+  * `defaultPath` String (facultatif)
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
     * `openFile` - Allow files to be selected.
     * `openDirectory` - Allow directories to be selected.
@@ -69,14 +69,14 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 * `browserWindow` BrowserWindow (optional)
 * `options` Object 
-  * `title` String (optional)
+  * `title` String (facultatif)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `callback` Function (optional) 
+* `callback` Function (facultatif) 
   * `filename` String
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
@@ -89,7 +89,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (facultatif)
 * `options` Object 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -103,7 +103,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
-* `callback` Function (optional) 
+* `callback` Function (facultatif) 
   * `response` Number - The index of the button that was clicked
   * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
@@ -126,7 +126,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (facultatif)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
