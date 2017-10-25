@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
+  * `spellCheck` Function - Retourne `Boolean` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -149,7 +149,7 @@ const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Cela va générer :
 
 ```javascript
 {
@@ -158,10 +158,10 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* pareil qu'avec "images" */ },
+  xslStyleSheets: { /* pareil qu'avec "images" */ },
+  fonts: { /* pareil qu'avec "images" */ },
+  other: { /* pareil qu'avec "images" */ }
 }
 ```
 
