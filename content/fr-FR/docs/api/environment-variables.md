@@ -48,15 +48,15 @@ Ne s'attache pas la session courante de la console.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+N'utilise pas la bar de menu global sur Linux.
 
 ## Variables de développement
 
-The following environment variables are intended primarily for development and debugging purposes.
+Les variables d'environnement suivantes sont destinés principalement pour le développement et le débogage.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Affiche les logs interne de Chrome sur la console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
@@ -64,12 +64,12 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Affiche la stack trace sur la console lorsqu'Electron plante.
 
-This environment variable will not work if the `crashReporter` is started.
+Cette variable d'environnement ne fonctionnera pas si vous avez démarré `crashReporter`.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Affiche la boite de dialogue de plantage lorsqu'Electron plante.
 
-This environment variable will not work if the `crashReporter` is started.
+Cette variable d'environnement ne fonctionnera pas si vous avez démarré `crashReporter`.
