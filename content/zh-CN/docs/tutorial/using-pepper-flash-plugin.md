@@ -1,22 +1,22 @@
 # 使用 Pepper Flash 插件
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Electron 现在支持 Pepper Flash 插件。要在 Electron 里面使用 Pepper Flash 插件，你需 要手动设置 Pepper Flash 的路径和在你的应用里启用 Pepper Flash。
 
-## Prepare a Copy of Flash Plugin
+## 保留一份 Flash 插件的副本
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+在 macOS 和 Linux 上，你可以在 Chrome 浏览器的 `chrome://plugins` 页面上找到 Pepper Flash 的插件信息。 插件的路径和版本会对 Election 对其的支持有帮助。 你也可以把插件 复制到另一个路径以保留一份副本。
 
-## Add Electron Switch
+## 添加插件在 Electron 里的开关
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+你可以直接在命令行中用 `--ppapi-flash-path` 和 `--ppapi-flash-version` 或者 在 app 的准备事件前调用 `app.commandLine.appendSwitch` 这个方法。 同时， 打开 `BrowserWindow` 的`plugins`选项。
 
-For example:
+例如：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// 指定 flash 路径，假定它与 main.js 放在同一目录中。
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -31,7 +31,7 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// 可选：指定 flash 的版本，例如 v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
 app.on('ready', () => {
@@ -43,15 +43,15 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // 一些别的什么
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+您也可以尝试加载系统安装的 Pepper Flash 插件，而不是装运 插件，其路径可以通过调用 `app.getPath('pepperFlashSystemPlugin')` 获取。
 
-## Enable Flash Plugin in a `<webview>` Tag
+## 使用 `<webview>` 标签启用 Flash 插件
 
-Add `plugins` attribute to `<webview>` tag.
+在 `<webview>` 标签里添加 `plugins` 属性。
 
 ```html
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
@@ -59,10 +59,10 @@ Add `plugins` attribute to `<webview>` tag.
 
 ## 故障排查
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+您可以通过在控制台打印 `navigator.plugins` 来检查 Pepper Flash 插件是否加载 (虽然你不知道插件的路径是正确的)。
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+Pepper Flash 插件的操作系统必须和 Electron 的操作系统匹配。在 Windows 中， 一个常见的错误是对64位版本的 Electron 使用 32bit 版本的 Flash 插件。
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+在 Windows 中，传递给 `--ppapi-flash-path` 的路径必须使用 `` 作为路径分隔符，使用 POSIX-style 的路径将无法工作。
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+对于一些操作，例如使用 RTMP 的流媒体，有必要向播放器的 `.swf` 文件授予更多的权限。 实现这一点的一种方式是使用 [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
