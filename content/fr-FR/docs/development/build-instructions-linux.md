@@ -1,4 +1,4 @@
-# Instructions de Build (Linux)
+# Instructions de compilation (Linux)
 
 Suivez les indications ci-dessous pour compiler Electron sur Linux.
 
