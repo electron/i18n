@@ -31,15 +31,15 @@ En utilisant [electron-winstaller](https://github.com/electron/windows-installer
 
 L'installateur généré avec Squirrel va créer une icône de raccourci avec un [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) dans le format `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`. Voici deux exemples : `com.squirrel.slack.Slack` et `com.squirrel.code.Code`. Vous devez utiliser le même ID pour votre application qu'avec l'API `app.setAppUserModelId`, sinon Windows ne sera pas en mesure d'épingler correctement votre application dans la barre des tâches.
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 ou tout autre hôte de fichiers statiques. Vous pouvez lire les documents de [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) pour obtenir plus de détails sur le fonctionnement de Squirrel.Windows.
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Il n'existe pas de prise en charge pour les mises à jours automatique sur Linux, il est donc recommandé d'utiliser le gestionnaire de paquets de distribution pour mettre à jour votre application.
 
 ## Événements
 
-The `autoUpdater` object emits the following events:
+L'objet `autoUpdater` émet les événements suivants :
 
 ### Événement : 'error'
 
@@ -47,19 +47,19 @@ Retourne :
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Émis lorsqu’il y a une erreur pendant la mise à jour.
 
 ### Événement : 'checking-for-update'
 
-Emitted when checking if an update has started.
+Émis lors de la vérification du commencement d'une mise à jour.
 
 ### Événement : 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Émis lorsqu’il y a une mise à jour disponible. La mise à jour est téléchargé automatiquement.
 
 ### Événement : 'update-not-available'
 
-Emitted when there is no available update.
+Émis quand il n’y a aucune mise à jour disponible.
 
 ### Événement : 'update-downloaded'
 
@@ -71,20 +71,20 @@ Retourne :
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Émis lorsqu'une mise à jour a été téléchargée.
 
-On Windows only `releaseName` is available.
+Sur Windows, seulement `releaseName` est disponible.
 
 ## Méthodes
 
-The `autoUpdater` object has the following methods:
+L'objet `autoUpdater` dispose des méthodes suivantes :
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (facultatif) - En-têtes de requête HTTP.
 
-Sets the `url` and initialize the auto updater.
+Définit l'`url` et initialise l'auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
