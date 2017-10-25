@@ -1,19 +1,19 @@
 # 使用 Selenium 和 WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+引自 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver 是一款开源的支持多浏览器的自动化测试工具。 它提供了操作网页、用户输入、JavaScript 执行等能力。 ChromeDriver 是一个实现了 WebDriver 与 Chromium 联接协议的独立服务。 它也是由开发了 Chromium 和 WebDriver 的团队开发的。
 
-## Setting up Spectron
+## 配置 Spectron
 
-[Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electron.atom.io/spectron) 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](http://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
 
 ```bash
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// 一个简单的测试验证一个带标题的可见的窗口
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,33 +22,33 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Check if the window is visible
+  // 检查浏览器窗口是否可见
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verify the window is visible
+  // 验证浏览器窗口是否可见
   assert.equal(isVisible, true)
 }).then(function () {
-  // Get the window's title
+  // 获得浏览器窗口的标题
   return app.client.getTitle()
 }).then(function (title) {
-  // Verify the window's title
+  // 验证浏览器窗口的标题
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log any failures
+  // 记录任何错误
   console.error('Test failed', error.message)
 }).then(function () {
-  // Stop the application
+  // 停止应用程序
   return app.stop()
 })
 ```
 
-## Setting up with WebDriverJs
+## 通过 WebDriverJs 配置
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) 是一个可以配合 WebDriver 做测试的 node 模块，我们会用它来做个演示。
 
-### 1. Start ChromeDriver
+### 1. 启动 ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+首先，你要下载 `chromedriver`，然后运行以下命令：
 
 ```bash
 $ npm install electron-chromedriver
@@ -57,27 +57,27 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+记住 `9515` 这个端口号，我们后面会用到
 
-### 2. Install WebDriverJS
+### 2. 安装 WebDriverJS
 
 ```bash
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. 连接到 ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+在 Electron 下使用 `selenium-webdriver` 和其平时的用法并没有大的差异，只是你需要手动设置连接 ChromeDriver，以及 Electron 的路径：
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // "9515" 是ChromeDriver使用的端口
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      // 这里设置Electron的路径
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -96,13 +96,13 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## 通过 WebdriverIO 配置
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) 也是一个配合 WebDriver 用来测试的 node 模块.
 
-### 1. Start ChromeDriver
+### 1. 启动 ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+首先，你要下载 `chromedriver`，然后运行以下命令：
 
 ```bash
 $ npm install electron-chromedriver
@@ -111,26 +111,26 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+记住 `9515` 这个端口号，我们后面会用到
 
-### 2. Install WebdriverIO
+### 2. 安装 WebdriverIO
 
 ```bash
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. 连接到 chrome driver
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  host: 'localhost', // 使用 localhost 作为 ChromeDriver 服务器
+  port: 9515,        // "9515"是ChromeDriver使用的端口
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Electron的路径
+      args: [/* cli arguments */]           // 可选参数，类似：'app=' + /path/to/your/app/
     }
   }
 }
@@ -148,8 +148,8 @@ client
   .end()
 ```
 
-## Workflow
+## 工作流
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+无需重新编译 Electron，只要把 app 的源码[放到](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Electron的资源目录 里就可直接开始测试了。
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+当然，你也可以在运行 Electron 时传入参数指定你 app 的所在文件夹。这步可以免去你拷贝－粘贴你的 app 到 Electron 的资源目录。
