@@ -61,7 +61,7 @@ Les `filters` spécifie un tableau de types de fichiers pouvant être affichés 
 
 Le tableau d'`extensions` devrait contenir les extensions sans caractères génériques ou de point (par exemple `'png'` est correct, mais `'.png'` et `'*.png'` ne l'est pas). Pour afficher tous les fichiers, utilisez le caractère générique `'*'` (aucun autre caractère générique n'est pris en charge).
 
-Si un `callback` est passé, l''appel de l'API sera asynchrone et le résultat sera transmis via `callback(filenames)`
+Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat sera transmis via `callback(filenames)`
 
 **Remarque :** Sur Windows et Linux, une boîte de dialogue ne peux pas être à la fois une sélection de fichier et une sélection de dossier, donc si vous définissez `properties` à `['openFile', 'openDirectory']` sur ces plateformes, c'est la sélection de dossier qui s'affichera.
 
@@ -83,9 +83,9 @@ Retourne `String`, le chemin d'accès du fichier choisi par l'utilisateur, si le
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+Les `filters` spécifie un tableau de types de fichiers qui peuvent être affichés, allez voir `dialog.showOpenDialog` pour un exemple.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat sera transmis via `callback(filename)`
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
