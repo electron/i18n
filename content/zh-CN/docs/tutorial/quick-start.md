@@ -22,9 +22,9 @@ Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**�
 
 由于在页面里管理原生 GUI 资源是非常危险而且容易造成资源泄露，所以在页面调用 GUI 相关的 APIs 是不被允许的。 如果你想在网页里使用 GUI 操作，其对应的渲染进程必须与主进程进行通讯，请求主进程进行相关的 GUI 操作。
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+在 Electron，我们提供几种方法用于主进程和渲染进程之间的通讯。 像 [`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md) 模块用于发送消息， [remote](../api/remote.md) 模块用于 RPC 方式通讯。 这些内容都可以在一个 FAQ 中查看 [如何在两个页面之间共享数据](../faq.md#how-to-share-data-between-web-pages)。
 
-## 写出你的第一个 Electron 应用程序
+## 打造你第一个 Electron 应用
 
 通常来说，一个 Electron 应用的结构是这样的:
 
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+`package.json` 的格式和 Node 的完全一致，并且那个被 `main` 字段声明的脚本文件是你的应用的启动脚本，它运行在主进程上。 你应用里的 `package.json` 看起来应该像：
 
 ```json
 {
@@ -45,59 +45,59 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**注意**：如果 `main` 字段没有在 `package.json` 声明，Electron会优先加载 `index.js`。
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js` 应该用于创建窗口和处理系统事件，一个典型的例子如下：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// 保持一个对于 window 对象的全局引用，如果你不这样做，
+// 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // 创建浏览器窗口。
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // 然后加载应用的 index.html。
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // 打开开发者工具。
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // 当 window 被关闭，这个事件会被触发。
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // 取消引用 window 对象，如果你的应用支持多窗口的话，
+    // 通常会把多个 window 对象存放在一个数组里面，
+    // 与此同时，你应该删除相应的元素。
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Electron 会在初始化后并准备
+// 创建浏览器窗口时，调用这个函数。
+// 部分 API 在 ready 事件触发后才能使用。
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 当全部窗口关闭时退出。
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // 在 macOS 上，除非用户用 Cmd + Q 确定地退出，
+  // 否则绝大部分应用及其菜单栏会保持激活。
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // 在macOS上，当单击dock图标并且没有其他窗口打开时，
+  // 通常在应用程序中重新创建一个窗口。
   if (win === null) {
     createWindow()
   }
