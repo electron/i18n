@@ -1,6 +1,7 @@
 require('chai').should()
 const {describe, it} = require('mocha')
 const i18n = require('..')
+const cheerio = require('cheerio')
 
 describe('i18n.docs', () => {
   it('is an object with locales as keys', () => {
@@ -93,6 +94,13 @@ describe('API Docs', () => {
 
       sortedSlugs.should.deep.equal(slugs)
     })
+  })
+
+  it('fixes relative links in docs', () => {
+    const api = i18n.docs['en-US']['/docs/api/app']
+    const $ = cheerio.load(api.html)
+    const link = $('a[href*="glossary"]').first()
+    link.attr('href').should.equal('/docs/glossary#main-process')
   })
 })
 
