@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-For example:
+例如：
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
