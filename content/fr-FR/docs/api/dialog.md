@@ -37,16 +37,16 @@ Le module `dialog` dispose des méthodes suivantes :
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` - Permet la création de nouveau dossier depuis la boîte de dialogue. *macOS*
     * `promptToCreate` - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-* `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+    * `noResolveAliases` - Désactive l'alias (symlink) de résolution de chemin d'accès automatique. Les alias sélectionnés vont maintenant retourner le chemin d'accès de l'alias au lieu de leur chemin d'accès cible. *macOS*
+  * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
+* `callback` Function (facultatif) 
+  * `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Retourne `String[]`, un tableau de chemins d'accès choisi par l'utilisateur, si le callback est fourni, cela retourne `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Les `filters` spécifie un tableau de types de fichiers pouvant être affichés ou sélectionnés lorsque vous souhaitez limiter l'utilisateur à un type spécifique. Par exemple :
 
 ```javascript
 {
@@ -81,7 +81,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -111,7 +111,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
