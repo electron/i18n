@@ -1,14 +1,14 @@
-# 支持平台
+# 支持的平台
 
-Following platforms are supported by Electron:
+目前 Electron 支持以下平台：
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+对于 macOS 仅提供64位版本，并且只支持 macOS 10.9 或更高版本。
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
 Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
 
