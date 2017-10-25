@@ -1,16 +1,16 @@
-# Notifications (Windows, Linux, macOS)
+# 通知 (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+所有三个操作系统都提供了应用程序向用户发送通知的手段。 Electron允许开发者使用 [HTML5 Notification API](https://notifications.spec.whatwg.org/) 发送通知，并使用当前运行的操作系统的本地通知 API 来显示它。
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**注意:** 由于这是一个 HTML5 API，它只能在渲染器进程中使用。 如果你想在主进程中显示通知，请查看 [Notification](../api/notification.md) 模块.
 
 ```javascript
-let myNotification = new Notification('Title', {
-  body: 'Lorem Ipsum Dolor Sit Amet'
+let myNotification = new Notification('标题', {
+  body: '通知正文内容'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('通知被点击')
 }
 ```
 
