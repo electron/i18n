@@ -92,10 +92,10 @@ Retourne `String` - L'URL de flux des mises à jour.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` avant d’utiliser cette API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Remarque :** `autoUpdater.quitAndInstall()` va d'abord fermer toutes les fenêtres de l'application et émettre seulement après ça l'événement `before-quit` sur `app`. Ceci est différent de la séquence de fermeture habituelle.
