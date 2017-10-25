@@ -63,7 +63,7 @@ async function parseFile (file) {
   // derive props from the HTML
   const $ = cheerio.load(file.html || '')
   file.title = $('h1').text() || $('h2').text().replace('Class: ', '')
-  file.description = $('blockquote').text()
+  file.description = $('blockquote').first().text().trim()
 
   // remove leftover file props from walk-sync
   delete file.mode

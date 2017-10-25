@@ -64,6 +64,11 @@ describe('API Docs', () => {
     app.html.should.be.a('string')
   })
 
+  it('trims API descriptions', () => {
+    const api = i18n.docs['en-US']['/docs/api/browser-window']
+    api.description.should.eq('Create and control browser windows.')
+  })
+
   it('sorts docs by slug per locale', () => {
     const locales = Object.keys(i18n.locales)
     locales.length.should.be.above(10)
