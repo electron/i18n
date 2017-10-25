@@ -47,11 +47,11 @@ app.on('ready', () => {
 window.addEventListener('keyup', doSomething, true)
 ```
 
-注意第三个参数 `true`，这意味着监听器总是在其他监听器之前接收按键，所以它们不能对它们调用 `stopPropagation`。
+注意第三个参数 `true`，这意味着监听器总是在其他监听器之前接收按键，所以它们不能对它们调用 `stopPropagation()`。
 
-The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+在调度页面中的`keydown`和`keyup`事件之前，会发出[`before-input-event`](web-contents.md#event-before-input-event)事件。 它可以用于捕获和处理在菜单中不可见的自定义快捷方式。
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+如果您不想手动进行快捷键解析，可以使用一些库来进行高级的按键检测。例如 [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

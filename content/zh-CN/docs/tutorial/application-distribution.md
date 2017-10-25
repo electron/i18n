@@ -1,8 +1,8 @@
-# 应用程序的分发
+# 应用部署
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron /`表示。
 
-On macOS:
+在 macOS 中:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+在 Windows 和 Linux 中:
 
 ```text
 electron/resources/app
@@ -20,48 +20,48 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+然后运行 `Electron.app` (或者 Linux 中的 `electron`，Windows 中的 `electron.exe`), 接着 Electron 就会以你的应用程序的方式启动。`electron` 文件夹将被部署并可以分发给最终的使用者。
 
-## 打包你的应用为一个文件
+## 将你的应用程序打包成一个文件
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+除了通过拷贝所有的资源文件来分发你的应用程序之外，你可以通过打包你的应用程序为一个 [asar](https://github.com/electron/asar) 库文件以避免暴露你的源代码。
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+为了使用一个 `asar` 库文件代替 `app` 文件夹，你需要修改这个库文件的名字为 `app.asar` ， 然后将其放到 Electron 的资源文件夹下，然后 Electron 就会试图读取这个库文件并从中启动。 如下所示：
 
-On macOS:
+在 macOS 中:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+在 Windows 和 Linux 中:
 
 ```text
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+更多的细节参阅 [Application packaging](application-packaging.md).
 
-## 使用下载的二进制文件重生成
+## 使用下载的二进制文件重塑
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+将您的应用程序捆绑到Electron后，您将需要将Electron重新分发给用户。
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+你可以将 `electron.exe` 改成任意你喜欢的名字，然后可以使用像 [rcedit](https://github.com/atom/rcedit) 编辑它的 icon 和其他信息。
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+你可以将 `Electron.app` 改成任意你喜欢的名字，然后你也需要修改这些文件中的 `CFBundleDisplayName`， `CFBundleIdentifier` 以及 `CFBundleName` 字段。 这些文件如下：
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+你也可以重命名帮助应用程序以避免在应用程序监视器中显示 `Electron Helper`， 但是请确保你已经修改了帮助应用的可执行文件的名字。
 
-The structure of a renamed app would be like:
+一个改过名字的应用程序的构造可能是这样的：
 
     MyApp.app/Contents
     ├── Info.plist
@@ -84,49 +84,49 @@ The structure of a renamed app would be like:
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+你可以将 `electron` 改成任意你喜欢的名字。
 
 ## 打包工具
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+除了手动打包应用程序，你还可以选择使用第三方打包工具来做这项工作
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## 通过重编译源代码来重塑
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+通过修改产品名称并重编译源代码来更换 Electron 的名称也是可行的。 你需要修改 `atom.gyp` 文件并彻底重编译一次。
 
-### Creating a Custom Electron Fork
+### 创建一个自定义 Electron 分支
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+如果只是为了构建你的 app，你不需要创建一个自定义的 Electron 分支， 即使是“生产级”的应用程序。 可以使用工具，如 `electron-packager` 或 `electron-builder` 来 “重塑” 你的 Electron app。
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+当你想直接进入 Electron 来修改 C++ 代码，你需要 fork Electron ，不能使用 upstreamed 或者 rejected 官方版本。 作为 Electron 的维护者，我们非常希望 你的方案能够工作，并尽最大的努力让你的修改 进入 Electron 的官方版本，创建自定义分支对你来说更简单，最后， 我们感谢你的帮助。
 
-#### Creating a Custom Release with surf-build
+#### 通过 surf-build 创建一个自定义版本
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. 通过 npm 安装 [Surf](https://github.com/surf-build/surf): `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. 创建一个新的 S3 bucket 并按照以下结构创建文件夹：
     
         - atom-shell/
           - symbols/
           - dist/
         
 
-3. Set the following Environment Variables:
+3. 设置以下环境变量：
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64` 
+* `ELECTRON_GITHUB_TOKEN` - 一个在 GitHub 创建版本的 token
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 你将上传 Node.js 的 headers 以及 symbol 的位置
+* `ELECTRON_RELEASE` - 设置为 `true`，上传部分将运行，不设置 和 `surf-build` 只是做 CI-type 的检查，适合每一个拉取请求运行。
+* `CI` - 设置为 `true` ，否则无效
+* `GITHUB_TOKEN` - 设置为与 `ELECTRON_GITHUB_TOKEN` 相同
+* `SURF_TEMP` - 在 Windows 下设置为 `C:\Temp` 来防止路径太长的问题
+* `TARGET_ARCH` - 设置为 `ia32` 或 `x64` 
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. 在 `script/upload.py`，你 *必须* 为你的分支(`MYORG/electron`)设置 `ELECTRON_REPO`， 尤其如果你本身是一个 Electron 贡献者。
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. 需要很长的时间来等待构建完成

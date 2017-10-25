@@ -37,15 +37,15 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `protocolVersion` String (facultatif) - Version de protocole de débogage demandée.
 
-Attaches the debugger to the `webContents`.
+Attache le débogueur au `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Retourne `Boolean` - Si un débogueur est attaché au `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Détache le débogueur depuis le `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
@@ -72,4 +72,4 @@ Emitted when debugging session is terminated. This happens either when `webConte
 * `method` String - Nom de la méthode.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
-Emitted whenever debugging target issues instrumentation event.
+Émis à chaque fois que la cible du débogueur envoie un événement d’instrumentation.

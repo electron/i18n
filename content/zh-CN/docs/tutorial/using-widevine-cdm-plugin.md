@@ -1,51 +1,51 @@
 # 使用 Widevine CDM 插件
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+在 Electron 中，你可以使用 Widevine CDM 插件装载 Chrome 浏览器。
 
-## Getting the plugin
+## 获取插件
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Electron 没有为 Widevine CDM 插件配置许可 reasons，为了获得它，首先需要安装官方的 Chrome 浏览器，这匹配了体系架构和 Electron 构建使用的 Chrome 版本。
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**注意：** Chrome 浏览器的主要版本必须和 Electron 使用的版本一样，否则插件不会有效，虽然 `navigator.plugins` 会显示你已经安装了它。
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
+在 Chrome 浏览器中打开 `chrome://components/`，找到 `WidevineCdm` 并且确定它更新到最新版本，然后你可以从 `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` 路径找到所有的插件二进制文件。
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` 是系统存放数据的地方，在 Windows 上它是 `%LOCALAPPDATA%`，在 macOS 上它是 `~/Library/Application Support`. `VERSION` 是 Widevine CDM 插件的版本字符串，类似 `1.4.8.866`. `PLATFORM` 是 `mac` 或 `win`. `ARCH` 是 `x86` 或 `x64`。
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+在 Windows，必要的二进制文件是 `widevinecdm.dll` and `widevinecdmadapter.dll`，在 macOS，它们是 `libwidevinecdm.dylib` 和 `widevinecdmadapter.plugin`。 你可以将它们复制到任何你喜欢的地方，但是它们必须要放在一起。
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+在 Linux，Chrome 浏览器将插件的二进制文件装载在一起，你可以在 `/opt/google/chrome` 下找到，文件名是 `libwidevinecdm.so` 和 `libwidevinecdmadapter.so`。
 
-## Using the plugin
+## 使用插件
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+在获得了插件文件后，你可以使用 `--widevine-cdm-path` 命令行开关来将 `widevinecdmadapter` 的路径传递给 Electron ，插件版本使用 `--widevine-cdm-version` 开关.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**注意:** 虽然只有 `widevinecdmadapter` 的二进制文件传递给了 Electron，`widevinecdm` 二进制文件应当放在它的旁边。
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+必须在 `app` 模块的 `ready` 事件触发之前使用命令行开关，并且 page 使用的插件必须激活。
 
-Example code:
+示例代码：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
+// 这里你必须传入 `widevinecdmadapter` 的文件名, 它是
+// * 在 macOS 上 `widevinecdmadapter.plugin`,
+// * 在 Linux 上 `libwidevinecdmadapter.so`,
+// * 在 Windows 上 `widevinecdmadapter.dll`.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// 插件版本可以从 Chrome 浏览器的 `chrome://plugins` 页面获得。
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
 app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
-      // The `plugins` have to be enabled.
+      // 这里的 `plugins` 需要启用
       plugins: true
     }
   })
@@ -53,10 +53,10 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## 验证插件
 
-To verify whether the plugin works, you can use following ways:
+为了验证插件是否工作，你可以使用下面的方法：
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* 打开开发者工具查看 `navigator.plugins` 是否包含了 Widevine CDM 插件。
+* 打开 https://shaka-player-demo.appspot.com/ 加载一个使用 `Widevine` 的 manifest。
+* 打开 http://www.dash-player.com/demo/drm-test-area/，检查是否界面输出 `bitdash uses Widevine in your browser`，然后播放 video。
