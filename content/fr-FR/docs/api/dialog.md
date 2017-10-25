@@ -24,7 +24,7 @@ Le module `dialog` dispose des méthodes suivantes :
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (facultatif)
 * `options` Object 
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
@@ -67,7 +67,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (facultatif)
 * `options` Object 
   * `title` String (facultatif)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
@@ -139,7 +139,7 @@ On Windows the options are more limited, due to the Win32 APIs used:
 * The `message` argument is not used, as the OS provides its own confirmation dialog.
 * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
 
-## Sheets
+## Feuilles
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
 
