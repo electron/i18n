@@ -30,32 +30,32 @@ Retourne `Number` - Le facteur de zoom actuel.
 
 * `level` Number - Niveau de zoom
 
-Modifie le niveau de zoom jusqu'au niveau spécifié. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Retourne `Number` - Le niveau de zoom actuel.
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Déprécié :** Utilisez `setVisualZoomLevelLimits` à la placepour définir les limites de niveau du zoom visuel. Cette méthode sera supprimée dans Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
@@ -65,7 +65,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
   * `spellCheck` Function - Retourne `Boolean` 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+Définit un fournisseur pour la correction orthographique dans les champs de saisie et les zones de texte.
 
 The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
