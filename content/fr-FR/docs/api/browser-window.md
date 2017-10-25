@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Créer et contrôle des fenêtres navigateur.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -8,7 +8,7 @@ Processus : [Main](../glossary.md#main-process)
 // Dans le processus principal.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Ou utilisez `remote` depuis le renderer process.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,22 +16,22 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Charge une URL distante
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Ou charge un fichier HTML local
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Fenêtre sans bords (Frameless window)
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Pour créer une fenêtre sans chrome, ou une fenêtre transparente en forme arbitraire, vous pouvez utiliser l'API [Frameless Window](frameless-window.md).
 
-## Showing window gracefully
+## Afficher des fenêtres avec élégance
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
-### Using `ready-to-show` event
+### À l'aide de l'événement `ready-to-show`
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
@@ -58,7 +58,7 @@ win.loadURL('https://github.com')
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
-## Parent and child windows
+## Fenêtres parent et enfant
 
 By using `parent` option, you can create child windows:
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### Fenêtres modales
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Créer et contrôle des fenêtres navigateur.
 
 Processus : [Main](../glossary.md#main-process)
 
