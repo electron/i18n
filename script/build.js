@@ -8,6 +8,7 @@ const fs = require('fs')
 const cleanDeep = require('clean-deep')
 const hubdown = require('hubdown')
 const locales = require('../lib/locales')
+const hrefType = require('href-type')
 const defaultLocale = 'en-US'
 
 const contentDir = path.join(__dirname, '../content')
@@ -55,16 +56,27 @@ async function parseFile (file) {
   file.isDevTutorial = file.category === 'development'
   file.isApiStructureDoc = file.category === 'api/structures'
 
-  // parse markdown
+  // parse markdown to HTML
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
   const parsed = await hubdown(file.markdown)
-  file.html = parsed.content
-
+  
   // derive props from the HTML
-  const $ = cheerio.load(file.html || '')
+  const $ = cheerio.load(parsed.content || '')
   file.title = $('h1').first().text().trim() ||
     $('h2').first().text().replace('Class: ', '')
   file.description = $('blockquote').first().text().trim()
+
+  // fix HREF for relative links
+  $('a').each((i, el) => {
+    const href = $(el).attr('href')
+    const type = hrefType(href)
+    if (type !== 'relative' && type !== 'rooted') return
+    const dirname = path.dirname(file.href)
+    const newHref =  path.resolve(dirname, href.replace(/\.md/, ''))
+    $(el).attr('href', newHref)
+  })
+
+  file.html = $.html()
 
   // remove leftover file props from walk-sync
   delete file.mode
