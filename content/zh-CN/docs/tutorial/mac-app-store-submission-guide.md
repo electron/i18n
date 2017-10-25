@@ -1,26 +1,26 @@
 # Mac App Store 应用程序提交指南
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+自从 v0.34.0，Electron 就允许提交应用包到 Mac App Store (MAS)。这个向导提供的信息有: 如何提交应用和 MAS 构建的限制。
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意:** 提交应用到 Mac App Store 需要加入 [Apple Developer Program](https://developer.apple.com/support/compare-memberships/)，这需要额外花费。
 
-## How to Submit Your App
+## 如何提交你的应用
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+下面步骤介绍了一个简单的提交应用到商店方法。 然而，这些步骤不能保证你的应用被 Apple 接受；你仍然需要阅读 Apple 的 [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) 关于如何满足 Mac App Store 要求的向导。
 
-### Get Certificate
+### 获得证书
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+为了提交应用到商店，首先需要从 Apple 获得一个证书 可以参照 [现有的指南](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)。
 
-### Get Team ID
+### 获得 Team ID
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+在软件签名之前，你需要知道开发者账户的 Team ID 查看 Team ID，登录[ Apple Developer Center](https://developer.apple.com/account/) 并点击侧边栏的 Membership。 你可以在团队名称下面的 Membership Information 部分查看到 Team ID。
 
-### Sign Your App
+### 软件签名
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+获得证书之后，你可以使用 [应用部署](application-distribution.md) 打包你的应用，之后进行提交。
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+首先，你需要在软件包内的 `Info.plist` 中增添一项 `ElectronTeamID`：
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare two entitlements files.
+之后，你需要准备2个授权文件。
 
 `child.plist`:
 
@@ -64,23 +64,23 @@ Then, you need to prepare two entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+请注意上述 `TEAM_ID` 对应开发者账户的 Team ID，`your.bundle.id` 对应软件打包时使用的 Bundle ID。
 
-And then sign your app with the following script:
+然后使用下面的脚本签名你的应用：
 
 ```bash
 #!/bin/bash
 
-# Name of your app.
+# 你的应用名称
 APP="YourApp"
-# The path of your app to sign.
+# 要签名的应用路径
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# 生成安装包路径
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# 开发者应用签名证书
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# 授权文件路径
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 
@@ -102,65 +102,65 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+如果你是 macOS 下的应用沙箱使用新手，应当仔细阅读 Apple 的 [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) 了解一些基础，然后在授权文件内添加你的应用需要的许可。
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+除了手动签名你的应用，你也可以选择使用 [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) 模块来做这项工作。
 
-#### Sign Native Modules
+#### 原生模块签名
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+应用程序中的原生模块也需要签署。如果使用 electron-osx-sign，确保已生成二进制文件的路径包含在 参数列表：
 
 ```bash
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用 [electron-packager](https://github.com/electron-userland/electron-packager) 8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 以忽略这些文件。 8.1.0及 以后的版本默认情况下会忽略这些文件。
 
-### Upload Your App
+### 上传你的应用
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+在签名应用之后，你可以使用 Application Loader 上传软件到 iTunes Connect 进行处理。请确保在上传之前你已经 [创建应用记录](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)。
 
-### Submit Your App for Review
+### 检查并提交你的应用
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+最后, 你可以 [检查并提交你的应用](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html)。
 
-## Limitations of MAS Build
+## MAS 构建限制
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+为了让你的应用满足沙箱的所有条件，在 MAS 构建的时候，下面的模块已被禁用：
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+并且下面的行为也改变了:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
-* APIs for launching apps at login are disabled. See https://github.com/electron/electron/issues/7312#issuecomment-249479237
+* 一些视频采集功能无效。
+* 某些辅助功能无法访问。
+* 应用无法检测 DNS 变化。
+* 在登录时启动应用程序的 API 被禁用。详见 https://github.com/electron/electron/issues/7312#issuecomment-249479237
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+也由于应用沙箱的使用方法，应用可以访问的资源被严格限制了；阅读更多信息[ App Sandboxing](https://developer.apple.com/app-sandboxing/)。
 
-### Additional Entitlements
+### 附加授权
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+根据应用使用的 Electron API，你可能需要添加附加授权 在 `parent.plist` 文件，在 Mac App Store 发布应用程序的时候能够使用这些API。
 
-#### Network Access
+#### 网络访问
 
-Enable outgoing network connections to allow your app to connect to a server:
+启用传出的网络连接，允许你的应用程序连接到服务器：
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+启用传入的网络连接，让你的应用程序打开网络 socket 监听：
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+详情查看 [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9).
 
 #### dialog.showOpenDialog
 
@@ -169,7 +169,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+详情查看 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6).
 
 #### dialog.showSaveDialog
 
@@ -178,23 +178,23 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+详情查看 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6).
 
-## Known issues
+## 已知问题
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+当应用程序在Mac App Store中签署分发时，这将失败。 订阅[#9005](https://github.com/electron/electron/issues/9005) 获取更新。
 
-#### Workaround
+#### 解决方法
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+只要扩展名与已安装的应用程序相关联，`shell.openExternal('file://' + filePath)` 将在默认应用程序中打开该文件。
 
-## Cryptographic Algorithms Used by Electron
+## Electron 使用的加密算法
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+取决于你所在地方的国家和地区，Mac App Store 或许需要记录你应用的加密算法，甚至要求你提交一个 U.S. 加密注册 (ERN) 许可的复印件。
 
-Electron uses following cryptographic algorithms:
+Electron 使用下列加密算法：
 
 * AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
@@ -220,4 +220,4 @@ Electron uses following cryptographic algorithms:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](http://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+如何获取 ERN 许可, 可看这篇文章: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
