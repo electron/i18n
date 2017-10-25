@@ -93,7 +93,7 @@ Electron utilise la bibliothèque `I10n_util` de Chromium pour extraire les para
 | no          | Norwegian               |
 | oc          | Occitan                 |
 | om          | Oromo                   |
-| ou          | Oriya                   |
+| or          | Oriya                   |
 | pa          | Punjabi                 |
 | pl          | Polish                  |
 | ps          | Pashto                  |
