@@ -11,7 +11,7 @@ const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+La boîte de dialogue est ouverte depuis le thread principal d'Electron. Si vous voulez utiliser l'objet dialog depuis un renderer process, n'oubliez pas d'y accéder en utilisant remote :
 
 ```javascript
 const {dialog} = require('electron').remote
@@ -28,10 +28,10 @@ Le module `dialog` dispose des méthodes suivantes :
 * `options` Object 
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
+  * `properties` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue devrait utiliser. Les valeurs suivantes sont prises en charge : 
+    * `openFile` - Permet la sélection de fichiers.
     * `openDirectory` - Allow directories to be selected.
     * `multiSelections` - Allow multiple paths to be selected.
     * `showHiddenFiles` - Show hidden files in dialog.
@@ -71,7 +71,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `options` Object 
   * `title` String (facultatif)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
