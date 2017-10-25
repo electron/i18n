@@ -103,11 +103,11 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// 在这文件，你可以续写应用剩下主进程代码。
+// 也可以拆分成几个文件，然后用 require 导入。
 ```
 
-Finally the `index.html` is the web page you want to show:
+最后，你想展示的 `index.html`：
 
 ```html
 <!DOCTYPE html>
@@ -127,19 +127,19 @@ Finally the `index.html` is the web page you want to show:
 
 ## 运行你的应用
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+一旦你创建了最初的 `main.js`， `index.html` 和 `package.json` 这几个文件，你可能会想尝试在本地运行并测试，看看是不是和期望的那样正常运行。
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) 是一个 `npm` 模块，包含所使用的 Electron 预编译版本。
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+如果你已经用 `npm` 全局安装了它，你只需要按照如下方式直接运行你的应用：
 
 ```bash
 electron .
 ```
 
-If you've installed it locally, then run:
+如果你是局部安装，那运行：
 
 #### macOS / Linux
 
@@ -154,7 +154,7 @@ $ ./node_modules/.bin/electron .
 
 ### 手工下载二进制格式的 Electron
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+如果你手工下载了 Electron 的二进制文件，你也可以直接使用其中的二进制文件直接运行你的应用。
 
 #### macOS
 
@@ -173,27 +173,27 @@ $ ./electron/electron your-app/
     $ .\electron\electron.exe your-app\
     
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` 里面是 Electron 发布包，你可以在[这里](https://github.com/electron/electron/releases)下载到。
 
 ### 作为分发版本运行
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+在你完成了你的应用后，你可以按照 [应用部署](./application-distribution.md) 指导发布一个版本，并且以已经打包好的形式运行应用。
 
 ### 尝试这个示例
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+复制并且运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**注意**：运行时需要你的系统已经安装了 [Git](https://git-scm.com) 和 [Node.js](https://nodejs.org/en/download/)(包含 [npm](https://npmjs.org))。
 
 ```bash
-# Clone the repository
+# 克隆这仓库
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# 进入仓库
 $ cd electron-quick-start
-# Install dependencies
+# 安装依赖库
 $ npm install
-# Run the app
+# 运行应用
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+更多 apps 例子，查看 electron 社区创建的[list of boilerplates](https://electron.atom.io/community/#boilerplates).
