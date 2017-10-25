@@ -1,4 +1,4 @@
-## Class: Menu
+## Classe: Menu
 
 > Create native application menus and context menus.
 
@@ -6,9 +6,9 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Créer un nouveau menu.
 
-### Static Methods
+### Méthodes statiques
 
 The `menu` class has the following static methods:
 
@@ -40,7 +40,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+Retourne `Menu`
 
 Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
