@@ -63,23 +63,23 @@ Le tableau d'`extensions` devrait contenir les extensions sans caractères gén�
 
 Si un `callback` est passé, l''appel de l'API sera asynchrone et le résultat sera transmis via `callback(filenames)`
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Remarque :** Sur Windows et Linux, une boîte de dialogue ne peux pas être à la fois une sélection de fichier et une sélection de dossier, donc si vous définissez `properties` à `['openFile', 'openDirectory']` sur ces plateformes, c'est la sélection de dossier qui s'affichera.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (facultatif)
 * `options` Object 
   * `title` String (facultatif)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `message` String (facultatif) *macOS* - Message à afficher au-dessus des champs de texte.
+  * `nameFieldLabel` String (facultatif) *macOS* - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
+  * `showsTagField` Boolean (facultatif) *macOS* - Affiche le champ de texte. `true` par défaut.
 * `callback` Function (facultatif) 
   * `filename` String
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Retourne `String`, le chemin d'accès du fichier choisi par l'utilisateur, si le callback est fourni, cela retourne `undefined`.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
