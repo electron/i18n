@@ -51,6 +51,11 @@ describe('API Docs', () => {
     })
   })
 
+  it('derives title from the first H1 or H2', () => {
+    const api = i18n.docs['en-US']['/docs/api/browser-view']
+    api.title.should.eq('BrowserView')
+  })
+
   it('includes all expected properties', () => {
     const app = i18n.docs['en-US']['/docs/api/app']
     app.isApiDoc.should.equal(true)
