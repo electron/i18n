@@ -1,16 +1,24 @@
 # Electron 常見問題
 
-## Electron 何時會升級用 Chrome 的最新版本？
+## Why am I having trouble installing Electron?
 
-通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-我們只會用 Chrome 的穩定版本，但如果 dev 或 beta 管道有重要的修復程式，我們會 backport。
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-詳情請參閱[安全簡介](tutorial/security.md)。
+You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
-## Electron 何時會升級用 Node.js 的最新版本？
+## When will Electron upgrade to latest Chrome?
 
-通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本， 以免受 Node.js 新版本中引入的 bug，這情況經常發生。
+The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+
+For more information, please see the [security introduction](tutorial/security.md).
+
+## When will Electron upgrade to latest Node.js?
+
+When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
