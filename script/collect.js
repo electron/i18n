@@ -68,9 +68,9 @@ async function fetchApiData () {
 }
 
 async function fetchWebsiteContent () {
-  console.log(`Fetching locale.yml from electron/electron.atom.io gh-pages branch`)
+  console.log(`Fetching locale.yml from electron/electron.atom.io#neo`)
 
-  const url = 'https://cdn.rawgit.com/electron/electron.atom.io/gh-pages/_data/locale.yml'
+  const url = 'https://cdn.rawgit.com/electron/electron.atom.io/neo/data/locale.yml'
   const response = await got(url)
   const content = response.body
   const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)
