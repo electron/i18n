@@ -8,6 +8,7 @@ const fs = require('fs')
 const got = require('got')
 const mkdir = require('make-dir').sync
 const path = require('path')
+const {execSync} = require('child_process')
 
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 const GitHub = require('github')
@@ -20,16 +21,24 @@ const github = new GitHub({
 let release
 
 del(englishBasepath)
-  .then(fetchLatestRelease)
+  .then(fetchRelease)
   .then(fetchDocs)
   .then(fetchApiData)
   .then(fetchWebsiteContent)
 
-async function fetchLatestRelease () {
+async function fetchRelease () {
+  console.log(`Fetching 'latest' version string from npm`)
+  const version = execSync('npm show electron version').toString().trim()
+
   console.log(`Fetching latest (stable) release from GitHub`)
 
-  let repo = {owner: 'electron', repo: 'electron'}
-  const res = await github.repos.getLatestRelease(repo)
+  const repo = {
+    owner: 'electron', 
+    repo: 'electron',
+    tag: `v${version}`
+  }
+
+  const res = await github.repos.getReleaseByTag(repo)
   release = res.data
 }
 
