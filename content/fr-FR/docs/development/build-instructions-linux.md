@@ -133,7 +133,7 @@ La configuration par défaut de compilation cible la majorité des distributions
 To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
 
     bash
-      $ git submodule update --init --recursive 4. Copy the .gclient config file
+      $ git submodule update --init --recursive 4. Copier le fichier de configuration .gclient
 
     bash
       $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
@@ -143,7 +143,7 @@ To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `lib
     bash
       $ ./script/bootstrap.py -v --build_libchromiumcontent
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Notez que par défaut la configuration `shared_library` n'est pas compilée, ainsi vous pouvez seulement compiler la version `Release` d’Electron si vous utilisez ce mode :
 
 ```bash
 $ ./script/build.py -c R
@@ -153,18 +153,18 @@ $ ./script/build.py -c R
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Par exemple, si vous avez installé `clang` sous `/user/local/bin/clang` :
 
 ```bash
 $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Utiliser un compilateur autre que `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Pour compiler Electron avec un compilateur comme `g++`, vous devez d'abord désactiver `clang` avec le paramètre `--disable_clang`. Ensuite, vous devez définir les variables d'environnement `CC` et `CXX` avec les compilateur que vous souhaitez.
 
-For example building with GCC toolchain:
+Par exemple, compiler avec les outils de compilation GCC :
 
 ```bash
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disable_clang
@@ -173,7 +173,7 @@ $ ./script/build.py -c R
 
 ### Variables d'environnement
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+En dehors de `CC` et `CXX`, vous pouvez également définir ces variables d’environnement pour modifier les configurations de compilation :
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -189,4 +189,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Les variables d’environnement doivent être définies lors de l’exécution du script `bootstrap.py` , ça ne marchera pas avec le script `build.py` .
