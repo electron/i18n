@@ -58,4 +58,4 @@ Sur des réseaux plus lents, il est plus souhaitable d'utiliser le paramètre `-
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+Si vous devez forcer le re-téléchargement de l'asset et du fichier SHASUM, mettez la variable d'environnement `force_no_cache` à `true`.
