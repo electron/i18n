@@ -52,7 +52,7 @@ Si l'erreur ci-dessus persiste, le paramètre [unsafe-perm](https://docs.npmjs.c
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Sur des réseaux plus lents, il est plus souhaitable d'utiliser le paramètre `--verbose` pour afficher la progression du téléchargement :
 
 ```sh
 npm install --verbose electron
