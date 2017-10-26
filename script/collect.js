@@ -30,7 +30,7 @@ async function fetchRelease () {
   console.log(`Fetching 'latest' version string from npm`)
   const version = execSync('npm show electron version').toString().trim()
 
-  console.log(`Fetching latest (stable) release from GitHub`)
+  console.log(`Fetching release data from GitHub`)
 
   const repo = {
     owner: 'electron', 
