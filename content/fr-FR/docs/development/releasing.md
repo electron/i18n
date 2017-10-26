@@ -138,7 +138,7 @@ git push origin HEAD
 
 ## Exécuter une compilation de debug local
 
-Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
+Exécutez la version de debug local pour vérifier que vous êtes bien en train de compiler la version que vous souhaitez. Parfois, vous on peux penser que l'on fait une nouvelle version, mais ce n'est pas le cas.
 
 ```sh
 npm run build
@@ -166,7 +166,7 @@ Ce script va télécharger les fichiers binaires et générer les en-têtes de n
 npm run release
 ```
 
-Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
+Remarque: Beaucoup de distributions de Python sont toujours livrés avec de vieux certificats HTTPS. Vous pouvez voir un `InsecureRequestWarning`, mais c'est négligeable.
 
 ## Supprimer la branche temporaire
 
