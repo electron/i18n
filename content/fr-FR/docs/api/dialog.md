@@ -38,6 +38,7 @@ Le module `dialog` dispose des méthodes suivantes :
     * `createDirectory` - Permet la création de nouveau dossier depuis la boîte de dialogue. *macOS*
     * `promptToCreate` - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application. *Windows*
     * `noResolveAliases` - Désactive l'alias (symlink) de résolution de chemin d'accès automatique. Les alias sélectionnés vont maintenant retourner le chemin d'accès de l'alias au lieu de leur chemin d'accès cible. *macOS*
+    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
 * `callback` Function (facultatif) 
   * `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur
