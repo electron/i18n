@@ -8,7 +8,7 @@ Pour installer les binaires précompilés d'Electron, utilisez [`npm`](https://d
 npm install electron --save-dev --save-exact
 ```
 
-The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+Le paramètre `--save-exact` est recommandé tant qu'Electron ne suit pas le versionnage sémantique. Voir la [documentation du versionnage](https://electron.atom.io/docs/tutorial/electron-versioning/) pour plus d'informations sur la façon de gérer les versions d'Electron dans vos applications.
 
 ## Installation global
 
@@ -20,7 +20,7 @@ npm install electron -g
 
 ## Personnalisation
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Si vous souhaitez modifier l'architecture qui est téléchargée (par exemple, `ia32` sur une machine `x64`), vous pouvez utiliser le paramètre `--arch` avec npm install ou définir la variable d'environnement `npm_config_arch` :
 
 ```shell
 npm install --arch=ia32 electron
