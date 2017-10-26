@@ -89,7 +89,7 @@ Pour une version `patch`, utilisez le format suivant :
     * Changed a Windows thing. #123
     
 
-### Minor releases
+### Versions mineures
 
 For a `minor` release (which is normally a Chromium update, and possibly also a Node update), e.g. `1.8.0`, use this format:
 
@@ -110,7 +110,7 @@ For a `minor` release (which is normally a Chromium update, and possibly also a 
     - Some other change. #123
     
 
-## Edit the release draft
+## Modifier la version draft
 
 1. Visitez [la page de parutions](https://github.com/electron/electron/releases) et vous verrez un nouveau projet de version avec les notes de publication.
 2. Modifiez la version et ajouter des notes de publication.
@@ -147,20 +147,20 @@ npm start
 
 Verify the window is displaying the current updated version.
 
-## Set environment variables
+## Définir les variables d'environnement
 
 You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - A personal access token with "repo" scope.
+- `ELECTRON_GITHUB_TOKEN` - un jeton d'accès personnelle avec le scope "repo".
 
-You will only need to do this once.
+Vous aurez besoin de le faire seulement une fois.
 
-## Publish the release
+## Publier la version
 
-This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
+Ce script va télécharger les fichiers binaires et générer les en-têtes de node et l’éditeur de liens .lib utilisé sur Windows par node-gyp pour compiler les modules natifs.
 
 ```sh
 npm run release
