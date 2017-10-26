@@ -8,6 +8,7 @@ const fs = require('fs')
 const got = require('got')
 const mkdir = require('make-dir').sync
 const path = require('path')
+const {execSync} = require('child_process')
 
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 const GitHub = require('github')
@@ -20,38 +21,31 @@ const github = new GitHub({
 let release
 
 del(englishBasepath)
-  .then(fetchLatestRelease)
+  .then(fetchRelease)
   .then(fetchDocs)
-  .then(writeDocs)
   .then(fetchApiData)
-  .then(writeApiData)
   .then(fetchWebsiteContent)
-  .then(writeWebsiteContent)
 
-function fetchLatestRelease () {
-  let repo = {owner: 'electron', repo: 'electron'}
+async function fetchRelease () {
+  console.log(`Fetching 'latest' version string from npm`)
+  const version = execSync('npm show electron version').toString().trim()
 
-  github.repos.getLatestRelease(repo)
-  .catch(err => {
-    console.error(`Unable to fetch latest Electron release`)
-    throw err
-  }).then(r => {
-    release = r.data
-    return Promise.resolve()
-  })
+  console.log(`Fetching release data from GitHub`)
+
+  const repo = {
+    owner: 'electron', 
+    repo: 'electron',
+    tag: `v${version}`
+  }
+
+  const res = await github.repos.getReleaseByTag(repo)
+  release = res.data
 }
 
-function fetchDocs () {
+async function fetchDocs () {
   console.log(`Fetching ${release.tag_name} docs from electron/electron repo`)
 
-  return electronDocs(release.tag_name)
-    .catch(err => {
-      console.error(`Unable to fetch docs for Electron ${release.tag_name}`)
-      throw err
-    })
-}
-
-function writeDocs (docs) {
+  const docs = await electronDocs(release.tag_name)
   console.log(`Writing ${docs.length} markdown docs`)
 
   docs.forEach(doc => {
@@ -64,25 +58,17 @@ function writeDocs (docs) {
   return Promise.resolve()
 }
 
-function fetchApiData () {
+async function fetchApiData () {
   console.log(`Fetching API definitions`)
+  
   const asset = release.assets.find(asset => asset.name === 'electron-api.json')
 
   if (!asset) {
     return Promise.reject(Error(`No electron-api.json asset found for ${release.tag_name}`))
   }
 
-  return got(asset.browser_download_url, {json: true})
-    .catch(err => {
-      console.error(`Unable to fetch ${asset.browser_download_url}`)
-      throw err
-    })
-    .then(response => {
-      return Promise.resolve(response.body)
-    })
-}
-
-function writeApiData (apis) {
+  const response = await got(asset.browser_download_url, {json: true})
+  const apis = response.body
   const filename = path.join(englishBasepath, 'electron-api.json')
   mkdir(path.dirname(filename))
   console.log(`Writing ${path.relative(englishBasepath, filename)} (without changes)`)
@@ -90,21 +76,12 @@ function writeApiData (apis) {
   return Promise.resolve(apis)
 }
 
-function fetchWebsiteContent () {
-  console.log(`Fetching locale.yml from electron/electron.atom.io gh-pages branch`)
+async function fetchWebsiteContent () {
+  console.log(`Fetching locale.yml from electron/electron.atom.io#neo`)
 
-  const url = 'https://cdn.rawgit.com/electron/electron.atom.io/gh-pages/_data/locale.yml'
-  return got(url)
-    .catch(err => {
-      console.error(`Unable to fetch ${url}`)
-      throw err
-    })
-    .then(response => {
-      return Promise.resolve(response.body)
-    })
-}
-
-function writeWebsiteContent (content) {
+  const url = 'https://cdn.rawgit.com/electron/electron.atom.io/neo/data/locale.yml'
+  const response = await got(url)
+  const content = response.body
   const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)
   mkdir(path.dirname(websiteFile))
   console.log(`Writing ${path.relative(englishBasepath, websiteFile)}`)
