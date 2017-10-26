@@ -22,11 +22,11 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
 
 Les propriétés suivantes sont disponibles pour les instances de `TouchBarScrubber` :
 
-#### `touchBarSegmentedControl.items`
+#### `touchBarScrubber.items`
 
 Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Changer une propriété dans le tableau **ne met pas à jour la touch bar**.
 
-#### `touchBarSegmentedControl.selectedStyle`
+#### `touchBarScrubber.selectedStyle`
 
 Un `String` représentant le style des éléments sélectionnés dans le scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
 
@@ -34,7 +34,7 @@ Un `String` représentant le style des éléments sélectionnés dans le scrubbe
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actuellement null, aucune chaîne de caractère. Supprime tous les styles.
 
-#### `touchBarSegmentedControl.overlayStyle`
+#### `touchBarScrubber.overlayStyle`
 
 Un `String` représentant le style des éléments sélectionnés dans le scrubber. Ce style est superposé sur le dessus de l'élément scrubber au lieu d'être placé derrière. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar. Valeurs possibles :
 
@@ -42,17 +42,17 @@ Un `String` représentant le style des éléments sélectionnés dans le scrubbe
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actuellement null, aucune chaîne de caractère. Supprime tous les styles.
 
-#### `touchBarSegmentedControl.showArrowButtons`
+#### `touchBarScrubber.showArrowButtons`
 
 Un `Boolean` si l'on affiche les flèches de sélection à droite et à gauche dans ce scrubber. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar.
 
-#### `touchBarSegmentedControl.mode`
+#### `touchBarScrubber.mode`
 
 Un `String` représentant le mode de ce scrubber. Changer cette valeur immédiatement met à jour dans la touch bar. Valeurs possible :
 
 * `fixed` - Mappé à `NSScrubberModeFixed`
 * `free` - Mappé à `NSScrubberModeFree`
 
-#### `touchBarSegmentedControl.continuous`
+#### `touchBarScrubber.continuous`
 
 Un `Boolean` représentant si ce scrubber est permanent ou non. Changer cette valeur immédiatement met à jour le contrôle dans la touch bar.
