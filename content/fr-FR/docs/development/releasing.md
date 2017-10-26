@@ -2,11 +2,11 @@
 
 Ce document décrit le processus pour créer une nouvelle version d’Electron.
 
-## Create a temporary branch
+## Créer une branche temporaire
 
-Create a new branch from `master`. Name it `release` or anything you like.
+Créez une nouvelle branche depuis `master`. Nommez-la `release` ou comme vous le souhaitez.
 
-Note: If you are creating a backport release, you'll check out `1-6-x`, `1-7-x`, etc instead of `master`.
+Remarque : Si vous créez une version backport, vous devez utiliser `1-6-x`, `1-7-x`, etc... au lieu de `master`.
 
 ```sh
 git checkout master
@@ -16,13 +16,13 @@ git checkout -b release
 
 Cette branche est créée comme une mesure de précaution pour empêcher tout PRs fusionnées de se faufiler dans un communiqué, entre le moment où la branche temporaire de nouvelle version est créée et les builds de CI sont terminés.
 
-## Check for extant drafts
+## Rechercher les drafts existants
 
-The upload script [looks for an existing draft release](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/upload.py#L173-L181). To prevent your new release from clobbering an existing draft, check [the releases page](https://github.com/electron/electron/releases) and make sure there are no drafts.
+Le script d'upload [regarde les versions draft existant](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/upload.py#L173-L181). Pour éviter que votre nouvelle version écrase un draft existant, consultez [la page releases](https://github.com/electron/electron/releases) et assurez-vous qu'il n'y ai aucun drafts.
 
 ## Changer le numéro de version
 
-Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
+Exécutez le script `bump-version`, et indiquez `major`, `minor` ou `patch` comme paramètre :
 
 ```sh
 npm run bump-version -- patch
@@ -33,7 +33,7 @@ This will bump the version number in several files. See [this bump commit](https
 
 Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
 
-## Wait for builds :hourglass_flowing_sand:
+## Attendez la compilation :hourglass_flowing_sand:
 
 The presence of the word [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) in the commit message created by the `bump-version` script will [trigger the release process](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
 
