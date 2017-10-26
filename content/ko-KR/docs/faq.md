@@ -1,24 +1,32 @@
 # Electron 자주 묻는 질문
 
-## Electron 은 언제 최신 Chrome 으로 업그레이드 합니까?
+## Why am I having trouble installing Electron?
 
-Electron 의 Chrome 버전은 대게 새로운 안정적인 Chrome 버전이 출시 된 후 1 ~ 2 주 이내에 반영됩니다. 이 예상치는 보장되지 않으며 업그레이드와 관련 작업량에 따라 다릅니다.
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-Chrome 의 안정적인 채널만 사용됩니다. 베타 또는 개발 채널에 중요한 수정 사항이 있다면, 소급 적용 할 것 입니다.
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-자세한 내용은, [보안 소개](tutorial/security.md)를 참조하세요.
+You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
-## Electron 은 언제 최신 Node.js 로 업그레이드 합니까?
+## When will Electron upgrade to latest Chrome?
 
-Node.js 의 새 버전이 출시되면, Electron 에서 업그레이드 하기 전에 보통 한 달 정도 기다립니다. 그래서 새 Node.js 버전에 발생한 버그의 영향을 받지 않을 수 있습니다. 이것은 매우 자주 발생합니다.
+The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
-일반적으로 Node.js 의 새 기능은 V8 업그레이드로 가져옵니다. Electron 이 Chrome 브라우저에 탑재된 V8 을 사용하기 때문에, 대게 새 Node.js 버전의 빛나는 새JavaScript 기능은 이미 Electron 에 있습니다.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
-## 웹 페이지 간 데이터는 어떻게 공유합니까?
+For more information, please see the [security introduction](tutorial/security.md).
 
-웹 페이지 (렌더러 프로세스 들) 간 데이터를 공유하기 위한 가장 쉬운 방법은 브라우저에 이미 사용가능 한 HTML5 API 들을 사용하는 것 입니다. 좋은 후보는 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 입니다.
+## When will Electron upgrade to latest Node.js?
 
-또는 Electron 에 한정되는 IPC 시스템을 사용할 수 있습니다. `electron` 모듈의 `remote` 속성을 통하여 주 프로세스의 객체를 전역 변수로 저장하고, 렌더러에서 그것들에 접근합니다:
+When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+
+New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+
+## How to share data between web pages?
+
+To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+
+Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
 // 주 프로세스에서.
@@ -37,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = '새 값'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## 몇 분 후 내 앱이 윈도우 트레이에서 사라집니다.
+## My app's window/tray disappeared after a few minutes.
 
-이 현상은 window/tray 를 저장하기 위해 사용 된 변수가 가비지 수집 될 때 발생합니다.
+This happens when the variable which is used to store the window/tray gets garbage collected.
 
-이 문제가 발생했다면, 다음 글이 도움이 될 것 입니다:
+If you encounter this problem, the following articles may prove helpful:
 
 * [메모리 관리](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [변수 범위](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-빨리 해결하고 싶다면, 코드를 변경 해 변수를 전역으로 만듭니다. 다음 코드에서:
+If you want a quick fix, you can make the variables global by changing your code from this:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -56,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-다음으로:
+to this:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -67,11 +75,11 @@ app.on('ready', () => {
 })
 ```
 
-## Electron 에서 jQuery/RequireJS/Meteor/AngularJS 를 사용할 수 없습니다.
+## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
 
-Electron 의 Node.js 통합으로 인해, DOM 에 `module`, `exports`, `require` 같은 몇 가지 추가 기호가 삽입됐습니다. 이것은 같은 이름의 심볼을 삽입하려는 몇몇 라이브러리에서 문제를 일으킵니다.
+Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
-이것을 해결하기 위해, Electron 에서 노드 통합을 해제 할 수 있습니다:
+To solve this, you can turn off node integration in Electron:
 
 ```javascript
 // 주 프로세스에서.
@@ -84,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-그러나 Node.js 와 Electron API 들의 기능을 유지하려면, 다른 라이브러리를 포함하기 전에 페이지의 심볼 이름을 변경해야 합니다:
+But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
 
 ```html
 <head>
@@ -98,32 +106,32 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` 가 정의되지 않았습니다.
+## `require('electron').xxx` is undefined.
 
-Electron 의 내장 모듈을 사용하다가 다음과 같은 에러를 만날 수 있습니다:
+When using Electron's built-in module you might encounter an error like this:
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-이것은 지역 또는 전역에 [npm `electron` 모듈](https://www.npmjs.com/package/electron)이 설치되어 있기 때문입니다. 이것은 Electron 의 내장 모듈을 덮어씁니다.
+This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
 
-올바른 내장 모듈을 사용하고 있는지 확인하기 위해, `electron` 모듈의 경로를 출력 할 수 있습니다:
+To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-그리고 다음과 같은 형식인지 확인하세요:
+and then check if it is in the following form:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-`node_modules/electron/index.js` 와 같으면, npm `electron` 모듈을 지우거나, 이름을 바꿔야 합니다.
+If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-그러나 내장 모듈을 사용하고 있지만 여전히 이 오류가 발생하면, 모듈을 잘못 된 프로세스에서 사용하고 있을 가능성이 큽니다. 예를 들어 `electron.app` 는 주 프로세스에서만 사용할 수 있고, `electron.webFrame` 은 렌더러 프로세스에서만 사용 가능합니다.
+However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
