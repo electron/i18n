@@ -6,8 +6,8 @@
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
-* Node.js. 有多种方法安装 Node.js。 您可以从 [Node.js](http://nodejs.org) 下载从源代码然后从源代码进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
-* Clang 3.4 或更新的版本.
+* Node.js. 有多种方法安装 Node.js。 You can download source code from [nodejs.org](http://nodejs.org) and compile it. 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
+* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
 * GTK+ 开发头文件和 libnotify.
 
 在 Ubuntu, 安装下面的库:
@@ -43,7 +43,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 ## 获取代码
 
 ```bash
-$ git clone https://github.com/electron/electron.git
+$ git clone https://github.com/electron/electron
 ```
 
 ## 引导
@@ -52,7 +52,7 @@ Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 必�
 
 ```bash
 $ cd electron
-$ ./script/bootstrap.py -v
+$ ./script/bootstrap.py --verbose
 ```
 
 ### 交叉编译
@@ -64,7 +64,7 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-为了编译 `arm` 或 `ia32` targets, 你应当为 `bootstrap.py` 脚本使用 `--target_arch` 参数:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
 
 ```bash
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -84,7 +84,7 @@ $ ./script/build.py
 $ ./script/create-dist.py
 ```
 
-这会在 `dist` 目录下创建一个有大量小文件的工作空间. 运行 create-dist.py 脚本之后, 或许你想删除仍然在 `out/R` 下的 1.3G+ 二进制文件.
+这会在 `dist` 目录下创建一个有大量小文件的工作空间. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
 你可以只创建 `Debug` 目标:
 
@@ -126,17 +126,24 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高级提示
 
-默认编译配置是针对主流 Linux 桌面发行版而言, 对于其他特定发行版或平台, 以下信息可能会帮到你.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### 本地编译 `libchromiumcontent`
 
-可以添加参数 `--build_libchromiumcontent` 给 `bootstrap.py` 脚本以避免使用预编译的 `libchromiumcontent` 二进制文件:
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
 
-```bash
-$ ./script/bootstrap.py -v --build_libchromiumcontent
-```
+    bash
+      $ git submodule update --init --recursive 4. Copy the .gclient config file
 
-注意默认情况下不会以 `shared_library` 方式编译, 所以你如果使用以下模式的话, 只能编译 Electron的 `Release` 版本:
+    bash
+      $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
+
+`--build_libchromiumcontent` switch to `bootstrap.py` script:
+
+    bash
+      $ ./script/bootstrap.py -v --build_libchromiumcontent
+
+Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
 
 ```bash
 $ ./script/build.py -c R
@@ -144,20 +151,20 @@ $ ./script/build.py -c R
 
 ### 使用系统提供的 `clang` 替换下载的 `clang` 二进制文件
 
-默认情况下 Electron 使用 Chromium 项目提供的预编译的 `clang` 进行编译. 如果基于某些原因你想要使用已经安装到系统的 `clang` 进行编译, 可以添加 `--clang_dir=<path>` 参数给 `bootstrap.py` 以指定 `clang` 安装路径. 上面参数告诉编译脚本, 在目录 `<path>/bin/` 下有 `clang` 程序.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-假设你的 `clang` 安装路径为 `/user/local/bin/clang`:
+For example if you installed `clang` under `/user/local/bin/clang`:
 
 ```bash
 $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### 使用 `clang` 之外的其它编译器
+### Using compilers other than `clang`
 
-要使用其他编译器 如: `g++` 编译 Electron, 首先需要使用参数 `--disable_clang` 禁用 `clang`, 然后设置 `CC` 及 `CXX` 环境变量.
+To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
-假设使用 GCC 工具链:
+For example building with GCC toolchain:
 
 ```bash
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disable_clang
@@ -166,7 +173,7 @@ $ ./script/build.py -c R
 
 ### 环境变量
 
-除了 `CC` 及 `CXX`, 你还可以设置以下环境变量来自定义编译配置:
+Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -182,4 +189,4 @@ $ ./script/build.py -c R
 * `CXX_host`
 * `LDFLAGS`
 
-以上环境变量需要在执行 `bootstrap.py` 前设置, 在执行 `build.py` 的时候再设置将无效.
+The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
