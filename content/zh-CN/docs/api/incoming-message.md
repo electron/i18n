@@ -38,15 +38,15 @@ An `IncomingMessage` instance has the following readable properties:
 
 #### `response.statusCode`
 
-An Integer indicating the HTTP response status code.
+An `Integer` indicating the HTTP response status code.
 
 #### `response.statusMessage`
 
-A String representing the HTTP status message.
+A `String` representing the HTTP status message.
 
 #### `response.headers`
 
-An Object representing the response HTTP headers. The `headers` object is formatted as follows:
+An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * All header names are lowercased.
 * Each header name produces an array-valued property on the headers object.
@@ -54,12 +54,12 @@ An Object representing the response HTTP headers. The `headers` object is format
 
 #### `response.httpVersion`
 
-A String indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
 
 #### `response.httpVersionMajor`
 
-An Integer indicating the HTTP protocol major version number.
+An `Integer` indicating the HTTP protocol major version number.
 
 #### `response.httpVersionMinor`
 
-An Integer indicating the HTTP protocol minor version number.
+An `Integer` indicating the HTTP protocol minor version number.
