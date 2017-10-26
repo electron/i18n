@@ -130,15 +130,15 @@ La configuration par défaut de compilation cible la majorité des distributions
 
 ### Compiler `libchromiumcontent` localement
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
+Pour éviter d’utiliser les binaires précompilés de `libchromiumcontent`, vous pouvez compiler `libchromiumcontent` localement. Pour ce faire, procédez comme suit : 1. Installez [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Installez [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Récupérez les sous-modules git :
 
     bash
       $ git submodule update --init --recursive 4. Copier le fichier de configuration .gclient
 
     bash
-      $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
+      $ cp vendor/libchromiumcontent/.gclient . 5. Ajoutez le paramètre 
 
-`--build_libchromiumcontent` switch to `bootstrap.py` script:
+`--build_libchromiumcontent` au script `bootstrap.py` :
 
     bash
       $ ./script/bootstrap.py -v --build_libchromiumcontent
@@ -151,7 +151,7 @@ $ ./script/build.py -c R
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Par défaut, Electron est compilé avec les binaires précompilés de [`clang`](https://clang.llvm.org/get_started.html) fournis par le projet Chromium. Si pour une raison quelconque vous souhaitez compiler avec `clang` d'installé sur votre système, vous pouvez appeler `bootstrap.py` avec le paramètre `--clang_dir=<path>`. En lui passant ce paramètre, le script de compilation assumera que les binaires de `clang` se situent dans `<path>/bin/`.
 
 Par exemple, si vous avez installé `clang` sous `/user/local/bin/clang` :
 
