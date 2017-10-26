@@ -34,34 +34,42 @@ view.webContents.loadURL('https://electron.atom.io')
 * `options` Object (facultatif) 
   * `webPreferences` Object (facultatif) - Voir [BrowserWindow](browser-window.md).
 
+### Static Methods
+
+#### `BrowserView.fromId(id)`
+
+* `id` Integer
+
+Returns `BrowserView` - The view with the given `id`.
+
 ### Propriétés d'instance
 
-Les objets créés avec `new BrowserView` ont les propriétés suivantes :
+Objects created with `new BrowserView` have the following properties:
 
 #### `view.webContents` *Experimental*
 
-Un objet [`WebContents`](web-contents.md) appartient à cette vue.
+A [`WebContents`](web-contents.md) object owned by this view.
 
 #### `view.id` *Experimental*
 
-Un`Integer` représentant l’ID unique de la vue.
+A `Integer` representing the unique ID of the view.
 
 ### Méthodes d’instance
 
-Les objets créés avec `new BrowserView` ont les méthodes d’instance suivant :
+Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - Si `true`, la largeur de la vue va se redimensionner pour être de la même largeur que la fenêtre. `false` par défaut.
-  * `height` Boolean - Si `true`, la hauteur de la vue va se redimensionner pour être de la même hauteur que la fenêtre. `false` par défaut.
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Redimensionne et déplace la vue vers les limites fournies par rapport à la fenêtre.
+Resizes and moves the view to the supplied bounds relative to the window.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Couleur dans le format `#aarrggbb` ou `#argb`. Le canal alpha est facultatif.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
