@@ -8,23 +8,21 @@ Exemple pour obtenir le chemin réel d'un fichier glissé dans l'application :
 
 ```html
 <div id="holder">
-  Glissez vos fichiers ici
+  Drag your file here
 </div>
 
 <script>
-  const holder = document.getElementById('holder')
-  holder.ondragover = () => {
-    return false;
-  }
-  holder.ondragleave = holder.ondragend = () => {
-    return false;
-  }
-  holder.ondrop = (e) => {
-    e.preventDefault()
+  document.addEventListener('drop', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
     for (let f of e.dataTransfer.files) {
-      console.log('Fichier(s) que vous avez déposé : ', f.path)
+      console.log('File(s) you dragged here: ', f.path)
     }
-    return false;
-  }
+  });
+  document.addEventListener('dragover', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  });
 </script>
 ```
