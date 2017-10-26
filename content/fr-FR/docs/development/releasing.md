@@ -29,9 +29,9 @@ npm run bump-version -- patch
 git push origin HEAD
 ```
 
-This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
+Cela va changer le numéro de version dans plusieurs fichiers. Voir [ce changement de version](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) pour exemple.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+La plupart des nouvelles versions seront de niveau `patch`. Les mises à jour de Chrome ou d'autres changements majeurs doivent utiliser le niveau `minor`. Pour plus d’informations, consultez [electron-versioning](/docs/tutorial/electron-versioning.md).
 
 ## Attendez la compilation :hourglass_flowing_sand:
 
@@ -39,14 +39,14 @@ The presence of the word [`Bump`](https://github.com/electron/electron/blob/7961
 
 To monitor the build progress, see the following pages:
 
-- [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) for Mac and Windows
-- [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) for Linux
+- [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) pour Mac et Windows
+- [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) pour Linux
 
-## Compile release notes
+## Notes de compilation
 
 Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
-Tips:
+Astuces :
 
 - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc.
 - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com.
@@ -118,16 +118,16 @@ For a `minor` release (which is normally a Chromium update, and possibly also a 
 4. Click 'Save draft'. **Do not click 'Publish release'!**
 5. Wait for all builds to pass before proceeding. 
 
-## Merge temporary branch
+## Fusionner une branche temporaire
 
-Merge the temporary back into master, without creating a merge commit:
+Fusionner la branche temporaire dans master, sans créer un merge commit :
 
 ```sh
 git merge release master --no-commit
 git push origin master
 ```
 
-If this fails, rebase with master and rebuild:
+Si cela échoue, faites un rebase sur master et refaites une compilation :
 
 ```sh
 git pull
@@ -136,7 +136,7 @@ git rebase master
 git push origin HEAD
 ```
 
-## Run local debug build
+## Exécuter une compilation de debug local
 
 Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
 
@@ -145,11 +145,11 @@ npm run build
 npm start
 ```
 
-Verify the window is displaying the current updated version.
+Vérifiez que la fenêtre affiche la version de mise à jour actuelle.
 
 ## Définir les variables d'environnement
 
-You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
+Vous devrez définir les variables d’environnement suivantes pour publier une nouvelle version. Demandez à un autre membre de l’équipe pour ces informations d’identification.
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
@@ -168,7 +168,7 @@ npm run release
 
 Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
 
-## Delete the temporary branch
+## Supprimer la branche temporaire
 
 ```sh
 git checkout master
