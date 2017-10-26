@@ -413,6 +413,30 @@ Returns `BrowserWindow` - The window that owns the given `webContents`.
 
 Returns `BrowserWindow` - The window with the given `id`.
 
+#### `BrowserWindow.addExtension(path)`
+
+* `path` String
+
+Adds Chrome extension located at `path`, and returns extension's name.
+
+The method will also not return if the extension's manifest is missing or incomplete.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
+#### `BrowserWindow.removeExtension(name)`
+
+* `name` String
+
+Remove a Chrome extension by name.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
+#### `BrowserWindow.getExtensions()`
+
+Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
@@ -582,7 +606,7 @@ Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Retourne [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -593,7 +617,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Retourne [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
@@ -891,7 +915,7 @@ Same as `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
 
@@ -943,17 +967,17 @@ The `buttons` is an array of `Button` objects:
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `tooltip` String (facultatif) - Le texte dans l'info-bulle du bouton.
+  * `flags` String[] (facultatif) - Contrôle les états et comportements spécifiques du bouton. `['enabled']` par défaut.
 
-The `flags` is an array that can include following `String`s:
+Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `enabled` - Le bouton est actif et disponible à l'utilisateur.
+* `disabled` - Le bouton est désactivé. Il est présent, mais il a un état visual indiquant qu'il ne répondra pas à l'action de l'utilisateur.
+* `dismissonclick` - Lorsque le bouton est cliqué, la fenêtre de miniature se ferme immédiatement.
+* `nobackground` - Utilise uniquement l'image et ne dessine pas de bordure sur le bouton.
+* `hidden` - Le bouton n'est pas affiché à l'utilisateur.
+* `noninteractive` - Le bouton est activé mais pas interactif ; L'état du bouton pressé ne sera pas dessiné. Cette valeur est prévue pour le cas où le bouton est utilisé dans une notification.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
@@ -1080,7 +1104,7 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
