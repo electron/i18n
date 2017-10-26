@@ -2,13 +2,11 @@
 
 Ce document décrit le processus pour créer une nouvelle version d’Electron.
 
-## Compiler les notes de publication
+## Create a temporary branch
 
-Le processus actuel est de maintenir un fichier local, en faisant un suivi des changements notables que vous verrez dans les pull request qui sont merged. Pour obtenir des exemples de comment mettre en forme les notes, voir les versions précédentes sur [la page de parutions](https://github.com/electron/electron/releases).
+Create a new branch from `master`. Name it `release` or anything you like.
 
-## Créer une branche temporaire
-
-Créer une nouvelle branche depuis `master` nommée `release`.
+Note: If you are creating a backport release, you'll check out `1-6-x`, `1-7-x`, etc instead of `master`.
 
 ```sh
 git checkout master
@@ -18,36 +16,118 @@ git checkout -b release
 
 Cette branche est créée comme une mesure de précaution pour empêcher tout PRs fusionnées de se faufiler dans un communiqué, entre le moment où la branche temporaire de nouvelle version est créée et les builds de CI sont terminés.
 
+## Check for extant drafts
+
+The upload script [looks for an existing draft release](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/upload.py#L173-L181). To prevent your new release from clobbering an existing draft, check [the releases page](https://github.com/electron/electron/releases) and make sure there are no drafts.
+
 ## Changer le numéro de version
 
-Exécutez le script de `bump-version`, et mettre `majeure`, `mineure` ou `patch` comme argument :
+Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
 
 ```sh
 npm run bump-version -- patch
 git push origin HEAD
 ```
 
-Cela va changer le numéro de version dans plusieurs fichiers. Voir [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) pour exemple.
+This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
 
-La plupart des nouvelles versions seront des `patch`. Les mises à jour de Chrome ou d'autres changements majeurs doivent utiliser `minor`. Pour plus d’informations, consultez [electron-versioning](/docs/tutorial/electron-versioning.md).
+Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
 
-## Modifier le projet de communiqué
+## Wait for builds :hourglass_flowing_sand:
+
+The presence of the word [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) in the commit message created by the `bump-version` script will [trigger the release process](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
+
+To monitor the build progress, see the following pages:
+
+- [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) for Mac and Windows
+- [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) for Linux
+
+## Compile release notes
+
+Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+
+Tips:
+
+- Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc.
+- No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com.
+- To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+
+### Patch releases
+
+For a `patch` release, use the following format:
+
+    ## Bug Fixes
+    
+    * Fixed a cross-platform thing. #123
+    
+    ### Linux
+    
+    * Fixed a Linux thing. #123
+    
+    ### macOS
+    
+    * Fixed a macOS thing. #123
+    
+    ### Windows
+    
+    * Fixed a Windows thing. #1234
+    
+    ## API Changes
+    
+    * Changed a thing. #123
+    
+    ### Linux
+    
+    * Changed a Linux thing. #123
+    
+    ### macOS
+    
+    * Changed a macOS thing. #123
+    
+    ### Windows
+    
+    * Changed a Windows thing. #123
+    
+
+### Minor releases
+
+For a `minor` release (which is normally a Chromium update, and possibly also a Node update), e.g. `1.8.0`, use this format:
+
+    **Note:** This is a beta release. This is the first release running on upgraded versions of Chrome/Node.js/V8 and most likely will have have some instability and/or regressions.
+    
+    Please file new issues for any bugs you find in it.
+    
+    This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+    
+    ## Upgrades
+    
+    - Upgraded from Chrome `oldVersion` to `newVersion`. #123
+    - Upgraded from Node `oldVersion` to `newVersion`. #123
+    - Upgraded from v8 `oldVersion` to `newVersion`. #9116
+    
+    ## Other Changes
+    
+    - Some other change. #123
+    
+
+## Edit the release draft
 
 1. Visitez [la page de parutions](https://github.com/electron/electron/releases) et vous verrez un nouveau projet de version avec les notes de publication.
 2. Modifiez la version et ajouter des notes de publication.
-3. Cliquez sur 'Save draft'. **Ne pas cliquer sur 'Publish release'!**
-4. Attendez que toutes les builds passent. :hourglass_flowing_sand:
+3. Ensure the `prerelease` checkbox is checked. This should happen automatically for Electron versions >=1.7
+4. Click 'Save draft'. **Do not click 'Publish release'!**
+5. Wait for all builds to pass before proceeding. 
 
-## Fusionner une branche temporaire
+## Merge temporary branch
 
-Fusionner la branche temporaire dans master, sans créer un merge commit :
+Merge the temporary back into master, without creating a merge commit:
 
 ```sh
 git merge release master --no-commit
 git push origin master
 ```
 
-Si cela échoue, rebase avec master et rebuild :
+If this fails, rebase with master and rebuild:
 
 ```sh
 git pull
@@ -56,42 +136,61 @@ git rebase master
 git push origin HEAD
 ```
 
-## Exécuter un build de debug local
+## Run local debug build
 
-Exécutez la version de debug local pour vérifier que vous créez la version que vous souhaitez. Parfois, vous pensiez que vous faisiez une nouvelle version, mais vous ne le faites pas.
+Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
 
 ```sh
 npm run build
 npm start
 ```
 
-Vérifiez que la fenêtre affiche la version de mise à jour actuelle.
+Verify the window is displaying the current updated version.
 
-## Définir les variables d'environnement
+## Set environment variables
 
-Vous devrez définir les variables d’environnement suivantes pour publier une nouvelle version. Demandez à un autre membre de l’équipe pour ces informations d’identification.
+You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - un jeton d'accès personnelle avec le scope « repo ».
+- `ELECTRON_GITHUB_TOKEN` - A personal access token with "repo" scope.
 
-Vous aurez besoin de le faire seulement une fois.
+You will only need to do this once.
 
-## Publier la release
+## Publish the release
 
-Ce script va télécharger les fichiers binaires et générer les headers de node et l’éditeur de liens .lib utilisé sur Windows par node-gyp pour build les modules natifs.
+This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
 
 ```sh
 npm run release
 ```
 
-Remarque: Beaucoup de distributions de Python sont toujours livrés avec de vieux certificats HTTPS. Vous pouvez voir un `InsecureRequestWarning`, mais c'est négligeable.
+Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
 
-## Supprimer la branche temporaire
+## Delete the temporary branch
 
 ```sh
 git checkout master
 git branch -D release # delete local branch
 git push origin :release # delete remote branch
 ```
+
+## Promoting a release on npm
+
+New releases are published to npm with the `beta` tag. Every release should eventually get promoted to stable unless there's a good reason not to.
+
+Releases are normally given around two weeks in the wild before being promoted. Before promoting a release, check to see if there are any bug reports against that version, e.g. issues labeled with `version/1.7.x`.
+
+It's also good to ask users in Slack if they're using the beta versions successfully.
+
+To see what's beta and stable at any given time:
+
+    $ npm dist-tag ls electron  
+    beta: 1.7.5
+    latest: 1.6.11
+    
+
+To promote a beta version to stable (aka `latest`):
+
+    npm dist-tag add electron@1.2.3 latest
