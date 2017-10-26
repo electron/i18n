@@ -6,8 +6,8 @@ Suivez les indications ci-dessous pour compiler Electron sur Linux.
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
 * Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent encore Python 2.6.x, vous devrez peut-être vérifier votre version de Python avec `python -V`.
-* Node.js. Il y a différentes façons d’installer Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Cela permet l’installation de Node sur votre propre répertoire comme un utilisateur standard. Ou essayez les dépôts tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
+* Node.js. Il y a différentes façons d’installer Node. Vous pouvez télécharger le code source depuis [nodejs.org](http://nodejs.org) et le compiler vous-même. Cela permet l’installation de Node sur votre propre répertoire comme un utilisateur standard. Ou essayez les dépôts tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 ou plus.
 * En-têtes de développement de GTK+ et libnotify.
 
 Sur Ubuntu, installez les bibliothèques suivantes :
@@ -64,7 +64,7 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                         g++-arm-linux-gnueabihf
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+Et pour cross-compiler une version `arm` ou `ia32`, vous devez indiquer le paramètre `--target_arch` au script `bootstrap.py` :
 
 ```bash
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -84,7 +84,7 @@ Ce script créera un lourd exécutable d'Electron dans le répertoire `out/R`. L
 $ ./script/create-dist.py
 ```
 
-Cela mettra un espace de travail avec des fichier beaucoup plus petits dans le répertoire `dist`. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Cela mettra un espace de travail avec des fichier beaucoup plus petits dans le répertoire `dist`. Après avoir exécuté le script `create-dist.py`, vous pouvez supprimer le fichier binaire de 1.3 + gigaoctets se trouvant toujours dans `out/R`.
 
 Vous pouvez également compiler seulement une version `Debug` :
 
@@ -126,7 +126,7 @@ Voir [Build System Overview : Tests](build-system-overview.md#tests)
 
 ## Sujets Avancés
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+La configuration par défaut de compilation cible la majorité des distributions bureau Linux. Pour compiler sur une distribution ou un appareil spécifique, les informations suivantes peuvent vous aider.
 
 ### Compiler `libchromiumcontent` localement
 
