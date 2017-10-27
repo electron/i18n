@@ -35,9 +35,9 @@ La plupart des nouvelles versions seront de niveau `patch`. Les mises à jour de
 
 ## Attendez la compilation :hourglass_flowing_sand:
 
-The presence of the word [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) in the commit message created by the `bump-version` script will [trigger the release process](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
+La présence du mot [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) dans le message du commit est réalisée par le script `bump-version` qui va [déclencher le processus de versionnage](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
 
-To monitor the build progress, see the following pages:
+Pour surveiller la progression de la compilation, allez voir les pages suivantes :
 
 - [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) pour Mac et Windows
 - [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) pour Linux
