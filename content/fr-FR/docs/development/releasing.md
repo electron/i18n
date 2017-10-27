@@ -91,7 +91,7 @@ Pour une version `patch`, utilisez le format suivant :
 
 ### Versions mineures
 
-For a `minor` release (which is normally a Chromium update, and possibly also a Node update), e.g. `1.8.0`, use this format:
+Pour une version `minor` (qui est normalement une mise à jour de Chromium, et potentiellement aussi une mise à jour de Node), par exemple la `1.8.0`, utilisez ce format :
 
     **Note:** This is a beta release. This is the first release running on upgraded versions of Chrome/Node.js/V8 and most likely will have have some instability and/or regressions.
     
@@ -114,9 +114,9 @@ For a `minor` release (which is normally a Chromium update, and possibly also a 
 
 1. Visitez [la page de parutions](https://github.com/electron/electron/releases) et vous verrez un nouveau projet de version avec les notes de publication.
 2. Modifiez la version et ajouter des notes de publication.
-3. Ensure the `prerelease` checkbox is checked. This should happen automatically for Electron versions >=1.7
-4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Wait for all builds to pass before proceeding. 
+3. Assurez-vous que la case à cocher `prerelease` est cochée. Elle est cochée par défaut pour les version d'Electron >=1.7
+4. Cliquez sur 'Save draft'. **Ne cliquez pas sur 'Publish release' !**
+5. Attendez que toutes les compilations sont passées avant de continuer. 
 
 ## Fusionner une branche temporaire
 
