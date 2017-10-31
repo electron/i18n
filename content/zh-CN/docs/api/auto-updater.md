@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-` autoUpdater`模块提供一个借口给[ Squirrel](https://github.com/Squirrel)框架
+` autoUpdater`模块提供一个接口给[ Squirrel](https://github.com/Squirrel)框架
 
 You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
 
