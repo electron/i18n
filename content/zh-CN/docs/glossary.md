@@ -10,7 +10,7 @@ ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray 是一个可以让 [libchromiumcontent](#libchromiumcontent) 在应用中简易使用的静态库。 It is now deprecated and has been merged into Electron's codebase.
 
 ### CRT
 
