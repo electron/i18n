@@ -1,38 +1,38 @@
-# About Electron
+# Electron 에 대하여
 
-[Electron](https://electron.atom.io) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+Electron 은 Html, Css 와 Javascript 로 크로스플랫폼 데스크톱 애플리케이션을 위해 Github 에서 개발한 오픈소스 라이브러리 입니다. Electron 은 Chromium 와 Node. js 를 단일 실행으로 합치고 앱을 Mac, Windows 와 Linux 용으로 패키지화 할 수 있게 함으로써 이것을 가능하게 합니다.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron 은 2013년에 Github 의 해킹 가능한 텍스트 편집기 Atom 의 프레임워크로 시작하였습니다. 이 둘은 2014년에 오픈소스화 됩니다.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
+그 후로 오픈소스 개발자, 스타트업과 안정된 회사에서 인기있는 툴이 되었습니다. Electron 을 사용하는 곳을 보세요.
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Electron 의 기여자와 릴리즈에 대한 자세한 내용이나 개발을 시작하려면 Quick Start Guide 를 읽어보세요.
 
-## Core Team and Contributors
+## 코어 팀과 기여자 
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron 은 Gihub 의 팀과 커뮤니티에서 활동중인 기여자 그룹에 의해 유지됩니다 일부 기여자는 개인이고, 일부는 Electron 으로 개발을 하는 큰 회사입니다. 프로젝트에 자주 공여하는 분은 기꺼이 메인테이너로 추가하겠습니다. Electron 에 기여하기를 참고하세요.
 
-## Releases
+## 출시
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+Electron 은 빈번하게 출시 됩니다. 중요한 버그 수정, 새 Api 추가 또는 Chromium 이나 Node. js 의 업데이트시에 출시합니다.
 
-### Updating Dependencies
+### 업데이트 의존성
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron 의 Chromium 버전은 보통 새 버전 출시 이후 1~2 주 후에 업데이트 하는데, 이는 업그레이드에 필요한 작업의 양에 따라 달라집니다.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Node. js 의 새버전이 출시되면, Electron 은 더 안정된 버전을 가져오기 위해 약 한달정도 기다립니다.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Electron 에서, Node. js 와 Chromium 은 단일 V8 인스턴스를 공유합니다--보통 Chromium 이 사용하는 버전. 대부분은 동작하지만 가끔 Node. js 를 패치해야 합니다.
 
-### Versioning
+### 버전 관리
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+Node. js 와 Chromium 에 대한 의존성이 강해서, Electron 은 버전관리가 까다롭고 semver을 따르지 않습니다. 그러므로 항상 Electron 의 특정 버전을 참조해야 합니다. \[Electron 의 버전관리\] (https://electron. atom. io/docs/tutorial/electron-versioning/) 를 읽거나 현재 쓰이는 버전을 보세요.
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+현재 Electron 의 구버전에 대한 장기 지원은 없습니다. Electron 현재 버전이 잘 동작한다면, 그것을 원하는 만큼 유지하세요. 새로운 기능들을 사용하려면 새버전으로 업그레이드 해야합니다.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+주 버전은 v1.0.0 입니다. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
 ## Core Philosophy
 
