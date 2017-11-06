@@ -32,25 +32,25 @@ Node. js 와 Chromium 에 대한 의존성이 강해서, Electron 은 버전관�
 
 현재 Electron 의 구버전에 대한 장기 지원은 없습니다. Electron 현재 버전이 잘 동작한다면, 그것을 원하는 만큼 유지하세요. 새로운 기능들을 사용하려면 새버전으로 업그레이드 해야합니다.
 
-주 버전은 v1.0.0 입니다. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+주 버전은 v1.0.0 입니다. 아직 이 버전을 사용중이지 않다면, v1.0.0의 변화에 대해 읽어보세요.
 
-## Core Philosophy
+## 핵심 이념
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Electron 을 작고 (파일 크기) 지속가능하게 (의존성 및 Api 의 확산) 할 목적으로 중심 프로젝트의 범위를 제한합니다.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+예를 들어, Electron 은 Chromium 전체가 아닌 렌더링 라이브러리만 사용합니다. 이것은 Chromium 업그레이드를 쉽게 하지만 Google Chrome 에서 볼 수 있는 몇몇 브라우저 기능이 Electron 에서는 지원하지 않습니다.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Electron 에 추가된 새로운 기능은 주로 네이티브 Api 입니다. 기능은 가능한한 Node. js 모듈로 해야합니다. \[커뮤니티에 의해 개발된 Electron 도구들\] (https://electron. atom. io/community) 을 보세요.
 
-## History
+## 역사
 
-Below are milestones in Electron's history.
+다음은 Electron 역사의 요점입니다.
 
-| :calendar:      | :tada:                                                                                                                |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).        |
-| **May 2014**    | [Atom Shell is open sourced](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                            |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                                    |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).                                  |
-| **May 2016**    | [Electron apps compatible with Mac App Store](https://electron.atom.io/docs/tutorial/mac-app-store-submission-guide). |
-| **August 2016** | [Windows Store support for Electron apps](https://electron.atom.io/docs/tutorial/windows-store-guide).                |
+| 📆            | 🎉                               |
+| ------------ | ------------------------------- |
+| **2013년 4월** | Atom Shell 탄생.                  |
+| **2014년 5월** | Atom Shell 오픈소스화.               |
+| **2015년 4월** | Electron 으로 개명.                 |
+| **2016년 5월** | Electron v1.0.0 출시.             |
+| **2016년 5월** | Electron 앱이 Mac App Store 와 호환. |
+| **2016년 8월** | Windows Store 의 Electron 앱 지원.  |
