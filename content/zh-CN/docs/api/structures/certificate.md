@@ -1,4 +1,4 @@
-# Certificate Object
+# Certificate Object 证书对象
 
 * `data` String - PEM encoded data
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
