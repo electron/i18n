@@ -15,7 +15,7 @@ const GitHub = require('github')
 const github = new GitHub({
   debug: false,
   Promise: Promise,
-  token: process.env.GITHUB_TOKEN
+  token: process.env.GH_TOKEN
 })
 
 let release
