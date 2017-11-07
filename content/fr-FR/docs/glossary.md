@@ -10,15 +10,15 @@ Le format ASAR a été créé principalement pour améliorer les performances su
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [est](https://github.com/electron-archive/brightray) une bibliothèque statique qui rend [libchromiumcontent](#libchromiumcontent) plus facile à utiliser dans les applications. Il est désormais obsolète et a été implémenté dans le code d'Electron.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+La bibliothèque de Runtime C (CRT) est la partie de la bibliothèque Standard C++ qui intègre la bibliothèque standard ISO C99. Les bibliothèques Visual C++ qui implémentent le CRT soutiennent le développement de code natif et code mixte natif et managé ainsi que le code managé pur pour le développement .NET.
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Une Image disque Apple est un format de package utilisé par macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
