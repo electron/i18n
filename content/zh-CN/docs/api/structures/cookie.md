@@ -1,11 +1,11 @@
 # Cookie Object
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
+* `name` String - cookie 的名称。
+* `value` String - cookie 的值。
+* `domain` String (optional) - cookie 的域名。
+* `hostOnly` Boolean (optional) - cookie 的类型是否为 host-only。
+* `path` String (optional) - cookie 的路径。
+* `secure` Boolean (optional) - cookie 是否标记为安全。
+* `httpOnly` Boolean (optional) - cookie 是否只标记为 HTTP。
 * `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `expirationDate` Double (optional) - cookie 距离 UNIX 时间戳的过期时间，数值为秒。不需要提供给 session cookies。
