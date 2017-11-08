@@ -67,15 +67,15 @@ After building is done, you can find `Electron.app` under `out/D`.
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
-## Cleaning
+## 정리하기
 
-To clean the build files:
+빌드 파일들을 정리하려면:
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+`out`과 `dist` 폴더만 정리하려면:
 
 ```bash
 $ npm run clean-build
