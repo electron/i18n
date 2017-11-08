@@ -14,11 +14,11 @@ Brightray 是一个可以让 [libchromiumcontent](#libchromiumcontent) 在应用
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部分。 执行 CRT 的 Visual c + + 库支持本机代码开发和混合本机代码和托管代码和纯托管的代码为.NET 开发。
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+是指在 macOS 上使用的苹果系统的磁盘镜像打包格式。 DMG 文件通常被用来分发应用的 "installers"（安装包）。 [electron-builder ](https://github.com/electron-userland/electron-builder)支持使用 `dmg` 来作为编译目标。
 
 ### IME
 
