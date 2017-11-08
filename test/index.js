@@ -151,7 +151,9 @@ describe('i18n.locales', () => {
       i18n.locales[locale].languageCode.should.be.a('string')
     })
     i18n.locales['en-US'].languageCode.should.equal('en')
-    i18n.locales['pt-BR'].languageCode.should.equal('pt')
+    i18n.locales['pt-BR'].languageCode.should.equal('pt-BR')
+    i18n.locales['zh-CN'].languageCode.should.equal('zh-CN')
+    i18n.locales['zh-TW'].languageCode.should.equal('zh-TW')
   })
 
   it('includes languageName for every locale', () => {
