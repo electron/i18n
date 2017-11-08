@@ -78,31 +78,31 @@ $ ./script/bootstrap.py -v --target_arch=arm
 $ ./script/build.py
 ```
 
-이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. 이러한 문제가 발생하는 이유는 Release 타겟 바이너리가 디버그 심볼을 포함하기 때문입니다. To reduce the file size, run the `create-dist.py` script:
+이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. 이러한 문제가 발생하는 이유는 Release 타겟 바이너리가 디버그 심볼을 포함하기 때문입니다. 파일 크기를 줄이려면 `create-dist.py` 스크립트를 실행하세요:
 
 ```bash
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+이 스크립트는 매우 작은 배포판을 `dist` 디렉터리에 생성합니다. `create-dist.py` 스크립트를 실행한 이후부턴 1.3GB에 육박하는 공간을 차지하는 `out/R` 폴더의 바이너리는 삭제해도 됩니다.
 
-You can also build the `Debug` target only:
+또는 `Debug` 타겟만 빌드 할 수 있습니다:
 
 ```bash
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+빌드가 모두 끝나면 `out/D` 디렉터리에서 `electron` 디버그 바이너리를 찾을 수 있습니다.
 
-## Cleaning
+## 정리하기
 
-To clean the build files:
+빌드 파일들을 정리하려면:
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+`out`과 `dist` 폴더만 정리하려면:
 
 ```bash
 $ npm run clean-build
