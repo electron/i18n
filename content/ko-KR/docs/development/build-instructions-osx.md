@@ -40,7 +40,7 @@ $ git clone https://github.com/electron/electron
 
 ## 부트스트랩
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```bash
 $ cd electron
