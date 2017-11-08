@@ -1,4 +1,4 @@
-# BluetoothDevice Object
+# 블루투스 장치 개체
 
-* 장치이름 String 
-* 장치아이디 String
+* 장치이름 문자열
+* 장치아이디 문자열
