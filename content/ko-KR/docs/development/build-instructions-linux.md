@@ -64,21 +64,21 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+그리고 `arm` 또는 `ia32`를 크로스 컴파일로 지정하여 `bootstrap.py` 스크립트의 `--target_arch` 파라미터로 넣을 수 있다.
 
 ```bash
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## 빌드하기
 
-If you would like to build both `Release` and `Debug` targets:
+`Release`와 `Debug` 두 타겟 모두 빌드 합니다:
 
 ```bash
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```bash
 $ ./script/create-dist.py
