@@ -5,12 +5,12 @@
 ## 빌드전 요구사양
 
 * 최소한 25GB 이상의 디스크 공간과 8GB 램이 필요합니다.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* Python 2.7.x. 몇몇 CentOS 6.x와 같은 배포판들은 아직도 Python 2.6.x 버전을 사용합니다. 그래서 먼저 `python -V`를 통해 버전을 확인할 필요가 있습니다.
+* Node.js에서 Node를 설치하는 방법은 여러 가지가 있습니다. [nodejs.org](http://nodejs.org) 에서 소스 코드를 받아 빌드하는 방법입니다. 이렇게 하면 Node를 일반 유저로 홈 폴더에 설치할 수 있습니다. 다른 방법으로는 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)에서 소스 파일을 받아와 설치할 수 있습니다.
+* [clang](https://clang.llvm.org/get_started.html) 3.4 또는 최신 버전
+* GTK+ 와 libnotify의 개발용 헤더
 
-On Ubuntu, install the following libraries:
+Ubuntu를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
 
 ```bash
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+RHEL / CentOS를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
 
 ```bash
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Fedora를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
 
 ```bash
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,15 +38,15 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+다른 배포판의 경우 pacman 같은 패키지 매니저를 통해 패키지를 설치 할 수 있습니다. 패키지의 이름은 대부분 위 예시와 비슷할 것입니다. 또는 소스 코드를 내려받아 직접 빌드하는 방법도 있습니다.
 
-## Getting the Code
+## 코드 가져오기
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## 부트스트랩
 
 The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
