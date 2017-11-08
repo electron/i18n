@@ -58,7 +58,7 @@ or: 或者
 pages:
   '/apps':
     title: Electron 应用
-    description: Apps Built on Electron
+    description: 使用 Electron 构建的应用
   '/contact':
     title: 联络
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: 在Twitter、Slack、GitHub 或通过电子邮件与电子团队取得联系。
