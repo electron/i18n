@@ -32,13 +32,13 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Save the file
 
-## Getting the Code
+## 코드 가져오기
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## 부트스트랩
 
 The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
