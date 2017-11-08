@@ -1,6 +1,6 @@
-# Certificate Object
+# 증명서 개체
 
-* `data` String - PEM encoded data
+* `데이터` 스트링형- 데이터가 암호화된 PEM
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
 * `issuerName` String - Issuer's Common Name
 * `issuerCert` Certificate - Issuer certificate (if not self-signed)
