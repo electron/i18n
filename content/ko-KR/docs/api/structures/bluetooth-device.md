@@ -1,4 +1,4 @@
-# BluetoothDevice Object
+# 블루투스장치 개체
 
-* `deviceName` String
-* `deviceId` String
+* `장치이름` 스트링형
+* `장치아이디` 스트링형
