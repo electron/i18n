@@ -78,7 +78,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 $ ./script/build.py
 ```
 
-이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. 이러한 문제가 발생하는 이유는 Release 타겟 바이너리가 디버그 심볼을 포함하기 때문입니다. To reduce the file size, run the `create-dist.py` script:
 
 ```bash
 $ ./script/create-dist.py
