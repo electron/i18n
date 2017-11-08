@@ -1,10 +1,10 @@
-# 빌드 명령 (Linux)
+# 빌드 설명서 (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+이 가이드는 Linux 운영체제에서 Electron을 빌드하는 방법을 설명합니다.
 
-## Prerequisites
+## 빌드전 요구사양
 
-* At least 25GB disk space and 8GB RAM.
+* 최소한 25GB 이상의 디스크 공간과 8GB 램이 필요합니다.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 * Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
