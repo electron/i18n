@@ -108,27 +108,27 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+참고: 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
 
-## Troubleshooting
+## 문제 해결
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### Libtinfo.so.5 동적 링크 라이브러리를 로드하는 도중 에러가 발생할 경우
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+미리 빌드된 `clang`은 `libtinfo.so.5`로 링크를 시도합니다. 따라서 플랫폼에 따라 적당한 `libncurses` symlink를 추가하세요:
 
 ```bash
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## 테스트
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+[빌드 시스템 개요: 테스트](build-system-overview.md#tests)를 보세요.
 
-## Advanced topics
+## 고급 주제
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+기본적인 빌드 구성은 가장 주력인 Linux 배포판에 초점이 맞춰져있으며, 특정 배포판이나 기기에 빌드할 계획이라면 다음 정보들이 도움이 될 것입니다.
 
-### Building `libchromiumcontent` locally
+### 로컬에서 `libchromiumcontent` 빌드하기
 
 To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
 
