@@ -1,7 +1,7 @@
-# CertificatePrincipal Object
+# 인증서 책임자 개체
 
-* `commonName` String - Common Name
-* `organizations` String[] - Organization names
+* `통칭` 문자열 - 통칭
+* `조직` 문자열 - 조직 이름
 * `organizationUnits` String[] - Organization Unit names
 * `locality` String - Locality
 * `state` String - State or province
