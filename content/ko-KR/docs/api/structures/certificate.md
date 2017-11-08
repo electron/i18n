@@ -6,7 +6,7 @@
 * `발급자 인증서` 인증서 - 발급자 인증서(하지 않을 경우 자체 서명)
 * `주제` [인증서 책임자](certificate-principal.md) - 발급 책임자
 * `주제 이름` 문자열 - 주제는 일반적인 이름
-* `serialNumber` String - Hex value represented string
-* `validStart` Number - Start date of the certificate being valid in seconds
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `시리얼넘버` 문자열 - 문자열은 16진수 값으로 표시
+* `유효 시작` 번호 - 인증서의 유효기간 시작 날짜
+* `유효 만기` 번호 - 인증서의 유효기간 종료 날짜
+* `지문` 문자열 - 인증서의 지문
