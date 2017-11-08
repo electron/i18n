@@ -66,15 +66,15 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## 정리하기
 
-To clean the build files:
+빌드 파일들을 정리하려면:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+`out`과 `dist` 폴더만 정리하려면:
 
 ```bash
 $ npm run clean-build
