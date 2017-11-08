@@ -47,7 +47,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## 빌드하기
 
 Build both `Release` and `Debug` targets:
 
