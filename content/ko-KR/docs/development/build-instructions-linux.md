@@ -149,31 +149,31 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 $ ./script/build.py -c R
 ```
 
-### Using system `clang` instead of downloaded `clang` binaries
+### 다운로드된 `clang` 바이너리 대신 시스템의 `clang` 사용하기
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+기본적으로 Electron은 Chromium 프로젝트에서 제공하는 미리 빌드된 [`clang`](https://clang.llvm.org/get_started.html) 바이너리를 통해 빌드됩니다. 만약 어떤 이유로 시스템에 설치된 `clang`을 사용하여 빌드하고 싶다면, `bootstrap.py`를 `--clang_dir=<path><path>` 스위치와 함께 실행함으로써 해결할 수 있습니다. 빌드 스크립트를 이 스위치와 함께 실행할 때 스크립트는 `<path><path>/bin/`와 같은 경로로 `clang` 바이너리를 찾습니다.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+예를 들어 `clang`을 `/user/local/bin/clang`에 설치했다면 다음과 같습니다:
 
 ```bash
 $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### `clang` 대신 다른 컴파일러 사용하기
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Electron을 `g++`과 같은 다른 컴파일러로 빌드하려면, 먼저 `--disable_clang` 스위치를 통해 `clang`을 비활성화 시켜야 하고, 필요하다면 `CC`와 `CXX` 환경 변수도 설정합니다.
 
-For example building with GCC toolchain:
+예를 들어 GCC 툴체인을 사용하여 빌드한다면 다음과 같습니다:
 
 ```bash
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disable_clang
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### 환경 변수
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+`CC`와 `CXX`와는 별개로, 빌드 구성을 변경하기 위해 다음 환경 변수들을 사용할 수 있습니다:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -189,4 +189,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+이 환경 변수는 `bootstrap.py` 스크립트를 실행할 때 설정되어야 하며, `build.py` 스크립트에선 작동하지 않습니다.
