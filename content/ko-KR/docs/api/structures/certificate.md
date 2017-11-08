@@ -1,8 +1,8 @@
-# 증명서 개체
+# 인증서 개체
 
-* `데이터` 스트링형- 데이터가 암호화된 PEM
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
+* `데이터` 문자열- 데이터가 암호화된 PEM
+* `발급자` [인증서 책임자](certificate-principal.md) - 발급 책임자
+* `발급자 이름` 문자열- 발급자의 일반적인 이름
 * `issuerCert` Certificate - Issuer certificate (if not self-signed)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
 * `subjectName` String - Subject's Common Name
