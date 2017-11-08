@@ -133,17 +133,17 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 미리 빌드된 `libchromiumcontent`를 사용하는 것을 피하기 위해, 로컬에 `libchromiumcontent`를 빌드할 수 있습니다. 그렇게 하기 위해선, 다음의 단계를 거쳐야 합니다. 1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)을 설치합니다. 2. [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)을 설치합니다. 3. 자식 서브 모듈을 가져옵니다.
 
     bash
-      $ git submodule update --init --recursive 4. Copy the .gclient config file
+      $ git submodule update --init --recursive 4. .gclient 구성 파일을 복사합니다.
 
     bash
-      $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
+      $ cp vendor/libchromiumcontent/.gclient . 5. 
 
-`--build_libchromiumcontent` switch to `bootstrap.py` script:
+`--build_libchromiumcontent` 스위치를 `bootstrap.py` 스크립트에 추가합니다.
 
     bash
       $ ./script/bootstrap.py -v --build_libchromiumcontent
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+참고로 `shared_library` 구성은 기본적으로 빌드되어있지 않으며, 다음 모드를 사용하면 `Release` 버전의 Electron만 빌드할 수 있습니다:
 
 ```bash
 $ ./script/build.py -c R
