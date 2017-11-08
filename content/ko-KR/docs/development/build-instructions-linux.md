@@ -130,7 +130,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ### 로컬에서 `libchromiumcontent` 빌드하기
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
+미리 빌드된 `libchromiumcontent`를 사용하는 것을 피하기 위해, 로컬에 `libchromiumcontent`를 빌드할 수 있습니다. 그렇게 하기 위해선, 다음의 단계를 거쳐야 합니다. 1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)을 설치합니다. 2. [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)을 설치합니다. 3. 자식 서브 모듈을 가져옵니다.
 
     bash
       $ git submodule update --init --recursive 4. Copy the .gclient config file
