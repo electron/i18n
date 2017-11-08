@@ -48,16 +48,16 @@ $ git clone https://github.com/electron/electron
 
 ## 부트스트랩
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. 스크립트가 정상적으로 작동하기 위해선 Python 2.7.x 버전이 필요합니다. 다운로드 작업이 상당히 많은 시간을 소요할 것입니다. 참고로 Electron은 `ninja`를 빌드 툴체인으로 사용하므로 `Makefile`은 생성되지 않습니다.
 
 ```bash
 $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### 크로스 컴파일
 
-If you want to build for an `arm` target you should also install the following dependencies:
+`arm` 아키텍쳐로 빌드 하려면 다음 의존성 라이브러리를 설치해야 합니다:
 
 ```bash
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
