@@ -80,13 +80,13 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+참고: 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
 
-## Tests
+## 테스트
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+[빌드 시스템 개요: 테스트](build-system-overview.md#tests)를 보세요.
 
-## Troubleshooting
+## 문제 해결
 
 ### Command xxxx not found
 
