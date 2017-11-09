@@ -1,4 +1,4 @@
-# CrashReport Object
+# 캐시 보고서 개체
 
-* `date` String
-* `ID` Integer
+* `날짜` String
+* `아이디` Integer
