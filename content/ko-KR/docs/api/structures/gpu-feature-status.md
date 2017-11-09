@@ -14,7 +14,7 @@
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+가능한 값:
 
 * `disabled_software` - 소프트웨어 전용. 하트웨어 가속 비활성화(yellow)
 * `disabled_off` - 사용안함 (red)
@@ -23,7 +23,7 @@ Possible values:
 * `unavailable_off` - 사용 불가 (red)
 * `unavailable_off_ok` - 사용 불가 (yellow)
 * `enabled_readback` - 하드웨어를 가속하지만 성능이 저하 (yellow)
-* `enabled_force` - Hardware accelerated on all pages (green)
-* `enabled` - Hardware accelerated (green)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on` - Force enabled (green)
+* `enabled_force` - 모든 페이지 하드웨어 가속 (green)
+* `enabled` - 하드웨어 가속 (green)
+* `enabled_on` - 사용 가능 (green)
+* `enabled_on` - 포스 사용 가능 (green)
