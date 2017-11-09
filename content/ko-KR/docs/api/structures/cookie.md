@@ -1,9 +1,9 @@
-# Cookie Object
+# 쿠키 개체
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
+* `이름` String - 쿠키의 이름
+* `값` String - 쿠키 값
+* `도메인` String(옵션) - 쿠키의 도메인
+* `호스트 전용` Boolean (옵션) - 쿠키가 호스트 전용 쿠키인지 아닌지
 * `path` String (optional) - The path of the cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
 * `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
