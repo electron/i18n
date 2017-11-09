@@ -1,7 +1,7 @@
-# GPUFeatureStatus Object
+# GPU 기능 상태 개체
 
-* `2d_canvas` String - Canvas
-* `flash_3d` String - Flash
+* `2d_canvas` String - 캔버스
+* `flash_3d` String - 플래시
 * `flash_stage3d` String - Flash Stage3D
 * `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
 * `gpu_compositing` String - Compositing
