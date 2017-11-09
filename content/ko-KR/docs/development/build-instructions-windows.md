@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## 빌드전 요구사양
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
@@ -17,22 +17,22 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## 코드 가져오기
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## 부트스트랩
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## 빌드하기
 
 Build both Release and Debug targets:
 
@@ -66,27 +66,27 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## 정리하기
 
-To clean the build files:
+빌드 파일들을 정리하려면:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+`out`과 `dist` 폴더만 정리하려면:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+참고: 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
 
-## Tests
+## 테스트
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+[빌드 시스템 개요: 테스트](build-system-overview.md#tests)를 보세요.
 
-## Troubleshooting
+## 문제 해결
 
 ### Command xxxx not found
 

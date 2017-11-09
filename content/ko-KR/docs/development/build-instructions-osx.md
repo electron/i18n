@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on macOS.
 
-## Prerequisites
+## 빌드전 요구사양
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
@@ -32,22 +32,22 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Save the file
 
-## Getting the Code
+## 코드 가져오기
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## 부트스트랩
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```bash
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## 빌드하기
 
 Build both `Release` and `Debug` targets:
 
@@ -67,22 +67,22 @@ After building is done, you can find `Electron.app` under `out/D`.
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
-## Cleaning
+## 정리하기
 
-To clean the build files:
+빌드 파일들을 정리하려면:
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+`out`과 `dist` 폴더만 정리하려면:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+참고: 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
 
-## Tests
+## 테스트
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+[빌드 시스템 개요: 테스트](build-system-overview.md#tests)를 보세요.
