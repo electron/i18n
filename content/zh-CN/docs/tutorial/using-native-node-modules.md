@@ -1,4 +1,4 @@
-# 使用原生 Node 模块
+# 使用 Node 原生模块
 
 Electron 同样也支持 Node 原生模块，但由于和官方的 Node 相比使用了不同的 V8 引擎，如果你想编译原生模块，则需要手动设置 Electron 的 headers 的位置。
 
