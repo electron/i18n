@@ -1,4 +1,4 @@
-# 构建系统概述
+# 构建系统概览
 
 Electron 使用 [gyp](https://gyp.gsrc.io/) 来生成项目, 使用 [ninja](https://ninja-build.org/) 来构建项目. 项目配置可以在 `.gyp` 和 `.gypi` 文件中找到.
 
