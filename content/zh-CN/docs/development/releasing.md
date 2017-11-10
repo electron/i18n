@@ -2,7 +2,7 @@
 
 本文档描述了发布 Electron 版本的过程。
 
-## Create a temporary branch
+## 创建一个临时分支
 
 Create a new branch from `master`. Name it `release` or anything you like.
 
@@ -22,16 +22,16 @@ The upload script [looks for an existing draft release](https://github.com/elect
 
 ## 输出版本
 
-Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
+运行 `bump-version` 脚本, 传递 `major`, `minor`, 或 `patch` 作为一个属性:
 
 ```sh
 npm run bump-version -- patch
 git push origin HEAD
 ```
 
-This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
+这将在几个文件中冲突版本号. 查看 [这个冲突的提交](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) 的例子.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+大多数版本将是 `patch` 级别。 升级到 Chrome 或其他重大更改应使用 `minor`。 更多信息, 查看 [electron-versioning](/docs/tutorial/electron-versioning.md).
 
 ## Wait for builds :hourglass_flowing_sand:
 
@@ -42,7 +42,7 @@ To monitor the build progress, see the following pages:
 - [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) for Mac and Windows
 - [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) for Linux
 
-## Compile release notes
+## 编译发布说明
 
 Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
@@ -110,24 +110,24 @@ For a `minor` release (which is normally a Chromium update, and possibly also a 
     - Some other change. #123
     
 
-## Edit the release draft
+## 编辑发布草稿
 
 1. 访问 [发行页面](https://github.com/electron/electron/releases) 然后你将看到一个新的带有发行说明的草稿版本.
 2. 编辑版本并添加发行说明.
 3. Ensure the `prerelease` checkbox is checked. This should happen automatically for Electron versions >=1.7
-4. Click 'Save draft'. **Do not click 'Publish release'!**
+4. 点击 'Save draft'. **不要点 'Publish release'!**
 5. Wait for all builds to pass before proceeding. 
 
-## Merge temporary branch
+## 合并临时分支
 
-Merge the temporary back into master, without creating a merge commit:
+将临时合并回 master，不创建合并提交：
 
 ```sh
 git merge release master --no-commit
 git push origin master
 ```
 
-If this fails, rebase with master and rebuild:
+如果这样做失败了，可以用 master 重新构建：
 
 ```sh
 git pull
@@ -136,39 +136,39 @@ git rebase master
 git push origin HEAD
 ```
 
-## Run local debug build
+## 运行本地调试构建
 
-Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
+运行本地调试构建以验证您是否正在构建所需的版本。 有时候你以为你在为一个新版本发布，但实际上并不是这样。
 
 ```sh
 npm run build
 npm start
 ```
 
-Verify the window is displaying the current updated version.
+验证窗口中显示当前的更新版本。
 
-## Set environment variables
+## 设置环境变量
 
-You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
+你需要设置以下环境变量才能发布版本。 向其他团队成员询问这些凭据。
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - A personal access token with "repo" scope.
+- `ELECTRON_GITHUB_TOKEN` - 具有 "repo" 作用域的一个个人访问令牌.
 
-You will only need to do this once.
+你只需要这样做一次。
 
-## Publish the release
+## 发布版本
 
-This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
+该脚本将下载二进制文件，并生成节点头和在 Windows 上通过 node-gyp 来构建原生模块使用的 .lib 链接器。
 
 ```sh
 npm run release
 ```
 
-Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
+注意: Python 的许多发行版仍然附带旧的 HTTPS 证书. 你也许能看到一个 `InsecureRequestWarning`, 但它可以被忽视
 
-## Delete the temporary branch
+## 删除临时分支
 
 ```sh
 git checkout master
