@@ -1,4 +1,4 @@
-# 构建步骤 (macOS)
+# 构建步骤（macOS）
 
 遵循下面的引导，在 macOS 上构建 Electron.
 
@@ -85,4 +85,4 @@ $ npm run clean-build
 
 ## 测试
 
-查看 [构建系统概述: 测试](build-system-overview.md#tests)
+查看[构建系统概览: 测试](build-system-overview.md#tests)
