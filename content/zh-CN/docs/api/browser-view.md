@@ -11,7 +11,7 @@ A `BrowserView` can be used to embed additional web content into a `BrowserWindo
 ## Example
 
 ```javascript
-// In the main process.
+// 在主进程.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
