@@ -1,4 +1,4 @@
-# 构建步骤 (Windows)
+# 构建步骤（Windows）
 
 遵循下面的步骤, 在 Windows 平台上构建 Electron。
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## 引导
 
-引导脚本将会下载全部必要的构建依赖，并创建和构建项目文件。 需要注意的是我们使用`ninja`创建 Electron，这样的话就不需要生成 Visual Studio 项目了。
+Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 需要注意的是我们使用`ninja`创建 Electron，这样的话就不需要生成 Visual Studio 项目了。
 
 ```powershell
 $ cd electron
@@ -34,13 +34,13 @@ $ python script\bootstrap.py -v
 
 ## 构建
 
-构建发布和调试版本：
+构建 Release 和 Debug 目标:
 
 ```powershell
 $ python script\build.py
 ```
 
-你也可以仅构建调试版本:
+你也可以只构建 Debug 目标:
 
 ```powershell
 $ python script\build.py -c D
@@ -84,7 +84,7 @@ $ npm run clean-build
 
 ## 测试
 
-查看 [构建系统概览: 测试](build-system-overview.md#tests)
+查看 [构建系统概述: 测试](build-system-overview.md#tests)
 
 ## 故障排查
 
