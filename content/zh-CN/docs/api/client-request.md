@@ -52,7 +52,7 @@ const request = net.request({
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` 函数 
   * `username` String
   * `password` String
 
