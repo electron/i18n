@@ -38,7 +38,7 @@ If you need to use an HTTP proxy you can [set these environment variables](https
 
 ## 故障排查
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+在运行 `npm install electron` 时，有些用户会偶尔遇到安装问题。
 
 In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
