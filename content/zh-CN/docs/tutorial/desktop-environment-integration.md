@@ -193,7 +193,7 @@ win.setProgressBar(0.5)
 
 **任务栏按钮的叠加:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![任务栏按钮的叠加](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 要设置窗口的叠加层图标，可以使用 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
 
