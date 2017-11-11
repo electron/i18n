@@ -79,10 +79,10 @@ app.on('ready', () => {
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
-To solve this, you can turn off node integration in Electron:
+Para resolver isso, você pode desativar a integração com node no Electron:
 
 ```javascript
-// In the main process.
+// No processo principal
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
