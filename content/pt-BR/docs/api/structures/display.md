@@ -5,7 +5,7 @@
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
-* `size` [Size](size.md)
+* `size` [Tamanho](size.md)
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
