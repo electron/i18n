@@ -4,13 +4,13 @@
 
 Ao executar o `npm install electron`, alguns usuários encontram erros de instalação.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Geralmente esses erros são resultados de problemas com a falta de conexão de internet e não é relacionado ao pacote npm do `Electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, e `ETIMEDOUT` são resultados da falta de internet. A melhor solução é tenta troca de rede, ou esperar um pouco e tenta instalar novamente o pacote.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Você também pode tentar baixa o Electron diretamente do [electron/electron/releases](https://github.com/electron/electron/releases). se a instalação via `npm` falha.
 
-## When will Electron upgrade to latest Chrome?
+## Quando o Electron será atualizado para a versão mais recente do Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+A versão do Chrome usada no Electron é geralmente disponibilizado dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é uma garantida, depende da quantidade de trabalho envolvido com a atualização.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
