@@ -1,8 +1,8 @@
 # `window.open` 函数
 
-> Open a new window and load a URL.
+> 打开一个新窗口并加载 URL。
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+当调用 ` window.open` 以在网页中创建新窗口时，`BrowserWindow` 将为 `url` 创建一个新的实例，并返回一个代理至 `window.open` 以让页面对其进行有限的控制。
 
 The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
@@ -11,8 +11,8 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String（可选）
+* `features` String（可选）
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
@@ -32,9 +32,9 @@ The `features` string follows the format of standard browser, but each feature h
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
-### Using Chrome's `window.open()` implementation
+### 使用 Chrome 的 `window.open()`
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+如果要使用 Chrome 的内置 `window.open()`，请在 `webPreferences` 选项中将 `nativeWindowOpen` 设置为 `true`。
 
 Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
 
