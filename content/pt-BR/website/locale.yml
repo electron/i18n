@@ -61,4 +61,4 @@ pages:
     description: Aplicativos construídos com Electron
   '/contact':
     title: Contato
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Entre em contato com a equipe do Electron através do Twitter, Slack, GitHub ou por email.
