@@ -186,11 +186,11 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
 ```bash
-# Clone the repository
+# Clone o repositório
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Vá para o repositório
 $ cd electron-quick-start
-# Install dependencies
+# Instale as dependências
 $ npm install
 # Run the app
 $ npm start
