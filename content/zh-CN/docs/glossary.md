@@ -10,7 +10,7 @@ ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
 
 ### Brightray
 
-Brightray 是一个可以让 [libchromiumcontent](#libchromiumcontent) 在应用中简易使用的静态库。 It is now deprecated and has been merged into Electron's codebase.
+Brightray 是一个可以让 [libchromiumcontent](#libchromiumcontent) 在应用中简易使用的静态库。 它现已并入 Electron 的代码库，不推荐使用。
 
 ### CRT
 
@@ -30,7 +30,7 @@ IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在[main(主进�
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). 也称为 “libcc”。
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
@@ -90,7 +90,7 @@ Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新�
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 是谷歌公司的开源的 JavaScript 引擎。它使用 C++ 编写并使用在谷歌公司开源的的浏览器 Chrome 上。V8 能够单独运行或者集成在任何一个 C++ 应用内。
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
@@ -102,4 +102,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview `标签用于集成 'guest（访客）' 内容（比如外部的网页）在你的 Electron 应用内。它们类似于 `iframe`，但是不同的是每个 webview 运行在独立的进程中。 作为页面它拥有不一样的权限并且所有的嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。
+`webview` 标签用于集成 “guest”（访客）内容（比如外部的网页）在你的 Electron 应用内。它们类似于 `iframe`，但是不同的是每个 webview 运行在独立的进程中。 作为页面它拥有不一样的权限并且所有的嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。
