@@ -1,4 +1,4 @@
 # CrashReport Object
 
-* `date` String
-* `ID` Integer
+* `date` Cadena de Texto
+* `ID` Numero entero
