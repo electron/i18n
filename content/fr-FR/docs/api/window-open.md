@@ -30,7 +30,7 @@ The `features` string follows the format of standard browser, but each feature h
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Envoie un message à la fenêtre parent avec l'origine spécifié ou `*` pour aucune préférence d'origine.
 
 ### Utiliser l'implémentation `window.open()` de Chrome
 
@@ -38,7 +38,7 @@ If you want to use Chrome's built-in `window.open()` implementation, set `native
 
 Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
 
-This option can also be set on `<webview>` tags as well:
+Cette option peut également être définie sur des tags `<webview>` comme ceci :
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
