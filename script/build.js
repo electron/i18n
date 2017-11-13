@@ -59,7 +59,7 @@ async function parseFile (file) {
   // parse markdown to HTML
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
   const parsed = await hubdown(file.markdown)
-  
+
   // derive props from the HTML
   const $ = cheerio.load(parsed.content || '')
   file.title = $('h1').first().text().trim() ||
@@ -72,7 +72,7 @@ async function parseFile (file) {
     const type = hrefType(href)
     if (type !== 'relative' && type !== 'rooted') return
     const dirname = path.dirname(file.href)
-    const newHref =  path.resolve(dirname, href.replace(/\.md/, ''))
+    const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
     $(el).attr('href', newHref)
   })
 
