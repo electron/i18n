@@ -2,9 +2,9 @@
 
 > Ouvre une nouvelle fenêtre et charge une URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Lorsque `window.open` est appelée pour créer une nouvelle fenêtre dans une page web, une nouvelle instance de `BrowserWindow` sera créée pour l' `url` et un proxy est retourné à `window.open` pour que la page aie un contrôle limité sur elle.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Le proxy implémente des fonctionnalités standard limitées pour être compatible avec des pages web traditionnelles. Pour un contrôle complet de la nouvelle fenêtre, vous devez créer directement un `BrowserWindow`.
 
 The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
