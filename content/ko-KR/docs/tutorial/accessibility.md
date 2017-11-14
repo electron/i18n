@@ -20,14 +20,14 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+이 기능에 대한 자세한 내용은 [Spectron](https://github.com/electron/spectron#accessibility-testing) 의 문서 를 참고하세요.
 
 ### Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+Devtron 에서 앱의 페이지를 검사할 수 있는 접근성 탭이 생겼으며, 결과를 정렬하고 필터할 수 있습니다.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![devtron 스크린샷](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+이 두 도구들은 구글이 크롬을 위해 개발한 [접근성 개발자](https://github.com/GoogleChrome/accessibility-developer-tools) 도구 라이브러리를 사용합니다. 이 라이브러리에서 사용한 접근성 검사 규칙은 [위키의 저장소](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 를 통해 더 알아볼 수 있습니다.
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) with a pull request.
+Electron 을 위한 다른 훌륭한 접근성 도구를 알고계시다면, [접근성 문서](https://electron.atom.io/docs/tutorial/accessibility) 에 풀 요청과 함께 추가해 주세요.
