@@ -33,20 +33,20 @@ git push origin HEAD
 
 대부분의 릴리즈는 `patch` 수준이 될 것입니다. Chrome 또는 다른 주요 변화를 위한 업그레이드는 `minor` 를 사용해야합니다. 자세한 정보는, [Electron 버전 관리](/docs/tutorial/electron-versioning.md)를 보세요.
 
-## Wait for builds :hourglass_flowing_sand:
+## 빌드를 기다리십시오 : hourglass_flowing_sand :
 
-The presence of the word [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) in the commit message created by the `bump-version` script will [trigger the release process](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
+`bump-version` 스크립트로 작성된 커밋 메시지에 [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6)라는 단어가 있으면 [릴리스 프로세스가 시작됩니다](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
 
-To monitor the build progress, see the following pages:
+빌드 진행 상황을 모니터링하려면 다음 페이지를 참조하십시오.
 
-- [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) for Mac and Windows
-- [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) for Linux
+- 208.52.191.140:8080/view/All/builds for Mac and Windows
+- jenkins.githubapp.com/label/chromium/ for Linux
 
-## Compile release notes
+## 릴리즈 노트 컴파일
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+릴리스 노트 작성은 빌드가 실행되는 동안 작업을 계속해서 유지하는 좋은 방법입니다. 또는 선행 기술의 경우, [릴리스 페이지](https://github.com/electron/electron/releases)의 기존 릴리스를 참조하십시오.
 
-Tips:
+팁:
 
 - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc.
 - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com.
