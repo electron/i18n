@@ -76,11 +76,11 @@ taglines:
   languages: Contenu multilingue de notre fantastique communauté mondiale de développeurs.
 help_translate: "Aider à traduire"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
-  want_something_searchable: Want something searchable?
+  see_something: Vous voyez quelque chose qui a besoin d'être corrigé ?
+  propose_change: Proposez des modifications au fichier source.
+  need_different_version: Besoin d'une version différente de la documentation ?
+  see_available_versions: Voir les versions disponibles.
+  want_something_searchable: Vous voulez quelque chose de consultable ?
   view_all_docs: Voir toute la documentation sur une seule page
   see_the_faq: Consulter la foire aux questions
 apps:
@@ -103,7 +103,7 @@ pages:
     description: Guides et documentation de l'API pour la dernière version d'Electron
   '/docs/all':
     title: Tous les docs d'Electron!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Tous les guides et documentation de l'API d'Electron sur une seule page.
   '/blog':
     title: Blog d'Electron
     description: Toutes les dernières nouvelles de l'équipe d'Electron et de la communauté.
