@@ -1,19 +1,19 @@
 # 빌드 시스템 개요
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron은 프로젝트 생성을 위해 [gyp](https://gyp.gsrc.io/)를 사용하며 [ninja](https://ninja-build.org/)를 이용하여 빌드합니다. 프로젝트 설정은 `.gyp` 와 `.gypi` 파일에서 볼 수 있습니다.
 
-## Gyp Files
+## Gyp 파일
 
-Following `gyp` files contain the main rules for building Electron:
+Electron을 빌드 할 때 `gyp` 파일들은 다음과 같은 규칙을 따릅니다:
 
-* `electron.gyp` defines how Electron itself is built.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `brightray/brightray.gypi` includes general build configurations about building.
+* `electron.gyp`는 Electron의 빌드 과정 자체를 정의합니다.
+* `common.gypi`는 Node가 Chromium과 함께 빌드될 수 있도록 조정한 빌드 설정입니다.
+* `brightray/brightray.gyp`는 `brightray`의 빌드 과정을 정의하고 Chromium 링킹에 대한 기본적인 설정을 포함합니다.
+* `brightray/brightray.gypi`는 빌드에 대한 일반적인 설정이 포함되어 있습니다.
 
-## Component Build
+## 구성요소 빌드
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Chromium은 꽤나 큰 프로젝트입니다. 이러한 이유로 인해 최종 링킹 작업은 상당한 시간이 소요될 수 있습니다. 보통 이런 문제는 개발을 어렵게 만듭니다. 우리는 이 문제를 해결하기 위해 Chromium의 "component build" 방식을 도입했습니다. 이는 각각의 컴포넌트를 각각 따로 분리하여 공유 라이브러리로 빌드 합니다. 하지만 이 빌드 방식을 사용하면 링킹 작업은 매우 빨라지지만 실행 파일 크기가 커지고 성능이 저하됩니다.
 
 In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
