@@ -1,22 +1,22 @@
-# 빌드 명령 (macOS)
+# 빌드 설명서 (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+이 가이드는 macOS 운영체제에서 Electron을 빌드하는 방법을 설명합니다.
 
-## 빌드전 요구사양
+## 빌드전 요구 사양
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](http://nodejs.org) (external)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+만약 Homebrew 를 이용해 파이썬을 설치했다면 다음 파이썬 모듈도 같이 설치해야 합니다:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+단순히 일렉트론을 개발 중이고, 사용자 지정 일렉트론 빌드를 재배포하지 않으려는 경우, 이 섹션을 건너 뛰어도 됩니다.
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+핀치 줌과 같은 특정 기능을 제대로 사용하려면 macOS 10.10 SDK를 이용해야 합니다.
 
 Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
 
