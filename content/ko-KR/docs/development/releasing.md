@@ -48,13 +48,13 @@ git push origin HEAD
 
 팁:
 
-- Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc.
-- No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com.
-- To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+- 나열된 각 항목은 electron/electron의 PR을 참조해야하며 libcc와 같은 다른 repo의 PR은 참조 할 수 없습니다.
+- PR을 참조 할 때 링크 마크 업을 사용할 필요가 없습니다. `#123`과 같은 문자열은 github.com의 링크로 자동 변환됩니다.
+- Electron의 모든 버전에서 Chromium, V8 및 Node의 버전을 보려면 [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json)을 방문하십시오.
 
-### Patch releases
+### 패치 릴리즈
 
-For a `patch` release, use the following format:
+`패치` 릴리스의 경우 다음 형식을 사용하십시오.
 
     ## Bug Fixes
     
@@ -89,45 +89,45 @@ For a `patch` release, use the following format:
     * Changed a Windows thing. #123
     
 
-### Minor releases
+### 마이너 릴리즈
 
-For a `minor` release (which is normally a Chromium update, and possibly also a Node update), e.g. `1.8.0`, use this format:
+`마이너` 버전 (일반적으로 Chromium 업데이트 및 노드 업데이트 일 수도 있음) (예: `1.8.0`, 다음 형식을 사용:
 
-    **Note:** This is a beta release. This is the first release running on upgraded versions of Chrome/Node.js/V8 and most likely will have have some instability and/or regressions.
+    ** 참고: ** 이것은 베타 릴리스입니다. 이 버전은 Chrome / Node.js / V8의 업그레이드 된 버전에서 실행되는 첫 번째 릴리스이며 일부 불안정성 및 / 또는 회귀 가능성이 높습니다.
     
-    Please file new issues for any bugs you find in it.
+    버그가 발견되면 새로운 문제를 제출하십시오.
     
-    This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+    이 릴리즈는`beta '태그 아래 [npm] (https://www.npmjs.com/package/electron)에 게시되며`npm install electron @ beta`를 통해 설치할 수 있습니다.
     
-    ## Upgrades
+    ## 업그레이드
     
-    - Upgraded from Chrome `oldVersion` to `newVersion`. #123
-    - Upgraded from Node `oldVersion` to `newVersion`. #123
-    - Upgraded from v8 `oldVersion` to `newVersion`. #9116
+    - Chrome 'oldVersion'에서 'newVersion'으로 업그레이드되었습니다. # 123
+    - 노드`oldVersion`에서`newVersion`으로 업그레이드되었습니다. # 123
+    - v8`oldVersion`에서`newVersion`으로 업그레이드되었습니다. # 9116
     
-    ## Other Changes
+    ## 기타 변경 사항
     
-    - Some other change. #123
+    - 다른 변화. #123
     
 
-## Edit the release draft
+## 릴리즈 초안 편집
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
-3. Ensure the `prerelease` checkbox is checked. This should happen automatically for Electron versions >=1.7
-4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Wait for all builds to pass before proceeding. 
+1. [릴리즈 페이지](https://github.com/electron/electron/releases)에 가면 릴리즈 노트 초안과 자리 표시자로써 릴리즈 노트를 볼 수 있습니다.
+2. 릴리즈를 편집하고 릴리즈 노트를 추가하세요.
+3. `시험판` 확인란이 선택되어 있는지 확인하십시오. 전자 버전 1.7 이상인 경우 자동으로 발생합니다.
+4. 'Save draft' 를 클릭하세요. **'Publish release' 를 누르면 안됩니다!**
+5. 모든 빌드가 통과할 때 까지 기다리세요. 
 
-## Merge temporary branch
+## 임시 브랜치 병합
 
-Merge the temporary back into master, without creating a merge commit:
+임시를 마스터로 머지 커밋 생성없이 병합합니다.
 
 ```sh
 git merge release master --no-commit
 git push origin master
 ```
 
-If this fails, rebase with master and rebuild:
+실패하면, 마스터로 리베이스하고 다시 빌드합니다:
 
 ```sh
 git pull
@@ -136,39 +136,39 @@ git rebase master
 git push origin HEAD
 ```
 
-## Run local debug build
+## 로컬 디버그 빌드 실행
 
-Run local debug build to verify that you are actually building the version you want. Sometimes you thought you were doing a release for a new version, but you're actually not.
+당신이 실제로 원하는 버전을 구축하고 있는지 확인하기 위해 로컬 디버그 빌드를 실행합니다. 때때로 새 버전을 릴리즈하고 있다고 생각하지만, 아닌 경우가 있습니다.
 
 ```sh
 npm run build
 npm start
 ```
 
-Verify the window is displaying the current updated version.
+창이 현재 업데이트된 버전을 표시하는지 확인하세요.
 
-## Set environment variables
+## 환경 변수 설정
 
-You'll need to set the following environment variables to publish a release. Ask another team member for these credentials.
+릴리즈를 게시하려면 다음 환경 변수를 설정해야합니다. 이 자격증명에 대해 다른 팀 구성원에게 문의하세요.
 
 - `ELECTRON_S3_BUCKET`
 - `ELECTRON_S3_ACCESS_KEY`
 - `ELECTRON_S3_SECRET_KEY`
-- `ELECTRON_GITHUB_TOKEN` - A personal access token with "repo" scope.
+- `ELECTRON_GITHUB_TOKEN` - "저장소" 영역에 대한 개인 접근 토큰.
 
-You will only need to do this once.
+이것은 한번만 수행해야합니다.
 
-## Publish the release
+## 릴리즈 게시
 
-This script will download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules.
+이 스크립트는 바이너리를 내려받고 네이티브 모듈 구축을 위해 node-gyp 으로 윈도우에서 사용되는 노드 헤더와 .lib 링커를 생성합니다.
 
 ```sh
 npm run release
 ```
 
-Note: Many distributions of Python still ship with old HTTPS certificates. You may see a `InsecureRequestWarning`, but it can be disregarded.
+참고: 많은 파이썬의 배포판들은 여전히 오래된 HTTPS 인증서와 함께 제공됩니다. `InsecureRequestWarning` 를 볼 수 있지만, 무시해도 됩니다.
 
-## Delete the temporary branch
+## 임시 브랜치 삭제
 
 ```sh
 git checkout master
