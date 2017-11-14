@@ -38,6 +38,6 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 ## 프로세스를 관찰하기 위해 ProcMon 사용
 
-Visual Studio는 특정 코드 경로를 탐색하는것에 대해 환상적인 기능을 제공하고 ProcMon은 애플리케이션이 운영체제와 하는 일의 모든 것을 관찰하는데 강력한 기능을 가지고 있습니다. 이 툴은 프로세스의 파일, 레지스트리, 네트워킹, 프로세스, 프로파일링 상세를 포착할 수 있다. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Visual Studio는 특정 코드 경로를 탐색하는것에 대해 환상적인 기능을 제공하고 ProcMon은 애플리케이션이 운영체제와 하는 일의 모든 것을 관찰하는데 강력한 기능을 가지고 있습니다. 이 툴은 프로세스의 파일, 레지스트리, 네트워킹, 프로세스, 프로파일링 상세를 포착할 수 있다. 강력하게 **모든** 이벤트의 발생을 로깅을 시도합니다. 만약 애플리케이션이 운영체제에 대해 무슨 일을 하고 있는지 이해하고 싶다면 이는 좋은 자원이 될 것입니다.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+ProcMon의 기본적인 디버깅 기능을 알아보고 싶다면 Microsoft에서 제공하는 [동영상 강좌](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor)를 참고하세요.
