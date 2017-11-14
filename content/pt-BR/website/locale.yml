@@ -7,6 +7,27 @@ nav:
   userland: Userland
   releases: Versões
   contact: Contato
+  languages: Languages
+docs:
+  title: Electron Documentation
+  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  guides: Guias
+  api_reference: API Reference
+  advanced: Advanced
+languages:
+  choose_language: Choose Your Site Language
+  translation_progress: Translation Progress
+  current: current selection
+community:
+  title: Electron Community
+  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  tools: Tools
+  boilerplates: Boilerplates
+  components: Components
+  videos: Videos
+  meetups: Meetups
+  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
+  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
   title: É mais fácil do que você pensa
   description: Se você pode construir um website, você pode construir um aplicativo desktop. Electron é um framework para criação de aplicações nativas utilizando tecnologias web como JavaScript, HTML, e CSS. Ele cuida das partes mais difíceis para que você possa se concentrar somente com o principal da aplicação.
@@ -49,16 +70,53 @@ quick_start:
 need_help:
   title: Precisa de Ajuda?
   description: 'Fazer perguntas no fórum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> ou nosso canal do <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Siga <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:electron@github.com">electron@github.com</a>.'
+headings:
+  languages: Languages
+taglines:
+  languages: Localized content from our awesome global developer community.
+help_translate: "Help translate"
+footer:
+  see_something: See something that needs fixing?
+  propose_change: Propose a change to the source file.
+  need_different_version: Need a different version of the docs?
+  see_available_versions: See available versions.
+  want_something_searchable: Want something searchable?
+  view_all_docs: View all docs on one page
+  see_the_faq: See the frequently asked questions
 apps:
   title: Aplicativos construídos com Electron
   description: 'Com Electron, criar uma aplicação desktop para sua empresa ou ideia é fácil. Inicialmente foi desenvolvido para GitHubs o <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron já foi usado para criar aplicativos por empresas como Microsoft, Facebook, Slack e Docker.'
   view_more: Ver mais aplicativos
   submit_your_own: envie o seu
+  something_missing: Something missing?
+  edit_this_app: Edit this app.
 or: ou
 pages:
+  '/':
+    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron Apps
     description: Aplicativos construídos com Electron
+  '/docs':
+    title: Documentation
+    description: Guides and API reference documentation for the latest Electron release
+  '/docs/all':
+    title: All the Electron Docs!
+    description: All of Electron's guides and API documentation on a single, searchable page.
+  '/blog':
+    title: Electron Blog
+    description: All the latest news from the Electron team and community.
+  '/community':
+    title: Comunidade
+  '/releases':
+    title: Releases
   '/contact':
     title: Contato
     description: Entre em contato com a equipe do Electron através do Twitter, Slack, GitHub ou por email.
+  '/languages':
+    title: Languages
+_404:
+  page_not_found: Page not found.
+  if_this_is_an_error: If this is an error
+  please_file_an_issue: please file an issue.
