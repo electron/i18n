@@ -33,7 +33,7 @@ async function fetchRelease () {
   console.log(`Fetching release data from GitHub`)
 
   const repo = {
-    owner: 'electron', 
+    owner: 'electron',
     repo: 'electron',
     tag: `v${version}`
   }
@@ -60,7 +60,7 @@ async function fetchDocs () {
 
 async function fetchApiData () {
   console.log(`Fetching API definitions`)
-  
+
   const asset = release.assets.find(asset => asset.name === 'electron-api.json')
 
   if (!asset) {
