@@ -1,21 +1,21 @@
-# 빌드 명령 (윈도)
+# 빌드 설명서 (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+이 가이드는 Windows 운영체제에서 Electron을 빌드하는 방법을 설명합니다.
 
 ## 빌드전 요구사양
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Windows 7 / Server 2008 R2 또는 최신 버전
+* Visual Studio 2015 Update 3 - [VS 2015 커뮤니티 에디션 무료 다운로드](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* `symstore.exe`는 `.pdb` 파일에서 심볼 저장소를 만드는 데 사용되므로 전체 배포판을 만들 계획이라면 [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx)를 다운로드 합니다.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+현재 사용하고 있는 Pc에 Windows를 설치하지 않았다면 [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/)에서 사용 기한이 정해져있는 무료 가상머신 버전의 Windows를 받아 Electron을 빌드하는 방법도 있습니다.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Electron은 모든 빌드를 command-line 스크립트를 통해 빌드하며, Visual Studio를 사용할 수 없습니다. 하지만 여전히 Electron을 개발할 땐 어떤 에디터든 사용이 가능합니다. 그리고 빠른 시일내에 Visual Studio를 이용한 빌드도 지원할 계획입니다.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**참고:** Visual Studio가 직접 빌드에 사용되지 않더라도 Ide와 같이 제공된 빌드 툴체인이 빌드에 **반드시** 사용되므로 여전히 필요합니다.
 
 ## 코드 가져오기
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## 부트스트랩
 
-부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. 참고로 Electron은 `ninja`를 빌드 툴체인으로 사용하므로 Visual Studio 프로젝트는 생성되지 않습니다.
 
 ```powershell
 $ cd electron
@@ -34,21 +34,21 @@ $ python script\bootstrap.py -v
 
 ## 빌드하기
 
-Build both Release and Debug targets:
+Release 와 Debug 두 타겟 모두 빌드 합니다:
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+또는 Debug 타겟만 빌드 할 수 있습니다:
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+빌드가 모두 끝나면 `out/D` (디버그 타겟) 또는 `out/R` (릴리즈 타겟) 디렉터리에서 `electron.exe` 실행 파일을 찾을 수 있습니다.
 
-## 32bit Build
+## 32 비트 빌드
 
 To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
