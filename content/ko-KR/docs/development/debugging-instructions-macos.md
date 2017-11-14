@@ -1,16 +1,16 @@
-# Debugging on macOS
+# MacOS 에서 디버깅하기
 
-만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. 그렇다 해도, lldb, Electron 소스 코드가 중단점을 통해 순차적으로 쉽게 디버깅할 수 있느 환경을 제공합니다.
 
 ## 요구 사항
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). 물론 직접 다운로드 받은 Electron 바이너리에도 디버거 연결 및 디버깅을 사용할 수 있지만, 실질적으로 디버깅이 까다롭게 고도의 최적화가 되어있음을 발견하게 될 것입니다: 인라인화, 꼬리 호출, 이외 여러 가지 생소한 최적화가 적용되어 디버거가 모든 변수와 실행 경로를 정상적으로 표시할 수 없습니다.
+* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-osx.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. 물론 직접 다운로드 받은 Electron 바이너리에도 디버거 연결 및 디버깅을 사용할 수 있지만, 실질적으로 디버깅이 까다롭게 고도의 최적화가 되어있음을 발견하게 될 것입니다: 인라인화, 꼬리 호출, 이외 여러 가지 생소한 최적화가 적용되어 디버거가 모든 변수와 실행 경로를 정상적으로 표시할 수 없습니다.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. 이것은 LLDB, macOS Xcode 의 기본 디버거를 포함합니다. 그것은 데스크톱과 iOS 기기와 시뮬레이터에서 C, Objective-C, C++ 디버깅을 지원합니다.
 
 ## Electron에 디버거 연결하고 디버깅하기
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+디버깅 작업을 시작하려면, Terminal 을 열고 디버그 빌드 상태의 Electron 을 전달하여 `lldb` 를 시작합니다.
 
 ```bash
 $ lldb ./out/D/Electron.app
@@ -20,24 +20,24 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 ### 중단점 설정
 
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDB 는 강력한 도구이며 코드 검사를 위한 다양한 전략을 제공합니다. 간단히 소개하자면, JavaScript 에서 올바르지 않은 명령을 호출한다고 가정합시다 - 당신은 명령의 C++ 부분에서 멈추길 원하며 그것은 Electron 소스 내에 있습니다.
 
 관련된 코드 파일들은 `./atom/`에서 찾을 수 있으며 또한 Brightray 안 `./brightray/browser`와 `./brightray/common`에서도 찾을 수 있습니다. 만약 하드코어를 좋아한다면, Chromium을 직접 디버깅할 수도 있습니다. 확실히 `chromium_src` 안에서 찾을 수 있습니다.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+`app.setName()` 을 디버깅한다고 가정합시다, 이것은 `browser.cc` 에 `Browser::SetName()` 으로 정의되어있습니다. `breakpoint` 명령으로 멀추려는 파일과 줄을 명시하여 중단점을 설정합시다:
 
 ```bash
 (lldb) breakpoint set --file browser.cc --line 117
-Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
+Breakpoint 1: where = Electron Framework``atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+그리고 Electron 을 시작하세요:
 
 ```bash
 (lldb) run
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Electron 이 시작시에 앱의 이름을 설정하기때문에, 앱은 즉시 중지됩니다:
 
 ```bash
 (lldb) run
@@ -45,17 +45,17 @@ Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/Mac
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
     frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115  }
+   115 	}
    116
-   117  void Browser::SetName(const std::string& name) {
--> 118    name_override_ = name;
-   119  }
+   117 	void Browser::SetName(const std::string& name) {
+-> 118 	  name_override_ = name;
+   119 	}
    120
-   121  int Browser::GetBadgeCount() {
+   121 	int Browser::GetBadgeCount() {
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+현재 매개변수와 지역 변수를 보기위해, `frame variable` (또는 `fr v`) 를 실행하면, 현재 앱 이름이 "Electron" 인 것을 불 수 있습니다.
 
 ```bash
 (lldb) frame variable
@@ -65,7 +65,7 @@ To show the arguments and local variables for the current frame, run `frame vari
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+현재 선택된 쓰레드에서 소스 수준 한단계를 실행하기위해, `step` (또는 `s`) 를 실행하세요. `name_override_.empty()` 로 들어가게 됩니다. 스텝 오버 실행은, `next` (또는 `n`) 을 실행하세요.
 
 ```bash
 (lldb) step
@@ -73,12 +73,12 @@ Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
     frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119
    116
-   117  void Browser::SetName(const std::string& name) {
-   118    name_override_ = name;
--> 119  }
+   117 	void Browser::SetName(const std::string& name) {
+   118 	  name_override_ = name;
+-> 119 	}
    120
-   121  int Browser::GetBadgeCount() {
-   122    return badge_count_;
+   121 	int Browser::GetBadgeCount() {
+   122 	  return badge_count_;
 ```
 
 To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
