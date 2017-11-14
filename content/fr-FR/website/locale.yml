@@ -7,24 +7,24 @@ nav:
   userland: Userland
   releases: Versions
   contact: Contact
-  languages: Languages
+  languages: Langues
 docs:
-  title: Electron Documentation
+  title: Documentation d'Electron
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: Guides
   api_reference: API Reference
   advanced: Advanced
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: Choisissez votre langue
+  translation_progress: Progression de la traduction
+  current: sélectionné
 community:
-  title: Electron Community
+  title: Communauté d'Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: Outils
   boilerplates: Boilerplates
-  components: Components
-  videos: Videos
+  components: Composants
+  videos: Vidéos
   meetups: Meetups
   awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
   meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
@@ -71,7 +71,7 @@ need_help:
   title: Besoin d'aide ?
   description: 'Posez vos questions sur le forum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> ou sur notre channel <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Suivez <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> sur Twitter pour les annonces importantes. Besoin de nous contacter directement ? Envoyez un mail à <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: Langues
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -88,8 +88,8 @@ apps:
   description: 'Avec Electron, il est facile de créer des applications bureau pour votre entreprise ou votre projet. Initialement développé pour <a href=''https://atom.io'' target=''_blank''>l''éditeur Atom</a> de GitHub, Electron est maintenant utilisé pour créer des applications par des entreprises comme Microsoft, Facebook, Slack ou encore Docker.'
   view_more: Voir plus d'applications
   submit_your_own: proposer votre app
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  something_missing: Quelque chose manquant ?
+  edit_this_app: Éditer cette app.
 or: ou
 pages:
   '/':
@@ -102,11 +102,11 @@ pages:
     title: Documentation
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
-    title: All the Electron Docs!
+    title: Tous les docs d'Electron!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Blog d'Electron
+    description: Toutes les dernières nouvelles de l'équipe d'Electron et de la communauté.
   '/community':
     title: Communauté
   '/releases':
@@ -115,8 +115,8 @@ pages:
     title: Contact
     description: Entrez en contact avec l'équipe d'Electron sur Twitter, Slack, GitHub, ou par e-mail.
   '/languages':
-    title: Languages
+    title: Langues
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: Page non trouvée.
+  if_this_is_an_error: S'il s'agit d'une erreur
+  please_file_an_issue: veuillez écrire une issue.
