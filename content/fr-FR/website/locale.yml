@@ -10,24 +10,24 @@ nav:
   languages: Langues
 docs:
   title: Documentation d'Electron
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  description: Voir toute la <a href="/docs/all/">documentation sur une seule page</a> ou consulter la <a href="/docs/faq">FAQ</a>.
   guides: Guides
-  api_reference: API Reference
-  advanced: Advanced
+  api_reference: Références de l'API
+  advanced: Avancé
 languages:
   choose_language: Choisissez votre langue
   translation_progress: Progression de la traduction
   current: sélectionné
 community:
   title: Communauté d'Electron
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'Outils, boilerplates, vidéos et bien plus par les contributeurs open-source <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> d''Electron. Trouver ou ajouter des <a href="/community#meetups">meetups</a> près de chez vous.'
   tools: Outils
   boilerplates: Boilerplates
   components: Composants
   videos: Vidéos
   meetups: Meetups
-  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  awesome_notice: 'Cette liste est générée depuis le repository <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron de @sindresorhus</a>. <br> Quelque chose manquant ? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Faites une pull request</a>.'
+  meetup_notice: 'Pour ajouter un meetup, éditez <code>data/meetups.json</code> et <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">faites une pull request</a>.'
 electron_is_easy:
   title: C'est plus simple que vous ne le pensez
   description: Si vous pouvez développer un site, vous pouvez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
@@ -73,16 +73,16 @@ need_help:
 headings:
   languages: Langues
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+  languages: Contenu multilingue de notre fantastique communauté mondiale de développeurs.
+help_translate: "Aider à traduire"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
   need_different_version: Need a different version of the docs?
   see_available_versions: See available versions.
   want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  view_all_docs: Voir toute la documentation sur une seule page
+  see_the_faq: Consulter la foire aux questions
 apps:
   title: Apps développées sur Electron
   description: 'Avec Electron, il est facile de créer des applications bureau pour votre entreprise ou votre projet. Initialement développé pour <a href=''https://atom.io'' target=''_blank''>l''éditeur Atom</a> de GitHub, Electron est maintenant utilisé pour créer des applications par des entreprises comme Microsoft, Facebook, Slack ou encore Docker.'
@@ -93,14 +93,14 @@ apps:
 or: ou
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS.
+    description: 'Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS.'
   '/apps':
     title: Applications Electron
     description: Applications développées avec Electron
   '/docs':
     title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    description: Guides et documentation de l'API pour la dernière version d'Electron
   '/docs/all':
     title: Tous les docs d'Electron!
     description: All of Electron's guides and API documentation on a single, searchable page.
