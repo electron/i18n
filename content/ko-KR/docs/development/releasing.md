@@ -176,21 +176,22 @@ git branch -D release # delete local branch
 git push origin :release # delete remote branch
 ```
 
-## Promoting a release on npm
+## Npm에 릴리즈 승격
 
-New releases are published to npm with the `beta` tag. Every release should eventually get promoted to stable unless there's a good reason not to.
+새로운 릴리즈는 `beta` 태그가있는 npm에 게시됩니다. 좋은 결과가 나오지 않는 한, 모든 릴리스는 결국 안정적으로 승격되어야합니다.
 
-Releases are normally given around two weeks in the wild before being promoted. Before promoting a release, check to see if there are any bug reports against that version, e.g. issues labeled with `version/1.7.x`.
+보도 자료는 일반적으로 홍보되기 전에 외부에 약 2 주간 제공됩니다. 출시를 홍보하기 전에 해당 버전에 대한 버그 보고서가 있는지 확인하십시오 (예: `version/ 1.7.x`로 표시된 문제
 
-It's also good to ask users in Slack if they're using the beta versions successfully.
+베타 버전을 성공적으로 사용하고 있다면 슬랙에서 사용자에게 묻는 것이 좋습니다.
 
-To see what's beta and stable at any given time:
+특정 시점에 베타 버전과 안정 버전을 확인하는 방법은 다음과 같습니다.
 
     $ npm dist-tag ls electron  
     beta: 1.7.5
     latest: 1.6.11
     
 
-To promote a beta version to stable (aka `latest`):
+안정적인 베타 버전 (일명 `latest</ 0>) 을 홍보하려면:</p>
 
-    npm dist-tag add electron@1.2.3 latest
+<pre><code>npm dist-tag add electron@1.2.3 latest
+`</pre>
