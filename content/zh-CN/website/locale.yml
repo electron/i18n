@@ -7,6 +7,27 @@ nav:
   userland: Userland
   releases: 版本发布
   contact: 联络
+  languages: Languages
+docs:
+  title: Electron Documentation
+  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  guides: 指南
+  api_reference: API Reference
+  advanced: Advanced
+languages:
+  choose_language: Choose Your Site Language
+  translation_progress: Translation Progress
+  current: current selection
+community:
+  title: Electron Community
+  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  tools: Tools
+  boilerplates: Boilerplates
+  components: Components
+  videos: Videos
+  meetups: Meetups
+  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
+  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
   title: 比你想象的更简单
   description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
@@ -49,16 +70,53 @@ quick_start:
 need_help:
   title: 需要帮助？
   description: '在 <a href=''https://discuss.atom.io/c/electron''>论坛</a> 或 <a href=''http://atom-slack.herokuapp.com/''>Slack</a> 上提问。关注我们 Twitter <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> 上的通知。发送电子邮件至 <a href="mailto:electron@github.com">electron@github.com</a> 获取一对一帮助。'
+headings:
+  languages: Languages
+taglines:
+  languages: Localized content from our awesome global developer community.
+help_translate: "Help translate"
+footer:
+  see_something: See something that needs fixing?
+  propose_change: Propose a change to the source file.
+  need_different_version: Need a different version of the docs?
+  see_available_versions: See available versions.
+  want_something_searchable: Want something searchable?
+  view_all_docs: View all docs on one page
+  see_the_faq: See the frequently asked questions
 apps:
   title: 使用 Electron 构建的应用
   description: 'Electron 让你为你的公司或想法创建桌面端应用变得很简单。最初为 GitHub 的 <a href=''https://atom.io'' target=''_blank''> Atom 编辑器</a> 开发，Electron 已被像微软、 Facebook、 Slack和Docker 这样的公司用于创建应用程序了。'
   view_more: 查看更多应用
   submit_your_own: 提交你的应用
+  something_missing: Something missing?
+  edit_this_app: Edit this app.
 or: 或者
 pages:
+  '/':
+    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron 应用
     description: 使用 Electron 构建的应用
+  '/docs':
+    title: Documentation
+    description: Guides and API reference documentation for the latest Electron release
+  '/docs/all':
+    title: All the Electron Docs!
+    description: All of Electron's guides and API documentation on a single, searchable page.
+  '/blog':
+    title: Electron Blog
+    description: All the latest news from the Electron team and community.
+  '/community':
+    title: 社区
+  '/releases':
+    title: 版本发布
   '/contact':
     title: 联络
     description: 在Twitter、Slack、GitHub 或通过电子邮件与电子团队取得联系。
+  '/languages':
+    title: Languages
+_404:
+  page_not_found: Page not found.
+  if_this_is_an_error: If this is an error
+  please_file_an_issue: please file an issue.
