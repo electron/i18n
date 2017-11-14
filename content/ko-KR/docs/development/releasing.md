@@ -31,7 +31,7 @@ git push origin HEAD
 
 이것은 여러 파일의 버전 번호를 올릴 것 입니다. 예시로 이 [범프 커밋](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a)을 보세요.
 
-대부분의 릴리즈는 `patch` 수준이 될 것입니다. Chrome 또는 다른 주요 변화를 위한 업그레이드는 `minor` 를 사용해야합니다. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+대부분의 릴리즈는 `patch` 수준이 될 것입니다. Chrome 또는 다른 주요 변화를 위한 업그레이드는 `minor` 를 사용해야합니다. 자세한 정보는, [Electron 버전 관리](/docs/tutorial/electron-versioning.md)를 보세요.
 
 ## Wait for builds :hourglass_flowing_sand:
 
