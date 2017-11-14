@@ -1,6 +1,6 @@
-# Setting Up Symbol Server in Debugger
+# 디버거에서 디버그 심볼 서버 설정
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](http://support.microsoft.com/kb/311503) so the documentation there can be useful.
+디버그 심볼은 디버깅 세션을 더 좋게 개선해 줍니다. 디버그 심볼은 실행 파일과 동적 링크 라이브러리에서 메서드에 대한 정보를 담고 있으며 명료한 함수 호출 스텍 정보를 제공합니다. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](http://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
 Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
 
