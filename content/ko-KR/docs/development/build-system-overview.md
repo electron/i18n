@@ -15,71 +15,70 @@ Electron을 빌드 할 때 `gyp` 파일들은 다음과 같은 규칙을 따릅�
 
 Chromium은 꽤나 큰 프로젝트입니다. 이러한 이유로 인해 최종 링킹 작업은 상당한 시간이 소요될 수 있습니다. 보통 이런 문제는 개발을 어렵게 만듭니다. 우리는 이 문제를 해결하기 위해 Chromium의 "component build" 방식을 도입했습니다. 이는 각각의 컴포넌트를 각각 따로 분리하여 공유 라이브러리로 빌드 합니다. 하지만 이 빌드 방식을 사용하면 링킹 작업은 매우 빨라지지만 실행 파일 크기가 커지고 성능이 저하됩니다.
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron도 이러한 방식에 상당히 비슷한 접근을 했습니다: `Debug` 빌드 시 바이너리는 공유 라이브러리 버전의 Chromium 컴포넌트를 사용함으로써 링크 속도를 높이고, `Release` 빌드 시 정적 라이브러리 버전의 컴포넌트를 사용합니다. 이렇게 각 빌드의 단점을 상호 보완하여 디버그 시 빌드 속도는 향상되고 배포판 빌드의 공유 라이브러리의 단점은 개선했습니다.
 
-## Minimal Bootstrapping
+## 부트스트랩 최소화
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+Prebuilt된 모든 Chromium 바이너리(`libchromiumcontent`) 들은 부트스트랩 스크립트가 실행될 때 다운로드됩니다. 기본적으로 공유 라이브러리와 정적 라이브러리 모두 다운로드되며 최종 전체 파일 크기는 플랫폼에 따라 800MB에서 2GB까지 차지합니다.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+기본적으로 `libchromiumcontent`는 Amazon Web Service를 통해 다운로드 됩니다. 만약 `LIBCHROMIUMCONTENT_MIRROR` 환경 변수가 설정되어 있으면 부트스트랩은 해당 링크를 사용하여 바이너리를 다운로드 합니다. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror)는 `libchromiumcontent`의 미러입니다. 만약 AWS에 접근할 수 없다면 `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/` 미러를 통해 다운로드 할 수 있습니다.
 
-If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
+만약 빠르게 Electron의 개발 또는 테스트만 하고 싶다면 `--dev` 플래그를 추가하여 공유 라이브러리만 다운로드할 수 있습니다:
 
 ```bash
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## 두 절차에 따른 프로젝트 생성
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+Electron은 `Release`와 `Debug` 빌드가 서로 다른 라이브러리 링크 방식을 사용합니다. 하지만 `gyp`는 따로 빌드 설정을 분리하여 라이브러리 링크 방식을 정의하는 방법을 지원하지 않습니다.
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+이 문제를 해결하기 위해 Electron은 링크 설정을 제어하는 `gyp` 변수 l`ibchromiumcontent_component`를 사용하고 `gyp`를 실행할 때 단 하나의 타겟만을 생성합니다.
 
-## Target Names
+## 타겟 이름
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+많은 프로젝트에서 타겟 이름을 `Release` 와 `Debug`를 사용하는데 반해 Electron은 `R`과 `D`를 대신 사용합니다. 이유는 가끔 알 수 없는 이유(randomly) 로 `Release` 와 `Debug` 중 하나만 빌드 설정에 정의되어 있을때 `gyp`가 크래시를 일으키는데 이유는 앞서 말한 바와 같이 Electron은 한번에 한개의 타겟만을 생성할 수 있기 때문입니다.
 
-This only affects developers, if you are just building Electron for rebranding you are not affected.
+이 문제는 개발자에게만 영향을 미칩니다. 만약 단순히 Electron을 rebranding 하기 위해 빌드 하는 것이라면 이 문제에 신경 쓸 필요가 없습니다.
 
 ## 테스트
 
-Test your changes conform to the project coding style using:
+변경사항이 프로젝트 코딩 스타일을 준수하는지 테스트하려면 다음 명령을 사용하세요:
 
 ```bash
 $ npm run lint
 ```
 
-Test functionality using:
+기능을 테스트하려면 다음 명령을 사용하세요:
 
 ```bash
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Electron 소스 코드를 변경할 때 마다, 테스트 전에 빌드를 다시 실행해야 합니다:
 
 ```bash
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+모카의 [전용 테스트](https://mochajs.org/#exclusive-tests) 기능을 사용해서 특정 테스트 또는 블록을 분리하여 테스트 세트 실행을 빠르게 할 수 있습니다. `describe` 또는 `it` 함수 호출에 `.only` 만 붙이세요:
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
+  // ... 이 블록에서는 테스트만 실행될 것 입니다.
 })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+또는, 주어진 정규 표현 패턴에 일치하는 경우에만 테스트를 실행하기 위해 모카의 `grep` 을 사용할 수 있습니다:
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+테스트시 (`runas<0> 같은) 네이티브 모듈을 포함하면 디버그 빌드에서 실행할 수 없습니다. (자세한 것은 <a href="https://github.com/electron/electron/issues/2558">#2558</a> 를 보세요). 그러나 릴리즈 빌드에서는 작동할 것 입니다.</p>
 
-To run the tests with the release build use:
+<p>릴리즈 빌드로 테스트를 실행하려면 다음 명령을 사용하세요:</p>
 
-```bash
-$ npm test -- -R
-```
+<pre><code class="bash">$ npm test -- -R
+`</pre>
