@@ -50,17 +50,17 @@ $ python script\build.py -c D
 
 ## 32 비트 빌드
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+32비트를 타겟으로 빌드 하려면 부트스트랩 스크립트를 실행할 때 `--target_arch=ia32` 인수를 같이 넘겨주면 됩니다:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+다른 빌드 단계도 정확하게 같습니다.
 
-## Visual Studio project
+## Visual Studio 프로젝트
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Visual Studio 프로젝트를 생성하려면, `--msvs` 인수를 전달할 수 있습니다:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -80,7 +80,7 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-참고: 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
+**참고:** 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
 
 ## 테스트
 
@@ -90,7 +90,7 @@ $ npm run clean-build
 
 ### Command xxxx not found
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+만약 `Command xxxx not found`와 같은 형식의 에러가 발생했다면, `VS2015 Command Prompt` 콘솔로 빌드 스크립트를 실행해 보는게 좋습니다.
 
 ### Fatal internal compiler error: C1001
 
