@@ -13,37 +13,47 @@ Chrome은 <code> libchromiumcontent / src / tools / clang / scripts / update.py 
 <li>필요한 모든 빌드 도구 변경 사항을 <code>vendor/depot_tools</ 0>로 업그레이드하십시오</li>
 <li><code>script/lib/config.py`에서 다운로하기 위해 `libchromiumcontent` SHA-1을 업데이트하십시오
 - 변경 사항과 함께 `electron/libchromiumcontent</ 0>에 pull request를 엽니다.</li>
-<li>변경된 것을 <code>electron/electron에` with the changes 
-  - This should include upgrading the submodules in `vendor/` as needed
-- Verify debug builds succeed on: 
-  - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
-  - ARM Linux
-- Verify release builds succeed on: 
-  - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
-  - ARM Linux
-- Verify tests pass on: 
-  - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
-  - ARM Linux
+<li>변경된 것을 <code>electron/electron에서` pull request를 엽니다. 
+  - 필요한 경우 `vendor/</ 0>에있는 하위 모듈을 업그레이드해야합니다.</li>
+</ul></li>
+<li>다음 위치에서 디버그 빌드가 성공하는지 확인하십시오.
 
-## Verify ffmpeg Support
+<ul>
+<li>macOS</li>
+<li>32-bit Windows</li>
+<li>64-bit Window</li>
+<li>32-bit Linux</li>
+<li>64-bit Linux</li>
+<li>ARM Linux</li>
+</ul></li>
+<li>릴리스 빌드가 다음에서 성공하는지 확인합니다.
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+<ul>
+<li>macOS</li>
+<li>32-bit Windows</li>
+<li>64-bit Window</li>
+<li>32-bit Linux</li>
+<li>64-bit Linux</li>
+<li>ARM Linux</li>
+</ul></li>
+<li>테스트가 통과하는지 확인하십시오.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+<ul>
+<li>macOS</li>
+<li>32-bit Windows</li>
+<li>64-bit Window</li>
+<li>32-bit Linux</li>
+<li>64-bit Linux</li>
+<li>ARM Linux</li>
+</ul></li>
+</ul>
 
-```html
+<h2>ffmpeg 지원 확인</h2>
+
+<p>Electron ships with a version of <code>ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.</p> 
+    You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+    
+    ```html
 <!DOCTYPE html>
 <html>
   <head>
