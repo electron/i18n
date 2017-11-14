@@ -1,6 +1,6 @@
 # Upgrading Chrome Checklist
 
-This document is meant to serve as an overview of what steps are needed on each Chrome upgrade in Electron.
+이 문서는 Electron의 각 Chrome 업그레이드에서 필요한 단계에 대한 개요를 제공하기위한 것입니다.
 
 These are things to do in addition to updating the Electron code for any Chrome/Node API changes.
 
