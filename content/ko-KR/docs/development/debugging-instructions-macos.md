@@ -81,12 +81,12 @@ Process 25244 stopped
    122 	  return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+디버깅을 끝내려면, `process continue` 를 실행하세요. 또한 쓰레드에서 실행 줄 수를 지정할 수 있습니다 (`thread until 100`). 이 명령은 현재 프레임에서 100 줄에 도달하거나 현재 프레임을 나가려고 할 때 까지 쓰레드를 실행합니다.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+이제, Electron 의 개발자 도구를 열고 `setName` 을 호출하면, 다시 중단점을 만날 것 입니다.
 
-### Further Reading
+### 더 읽을거리
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB 는 훌륭한 문서가 있는 강력한 도구입니다. 더 학습하기 위해, [LLDB 명령 구조 참고](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) 와 [LLDB 를 독립 실행 디버거로 사용하기](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) 같은 애플의 디버깅 문서를 고려하세요.
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+LLDB 의 환상적인 [설명서와 학습서](http://lldb.llvm.org/tutorial.html) 를 확인할 수 있습니다. 그것은 더 복잡한 디버깅 시나리오를 설명합니다.
