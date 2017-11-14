@@ -1,16 +1,16 @@
 # 접근성
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+접근 가능한 애플리케이션을 만드는 것은 중요합니다. 우리는 새 기능 [Devtron](https://electron.atom.io/devtron) 과 [Spectron](https://electron.atom.io/spectron) 을 소개할 수 있어 기쁩니다. 이것들은 개발자가 모두에게 더 좋은 앱을 만들 수 있는 기회를 제공합니다.
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Electron 애플리케이션의 접근성에 대한 관심은 두 웹사이트가 유사하며 궁극적으로 HTML 입니다. 그러나 검사를 위한 URL 이 없기 때문에 Electron 앱에서 접근성 검사에 온라인 자원을 사용할 수 없습니다.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) for more information.
+이 새 기능들은 Electron 앱에 검사 도구를 제공합니다. Spectron 으로 테스트 하기 위한 검사를 추가 하거나 Devtron 으로 개발자 도구의 것을 사용할 수 있습니다. 자 도구의 것을 사용할 수 있습니다. 자세한 정보는 도구의 요약이나 [접근성 문서](https://electron.atom.io/docs/tutorial/accessibility) 를 읽어보세요.
 
 ### Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+테스트 프레임워크 Spectron 을 통해 애플리케이션의 각 창과 <webview> `<webview>`태그를 검사할 수 있습니다. 예시입니다:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
