@@ -55,14 +55,14 @@ Détache le débogueur depuis le `webContents`.
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
-Send given command to the debugging target.
+Envoi une commande au débogueur.
 
 ### Événements d’instance
 
 #### Événement : 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - Motif du retrait du débogueur.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
