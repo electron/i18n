@@ -19,15 +19,15 @@ app.on('window-all-closed', () => {
 
 ### 事件: 'will-finish-launching'
 
-当应用程序完成基础的启动的时候被触发。 On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+当应用程序完成基础的启动的时候被触发。 在 Windows 和 Linux 中, `will-finish-launching` 事件与 `ready` 事件是相同的; 在 macOS 中，这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。 通常会在这里为 `open-file` 和 `open-url` 设置监听器，并启动崩溃报告和自动更新。
 
-In most cases, you should just do everything in the `ready` event handler.
+在大多数的情况下，你应该只在 `ready` 事件中完成所有的业务。
 
 ### 事件: 'ready'
 
 返回:
 
-* `launchInfo` 对象 *macOS*
+* `launchInfo` Object *macOS*
 
 Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
