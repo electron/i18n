@@ -8,7 +8,7 @@ nav:
   releases: 版本发布
   contact: 联络
 electron_is_easy:
-  title: 它比你想象的要容易
+  title: 比你想象的更简单
   description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
   video_link: 观看视频
 web_technologies:
