@@ -1,4 +1,4 @@
-# Upgrading Chrome Checklist
+# Chrome 체크리스트 업그레이드
 
 이 문서는 Electron의 각 Chrome 업그레이드에서 필요한 단계에 대한 개요를 제공하기위한 것입니다.
 
@@ -50,11 +50,10 @@ Chrome은 <code> libchromiumcontent / src / tools / clang / scripts / update.py 
 
 <h2>ffmpeg 지원 확인</h2>
 
-<p>Electron ships with a version of <code>ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.</p> 
-    You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
-    
-    ```html
-<!DOCTYPE html>
+<p>Electron은 기본적으로 독점 코덱을 포함하는 <code>ffmpeg`의 버전을 제공합니다. 이 코덱이없는 버전은 각 릴리스와 함께 빌드되어 배포됩니다. 각 Chrome 업그레이드는 이 버전을 계속 지원할 수 있는지 확인해야합니다.</p> 
+    다음 페이지를 읽어오면 Electron의 여러 `` ffmpeg </ 0> 빌드에 대한 지원을 확인할 수 있습니다. Electron와 함께 배포되는 기본 <code> ffmpeg </ 0> 라이브러리에서 작동하며 독점적 코덱없이 빌드 된 <code> ffmpeg </ 0> 라이브러리에서는 작동하지 않습니다.</p>
+
+<pre><code class="html"><!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -79,8 +78,8 @@ Chrome은 <code> libchromiumcontent / src / tools / clang / scripts / update.py 
     </script>
   </body>
 </html>
-```
-
-## Links
-
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+``</pre> 
+    
+    ## 링크
+    
+    - [크롬 릴리즈 스케쥴](https://www.chromium.org/developers/calendar)
