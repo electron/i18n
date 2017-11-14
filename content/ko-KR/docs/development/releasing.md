@@ -1,12 +1,12 @@
-# Releasing
+# 릴리즈
 
-This document describes the process for releasing a new version of Electron.
+이 문서는 Electron 의 새버전 출시 절차를 설명합니다.
 
-## Create a temporary branch
+## 임시 브랜치 생성
 
-Create a new branch from `master`. Name it `release` or anything you like.
+`release` 혹은 사용자가 원하는 이름의 새 브랜치를 `master` 로부터 생성합니다.
 
-Note: If you are creating a backport release, you'll check out `1-6-x`, `1-7-x`, etc instead of `master`.
+참고: 백 포트 릴리스를 만드는 경우 `master`가 아닌 `1-6-x`, `1-7-x` 등을 체크 아웃합니다.
 
 ```sh
 git checkout master
@@ -14,24 +14,24 @@ git pull
 git checkout -b release
 ```
 
-This branch is created as a precaution to prevent any merged PRs from sneaking into a release between the time the temporary release branch is created and the CI builds are complete.
+이 브랜치는 임시 릴리즈 브랜치가 생성되고 CI 빌드가 완료되는 동안 아무도 모르는 PR 병합을 방지하기위한 예방조치로써 생성됩니다.
 
-## Check for extant drafts
+## 남아있는 초안 확인
 
-The upload script [looks for an existing draft release](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/upload.py#L173-L181). To prevent your new release from clobbering an existing draft, check [the releases page](https://github.com/electron/electron/releases) and make sure there are no drafts.
+업로드 스크립트는 [기존 초안 릴리스를 찾습니다](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/upload.py#L173-L181). 새 버전이 기존 초안을 손상시키지 않도록하려면 [릴리스 페이지](https://github.com/electron/electron/releases)를 확인하고 초안이 없는지 확인하십시오.
 
-## Bump the version
+## 버전 올리기
 
-Run the `bump-version` script, passing `major`, `minor`, or `patch` as an argument:
+`major,` `minor`, `patch` 를 인수로 전달하여, `bump-version` 스크립트를 실행하세요:
 
 ```sh
 npm run bump-version -- patch
 git push origin HEAD
 ```
 
-This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
+이것은 여러 파일의 버전 번호를 올릴 것 입니다. 예시로 이 [범프 커밋](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a)을 보세요.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+대부분의 릴리즈는 `patch` 수준이 될 것입니다. Chrome 또는 다른 주요 변화를 위한 업그레이드는 `minor` 를 사용해야합니다. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
 
 ## Wait for builds :hourglass_flowing_sand:
 
