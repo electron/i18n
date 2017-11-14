@@ -94,11 +94,11 @@ $ npm run clean-build
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Visual Studio가 업데이트까지 완벽하게 설치된 최신버전인지 확인하세요.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Cygwin에서 빌드 할 경우 `bootstrap.py` 스크립트가 다음의 에러와 함께 빌드에 실패할 수 있습니다:
 
     Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
     
@@ -114,7 +114,7 @@ If building under Cygwin, you may see `bootstrap.py` failed with following error
     subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
     
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+이 버그는 Cygwin Python과 Win32 Node를 같이 사용할 때 발생합니다. 부트스트랩 스크립트에서 Win32 Python을 사용함으로써 이 문제를 해결할 수 있습니다. `C:\Python27` 디렉터리에 Python이 설치되었다는 가정하에 다음 명령을 실행하면 됩니다:
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -122,11 +122,11 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+32비트 Node.js를 다시 설치하세요.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+간단하게 해당 디렉터리를 생성하면 [문제가 해결될 겁니다](http://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
