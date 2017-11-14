@@ -69,4 +69,4 @@ git submodule update --init --recursive
 만약 자기 자신이 너무 이 커맨드를 자주 사용하는 것 같다면, `~/.gitconfig` 파일을 생성하여 편하게 업데이트할 수 있습니다:
 
     [alias]
-        su = submodule update --init --recursive
+    	su = submodule update --init --recursive
