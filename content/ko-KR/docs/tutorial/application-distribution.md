@@ -21,9 +21,9 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+그리고 `Electron.app` 을 실행하면(Linux에선 `electron` Windows 에선 `electron.exe` 입니다), Electron 앱이 실행됩니다. 최종 사용자에겐 이 `electron` 폴더를 배포하면 됩니다.
 
-## Packaging Your App into a File
+## 파일로 앱을 패키징 하기
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
