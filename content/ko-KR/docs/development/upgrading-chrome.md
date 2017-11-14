@@ -2,17 +2,18 @@
 
 이 문서는 Electron의 각 Chrome 업그레이드에서 필요한 단계에 대한 개요를 제공하기위한 것입니다.
 
-These are things to do in addition to updating the Electron code for any Chrome/Node API changes.
+Electron 코드를 업데이트하고 Chrome/Node API도 바꿔주어야 합니다.
 
-- Verify the new Chrome version is available from https://github.com/zcbenz/chromium-source-tarball/releases
-- Update the `VERSION` file at the root of the `electron/libchromiumcontent` repository
-- Update the `CLANG_REVISION` in `script/update-clang.sh` to match the version Chrome is using in `libchromiumcontent/src/tools/clang/scripts/update.py`
-- Upgrade `vendor/node` to the Node release that corresponds to the v8 version being used in the new Chrome release. See the v8 versions in Node on https://nodejs.org/en/download/releases for more details
-- Upgrade `vendor/crashpad` for any crash reporter changes needed
-- Upgrade `vendor/depot_tools` for any build tools changes needed
-- Update the `libchromiumcontent` SHA-1 to download in `script/lib/config.py`
-- Open a pull request on `electron/libchromiumcontent` with the changes
-- Open a pull request on `electron/electron` with the changes 
+- 새 Chrome 버전을 사용할 수 있는지 확인합니다. https://github.com/zcbenz/chromium-source-tarball/releases
+- `electron/libchromiumcontent` 저장소의 루트에서 `VERSION</ 0> 파일을 업데이트하십시오.</li>
+<li><code> script / update-clang.sh </ 0>에서 <code> CLANG_REVISION </ 0>을 버전과 일치하도록 업데이트하십시오.
+Chrome은 <code> libchromiumcontent / src / tools / clang / scripts / update.py </ 0>에서 사용하고 있습니다.</li>
+<li><code> vendor/node</ 0>를 v8 버전에 해당하는 노드 릴리스로 업그레이드하십시오. 새로운 Chrome 버전에서 사용됩니다. 자세한 내용은 https://nodejs.org/en/download/releases에서 Node의 v8 버전 보기</li>
+<li>필요한 모든 망가진 리포터 변경 사항을 <code>vendor/crashpad</ 0>로 업그레이드하십시오</li>
+<li>필요한 모든 빌드 도구 변경 사항을 <code>vendor/depot_tools</ 0>로 업그레이드하십시오</li>
+<li><code>script/lib/config.py`에서 다운로하기 위해 `libchromiumcontent` SHA-1을 업데이트하십시오
+- 변경 사항과 함께 `electron/libchromiumcontent</ 0>에 pull request를 엽니다.</li>
+<li>변경된 것을 <code>electron/electron에` with the changes 
   - This should include upgrading the submodules in `vendor/` as needed
 - Verify debug builds succeed on: 
   - macOS
