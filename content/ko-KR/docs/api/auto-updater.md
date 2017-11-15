@@ -1,10 +1,10 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> 애플리케이션이 자동으로 업데이트를 진행할 수 있도록 기능을 활성화합니다.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+`autoUpdater` 모듈은 [Squirrel](https://github.com/Squirrel) 프레임워크에 대한 인터페이스를 제공합니다.
 
 You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
 
