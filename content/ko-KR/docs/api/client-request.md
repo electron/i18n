@@ -114,7 +114,7 @@ Returns:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 #### `request.setHeader(name, value)`
 
