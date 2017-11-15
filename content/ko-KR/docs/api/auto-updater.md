@@ -35,11 +35,11 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Linux는 따로 autoUpdater를 지원하지 않습니다. 각 배포판의 패키지 관리자를 통해 애플리케이션 업데이트를 제공하는 것을 권장합니다.
 
 ## Events
 
-The `autoUpdater` object emits the following events:
+`autoUpdater` 객체는 다음과 같은 이벤트를 발생시킵니다:
 
 ### Event: 'error'
 
@@ -47,19 +47,19 @@ Returns:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+업데이트에 문제가 생기면 발생하는 이벤트입니다.
 
 ### Event: 'checking-for-update'
 
-Emitted when checking if an update has started.
+업데이트를 확인하기 시작할 때 발생하는 이벤트입니다.
 
 ### Event: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+사용 가능한 업데이트가 있을 때 발생하는 이벤트입니다. 이벤트는 자동으로 다운로드 됩니다.
 
 ### Event: 'update-not-available'
 
-Emitted when there is no available update.
+사용 가능한 업데이트가 없을 때 발생하는 이벤트입니다.
 
 ### Event: 'update-downloaded'
 
@@ -71,31 +71,31 @@ Returns:
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+업데이트의 다운로드가 완료되었을 때 발생하는 이벤트입니다.
 
-On Windows only `releaseName` is available.
+Windows에서는 `releaseName`만 사용이 가능합니다.
 
 ## 메소드
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` 객체에서 사용할 수 있는 메서드입니다:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (optional) - HTTP 요청 헤더.
 
-Sets the `url` and initialize the auto updater.
+`url`을 설정하고 자동 업데이터를 초기화합니다.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Returns `String` - 현재 업데이트 피드 URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+서버에 새로운 업데이트가 있는지 요청을 보내 확인합니다. API를 사용하기 전에 `setFeedURL`를 호출해야 합니다.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+애플리케이션을 다시 시작하고 다운로드된 업데이트를 설치합니다. 이메소드는 `update-downloaded` 이벤트가 발생한 이후에만 사용할 수 있습니다.
 
 **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
