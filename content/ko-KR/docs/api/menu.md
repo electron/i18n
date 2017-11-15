@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
