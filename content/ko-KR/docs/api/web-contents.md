@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 ### Instance Events
 
