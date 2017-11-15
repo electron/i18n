@@ -78,32 +78,32 @@ help_translate: "Help translate"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
-  want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  need_different_version: Precisa de uma versão diferente da documentação?
+  see_available_versions: Veja as versões disponíveis.
+  want_something_searchable: Quero algo pesquisável?
+  view_all_docs: Ver toda a documentação do Electron em uma só página
+  see_the_faq: Veja as perguntas frequentes
 apps:
   title: Aplicativos construídos com Electron
   description: 'Com Electron, criar uma aplicação desktop para sua empresa ou ideia é fácil. Inicialmente foi desenvolvido para GitHubs o <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron já foi usado para criar aplicativos por empresas como Microsoft, Facebook, Slack e Docker.'
   view_more: Ver mais aplicativos
   submit_your_own: envie o seu
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  something_missing: Faltando alguma coisa?
+  edit_this_app: Editar esse aplicativo.
 or: ou
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Construa aplicativos para multiplataformas com JavaScript, HTML e CSS.
+    description: 'Construa aplicativos para multiplataformas com JavaScript, HTML e CSS.'
   '/apps':
     title: Electron Apps
     description: Aplicativos construídos com Electron
   '/docs':
-    title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    title: Documentação
+    description: Documentação de APIs e Guias da versão mais recente do Electron
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Todas as documentações do Electron!
+    description: Todos os guias e API do Electron em uma só local, com página pesquisável.
   '/blog':
     title: Blog do Electron
     description: Todas as últimas notícias da equipe e comunidade do Electron.
