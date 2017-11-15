@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> application의 이벤트 생명주기를 제어합니다.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:Main
 
-The following example shows how to quit the application when the last window is closed:
+밑의 예시는 마지막 윈도우가 종료되었을 때, 애플리케이션을 종료시키는 예시입니다:
 
 ```javascript
 const {app} = require('electron')
@@ -15,13 +15,13 @@ app.on('window-all-closed', () => {
 
 ## Events
 
-The `app` object emits the following events:
+app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 ### Event: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+애플리케이션이 기본적인 시작 준비를 마치면 발생하는 이벤트입니다. Windows, Linux 운영체제에서의 will-finish-launching 이벤트는 ready 이벤트와 동일합니다. macOS에서의 이벤트는 NSApplication의 applicationWillFinishLaunching에 대한 알림으로 표현됩니다. 대개 이곳에서 open-file과 open-url 이벤트 리스너를 설정하고 crash reporter와 auto updater를 시작합니다.
 
-In most cases, you should just do everything in the `ready` event handler.
+대부분의 경우, 모든 것을 ready 이벤트 핸들러 안에서 해결해야 합니다.
 
 ### Event: 'ready'
 
@@ -29,7 +29,7 @@ Returns:
 
 * `launchInfo` Object *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
 ### Event: 'window-all-closed'
 
