@@ -21,12 +21,12 @@ languages:
 community:
   title: Comunidade do Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: Ferramentas
   boilerplates: Boilerplates
-  components: Components
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
+  components: Componentes
+  videos: Vídeos
+  meetups: Reuniões em Grupo
+  awesome_notice: 'Esta é uma lista gerada a partir do <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repositório. <br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pull request</a>.'
   meetup_notice: 'Para adicionar um meetup, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">crie um pull requests</a>.'
 electron_is_easy:
   title: É mais fácil do que você pensa
