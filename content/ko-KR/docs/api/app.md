@@ -2,7 +2,7 @@
 
 > application의 이벤트 생명주기를 제어합니다.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 밑의 예시는 마지막 윈도우가 종료되었을 때, 애플리케이션을 종료시키는 예시입니다:
 
@@ -29,7 +29,7 @@ Returns:
 
 * `launchInfo` Object *macOS*
 
-Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. `app.isReady()`를 사용해서 event가 해제되었는지 확인할 수 있습니다.
 
 ### Event: 'window-all-closed'
 
