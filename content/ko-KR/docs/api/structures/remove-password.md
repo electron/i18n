@@ -5,4 +5,4 @@
 * `scheme` String (optional) - 인증 Scheme `basic`, `digest`, `ntlm`, `negotiate`해야 합니다. `origin`에서 제거할 경우 제공되어야 합니다.
 * `realm` String (optional) - 인증 영역입니다. `origin`에서 제거될 경우 제공되어야 합니다.
 * `username` String (optional) - 인증 정보입니다. `origin`에서 제거될 경우 제공되어야 합니다.
-* `password` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
+* `password` String (optional) - 인증 정보입니다. `origin`에서 제거될 경우 제공되어야 합니다.
