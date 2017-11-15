@@ -7,19 +7,19 @@ nav:
   userland: Userland
   releases: Versões
   contact: Contato
-  languages: Languages
+  languages: Idiomas
 docs:
-  title: Electron Documentation
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  title: Documentação do Electron
+  description: Veja toda os <a href="/docs/all/">documentos em uma só página</a> ou verifique as <a href="/docs/faq/">perguntas frequente</a>.
   guides: Guias
-  api_reference: API Reference
-  advanced: Advanced
+  api_reference: Referência da API
+  advanced: Avançado
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: Escolha o seu idioma
+  translation_progress: Progresso da Tradução
+  current: seleção atual
 community:
-  title: Electron Community
+  title: Comunidade do Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: Tools
   boilerplates: Boilerplates
@@ -27,7 +27,7 @@ community:
   videos: Videos
   meetups: Meetups
   awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  meetup_notice: 'Para adicionar um meetup, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">crie um pull requests</a>.'
 electron_is_easy:
   title: É mais fácil do que você pensa
   description: Se você pode construir um website, você pode construir um aplicativo desktop. Electron é um framework para criação de aplicações nativas utilizando tecnologias web como JavaScript, HTML, e CSS. Ele cuida das partes mais difíceis para que você possa se concentrar somente com o principal da aplicação.
@@ -71,13 +71,13 @@ need_help:
   title: Precisa de Ajuda?
   description: 'Fazer perguntas no fórum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> ou nosso canal do <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Siga <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: Idiomas
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "Ajude a traduzir"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
+  see_something: Alguma coisa precisa de modificação?
+  propose_change: Propor uma modificação no código fonte do arquivo.
   need_different_version: Precisa de uma versão diferente da documentação?
   see_available_versions: Veja as versões disponíveis.
   want_something_searchable: Quero algo pesquisável?
