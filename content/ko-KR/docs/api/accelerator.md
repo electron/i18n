@@ -48,18 +48,18 @@ Super키는 Windows와 Linux 에서는 윈도우키를, macOS에서는 Cmd키로
 * 0 부터 9 까지
 * A 부터 Z 까지
 * F1 부터 F24 까지
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* ~, !, @, #, $ 등의 구두점 기호들
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
+* Return (또는 Enter)
 * `Up`, `Down`, `Left` and `Right`
 * `Home` and `End`
 * `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
+* Escape (단축키 Esc)
 * `VolumeUp`, `VolumeDown` and `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
 * `PrintScreen`
