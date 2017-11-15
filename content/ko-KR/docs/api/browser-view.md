@@ -1,6 +1,6 @@
 ## Class: BrowserView
 
-> Create and control views.
+> 뷰들을 생성하고 제어합니다.
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
