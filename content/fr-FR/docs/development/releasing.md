@@ -42,9 +42,9 @@ Pour surveiller la progression de la compilation, allez voir les pages suivantes
 - [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) pour Mac et Windows
 - [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) pour Linux
 
-## Notes de compilation
+## Notes de publication
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Écrire une note de publication est un bon moyen de vous tenir occupé pendant que la compilation se fasse. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
 Astuces :
 
