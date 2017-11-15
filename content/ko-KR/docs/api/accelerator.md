@@ -57,9 +57,9 @@ Linux와 Windows에서는 `Command`키가 없으므로 작동하지 않습니다
 * `Insert`
 * `Return` (또는 `Enter`)
 * `Up`, `Down`, `Left` 그리고 `Right`
-* `Home` and `End`
+* `Home` 그리고 `End`
 * `PageUp` 그리고 `PageDown`
-* Escape (단축키 Esc)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Escape` (단축키 `Esc`)
+* `VolumeUp`, `VolumeDown` 그리고 `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` 그리고 `MediaPlayPause`
 * `PrintScreen`
