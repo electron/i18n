@@ -59,7 +59,7 @@ explore:
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
 download_from_github: دانلود از گیت‌هاب
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
@@ -90,7 +90,7 @@ apps:
   submit_your_own: برنامه خودتان را ارسال کنید
   something_missing: Something missing?
   edit_this_app: Edit this app.
-or: or
+or: یا
 pages:
   '/':
     title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
@@ -105,12 +105,12 @@ pages:
     title: All the Electron Docs!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
+    title: وبلاگ الکترون
     description: All the latest news from the Electron team and community.
   '/community':
     title: جامعه
   '/releases':
-    title: Releases
+    title: نسخه‌ها
   '/contact':
     title: تماس به ما
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
