@@ -2,7 +2,7 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 For example:
 
