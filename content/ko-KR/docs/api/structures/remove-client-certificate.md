@@ -1,4 +1,4 @@
-# RemoveClientCertificate Object
+# The height of the rectangle
 
 * `type` String - `clientCertificate`.
-* `origin` String - Origin of the server whose associated client certificate must be removed from the cache.
+* `origin` String - 관련 클라이언트 인증서를 캐시에서 제거한 Origin 서버
