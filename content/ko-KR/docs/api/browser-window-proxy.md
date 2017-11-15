@@ -1,8 +1,8 @@
 ## Class: BrowserWindowProxy
 
-> Manipulate the child browser window
+> 자식 브라우저 윈도우를 제어합니다.
 
-Process: [Renderer](../glossary.md#renderer-process)
+프로세스: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
