@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Process: [Renderer](../glossary.md#renderer-process)
+프로세스: [Renderer](../glossary.md#renderer-process)
 
 An example of zooming current page to 200%.
 
