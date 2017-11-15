@@ -33,7 +33,7 @@ Cela va changer le numéro de version dans plusieurs fichiers. Voir [ce changeme
 
 La plupart des nouvelles versions seront de niveau `patch`. Les mises à jour de Chrome ou d'autres changements majeurs doivent utiliser le niveau `minor`. Pour plus d’informations, consultez [electron-versioning](/docs/tutorial/electron-versioning.md).
 
-## Attendez la compilation :hourglass_flowing_sand:
+## Attendre pendant la compilation :hourglass_flowing_sand:
 
 La présence du mot [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) dans le message du commit est réalisée par le script `bump-version` qui va [déclencher le processus de versionnage](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
 
