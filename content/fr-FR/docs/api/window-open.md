@@ -36,7 +36,7 @@ Envoie un message à la fenêtre parent avec l'origine spécifié ou `*` pour au
 
 Si vous souhaitez utiliser l'implémentation `window.open()` intégrée de Chrome, définissez `nativeWindowOpen` à `true` dans l'objet d'options `webPreferences`.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+Le `window.open()` natif permet un accès synchrone aux fenêtres ouvertes, c'est donc un choix judicieux si vous avez besoin d'ouvrir une boîte de dialogue ou une fenêtre de préférences.
 
 Cette option peut également être définie sur des tags `<webview>` comme ceci :
 
