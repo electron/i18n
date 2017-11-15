@@ -105,18 +105,18 @@ pages:
     title: All the Electron Docs!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Blog do Electron
+    description: Todas as últimas notícias da equipe e comunidade do Electron.
   '/community':
     title: Comunidade
   '/releases':
-    title: Releases
+    title: Versões
   '/contact':
     title: Contato
     description: Entre em contato com a equipe do Electron através do Twitter, Slack, GitHub ou por email.
   '/languages':
-    title: Languages
+    title: Idiomas
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
+  page_not_found: Página não encontrada.
+  if_this_is_an_error: Se isto é um erro
   please_file_an_issue: please file an issue.
