@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 The following methods are available on instances of `Session`:
 
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `Session`:
 
