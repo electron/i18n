@@ -74,7 +74,7 @@ headings:
   languages: زبان‌ها
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "همکاری در ترجمه"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
@@ -117,6 +117,6 @@ pages:
   '/languages':
     title: زبان‌ها
 _404:
-  page_not_found: Page not found.
+  page_not_found: صفحه یافت نشد.
   if_this_is_an_error: If this is an error
   please_file_an_issue: please file an issue.
