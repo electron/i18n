@@ -6,4 +6,4 @@
 * `description` String (optional) - 바로가기에 대한 설명입니다. 디폴트 값은 empty입니다.
 * `icon` String (optional) - 아이콘의 경로는 DLL 또는 EXE 일 수 있습니다. `icon`과 `iconIndex`를 같이 설정 해야 합니다. 디폴트 값은 empty이므로 target`s 아이콘으로 사용합니다.
 * `iconIndex` Number (optional) - `icon` DLL이거나 EXE일 경우 아이콘의 리소스 ID입니다. 디폴트값은 0입니다.
-* `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
+* `appUserModelId` String (optional) - Application 사용자 모델 ID 입니다. 디폴트 값은 0입니다.
