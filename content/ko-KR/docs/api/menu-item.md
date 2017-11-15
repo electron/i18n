@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:Main
 
 See [`Menu`](menu.md) for examples.
 
