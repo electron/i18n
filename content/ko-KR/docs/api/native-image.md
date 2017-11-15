@@ -141,7 +141,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 The following methods are available on instances of the `NativeImage` class:
 
