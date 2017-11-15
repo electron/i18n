@@ -2,7 +2,7 @@
 
 > Monitor power state changes.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
