@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+프로세스:Main
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+프로세스:Main
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
