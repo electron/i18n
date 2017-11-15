@@ -1,51 +1,53 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> 키보드 단축키를 정의합니다.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Accelerator 는 + 문자로 결합된 여러 수식어와 키 코드를 포함할 수 있는 문자열입니다. 그리고 애플리케이션의 키보드 단축키를 정의하는데 사용됩니다.
 
-Examples:
+예시:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+단축키는 globalShortcut 모듈의 register 메소드로 등록됩니다. 예시:
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // '커맨드 또는 컨트롤+Y' 단축키 리스너 등록.
+
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // 커맨드/컨트롤과 Y 가 눌렸을 때 할 동작.
+
   })
 })
 ```
 
-## Platform notice
+## 플랫폼에 관련하여 주의할 점
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Linux와 Windows에서는 Command키가 없으므로 작동하지 않습니다. 대신에 CommandOrControl을 사용하면 macOS의 Command와 Linux, Windows의 Control 모두 지원할 수 있습니다.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Option 대신 Alt을 사용하는게 좋습니다. Option 키는 macOS에만 있으므로 모든 플랫폼에서 사용할 수 있는 Alt 키를 권장합니다.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+Super키는 Windows와 Linux 에서는 윈도우키를, macOS에서는 Cmd키로 맵핑됩니다.
 
-## Available modifiers
+## 사용 가능한 혼합키
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* Command (단축키 Cmd)
+* Control (단축키 Ctrl)
+* CommandOrControl (단축키 CmdOrCtrl)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## 사용 가능한 전체 키코드
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
+* 0 부터 9 까지
+* A 부터 Z 까지
+* F1 부터 F24 까지
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
