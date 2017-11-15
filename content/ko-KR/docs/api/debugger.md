@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 #### `debugger.attach([protocolVersion])`
 
