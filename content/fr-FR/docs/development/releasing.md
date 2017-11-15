@@ -44,12 +44,12 @@ Pour surveiller la progression de la compilation, allez voir les pages suivantes
 
 ## Notes de publication
 
-Écrire une note de publication est un bon moyen de vous tenir occupé pendant que la compilation se fasse. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Écrire une note de publication est un bon moyen de vous tenir occupé pendant que la compilation se fasse. Pour avoir un modèle, vous pouvez voir les publications existantes sur [la page des publications](https://github.com/electron/electron/releases).
 
 Astuces :
 
-- Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc.
-- No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com.
+- Chaque élément listé doit référencer une PR sur electron/electron, pas une issue, ni une PR d'un autre repo comme libcc.
+- Pas besoin d'utiliser la balise de lien pour référencer les PRs. Une chaîne de caractère comme `#123` va être automatiquement convertie par un lien sur github.com.
 - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Versions patch
