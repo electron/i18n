@@ -967,12 +967,12 @@ The `buttons` is an array of `Button` objects:
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `tooltip` String (optional) - 버튼의 툴팁 텍스트
+  * `flags` String[] (optional) - 버튼의 특정 상태 및 동작을 제어합니다. 디폴트면, `['enabled']`입니다.
 
-The `flags` is an array that can include following `String`s:
+`flags`는 다음 `String`을 포함할 수 있는 array입니다.
 
-* `enabled` - The button is active and available to the user.
+* `enabled` - 버튼이 활성화되어 있으며 사용자가 사용할 수 있습니다.
 * `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
 * `nobackground` - Do not draw a button border, use only the image.
