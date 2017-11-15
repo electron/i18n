@@ -13,11 +13,11 @@ docs:
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: Guides
   api_reference: API Reference
-  advanced: Advanced
+  advanced: پیشرفته
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: زبان سایت را انتخاب کنید
+  translation_progress: پیشرفت ترجمه
+  current: انتخاب کنونی
 community:
   title: Electron Community
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
