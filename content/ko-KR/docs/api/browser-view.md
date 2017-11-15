@@ -42,7 +42,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -54,7 +54,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 Objects created with `new BrowserView` have the following instance methods:
 
