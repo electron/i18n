@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
