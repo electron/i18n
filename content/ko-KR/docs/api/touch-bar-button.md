@@ -13,7 +13,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `iconPosition` String - Can be `left`, `right` or `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `TouchBarButton`:
 
