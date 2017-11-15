@@ -161,7 +161,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 The `Tray` class has the following methods:
 
