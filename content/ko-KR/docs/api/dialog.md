@@ -2,7 +2,7 @@
 
 > Display native system dialogs for opening and saving files, alerting, etc.
 
-프로세스:Main
+프로세스:[Main](../glossary.md#main-process)
 
 An example of showing a dialog to select multiple files and directories:
 
