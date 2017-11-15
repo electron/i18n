@@ -1,11 +1,11 @@
-# JumpListItem Object
+# JumpListItem 개체
 
 * `type` String (optional) - 다음 중 하나: 
-  * `task` - A task will launch an app with specific arguments.
-  * `separator` - Can be used to separate items in the standard `Tasks` category.
-  * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
+  * `task` - 테스크는 특정 인수가 포함된 어플리케이션을 시작합니다.
+  * `separator` - 표준 `테스크` 범주의 항목을 분리하는데 사용할 수 있습니다.
+  * `file` -파일 링크는 jump LIst를 만든 앱을 사용하여 파일을 열고, 이를 위해서는 응용 프로그램이 파일 형식의 핸들러로 등록되어 있어야 합니다.(디폴트 핸들러가 아닐 경우)
+* `path` String (optional) - 열려 있는 파일의 경로는 `file` `type`인 경우에만 설정하여야 합니다.
+* `program` String (optional) - 실행할 프로그래의 경로는 대게 `process.execPath`(프로그램 실행 경로)를 지정하여 현재 프로그램을 엽니다. `type`가 `task`하는 경우에만 설정해야 합니다.
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
