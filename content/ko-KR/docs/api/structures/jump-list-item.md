@@ -8,6 +8,6 @@
 * `program` String (optional) - 실행할 프로그래의 경로는 대게 `process.execPath`(프로그램 실행 경로)를 지정하여 현재 프로그램을 엽니다. `type`가 `task`하는 경우에만 설정해야 합니다.
 * `args` String (optional) - 명령줄은 `program`이 실행 될 때 정의됩니다. `type`가 `task`하는 경우에만 설정해야 합니다.
 * `title` String (optional) - Jump List의 항목에 대해 표시할 텍스트. `type`가 `task`하는 경우에만 설정해야 합니다.
-* `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
-* `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
-* `iconIndex` Number (optional) - The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
+* `description` String (optional) - 태스크에 대한 설명(툴 팁에 표시됨). `type`가 `task`하는 경우에만 설정해야 합니다.
+* `iconPath` String (optional) - 아이콘을 포함하는 임의의 리소스 파일로 표시될 수 있는 Jump List에 아이콘의 절대 경로를 표시합니다. (e.g. `.ico`, `.exe`, `.dll`). 대게 `process.execPath`를 지정하여 프로그램 아이콘을 표시할 수 있습니다.
+* `iconIndex` Number (optional) - 리소스 파일의 아이콘 인덱스 리소스 파일에 여러 아이콘이 포함되어 있는 경우 이 값을 사용하여 이 테스크에 대해 표시되어야 하는 아이콘의 제로-베이스 인덱스를 지정 할 수 있습니다. 리소스 파일에 하나의 아이콘만 포함된 경우 이 속성을 0으로 설정해야 합니다.
