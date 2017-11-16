@@ -1,4 +1,4 @@
 # BluetoothDevice Object
 
-* `filename` {String}
-* `filename` {String}
+* `deviceName` {String}
+* `deviceId` {String}
