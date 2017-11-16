@@ -29,7 +29,7 @@ Retorna:
 
 * `launchInfo` Object *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emitido quando Electron tiver concluído a inicialização. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
 ### Evento: 'window-all-closed'
 
@@ -57,7 +57,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
-### Event: 'quit'
+### Evento: 'quit'
 
 Retorna:
 
@@ -66,7 +66,7 @@ Retorna:
 
 Emitted when the application is quitting.
 
-### Event: 'open-file' *macOS*
+### Evento: 'open-file' *macOS*
 
 Retorna:
 
@@ -135,18 +135,18 @@ Retorna:
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Emitido quando [browserWindow](browser-window.md) fica focado.
 
-### Event: 'browser-window-created'
+### Evento: 'browser-window-created'
 
 Retorna:
 
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Emitido quando um novo [browserWindow](browser-window.md) é criado.
 
-### Event: 'web-contents-created'
+### Evento: 'web-contents-created'
 
 Retorna:
 
