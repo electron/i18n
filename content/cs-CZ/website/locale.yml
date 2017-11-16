@@ -1,9 +1,9 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Tvořte multiplatformní desktopové aplikace pomoci JavaScriptu, HTML a CSS
 nav:
-  docs: Docs
+  docs: Dokumentace
   blog: Blog
-  community: Community
-  apps: Apps
+  community: Komunita
+  apps: Aplikace
   userland: Userland
   releases: Releases
   contact: Contact
@@ -108,7 +108,7 @@ pages:
     title: Electron Blog
     description: All the latest news from the Electron team and community.
   '/community':
-    title: Community
+    title: Komunita
   '/releases':
     title: Releases
   '/contact':
