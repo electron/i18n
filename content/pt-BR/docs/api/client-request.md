@@ -42,7 +42,7 @@ Retorna:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Evento: 'login'
 
 Retorna:
 
