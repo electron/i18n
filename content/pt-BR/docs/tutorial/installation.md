@@ -10,7 +10,7 @@ npm install electron --save-dev --save-exact
 
 The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
 
-## Global Installation
+## Instalação Global
 
 You can also install the `electron` command globally in your `$PATH`:
 
