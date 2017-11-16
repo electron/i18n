@@ -1,15 +1,15 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: JavaScript, HTML, and CSS를 이용해 크로스 플랫폼 데스크탑 앱을 구축한다.
 nav:
-  docs: Docs
+  docs: 문서들
   blog: 블로그
-  community: Community
-  apps: Apps
-  userland: Userland
+  community: 커뮤니티
+  apps: 앱
+  userland: 메뉴얼
   releases: 출시
-  contact: Contact
-  languages: Languages
+  contact: 컨택트
+  languages: 언어
 docs:
-  title: Electron Documentation
+  title: Electron 문서
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: 안내서
   api_reference: API Reference
@@ -71,7 +71,7 @@ need_help:
   title: Need Help?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: 언어
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -108,14 +108,14 @@ pages:
     title: Electron Blog
     description: All the latest news from the Electron team and community.
   '/community':
-    title: Community
+    title: 커뮤니티
   '/releases':
     title: 출시
   '/contact':
-    title: Contact
+    title: 컨택트
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: 언어
 _404:
   page_not_found: Page not found.
   if_this_is_an_error: If this is an error
