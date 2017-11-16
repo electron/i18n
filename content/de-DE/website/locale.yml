@@ -74,7 +74,7 @@ headings:
   languages: Sprachen
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "Hilf bei der Übersetzung"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
@@ -84,7 +84,7 @@ footer:
   view_all_docs: View all docs on one page
   see_the_faq: See the frequently asked questions
 apps:
-  title: Apps built on Electron
+  title: Mit Electron entwickelte Apps
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: Mehr Apps anzeigen
   submit_your_own: submit your own
@@ -96,27 +96,27 @@ pages:
     title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Electron-Anwendungen
+    description: Mit Electron entwickelte Anwendungen
   '/docs':
     title: Dokumentation
-    description: Guides and API reference documentation for the latest Electron release
+    description: Anleitungen und API-Referenz-Dokumentation für die neueste Version von Elektron
   '/docs/all':
     title: All the Electron Docs!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Electron-Blog
+    description: Die neuesten Nachrichten vom Electron-Team und der Community.
   '/community':
     title: Community
   '/releases':
-    title: Releases
+    title: Versionen
   '/contact':
     title: Kontakt
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: Sprachen
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
+  page_not_found: Seite nicht gefunden.
+  if_this_is_an_error: Wenn dies ein Fehler ist
   please_file_an_issue: please file an issue.
