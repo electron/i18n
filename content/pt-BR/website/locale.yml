@@ -25,7 +25,7 @@ community:
   boilerplates: Boilerplates
   components: Componentes
   videos: Vídeos
-  meetups: Reuniões em Grupo
+  meetups: Meetups
   awesome_notice: 'Esta é uma lista gerada a partir do <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repositório. <br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pull request</a>.'
   meetup_notice: 'Para adicionar um meetup, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">crie um pull requests</a>.'
 electron_is_easy:
@@ -40,9 +40,9 @@ open_source:
   desciption: Electron é um projeto de código aberto mantido pelo o GitHub e com uma comunidade ativa de colaboradores.
 cross_platform:
   title: Multiplataforma
-  description: Compatível com Mac, Windows, e Linux. Aplicação Electron podem ser construídos e executados nas três plataformas.
+  description: Compatível com Mac, Windows, e Linux, Aplicativos Electron são construídos e executados nas três plataformas.
 benefits:
-  hard_parts_made_easy: As partes mais difíceis são fáceis
+  hard_parts_made_easy: As partes difíceis são feitas facilmente
   automatic_updates: Atualizações automáticas
   native_menus_and_notifications: Menus nativos & notificações
   crash_reporting: Relatórios de Erros
@@ -54,7 +54,7 @@ get_started:
 explore:
   title: Explore as APIs do Electron
   description:
-    - 'O <a href="https://github.com/electron/electron-api-demos">Exemplos das APIs do Electron</a>'
+    - 'Os <a href="https://github.com/electron/electron-api-demos">Exemplos de aplicativo das APIs do Electron</a>'
     - interativamente, demonstra as características mais importantes da API do Electron.
     - Veja o que é possível com Electron com exemplos de código e dicas úteis para
     - construindo seu aplicativo.
