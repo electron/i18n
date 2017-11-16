@@ -76,24 +76,24 @@ taglines:
   languages: Локалізований контент від нашої крутої глобальної спільноти.
 help_translate: "Допоможіть з перекладами"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
-  want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  see_something: Бачите щось що треба виправити?
+  propose_change: Запропонуйте зміни у вихідному файлі.
+  need_different_version: Потрібна інша версія документації?
+  see_available_versions: Перегляньте доступні версії.
+  want_something_searchable: Хочете щось знайти?
+  view_all_docs: Переглянути всі документи на сторінці
+  see_the_faq: Перегляньте FAQ
 apps:
-  title: Apps built on Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
-or: or
+  title: Застосунки, побудовані на Electron
+  description: 'З Electron просто створити застосунок для вашої компанії чи ідеї. Розроблений спеціально для <a href=''https://atom.io'' target=''_blank''>редактора Atom</a> GitHub''а, Electron з тих пір використовувався для створення застосунків такими компаніями як Microsoft, Facebook, Slack та Docker.'
+  view_more: Переглянути більше додатків
+  submit_your_own: надішліть власний
+  something_missing: Чогось не вистачає?
+  edit_this_app: Редагувати цей застосунок.
+or: чи
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    title: Electron | Створюйте прикладні застосунки з JavaScript, HTML та CSS для будь-якої платформи.
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron Apps
