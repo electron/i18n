@@ -36,6 +36,7 @@
     "collect": "script/collect.js",
     "stats": "script/stats.js",
     "build": "script/build.js",
+    "prepare-release": "script/prepare-release.sh",
     "test": "mocha && standard --fix",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
