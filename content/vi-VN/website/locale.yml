@@ -99,24 +99,24 @@ pages:
     title: Các App Electron
     description: Các ứng dụng được xây dựng từ Electron
   '/docs':
-    title: Documentation
+    title: Tài liệu
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: Tất cả các tài liệu Electron!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Blog Electron
+    description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.
   '/community':
     title: Cộng đồng
   '/releases':
     title: Các phiên bản phát hành
   '/contact':
     title: Liên hệ
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Liên lạc với đội Electron trên Twitter, Slack, GitHub, hoặc qua email.
   '/languages':
     title: Ngôn ngữ
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
+  page_not_found: Không tìm thấy trang.
+  if_this_is_an_error: Nếu đây là một lỗi
   please_file_an_issue: please file an issue.
