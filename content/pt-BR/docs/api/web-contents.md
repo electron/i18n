@@ -336,7 +336,7 @@ Retorna:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Emitido quando `webContents` quer fazer uma autenticação básica.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
