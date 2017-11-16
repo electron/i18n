@@ -1,6 +1,6 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> Добавляет иконки и контекстное меню в область уведомлений ОС.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -23,30 +23,30 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**Ограничения платформ:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
+* Значок приложения будет показан только в случае присутствия у приложения контекстного меню.
+* Если приложение запущено на Linux, то событие `click` по иконке не сработает.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
 
-let appIcon = null
+
+
+let tray = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'}
+    {label: 'Item2', type: 'radio'},
+    [1],
+    
   ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
+  enu.items.checked is my application.')
+  con.setContextMenu(contextMenu)
 })
 ```
 
