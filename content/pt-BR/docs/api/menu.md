@@ -1,6 +1,6 @@
 ## Classe: Menu
 
-> Cria menus de aplicativo e menus de contexto nativas.
+> Cria menus de aplicativo e menus de contexto nativos.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -65,7 +65,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 * `browserWindow` BrowserWindow (optional) - Default is the focused window.
 
-Closes the context menu in the `browserWindow`.
+Fecha o menu de contexto em `browserWindow`.
 
 #### `menu.append(menuItem)`
 
@@ -78,7 +78,7 @@ Acrescenta o `menuItem` ao menu.
 * `pos` Integer
 * `menuItem` MenuItem
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Insere o `menuItem` na posição `pos` do menu.
 
 ### Propriedades de Instância
 
@@ -88,7 +88,7 @@ Objetos `menu` também possuem as seguintes propriedades:
 
 Um array `MenuItem[]` contendo os itens do menu.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
 
 ## Exemplos
 
