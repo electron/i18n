@@ -37,7 +37,7 @@ web_technologies:
   description: Electron verwendet Chromium und Node.js, so dass Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
 open_source:
   title: Open Source
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  desciption: Electron ist von ein GitHub und einer aktiver Community von Mitwirkenden gepflegtes, quelloffenes Projekt.
 cross_platform:
   title: Plattformübergreifend
   description: Kompatibel mit Mac, Windows und Linux, Elektron-Apps kompilieren und laufen auf drei Plattformen.
@@ -87,7 +87,7 @@ apps:
   title: Mit Electron entwickelte Apps
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: Mehr Apps anzeigen
-  submit_your_own: submit your own
+  submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
   edit_this_app: Edit this app.
 or: oder
