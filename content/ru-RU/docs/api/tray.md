@@ -50,9 +50,9 @@ app.on('ready', () => {
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Для лучшего качества иконок на платформе Windows рекомендуется использовать `ICO` иконки.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Если вы хотите добиться одинаковой работы вашего приложения на всех платформах, то не следует полагаться на событие `click` и всегда создавать контекстное меню для иконки в трее.
 
 ### `new Tray(image)`
 
@@ -95,7 +95,7 @@ Emitted when the tray icon is right clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
-Emitted when the tray icon is double clicked.
+Вызывается при двойном нажатии на иконку в трее.
 
 #### Event: 'balloon-show' *Windows*
 
