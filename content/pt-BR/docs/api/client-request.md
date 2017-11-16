@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -38,13 +38,13 @@ const request = net.request({
 
 #### Event: 'response'
 
-Returns:
+Retorna:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
 #### Event: 'login'
 
-Returns:
+Retorna:
 
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Event: 'error'
 
-Returns:
+Retorna:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Returns:
+Retorna:
 
 * `statusCode` Integer
 * `method` String
