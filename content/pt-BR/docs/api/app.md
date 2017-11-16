@@ -266,9 +266,9 @@ O objeto `app` tem os seguintes métodos:
 
 ### `app.quit()`
 
-Tenta fechar todas as janelas. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Tenta fechar todas as janelas. O evento `before-quit` será emitido primeiro. Se todas as janelas forem fechadas com sucesso, o evento `will-quit` será emitido e por padrão, a aplicação encerá.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Este método garante que todos os manipuladores de vento `beforeunload` e `unload` são executados corretamente. É possível que a janela cancele, retornando `false` no manipulador de eventos `beforeunload`.
 
 ### `app.exit([exitCode])`
 
