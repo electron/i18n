@@ -26,12 +26,12 @@ community:
   components: Компоненти
   videos: Відео
   meetups: Зустрічі
-  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Щось відсутнє? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
+  meetup_notice: 'Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml"> зробіть пул реквест</a>.'
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  title: Все простіше, ніж здається
+  description: Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.
+  video_link: Дивитися відео
 web_technologies:
   title: Web Technologies
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
