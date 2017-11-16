@@ -57,8 +57,8 @@ Electron's documentation and website are authored in English.
 The source content in this repo is collected from a few places:
 
 - Markdown files from the [electron](https://github.com/electron/electron/tree/master/docs) repo.
-- YAML files from the [electron.atom.io](https://github.com/electron/electron.atom.io/tree/gh-pages/_data/) repo
-- Electron's [structured API docs](https://electron.atom.io/blog/2016/09/27/api-docs-json-schema).
+- YAML files from the [electronjs.org](https://github.com/electron/electronjs.org/blob/master/data/locale.yml) repo
+- Electron's [structured API docs](https://electronjs.org/blog/api-docs-json-schema).
 
 Here's the directory structure:
 
