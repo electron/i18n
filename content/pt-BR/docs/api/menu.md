@@ -1,6 +1,6 @@
 ## Classe: Menu
 
-> Cria aplicações menu e menus de contexto nativas.
+> Cria menus de aplicativo e menus de contexto nativas.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -16,7 +16,7 @@ A classe `menu` tem os seguintes métodos estáticos:
 
 * `menu` Menu
 
-Define `menu` como o menu do aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
+Define `menu` como o menu de aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
 
 Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
 
@@ -24,7 +24,7 @@ Passing `null` will remove the menu bar on Windows and Linux but has no effect o
 
 #### `Menu.getApplicationMenu()`
 
-Retorna `Menu` - O menu da aplicação, se definido, ou `null`, se não estiver definido.
+Retorna `Menu` - O menu de aplicativo, se definido, ou `null`, se não estiver definido.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -82,11 +82,11 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Propriedades de Instância
 
-`menu` objects also have the following properties:
+Objetos `menu` também possuem as seguintes propriedades:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Um array `MenuItem[]` contendo os itens do menu.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
@@ -212,7 +212,7 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notas sobre o Menu da aplicação no macOS
+## Notas sobre o Menu de aplicativo no macOS
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
@@ -236,7 +236,7 @@ On macOS the label of the application menu's first item is always your app's nam
 
 The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
-## Menu Item Position
+## Posição do Item de menu
 
 You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
