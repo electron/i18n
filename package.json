@@ -36,6 +36,7 @@
     "collect": "script/collect.js",
     "stats": "script/stats.js",
     "build": "script/build.js",
+    "prepare-release": "npm run collect && npm run stats && npm run build && git commit -am 'feat: updated content and stats'",
     "test": "mocha && standard --fix",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
