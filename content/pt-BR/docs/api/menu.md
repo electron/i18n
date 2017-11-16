@@ -1,30 +1,30 @@
-## Class: Menu
+## Classe: Menu
 
-> Create native application menus and context menus.
+> Cria aplicações menu e menus de contexto nativas.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Cria um novo menu.
 
-### Static Methods
+### Métodos estáticos
 
-The `menu` class has the following static methods:
+A classe `menu` tem os seguintes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 
 * `menu` Menu
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Define `menu` como o menu do aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
 
 Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Nota:** Esta API tem que ser chamada após o evento `ready` do módulo do `app`.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Retorna `Menu` - O menu da aplicação, se definido, ou `null`, se não estiver definido.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
