@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+를 이렇게:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,14 +75,14 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Electron에서 jQuery/RequireJS/Meteor/AngularJS를 사용할 수 없습니다.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Node.js가 Electron에 합쳐졌기 때문에, DOM에 `module`, `exports,` `require` 같은 몇 가지 심볼들이 추가됬습니다. 따라서 같은 이름의 심볼을 사용하는 몇몇 라이브러리들과 충돌이 발생할 수 있습니다.
 
-To solve this, you can turn off node integration in Electron:
+이러한 문제를 해결하려면, Electron에서 node 포함을 비활성화시켜야 합니다:
 
 ```javascript
-// 주 프로세스에서.
+//메인 프로세스에서.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+하지만 Node.js의 기능과 Electron API를 유지하고 싶다면 페이지에 다른 라이브러리를 추가하기 전에 심볼들의 이름을 변경해야 합니다:
 
 ```html
 <head>
@@ -106,32 +106,32 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## require('electron').xxx가 undefined를 반환합니다.
 
-When using Electron's built-in module you might encounter an error like this:
+Electron의 빌트인 모듈을 사용할 때, 다음과 같은 오류가 발생할 수 있습니다:
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+이러한 문제가 발생하는 이유는 [npm`의 electron` 모듈](https://www.npmjs.com/package/electron)이 로컬 또는 전역 중 한 곳에 설치되어, Electron의 빌트인 모듈을 덮어씌우는 바람에 빌트인 모듈을 사용할 수 없기 때문입니다.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+올바른 빌트인 모듈을 사용하고 있는지 확인하고 싶다면, `electron` 모듈의 경로를 출력하는 방법이 있습니다:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+그리고 다음과 같은 경로를 가지는지 점검하면 됩니다:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+하지만 `node_modules/electron/index.js`와 같은 경로로 되어있을 경우, `electron `모듈을 지우거나 이름을 바꿔야만 합니다.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+그런데 여전히 빌트인 모듈이 계속해서 문제를 발생시키는 경우, 아마 모듈을 잘못 사용하고 있을 가능성이 큽니다. 예를 들면 `electron.app`은 메인 프로세스에서만 사용할 수 있는 모듈이며, 반면 `electron.webFrame` 모듈은 렌더러 프로세스에서만 사용할 수 있는 모듈입니다.
