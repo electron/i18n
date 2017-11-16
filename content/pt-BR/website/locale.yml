@@ -62,7 +62,7 @@ download_from_github: Download no GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a>no GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  description: Um pequeno aplicativo Electron com notações úteis.
   clone: Clone o repositório Quick Start
   go_into_repo: Ir para o repositório
   install_deps: Instale as dependências e execute
@@ -119,4 +119,4 @@ pages:
 _404:
   page_not_found: Página não encontrada.
   if_this_is_an_error: Se isto é um erro
-  please_file_an_issue: please file an issue.
+  please_file_an_issue: por favor, registre um problema.
