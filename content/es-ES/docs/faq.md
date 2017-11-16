@@ -10,15 +10,15 @@ También puede intentar descargar Electron directamente desde [electron/electron
 
 ## ¿Cuando se actualizará Electron a la más reciente versión de Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+La versión de Chrome de Electron es usualmente actualizada con una o dos semanas después de que una nueva versión estable de Chrome es publicada. Esta estimación no se garantiza y depende de la carga de trabajo que implica la actualización.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Solamente el canal estable de Chrome es utilizado. Si una corrección importante se encuentra en los canales beta o dev, actualizaremos a la versión.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Para mas información, por favor lea la [introducción de seguridad](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## ¿Cuándo se actualizará Electron a la última versión de Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Cuando una nueva versión de Node.js es publicada, usualmente esperamos aproximadamente un mes antes de actualizar la versión de Electron. Con esto evitamos afectarnos por bugs introducidos en la nueva versión de Node.js, lo cual sucede frecuentemente.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
