@@ -227,7 +227,7 @@ Retorna:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Emitido quando `webContents` quer fazer uma autenticação básica.
 
 The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
@@ -256,9 +256,9 @@ Retorna:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Emitido quando o suporte de acessibilidade do Chrome muda. This event fires when assistive technologies, such as screen readers, are enabled or disabled. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
-## Methods
+## Métodos
 
 The `app` object has the following methods:
 
