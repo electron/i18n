@@ -7,23 +7,23 @@ nav:
   userland: Userland
   releases: Versionen
   contact: Kontakt
-  languages: Languages
+  languages: Sprachen
 docs:
-  title: Electron Documentation
+  title: Electron-Dokumentation
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: Anleitungen
-  api_reference: API Reference
-  advanced: Advanced
+  api_reference: API-Referenz
+  advanced: Erweitert
 languages:
   choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
+  translation_progress: Übersetzungsfortschritt
   current: current selection
 community:
-  title: Electron Community
+  title: Electron-Community
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: Werkzeuge
   boilerplates: Boilerplates
-  components: Components
+  components: Komponenten
   videos: Videos
   meetups: Meetups
   awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
@@ -40,7 +40,7 @@ open_source:
   desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: Plattformübergreifend
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Kompatibel mit Mac, Windows und Linux, Elektron-Apps kompilieren und laufen auf drei Plattformen.
 benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: Automatische Updates
@@ -71,7 +71,7 @@ need_help:
   title: Benötigen Sie Hilfe?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: Sprachen
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -88,7 +88,7 @@ apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: Mehr Apps anzeigen
   submit_your_own: submit your own
-  something_missing: Something missing?
+  something_missing: Fehlt etwas?
   edit_this_app: Edit this app.
 or: oder
 pages:
@@ -99,7 +99,7 @@ pages:
     title: Electron Apps
     description: Apps Built on Electron
   '/docs':
-    title: Documentation
+    title: Dokumentation
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!
@@ -115,7 +115,7 @@ pages:
     title: Kontakt
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: Sprachen
 _404:
   page_not_found: Page not found.
   if_this_is_an_error: If this is an error
