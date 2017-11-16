@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+O seguinte exemplo mostra como encerrar a aplicação quando a última janela é fechada:
 
 ```javascript
 const {app} = require('electron')
@@ -15,7 +15,7 @@ app.on('window-all-closed', () => {
 
 ## Eventos
 
-The `app` object emits the following events:
+O objeto `app` emite os seguintes eventos:
 
 ### Evento: 'will-finish-launching'
 
