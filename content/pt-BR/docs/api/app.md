@@ -194,7 +194,7 @@ Retorna:
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (opcional)
 
-Emitted when a client certificate is requested.
+Emitido quando um certificado de cliente é solicitado.
 
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
@@ -207,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Evento: 'login'
 
 Retorna:
 
