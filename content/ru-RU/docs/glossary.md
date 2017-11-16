@@ -1,4 +1,4 @@
-# Glossary
+# Глоссарий
 
 This page defines some terminology that is commonly used in Electron development.
 
@@ -22,7 +22,7 @@ An Apple Disk Image is a packaging format used by macOS. DMG files are commonly 
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Это программа, которая позволяет пользователям вводить символы, которые отсутствуют на клавиатуре. Например, пользователи с Латинской клавиатурой могут вводить Китайские, Японские, Корейские и Индийские символы.
 
 ### IPC
 
