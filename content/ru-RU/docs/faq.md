@@ -1,16 +1,16 @@
 # FAQ по Electron
 
-## Why am I having trouble installing Electron?
+## Проблемы, возникающие при установке Electron
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+При запуске `npm install electron`, некоторые пользователи встречаются с некоторыми ошибками.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Почти всегда данные ошибки являются результатом проблем сети и не связаны с работой Electron. Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`,`ECONNRESET` и `ETIMEDOUT` возникают в результате проблем с сетью. Лучшим решением в данном случае будет попытка подключения к другой сети или просто немного подождите, возможно это временное явление.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Вы также можете попробовать скачать Electron напрямую из [electron/electron/releases](https://github.com/electron/electron/releases), если не удается установить через `npm`.
 
-## When will Electron upgrade to latest Chrome?
+## Когда Electron получает последнее обновление Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Chrome для Electron обычно выпускается в течение одной или двух недель после выпуска стабильной версии Chrome. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
@@ -47,7 +47,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## My app's window/tray disappeared after a few minutes.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Это происходит, когда переменная, используемая для хранения панели окна/трея уничтожается сборщиком мусора.
 
 If you encounter this problem, the following articles may prove helpful:
 
