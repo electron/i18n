@@ -1,4 +1,4 @@
-# Browserfenster
+# BrowserWindow
 
 > Create and control browser windows.
 
