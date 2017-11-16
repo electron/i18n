@@ -256,17 +256,17 @@ Retorna:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emitido quando o suporte de acessibilidade do Chrome muda. This event fires when assistive technologies, such as screen readers, are enabled or disabled. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
+Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é acionado quando a tecnologias assistivas, tais como leitores de tela, estão habilitadas ou desabilitadas. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
 ## Métodos
 
-The `app` object has the following methods:
+O objeto `app` tem os seguintes métodos:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Nota:** Alguns métodos estão disponíveis somente em sistemas operacionais específicos e são rotulados como tal.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Tenta fechar todas as janelas. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
