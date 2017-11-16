@@ -33,29 +33,29 @@ electron_is_easy:
   description: Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.
   video_link: Дивитися відео
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: Веб-технології
+  description: Electron використовує Chromium та Node.js, тому ви можете створювати додатки за допомогою HTML, CSS та JavaScript.
 open_source:
-  title: Open Source
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: Відкрите ПЗ
+  desciption: Electron це відкритий проект, який підтримується GitHub та активною спільнотою розробників.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: Крос-платформний
+  description: Сумісний з Mac, Windows та Linux, застосунки Electron збираються та запускаються на трьох платформах.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: Важкі частини зроблені просто
+  automatic_updates: Автоматичні оновлення
+  native_menus_and_notifications: Природні меню та сповіщення
+  crash_reporting: Звіти про збої
+  debugging_and_profiling: Налагоджування та профілювання
+  windows_installers: Установник для Windows
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: Почати зараз
+  description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати встановники.
 explore:
-  title: Explore the Electron APIs
+  title: Дослідіть API Electron
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
+    - '<a href="https://github.com/electron/electron-api-demos">API Electron демо</a>'
+    - інтерактивно демонструє найбільш важливі особливості API Electron.
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
 download_from_github: Download from GitHub
