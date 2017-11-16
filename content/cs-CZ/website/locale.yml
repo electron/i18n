@@ -74,49 +74,49 @@ headings:
   languages: Jazyky
 taglines:
   languages: Lokalizovaný obsah z naší úžasné globální vývojářské komunity.
-help_translate: "Help translate"
+help_translate: "Pomozte s překladem"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
+  see_something: Vidíte něco, co potřebuje nápravu?
+  propose_change: Navrhnout změnu ve zdrojovém kódu.
+  need_different_version: Potřebujete jinou verzi dokumentace?
+  see_available_versions: Seznam dostupných verzí.
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  see_the_faq: Prozkoumejte nejčastěji kladené otázky
 apps:
-  title: Apps built on Electron
+  title: Aplikace postavené na Electronu
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
-or: or
+  view_more: Zobrazit další aplikace
+  submit_your_own: pošlete vaši
+  something_missing: Něco chybí?
+  edit_this_app: Upravte tuto aplikaci.
+or: nebo
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.
+    description: 'Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Electron aplikace
+    description: Aplikace běžicí na Electronu
   '/docs':
-    title: Documentation
+    title: Dokumentace
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Všechna dokumentace Electronu!
+    description: Electron příručky a API dokumentace na jedné, snadno prohledávatelné stránce.
   '/blog':
     title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    description: Všechny nejnovější zprávy z týmu Electron a komunity.
   '/community':
     title: Komunita
   '/releases':
-    title: Releases
+    title: Vydání
   '/contact':
     title: Kontakt
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Obraťte se na tým elektronů na Twitteru, Slacku, GitHubu nebo prostřednictvím e-mailu.
   '/languages':
     title: Jazyky
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: Stránka nenalezena.
+  if_this_is_an_error: Jedná se o chybu
+  please_file_an_issue: prosím dejte nám vědět.
