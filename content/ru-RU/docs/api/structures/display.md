@@ -1,7 +1,7 @@
 # Display Object
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `id` Number - уникальный числовой идентификатор дисплея.
+* `rotation` Number - число, которое представляет собой угол поворота экрана. Может быть 0, 90, 180, 270.
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+`Display` представляет собой реальный подключенный дисплей. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
