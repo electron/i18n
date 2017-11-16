@@ -272,9 +272,9 @@ Este método garante que todos os manipuladores de vento `beforeunload` e `unloa
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (opcional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sai imediatamente com `exitCode`. `exitCode` padrão é 0.
 
 All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
 
