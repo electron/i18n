@@ -1,6 +1,6 @@
 # Preguntas Frecuentes sobre Electron
 
-## Why am I having trouble installing Electron?
+## ¿Por qué tengo problemas al instalar Electron?
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
@@ -8,7 +8,7 @@ In almost all cases, these errors are the result of network problems and not act
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
-## When will Electron upgrade to latest Chrome?
+## ¿Cuándo Electron se actualizará a la última versión de Chrome?
 
 The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
