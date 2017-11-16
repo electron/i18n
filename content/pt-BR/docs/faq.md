@@ -10,7 +10,7 @@ Você também pode tentar baixa o Electron diretamente do [electron/electron/rel
 
 ## Quando o Electron será atualizado para a versão mais recente do Chrome?
 
-A versão do Chrome usada no Electron é geralmente disponibilizado dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é uma garantida, depende da quantidade de trabalho envolvido com a atualização.
+A versão do Chrome usada no Electron é geralmente disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
 Apenas a versão estável do Chrome é usado. Se uma correção importante estiver disponível na versão Beta ou Dev, vamos portá-la.
 
