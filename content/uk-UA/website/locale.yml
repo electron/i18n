@@ -26,7 +26,7 @@ community:
   components: Компоненти
   videos: Відео
   meetups: Зустрічі
-  awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Щось відсутнє? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
+  awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Чогось не вистачає? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
   meetup_notice: 'Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml"> зробіть пул реквест</a>.'
 electron_is_easy:
   title: Все простіше, ніж здається
@@ -61,7 +61,7 @@ explore:
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Переглянкти всі релізи</a> на GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Спробуйте <a href='https://github.com/electron/electron-quick-start' target='_blank'>Швидкий Старт</a>, щоб побачити Electron в дії:"
   description: Мінімальний Electron застосунок з корисними нотатками.
   clone: Склонуйте репозиторій Швидкого Старту
   go_into_repo: Перейти в репозиторій
@@ -94,29 +94,29 @@ or: чи
 pages:
   '/':
     title: Electron | Створюйте прикладні застосунки з JavaScript, HTML та CSS для будь-якої платформи.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    description: 'Створюйте прикладні застосунки з JavaScript, HTML та CSS для будь-якої платформи.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Застосунки Electron
+    description: Застосунки, побудовані на Electron
   '/docs':
-    title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    title: Документація
+    description: Посібники та довідник API для останнього релізу Electron
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Вся документація Electron!
+    description: Всі посібники та API документація Electron на одній сторінці.
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Блог Electron
+    description: Всі останні новини від команди та спільноти Electron.
   '/community':
     title: Спільнота
   '/releases':
-    title: Releases
+    title: Релізи
   '/contact':
     title: Контакти
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Будьте на зв'язку з командою Electron в Twitter, Slack, GitHub чи через електронну пошту.
   '/languages':
     title: Мови
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: Сторінку не знайдено.
+  if_this_is_an_error: Якщо це помилка, 
+  please_file_an_issue: будь ласка, повідомте про проблему.
