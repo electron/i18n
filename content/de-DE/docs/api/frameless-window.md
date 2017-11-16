@@ -1,4 +1,4 @@
-# Frameless Window
+# Rahmenlose Fenster
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
