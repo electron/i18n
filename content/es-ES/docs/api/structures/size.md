@@ -1,4 +1,4 @@
 # Tamaño del objeto
 
-* `width` Number
+* `ancho` Número
 * `height` Number
