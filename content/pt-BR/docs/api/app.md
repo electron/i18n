@@ -153,16 +153,16 @@ Retorna:
 * `event` Event
 * `webContents` WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+Emitido quando um novo [webContents](web-contents.md) é criado.
 
-### Event: 'certificate-error'
+### Evento: 'certificate-error'
 
 Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - O código de erro
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
@@ -183,7 +183,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Evento: 'select-client-certificate'
 
 Retorna:
 
@@ -192,7 +192,7 @@ Retorna:
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (opcional)
 
 Emitted when a client certificate is requested.
 
