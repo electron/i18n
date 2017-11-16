@@ -71,16 +71,16 @@ Closes the context menu in the `browserWindow`.
 
 * `menuItem` MenuItem
 
-Appends the `menuItem` to the menu.
+Acrescenta o `menuItem` ao menu.
 
-#### `menu.insert(pos, menuItem)`
+#### `menu.Insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` MenuItem
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Instance Properties
+### Propriedades de Instância
 
 `menu` objects also have the following properties:
 
@@ -90,11 +90,11 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-## Examples
+## Exemplos
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
 
-### Main process
+### Processo principal
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -248,7 +248,7 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
-### Examples
+### Exemplos
 
 Template:
 
