@@ -313,11 +313,11 @@ Retorna:
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Emitido quando um certificado de cliente é solicitado.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Evento: 'login'
 
 Retorna:
 
