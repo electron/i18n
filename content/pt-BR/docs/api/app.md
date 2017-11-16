@@ -1,8 +1,8 @@
 # aplicativo
 
-> Control your application's event lifecycle.
+> Controle os eventos do ciclo de vida do seu aplicativo.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Main](../glossary.md#main-process)
 
 The following example shows how to quit the application when the last window is closed:
 
@@ -13,33 +13,33 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Eventos
 
 The `app` object emits the following events:
 
-### Event: 'will-finish-launching'
+### Evento: 'will-finish-launching'
 
 Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
-### Event: 'ready'
+### Evento: 'ready'
 
-Returns:
+Retorna:
 
 * `launchInfo` Object *macOS*
 
 Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
-### Event: 'window-all-closed'
+### Evento: 'window-all-closed'
 
 Emitted when all windows have been closed.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
-### Event: 'before-quit'
+### Evento: 'before-quit'
 
-Returns:
+Retorna:
 
 * `event` Event
 
@@ -47,9 +47,9 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-### Event: 'will-quit'
+### Evento: 'will-quit'
 
-Returns:
+Retorna:
 
 * `event` Event
 
@@ -59,7 +59,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `exitCode` Integer
@@ -68,7 +68,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+Retorna:
 
 * `event` Event
 * `path` String
@@ -81,7 +81,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Retorna:
 
 * `event` Event
 * `url` String
@@ -92,7 +92,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Retorna:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -101,7 +101,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Retorna:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -113,7 +113,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Retorna:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `window` BrowserWindow
@@ -130,7 +130,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `window` BrowserWindow
@@ -139,7 +139,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `window` BrowserWindow
@@ -148,7 +148,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `webContents` WebContents
@@ -157,7 +157,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -185,7 +185,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -209,7 +209,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -242,7 +242,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Retorna:
 
 * `event` Event
 * `killed` Boolean
@@ -251,7 +251,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Retorna:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
