@@ -45,23 +45,23 @@ benefits:
   hard_parts_made_easy: Složité části tvoříte snadno
   automatic_updates: Automatické aktualizace
   native_menus_and_notifications: Nativní menu & notifikace
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  crash_reporting: Zprávy o selhání
+  debugging_and_profiling: Ladění & profilování
+  windows_installers: Instalátor pro Windows
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: Začínáme
+  description: Chcete-li začít s Electronem, podívejte se na níže uvedené zdroje. Zjistěte, jak obalit váši web. stránku Electronem, komunikovat přes API a generovat instalátory.
 explore:
-  title: Explore the Electron APIs
+  title: Prozkoumat Electron API
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+    - '<a href="https://github.com/electron/electron-api-demos"> Electron API ukázky</a>'
+    - interaktivně předvést nejdůležitější části Electron API.
+    - Zjistěte, co je možné s Electronen s pomocí ukázkových kódů a užitečnými tipy
+    - sestvení vaší aplikace.
+download_from_github: Stáhnout z GitHubu
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases"> Zobrazit všechny releasy</a> na GitHubu'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Zprovozněte si <a href='https://github.com/electron/electron-quick-start' target='_blank'> Quick Start</a> aplikaci a koukněte na Electron aplikaci v praxi:"
   description: A minimal Electron app with helpful notations.
   clone: Clone the Quick Start repository
   go_into_repo: Go into the repository
