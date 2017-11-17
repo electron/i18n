@@ -68,16 +68,16 @@ Hay preguntas que se hacen a frecuentemente. Revise la siguiente liga antes de r
 * [Bandeja](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Módulos para el proceso de renderizado (Página Web):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [remoto](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Módulos para ambos procesos:
 
-* [clipboard](api/clipboard.md)
+* [portapapeles](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [screen](api/screen.md)
