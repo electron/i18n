@@ -28,17 +28,17 @@ app.on('ready', () => {
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Связанные с отладкой флаги, смотрите [Отладка основного процесса](../tutorial/debugging-main-process.md) для деталей.
 
-## --remote-debugging-port=`port`
+## --remote-debugging-port=`порт`
 
-Enables remote debugging over HTTP on the specified `port`.
+Включает удалённую отладку через HTTP для указанного `порта`.
 
-## --disk-cache-size=`size`
+## --disk-cache-size=`размер`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Максимальный размер кеша на жёстком диске в байтах.
 
-## --js-flags=`flags`
+## --js-flags=`флаги`
 
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
