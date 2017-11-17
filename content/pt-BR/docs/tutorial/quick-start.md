@@ -24,12 +24,12 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Escreva seu primeiro Electron App
 
-Generally, an Electron app is structured like this:
+Geralmente, um Electron app é estruturado como este:
 
 ```text
-your-app/
+seu-app/
 ├── package.json
 ├── main.js
 └── index.html
