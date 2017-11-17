@@ -52,8 +52,8 @@ Détache le débogueur depuis le `webContents`.
 * `method` String -Nom de la méthode, cela devrait être l'une des méthodes définies par le protocole de débogage à distance.
 * `commandParams` Object (facultatif) - Objet JSON avec les paramètres de la requête.
 * `callback` Function (facultatif) - Réponse 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `error` Object - Message d'erreur indiquant l'échec de la commande.
+  * `result` Any - Réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant.
 
 Envoi une commande au débogueur.
 
