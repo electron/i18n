@@ -184,7 +184,7 @@ Les versions sont rendu stable après environ deux semaines de publication. Avan
 
 Il est également conseillé de demander aux utilisateurs sur Slack s'ils utilisent cette version bêta sans rencontrer de problème.
 
-To see what's beta and stable at any given time:
+Pour voir quelle version est en bêta et stable à tout moment :
 
     $ npm dist-tag ls electron  
     beta: 1.7.5
