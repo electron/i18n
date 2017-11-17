@@ -47,16 +47,16 @@
 * Списки не можуть мати вкладеність більшу ніж 2 рівні ( згідно візуалізатору markdown).
 * Всі `js` та `javascript` блоки коду перевіряються за допопмогою [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Підбір слів
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Використовуйте "буде" замість "б" коли описуєте результати.
+* Надавайте перевагу "в процесі ___", а не "далі".
 
-## API references
+## Довідник API
 
-The following rules only apply to the documentation of APIs.
+Наступні правила застосовуються тільки для API документації.
 
-### Page title
+### Заголовок сторінки
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
