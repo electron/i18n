@@ -12,7 +12,7 @@ docs:
   title: Electron Documentation
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: 指南
-  api_reference: API Reference
+  api_reference: API 参考
   advanced: Advanced
 languages:
   choose_language: Choose Your Site Language
@@ -71,18 +71,18 @@ need_help:
   title: 需要帮助？
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: 语言
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
+  need_different_version: 需要不同版本的文档？
+  see_available_versions: 查看可用版本。
   want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  view_all_docs: 在一页内查看所有文档
+  see_the_faq: 查看常见问题
 apps:
   title: 使用 Electron 构建的应用
   description: 'Electron 让你为你的公司或想法创建桌面端应用变得很简单。最初为 GitHub 的 <a href=''https://atom.io'' target=''_blank''> Atom 编辑器</a> 开发，Electron 已被像微软、 Facebook、 Slack和Docker 这样的公司用于创建应用程序了。'
@@ -93,20 +93,20 @@ apps:
 or: 或者
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。
+    description: '使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。'
   '/apps':
     title: Electron 应用
     description: 使用 Electron 构建的应用
   '/docs':
-    title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    title: 文档
+    description: 最新的 Electron 的指南和 API 参考文档
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: 所有的 Electron 的文档
+    description: 所有 Electron 的指南和 API 文档在一个单独的可搜索的页面。
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Electron 博客
+    description: 所有来自Electron团队和社区的最新消息。
   '/community':
     title: 社区
   '/releases':
@@ -115,8 +115,8 @@ pages:
     title: 联络
     description: 在Twitter、Slack、GitHub 或通过电子邮件与电子团队取得联系。
   '/languages':
-    title: Languages
+    title: 语言
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: 页面找不到了。
+  if_this_is_an_error: 如果这是个错误
+  please_file_an_issue: 请发一个issue
