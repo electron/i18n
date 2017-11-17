@@ -26,17 +26,17 @@ In Electron teilen sich Node.js und Chromium eine eine einzelne V8-Instanz - üb
 
 ### Versionierung
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+Durch die große Abhängigkeit von Node.js und Chromium, ist Electron in einer komplizierten Versionierungsposition und [folgt nicht `Semver`](http://semver.org). Deshalb sollten Sie immer auf eine bestimmte Version von Electron verweisen. [Lesen Sie mehr über die Versionierung Electrons](https://electron.atom.io/docs/tutorial/electron-versioning/) oder schauen Sie, welche [welcher Version momentan genutzt wird](https://electron.atom.io/#electron-versions).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Ein langfristiger Support für ältere Versionen von Electron existiert derzeit nicht. Wenn Ihre aktuelle Version von Electron in Ihren Augen funktioniert, können Sie diese solange nutzen, wie Sie wollen. Wenn Sie neuere Funktionen verwenden möchten, sollten sie auch auf neuere Versionen upgraden.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+Ein Haupt-Update kam mit der Version `v1.0.0`. Wenn Sie aktuell diese Version noch nicht verwenden, sollten Sie mehr über die [Veränderungen von `v1.0.0` lesen](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
-## Core Philosophy
+## Kernphilosophie
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Um Electron klein (Dateigröße) und nachhaltig (die Verbreitung von Abhängigkeiten und API's) zu halten, begrenzt das Projekt den Umfang des Kernprojekts.
 
 For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
 
