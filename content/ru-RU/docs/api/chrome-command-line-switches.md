@@ -1,6 +1,6 @@
 # Поддерживаемые параметры командной строки Chrome
 
-> Command line switches supported by Electron.
+> Параметры командной строки поддерживаемые Electron.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
