@@ -176,7 +176,7 @@ git branch -D release # delete local branch
 git push origin :release # delete remote branch
 ```
 
-## Promoting a release on npm
+## Rendre stable une release sur npm
 
 New releases are published to npm with the `beta` tag. Every release should eventually get promoted to stable unless there's a good reason not to.
 
