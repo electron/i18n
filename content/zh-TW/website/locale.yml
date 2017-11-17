@@ -16,25 +16,25 @@ docs:
   advanced: 進階
 languages:
   choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
+  translation_progress: 翻譯進度
   current: current selection
 community:
-  title: Electron Community
+  title: Electron 社群
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: 工具
   boilerplates: Boilerplates
-  components: Components
-  videos: Videos
+  components: 元件
+  videos: 影片
   meetups: Meetups
   awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
   meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
   title: 比你想像的更容易
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  video_link: 觀看影片
 web_technologies:
   title: 網頁技術
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTM、CSS 和 JavaScript 建構自己的應用程式。
 open_source:
   title: 開放原始碼
   desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
@@ -90,22 +90,22 @@ apps:
   submit_your_own: submit your own
   something_missing: Something missing?
   edit_this_app: Edit this app.
-or: or
+or: 或
 pages:
   '/':
     title: Electron | 使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式。
     description: '使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式。'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Electron 應用程式
+    description: 用 Electron 建構的應用程式
   '/docs':
-    title: Documentation
+    title: 文件
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
+    title: Electron 部落格
     description: All the latest news from the Electron team and community.
   '/community':
     title: 社群
