@@ -10,39 +10,39 @@
 * Всі слова в заголовку сторінки мають писатися з великої літери, за винятком сполучників таких як "з" чи "і".
 * Тільки перше слово заголовку розділу має писатися з великої літери.
 
-Using `Quick Start` as example:
+Для прикладу `Швидкий старт`:
 
 ```markdown
-# Quick Start
+# Швидкий Старт
 
 ...
 
-## Main process
+## Загальний процес
 
 ...
 
-## Renderer process
+## Процес візуалізації
 
 ...
 
-## Run your app
+## Запуск додатку
 
 ...
 
-### Run as a distribution
+### Запустити як дистрибутив
 
 ...
 
-### Manually downloaded Electron binary
+### Завантажити вручну бібліотеку Electron
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Для довідника API є деякі винятки з цих правил.
 
-## Markdown rules
+## Правила Markdown
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Використовуйте `bash` замість `cmd` в блоках коду (згідно синтаксису підсвітки).
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
