@@ -6,23 +6,23 @@ Esta página define algunos términos que comúnmente se utilizan en el desarrol
 
 ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar](https://github.com/electron/asar) es un simple `tar`-como formato que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios de él sin desempacar el archivo entero.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows... Por hacer
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [fue](https://github.com/electron-archive/brightray) una biblioteca estática que hizo [libchromiumcontent](#libchromiumcontent) más fáciles de utilizar en aplicaciones. Es ahora obsoleto y se ha fusionado del Electron codebase.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+La biblioteca de Run-time C (CRT) es la parte de la biblioteca estándar de C++ que incorpora la biblioteca estándar de ISO C99. Las bibliotecas de Visual C++ que implementan el CRT apoyan desarrollo de código nativo y código mixto nativo y administrado tanto como solo código administrado para el desarrollo. NET.
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Una imagen de disco de Apple es un formato de empaquetado utilizado por macOS. Archivos DMG se utilizan comúnmente para la distribución de aplicaciones "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) soporta `dmg` como objetivo de compilación.
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Método de entrada del editor. Un programa que permite a los usuarios introducir caracteres y símbolos no encontrados en su teclado. Por ejemplo, esto permite a los usuarios de teclados latinos a caracteres de chino, Japonés, Coreano e Indio de entrada.
 
 ### IPC
 
@@ -30,13 +30,13 @@ IPC stands for Inter-Process Communication. Electron uses IPC to send serialized
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+Una biblioteca compartida que incluye el [módulo de contenido de Chromium](https://www.chromium.org/developers/content-module) y todas sus dependencias (por ejemplo, Blink, [V8](#v8), etc). También se le denomina "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### proceso principal
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+El proceso principal, comúnmente un archivo llamado `main.js`, es el punto de entrada a la aplicación de cada aplicación Electron. Controla la vida de la aplicación, desde que se abre hasta que se cierra. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
