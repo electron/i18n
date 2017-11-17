@@ -34,7 +34,7 @@ Long term support of older versions of Electron does not currently exist. If you
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
-## Core Philosophy
+## فلسفه اصلی
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
