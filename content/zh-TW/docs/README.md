@@ -57,7 +57,7 @@
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [選單](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
@@ -80,7 +80,7 @@
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
+* [螢幕](api/screen.md)
 * [shell](api/shell.md)
 
 ## 開發
