@@ -45,9 +45,9 @@ O formato de `package.json` e exatamente o mesmo que os módulos do Node, e o sc
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Nota**: Se o campo `main` não estiver presente em `package.json`, Electron tentará carregar `index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+O `main.js` deveria criar janelas e lidar com eventos do sistema, um tipico exemplo:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
