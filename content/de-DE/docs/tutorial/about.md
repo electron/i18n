@@ -52,5 +52,5 @@ Im folgenden finden Sie die Meilensteine in der Entwicklungsgeschichte Electrons
 | **Mai 2014**    | [Das Grundgerüst Atoms wird unter einer Open-Source-Lizenz veröffentlicht](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html). |
 | **April 2015**  | [Das Grundgerüst Atoms wird in Electron umbenannt](https://github.com/electron/electron/pull/1389).                                      |
 | **Mai 2016**    | [Electron veröffentlicht `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).                                               |
-| **Mai 2016**    | [Electron apps compatible with Mac App Store](https://electron.atom.io/docs/tutorial/mac-app-store-submission-guide).                    |
-| **August 2016** | [Windows Store support for Electron apps](https://electron.atom.io/docs/tutorial/windows-store-guide).                                   |
+| **Mai 2016**    | [Electron-Apps werden mit dem Mac App Store kompatibel](https://electron.atom.io/docs/tutorial/mac-app-store-submission-guide).          |
+| **August 2016** | [Windows Store unterstützt Electron-Apps](https://electron.atom.io/docs/tutorial/windows-store-guide).                                   |
