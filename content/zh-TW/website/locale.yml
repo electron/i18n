@@ -20,14 +20,14 @@ languages:
   current: current selection
 community:
   title: Electron 社群
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: '出自 Electron <a href="https://github.com/sindresorhus/awesome-electron">超棒</a>原始碼貢獻者的工具、模版、影片及其他資源。 加入或創辦一個你到得了的<a href="/community#meetups">聚會</a>。'
   tools: 工具
   boilerplates: 模版
   components: 元件
   videos: 影片
   meetups: 聚會
   awesome_notice: '這份清單是由 <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus 的 Awesome Electron</a>儲存庫自動產生的。<br> 發現少了什麼嗎? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">發個 Pull Request</a> 吧。'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  meetup_notice: '如果要增加聚會，改好 <code>data/meetups.json</code> 後 <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">發個 Pull Request</a>。'
 electron_is_easy:
   title: 比你想像的更容易
   description: 如果你有能力寫網站，就能寫得出桌用應用程式。 Electron 就是個用 JavaScrtip、HTML 及 CSS 等網頁技術開發原生應用程式的框架。鳥事它都包了，專注在你的核心功能吧。
@@ -106,7 +106,7 @@ pages:
     description: 所有 Electron 的使用指南及 API 說明文件，全部放在同一頁，方便搜尋。
   '/blog':
     title: Electron 部落格
-    description: All the latest news from the Electron team and community.
+    description: 來自 Electron 團隊及社群的最新消息。
   '/community':
     title: 社群
   '/releases':
