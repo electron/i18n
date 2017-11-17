@@ -17,7 +17,7 @@ docs:
 languages:
   choose_language: 選擇網站語言
   translation_progress: 翻譯進度
-  current: current selection
+  current: 目前選取
 community:
   title: Electron 社群
   description: '出自 Electron <a href="https://github.com/sindresorhus/awesome-electron">超棒</a>原始碼貢獻者的工具、模版、影片及其他資源。 加入或創辦一個你到得了的<a href="/community#meetups">聚會</a>。'
