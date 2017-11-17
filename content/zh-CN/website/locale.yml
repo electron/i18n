@@ -7,27 +7,27 @@ nav:
   userland: Userland
   releases: 版本发布
   contact: 联络
-  languages: Languages
+  languages: 语言
 docs:
-  title: Electron Documentation
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  title: Electron 文档
+  description: 在一页内查看所有的 <a href="/docs/all/"> 文档 </a> 或检查 <a href="/docs/faq/"> 常见问题 </a>。
   guides: 指南
   api_reference: API 参考
   advanced: Advanced
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: 请选择语言
+  translation_progress: 翻译进度
+  current: 当前所选
 community:
-  title: Electron Community
+  title: Electron 社区
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
-  boilerplates: Boilerplates
-  components: Components
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  tools: 工具
+  boilerplates: 模板
+  components: 组件
+  videos: 视频
+  meetups: 线下交流会
+  awesome_notice: '此列表是从 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus 的 Awesome Electron </a> 仓库生成的。<br> 缺少了什么？<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> 请发Pull Request </a>。'
+  meetup_notice: '若要添加线下交流会，请编辑 <code>data/meetups.json</code> 和 <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml"> 发pull request </a>。'
 electron_is_easy:
   title: 比你想象的更简单
   description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
@@ -74,7 +74,7 @@ headings:
   languages: 语言
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "帮助我们翻译"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
