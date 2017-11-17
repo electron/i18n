@@ -47,4 +47,4 @@ L’objet `BrowserWindowProxy` dispose des propriétés d’instance suivantes 
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+Un `Boolean` qui a la valeur true après que la fenêtre enfant soit fermée.
