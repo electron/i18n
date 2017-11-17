@@ -1,4 +1,4 @@
-# 術語彙編
+# 詞彙表
 
 This page defines some terminology that is commonly used in Electron development.
 
