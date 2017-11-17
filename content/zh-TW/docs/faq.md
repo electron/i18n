@@ -4,15 +4,15 @@
 
 執行 `npm install electron` 時，有些人會遇到安裝錯誤。
 
-大多數情況下，這些錯誤是來自於網路問題，而不是 `electron` npm 套件本身的問題。 Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+大多數情況下，這些錯誤是來自於網路問題，而不是 `electron` npm 套件本身的問題。 諸如 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 及 `ETIMEDOUT` 全都是網路方面的問題。 最好的處理方式就是切換網路看看，或是晚點再重裝一次。
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+如果透過 [npm](https://github.com/electron/electron/releases) 怎樣都裝不起來，你也可以直接由 `electron/electron/releases` 下載 Electron。
 
-## When will Electron upgrade to latest Chrome?
+## Electron 什麼時候會升到最新的 Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+通常在新 Chrome 穩定版發佈後一到兩週內，Electron 會更新 Chrome 的版本。 但這個時間只是概估值，沒有人可以給你掛保證，全看升級時需花多少工來決定。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+我們只會用穩定版的 Chrome。如果測試版或開發版中有重大的修正，我們會移植回來。
 
 For more information, please see the [security introduction](tutorial/security.md).
 
