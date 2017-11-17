@@ -1,4 +1,4 @@
-# globalShortcut
+# Atajos Globales
 
 > Detect keyboard events when the application does not have keyboard focus.
 
