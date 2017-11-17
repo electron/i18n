@@ -66,26 +66,26 @@ quick_start:
   clone: 複製 Quick Start 儲存庫
   go_into_repo: 進到儲存庫裡
   install_deps: 安裝相依的套件並執行
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: 或是深入閱讀<a href='/docs'>說明文件</a>。
 need_help:
-  title: Need Help?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  title: 需要協助嗎?
+  description: '到 <a href=''https://discuss.atom.io/c/electron''>Discuss</a> 論壇或我們的 <a href=''http://atom-slack.herokuapp.com/''>Slack</a> 頻道上發問。 在 Twitter 上跟隨 <a href="https://twitter.com/electronjs">@electronjs</a> ，不錯過任何重大消息。 想私底下來嗎? Email 到 <a href="mailto:electron@github.com">electron@github.com</a>。'
 headings:
   languages: 語言
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: 在我們強大的全球開發者社群提供的在地化內容。
 help_translate: "幫忙翻譯"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
+  see_something: 發現有東西欠修理嗎?
+  propose_change: 在原始碼上改好再提出來。
+  need_different_version: 需要別的版本的說明文件嗎?
   see_available_versions: 瀏覽可用的版本。
-  want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
+  want_something_searchable: 想搜尋些什麼嗎?
+  view_all_docs: 查看全部文件頁
   see_the_faq: 看看常見問題集
 apps:
   title: 用 Electron 建構的應用程式
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: '有了 Electron，把你的工作或想法打造成桌用應用程式變得超容易。 最早是為 GitHub 的 <a href=''https://atom.io'' target=''_blank''>Atom 編輯器</a>開發的，後來 Microsoft, Facebook, Slack 及 Docker 等公司也用 Electron 來開發應用程式。'
   view_more: 瀏覽更多應用程式
   submit_your_own: 提交您自己的
   something_missing: 少了什麼嗎?
@@ -100,10 +100,10 @@ pages:
     description: 用 Electron 建構的應用程式
   '/docs':
     title: 文件
-    description: Guides and API reference documentation for the latest Electron release
+    description: 最新版 Electron 的使用指南及 API 參考文件。
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Electron 全部的文件!
+    description: 所有 Electron 的使用指南及 API 說明文件，全部放在同一頁，方便搜尋。
   '/blog':
     title: Electron 部落格
     description: All the latest news from the Electron team and community.
@@ -113,10 +113,10 @@ pages:
     title: 版本發佈
   '/contact':
     title: 聯絡
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: 在 Twitter, Slack, GitHub 或 e-mail 與 Electron 團隊聯絡。
   '/languages':
     title: 語言
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: 找不到頁面。
+  if_this_is_an_error: 如果這個情況不該發生
+  please_file_an_issue: 請提出議題。
