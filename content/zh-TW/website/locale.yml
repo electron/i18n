@@ -56,16 +56,16 @@ explore:
   description:
     - '<a href="https://github.com/electron/electron-api-demos">Electron API 展示應用程式</a>'
     - 以互動的方式展示 Electron API 中最重要的功能。
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
+    - 透過範例程式及提示說明，看看 Electron 有什麼能耐
+    - 幫你建構出應用程式。
 download_from_github: 從 GitHub 下載
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+view_all_releases_on_github: '查看 GitHub 上的<a href="https://github.com/electron/electron-api-demos/releases">所有發行版本</a>'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  title: "玩玩 <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> 快速入門應用程式，實戰 Electron:"
+  description: 標滿有用註解的最小 Electron 應用程式。
+  clone: 複製 Quick Start 儲存庫
+  go_into_repo: 進到儲存庫裡
+  install_deps: 安裝相依的套件並執行
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: Need Help?
