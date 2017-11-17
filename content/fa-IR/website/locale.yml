@@ -10,8 +10,8 @@ nav:
   languages: زبان‌ها
 docs:
   title: مستندات الکترون
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
-  guides: Guides
+  description: تمام مستندات را در <a href="/docs/all/">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq/">سوالات متداول</a> را بررسی کنید.
+  guides: راهنماها
   api_reference: API Reference
   advanced: پیشرفته
 languages:
@@ -99,7 +99,7 @@ pages:
     title: Electron Apps
     description: Apps Built on Electron
   '/docs':
-    title: Documentation
+    title: مستندات
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!
