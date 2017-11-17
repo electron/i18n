@@ -79,16 +79,16 @@ Each page must use the actual object name returned by `require('electron')` as t
 ```markdown
 # autoUpdater
 
-## Events
+## Події
 
-### Event: 'error'
+### Подія: 'error'
 
-## Methods
+## Методи
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Класи
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
