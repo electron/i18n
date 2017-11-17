@@ -44,28 +44,28 @@ cross_platform:
 benefits:
   hard_parts_made_easy: Las partes difíciles de manera sencilla
   automatic_updates: Actualizaciones automáticas
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
+  native_menus_and_notifications: Menús nativos y notificaciones
+  crash_reporting: Informe de errores
   debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  windows_installers: Instaladores de Windows
 get_started:
-  title: Get started
+  title: Empezar
   description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
 explore:
-  title: Explore the Electron APIs
+  title: Explorar las APIs de Electron
   description:
     - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
+    - construyendo tu app.
+download_from_github: Descargar desde GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  description: Una aplicación mínima de Electron con útiles anotaciones.
   clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  go_into_repo: Ir al repositorio
+  install_deps: Instalar las dependencias y ejecutar
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: Need Help?
