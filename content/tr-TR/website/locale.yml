@@ -7,9 +7,9 @@ nav:
   userland: Kullanıcı alanı
   releases: Sürümler
   contact: İletişim
-  languages: Languages
+  languages: Diller
 docs:
-  title: Electron Documentation
+  title: Electron Dökümanları
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: Guides
   api_reference: API Reference
@@ -71,10 +71,10 @@ need_help:
   title: Yardıma mı ihtiyacınız var?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: Diller
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "Çeviriye yardım et"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
@@ -115,7 +115,7 @@ pages:
     title: İletişim
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: Diller
 _404:
   page_not_found: Page not found.
   if_this_is_an_error: If this is an error
