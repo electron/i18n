@@ -38,15 +38,15 @@ Une instance `IncomingMessage` possède les propriétés suivantes :
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+Un `Integer` indiquant le code d'état de la réponse HTTP.
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+Un `String` représentant le message d'état HTTP.
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+Un `Object` représentant les en-têtes de la réponse HTTP. L'objet d'`en-têtes` est formaté comme suit :
 
 * Tous les noms d’en-têtes sont en minuscules.
 * Chaque nom d’en-tête créer une propriété de tableau sur l’objet d'en-têtes.
@@ -54,12 +54,12 @@ An `Object` representing the response HTTP headers. The `headers` object is form
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Les valeurs habituelles sont '1.0' ou '1.1'. De plus, `httpVersionMajor` et `httpVersionMinor` sont deux propriétés entières lisibles qui retournent respectivement les numéros de version principale et secondaire de HTTP.
+Un `String` indiquant le numéro de version du protocole HTTP. Les valeurs habituelles sont '1.0' ou '1.1'. De plus, `httpVersionMajor` et `httpVersionMinor` sont deux propriétés entières lisibles qui retournent respectivement les numéros de version principale et secondaire de HTTP.
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+Un `Integer`indiquant le numéro de version majeur du protocol HTTP.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+Un `Integer` indiquant le numéro de version mineur du protocol HTTP.

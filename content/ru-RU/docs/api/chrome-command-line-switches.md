@@ -1,8 +1,8 @@
 # Поддерживаемые параметры командной строки Chrome
 
-> Command line switches supported by Electron.
+> Параметры командной строки поддерживаемые Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Вы можете использовать [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) для добавления параметров командной строки в основной скрипт вашего приложения, перед появлением [ready](app.md#event-ready) события в [app](app.md) модуле:
 
 ```javascript
 const {app} = require('electron')
@@ -10,35 +10,35 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Ваш код здесь
 })
 ```
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Игнорировать лимит подключения для `списка доменов`, разделённых `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Отключить кеширование на жёсткий диск для HTTP запросов.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Отключить HTTP/2 и SPDY/3.1 протоколы.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Связанные с отладкой флаги, смотрите [Отладка основного процесса](../tutorial/debugging-main-process.md) для деталей.
 
-## --remote-debugging-port=`port`
+## --remote-debugging-port=`порт`
 
-Enables remote debugging over HTTP on the specified `port`.
+Включает удалённую отладку через HTTP для указанного `порта`.
 
-## --disk-cache-size=`size`
+## --disk-cache-size=`размер`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Максимальный размер кеша на жёстком диске в байтах.
 
-## --js-flags=`flags`
+## --js-flags=`флаги`
 
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
@@ -46,11 +46,11 @@ Specifies the flags passed to the Node JS engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Смотрите [Node документацию](https://nodejs.org/api/cli.html) или запустите `node --help` в командной строке для списка доступных флагов. Дополнительно, запустите `node --v8-options` для просмотра списка флагов которые касаются Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Использует указанный proxy сервер, который перезаписывает системные настройки. Этот параметр влияет только на запросы HTTP протокола, включая HTTPS и WebSocket. Примечательно также, что не все proxy серверы поддерживают HTTPS и WebSocket протоколы.
 
 ## --proxy-bypass-list=`hosts`
 

@@ -2,9 +2,9 @@
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Процесс: [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+Следующий пример демонстрирует захват видео с окна рабочего стола с названием `Electron`:
 
 ```javascript
 // In the renderer process.
@@ -60,9 +60,9 @@ const constraints = {
 }
 ```
 
-## Methods
+## Методы
 
-The `desktopCapturer` module has the following methods:
+`desktopCapturer` имеет следующие методы:
 
 ### `desktopCapturer.getSources(options, callback)`
 

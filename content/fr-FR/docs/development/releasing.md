@@ -176,21 +176,21 @@ git branch -D release # delete local branch
 git push origin :release # delete remote branch
 ```
 
-## Promoting a release on npm
+## Rendre stable une release sur npm
 
-New releases are published to npm with the `beta` tag. Every release should eventually get promoted to stable unless there's a good reason not to.
+Les nouvelles version sont publiées sur npm avec le tag `beta`. Chaque version devrait finalement être rendu stable sauf s'il existe une bonne raison de ne pas le faire.
 
-Releases are normally given around two weeks in the wild before being promoted. Before promoting a release, check to see if there are any bug reports against that version, e.g. issues labeled with `version/1.7.x`.
+Les versions sont rendu stable après environ deux semaines de publication. Avant de rendre stable une version, vérifiez qu'il n'y a aucun rapport de bug envers cette version, par exemple des issues avec le label `version/1.7.x`.
 
-It's also good to ask users in Slack if they're using the beta versions successfully.
+Il est également conseillé de demander aux utilisateurs sur Slack s'ils utilisent cette version bêta sans rencontrer de problème.
 
-To see what's beta and stable at any given time:
+Pour voir quelle version est en bêta et stable à tout moment :
 
     $ npm dist-tag ls electron  
     beta: 1.7.5
     latest: 1.6.11
     
 
-To promote a beta version to stable (aka `latest`):
+Pour rendre une version bêta stable (dit `latest`):
 
     npm dist-tag add electron@1.2.3 latest

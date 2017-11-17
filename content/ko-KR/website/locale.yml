@@ -1,122 +1,122 @@
-tagline: JavaScript, HTML, and CSS를 이용해 크로스 플랫폼 데스크탑 앱을 구축한다.
+tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크탑 앱을 만들어보세요
 nav:
-  docs: 문서들
+  docs: 문서
   blog: 블로그
   community: 커뮤니티
   apps: 앱
-  userland: 메뉴얼
-  releases: 출시
-  contact: 컨택트
+  userland: 매뉴얼
+  releases: 릴리즈
+  contact: 연락처
   languages: 언어
 docs:
   title: Electron 문서
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  description: 모든 문서는<a href="/docs/all/">여기</a>에서 확인할 수 있고 <a href="/docs/faq/"> FAQ</a>를 확인하세요.
   guides: 안내서
-  api_reference: API Reference
-  advanced: Advanced
+  api_reference: API 참조 문서
+  advanced: 고급
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: 이 웹사이트를 볼 언어를 선택하세요
+  translation_progress: 번역 진행 단계
+  current: 현재 선택된 단계
 community:
-  title: Electron Community
+  title: Electron 커뮤니티
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
-  boilerplates: Boilerplates
-  components: Components
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
+  tools: 도구
+  boilerplates: 상용구
+  components: 컴포넌트
+  videos: 동영상
+  meetups: 모임
+  awesome_notice: '이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>'
   meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  title: 이것은 당신이 생각한 것보다 쉽습니다
+  description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. 이것은 어려운 부분을 처리하므로 당신의 애플리케이션의 핵심 부분에 집중할 수 있습니다.
+  video_link: 동영상 보기
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: 웹 기술
+  description: Electron은 크로미움과 Node.js를 사용하여, 여러분들이 HTML, CSS, 그리고 자바스크립트를 이용해 애플리케이션을 만들수 있도록 해줍니다.
 open_source:
-  title: Open Source
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: 오픈 소스
+  desciption: Electron은 GitHub가 관리하는 오픈소스 프로젝트이며 적극적인 참여자와 함께하는 커뮤니티입니다.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: 크로스 플랫폼
+  description: 맥, 윈도우, 리눅스와 호환되며, Electron 애플리케이션은 세개의 플랫폼에서 빌드되고 동작합니다.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: 어려운 부분을 쉽게 만들었습니다.
+  automatic_updates: 자동 업데이트
+  native_menus_and_notifications: 기본 메뉴 & 알림
+  crash_reporting: 충돌 보고
+  debugging_and_profiling: 디버깅 및 프로파일링
+  windows_installers: 윈도우 설치 프로그램
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: 시작하기
+  description: Electron을 시작하려면 아래에 있는 리소스를 확인하세요. 어떻게 Electron으로 당신의 웹 앱을 개발하고, 모든 API에 액세스하고, 설치 프로그램을 생성하는지에 대해 알아보세요.
 explore:
-  title: Explore the Electron APIs
+  title: Electron API를 탐색하세요
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
+    - '<a href="https://github.com/electron/electron-api-demos">Electron API 데모 애플리케이션</a>'
     - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+    - 예제 코드와 유용한 팁들로 Electron으로 무엇이 가능한지 살펴봅니다
+    - 여러분의 앱을 만드세요.
+download_from_github: GitHub에서 다운로드
+view_all_releases_on_github: 'GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
   clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  go_into_repo: 저장소로 이동
+  install_deps: 종속성을 설치하고 실행하세요
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
-  title: Need Help?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  title: 도움이 필요하신가요?
+  description: '<a href=''https://discuss.atom.io/c/electron''>토론</a>포럼이나<a href = ''http: //atom-slack.herokuapp.com/'' > Slack </a> 채널에서 질문하실 수 있습니다. 중요한 알림을 들으시려면 트위터의 <a href="https://twitter.com/electronjs"> @electronjs </a>를 팔로우하세요. 개인적으로 연락을 원하시나요? <a href="mailto:electron@github.com"> electron@github.com</a>로 메일을 보내주세요.'
 headings:
   languages: 언어
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+  languages: 우리의 멋진 글로벌 개발자 커뮤니티에서 지역화된 콘텐츠입니다.
+help_translate: "번역에 도움을 주세요."
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
-  want_something_searchable: Want something searchable?
+  see_something: 뭔가 고쳐야 할 것이 있나요?
+  propose_change: 소스 파일에 변화를 제안합니다.
+  need_different_version: 다른 버전의 문서가 필요하신가요?
+  see_available_versions: 사용 가능한 버전을 확인하세요.
+  want_something_searchable: 뭔가 검색을 원하십니까?
   view_all_docs: View all docs on one page
   see_the_faq: See the frequently asked questions
 apps:
-  title: Apps built on Electron
+  title: Electron으로 설계된 애플리케이션
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
-or: or
+  view_more: 더 많은 애플리케이션 보기
+  submit_your_own: 의견을 제출하세요
+  something_missing: 뭔가 누락되었나요?
+  edit_this_app: 이 앱을 수정하세요.
+or: 또는
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | 자바스크립트, HTML, CSS를 이용해 크로스 플랫폼 데스크톱 앱을 만들어보세요.
+    description: 'Electron | 자바스크립트, HTML, CSS를 이용해 크로스 플랫폼 데스크톱 앱을 만들어보세요.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Electron 앱
+    description: Electron으로 설계된 애플리케이션
   '/docs':
-    title: Documentation
+    title: 문서
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
-    title: All the Electron Docs!
+    title: 모든 Electron 문서!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Electron 블로그
+    description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
   '/community':
     title: 커뮤니티
   '/releases':
-    title: 출시
+    title: 릴리즈
   '/contact':
-    title: 컨택트
+    title: 연락처
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: 언어
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: 페이지를 찾을 수 없습니다.
+  if_this_is_an_error: 만약 이것이 오류라면
+  please_file_an_issue: 이슈를 첨부해주세요.

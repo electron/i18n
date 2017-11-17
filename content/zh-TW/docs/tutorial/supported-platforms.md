@@ -1,4 +1,4 @@
-# 支援平臺
+# 支援平台
 
 Following platforms are supported by Electron:
 

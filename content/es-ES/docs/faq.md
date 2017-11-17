@@ -2,23 +2,23 @@
 
 ## ¿Por qué tengo problemas al instalar Electron?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Cuando ejecutamos `npm install electron`, algunos usuarios ocacionalmente encuentran errores.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+En la mayoria de los casos, estos errores son el resultado de problemas con la red y no problemas con el paquete de npm `electron`. Errores como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` y `ETIMEDOUT` son indicadores de dichos problemas. La mejor solución es intentar cambiar de red o esperar un poco e intentar nuevamente.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+También puede intentar descargar Electron directamente desde [electron/electron/releases](https://github.com/electron/electron/releases) si la instalación vía `npm` falla.
 
-## ¿Cuándo Electron se actualizará a la última versión de Chrome?
+## ¿Cuando se actualizará Electron a la más reciente versión de Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+La versión de Chrome de Electron es usualmente actualizada con una o dos semanas después de que una nueva versión estable de Chrome es publicada. Esta estimación no se garantiza y depende de la carga de trabajo que implica la actualización.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Solamente el canal estable de Chrome es utilizado. Si una corrección importante se encuentra en los canales beta o dev, actualizaremos a la versión.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Para mas información, por favor lea la [introducción de seguridad](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## ¿Cuándo se actualizará Electron a la última versión de Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Cuando una nueva versión de Node.js es publicada, usualmente esperamos aproximadamente un mes antes de actualizar la versión de Electron. Con esto evitamos afectarnos por bugs introducidos en la nueva versión de Node.js, lo cual sucede frecuentemente.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
@@ -134,4 +134,4 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Sin embargo si utilizas el módulo incorporado, pero sigue recibiendo este error, es muy probable que está utilizando el módulo en el proceso equivocado. Por ejemplo `electron.app` puede ser utilizado en el proceso principal, mientras que `electron.webFrame` sólo está disponible en los procesos de renderizado.

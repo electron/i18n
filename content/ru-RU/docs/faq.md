@@ -1,32 +1,32 @@
 # FAQ по Electron
 
-## Why am I having trouble installing Electron?
+## Проблемы, возникающие при установке Electron
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+При запуске `npm install electron`, некоторые пользователи встречаются с некоторыми ошибками.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Почти всегда данные ошибки являются результатом проблем сети и не связаны с работой Electron. Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`,`ECONNRESET` и `ETIMEDOUT` возникают в результате проблем с сетью. Лучшим решением в данном случае будет попытка подключения к другой сети или просто немного подождите, возможно это временное явление.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Вы также можете попробовать скачать Electron напрямую из [electron/electron/releases](https://github.com/electron/electron/releases), если не удается установить через `npm`.
 
-## When will Electron upgrade to latest Chrome?
+## Когда Electron получает последнее обновление Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Chrome для Electron обычно выпускается в течение одной или двух недель после выпуска стабильной версии Chrome. Этот срок не является гарантированным и зависит от объема работ связанных с обновлением.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Используются только стабильные версии Chrome. Если необходимо внести важные исправления в beta или dev версии, мы произведем бэкпорт.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Для получения дополнительной информации, пожалуйста, просмотрите [Введение в обеспечение безопасности](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Когда Electron производит обновление до последней версии Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+После выпуска новой версии Node.js, мы обычно ждем примерно месяц до обновления в Electron. Это помогает избежать ошибок, которые присутствуют в новых версиях Node.js, что случается довольно часто.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Новые возможности Node.js обычно входят в обновления V8, так как Electron использует V8, поставляемый с браузером Chrome, новейшие возможности JavaScript в новом Node.js версии обычно уже входят в Electron.
 
-## How to share data between web pages?
+## Как передавать данные между страницами?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Для передачи данных между веб-страницами (процессами рендеринга) самым простым способом является использование HTML5 API который уже доступен в браузерах. Такими, как: [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), и [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Или же вы можете использовать систему IPC, которая характерна для Electron, для хранения объектов в главном процессе как глобальную переменную, и затем получать доступ к ней из рендереров через `remote` переменную `electron`:
 
 ```javascript
 // В главном процессе
@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Окно/Трей моего приложения исчезает через несколько минут.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Это происходит, когда переменная, используемая для хранения панели окна/трея уничтожается сборщиком мусора.
 
-If you encounter this problem, the following articles may prove helpful:
+Если вы столкнулись с этой проблемой, могут оказаться полезными следующие статьи:
 
 * [Управление памятью](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Область видимости переменной](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Если вы хотите это быстро исправить, вы можете сделать переменную глобальной, заменив для этого следующий код:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+на этот:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,11 +75,11 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## У меня не получается использовать Jquery/RequireJS/Meteor/AngularJS в Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+В связи с интеграцией Node.js с Electron, существуют некоторые дополнительные ключевые слова вставляемые в DOM такие как: `module`, `exports`, `require`. Это чревато проблемами совместимости, так как многие библиотеки используют одинаковые имена(например, переменных).
 
-To solve this, you can turn off node integration in Electron:
+Для решения этой проблемы, вы можете отключить интеграцию node в Electron:
 
 ```javascript
 // В главном процессе.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Но если вы хотите сохранить возможность использования Node.js или API Electron, вы должны переименовать переменные на странице перед подключением других библиотек:
 
 ```html
 <head>
@@ -106,9 +106,9 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` is undefined (не определено).
 
-When using Electron's built-in module you might encounter an error like this:
+При использовании встроенного модуля Electron может возникнуть подобная ошибка:
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
@@ -134,4 +134,4 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Однако если вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, вы используете модуль в неподходящем процессе. Например `electron.app` может быть использован только в главном процессе, в то время как `electron.webFrame` доступен только в процессах рендеринга.

@@ -288,13 +288,13 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Evento: 'certificate-error'
 
 Retorna:
 
 * `event` Event
 * `url` String
-* `error` String - The error code
+* `error` String - O código de erro
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
@@ -303,7 +303,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Evento: 'select-client-certificate'
 
 Retorna:
 
@@ -313,11 +313,11 @@ Retorna:
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Emitido quando um certificado de cliente é solicitado.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Evento: 'login'
 
 Retorna:
 
@@ -336,7 +336,7 @@ Retorna:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Emitido quando `webContents` quer fazer uma autenticação básica.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
