@@ -25,7 +25,7 @@ community:
   boilerplates: Boilerplates
   components: 元件
   videos: 影片
-  meetups: Meetups
+  meetups: 聚會
   awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
   meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
@@ -37,28 +37,28 @@ web_technologies:
   description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTM、CSS 和 JavaScript 建構自己的應用程式。
 open_source:
   title: 開放原始碼
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  desciption: Electron 是由 GitHub 及活躍貢獻者社群共用維護的開於原始碼專案。
 cross_platform:
   title: 跨平台
   description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
 benefits:
   hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
+  automatic_updates: 自動更新
+  native_menus_and_notifications: 原生選單及通知
+  crash_reporting: 當機回報
   debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  windows_installers: Windows 安裝程式
 get_started:
-  title: Get started
+  title: 開始使用
   description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
 explore:
-  title: Explore the Electron APIs
+  title: 探索 Electron API
   description:
     - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
-download_from_github: Download from GitHub
+download_from_github: 從 GitHub 下載
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
@@ -74,22 +74,22 @@ headings:
   languages: 語言
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "幫忙翻譯"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
   need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
+  see_available_versions: 瀏覽可用的版本。
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
   see_the_faq: See the frequently asked questions
 apps:
-  title: Apps built on Electron
+  title: 用 Electron 建構的應用程式
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  view_more: 瀏覽更多應用程式
+  submit_your_own: 提交您自己的
+  something_missing: 少了什麼嗎?
+  edit_this_app: 編輯這個應用程式式。
 or: 或
 pages:
   '/':
