@@ -10,12 +10,12 @@ nav:
   languages: 語言
 docs:
   title: Electron 文件
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  description: 瀏覽<a href="/docs/all/">完整文件頁</a>，或是到<a href="/docs/faq/">常見問題集</a>中看看。
   guides: 導引
   api_reference: API 参考
   advanced: 進階
 languages:
-  choose_language: Choose Your Site Language
+  choose_language: 選擇網站語言
   translation_progress: 翻譯進度
   current: current selection
 community:
@@ -82,7 +82,7 @@ footer:
   see_available_versions: 瀏覽可用的版本。
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  see_the_faq: 看看常見問題集
 apps:
   title: 用 Electron 建構的應用程式
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
