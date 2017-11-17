@@ -10,7 +10,7 @@ nav:
   languages: 언어
 docs:
   title: Electron 문서
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  description: 모든 문서는<a href="/docs/all/">여기</a>에서 확인할 수 있고 <a href="/docs/faq/"> FAQ</a>를 확인하세요.
   guides: 안내서
   api_reference: API 참조 문서
   advanced: 고급
