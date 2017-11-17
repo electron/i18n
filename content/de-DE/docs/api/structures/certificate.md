@@ -1,12 +1,12 @@
 # Zertifikatsobjekt
 
 * `Daten` String - PEM verschlüsselte Daten
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
-* `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
-* `subjectName` String - Subject's Common Name
-* `serialNumber` String - Hex value represented string
-* `validStart` Number - Start date of the certificate being valid in seconds
+* `Herausgeber` [Hauptzertifikat](certificate-principal.md) - Hauptherausgeber
+* `herausgeberName` String - Allgemeiner Name des Herausgebers
+* `herausgeberZertifikat` Zertifikat - Herausgeber Zertifikat (falls nicht selbstsigniert)
+* `Betreff` [Hauptzertifikat](certificate-principal.md) - Hauptbetreff
+* `betreffName` String - Allgemeiner Name des Betreffs
+* `Ordnungsnummer` String - Hex-Wert repräsentiert String
+* `gültigerStart` Anzahl - Startdatum des Zertifikats, gültig in Sekunden
 * `validExpiry` Number - End date of the certificate being valid in seconds
 * `fingerprint` String - Fingerprint of the certificate
