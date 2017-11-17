@@ -1,8 +1,8 @@
-# Locales
+# Localização
 
-> Locale values returned by `app.getLocale()`.
+> Valores de localização são retornados por `app.getLocale()`.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron usa biblioteca `l10n_util` do Chromium para buscar a localização. Possíveis valores estão listados abaixo:
 
 | Language Code | Language Name           |
 | ------------- | ----------------------- |
