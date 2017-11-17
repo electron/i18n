@@ -60,21 +60,21 @@
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Під заголовом сторінки має бути стрічка опису, яка починаєтсья з `>`.
 
-Using `session` as example:
+Для прикладу `session`:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Управління сесією браузера, кукі, кешем, налаштуваннями проксі і тд.
 ```
 
-### Module methods and events
+### Методи та події модуля
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Для модулів, що не є класами, їхні методи та події мають бути перелічені під `## Методи` та `## Події` розділами.
 
-Using `autoUpdater` as an example:
+Для прикладу `autoUpdater`:
 
 ```markdown
 # autoUpdater
