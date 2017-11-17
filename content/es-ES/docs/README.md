@@ -23,46 +23,46 @@ Hay preguntas que se hacen a frecuentemente. Revise la siguiente liga antes de r
 * [Uso del Plugin de Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Uso del plugin MDL Widevine](tutorial/using-widevine-cdm-plugin.md)
 * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
+* [Atajos del teclado](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Tutoriales
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Inicio Rápido](tutorial/quick-start.md)
+* [Integración del entorno de escritorio](tutorial/desktop-environment-integration.md)
+* [Detección de eventos online y Offline](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Notificaciones nativas](tutorial/notifications.md)
 
-## API References
+## Referencia de la API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
+* [Sinopsis](api/synopsis.md)
+* [Objeto de proceso](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Variables de entorno](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Elementos de DOM personalizados:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`Archivo` Objeto](api/file-object.md)
+* [`<webview>` Etiqueta](api/webview-tag.md)
+* [`window.open` Función](api/window-open.md)
 
-### Modules for the Main Process:
+### Módulos para el proceso principal:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
+* [diálogo](api/dialog.md)
+* [Atajos Globales](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [Menú](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [red](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
+* [protocolo](api/protocol.md)
 * [período de sesiones](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Bandeja](api/tray.md)
