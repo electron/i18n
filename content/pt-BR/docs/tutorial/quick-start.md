@@ -35,11 +35,11 @@ seu-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+O formato de `package.json` e exatamente o mesmo que os módulos do Node, e o script especificado pelo campo `main` é o script de inicialização do seu app, que executará no processo principal. Um exemplo de como seu `package.json` possa parecer:
 
 ```json
 {
-  "name"    : "your-app",
+  "name"    : "seu-app",
   "version" : "0.1.0",
   "main"    : "main.js"
 }
