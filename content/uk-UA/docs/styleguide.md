@@ -1,14 +1,14 @@
-# Electron Documentation Styleguide
+# Стиль документації Electron
 
-These are the guidelines for writing Electron documentation.
+Це рекомендації для написання документації Electron.
 
-## Titles
+## Заголовки
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Кожна сторінка має мати єдиний заголовок рівня `#` у верхній частині.
+* Розділи цієї сторінки мають мати заголовки рівня `##`.
+* Підрозділи мають збільшувати кількість `#` згідно глибини вкладеності.
+* Всі слова в заголовку сторінки мають писатися з великої літери, за винятком сполучників таких як "з" чи "і".
+* Тільки перше слово заголовку розділу має писатися з великої літери.
 
 Using `Quick Start` as example:
 
