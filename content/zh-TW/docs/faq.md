@@ -1,10 +1,10 @@
-# Electron 常見問題
+# Electron 常見問題集
 
-## Why am I having trouble installing Electron?
+## 為什麼我的 Electron 裝不起來?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+執行 `npm install electron` 時，有些人會遇到安裝錯誤。
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+大多數情況下，這些錯誤是來自於網路問題，而不是 `electron` npm 套件本身的問題。 Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
