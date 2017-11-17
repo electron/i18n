@@ -92,9 +92,9 @@ Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新�
 
 V8 是谷歌公司的开源的 JavaScript 引擎。它使用 C++ 编写并使用在谷歌公司开源的的浏览器 Chrome 上。V8 能够单独运行或者集成在任何一个 C++ 应用内。
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron将 V8 作为Chromium的一部分构建，然后构建Node时将它指向那个 V8
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8 的版本号总是和谷歌 Chrome的版本号对应。Chrome 59包括 V8 5.9，Chrome 58包括 V8 5.8，等等。
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
