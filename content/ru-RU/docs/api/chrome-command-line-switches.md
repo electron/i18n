@@ -2,7 +2,7 @@
 
 > Параметры командной строки поддерживаемые Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Вы можете использовать [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) для добавления параметров командной строки в основной скрипт вашего приложения, перед появлением [ready](app.md#event-ready) события в [app](app.md) модуле:
 
 ```javascript
 const {app} = require('electron')
@@ -10,21 +10,21 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Ваш код здесь
 })
 ```
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Игнорировать лимит подключения для `списка доменов`, разделённых `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Отключить кеширование на жёсткий диск для HTTP запросов.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Отключить HTTP/2 и SPDY/3.1 протоколы.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
