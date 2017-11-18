@@ -81,8 +81,8 @@ footer:
   need_different_version: 다른 버전의 문서가 필요하신가요?
   see_available_versions: 사용 가능한 버전을 확인하세요.
   want_something_searchable: 뭔가 검색을 원하십니까?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  view_all_docs: 한 페이지에 모든 문서 보기
+  see_the_faq: 자주 묻는 질문
 apps:
   title: Electron으로 설계된 애플리케이션
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
@@ -100,7 +100,7 @@ pages:
     description: Electron으로 설계된 애플리케이션
   '/docs':
     title: 문서
-    description: Guides and API reference documentation for the latest Electron release
+    description: Electron의 가장 최신 릴리즈를 위한 가이드와 API 레퍼런스 문서
   '/docs/all':
     title: 모든 Electron 문서!
     description: All of Electron's guides and API documentation on a single, searchable page.
