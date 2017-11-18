@@ -17,7 +17,7 @@
 * [Windows Store 上架導引](tutorial/windows-store-guide.md)
 * [應用程式打包](tutorial/application-packaging.md)
 * [使用原生 Node 模組](tutorial/using-native-node-modules.md)
-* [Debug 主行程](tutorial/debugging-main-process.md)
+* [Debug 主處理序](tutorial/debugging-main-process.md)
 * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools 擴充](tutorial/devtools-extension.md)
 * [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
@@ -47,7 +47,7 @@
 * [`<webview>`<webview></0> 標籤](api/webview-tag.md)
 * [`window.open`函數](api/window-open.md)
 
-### 主行程可用的模組：
+### 主處理序可用的模組：
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
