@@ -50,7 +50,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+`channel`을 수신하고, 새로운 메시지가 도착하면 `listener`는 `listener(event, args...)`로 호출된다.
 
 ### `ipcMain.once(channel, listener)`
 
