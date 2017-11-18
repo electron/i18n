@@ -47,7 +47,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## 建置
 
 Build both `Release` and `Debug` targets:
 
