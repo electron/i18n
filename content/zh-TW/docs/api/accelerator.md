@@ -1,10 +1,10 @@
-# Accelerator
+# 快速鍵
 
-> Define keyboard shortcuts.
+> 定義鍵盤快速鍵。
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Examples:
+範例:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
