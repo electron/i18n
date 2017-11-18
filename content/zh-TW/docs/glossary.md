@@ -10,7 +10,7 @@ ASAR 格式主要是為了提高在 Windows 上執行的效能... TODO
 
 ### Brightray
 
-Brightray [之前是](https://github.com/electron-archive/brightray)讓應用程式方便使用 [libchromiumcontent](#libchromiumcontent) 的靜態程式庫。 It is now deprecated and has been merged into Electron's codebase.
+Brightray [之前是](https://github.com/electron-archive/brightray)讓應用程式方便使用 [libchromiumcontent](#libchromiumcontent) 的靜態程式庫。 目前已經沒在用了，相關程式已直接整合進 Electron 中。
 
 ### CRT
 
@@ -22,7 +22,7 @@ An Apple Disk Image is a packaging format used by macOS. DMG files are commonly 
 
 ### IME
 
-輸入法編輯器。 讓使用者能輸入不在鍵盤上的字元及符號的程式。 例如，讓使用者在拉丁鍵盤上輸入中文、日文、韓文和印度文字。
+輸入法編輯器 (Input Method Editor)。 讓使用者能輸入不在鍵盤上的字元及符號的程式。 例如，讓使用者在拉丁鍵盤上輸入中文、日文、韓文和印度文字。
 
 ### IPC
 
@@ -34,19 +34,19 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### 主處理序
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+可再參考: [處理序](#process), [畫面轉譯處理序](#renderer-process)
 
 ### MAS
 
 Apple Mac App Store 的縮寫。如何將你的應用程式送上 MAS，可以參考[Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)。
 
-### native modules
+### 原生模組
 
 Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
@@ -60,11 +60,11 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ## OSR
 
-Off-screen rendering.
+螢幕外畫面轉譯 (Off-Screen Rendering)。
 
-### process
+### 處理序
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+處理序 (Process) 是電腦程式執行中的一個執行個體。 Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
