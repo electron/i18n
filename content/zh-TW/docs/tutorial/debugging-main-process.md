@@ -2,9 +2,9 @@
 
 The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
 
-## Command Line Switches
+## 命令列參數
 
-使用以下的命令列開關，啟用主處理序 Debug 功能:
+使用以下的命令列參數，啟用主處理序 Debug 功能:
 
 ### `--inspect=[port]`
 
