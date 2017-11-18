@@ -2,7 +2,7 @@
 
 > Configure local and global keyboard shortcuts
 
-## Local Shortcuts
+## 局域快速鍵
 
 You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
@@ -11,9 +11,9 @@ const {Menu, MenuItem} = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
-  label: 'Print',
+  label: '列印',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { console.log('是時候印點東西了') }
 }))
 ```
 
@@ -25,7 +25,7 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## 全域快速鍵
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## BrowserWindow 內的快速鍵
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
