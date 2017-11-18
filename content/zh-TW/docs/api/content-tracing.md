@@ -18,11 +18,11 @@ app.on('ready', () => {
   }
 
   contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+    console.log('開始追蹤')
 
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
+        console.log('追蹤資料寫到 ' + path)
       })
     }, 5000)
   })
@@ -45,7 +45,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 ### `contentTracing.startRecording(options, callback)`
 
 * `options` Object 
-  * `categoryFilter` String
+  * `categoryFilter` 字串
   * `traceOptions` String
 * `callback` Function
 
@@ -53,7 +53,7 @@ Start recording on all processes.
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` 篩選器，用來選出要追蹤的類別群組。 A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
 Examples:
 
@@ -90,7 +90,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `options` Object 
-  * `categoryFilter` String
+  * `categoryFilter` 字串
   * `traceOptions` String
 * `callback` Function
 
