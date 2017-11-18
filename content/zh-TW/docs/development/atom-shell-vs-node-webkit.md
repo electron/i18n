@@ -1,4 +1,4 @@
-# Electron 與 NW.js (原名 webkit) 的技術差異
+# Electron 與 NW.js (原名 node-webkit) 的技術差異
 
 **注： Electron 以前名為 Atom Shell。**
 
