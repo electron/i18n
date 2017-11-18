@@ -2,7 +2,7 @@
 
 > Submit crash reports to a remote server.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+處理序: [主要](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 The following is an example of automatically submitting a crash report to a remote server:
 
