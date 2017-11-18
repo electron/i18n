@@ -16,7 +16,7 @@ Electron 是由 GitHub 的一個團隊以及一群來自社群的 [活躍的貢�
 
 [Electron 發佈](https://github.com/electron/electron/releases)頻繁。當有重大的臭蟲修復、提供新的 API、或是 Chromium 或 Node.js 有版本更新時，我們會發佈 Electron。
 
-### 更新相依性
+### 相依套件更版
 
 Electron 的 Chromium 版本通常會在 Chromium 穩定版釋出後的一至兩個星期內更新，這取決於 Chromium 更新版所牽涉的努力。
 
@@ -24,7 +24,7 @@ When a new version of Node.js is released, Electron usually waits about a month 
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
-### 版本號
+### 版號規則
 
 Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
 
@@ -34,7 +34,7 @@ Long term support of older versions of Electron does not currently exist. If you
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
-## 核心哲學
+## 核心理念
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
