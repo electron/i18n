@@ -20,7 +20,7 @@ languages:
   current: 현재 선택된 단계
 community:
   title: Electron 커뮤니티
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'Electron의 <a href="https://github.com/sindresorhus/awesome-electron">멋진</a> 오픈소스 기여자들이 만든 도구들, 상용구, 비디오. 근처의 <a href="/community#meetups">모임</a>을 찾거나 만들어보세요.'
   tools: 도구
   boilerplates: 상용구
   components: 컴포넌트
