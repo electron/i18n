@@ -70,7 +70,7 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## 建置
 
 If you would like to build both `Release` and `Debug` targets:
 
@@ -78,7 +78,7 @@ If you would like to build both `Release` and `Debug` targets:
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. 檔案大小超過 1.3GB。 This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```bash
 $ ./script/create-dist.py
@@ -120,11 +120,11 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## 測試
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## 進階主題
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
