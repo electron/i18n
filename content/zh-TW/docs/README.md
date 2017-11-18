@@ -2,7 +2,7 @@
 
 ## 常見問題集
 
-這裡有常被提出的問題。請在建立問題之前檢查你的問題是否出現在當中。
+這裡列出最常被問到旳問題。請在發出議題前先檢查看看你的問題是否已經有人問過了。
 
 * [Electron 常見問題集](faq.md)
 
@@ -12,7 +12,7 @@
 * [支援平臺](tutorial/supported-platforms.md)
 * [安全性](tutorial/security.md)
 * [Electron 版號規則](tutorial/electron-versioning.md)
-* [應用程式發布](tutorial/application-distribution.md)
+* [應用程式發佈](tutorial/application-distribution.md)
 * [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store 上架導引](tutorial/windows-store-guide.md)
 * [應用程式打包](tutorial/application-packaging.md)
@@ -21,7 +21,7 @@
 * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools 擴充](tutorial/devtools-extension.md)
 * [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
-* [使用 Widevine 外掛](tutorial/using-widevine-cdm-plugin.md)
+* [使用 Widevine CDM 外掛程式](tutorial/using-widevine-cdm-plugin.md)
 * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
 * [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
@@ -37,8 +37,8 @@
 ## API 参考
 
 * [簡介](api/synopsis.md)
-* [進程物件](api/process.md)
-* [支援 Chrome 命令行開關](api/chrome-command-line-switches.md)
+* [處理序物件](api/process.md)
+* [支援的 Chrome 命令列參數](api/chrome-command-line-switches.md)
 * [環境變數](api/environment-variables.md)
 
 ### 自訂 DOM 元素：
