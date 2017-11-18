@@ -54,7 +54,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
+* [hộp thoại](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
