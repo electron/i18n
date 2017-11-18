@@ -72,17 +72,15 @@ function createWindow () {
   // 打開 DevTools。
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // 視窗關閉時會觸發。
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // 拿掉 window 物件的參照。如果你的應用程式支援多個視窗，
+    // 你可能會想存成陣列，現在該是時候清除相關的物件了。
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// 這個方法在 Electron 初始化完成，準備好建立瀏覽器視窗時會被叫用。
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
