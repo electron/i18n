@@ -1,6 +1,6 @@
 # DevTools エクステンション
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Electronは、Webフレームワークをデバッグするために使われているdevtoolsの、機能を拡張することができる[Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools)をサポートしています。
 
 ## How to load a DevTools Extension
 
