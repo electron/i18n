@@ -784,8 +784,7 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
-win.setSheetOffset(toolbarRect.height)
+let toolbarRect = document.getElementById('toolbar').getBoundingClientRect() win.setSheetOffset(toolbarRect.height)
 ```
 
 #### `win.flashFrame(flag)`
