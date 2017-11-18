@@ -21,7 +21,7 @@ L'objet `app` émet les événements suivants :
 
 Émis lorsque l'application a terminé son démarrage de base. Sur Windows et Linux, l'événement `will-finish-launching` est le même que l'événement `ready`. Sur macOS, cet événement représente la notification `applicationWillFinishLaunching` de `NSApplication`. Vous allez habituellement mettre en place des écouteurs pour les événements `open-file` et `open-url` ici, et lancer le reporteur d'incident et la mise à jour automatique.
 
-Dans la plupart des cas, vous devrez tout faire dans le contrôleur de l'événement `ready`.
+Dans la plupart des cas, vous devriez tout faire dans le contrôleur de l'événement `ready`.
 
 ### Événement : 'ready'
 
@@ -292,7 +292,7 @@ Notez bien que cette méthode ne ferme pas l'application, vous devez appeler `ap
 
 Quand `app.relaunch` est appelé plusieurs fois, plusieurs instances vont être appelées après que l'instance actuelle soit fermée.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Voici un exemple qui redémarre une nouvelle instance immédiatement en ajoutant un nouvel argument de ligne de commande à la nouvelle instance :
 
 ```javascript
 const {app} = require('electron')
@@ -303,7 +303,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
 
 ### `app.focus()`
 
