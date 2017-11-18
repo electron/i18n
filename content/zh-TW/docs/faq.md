@@ -51,8 +51,8 @@ This happens when the variable which is used to store the window/tray gets garba
 
 If you encounter this problem, the following articles may prove helpful:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [記憶體管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [變數範圍](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:
 
@@ -75,9 +75,9 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## 我不能在 Electron 裡用 jQuery/RequireJS/Meteor/AnguarJS。
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+因為 Electron 與 Node.js 整合的需求，DOM 會被填入一些額外的符號，例如 `module`, `exports`, `require`。 This causes problems for some libraries since they want to insert the symbols with the same names.
 
 To solve this, you can turn off node integration in Electron:
 
