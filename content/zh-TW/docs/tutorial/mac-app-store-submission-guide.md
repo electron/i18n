@@ -10,7 +10,7 @@ The following steps introduce a simple way to submit your app to Mac App Store. 
 
 ### Get Certificate
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+To submit your app to the Mac App Store, you first must get a certificate from Apple. 你可以參考網路上的[導引](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)。
 
 ### Get Team ID
 
