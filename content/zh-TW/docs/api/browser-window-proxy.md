@@ -1,4 +1,4 @@
-## Class: BrowserWindowProxy
+## 類別: BrowserWindowProxy
 
 > Manipulate the child browser window
 
