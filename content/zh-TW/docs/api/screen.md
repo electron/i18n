@@ -1,4 +1,4 @@
-# 螢幕
+# screen
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
