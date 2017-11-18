@@ -148,25 +148,25 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Match all hostnames that match the pattern HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  範例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
     Match a particular domain suffix.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    範例: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
   Match URLs which are IP address literals.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  範例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  範例: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
