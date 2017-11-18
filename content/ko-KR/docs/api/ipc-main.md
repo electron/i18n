@@ -14,36 +14,36 @@ main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 �
 * 동기 메시지에 회신 하려면 `event.returnValue`를 설정 해야 합니다.
 * 비동기 메시지를 다시 보낸 사람에 게 보내려면 `event.sender.send(...)`를 사용할 수 있습니다.
 
-An example of sending and handling messages between the render and main processes:
+renderer와 main 프로세스간의 메시지 발송과 처리 예:
 
 ```javascript
-// In main process.
+// main 프로세스안에서
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // "ping"이 출력된다.
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // "ping"이 출력된다.
   event.returnValue = 'pong'
 })
 ```
 
 ```javascript
-// In renderer process (web page).
+// renderer 프로세스(웹 페이지)안에서
 const {ipcRenderer} = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // "pong"이 출력된다.
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // "pong"이 출력된다.
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
 ## 메소드
 
-The `ipcMain` module has the following method to listen for events:
+`ipcMain` 모듈은 이벤트를 처리하기 위해 다음의 메소드를 가진다:
 
 ### `ipcMain.on(channel, listener)`
 
