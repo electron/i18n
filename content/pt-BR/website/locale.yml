@@ -20,7 +20,7 @@ languages:
   current: seleção atual
 community:
   title: Comunidade do Electron
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'Ferramentas, boilerplates, vídeos e muito mais dos <a href="https://github.com/sindresorhus/awesome-electron"> incríveis</a> contribuidores do Electron. Encontr ou adicione <a href="/community#meetups"> meetups</a> perto de você.'
   tools: Ferramentas
   boilerplates: Boilerplates
   components: Componentes
@@ -61,7 +61,7 @@ explore:
 download_from_github: Download no GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a>no GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Inicie com o app <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> para ver o Electron em ação:"
   description: Um pequeno aplicativo Electron com notações úteis.
   clone: Clone o repositório Quick Start
   go_into_repo: Ir para o repositório
