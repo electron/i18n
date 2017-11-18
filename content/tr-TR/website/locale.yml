@@ -79,7 +79,7 @@ footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
   need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
+  see_available_versions: Kullanılabilir sürümleri gör.
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
   see_the_faq: See the frequently asked questions
@@ -113,7 +113,7 @@ pages:
     title: Sürümler
   '/contact':
     title: İletişim
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Twitter, Slack, Github yada E-Posta aracılığıyla Electron ekibiyle iletişime geç.
   '/languages':
     title: Diller
 _404:
