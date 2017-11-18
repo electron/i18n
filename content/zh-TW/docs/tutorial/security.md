@@ -26,8 +26,8 @@ A security issue exists whenever you receive code from a remote destination and 
 
 不保證就能金槍不入，但最起碼你應該要盡可能:
 
-* 只顯示安全 (https) 內容
-* Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
+* 只顯示安全連線 (https) 的內容
+* 在所有會顯示遠端內容的畫面轉譯程式中停用 Node 整合功能 (將 `webPreferences` 中的 `nodeIntegration` 設為 `false`)
 * Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
 * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
 * Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
@@ -45,14 +45,14 @@ A security issue exists whenever you receive code from a remote destination and 
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
+    // 拿掉用不著的預載腳本，或是確認它們的位置是安全正確的
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Disable node integration
+    // 停用 Node 整合
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
+    // 驗證將要載入的 URL
     if (!params.src.startsWith('https://yourapp.com/')) {
       event.preventDefault()
     }
