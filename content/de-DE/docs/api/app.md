@@ -35,7 +35,7 @@ Wird nach der erfolgreichen Initialisierung von Electron ausgelöst. On macOS, `
 
 Wird gefeuert, wenn alle Fenster geschlossen wurden.
 
-Wenn du keinen einzigen Listener für dieses Event nutzt und alle Fenster geschlossen sind, ist die standardmäßige Handhabung des Events das Beenden der App. Wenn du allerdings auf das Event hörst, hast du die Kontrolle darüber, ob die App beendet werden soll oder nicht. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Wenn du keinen einzigen Listener für dieses Event nutzt und alle Fenster geschlossen sind, ist die standardmäßige Handhabung des Events das Beenden der App. Wenn du allerdings auf das Event hörst, hast du die Kontrolle darüber, ob die App beendet werden soll oder nicht. Wenn entweder der Nutzer durch Drücken von `Cmd + Q` oder der Entwickler durch einen Aufruf von `app.quit()` die App zum Beenden bewegt, wird Electron zuerst versuchen alle Fenster zu schließen und danach erst das `will-emit` auslösen. In einem solchen Fall wird das `window-all-closed` Event übrigens überhaupt nicht ausgelöst.
 
 ### Ereignis: 'before-quit'
 
@@ -55,7 +55,7 @@ Rückgabewert:
 
 Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen. Durch einen Aufruf von `event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
 
 ### Ereignis: 'quit'
 
@@ -64,7 +64,7 @@ Rückgabewert:
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Wird ausgelöst wenn die App beendet wird.
 
 ### Ereignis: 'open-file' *macOS*
 
@@ -73,7 +73,7 @@ Rückgabewert:
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Wird ausgelöst wenn der Nutzer versucht eine Datei mit der App zu öffnen. The `open-file` Event wird auch ausgelöst wenn die App bereits offen ist und das Betriebssystem die App nochmal zum Öffnen einer Datei benutzen will. `open-file` wird auch ausgelöst wenn eine Datei auf das Dock-Icon der App gezogen wird (macOS) und die App noch nicht gestartet ist. Behandle das `open-file` Event so früh wie möglich in deiner App um diesen Fall zu berücksichtigen (Also definitiv bevor das `ready` Event ausgelöst wird).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
