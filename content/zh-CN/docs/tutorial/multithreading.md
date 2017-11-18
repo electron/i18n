@@ -1,10 +1,10 @@
-# Multithreading
+# 多线程
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+通过[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers)，可以实现用操作系统级别的线程来跑JavaScript
 
-## Multi-threaded Node.js
+## 多线程的Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+可以在Electron的Web Workers里使用Node.js的特性。要用的话，需把`webPreferences`中的`nodeIntegrationInWorker`选项设置为`true`
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,9 +14,9 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegrationInWorker` 可以独立于`nodeIntegration`使用，但`sandbox`必须不能设置为`true`
 
-## Available APIs
+## 可用的API
 
 All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
 
