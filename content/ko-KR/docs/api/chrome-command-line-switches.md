@@ -1,6 +1,6 @@
 # 크롬 명령 줄 스위치 지원
 
-> Command line switches supported by Electron.
+> Electron에서 지원하는 커맨드 명령줄 스위치입니다.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
