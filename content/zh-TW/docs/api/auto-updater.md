@@ -1,10 +1,10 @@
 # autoUpdater
 
-> 讓應用程式能自動更新它自己。
+> 讓應用程式能自動更新版本。
 
 處理序: [主要](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+`autoUpdater` 模組提供了使用 [Squirrel](https://github.com/Squirrel) 框架的介面。
 
 You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
 
@@ -13,7 +13,7 @@ You can quickly launch a multi-platform release server for distributing your app
 * [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
 * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
-## Platform notices
+## 平臺注意事項
 
 Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
 
