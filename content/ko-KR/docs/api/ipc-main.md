@@ -1,12 +1,12 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> main 프로세스에서 renderer 프로세스들로 비동기적인 통신을 합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+`ipcMain` 모듈은 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 클래스의 인스턴스입니다. main 프로세스를 사용할 때 renderer 프로세스(웹페이지)가 보내는 메시지를 동기적 혹은 비동기적으로 처리합니다. 렌더러가 보내는 메시지는 이 모듈로 내보내게 됩니다.
 
-## Sending Messages
+## 메시지 보내기
 
 It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
 
