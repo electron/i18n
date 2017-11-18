@@ -1,4 +1,4 @@
-## Class: TouchBarPopover
+## 類別: TouchBarPopover
 
 > Create a popover in the touch bar for native macOS applications
 
