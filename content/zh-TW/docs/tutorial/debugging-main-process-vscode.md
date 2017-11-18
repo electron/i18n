@@ -1,4 +1,4 @@
-# Debugging the Main Process in VSCode
+# 在 VSCode 中 Debug 主處理序
 
 ### 1. Open an Electron project in VSCode.
 
