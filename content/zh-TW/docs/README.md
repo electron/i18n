@@ -9,7 +9,7 @@
 ## 導引
 
 * [詞彙表](glossary.md)
-* [支援平台](tutorial/supported-platforms.md)
+* [支援平臺](tutorial/supported-platforms.md)
 * [安全性](tutorial/security.md)
 * [Electron 版本控制](tutorial/electron-versioning.md)
 * [應用程式發布](tutorial/application-distribution.md)
