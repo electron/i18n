@@ -600,7 +600,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
@@ -611,7 +611,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -623,7 +623,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window to `width` and `height`.
 
@@ -635,7 +635,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
