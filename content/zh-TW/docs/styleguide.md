@@ -2,9 +2,9 @@
 
 These are the guidelines for writing Electron documentation.
 
-## Titles
+## 標題
 
-* Each page must have a single `#`-level title at the top.
+* 每一頁的最上方都要有單獨一行 `#`-級別 的標題。
 * Chapters in the same page must have `##`-level titles.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
@@ -40,7 +40,7 @@ Using `Quick Start` as example:
 
 For API references, there are exceptions to this rule.
 
-## Markdown rules
+## Markdown 規則
 
 * Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
