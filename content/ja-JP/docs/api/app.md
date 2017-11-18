@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+全てのウィンドウが閉じられたときにアプリケーションを終了する方法は以下の通りです:
 
 ```javascript
 const {app} = require('electron')
@@ -13,9 +13,9 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## イベント
 
-The `app` object emits the following events:
+`app`オブジェクトは以下のイベントを発生します。
 
 ### Event: 'will-finish-launching'
 
