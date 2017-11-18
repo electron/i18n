@@ -86,7 +86,7 @@ function createWindow () {
 // Algumas APIs podem ser usadas depois que este evento ocorrer.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Finaliza quando todas as janelas estiverem fechadas.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
