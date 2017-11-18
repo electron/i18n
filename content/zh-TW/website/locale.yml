@@ -89,7 +89,7 @@ apps:
   view_more: 瀏覽更多應用程式
   submit_your_own: 提交您自己的
   something_missing: 少了什麼嗎?
-  edit_this_app: 編輯這個應用程式式。
+  edit_this_app: 編輯這個應用程式。
 or: 或
 pages:
   '/':
