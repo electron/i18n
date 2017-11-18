@@ -4,7 +4,7 @@
 
 Electron 源於 2013 年，是 GitHub 文字編輯器 [Atom](https://atom.io) 中的建置框架。這兩項專案都在 2014 春季開放原始碼。
 
-Electron 已經成為開放原始碼開發者、新創公司及設立許久的公司所使用的熱門工具。[看看誰使用 Electron](https://electron.atom.io/apps/)。
+Electron 已經成為開放原始碼開發者、新創公司及老字號公司的熱門工具。[看看誰在用 Electron](https://electron.atom.io/apps/)。
 
 請繼續閱讀，學習更多關於貢獻者與 Electron 發布版本的資訊，或是瀏覽 [Quick Start Guide](quick-start.md) 開始使用 Electron 開發。
 
