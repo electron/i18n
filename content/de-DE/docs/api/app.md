@@ -97,7 +97,7 @@ Rückgabewert:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Wird ausgelöst wenn die App aktiviert wird. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen können dieses Event auslösen. So zum Beispiel das Starten der App zum ersten mal als solches, eine Wiederbenutzung der App während sie bereits läuft oder einfach ein Klick auf das Dock oder Tastbar Icon der App.
 
 ### Event: 'continue-activity' *macOS*
 
