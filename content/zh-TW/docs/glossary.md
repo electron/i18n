@@ -70,7 +70,7 @@ In Node.js and Electron, each running process has a `process` object. This objec
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### 畫面轉譯處理序
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
