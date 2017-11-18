@@ -1,4 +1,4 @@
-## Class: Tray
+## 類別: Tray
 
 > Add icons and context menus to the system's notification area.
 
