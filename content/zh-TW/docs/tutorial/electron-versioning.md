@@ -1,8 +1,8 @@
 # Electron 版號規則
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+如果你已經用了一陣子 Node 及 npm，可能早就注意到[語義化版本](http://semver.org) (或縮寫 SemVer)。 It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
 
-## Overview of Semantic Versioning
+## 語義化版號概述
 
 Semantic versions are always made up of three numbers:
 
