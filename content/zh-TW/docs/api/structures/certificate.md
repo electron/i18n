@@ -1,9 +1,9 @@
 # Certificate Object
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
+* `data` String - PEM 編碼後的資料
+* `issuer` [CertificatePrincipal](certificate-principal.md) - 簽發者主體
+* `issuerName` String - 簽發者通用名稱
+* `issuerCert` Certificate - 簽發者憑證 (如果不是自我簽署的)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
