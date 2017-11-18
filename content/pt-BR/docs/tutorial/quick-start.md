@@ -88,8 +88,8 @@ app.on('ready', createWindow)
 
 // Finaliza quando todas as janelas estiverem fechadas.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // No macOS é comum para aplicativos e sua barra de menu 
+  // permaneçam ativo até que o usuário explicitamente encerre com Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -103,8 +103,8 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// Neste arquivo, você pode incluir o resto do seu código especifico do processo
+// principal. You can also put them in separate files and require them here.
 ```
 
 Finally the `index.html` is the web page you want to show:
