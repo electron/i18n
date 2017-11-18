@@ -21,7 +21,7 @@ languages:
 community:
   title: Electron Community
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: Инструменты
   boilerplates: Boilerplates
   components: Компоненты
   videos: Видео
@@ -31,7 +31,7 @@ community:
 electron_is_easy:
   title: It's easier than you think
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  video_link: Смотреть видео
 web_technologies:
   title: Веб-технологии
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
@@ -74,7 +74,7 @@ headings:
   languages: Языки
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "Помочь перевести"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
@@ -99,7 +99,7 @@ pages:
     title: Electron Apps
     description: Apps Built on Electron
   '/docs':
-    title: Documentation
+    title: Документация
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!
@@ -110,13 +110,13 @@ pages:
   '/community':
     title: Сообщество
   '/releases':
-    title: Releases
+    title: Релизы
   '/contact':
     title: Contact
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: Языки
 _404:
-  page_not_found: Page not found.
+  page_not_found: Страница не найдена.
   if_this_is_an_error: If this is an error
   please_file_an_issue: please file an issue.
