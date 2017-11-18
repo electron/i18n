@@ -410,7 +410,7 @@ Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` *macOS* *Windows*
+### `app.addRecentDocument(path)` *macOS* *Windows*
 
 Clears the recent documents list.
 
@@ -499,14 +499,14 @@ const {app} = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: '最近的專案',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // 因為指定了名稱，所以 `type` 會被假設成 "custom"
+    name: '工具',
     items: [
       {
         type: 'task',
@@ -529,7 +529,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // 沒有指定名稱及類型，所以 `type` 被假設為 "tasks"
     items: [
       {
         type: 'task',
@@ -541,10 +541,10 @@ app.setJumpList([
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: '回復專案',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: '回復專案'
       }
     ]
   }
@@ -576,7 +576,7 @@ const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // 有人試著重覆開啟應用程式，我們應該要突顯出我們現在的視窗。
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -587,7 +587,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// 建立 myWindow，載入應用程式的其他部分...
 app.on('ready', () => {
 })
 ```
@@ -636,7 +636,7 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 This method can only be called before app is ready.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *已棄用*
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
