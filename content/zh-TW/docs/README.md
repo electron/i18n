@@ -14,7 +14,7 @@
 * [Electron 版本控制](tutorial/electron-versioning.md)
 * [應用程式發布](tutorial/application-distribution.md)
 * [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store 上架指引](tutorial/windows-store-guide.md)
+* [Windows Store 上架導引](tutorial/windows-store-guide.md)
 * [應用程式打包](tutorial/application-packaging.md)
 * [使用原生 Node 模組](tutorial/using-native-node-modules.md)
 * [Debug 主行程](tutorial/debugging-main-process.md)
@@ -80,7 +80,7 @@
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [螢幕](api/screen.md)
+* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## 開發
@@ -96,7 +96,7 @@
 * [Debug 步驟 (macOS)](development/debugging-instructions-macos.md)
 * [Debug 步驟 (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [文檔風格](styleguide.md)
+* [文件編寫風格](styleguide.md)
 * [Chrome 升級](development/upgrading-chrome.md)
-* [開發 Chromium](development/chromium-development.md)
+* [Chromium 開發](development/chromium-development.md)
 * [V8 開發](development/v8-development.md)
