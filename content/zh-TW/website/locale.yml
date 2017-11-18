@@ -103,7 +103,7 @@ pages:
     description: 最新版 Electron 的使用導引及 API 參考文件。
   '/docs/all':
     title: Electron 文件大全!
-    description: 所有 Electron 的使用導引及 API 說明文件，全部放在同一頁，方便搜尋。
+    description: Electron 的使用導引及 API 說明文件大全，全部放在同一頁方便搜尋。
   '/blog':
     title: Electron 部落格
     description: 來自 Electron 團隊及社群的最新消息。
