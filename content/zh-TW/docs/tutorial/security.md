@@ -24,7 +24,7 @@ A security issue exists whenever you receive code from a remote destination and 
 
 #### 檢查清單
 
-不保證就能金槍不入，但最起碼你應該要盡可能:
+不保證就能金槍不入，但至少你應該要:
 
 * 只顯示安全連線 (https) 的內容
 * 在所有會顯示遠端內容的畫面轉譯程式中停用 Node 整合功能 (將 `webPreferences` 中的 `nodeIntegration` 設為 `false`)
