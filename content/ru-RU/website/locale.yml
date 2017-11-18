@@ -12,11 +12,11 @@ docs:
   title: Документация Electron
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: Руководства
-  api_reference: API Reference
+  api_reference: Справочник по API
   advanced: Advanced
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
+  choose_language: Выберите язык сайта
+  translation_progress: Прогресс перевода
   current: current selection
 community:
   title: Сообщество Electron
@@ -34,7 +34,7 @@ electron_is_easy:
   video_link: Смотреть видео
 web_technologies:
   title: Веб-технологии
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  description: Electron использует Chromium и Node.js, так что Вы можете создавать свои приложения на HTML, CSS и JavaScript.
 open_source:
   title: Open Source
   desciption: Electron это проект с открытым исходным кодом который поддерживается GitHub и активным сообществом авторов.
@@ -54,21 +54,21 @@ get_started:
 explore:
   title: Исследуйте Electron API
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+    - '<a href="https://github.com/electron/electron-api-demos">Тестовое приложение Electron API</a>'
+    - интерактивно демонстрирует наиболее важные функции Electron API.
+    - Узнайте что возможно сделать с Electron при помощи простого кода и полезных советов для
+    - создания вашего приложения.
+download_from_github: Скачать с GitHub
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  description: Минимальное приложение Electron с полезными нотациями.
+  clone: Клонируйте репозиторий быстрого старта
+  go_into_repo: Перейти в репозиторий
+  install_deps: Установите зависимости и запустите
+  dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
 need_help:
-  title: Need Help?
+  title: Нужна помощь?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
   languages: Языки
@@ -78,8 +78,8 @@ help_translate: "Помочь перевести"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
+  need_different_version: Нужна другая версия документации?
+  see_available_versions: Просмотреть доступные версии.
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
   see_the_faq: See the frequently asked questions
