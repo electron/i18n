@@ -103,7 +103,7 @@ const {app, Menu} = require('electron')
 
 const template = [
   {
-    label: 'Edit',
+    label: '編輯',
     submenu: [
       {role: 'undo'},
       {role: 'redo'},
@@ -117,7 +117,7 @@ const template = [
     ]
   },
   {
-    label: 'View',
+    label: '檢視',
     submenu: [
       {role: 'reload'},
       {role: 'forcereload'},
@@ -141,7 +141,7 @@ const template = [
     role: 'help',
     submenu: [
       {
-        label: 'Learn More',
+        label: '深入學習',
         click () { require('electron').shell.openExternal('https://electron.atom.io') }
       }
     ]
@@ -164,11 +164,11 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // 編輯選單
   template[1].submenu.push(
     {type: 'separator'},
     {
-      label: 'Speech',
+      label: '語音',
       submenu: [
         {role: 'startspeaking'},
         {role: 'stopspeaking'}
@@ -176,7 +176,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // Window 選單
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -262,7 +262,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
     <br />- 1
     - 2
@@ -284,7 +284,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
     <br />- ---
     - a
