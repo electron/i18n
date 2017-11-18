@@ -215,7 +215,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### Événements d’instance
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -252,7 +252,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### Événement : 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
@@ -260,35 +260,35 @@ Emitted when the window is closed. After you have received this event you should
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Événement : 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Événement : 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Événement : 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Événement : 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Événement : 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Événement : 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Événement : 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Événement : 'maximize'
 
 Emitted when window is maximized.
 
