@@ -61,7 +61,7 @@ Retourne :
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Événement : 'close'
 
 Retourne :
 
