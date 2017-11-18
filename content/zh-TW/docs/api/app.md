@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## 事件
 
 The `app` object emits the following events:
 
@@ -258,7 +258,7 @@ Returns:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-## Methods
+## 方法
 
 The `app` object has the following methods:
 
