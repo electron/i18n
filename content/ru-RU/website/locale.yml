@@ -6,18 +6,18 @@ nav:
   apps: Приложения
   userland: Userland
   releases: Релизы
-  contact: Contact
+  contact: Связаться
   languages: Языки
 docs:
   title: Документация Electron
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  description: Просмотрите всю <a href="/docs/all/">документацию на одной странице</a> или посетите <a href="/docs/faq/">FAQ</a>.
   guides: Руководства
   api_reference: Справочник по API
   advanced: Advanced
 languages:
   choose_language: Выберите язык сайта
   translation_progress: Прогресс перевода
-  current: current selection
+  current: текущий выбор
 community:
   title: Сообщество Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
@@ -29,8 +29,8 @@ community:
   awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
   meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
+  title: Это проще, чем вы думаете
+  description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
   video_link: Смотреть видео
 web_technologies:
   title: Веб-технологии
@@ -61,7 +61,7 @@ explore:
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Подготовьте приложение <a href='https://github.com/electron/electron-quick-start' target='_blank'>быстрого старта</a> для просмотра Electron в действии:"
   description: Минимальное приложение Electron с полезными нотациями.
   clone: Клонируйте репозиторий быстрого старта
   go_into_repo: Перейти в репозиторий
@@ -112,7 +112,7 @@ pages:
   '/releases':
     title: Релизы
   '/contact':
-    title: Contact
+    title: Связаться
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: Языки
