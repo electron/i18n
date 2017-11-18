@@ -17,29 +17,29 @@ app.on('window-all-closed', () => {
 
 The `app` object emits the following events:
 
-### Event: 'will-finish-launching'
+### 事件: 'will-finish-launching'
 
 Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
-### Event: 'ready'
+### 事件: 'ready'
 
-Returns:
+回傳:
 
 * `launchInfo` Object *macOS*
 
 Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
-### Event: 'window-all-closed'
+### 事件: 'window-all-closed'
 
 Emitted when all windows have been closed.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
-### Event: 'before-quit'
+### 事件: 'before-quit'
 
-Returns:
+回傳:
 
 * `event` Event
 
@@ -47,9 +47,9 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-### Event: 'will-quit'
+### 事件: 'will-quit'
 
-Returns:
+回傳:
 
 * `event` Event
 
@@ -57,9 +57,9 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
-### Event: 'quit'
+### 事件: 'quit'
 
-Returns:
+回傳:
 
 * `event` Event
 * `exitCode` Integer
@@ -68,7 +68,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 * `path` String
@@ -81,7 +81,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 * `url` String
@@ -90,18 +90,18 @@ Emitted when the user wants to open a URL with the application. Your application
 
 You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'activate' *macOS*
+### 事件: 'activate' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
-### Event: 'continue-activity' *macOS*
+### 事件: 'continue-activity' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -111,53 +111,53 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'new-window-for-tab' *macOS*
+### 事件: 'new-window-for-tab' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### 事件: 'browser-window-blur'
 
-Returns:
+回傳:
 
 * `event` Event
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### 事件: 'browser-window-focus'
 
-Returns:
+回傳:
 
 * `event` Event
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### 事件: 'browser-window-created'
 
-Returns:
+回傳:
 
 * `event` Event
 * `window` BrowserWindow
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### 事件: 'web-contents-created'
 
-Returns:
+回傳:
 
 * `event` Event
 * `webContents` WebContents
 
 Emitted when a new [webContents](web-contents.md) is created.
 
-### Event: 'certificate-error'
+### 事件: 'certificate-error'
 
-Returns:
+回傳:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -183,9 +183,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### 事件: 'select-client-certificate'
 
-Returns:
+回傳:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -207,9 +207,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### 事件: 'login'
 
-Returns:
+回傳:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -240,18 +240,18 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### 事件: 'gpu-process-crashed'
 
-Returns:
+回傳:
 
 * `event` Event
 * `killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### 事件: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+回傳:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -636,7 +636,7 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 This method can only be called before app is ready.
 
-### `app.getAppMemoryInfo()` *已棄用*
+### `app.getAppMemoryInfo()` *別再用了*
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
@@ -747,7 +747,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *試驗中* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
