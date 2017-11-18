@@ -24,9 +24,9 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Escreva seu primeiro Electron App
+## Escreva seu primeiro aplicativo com Electron
 
-Geralmente, um Electron app é estruturado como este:
+Geralmente, um aplicativo em Electron é estruturado como esse:
 
 ```text
 seu-app/
@@ -47,7 +47,7 @@ O formato de `package.json` e exatamente o mesmo que os módulos do Node, e o sc
 
 **Nota**: Se o campo `main` não estiver presente em `package.json`, Electron tentará carregar `index.js`.
 
-O `main.js` deveria criar janelas e lidar com eventos do sistema, um tipico exemplo:
+O `main.js` deve criar janelas e lidar com eventos do sistema, um tipico exemplo disso:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -59,7 +59,7 @@ const url = require('url')
 let win
 
 function createWindow () {
-  // Criar uma janela browser.
+  // Criar uma janela de navegação.
   win = new BrowserWindow({width: 800, height: 600})
 
   // e carrega index.html do app.
@@ -69,7 +69,7 @@ function createWindow () {
     slashes: true
   }))
 
-  // Abri o DevTools.
+  // Abre o DevTools.
   win.webContents.openDevTools()
 
   // Emitido quando a janela é fechada.
