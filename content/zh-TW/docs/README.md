@@ -13,7 +13,7 @@
 * [安全性](tutorial/security.md)
 * [Electron 版本控制](tutorial/electron-versioning.md)
 * [應用程式發布](tutorial/application-distribution.md)
-* [Mac App Store 上架指引](tutorial/mac-app-store-submission-guide.md)
+* [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store 上架指引](tutorial/windows-store-guide.md)
 * [應用程式打包](tutorial/application-packaging.md)
 * [使用原生 Node 模組](tutorial/using-native-node-modules.md)
@@ -22,7 +22,7 @@
 * [DevTools 擴充](tutorial/devtools-extension.md)
 * [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
 * [使用 Widevine 外掛](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
 
