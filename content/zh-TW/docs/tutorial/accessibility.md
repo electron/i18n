@@ -1,6 +1,6 @@
-# Accessibility
+# 協助工具
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+應用程式的易用性很重要，所以我們在 [Devtron](https://electron.atom.io/devtron) 及 [Spectron](https://electron.atom.io/spectron) 中加入了新功能，讓開發人員更容易打造出適用每個人的應用程式。
 
 * * *
 
