@@ -1,8 +1,8 @@
-# 構建步驟 (macOS)
+# 建置步驟 (macOS)
 
 Follow the guidelines below for building Electron on macOS.
 
-## Prerequisites
+## 系統需求
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
