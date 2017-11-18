@@ -68,6 +68,7 @@ const i18n = require('electron-i18n')
 - `electronLatestStableTag` is a string like `v1.7.8`
 - `docs` - see [#docs](#docs)
 - `locales` - see [#locales](#locales)
+- `website` - see [#website](#website)
 
 ### Docs
 
@@ -145,6 +146,25 @@ i18n.locales['en-US']
 }
 ```
 
+### Website
+
+`i18n.website` contains localized versions of [electron/electronjs.org/blob/master/data/locale.yml](https://github.com/electron/electronjs.org/blob/master/data/locale.yml).
+
+It is an object with locale strings as keys:
+
+```js
+Object.keys(i18n.locales)
+[ 'en-US', 'fr-FR', 'vi-VN', 'ja-JP', 'zh-CN', '...']
+```
+
+```js
+i18n.website['fr-FR']
+
+{
+  tagline: 'Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS',
+  nav: '...'
+}
+```
 
 
 ## License
