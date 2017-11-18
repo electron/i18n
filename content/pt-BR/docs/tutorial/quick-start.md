@@ -83,7 +83,7 @@ function createWindow () {
 
 // Este método será chamado quando o Electron tiver finalizado
 // a inicialização e está pronto para criar a janela browser.
-// Algumas APIs podem ser usadas depois que este evento ocorrer.
+// Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.on('ready', createWindow)
 
 // Finaliza quando todas as janelas estiverem fechadas.
@@ -103,7 +103,7 @@ app.on('activate', () => {
   }
 })
 
-// Neste arquivo, você pode incluir o resto do seu código especifico do processo
+// Neste arquivo, você pode incluir o resto do seu aplicativo especifico do processo
 // principal. Você também pode colocar eles em arquivos separados e requeridos-as aqui.
 ```
 
@@ -125,7 +125,7 @@ Finalmente, o `index.html` é a pagina da web que você quer mostrar:
 </html>
 ```
 
-## Executar seu app
+## Executar seu aplicativo
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
