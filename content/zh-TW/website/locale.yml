@@ -1,4 +1,4 @@
-tagline: 使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式
+tagline: 使用 JavaScript、HTML 和 CSS 建構跨平臺桌面應用程式
 nav:
   docs: 文件
   blog: 部落格
@@ -39,8 +39,8 @@ open_source:
   title: 開放原始碼
   desciption: Electron 是由 GitHub 及活躍的貢獻者社群共用維護的開放原始碼專案。
 cross_platform:
-  title: 跨平台
-  description: 相容 Mac, Windows 及 Linux，Electron 應用程式可以在三大主流平台上建置及執行。
+  title: 跨平臺
+  description: 相容 Mac, Windows 及 Linux，Electron 應用程式可以在三大主流平臺上建置及執行。
 benefits:
   hard_parts_made_easy: 難的事不再難了
   automatic_updates: 自動更新
@@ -93,8 +93,8 @@ apps:
 or: 或
 pages:
   '/':
-    title: Electron | 使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式。
-    description: '使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式。'
+    title: Electron | 使用 JavaScript、HTML 和 CSS 建構跨平臺桌面應用程式。
+    description: '使用 JavaScript、HTML 和 CSS 建構跨平臺桌面應用程式。'
   '/apps':
     title: Electron 應用程式
     description: 用 Electron 建構的應用程式
