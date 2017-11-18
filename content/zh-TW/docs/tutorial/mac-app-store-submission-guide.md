@@ -71,11 +71,11 @@ And then sign your app with the following script:
 ```bash
 #!/bin/bash
 
-# Name of your app.
+# 你應用程式的名稱。
 APP="YourApp"
-# The path of your app to sign.
+# 你要簽章的應用程式路徑
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# 存放你簽章過的套件的路徑。
 RESULT_PATH="~/Desktop/$APP.pkg"
 # The name of certificates you requested.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
@@ -116,15 +116,15 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
-### Upload Your App
+### 上傳你的應用程式
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
-### Submit Your App for Review
+### 提交你的應用程式以供審核
 
 After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## MAS 建置的限制
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
@@ -144,7 +144,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
-#### Network Access
+#### 網路存取
 
 Enable outgoing network connections to allow your app to connect to a server:
 
@@ -180,7 +180,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
 
-## Known issues
+## 已知問題
 
 ### `shell.openItem(filePath)`
 
@@ -210,7 +210,7 @@ Electron uses following cryptographic algorithms:
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](http://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - 《On the Design and Security of Block Ciphers》來學嘉 著作
 * MD2 - [RFC 1319](http://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)
