@@ -22,7 +22,7 @@ An Apple Disk Image is a packaging format used by macOS. DMG files are commonly 
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+輸入法編輯器。 讓使用者能輸入不在鍵盤上的字元及符號的程式。 例如，讓使用者在拉丁鍵盤上輸入中文、日文、韓文和印度文字。
 
 ### IPC
 
@@ -44,7 +44,7 @@ See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Apple Mac App Store 的縮寫。如何將你的應用程式送上 MAS，可以參考[Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)。
 
 ### native modules
 
