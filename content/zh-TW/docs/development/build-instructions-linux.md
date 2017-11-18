@@ -171,7 +171,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disab
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### 環境變數
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
