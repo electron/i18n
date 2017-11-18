@@ -1,8 +1,8 @@
 # app
 
-> Control your application's event lifecycle.
+> アプリケーションのイベントライフサイクルを制御します。
 
-Process: [Main](../glossary.md#main-process)
+プロセス: [Main](../glossary.md#main-process)
 
 The following example shows how to quit the application when the last window is closed:
 
