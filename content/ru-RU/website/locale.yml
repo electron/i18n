@@ -82,22 +82,22 @@ footer:
   see_available_versions: Просмотреть доступные версии.
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  see_the_faq: Просмотреть часто задаваемые вопросы
 apps:
-  title: Apps built on Electron
+  title: Приложения, созданные на Electron
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
-or: or
+  view_more: Просмотреть другие приложения
+  submit_your_own: или опубликовать своё
+  something_missing: Что-то отсутствует?
+  edit_this_app: Измените это приложение.
+or: или
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.
+    description: 'Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Приложения Electron
+    description: Приложения, созданные на Electron
   '/docs':
     title: Документация
     description: Guides and API reference documentation for the latest Electron release
@@ -105,18 +105,18 @@ pages:
     title: All the Electron Docs!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Блог Electron
+    description: Все последние новости от команды Electron и сообщества.
   '/community':
     title: Сообщество
   '/releases':
     title: Релизы
   '/contact':
     title: Связаться
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Свяжитесь с командой Electron через Twitter, Slack, GitHub или по электронной почте.
   '/languages':
     title: Языки
 _404:
   page_not_found: Страница не найдена.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  if_this_is_an_error: Если это ошибка,
+  please_file_an_issue: пожалуйста, сообщите о проблеме.
