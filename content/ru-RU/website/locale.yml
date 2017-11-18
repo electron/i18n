@@ -37,22 +37,22 @@ web_technologies:
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
   title: Open Source
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  desciption: Electron это проект с открытым исходным кодом который поддерживается GitHub и активным сообществом авторов.
 cross_platform:
   title: Кросс-платформенный
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
+  hard_parts_made_easy: Сложные вещи стали проще
   automatic_updates: Автоматическое обновление
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  native_menus_and_notifications: Собственные меню и уведомления
+  crash_reporting: Отчеты об ошибках
+  debugging_and_profiling: Отладка и профилирование
+  windows_installers: Установщики для Windows
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: Начать работу
+  description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
 explore:
-  title: Explore the Electron APIs
+  title: Исследуйте Electron API
   description:
     - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
     - interactively demonstrates the most important features of the Electron API.
