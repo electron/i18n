@@ -74,16 +74,16 @@ function createWindow () {
 
   // Emitido quando a janela é fechada.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Elimina a referência do objeto da janela, geralmente você iria armazenar as janelas
+    // em um array, se seu app suporta várias janelas, este é o momento
+    // quando você deve excluir o elemento correspondente.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Este método será chamado quando o Electron tiver finalizado
+// a inicialização e está pronto para criar a janela browser.
+// Algumas APIs podem ser usadas depois que este evento ocorrer.
 app.on('ready', createWindow)
 
 // Quit when all windows are closed.
