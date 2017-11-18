@@ -19,7 +19,7 @@ app.on('window-all-closed', () => {
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションが基本的なスタートアップを完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では、このイベントは`NSApplication` の `applicationWillFinishLaunching` 通知を表しています。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定して、クラッシュレポーターと自動アップデーターを起動します。
+アプリケーションが基本的なスタートアップを完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では、このイベントは`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定して、クラッシュレポーターと自動アップデーターを起動します。
 
 ほとんどの場合、`ready` イベントハンドラーで処理を記述してください。
 
