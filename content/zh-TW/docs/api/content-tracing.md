@@ -55,7 +55,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 `categoryFilter` 篩選器，用來選出要追蹤的類別群組。 A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-Examples:
+範例:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
