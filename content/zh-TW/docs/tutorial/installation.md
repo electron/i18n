@@ -18,7 +18,7 @@ You can also install the `electron` command globally in your `$PATH`:
 npm install electron -g
 ```
 
-## Customization
+## 客製化
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 
@@ -32,11 +32,11 @@ In addition to changing the architecture, you can also specify the platform (e.g
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## 代理伺服器
 
 If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Troubleshooting
+## 疑難排解
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
