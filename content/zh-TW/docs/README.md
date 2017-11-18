@@ -30,7 +30,7 @@
 
 * [快速入門](tutorial/quick-start.md)
 * [桌面環境整合](tutorial/desktop-environment-integration.md)
-* [連線/離線事件檢測](tutorial/online-offline-events.md)
+* [連線/離線事件偵測](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
 * [系統原生通知](tutorial/notifications.md)
 
