@@ -1,4 +1,4 @@
-# Upgrading Chrome Checklist
+# Chrome 升級檢查清單
 
 This document is meant to serve as an overview of what steps are needed on each Chrome upgrade in Electron.
 
@@ -70,6 +70,6 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Links
+## 連結
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
