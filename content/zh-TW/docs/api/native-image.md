@@ -135,7 +135,7 @@ Returns `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
-## Class: NativeImage
+## 類別: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
 
