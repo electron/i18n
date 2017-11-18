@@ -1,4 +1,4 @@
-請確認說明文件的版本跟你用的 Electron 是一致的。 版號應該就出現在網頁 URL 中。 如果版本不合，你正在讀的有可能是一個開發中的分支文檔，當中可能包含跟您用的 Electron 版本不相容的 API。 若要查看舊版本的文檔，你可以在 GitHub 網頁中，打開「Switch branches/tags」下拉清單，選擇與您的版本相合的Tag。
+請確認說明文件的版本跟你用的 Electron 是一致的。 版號應該就出現在網頁 URL 中。 如果版本不對，可能代表你正在讀的是一個開發中的分支文件，當中可能有跟你 Electron 版本不相容的 API。 若要查看舊版本的文檔，你可以在 GitHub 網頁中，打開「Switch branches/tags」下拉清單，選擇與您的版本相合的Tag。
 
 ## 常見問題集
 
@@ -11,7 +11,7 @@
 * [詞彙表](glossary.md)
 * [支援平臺](tutorial/supported-platforms.md)
 * [安全性](tutorial/security.md)
-* [Electron 版本控制](tutorial/electron-versioning.md)
+* [Electron 版號規則](tutorial/electron-versioning.md)
 * [應用程式發布](tutorial/application-distribution.md)
 * [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store 上架導引](tutorial/windows-store-guide.md)
@@ -23,7 +23,7 @@
 * [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
 * [使用 Widevine 外掛](tutorial/using-widevine-cdm-plugin.md)
 * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
 * [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
 
 ## 教學
@@ -68,14 +68,14 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### 渲染行程可用的模組 (網頁)：
+### 畫面轉譯處理序 (網頁) 可用的模組:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### 主行程及渲染行程均可用的模組：
+### 主處理序及畫面轉譯處理序均可使用的模組：
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
