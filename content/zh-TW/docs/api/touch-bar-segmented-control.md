@@ -1,4 +1,4 @@
-## Class: TouchBarSegmentedControl
+## 類別: TouchBarSegmentedControl
 
 > Create a segmented control (a button group) where one button has a selected state
 
