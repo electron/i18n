@@ -1,4 +1,4 @@
-# Electron Documentation Styleguide
+# Electron 文件編寫風格
 
 These are the guidelines for writing Electron documentation.
 
@@ -10,7 +10,7 @@ These are the guidelines for writing Electron documentation.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
 
-Using `Quick Start` as example:
+以 `Quick Start` 快速入門應用程式為例:
 
 ```markdown
 # Quick Start
