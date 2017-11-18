@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Événements d’instance
 
 #### Event: 'response'
 
