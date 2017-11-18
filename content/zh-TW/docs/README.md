@@ -99,4 +99,4 @@
 * [文檔風格](styleguide.md)
 * [Chrome 升級](development/upgrading-chrome.md)
 * [開發 Chromium](development/chromium-development.md)
-* [開發 V8](development/v8-development.md)
+* [V8 開發](development/v8-development.md)
