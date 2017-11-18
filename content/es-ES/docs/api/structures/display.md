@@ -9,4 +9,4 @@
 * `workArea` [Rectángulo](rectangle.md)
 * `workAreaSize` [Tamaño](size.md)
 
-El `Display` objeto de visualización representa una pantalla física conectada al sistema. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+El `Display` objeto de visualización representa una pantalla física conectada al sistema. Un falso `Display` puede existir en un sistema sin conexión, o una `Display` puede corresponder a una pantalla virtual remota.
