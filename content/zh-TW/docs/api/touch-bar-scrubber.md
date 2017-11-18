@@ -1,4 +1,4 @@
-## Class: TouchBarScrubber
+## 類別: TouchBarScrubber
 
 > Create a scrubber (a scrollable selector)
 
