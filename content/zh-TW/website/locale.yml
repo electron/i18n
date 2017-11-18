@@ -17,7 +17,7 @@ docs:
 languages:
   choose_language: 選擇網站語言
   translation_progress: 翻譯進度
-  current: 目前選取
+  current: 目前選的
 community:
   title: Electron 社群
   description: '出自 Electron <a href="https://github.com/sindresorhus/awesome-electron">超棒</a>原始碼貢獻者的工具、模版、影片及其他資源。 找找在你附近的<a href="/community#meetups">聚會</a>，或是自己創辦一個吧!'
@@ -73,7 +73,7 @@ need_help:
 headings:
   languages: 語言
 taglines:
-  languages: 在我們強大的全球開發者社群提供的在地化內容。
+  languages: 由我們強大的全球開發者社群提供的在地化內容。
 help_translate: "幫忙翻譯"
 footer:
   see_something: 發現有東西欠修理嗎?
@@ -81,7 +81,7 @@ footer:
   need_different_version: 在找其他版本的文件嗎?
   see_available_versions: 瀏覽可用的版本。
   want_something_searchable: 想來點好搜尋的東西嗎?
-  view_all_docs: 查看全部文件頁
+  view_all_docs: 查看文件大全
   see_the_faq: 看看常見問題集
 apps:
   title: 用 Electron 打造的應用程式
@@ -102,7 +102,7 @@ pages:
     title: 文件
     description: 最新版 Electron 的使用導引及 API 參考文件。
   '/docs/all':
-    title: Electron 全部的文件!
+    title: Electron 文件大全!
     description: 所有 Electron 的使用導引及 API 說明文件，全部放在同一頁，方便搜尋。
   '/blog':
     title: Electron 部落格
