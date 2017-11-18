@@ -1,16 +1,16 @@
 # 詞彙表
 
-This page defines some terminology that is commonly used in Electron development.
+這一頁定義了 Electron 開發過程常用的一些術語。
 
 ### ASAR
 
-ASAR 代表 Atom Shell Archive Format。 [Asar](https://github.com/electron/asar)檔案跟 `tar` 相似，都是將數個檔序連成單個檔格式。 Electron 可以任意從它讀取，無須拆包整個檔。
+ASAR 代表 Atom Shell Archive Format。 [Asar](https://github.com/electron/asar)壓縮檔類似 `tar` 格式，都是將多個檔案數個檔案串接成單一個檔案。 Electron 可以任意從它讀取，無須拆包整個檔。
 
-ASAR 格式目標主要是為提高 Windows 的性能... TODO
+ASAR 格式主要是為了提高在 Windows 上執行的效能... TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [之前是](https://github.com/electron-archive/brightray)讓應用程式方便使用 [libchromiumcontent](#libchromiumcontent) 的靜態程式庫。 It is now deprecated and has been merged into Electron's codebase.
 
 ### CRT
 
