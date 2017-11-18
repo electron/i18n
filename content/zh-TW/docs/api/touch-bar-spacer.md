@@ -1,4 +1,4 @@
-## Class: TouchBarSpacer
+## 類別: TouchBarSpacer
 
 > Create a spacer between two items in the touch bar for native macOS applications
 
