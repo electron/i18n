@@ -54,22 +54,22 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// 將這個 window 物件記在全域變數裡。
+// 如果你不這麼做，這個視窗在 JavaScript 物件被 GC 後就會被自動關閉。
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // 建立瀏覽器視窗。
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // 並載入應用程式的 index.html。
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // 打開 DevTools。
   win.webContents.openDevTools()
 
   // Emitted when the window is closed.
@@ -118,14 +118,14 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    我們用了 node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    以及 Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
 
-## Run your app
+## 執行你的應用程式
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
@@ -186,13 +186,13 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
 ```bash
-# Clone the repository
+# 複製儲存庫
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# 進到儲存庫裡
 $ cd electron-quick-start
-# Install dependencies
+# 安裝相依的套件
 $ npm install
-# Run the app
+# 執行應用程式
 $ npm start
 ```
 
