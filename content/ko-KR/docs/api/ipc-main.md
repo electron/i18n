@@ -70,9 +70,9 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+지정한 `channel`의 listener들을 제거한다.
 
-## Event object
+## Event 객체
 
 The `event` object passed to the `callback` has the following methods:
 
