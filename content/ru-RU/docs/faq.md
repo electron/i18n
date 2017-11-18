@@ -114,20 +114,20 @@ delete window.module;
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Это происходит потому что [npm `electron` module](https://www.npmjs.com/package/electron) установлен локально и глобально и переопределяет встроенный модуль Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете вывести путь `electron` модуля:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+и затем проверьте, в такой ли он форме:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, или переименовать его.
 
 ```bash
 npm uninstall electron
