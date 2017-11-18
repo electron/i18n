@@ -684,7 +684,7 @@ Returns `Object`:
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**注意:** 這個 API 不會影響 [MAS 建構](../tutorial/mac-app-store-submission-guide.md)。
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -713,7 +713,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**注意:** 這個 API 不會影響 [MAS 建構](../tutorial/mac-app-store-submission-guide.md)。
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
