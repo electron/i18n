@@ -1,4 +1,4 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS
 nav:
   docs: Документация
   blog: Блог
@@ -9,7 +9,7 @@ nav:
   contact: Contact
   languages: Языки
 docs:
-  title: Electron Documentation
+  title: Документация Electron
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: Руководства
   api_reference: API Reference
@@ -19,7 +19,7 @@ languages:
   translation_progress: Translation Progress
   current: current selection
 community:
-  title: Electron Community
+  title: Сообщество Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: Инструменты
   boilerplates: Boilerplates
