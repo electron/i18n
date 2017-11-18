@@ -24,7 +24,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## 寫你第一個 Electron 應用程式
 
 Generally, an Electron app is structured like this:
 
@@ -81,31 +81,29 @@ function createWindow () {
 }
 
 // 這個方法在 Electron 初始化完成，準備好建立瀏覽器視窗時會被叫用。
-// Some APIs can only be used after this event occurs.
+// 有些 API 只能在這個事件發生後才能用。
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 在所有視窗都關閉時結束程式。
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // 在 macOS 裡，普遍的作法是將應用程式及選單列繼續留著，直到使用者按了 Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // 在 macOS 裡，一般會在使用者按了 Dock 圖示且沒有其他視窗開啟的情況下，
+  // 重新在應用程式裡建立視窗。
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// 你可以在這個檔案中繼續寫應用程式主處理序要執行的程式碼。 你也可以將它們放在別的檔案裡，再由這裡 require 進來。
 ```
 
-Finally the `index.html` is the web page you want to show:
+最後，`index.html` 裡放你想顯示的網頁內容:
 
 ```html
 <!DOCTYPE html>
