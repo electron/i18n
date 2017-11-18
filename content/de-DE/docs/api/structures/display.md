@@ -1,10 +1,10 @@
 # Display Object
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
-* `scaleFactor` Number - Output device's pixel scale factor.
-* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
-* `bounds` [Rectangle](rectangle.md)
+* `id` Number - Einzigartige Identifaktionsnummer (ID) die auf das entsprechende Display verweist.
+* `rotation` Number - 0, 90, 180 oder 270 , repräsentiert die Display-Rotoerung in Alt-Grad (0-36).
+* `scaleFactor` Number - Der Skalierungsfaktor des Ausgabe-Displays.
+* `touchSupport` String - `available`, `unavailable` oder `unknown`. Gibt an ob das Display Touch unterstützt.
+* `bounds` [Rectangle](rectangle.md) Boundings des Displays
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
