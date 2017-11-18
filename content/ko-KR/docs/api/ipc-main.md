@@ -4,15 +4,15 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-`ipcMain` 모듈은 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 클래스의 인스턴스입니다. main 프로세스를 사용할 때 renderer 프로세스(웹페이지)가 보내는 메시지를 동기적 혹은 비동기적으로 처리합니다. 렌더러가 보내는 메시지는 이 모듈로 내보내게 됩니다.
+`ipcMain` 모듈은 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 클래스의 인스턴스입니다. main 프로세스를 사용할 때 renderer 프로세스(웹페이지)가 보내는 메시지를 동기적 혹은 비동기적으로 처리합니다. renderer가 보내는 메시지는 이 모듈로 내보내게 됩니다.
 
 ## 메시지 보내기
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 가능한데 자세한 내용은 [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-)를 보세요.
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* 메시지를 보낼 때 이벤트 이름은 `channel`입니다.
+* 동기 메시지에 회신 하려면 `event.returnValue`를 설정 해야 합니다.
+* 비동기 메시지를 다시 보낸 사람에 게 보내려면 `event.sender.send(...)`를 사용할 수 있습니다.
 
 An example of sending and handling messages between the render and main processes:
 
