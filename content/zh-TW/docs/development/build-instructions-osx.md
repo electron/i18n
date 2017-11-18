@@ -4,9 +4,9 @@ Follow the guidelines below for building Electron on macOS.
 
 ## 系統需求
 
-- macOS >= 10.11.6
-- [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- macOS ≥ 10.11.6
+- [Xcode](https://developer.apple.com/technologies/tools/) ≥ 8.2.1
+- [node.js](http://nodejs.org) (外部)
 
 If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
 
@@ -30,7 +30,7 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 
 - Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
 - Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- 存檔
 
 ## Getting the Code
 
@@ -83,6 +83,6 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## 測試
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
