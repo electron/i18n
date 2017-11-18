@@ -32,7 +32,7 @@ $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## 建置
 
 Build both Release and Debug targets:
 
@@ -82,7 +82,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## 測試
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
