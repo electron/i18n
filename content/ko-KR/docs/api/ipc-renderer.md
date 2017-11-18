@@ -17,7 +17,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 * `channel` String
 * `listener` Function
 
-`channel`을 수신하고, 새로운 메시지가 도착하면 `listener`는 `listener(event, args...)`로 호출된다.
+`channel`을 수신하고, 새로운 메시지가 도착하면 `listener`는 `listener(event, args...)`로 호출됩니다.
 
 ### `ipcRenderer.once(channel, listener)`
 
@@ -31,7 +31,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+`channel` 의 listener 배열에서 지정한 `listener`를 제거합니다.
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
