@@ -18,15 +18,15 @@ let win = new BrowserWindow({
 
 ## 可用的API
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Web Workers支持Node.js的所有内置模块，而且`asar`档案也仍通过Node.js的API来读取。 不过没有一个Electron的内置模块可以用在多线程环境中。
 
-## Native Node.js modules
+## 原生Node.js模块
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+在Web Workers里可以直接加载任何原生Node.js模块，但不推荐这样做。 大多数现存的原生模块是在假设单线程环境的情况下编写的，如果把它们用在Web Workers里会导致崩溃和内存损坏。
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+请注意, 即使原生Node.js模块如果考虑到了线程安全问题， 但在 Web Worker中加载它仍然不安全, 因为 ` process.dlopen ` 函数并没有考虑。
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+现在安全顺利地加载原生模块的唯一办法，就是确保在Web Workers启动后app不加载原生模块。
 
 ```javascript
 process.dlopen = () => {
