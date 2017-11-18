@@ -41,23 +41,23 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Shift`
 * `Super`
 
-## Available key codes
+## 能用的按鍵碼
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* `` 到 `9`
+* `A` 到 `Z`
+* `F1` 到 `F24`
+* `~`, `!`, `@`, `#`, `$` 等半型標點符號。
+* `<code>Plus` (加號)</code>
+* `<code>Space` (空白鍵)</code>
 * `Tab`
-* `Backspace`
-* `Delete`
-* `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `<code>Backspace` (倒退)</code>
+* `Delete (刪除)`
+* `Insert (插入)`
+* `Return` (也可寫成 `Enter`)
+* `Up` (上), `Down` (下), `Left` (左) 及 `Right` (右)
+* `Home` 及 `End`
+* `PageUp` 及 `PageDown`
+* `Escape` (或縮寫成 `Esc`)
+* `VolumeUp`, `VolumeDown` 及 `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` 及 `MediaPlayPause`
 * `PrintScreen`
