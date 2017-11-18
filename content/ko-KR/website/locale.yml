@@ -66,7 +66,7 @@ quick_start:
   clone: Clone the Quick Start repository
   go_into_repo: 저장소로 이동
   install_deps: 종속성을 설치하고 실행하세요
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: 혹은 <a href='/docs'>문서</a>를 더 깊이 읽어보세요.
 need_help:
   title: 도움이 필요하신가요?
   description: '<a href=''https://discuss.atom.io/c/electron''>토론</a>포럼이나<a href = ''http: //atom-slack.herokuapp.com/'' > Slack </a> 채널에서 질문하실 수 있습니다. 중요한 알림을 들으시려면 트위터의 <a href="https://twitter.com/electronjs"> @electronjs </a>를 팔로우하세요. 개인적으로 연락을 원하시나요? <a href="mailto:electron@github.com"> electron@github.com</a>로 메일을 보내주세요.'
@@ -85,7 +85,7 @@ footer:
   see_the_faq: 자주 묻는 질문
 apps:
   title: Electron으로 설계된 애플리케이션
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'Electron과 함께라면 당신의 아이디어나 회사를 위한 데스크탑 어플리케이션을 쉽게 만들 수 있습니다. 처음에 GitHub의 <a href=''https://atom.io'' target=''_blank''>Atom 에디터</a>를 위해 만들어진 Electron는 Microsoft, Facebook, Slack, Docker와 같은 회사가 어플리케이션을 만드는데 사용되고 있습니다.'
   view_more: 더 많은 애플리케이션 보기
   submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
@@ -103,7 +103,7 @@ pages:
     description: Electron의 가장 최신 릴리즈를 위한 가이드와 API 레퍼런스 문서
   '/docs/all':
     title: 모든 Electron 문서!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: 한 페이지에서 검색가능한 모든 Electron 가이드와 API 설명서
   '/blog':
     title: Electron 블로그
     description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
@@ -113,7 +113,7 @@ pages:
     title: 릴리즈
   '/contact':
     title: 연락처
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Twitter, Slack, GitHub 혹은 이메일을 통해서 Electron팀과 연락하세요.
   '/languages':
     title: 언어
 _404:
