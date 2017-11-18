@@ -1,22 +1,22 @@
 # Mac App Store 上架導引
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+從 0.34.0 版開始，Electron 允許你將打包後的應用程式上架到 Mac App Store (MAS)。這份導引文件將教你: 如何上架你的應用程式，並了解 MAS 建置的限制。
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意:** 將應用程式上架到 Mac App Store 要註冊 [Apple Developer Program](https://developer.apple.com/support/compare-memberships/)，需要支付費用。
 
-## How to Submit Your App
+## 如何上架你的應用程式
 
 The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
 
-### Get Certificate
+### 取得憑證
 
 To submit your app to the Mac App Store, you first must get a certificate from Apple. 你可以參考網路上的[導引](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)。
 
-### Get Team ID
+### 取得 Team ID
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
-### Sign Your App
+### 簽章你的應用程式
 
 After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
 
@@ -106,7 +106,7 @@ If you are new to app sandboxing under macOS, you should also read through Apple
 
 Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
 
-#### Sign Native Modules
+#### 簽章原生模組
 
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
