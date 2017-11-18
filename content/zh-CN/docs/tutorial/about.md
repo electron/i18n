@@ -22,17 +22,17 @@ Electron中Chromium的版本通常在Chromium发行新的稳定版后的一到�
 
 当Node.js发行新版本的时候，为了一个更稳定的版本，Electron通常会在更新前等一个月。
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+在Electron里，Node.js和Chromium共享同一个V8实例--通常是Chromium在用的版本。大多数情况下这能*正常工作*但有时候需要修补Node.js。
 
 ### 版本
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+因为对Node.js和Chromium有很强的依赖性，Electron所发行的版本[不遵循`semver`](http://semver.org) 因此你需要经常参考Electron的特定版本。 [了解更多关于Electron版本](https://electron.atom.io/docs/tutorial/electron-versioning/)或者看看[当前所用版本](https://electron.atom.io/#electron-versions)。
 
 ### 长期支持
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+当前并不存在对Electron旧版本的长期支持。 如果你当前的Electron版本跑的不错，你可以停留在这版本上任意时长。 如果你想用发布的新特性，那就升级到更新的版本。
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+版本`v1.0.0`发布了重大的更新。 If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
 ## 核心理念
 
