@@ -42,7 +42,7 @@ Notifications are straight-forward on macOS, but you should be aware of [Apple's
 
 Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
-### Advanced Notifications
+### 進階通知
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
