@@ -37,7 +37,7 @@ web_technologies:
   description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTM、CSS 和 JavaScript 建構自己的應用程式。
 open_source:
   title: 開放原始碼
-  desciption: Electron 是由 GitHub 及活躍貢獻者社群共用維護的開於原始碼專案。
+  desciption: Electron 是由 GitHub 及活躍的貢獻者社群共用維護的開放原始碼專案。
 cross_platform:
   title: 跨平台
   description: 相容 Mac, Windows 及 Linux，Electron 應用程式可以在三大主流平台上建置及執行。
