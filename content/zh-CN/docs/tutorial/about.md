@@ -10,17 +10,17 @@ Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)
 
 ## 核心团队和贡献者
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron由Github上的一支团队和一群[活跃的贡献者](https://github.com/electron/electron/graphs/contributors)维护。 有些贡献者是独立开发者，有些则在用Electron构建应用的大型公司里工作。 我们很乐意把贡献频繁的人作为维护者列入到项目中。 了解更多[为Electron作贡献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
 
 ## 版本发布
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+Electron[发行版本](https://github.com/electron/electron/releases)相当频繁。每当有重要的bug修复，新API或是有Chromium、Node.js的更新时我们就会发行。
 
 ### 更新依赖
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron中Chromium的版本通常在Chromium发行新的稳定版后的一到两周之内更新，具体要根据更新里涉及到的东西。
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+当Node.js发行新版本的时候，为了一个更稳定的版本，Electron通常会在更新前等一个月。
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
