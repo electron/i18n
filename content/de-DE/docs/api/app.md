@@ -75,7 +75,7 @@ Rückgabewert:
 
 Wird ausgelöst wenn der Nutzer versucht eine Datei mit der App zu öffnen. The `open-file` Event wird auch ausgelöst wenn die App bereits offen ist und das Betriebssystem die App nochmal zum Öffnen einer Datei benutzen will. `open-file` wird auch ausgelöst wenn eine Datei auf das Dock-Icon der App gezogen wird (macOS) und die App noch nicht gestartet ist. Behandle das `open-file` Event so früh wie möglich in deiner App um diesen Fall zu berücksichtigen (Also definitiv bevor das `ready` Event ausgelöst wird).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
@@ -86,9 +86,9 @@ Rückgabewert:
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Die `Info.plist` Date muss das URL Schema mittels des `CFBundleURLTypes` Keys definieren und der `NSPrincipalClass` Key muss den Wert `AtomApplication` haben.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
 ### Event: 'activate' *macOS*
 
@@ -97,7 +97,7 @@ Rückgabewert:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Wird ausgelöst wenn die App aktiviert wird. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
 ### Event: 'continue-activity' *macOS*
 
