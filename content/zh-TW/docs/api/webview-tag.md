@@ -523,7 +523,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## DOM events
+## DOM 事件
 
 The following DOM events are available to the `webview` tag:
 
