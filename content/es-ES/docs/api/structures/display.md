@@ -1,7 +1,7 @@
 # Objeto de la Pantalla
 
-* id Número - El Identificador único associado con la pantalla.
-* rotación Número - Puede ser 0, 90, 180, 270, representa la rotación de la pantalla en grados de reloj.
+* `id` Número - El Identificador único associado con la pantalla.
+* `rotation` Número - Puede ser 0, 90, 180, 270, representa la rotación de la pantalla en grados de reloj.
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
