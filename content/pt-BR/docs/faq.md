@@ -108,30 +108,30 @@ delete window.module;
 
 ## `require('electron').xxx` é indefinido.
 
-When using Electron's built-in module you might encounter an error like this:
+Quando usar o módulo built-in do Electron você pode encontrar um erro como este:
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Isto é porque você tem o [módulo npm do `Electron`](https://www.npmjs.com/package/electron) instalado localmente ou globalmente, que substitui o módulo interno do Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Para verificar que se você estiver usando o módulo interno correto, você pode imprimir o caminho do módulo `Electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+e, em seguida, verifique se é do seguinte formulário:
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+    "/caminho/do/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Se é algo parecido com `node_modules/electron/index.js`, então você tem que remover o módulo de `Electron` npm ou renomeá-lo.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
