@@ -45,14 +45,14 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Janela do meu app desapareceu depois de alguns minutos.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Isto acontece quando a variável que é usada para armazenar a janela fica com resto coletado.
 
 Se você encontrar esse problema, veja os artigos útil:
 
 * [Gerenciamento de Memória](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Escopo de variável](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:
 
