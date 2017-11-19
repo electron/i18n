@@ -1,6 +1,6 @@
-# Display Object
+# 显示对象
 
-* `id` Number - Unique identifier associated with the display.
+* `id`数字-与显示相关联的唯一的标志符
 * `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
