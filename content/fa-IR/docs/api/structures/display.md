@@ -2,7 +2,7 @@
 
 * id - (معنا:شناسه -نوع:شماره) - شناسه های خاص مربوط به صفحه نمایش.
 * rotation - (معنا: چرخش - نوع:شماره) - چرخش صفحه نمایش در جهت عقربه های ساعت بر حسب درجه. می تواند(0 و 90 و 180 و 270) باشد.
-* `scaleFactor` Number - Output device's pixel scale factor.
+* scaleFactor - (معنا: مقیاس عامل - نوع:شماره) - ضریب مقیاس خروجی دستگاه بر حسب پیکسل.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
