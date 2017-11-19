@@ -1,4 +1,4 @@
-# Objeto Point
+# Point Object
 
 * `x` Number
 * `y` Number
