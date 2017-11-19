@@ -1,6 +1,6 @@
-# Installation
+# Kurulum
 
-> Tips for installing Electron
+> Electron'u yüklemek için ipuçları
 
 To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
 
@@ -10,7 +10,7 @@ npm install electron --save-dev --save-exact
 
 The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
 
-## Global Installation
+## Genel kurulum
 
 You can also install the `electron` command globally in your `$PATH`:
 

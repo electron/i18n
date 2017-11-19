@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> アプリケーションのイベントライフサイクルを制御します。
 
-Process: [Main](../glossary.md#main-process)
+プロセス: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+全てのウィンドウが閉じられたときにアプリケーションを終了する方法は以下の通りです:
 
 ```javascript
 const {app} = require('electron')
@@ -13,15 +13,15 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## イベント
 
-The `app` object emits the following events:
+`app`オブジェクトは以下のイベントを発生します。
 
-### Event: 'will-finish-launching'
+### イベント: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+アプリケーションが基本的なスタートアップを完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では、このイベントは`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定して、クラッシュレポーターと自動アップデーターを起動します。
 
-In most cases, you should just do everything in the `ready` event handler.
+ほとんどの場合、`ready` イベントハンドラーで処理を記述してください。
 
 ### Event: 'ready'
 

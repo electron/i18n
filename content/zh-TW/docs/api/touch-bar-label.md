@@ -1,8 +1,8 @@
-## Class: TouchBarLabel
+## 類別: TouchBarLabel
 
 > Create a label in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+處理序: [主要](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarLabel(options)` *Experimental*
 

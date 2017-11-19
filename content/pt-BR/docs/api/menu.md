@@ -250,7 +250,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemplos
 
-Template:
+Modelo:
 
 ```javascript
 [
@@ -271,7 +271,7 @@ Menu:
     - 5
     
 
-Template:
+Modelo:
 
 ```javascript
 [

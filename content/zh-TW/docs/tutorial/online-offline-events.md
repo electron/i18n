@@ -1,4 +1,4 @@
-# 連線/離線事件檢測
+# 連線/離線事件偵測
 
 Online and offline event detection can be implemented in the renderer process using standard HTML5 APIs, as shown in the following example.
 

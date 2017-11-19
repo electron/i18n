@@ -2,7 +2,7 @@
 
 > Create tray, dock, and application icons using PNG or JPG files.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+處理序: [主要](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
@@ -93,7 +93,7 @@ To mark an image as a template image, its filename should end with the word `Tem
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
-## Methods
+## 方法
 
 The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
 
@@ -135,11 +135,11 @@ Returns `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
-## Class: NativeImage
+## 類別: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+處理序: [主要](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 ### Instance Methods
 

@@ -137,18 +137,18 @@ API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
 
 ### 메소드
 
-The methods chapter must be in the following form:
+메소드장은 반드시 다음의 형식을 따라야 합니다.
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - 파라미터 설명.
+* `optional` Integer (optional) - 다른 파라미터 설명.
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+제목은 모듈의 메소드인지 클래스인지에 따라 `###` 혹은 `####` 레벨을 사용할 수 있습니다.
 
 For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 

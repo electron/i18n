@@ -1,4 +1,4 @@
-# Debugging the Main Process in VSCode
+# 在 VSCode 中 Debug 主處理序
 
 ### 1. Open an Electron project in VSCode.
 
@@ -30,7 +30,7 @@ $ code electron-quick-start
 
 **Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
 
-### 3. Debugging
+### 3. Debug
 
 Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 

@@ -1,8 +1,8 @@
-## Class: Cookies
+## 類別: Cookies
 
 > Query and modify a session's cookies.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 

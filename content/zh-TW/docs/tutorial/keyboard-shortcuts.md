@@ -1,8 +1,8 @@
 # 鍵盤快速鍵
 
-> Configure local and global keyboard shortcuts
+> 設定局域及全域鍵盤快速鍵
 
-## Local Shortcuts
+## 局域快速鍵
 
 You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
@@ -11,9 +11,9 @@ const {Menu, MenuItem} = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
-  label: 'Print',
+  label: '列印',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { console.log('是時候印點東西了') }
 }))
 ```
 
@@ -25,7 +25,7 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## 全域快速鍵
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## BrowserWindow 內的快速鍵
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
@@ -55,26 +55,26 @@ If you don't want to do manual shortcut parsing there are libraries that do adva
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+Mousetrap.bind('?', () => { console.log('顥示快速鍵!') })
+Mousetrap.bind('esc', () => { console.log('離開') }, 'keyup')
 
-// combinations
+// 組合鍵
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// 將不同的組合鍵對應到同一個 callback
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // 回傳 false 防止預設行為被觸發，並避免事件向外傳遞
   return false
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// gmail 風格的按鍵組合
+Mousetrap.bind('g i', () => { console.log('回收件匣') })
+Mousetrap.bind('* a', () => { console.log('全選') })
 
-// konami code!
+// konami 秘技!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
-  console.log('konami code')
+  console.log('konami 秘技')
 })
 ```

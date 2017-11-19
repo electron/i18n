@@ -1,4 +1,4 @@
-# Upgrading Chrome Checklist
+# Chrome 升級檢查清單
 
 This document is meant to serve as an overview of what steps are needed on each Chrome upgrade in Electron.
 
@@ -16,27 +16,27 @@ These are things to do in addition to updating the Electron code for any Chrome/
   - This should include upgrading the submodules in `vendor/` as needed
 - Verify debug builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - 32 位元版 Windows
+  - 64 位元版 Windows
+  - 32 位元版 Linux
+  - 64 位元版 Linux
   - ARM Linux
 - Verify release builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
+  - 32 位元版 Windows
+  - 64 位元版 Windows
+  - 32 位元版 Linux
   - 64-bit Linux
   - ARM Linux
 - Verify tests pass on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
+  - 32 位元版 Windows
+  - 64 位元版 Windows
+  - 32 位元版 Linux
   - 64-bit Linux
   - ARM Linux
 
-## Verify ffmpeg Support
+## 驗證 ffmpeg 支援
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
@@ -47,29 +47,29 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
+    <title>專有轉碼器檢查</title>
   </head>
   <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
+    <p>由 http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4 載入影片，檢查 Electron 是否使用了專有轉碼器。</p>
     <p id="outcome"></p>
     <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
     <script>
       const video = document.querySelector('video')
       video.addEventListener('error', ({target}) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
+          document.querySelector('#outcome').textContent = '沒有專有轉碼器，影片發出「無法支援的來源檔」事件。'
         } else {
-          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
+          document.querySelector('#outcome').textContent = `預期外的錯誤: ${target.error.code}`
         }
       })
       video.addEventListener('playing', () => {
-        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
+        document.querySelector('#outcome').textContent = '使用專有轉碼器，影片開始播放。'
       })
     </script>
   </body>
 </html>
 ```
 
-## Links
+## 連結
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)

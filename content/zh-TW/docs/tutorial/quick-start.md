@@ -4,11 +4,11 @@ Electron enables you to create desktop applications with pure JavaScript by prov
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
-### Main Process
+### 主處理序
 
 In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
 
-### Renderer Process
+### 畫面轉譯處理序
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
@@ -24,7 +24,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## 寫你第一個 Electron 應用程式
 
 Generally, an Electron app is structured like this:
 
@@ -54,60 +54,56 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// 將這個 window 物件記在全域變數裡。
+// 如果你不這麼做，這個視窗在 JavaScript 物件被 GC 後就會被自動關閉。
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // 建立瀏覽器視窗。
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // 並載入應用程式的 index.html。
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // 打開 DevTools。
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // 視窗關閉時會觸發。
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // 拿掉 window 物件的參照。如果你的應用程式支援多個視窗，
+    // 你可能會想存成陣列，現在該是時候清除相關的物件了。
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// 這個方法在 Electron 初始化完成，準備好建立瀏覽器視窗時會被叫用。
+// 有些 API 只能在這個事件發生後才能用。
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 在所有視窗都關閉時結束程式。
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // 在 macOS 裡，普遍的作法是將應用程式及選單列繼續留著，直到使用者按了 Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // 在 macOS 裡，一般會在使用者按了 Dock 圖示且沒有其他視窗開啟的情況下，
+  // 重新在應用程式裡建立視窗。
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// 你可以在這個檔案中繼續寫應用程式主處理序要執行的程式碼。 你也可以將它們放在別的檔案裡，再由這裡 require 進來。
 ```
 
-Finally the `index.html` is the web page you want to show:
+最後，`index.html` 裡放你想顯示的網頁內容:
 
 ```html
 <!DOCTYPE html>
@@ -118,14 +114,14 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    我們用了 node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    以及 Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
 
-## Run your app
+## 執行你的應用程式
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
@@ -186,13 +182,13 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
 ```bash
-# Clone the repository
+# 複製儲存庫
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# 進到儲存庫裡
 $ cd electron-quick-start
-# Install dependencies
+# 安裝相依的套件
 $ npm install
-# Run the app
+# 執行應用程式
 $ npm start
 ```
 

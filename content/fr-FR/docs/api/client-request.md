@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Événements d’instance
 
 #### Event: 'response'
 
@@ -99,7 +99,7 @@ Retourne :
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
-#### Event: 'close'
+#### Événement : 'close'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 

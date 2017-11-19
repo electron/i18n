@@ -1,6 +1,6 @@
-# `window.open` Função
+# Função `window.open`
 
-> Abrir uma nova janela e carregar uma URL.
+> Abri uma nova janela e carregar uma URL.
 
 Quando o `window.open` é chamando para criar uma nova janela em uma página web, uma nova instância de `BrowserWindow` será criada para a `url` e uma proxy será retornada para `window.open` deixando o controle sobre ele limitado.
 

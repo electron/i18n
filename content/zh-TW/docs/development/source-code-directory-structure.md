@@ -1,10 +1,10 @@
-# 原碼目錄結構
+# 原始碼目錄結構
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組切分的結構。
 
 You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
-## Structure of Source Code
+## 原始碼結構
 
     Electron
     ├── atom/ - C++ source code.
@@ -43,7 +43,7 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
         components like `node` and `breakpad`.
     
 
-## Structure of Other Directories
+## 其他目錄的結構
 
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.

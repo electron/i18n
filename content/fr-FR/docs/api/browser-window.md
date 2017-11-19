@@ -215,7 +215,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### Événements d’instance
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -230,7 +230,7 @@ Retourne :
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### Événement : 'close'
 
 Retourne :
 
@@ -252,7 +252,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### Événement : 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
@@ -260,55 +260,55 @@ Emitted when the window is closed. After you have received this event you should
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Événement : 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Événement : 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Événement : 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Événement : 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Événement : 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Événement : 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Événement : 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Événement : 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Événement : 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Événement : 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Événement : 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Événement : 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Événement : 'move'
 
 Emitted when the window is being moved to a new position.
 
@@ -318,19 +318,19 @@ Emitted when the window is being moved to a new position.
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Événement : 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Événement : 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Événement : 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Événement : 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
@@ -389,7 +389,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Méthodes statiques
 
 The `BrowserWindow` class has the following static methods:
 
@@ -600,7 +600,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
@@ -611,7 +611,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -623,7 +623,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window to `width` and `height`.
 
@@ -635,7 +635,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -753,7 +753,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -776,7 +776,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (facultatif)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -784,8 +784,7 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
-win.setSheetOffset(toolbarRect.height)
+let toolbarRect = document.getElementById('toolbar').getBoundingClientRect() win.setSheetOffset(toolbarRect.height)
 ```
 
 #### `win.flashFrame(flag)`

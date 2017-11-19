@@ -1,12 +1,12 @@
-# 構建步驟 (Linux)
+# 建置步驟 (Linux)
 
 Follow the guidelines below for building Electron on Linux.
 
-## Prerequisites
+## 系統需求
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* 至少 25GB 的磁碟空間及 8GB 的 RAM。
+* Python 2.7.x。某些發行版本，例如 CentOS 6.x 還是用 Python 2.6.x。所以請由 `python -V` 確認 Python 的版本。
+* Node.js。 There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
 * Development headers of GTK+ and libnotify.
 
@@ -70,7 +70,7 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## 建置
 
 If you would like to build both `Release` and `Debug` targets:
 
@@ -78,7 +78,7 @@ If you would like to build both `Release` and `Debug` targets:
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. 檔案大小超過 1.3GB。 This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```bash
 $ ./script/create-dist.py
@@ -110,7 +110,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## 疑難排解
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -120,11 +120,11 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## 測試
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## 進階主題
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
@@ -171,7 +171,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disab
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### 環境變數
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 

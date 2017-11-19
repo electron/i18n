@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Process: [Renderer](../glossary.md#renderer-process)
+處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
 An example of zooming current page to 200%.
 
@@ -12,7 +12,7 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Methods
+## 方法
 
 The `webFrame` module has the following methods:
 

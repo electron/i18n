@@ -1,6 +1,6 @@
 # Electron 에 대하여
 
-Electron 은 Html, Css 와 Javascript 로 크로스플랫폼 데스크톱 애플리케이션을 위해 Github 에서 개발한 오픈소스 라이브러리 입니다. Electron 은 Chromium 와 Node. js 를 단일 실행으로 합치고 앱을 Mac, Windows 와 Linux 용으로 패키지화 할 수 있게 함으로써 이것을 가능하게 합니다.
+Electron은 HTML, CSS, 자바스크립트로 크로스 플랫폼 데스크톱 애플리케이션을 만들 수 있도록 Github에서 개발한 오픈소스 라이브러리입니다. Electron 은 Chromium 와 Node. js 를 단일 실행으로 합치고 앱을 Mac, Windows 와 Linux 용으로 패키지화 할 수 있게 함으로써 이것을 가능하게 합니다.
 
 Electron 은 2013년에 Github 의 해킹 가능한 텍스트 편집기 Atom 의 프레임워크로 시작하였습니다. 이 둘은 2014년에 오픈소스화 됩니다.
 
@@ -14,7 +14,7 @@ Electron 은 Gihub 의 팀과 커뮤니티에서 활동중인 기여자 그룹�
 
 ## 출시
 
-Electron 은 빈번하게 출시 됩니다. 중요한 버그 수정, 새 Api 추가 또는 Chromium 이나 Node. js 의 업데이트시에 출시합니다.
+[Electron](https://github.com/electron/electron/releases)은 빈번하게 출시됩니다. 저희는 중요한 버그 수정이나, 새 API 추가 또는 Chromium이나 Node.js 의 버전 업데이트 시에 출시합니다.
 
 ### 업데이트 의존성
 
@@ -30,9 +30,9 @@ Node. js 와 Chromium 에 대한 의존성이 강해서, Electron 은 버전관�
 
 ### LTS
 
-현재 Electron 의 구버전에 대한 장기 지원은 없습니다. Electron 현재 버전이 잘 동작한다면, 그것을 원하는 만큼 유지하세요. 새로운 기능들을 사용하려면 새버전으로 업그레이드 해야합니다.
+현재 Electron 의 구버전에 대한 장기 지원은 없습니다. 만약 여러분의 현재 Electron 버전이 잘 동작한다면, 그것을 원하는만큼 유지하셔도 됩니다. 만약 새로운 기능들을 사용하여 만들고 싶으시다면 새로운 버전으로 업그레이드 해야합니다.
 
-주 버전은 v1.0.0 입니다. 아직 이 버전을 사용중이지 않다면, v1.0.0의 변화에 대해 읽어보세요.
+메이저 업데이트는 버전 `v1.0.0` 으로 찾아옵니다. 아직 이 버전을 사용중이지 않으시다면, `v1.0.0`의 [변경점](https://electron.atom.io/blog/2016/05/11/electron-1-0)에 대해 읽어보세요.
 
 ## 핵심 이념
 
@@ -40,7 +40,7 @@ Electron 을 작고 (파일 크기) 지속가능하게 (의존성 및 Api 의 �
 
 예를 들어, Electron 은 Chromium 전체가 아닌 렌더링 라이브러리만 사용합니다. 이것은 Chromium 업그레이드를 쉽게 하지만 Google Chrome 에서 볼 수 있는 몇몇 브라우저 기능이 Electron 에서는 지원하지 않습니다.
 
-Electron 에 추가된 새로운 기능은 주로 네이티브 Api 입니다. 기능은 가능한한 Node. js 모듈로 해야합니다. \[커뮤니티에 의해 개발된 Electron 도구들\] (https://electron. atom. io/community) 을 보세요.
+Electron에 추가된 새로운 기능은 주로 네이티브 API입니다. 기능은 가능한한 Node. js 모듈로 해야합니다. \[커뮤니티에 의해 개발된 Electron 도구들\] (https://electron. atom. io/community) 을 보세요.
 
 ## 역사
 

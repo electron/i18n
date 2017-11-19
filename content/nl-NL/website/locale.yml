@@ -7,9 +7,9 @@ nav:
   userland: Userland
   releases: Releases
   contact: Contact
-  languages: Languages
+  languages: Taal
 docs:
-  title: Electron Documentation
+  title: Electron documentatie
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: Gidsen
   api_reference: API Reference
@@ -19,12 +19,12 @@ languages:
   translation_progress: Translation Progress
   current: current selection
 community:
-  title: Electron Community
+  title: Electron Gemeenschap
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: Tools
   boilerplates: Boilerplates
   components: Components
-  videos: Videos
+  videos: Video's
   meetups: Meetups
   awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
   meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
@@ -71,7 +71,7 @@ need_help:
   title: Hulp nodig?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: Talen
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -115,7 +115,7 @@ pages:
     title: Contact
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: Taal
 _404:
   page_not_found: Page not found.
   if_this_is_an_error: If this is an error

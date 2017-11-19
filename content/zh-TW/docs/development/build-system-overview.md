@@ -1,4 +1,4 @@
-# 構建系統概述
+# 建置系統概述
 
 Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
 
@@ -42,7 +42,7 @@ Unlike most projects that use `Release` and `Debug` as target names, Electron us
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
-## Tests
+## 測試
 
 Test your changes conform to the project coding style using:
 

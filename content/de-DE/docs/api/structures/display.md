@@ -1,12 +1,12 @@
-# Display Object
+# Display Objekt
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
-* `scaleFactor` Number - Output device's pixel scale factor.
-* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
-* `bounds` [Rectangle](rectangle.md)
+* `id` Number - Einzigartige Identifaktionsnummer (ID) die auf das entsprechende Display verweist.
+* `rotation` Number - 0, 90, 180 oder 270 , repräsentiert die Display-Rotoerung in Alt-Grad (0-36).
+* `scaleFactor` Number - Der Skalierungsfaktor des Ausgabe-Displays.
+* `touchSupport` String - `available`, `unavailable` oder `unknown`. Gibt an ob das Display Touch unterstützt.
+* `bounds` [Rectangle](rectangle.md) Boundings des Displays
 * `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
-* `workAreaSize` [Size](size.md)
+* workArea Rectangle
+* workAreaSize Size
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Das `Display` Objekt repräsentiert ein echtes physisches Display welches vom Betriebssystem verwendet wird und daher an den Client angeschlossen ist. Wenn ein imitiertes/emuliertes `Display` existiert, kann das entweder daran liegen, dass das Betriebssystem "headless" läuft (ohne grafische Oberfläche) oder dass das Betriebssystem mit einem virtuellen Display verbunden ist.

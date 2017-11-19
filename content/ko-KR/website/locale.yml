@@ -20,14 +20,14 @@ languages:
   current: 현재 선택된 단계
 community:
   title: Electron 커뮤니티
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'Electron의 <a href="https://github.com/sindresorhus/awesome-electron">멋진</a> 오픈소스 기여자들이 만든 도구들, 상용구, 비디오. 근처의 <a href="/community#meetups">모임</a>을 찾거나 만들어보세요.'
   tools: 도구
   boilerplates: 상용구
   components: 컴포넌트
   videos: 동영상
   meetups: 모임
   awesome_notice: '이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  meetup_notice: '모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">pull request를 만드세요</a>.'
 electron_is_easy:
   title: 이것은 당신이 생각한 것보다 쉽습니다
   description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. 이것은 어려운 부분을 처리하므로 당신의 애플리케이션의 핵심 부분에 집중할 수 있습니다.
@@ -55,18 +55,18 @@ explore:
   title: Electron API를 탐색하세요
   description:
     - '<a href="https://github.com/electron/electron-api-demos">Electron API 데모 애플리케이션</a>'
-    - interactively demonstrates the most important features of the Electron API.
+    - Electron API의 가장 중요한 기능을 대화식으로 보여줍니다.
     - 예제 코드와 유용한 팁들로 Electron으로 무엇이 가능한지 살펴봅니다
     - 여러분의 앱을 만드세요.
 download_from_github: GitHub에서 다운로드
 view_all_releases_on_github: 'GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
+  title: "Electron의 실제 동작을 보려면 <a href='https://github.com/electron/electron-quick-start'target='_blank'>빠른 시작</a> 앱을 돌려보세요."
+  description: 유용한 표기법이 포함된 아주 작은 Electron 앱
+  clone: 빠른 시작 저장소 Clone
   go_into_repo: 저장소로 이동
   install_deps: 종속성을 설치하고 실행하세요
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: 혹은 <a href='/docs'>문서</a>를 더 깊이 읽어보세요.
 need_help:
   title: 도움이 필요하신가요?
   description: '<a href=''https://discuss.atom.io/c/electron''>토론</a>포럼이나<a href = ''http: //atom-slack.herokuapp.com/'' > Slack </a> 채널에서 질문하실 수 있습니다. 중요한 알림을 들으시려면 트위터의 <a href="https://twitter.com/electronjs"> @electronjs </a>를 팔로우하세요. 개인적으로 연락을 원하시나요? <a href="mailto:electron@github.com"> electron@github.com</a>로 메일을 보내주세요.'
@@ -81,11 +81,11 @@ footer:
   need_different_version: 다른 버전의 문서가 필요하신가요?
   see_available_versions: 사용 가능한 버전을 확인하세요.
   want_something_searchable: 뭔가 검색을 원하십니까?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  view_all_docs: 한 페이지에 모든 문서 보기
+  see_the_faq: 자주 묻는 질문
 apps:
   title: Electron으로 설계된 애플리케이션
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'Electron과 함께라면 당신의 아이디어나 회사를 위한 데스크탑 어플리케이션을 쉽게 만들 수 있습니다. 처음에 GitHub의 <a href=''https://atom.io'' target=''_blank''>Atom 에디터</a>를 위해 만들어진 Electron는 Microsoft, Facebook, Slack, Docker와 같은 회사가 어플리케이션을 만드는데 사용되고 있습니다.'
   view_more: 더 많은 애플리케이션 보기
   submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
@@ -100,10 +100,10 @@ pages:
     description: Electron으로 설계된 애플리케이션
   '/docs':
     title: 문서
-    description: Guides and API reference documentation for the latest Electron release
+    description: Electron의 가장 최신 릴리즈를 위한 가이드와 API 레퍼런스 문서
   '/docs/all':
     title: 모든 Electron 문서!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: 한 페이지에서 검색가능한 모든 Electron 가이드와 API 설명서
   '/blog':
     title: Electron 블로그
     description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
@@ -113,7 +113,7 @@ pages:
     title: 릴리즈
   '/contact':
     title: 연락처
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Twitter, Slack, GitHub 혹은 이메일을 통해서 Electron팀과 연락하세요.
   '/languages':
     title: 언어
 _404:

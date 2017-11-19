@@ -24,72 +24,72 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Escreva seu primeiro aplicativo com Electron
 
-Generally, an Electron app is structured like this:
+Geralmente, um aplicativo em Electron é estruturado como esse:
 
 ```text
-your-app/
+seu-app/
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+O formato de `package.json` e exatamente o mesmo que os módulos do Node, e o script especificado pelo campo `main` é o script de inicialização do seu app, que executará no processo principal. Um exemplo de como seu `package.json` possa parecer:
 
 ```json
 {
-  "name"    : "your-app",
+  "name"    : "seu-app",
   "version" : "0.1.0",
   "main"    : "main.js"
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Nota**: Se o campo `main` não estiver presente em `package.json`, Electron tentará carregar `index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+O `main.js` deve criar janelas e lidar com eventos do sistema, um tipico exemplo disso:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Mantenha uma referencia global do objeto da janela, se você não fizer isso, a janela será
+// fechada automaticamente quando o objeto JavaScript for coletado.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Criar uma janela de navegação.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // e carrega index.html do app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Abre o DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Emitido quando a janela é fechada.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Elimina a referência do objeto da janela, geralmente você iria armazenar as janelas
+    // em um array, se seu app suporta várias janelas, este é o momento
+    // quando você deve excluir o elemento correspondente.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Este método será chamado quando o Electron tiver finalizado
+// a inicialização e está pronto para criar a janela browser.
+// Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Finaliza quando todas as janelas estiverem fechadas.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // No macOS é comum para aplicativos e sua barra de menu 
+  // permaneçam ativo até que o usuário explicitamente encerre com Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -103,29 +103,29 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// Neste arquivo, você pode incluir o resto do seu aplicativo especifico do processo
+// principal. Você também pode colocar eles em arquivos separados e requeridos-as aqui.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Finalmente, o `index.html` é a pagina da web que você quer mostrar:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Olá Mundo!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    <h1>Olá Mundo!</h1>
+    Nos estamos usando node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    e Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
 
-## Run your app
+## Executar seu aplicativo
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 

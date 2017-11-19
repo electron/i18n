@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+處理序: [主要](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -14,7 +14,7 @@ const {shell} = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Methods
+## 方法
 
 The `shell` module has the following methods:
 

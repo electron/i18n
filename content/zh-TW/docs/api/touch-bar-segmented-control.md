@@ -1,8 +1,8 @@
-## Class: TouchBarSegmentedControl
+## 類別: TouchBarSegmentedControl
 
 > Create a segmented control (a button group) where one button has a selected state
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+處理序: [主要](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
