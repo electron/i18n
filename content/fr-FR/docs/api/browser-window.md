@@ -292,23 +292,23 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Événement : 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Événement : 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Événement : 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Événement : 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Événement : 'move'
 
 Emitted when the window is being moved to a new position.
 
