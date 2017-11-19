@@ -9,4 +9,4 @@
 * workArea - (معنا: ناحیه کاری - نوع: مستطیل) - فاقد توضیح
 * workAreaSize - (معنا: اندازه ناحیه کاری - نوع: مسطیل) - فاقد توضیح
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+شی `Display` نشان دهنده یک صفحه نمایش فیزیکی متصل به سیستم است. یک شی جعلی `Display` ممکن است روی یک سیستم بدون نمایشگر وجود داشته باشد و یا مربوط به یک ریموت(کنترل کننده) ویا نمایشگر مجازی باشد.
