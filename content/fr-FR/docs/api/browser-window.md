@@ -389,7 +389,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Méthodes statiques
 
 The `BrowserWindow` class has the following static methods:
 
