@@ -53,8 +53,8 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `Return` (ou `Enter`)
 * `Up`, `Down`, `Left` e `Right` (Setas do teclado: cima, baixo, esquerda e direita respectivamente)
 * `Home` e `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `PageUp` e `PageDown`
+* `Escape` (ou `Esc`)
+* `VolumeUp`, `VolumeDown` e `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` e `MediaPlayPause`
 * `PrintScreen`
