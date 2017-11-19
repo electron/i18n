@@ -86,7 +86,7 @@ Squirrel is an open-source framework that enables Electron apps to update automa
 
 這個術語起源於 Unix 社群，“userland” 或 “userspace” 指的是在作業系統核心外執行的程式。 最近，這個名詞在 Node 及 npm 社群中流行起來，用來區分由「Node 核心」功能及由龐大「使用者」社群發佈到 npm 上的套件。
 
-像 Node 一樣，Electron 只專注在一組小而精的 API 上，提供開發跨平臺桌面應用程式所需的必要功能。 這種設計理念讓 Electron 保有彈性，且不過度設限實際的使用方式。 Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+像 Node 一樣，Electron 只專注在一組小而精的 API 上，提供開發跨平臺桌面應用程式所需的必要功能。 這種設計理念讓 Electron 保有彈性，且不過度設限實際的使用方式。 Userland 讓使用者們建立及分享在「核心」之外的額外功能。
 
 ### V8
 
