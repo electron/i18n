@@ -37,13 +37,13 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 ## Referências da API
 
 * [Sinopse](api/synopsis.md)
-* [Processamento de Objeto](api/process.md)
+* [Process Object](api/process.md)
 * [Suporte ao Terminal de Comando do Chrome](api/chrome-command-line-switches.md)
 * [Variáveis de Ambiente](api/environment-variables.md)
 
 ### Elementos de DOM Personalizado:
 
-* [`Arquivo` Objeto](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Função](api/window-open.md)
 
