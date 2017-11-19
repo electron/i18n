@@ -10,7 +10,7 @@
 
 ## 메소드
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` 모듈은 이벤트를 처리하고 메시지를 보내기 위해 다음의 메소드를 가집니다:
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -37,14 +37,14 @@ The `ipcRenderer` module has the following method to listen for events and send 
 
 * `channel` String (optional)
 
-Removes all listeners, or those of the specified `channel`.
+모든 listener를 제거하거나 지정된 `channel`의 listener를 제거합니다.
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+`channel`을 통해 main 프로세스에 비동기적인 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 
@@ -55,7 +55,7 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
