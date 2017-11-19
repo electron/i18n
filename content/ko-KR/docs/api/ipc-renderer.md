@@ -44,7 +44,7 @@
 * `channel` String
 * `...args` any[]
 
-`channel`을 통해 main 프로세스에 비동기적인 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
+`channel`을 통해 main 프로세스에 비동기 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
 main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니다.
 
@@ -53,9 +53,9 @@ main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니�
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+`any` 반환 - 값은 [`ipcMain`](ipc-main.md) 핸들러를 통해 돌려보냅니다.
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
+`channel`을 통해 main 프로세스에 동기 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
