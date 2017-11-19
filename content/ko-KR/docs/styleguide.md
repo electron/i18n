@@ -50,8 +50,8 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 ## 단어 선택
 
-* 결과를 기술 할 때 "would" 보다 "will" 을 사용하세요.
-* "on" 보다 "in the ___ process" 를 선호합니다.
+* 결과를 설명할 때 "would" 대신 "will" 을 사용합니다.
+* "on" 대신 "in the ___ process" 표현을 지향합니다. 
 
 ## API 참조
 
@@ -59,47 +59,47 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 ### 페이지 제목
 
-각 페이지는 `require('electron')` 에 의해 반환 된 실제 객체 이름을 제목으로 사용해야 하며, `BrowserWindow`, `autoUpdater`, `session` 와 같은 것 들이 있습니다.
+각 페이지는 `BrowserWindow`, `autoUpdater`, `session` 와 같은 `require('electron')` 에 의해 반환되는 실 객체의 이름을 제목으로 사용해야 합니다.
 
 페이지 제목 아래에는 `>` 로 시작하는 한 줄 짜리 설명이 있어야 합니다.
 
-`session` 을 예로 듭니다:
+`session` 사용 예시:
 
 ```markdown
 # session
 
-> 브라우저 세션, 쿠키, 캐시, 프록시 설정, 등을 관리 합니다.
+> 브라우저 세션, 쿠키, 캐시, 프록시 설정, 등을 관리.
 ```
 
 ### 모듈 메소드 및 이벤트
 
-클래스가 아닌 모듈의 경우, 메소드 및 이벤트는 `## 메소드` 와 `## 이벤트` 장 아래에 나열해야 합니다.
+클래스가 아닌 모듈에서 메소드 및 이벤트는 `## Methods` 와 `## Events` 챕터에 있어야 합니다.
 
-`autoUpdater` 을 예로 듭니다:
+`autoUpdater` 사용 예시:
 
 ```markdown
 # autoUpdater
 
-## 이벤트
+## Events
 
-### 이벤트: 'error'
+### Event: 'error'
 
-## 메소드
+## Methods
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
 ### 클래스
 
-* API 클래스 또는 모듈의 일부인 클래스는 `## 클래스: TheClassName` 장 아래에 나열되야 합니다.
+* API 클래스와 모듈 클래스는 `## Class: TheClassName` 챕터 아래에 표시합니다.
 * 한 페이지에 여러 개의 클래스가 있을 수 있습니다.
 * 생성자는 `###` 레벨 제목으로 나열되야 합니다.
-* [정적 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)는 `### 정적 메소드` 장 아래에 나열되야 합니다.
-* [인스턴스 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)는 `### 인스턴스 메소드` 장 아래에 나열되야 합니다.
-* 반환 값이 있는 모든 메소드는 다음 문구로 설명을 시작해야 합니다. "반환값 `[TYPE]` - 반환 값 설명" 
-  * 메소드가 `객체` 를 반환하면, 그 구조는 콜론과 개행 문자 다음에 함수 매개 변수와 같은 방식으로 된 정렬되지 않은 속성의 목록으로 지정할 수 있습니다.
-* 인스턴스 이벤트는 `### 인스턴스 이벤트` 장 아래에 나열되야 합니다.
-* 인스턴스 이벤트는 `### 인스턴스 속성` 장 아래에 나열되야 합니다. 
+* [정적 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)는 `### Statis Methods` 챕터 아래에 표시합니다.
+* [인스턴스 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)는 `### Instance Methods` 챕터 아래에 표시합니다.
+* 반환 값이 있는 모든 메소드는 "반환값 `[TYPE]` - 반환 값 설명" 형태의 설명으로 시작해야 합니다. 
+  * 메소드가 `Object` 를 반환하면, 끝에 콜론을 붙인 뒤 다음줄부터 함수 매개변수와 같은 스타일로 순서에 상관없이 그 구조를 명시해야 합니다.
+* 인스턴스 이벤트는 `### Instance Events` 챕터 아래에 표시합니다.
+* 인스턴스 이벤트는 `### Instance Properties` 장 아래에 나열되야 합니다. 
   * 인스턴스 속성은 "[속성 유형] ..." 으로 시작해야 합니다.
 
 `Session` 과 `Cookies` 클래스를 예로 듭니다:
