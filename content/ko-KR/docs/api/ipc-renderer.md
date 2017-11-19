@@ -46,7 +46,7 @@
 
 `channel`을 통해 main 프로세스에 비동기적인 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니다.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
