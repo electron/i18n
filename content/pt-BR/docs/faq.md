@@ -54,7 +54,7 @@ Se você encontrar esse problema, veja os artigos útil:
 * [Gerenciamento de Memória](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Escopo de variável](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Se você quer uma solução rápida, você pode fazer as variáveis globais, alterando seu código:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -77,7 +77,7 @@ app.on('ready', () => {
 
 ## Eu não posso usar jQuery/RequireJS/Meteor/AngularJS em Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Devido à integração de Node. js do Electron, existem alguns símbolos extras inseridos o DOM como `module`, `exports`, `require`. Isso causa problemas por causa de algumas bibliotecas que querem inserir os símbolos com os mesmos nomes.
 
 Para resolver isso, você pode desativar a integração com node no Electron:
 
