@@ -16,27 +16,27 @@ These are things to do in addition to updating the Electron code for any Chrome/
   - This should include upgrading the submodules in `vendor/` as needed
 - Verify debug builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
-  - 64-bit Linux
+  - 32 位元版 Windows
+  - 64 位元版 Windows
+  - 32 位元版 Linux
+  - 64 位元版 Linux
   - ARM Linux
 - Verify release builds succeed on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
+  - 32 位元版 Windows
+  - 64 位元版 Windows
+  - 32 位元版 Linux
   - 64-bit Linux
   - ARM Linux
 - Verify tests pass on: 
   - macOS
-  - 32-bit Windows
-  - 64-bit Window
-  - 32-bit Linux
+  - 32 位元版 Windows
+  - 64 位元版 Windows
+  - 32 位元版 Linux
   - 64-bit Linux
   - ARM Linux
 
-## Verify ffmpeg Support
+## 驗證 ffmpeg 支援
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
