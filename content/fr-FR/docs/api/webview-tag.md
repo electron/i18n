@@ -613,11 +613,11 @@ Retourne :
 
 Fired when page receives favicon urls.
 
-### Event: 'enter-html-full-screen'
+### Événement : 'enter-html-full-screen'
 
 Fired when page enters fullscreen triggered by HTML API.
 
-### Event: 'leave-html-full-screen'
+### Événement : 'leave-html-full-screen'
 
 Fired when page leaves fullscreen triggered by HTML API.
 
