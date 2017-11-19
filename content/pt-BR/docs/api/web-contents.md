@@ -294,7 +294,7 @@ Retorna:
 
 * `event` Event
 * `url` String
-* `error` String - O código de erro
+* `error` String - O código do erro
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
