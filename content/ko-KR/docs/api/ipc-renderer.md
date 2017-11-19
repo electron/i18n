@@ -57,7 +57,7 @@ main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니�
 
 `channel`을 통해 main 프로세스에 동기 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니다. 그리고 `event.returnValue`를 설정하는 것으로 응답합니다.
 
 **Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
 
