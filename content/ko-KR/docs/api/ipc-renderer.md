@@ -59,11 +59,11 @@ main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니�
 
 main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니다. 그리고 `event.returnValue`를 설정하는 것으로 응답합니다.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**참고:** 동기 메시지를 보내는 것은 전체 renderer 프로세스를 차단합니다. 만약 무엇이 동작하는지 알지 못한다면 이것을 사용해선 안됩니다.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send`와 같지만 main 프로세스 대신 호스트 페이지의 `<webview>` 엘리먼트로 이벤트를 전달합니다.
