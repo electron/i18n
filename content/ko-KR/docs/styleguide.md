@@ -99,41 +99,42 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 * 반환 값이 있는 모든 메소드는 "반환값 `[TYPE]` - 반환 값 설명" 형태의 설명으로 시작해야 합니다. 
   * 메소드가 `Object` 를 반환하면, 끝에 콜론을 붙인 뒤 다음줄부터 함수 매개변수와 같은 스타일로 순서에 상관없이 그 구조를 명시해야 합니다.
 * 인스턴스 이벤트는 `### Instance Events` 챕터 아래에 표시합니다.
-* 인스턴스 이벤트는 `### Instance Properties` 장 아래에 나열되야 합니다. 
+* 인스턴스 이벤트는 `### Instance Properties` 챕터 아래에 표시합니다. 
   * 인스턴스 속성은 "[속성 유형] ..." 으로 시작해야 합니다.
 
-`Session` 과 `Cookies` 클래스를 예로 듭니다:
+`Session` 과 `Cookies` 클래스 사용 예시:
 
 ```markdown
 # session
 
-## 메소드
+## Methods
 
 ### session.fromPartition(partition)
 
-## 속성
+## Properties
 
 ### session.defaultSession
 
-## 클래스: Session
+## Class: Session
 
-### 인스턴스 이벤트
+### Instance Events
 
 #### Event: 'will-download'
 
-### 인스턴스 메소드
+### Instance Methods
 
 #### `ses.getCacheSize(callback)`
 
-### 인스턴스 속성
+### Instance Properties
 
 #### `ses.cookies`
 
-## 클래스: Cookies
+## Class: Cookies
 
-### 인스턴스 메소드
+### Instance Methods
 
 #### `cookies.get(filter, callback)`
+
 ```
 
 ### 메소드
@@ -149,39 +150,39 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 ...
 ```
 
-제목은 모듈의 메소드인지 클래스인지에 따라 `###` 혹은 `####` 레벨을 사용할 수 있습니다.
+제목은 `###` 혹은 `####`-단계로 합니다. 모듈이냐 클래스냐에 따라 달라집니다.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+모듈의 경우, `objectName`은 모듈의 이름입니다. 클래스의 경우, 클래스의 인스턴스 이름이어야 하며, 모듈의 이름과 달라야합니다.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+예를 들어, `session` 모듈의 `Session`클래스의 메소드는 `objectName` 으로 `ses`를 사용해야 합니다.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+선택적인 인수는 각각을 컴마로 구분하여 대괄호 `[]` 로 감쌉니다:
 
     required[, optional]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+아래 메소드에 각 인수에 대한 더 자세한 내용이 있습니다. 인수의 유형은 기본 유형 중 하나로 표시합니다.
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* •또는 Electron 의 [`WebContent`](api/web-contents.md)와 같은 사용자 타입
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+인수 또는 메소드가 특정 플랫폼에만 사용된다면, 이 플랫폼들은 자료형 다음에 공백으로 구분된 이탤릭체 목록으로 표시됩니다. 값은 <0>macOS</0>, <0>windows</0>, 또는 <0>Linux</0> 일 수 있습니다. 
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` 유형의 인수는 배열이 무엇을 포함하는지 아래에 명시해야 합니다.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` 유형의 인수를 위한 설명은 호출방법을 명확히 하고, 전달되는 매개변수의 유형을 표시해야 합니다.
 
-### Events
+### 이벤트
 
-The events chapter must be in following form:
+이벤트 챕터는 다음을 따릅니다:
 
 ```markdown
 ### Event: 'wake-up'
@@ -193,13 +194,13 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+제목은 `###` 또는 `####`-단계로 합니다. 모듈이냐 클래스냐에 따라 달라집니다.
 
-The arguments of an event follow the same rules as methods.
+이벤트의 인수는 메소드와 같은 규칙을 따릅니다.
 
-### Properties
+### 속성
 
-The properties chapter must be in following form:
+속성 챕터는 다음을 따릅니다:
 
 ```markdown
 ### session.defaultSession
@@ -207,16 +208,16 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+제목은 `###` 또는 `####`-단계로 합니다. 모듈이냐 클래스냐에 따라 달라집니다.
 
-## Documentation Translations
+## 문서 번역
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Electron 문서의 번역본은 `docs-translations` 아래에 위치합니다.
 
-To add another set (or partial set):
+아직 번역되지 않은 언어를 추가하려면 (일부분 포함):
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
+* •언어의 약어로 서브 디렉토리를 만듭니다.
+* 파일을 번역합니다.
 * Update the `README.md` within your language directory to link to the files you have translated.
 * Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
 
