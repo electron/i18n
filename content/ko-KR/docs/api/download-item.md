@@ -1,6 +1,6 @@
 ## Class: DownloadItem
 
-> Control file downloads from remote sources.
+> 원격 소스에서 파일 다운로드를 제어합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
