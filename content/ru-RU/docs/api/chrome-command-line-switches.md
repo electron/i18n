@@ -67,19 +67,19 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Использовать PAC скрипт для указанного `url`.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+Не использоваться прокси сервер и всегда делать прямое соединение. Перезаписывает все прокси серверы, параметры которых были переданы.
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Список `правил`, разделённых точкой с запятой, которые контролируют как сопоставляются имена хостов.
 
-For example:
+Например:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
+* `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
 * `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
