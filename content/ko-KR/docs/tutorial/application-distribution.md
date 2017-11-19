@@ -27,7 +27,7 @@ electron/resources/app
 
 소스파일 전체를 복사해서 배포하는 것과는 별개로 [asar](https://github.com/electron/asar) 아카이브를 통해 애플리케이션의 소스 코드가 사용자에게 노출되는 것을 방지할 수 있습니다.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+`asar` 아카이브를 사용할 땐 단순히 `app` 폴더 대신에 애플리케이션을 패키징한 `app.asar` 파일로 대체하면됩니다. Electron은 자동으로 app폴더 대신 asar 아카이브를 기반으로 애플리케이션을 실행합니다.
 
 macOS 의 경우 : 
 
@@ -43,19 +43,19 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+자세한 내용은 [애플리케이션 패키징](application-packaging.md)에서 찾아볼 수 있습니다.
 
 ## Rebranding with Downloaded Binaries
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+애플리케이션을 Electron에 번들링한 후 해당 애플리케이션에 맞게 리브랜딩 할 수 있습니다.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+[rcedit](https://github.com/atom/rcedit)를 통해 `electron.exe`을 원하는 이름으로 변경할 수 있고, 또한 아이콘과 기타 정보도 변경할 수 있습니다.
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+`Electron.app`을 원하는 이름으로 변경할 수 있습니다. 그리고 다음 표시된 애플리케이션 내부 파일에서 `CFBundleDisplayName`, `CFBundleIdentifier` 그리고 `CFBundleName` 필드를 원하는 이름으로 변경해야 합니다:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
@@ -87,7 +87,7 @@ The structure of a renamed app would be like:
 
 You can rename the `electron` executable to any name you like.
 
-## Packaging Tools
+## 패키징 툴
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
@@ -105,11 +105,11 @@ Creating a custom fork of Electron is almost certainly not something you will ne
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
-#### Creating a Custom Release with surf-build
+#### surf-build와 함께 커스텀 릴리즈 만들기
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. npm을 통해 [Surf](https://github.com/surf-build/surf)를 설치합니다: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. 새로운 S3 bucket을 만들고 다음과 같은 빈 디렉토리 구조를 만듭니다:
     
         - atom-shell/
           - symbols/
