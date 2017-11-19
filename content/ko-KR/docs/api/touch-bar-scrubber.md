@@ -18,7 +18,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `TouchBarScrubber`:
 

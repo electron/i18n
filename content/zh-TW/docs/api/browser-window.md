@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### 平臺注意事項
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -106,11 +106,11 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## 類別: BrowserWindow
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -169,7 +169,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `webPreferences` Object (optional) - Settings of web page's features. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. 更多相關資料可以[多執行緒](../tutorial/multithreading.md)中找到。
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
@@ -223,7 +223,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+回傳:
 
 * `event` Event
 * `title` String
@@ -232,7 +232,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-Returns:
+回傳:
 
 * `event` Event
 
@@ -336,7 +336,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+回傳:
 
 * `event` Event
 * `command` String
@@ -370,7 +370,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 * `direction` String
@@ -385,11 +385,11 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### 事件: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### 靜態方法
 
 The `BrowserWindow` class has the following static methods:
 

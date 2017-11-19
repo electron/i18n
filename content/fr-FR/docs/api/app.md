@@ -1,4 +1,4 @@
-# app
+# application
 
 > Contrôle le cycle de vie des événements de votre application.
 
@@ -21,7 +21,7 @@ L'objet `app` émet les événements suivants :
 
 Émis lorsque l'application a terminé son démarrage de base. Sur Windows et Linux, l'événement `will-finish-launching` est le même que l'événement `ready`. Sur macOS, cet événement représente la notification `applicationWillFinishLaunching` de `NSApplication`. Vous allez habituellement mettre en place des écouteurs pour les événements `open-file` et `open-url` ici, et lancer le reporteur d'incident et la mise à jour automatique.
 
-Dans la plupart des cas, vous devrez tout faire dans le contrôleur de l'événement `ready`.
+Dans la plupart des cas, vous devriez tout faire dans le contrôleur de l'événement `ready`.
 
 ### Événement : 'ready'
 
@@ -288,11 +288,11 @@ Relance l’application lorsque l’instance en cours se termine.
 
 Par défaut, la nouvelle instance utilisera le même répertoire de travail et les arguments de ligne de commande avec l’instance actuelle. Si `args` est spécifié, `args` sera passé comme argument de ligne de commande à la place. Lorsque `execPath` est spécifié, `execPath` sera exécuté pour redémarrer à la de l’application actuelle.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Notez bien que cette méthode ne ferme pas l'application, vous devez appeler `app.quit` ou `app.exit` après avoir appelé `app.relaunch` pour faire redémarrer votre application.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Quand `app.relaunch` est appelé plusieurs fois, plusieurs instances vont être appelées après que l'instance actuelle soit fermée.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Voici un exemple qui redémarre une nouvelle instance immédiatement en ajoutant un nouvel argument de ligne de commande à la nouvelle instance :
 
 ```javascript
 const {app} = require('electron')
@@ -303,7 +303,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
 
 ### `app.focus()`
 

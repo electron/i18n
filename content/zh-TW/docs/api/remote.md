@@ -2,7 +2,7 @@
 
 > Use main process modules from the renderer process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
@@ -90,7 +90,7 @@ const app = require('electron').remote.app
 console.log(app)
 ```
 
-## Methods
+## 方法
 
 The `remote` module has the following methods:
 

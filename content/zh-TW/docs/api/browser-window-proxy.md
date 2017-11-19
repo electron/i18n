@@ -1,8 +1,8 @@
-## Class: BrowserWindowProxy
+## 類別: BrowserWindowProxy
 
 > Manipulate the child browser window
 
-Process: [Renderer](../glossary.md#renderer-process)
+處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 

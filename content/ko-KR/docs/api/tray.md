@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -161,7 +161,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 The `Tray` class has the following methods:
 

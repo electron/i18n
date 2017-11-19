@@ -1,14 +1,14 @@
 ## Class: BrowserView
 
-> Create and control views.
+> 뷰들을 생성하고 제어합니다.
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-## Example
+## 예시
 
 ```javascript
 // In the main process.
@@ -42,7 +42,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -54,7 +54,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 Objects created with `new BrowserView` have the following instance methods:
 

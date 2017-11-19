@@ -49,27 +49,27 @@ Détache le débogueur depuis le `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
+* `method` String -Nom de la méthode, cela devrait être l'une des méthodes définies par le protocole de débogage à distance.
+* `commandParams` Object (facultatif) - Objet JSON avec les paramètres de la requête.
 * `callback` Function (facultatif) - Réponse 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `error` Object - Message d'erreur indiquant l'échec de la commande.
+  * `result` Any - Réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant.
 
-Send given command to the debugging target.
+Envoi une commande au débogueur.
 
 ### Événements d’instance
 
 #### Événement : 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - Motif du retrait du débogueur.
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Émis lorsque la session de débogage est terminée. Cela se produit soit lorsque le `webContents` est fermé, soit lorsque devtools est invoqué pour le `webContents` rattaché.
 
 #### Événement : 'message'
 
 * `event` Event
 * `method` String - Nom de la méthode.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` Object - Paramètres d'événements définis par l'attribut 'parameters' dans le protocole de débogage distant.
 
 Émis à chaque fois que la cible du débogueur envoie un événement d’instrumentation.

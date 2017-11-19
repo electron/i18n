@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 #### `debugger.attach([protocolVersion])`
 

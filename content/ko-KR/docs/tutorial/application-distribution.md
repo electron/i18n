@@ -1,17 +1,18 @@
-# 응용 프로그램 배포
+# 애플리케이션 배포
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Electron으로 만든 우리의 앱을 베포하기 위해서는, Electron의 [prebuilt binaries](https://github.com/electron/electron/releases)를 다운로드 해야 합니다. 먼저, 예제에서 보이는것처럼 폴더 이름을 `app`로 지정한 후 Electron의 리소스 디렉터리에 폴더를 통째로 집어넣기만 하면 됩니다. 아래의 예제에서는 `electron/` 에서 가리키는 Electron's prebuilt binaries 위치를 언급해줍니다.
 
-On macOS:
+macOS 의 경우 : 
 
 ```text
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
 └── index.html
+
 ```
 
-On Windows and Linux:
+Windows 와 Linux 의 경우 :
 
 ```text
 electron/resources/app
@@ -20,22 +21,22 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+그리고 `Electron.app` 을 실행하면(Linux에선 `electron` Windows 에선 `electron.exe` 입니다), Electron 앱이 실행됩니다. 최종 사용자에겐 이 `electron` 폴더를 배포하면 됩니다.
 
-## Packaging Your App into a File
+## 파일로 앱을 패키징 하기
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+macOS 의 경우 : 
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Windows 와 Linux 의 경우 :
 
 ```text
 electron/resources/

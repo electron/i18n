@@ -1,8 +1,8 @@
-# 構建步驟 (Windows)
+# 建置步驟 (Windows)
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## 系統需求
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
@@ -32,7 +32,7 @@ $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## 建置
 
 Build both Release and Debug targets:
 
@@ -58,7 +58,7 @@ $ python script\bootstrap.py -v --target_arch=ia32
 
 The other building steps are exactly the same.
 
-## Visual Studio project
+## Visual Studio 專案
 
 To generate a Visual Studio project, you can pass the `--msvs` parameter:
 
@@ -82,11 +82,11 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## 測試
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Troubleshooting
+## 疑難排解
 
 ### Command xxxx not found
 

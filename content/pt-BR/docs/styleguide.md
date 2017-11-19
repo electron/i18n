@@ -1,16 +1,16 @@
-# Electron Documentation Styleguide
+# Estilo da Documentação do Electron
 
-These are the guidelines for writing Electron documentation.
+Estas são as diretrizes para escrever a documentação do Electron.
 
-## Titles
+## Títulos
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Cada página deve ter um único `#` no nível de título na parte superior.
+* Capítulos na mesma página devem ter `##` títulos de nível.
+* Subcapítulos precisam de aumentar o número de `#` no título de acordo com sua profundidade de aninhamento.
+* Todas as palavras no títulos da página devem estar em letras maiúsculas, exceto conjunções como "de" e "e".
+* Somente a primeira palavra de um capítulo deve estar em letra maiúscula.
 
-Using `Quick Start` as example:
+Usado o `Inicio rápido` como exemplo:
 
 ```markdown
 # Quick Start

@@ -2,7 +2,7 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 For example:
 
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## Methods
+## 方法
 
 The `powerSaveBlocker` module has the following methods:
 

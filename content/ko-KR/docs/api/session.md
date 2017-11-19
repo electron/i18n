@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 The following methods are available on instances of `Session`:
 
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `Session`:
 

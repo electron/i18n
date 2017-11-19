@@ -1,4 +1,4 @@
-tagline: Xây dựng ứng dụng đa nền tảng bằng HTML, CSS và Javascript cho máy tính để bàn và laptop
+tagline: Xây dựng ứng dụng máy tính đa nền tảng với HTML, CSS và Javascript
 nav:
   docs: Tài liệu
   blog: Blog
@@ -7,6 +7,27 @@ nav:
   userland: Không gian người dùng
   releases: Các phiên bản phát hành
   contact: Liên hệ
+  languages: Ngôn ngữ
+docs:
+  title: Tài liệu Electron
+  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  guides: Các hướng dẫn
+  api_reference: Tài liệu tham khảo về API
+  advanced: Nâng cao
+languages:
+  choose_language: Chọn ngôn ngữ
+  translation_progress: Tiến độ dịch thuật
+  current: lựa chọn hiện tại
+community:
+  title: Cộng đồng Electron
+  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  tools: Công cụ
+  boilerplates: Boilerplates
+  components: Components
+  videos: Video
+  meetups: Meetups
+  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
+  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
   title: Nó dễ dàng hơn bạn nghĩ
   description: Nếu bạn có thể xây dựng một website thì bạn có thể xây dựng ứng dụng trên desktop. Electron là một framework cho việc tạo ra các ứng dụng đó chỉ với công nghệ xây dựng web, giống như HTML, CSS và Javascript. Nó sẽ lo về các phần cứng dùm bạn, việc của bạn chỉ cần làm là tập trung tinh thành vào lập trình ứng dụng của bạn.
@@ -40,25 +61,62 @@ explore:
 download_from_github: Tải về từ Github
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github'
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Trở về ứng dụng <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> để xem cách Electron hoạt động:"
   description: Một ứng dụng Electron nhỏ hữu ích.
   clone: Clone lại source của Quick Start
   go_into_repo: Đi tới kho source code
   install_deps: Cài đặt các gói đi kèm và chạy
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: Hoặc xem xét kĩ hơn bằng cách đọc <a href='/docs'>tài liệu</a>.
 need_help:
   title: Cần trợ giúp?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+headings:
+  languages: Ngôn ngữ
+taglines:
+  languages: Localized content from our awesome global developer community.
+help_translate: "Tham gia dịch"
+footer:
+  see_something: See something that needs fixing?
+  propose_change: Propose a change to the source file.
+  need_different_version: Need a different version of the docs?
+  see_available_versions: See available versions.
+  want_something_searchable: Want something searchable?
+  view_all_docs: View all docs on one page
+  see_the_faq: See the frequently asked questions
 apps:
   title: Các ứng dụng được xây dựng từ Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'Với Electron, tạo ra một ứng dụng desktop cho công ty hoặc các ý tưởng của bạn thật đơn giản. Ban đầu, Electron được phát triển cho trình soạn thảo <a href=''https://atom.io'' target=''_blank''>Atom</a> của Github, sau đó, Electron đã được sử dụng rộng rãi để tạo ra các ứng dụng của các công ty như Microsoft, Facebook, Slack và Docker.'
   view_more: Xem thêm các ứng dụng khác
   submit_your_own: gửi lên ứng dụng của bạn
+  something_missing: Something missing?
+  edit_this_app: Chỉnh sửa ứng dụng này.
 or: hoặc
 pages:
+  '/':
+    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Các App Electron
+    description: Các ứng dụng được xây dựng từ Electron
+  '/docs':
+    title: Tài liệu
+    description: Guides and API reference documentation for the latest Electron release
+  '/docs/all':
+    title: Tất cả các tài liệu Electron!
+    description: All of Electron's guides and API documentation on a single, searchable page.
+  '/blog':
+    title: Blog Electron
+    description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.
+  '/community':
+    title: Cộng đồng
+  '/releases':
+    title: Các phiên bản phát hành
   '/contact':
     title: Liên hệ
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Liên lạc với đội Electron trên Twitter, Slack, GitHub, hoặc qua email.
+  '/languages':
+    title: Ngôn ngữ
+_404:
+  page_not_found: Không tìm thấy trang.
+  if_this_is_an_error: Nếu đây là một lỗi
+  please_file_an_issue: please file an issue.

@@ -33,7 +33,7 @@ async function fetchRelease () {
   console.log(`Fetching release data from GitHub`)
 
   const repo = {
-    owner: 'electron', 
+    owner: 'electron',
     repo: 'electron',
     tag: `v${version}`
   }
@@ -60,7 +60,7 @@ async function fetchDocs () {
 
 async function fetchApiData () {
   console.log(`Fetching API definitions`)
-  
+
   const asset = release.assets.find(asset => asset.name === 'electron-api.json')
 
   if (!asset) {
@@ -77,9 +77,9 @@ async function fetchApiData () {
 }
 
 async function fetchWebsiteContent () {
-  console.log(`Fetching locale.yml from electron/electron.atom.io#neo`)
+  console.log(`Fetching locale.yml from electron/electronjs.org#master`)
 
-  const url = 'https://cdn.rawgit.com/electron/electron.atom.io/neo/data/locale.yml'
+  const url = 'https://rawgit.com/electron/electronjs.org/master/data/locale.yml'
   const response = await got(url)
   const content = response.body
   const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)

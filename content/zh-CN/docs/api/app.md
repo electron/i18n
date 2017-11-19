@@ -1,10 +1,10 @@
 # app
 
-> 控制应用程序的事件生命周期。
+> 控制你的应用程序的事件生命周期。
 
 线程：[主线程](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+下面的这个例子将会展示如何在最后一个窗口被关闭时退出应用：
 
 ```javascript
 const {app} = require('electron')
@@ -19,31 +19,31 @@ app.on('window-all-closed', () => {
 
 ### 事件: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+当应用程序完成基础的启动的时候被触发。 在 Windows 和 Linux 中, `will-finish-launching` 事件与 `ready` 事件是相同的; 在 macOS 中，这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。 通常会在这里为 `open-file` 和 `open-url` 设置监听器，并启动崩溃报告和自动更新。
 
-In most cases, you should just do everything in the `ready` event handler.
+在大多数的情况下，你应该只在 `ready` 事件中完成所有的业务。
 
 ### 事件: 'ready'
 
 返回:
 
-* `launchInfo` 对象 *macOS*
+* `launchInfo` Object *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+当 Electron 完成初始化时被触发。 在 macOS 中, 如果从通知中心中启动，那么 `launchInfo` 中的 `userInfo` 包含用来打开应用程序的 `NSUserNotification` 信息。 你可以通过调用 `app.isReady()` 方法来检查此事件是否已触发。
 
-### Event: 'window-all-closed'
+### 事件: 'window-all-closed'
 
-Emitted when all windows have been closed.
+当所有的窗口都被关闭时触发。
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+如果你没有订阅本事件并且所有窗口都关闭了，默认的行为是控制退出程序；然而，如果你订阅了，你可以控制是否退出程序。 如果用户点击 `Cmd + Q`，或者开发者调用了 `app.quit()`，Electron 会首先关闭所有的窗口然后触发 `will-quit` 事件，在这种情况下 `window-all-closed` 事件不会被触发。
 
-### Event: 'before-quit'
+### 事件：'before-quit'
 
 返回:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+在应用程序开始关闭窗口之前触发。 调用 `event.preventDefault()` 会阻止默认的行为。默认的行为是终结应用程序。
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
@@ -164,7 +164,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` 函数 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
@@ -191,7 +191,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` 函数 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitted when a client certificate is requested.
@@ -223,7 +223,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` 函数 
   * `username` String
   * `password` String
 
@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+隐藏所有的应用窗口，不是最小化.
 
 ### `app.show()` *macOS*
 
@@ -354,7 +354,7 @@ You can request the following paths by the name:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Function 
+* `callback` 函数 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -553,7 +553,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` 函数 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -619,7 +619,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `options` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Function 
+* `callback` 函数 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).

@@ -1,8 +1,8 @@
 # app
 
-> Control your application's event lifecycle.
+> Steuere den Ereignisverlauf deiner Anwendung.
 
-Process: [Main](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 Das folgende Beispiel zeigt, wie die Applikation beendet wird, wenn das letzte Fenster geschlossen wurde:
 
@@ -19,7 +19,7 @@ Das `app` Objekt stellt folgende Ereignisse zur Verfügung:
 
 ### Ereignis: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Wird ausgelöst wenn die Anwendung den grundlegenenden Start abgeschlossen hat. Unter Windows und Linux, hat das `will-finish-launching`-Ereignis das gleiche Verhalten wie das `ready`-Ereignis; unter macOS, repräsentiert dieses Ereignis die `applicationWillFinishLaunching`-Benachrichtung von `NSApplication`. In der Regel würden hier Listener für die Ereignisse `open-file` und `open-url` registriert und der Crash Reporter und Auto-Updater gestartet werden.
 
 In den meisten Fällen, sollte man alles im `ready` Eventhandler machen.
 
@@ -29,53 +29,53 @@ Rückgabewert:
 
 * `launchInfo` Object *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Wird nach der erfolgreichen Initialisierung von Electron ausgelöst. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
-### Event: 'window-all-closed'
+### Ereignis: 'window-all-closed'
 
 Wird gefeuert, wenn alle Fenster geschlossen wurden.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Wenn du keinen einzigen Listener für dieses Event nutzt und alle Fenster geschlossen sind, ist die standardmäßige Handhabung des Events das Beenden der App. Wenn du allerdings auf das Event hörst, hast du die Kontrolle darüber, ob die App beendet werden soll oder nicht. Wenn entweder der Nutzer durch Drücken von `Cmd + Q` oder der Entwickler durch einen Aufruf von `app.quit()` die App zum Beenden bewegt, wird Electron zuerst versuchen alle Fenster zu schließen und danach erst das `will-emit` auslösen. In einem solchen Fall wird das `window-all-closed` Event übrigens überhaupt nicht ausgelöst.
 
-### Event: 'before-quit'
-
-Rückgabewert:
-
-* `event` Event
-
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
-
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
-
-### Event: 'will-quit'
+### Ereignis: 'before-quit'
 
 Rückgabewert:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen. Durch einen Aufruf von `event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+**Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* nach der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
 
-### Event: 'quit'
+### Ereignis: 'before-quit'
+
+Rückgabewert:
+
+* `event` Event
+
+Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen. Durch einen Aufruf von `event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.
+
+Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
+
+### Ereignis: 'quit'
 
 Rückgabewert:
 
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Wird ausgelöst wenn die App beendet wird.
 
-### Event: 'open-file' *macOS*
+### Ereignis: 'open-file' *macOS*
 
 Rückgabewert:
 
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Wird ausgelöst wenn der Nutzer versucht eine Datei mit der App zu öffnen. The `open-file` Event wird auch ausgelöst wenn die App bereits offen ist und das Betriebssystem die App nochmal zum Öffnen einer Datei benutzen will. `open-file` wird auch ausgelöst wenn eine Datei auf das Dock-Icon der App gezogen wird (macOS) und die App noch nicht gestartet ist. Behandle das `open-file` Event so früh wie möglich in deiner App um diesen Fall zu berücksichtigen (Also definitiv bevor das `ready` Event ausgelöst wird).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
@@ -86,9 +86,9 @@ Rückgabewert:
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Die `Info.plist` Date muss das URL Schema mittels des `CFBundleURLTypes` Keys definieren und der `NSPrincipalClass` Key muss den Wert `AtomApplication` haben.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
 ### Event: 'activate' *macOS*
 
@@ -97,7 +97,7 @@ Rückgabewert:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen können dieses Event auslösen. So zum Beispiel das Starten der App zum ersten mal als solches, eine Wiederbenutzung der App während sie bereits läuft oder einfach ein Klick auf das Dock oder Tastbar Icon der App.
 
 ### Event: 'continue-activity' *macOS*
 

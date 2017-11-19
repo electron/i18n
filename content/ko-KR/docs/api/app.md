@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> application의 이벤트 생명주기를 제어합니다.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+밑의 예시는 마지막 윈도우가 종료되었을 때, 애플리케이션을 종료시키는 예시입니다:
 
 ```javascript
 const {app} = require('electron')
@@ -15,13 +15,13 @@ app.on('window-all-closed', () => {
 
 ## Events
 
-The `app` object emits the following events:
+app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 ### Event: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+애플리케이션이 기본적인 시작 준비를 마치면 발생하는 이벤트입니다. Windows, Linux 운영체제에서의 will-finish-launching 이벤트는 ready 이벤트와 동일합니다. macOS에서의 이벤트는 NSApplication의 applicationWillFinishLaunching에 대한 알림으로 표현됩니다. 대개 이곳에서 open-file과 open-url 이벤트 리스너를 설정하고 crash reporter와 auto updater를 시작합니다.
 
-In most cases, you should just do everything in the `ready` event handler.
+대부분의 경우, 모든 것을 ready 이벤트 핸들러 안에서 해결해야 합니다.
 
 ### Event: 'ready'
 
@@ -29,13 +29,13 @@ Returns:
 
 * `launchInfo` Object *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. `app.isReady()`를 사용해서 event가 해제되었는지 확인할 수 있습니다.
 
 ### Event: 'window-all-closed'
 
-Emitted when all windows have been closed.
+모든 윈도우를 닫을 때 발생 합니다.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+이 이벤트를 구독하지 않고 모든 창이 닫혀있다면, 기본 동작은 앱을 종료시키는 것입니다. 그러나 당신이 이벤트를 구독한다면, 당신은 종료할지 않할지를 제어할 수 있습니다. 만약 사용자가 `Cmd + Q` 를 누르거나, 또는 개발자가 `app.quit()`을 호출 한다면, Electron은 첫번째로 모든 창을 닫을 것이고, 그 다음은 `will-quit` 이벤트를 발생시킬 것입니다. 그리고 이 경우는 `window-all-closed` 이벤트를 발생시키지 않을 것입니다.
 
 ### Event: 'before-quit'
 

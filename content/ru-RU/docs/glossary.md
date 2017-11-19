@@ -1,12 +1,12 @@
-# Glossary
+# Глоссарий
 
-This page defines some terminology that is commonly used in Electron development.
+Данная страница посвящена терминам, которые обычно используются при разработке на Electron.
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR это Atom Shell Archive Format. [Asar](https://github.com/electron/asar) это простой архив `tar`-like формата, который содержит в себе все файлы проекта. Electron может работать с файлами в архиве без распаковки оного.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+ASAR был создан для повышения производительности в среде Windows
 
 ### Brightray
 
@@ -22,7 +22,7 @@ An Apple Disk Image is a packaging format used by macOS. DMG files are commonly 
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Это программа, которая позволяет пользователям вводить символы, которые отсутствуют на клавиатуре. Например, пользователи с Латинской клавиатурой могут вводить Китайские, Японские, Корейские и Индийские символы.
 
 ### IPC
 
@@ -44,7 +44,7 @@ See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Акроним к Apple's Mac App Store. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### native modules
 

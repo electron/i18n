@@ -1,94 +1,94 @@
-# Electron Documentation Styleguide
+# Стиль документації Electron
 
-These are the guidelines for writing Electron documentation.
+Це рекомендації для написання документації Electron.
 
-## Titles
+## Заголовки
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Кожна сторінка має мати єдиний заголовок рівня `#` у верхній частині.
+* Розділи цієї сторінки мають мати заголовки рівня `##`.
+* Підрозділи мають збільшувати кількість `#` згідно глибини вкладеності.
+* Всі слова в заголовку сторінки мають писатися з великої літери, за винятком сполучників таких як "з" чи "і".
+* Тільки перше слово заголовку розділу має писатися з великої літери.
 
-Using `Quick Start` as example:
+Для прикладу `Швидкий старт`:
 
 ```markdown
-# Quick Start
+# Швидкий Старт
 
 ...
 
-## Main process
+## Загальний процес
 
 ...
 
-## Renderer process
+## Процес візуалізації
 
 ...
 
-## Run your app
+## Запуск додатку
 
 ...
 
-### Run as a distribution
+### Запустити як дистрибутив
 
 ...
 
-### Manually downloaded Electron binary
+### Завантажити вручну бібліотеку Electron
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Для довідника API є деякі винятки з цих правил.
 
-## Markdown rules
+## Правила Markdown
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Використовуйте `bash` замість `cmd` в блоках коду (згідно синтаксису підсвітки).
+* Лінії мають вкладатися в 80 стовпчиків.
+* Списки не можуть мати вкладеність більшу ніж 2 рівні ( згідно візуалізатору markdown).
+* Всі `js` та `javascript` блоки коду перевіряються за допопмогою [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Підбір слів
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Використовуйте "буде" замість "б" коли описуєте результати.
+* Надавайте перевагу "в процесі ___", а не "далі".
 
-## API references
+## Довідник API
 
-The following rules only apply to the documentation of APIs.
+Наступні правила застосовуються тільки для API документації.
 
-### Page title
+### Заголовок сторінки
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Під заголовом сторінки має бути стрічка опису, яка починаєтсья з `>`.
 
-Using `session` as example:
+Для прикладу `session`:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Управління сесією браузера, кукі, кешем, налаштуваннями проксі і тд.
 ```
 
-### Module methods and events
+### Методи та події модуля
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Для модулів, що не є класами, їхні методи та події мають бути перелічені під `## Методи` та `## Події` розділами.
 
-Using `autoUpdater` as an example:
+Для прикладу `autoUpdater`:
 
 ```markdown
 # autoUpdater
 
-## Events
+## Події
 
-### Event: 'error'
+### Подія: 'error'
 
-## Methods
+## Методи
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Класи
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.

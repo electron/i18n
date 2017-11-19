@@ -1,16 +1,16 @@
-# Electron Documentation Styleguide
+# Electron 文件編寫風格
 
 These are the guidelines for writing Electron documentation.
 
-## Titles
+## 標題
 
-* Each page must have a single `#`-level title at the top.
+* 每一頁的最上方都要有單獨一行 `#`-級別 的標題。
 * Chapters in the same page must have `##`-level titles.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
 
-Using `Quick Start` as example:
+以 `Quick Start` 快速入門應用程式為例:
 
 ```markdown
 # Quick Start
@@ -40,7 +40,7 @@ Using `Quick Start` as example:
 
 For API references, there are exceptions to this rule.
 
-## Markdown rules
+## Markdown 規則
 
 * Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
@@ -52,11 +52,11 @@ For API references, there are exceptions to this rule.
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
 
-## API references
+## API 参考
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### 頁面標題
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
@@ -70,7 +70,7 @@ Using `session` as example:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### 模組方法和事件
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### 類別
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### 方法
 
 The methods chapter must be in the following form:
 
@@ -166,7 +166,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* 或自訂類別，例如 Electron 的 [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
@@ -178,7 +178,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### 事件
 
 The events chapter must be in following form:
 
@@ -208,14 +208,14 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## 文件翻譯
 
 Translations of the Electron docs are located within the `docs-translations` directory.
 
 To add another set (or partial set):
 
 * Create a subdirectory named by language abbreviation.
-* Translate the files.
+* 翻譯檔案。
 * Update the `README.md` within your language directory to link to the files you have translated.
 * Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
 

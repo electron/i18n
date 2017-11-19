@@ -1,8 +1,8 @@
-## Class: DownloadItem
+## 類別: DownloadItem
 
 > Control file downloads from remote sources.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
@@ -39,7 +39,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-Returns:
+回傳:
 
 * `event` Event
 * `state` String
@@ -53,7 +53,7 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Returns:
+回傳:
 
 * `event` Event
 * `state` String

@@ -1,28 +1,28 @@
-# Electron 常見問題
+# Electron 常見問題集
 
-## Why am I having trouble installing Electron?
+## 為什麼我的 Electron 裝不起來?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+執行 `npm install electron` 時，有些人會遇到安裝錯誤。
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+大多數情況下，這些錯誤是來自於網路問題，而不是 `electron` npm 套件本身的問題。 諸如 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 及 `ETIMEDOUT` 全都是網路方面的問題。 最好的處理方式就是切換網路看看，或是晚點再重裝一次。
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron，如果用 `npm` 怎樣都裝不起來的話。
 
-## When will Electron upgrade to latest Chrome?
+## Electron 什麼時候會升級到最新的 Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+通常在新 Chrome 穩定版發佈後一到兩週內，Electron 會更新 Chrome 的版本。 但這個時間只是概估值，沒有人可以給你掛保證，全看升級時需花多少工來決定。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+我們只會用穩定版的 Chrome。如果測試版或開發版中有重大的修正，我們會移植回來。
 
 For more information, please see the [security introduction](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Electron 什麼時候會升級到最新的 Node.js?
 
 When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
-## How to share data between web pages?
+## 不同頁面之間怎麼共用資料?
 
 To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
@@ -51,8 +51,8 @@ This happens when the variable which is used to store the window/tray gets garba
 
 If you encounter this problem, the following articles may prove helpful:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [記憶體管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [變數範圍](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:
 
@@ -75,9 +75,9 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## 我不能在 Electron 裡用 jQuery/RequireJS/Meteor/AnguarJS。
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+因為 Electron 與 Node.js 整合的需求，DOM 會被填入一些額外的符號，例如 `module`, `exports`, `require`。 This causes problems for some libraries since they want to insert the symbols with the same names.
 
 To solve this, you can turn off node integration in Electron:
 

@@ -1,4 +1,4 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Javascript, HTML ve CSS ile çapraz platform Masaüstü uygulamaları geliştir
 nav:
   docs: Dökümanlar
   blog: Blog
@@ -7,6 +7,27 @@ nav:
   userland: Kullanıcı alanı
   releases: Sürümler
   contact: İletişim
+  languages: Diller
+docs:
+  title: Electron Dökümanları
+  description: Dökümanları <a href="/docs/all/">tek bir sayfada</a> görün veya <a href="/docs/faq/"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
+  guides: Kılavuzlar
+  api_reference: API Referansı
+  advanced: Gelişmiş
+languages:
+  choose_language: Site dilinizi seçin
+  translation_progress: Çeviri Süreci
+  current: mevcut seçim
+community:
+  title: Electron Topluluğu
+  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  tools: Araçlar
+  boilerplates: Şablonlar
+  components: Bileşenler
+  videos: Videolar
+  meetups: Buluşmalar
+  awesome_notice: 'Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus''s Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.'
+  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
   title: Sandığından daha kolay
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
@@ -24,8 +45,8 @@ benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: Otomatik güncellemeler
   native_menus_and_notifications: Yerel Menüler ve Bildirimler
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
+  crash_reporting: Hata raporu
+  debugging_and_profiling: Hata ayıklama ve profil oluşturma
   windows_installers: Windows yükleyicisi
 get_started:
   title: Başlarken
@@ -37,28 +58,65 @@ explore:
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
-download_from_github: Download from GitHub
+download_from_github: Github'dan indirin
 view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
   clone: Clone the Quick Start repository
   go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  install_deps: Bağımlılıkları yükle ve çalıştır
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: Yardıma mı ihtiyacınız var?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+headings:
+  languages: Diller
+taglines:
+  languages: Localized content from our awesome global developer community.
+help_translate: "Çeviriye yardım et"
+footer:
+  see_something: See something that needs fixing?
+  propose_change: Propose a change to the source file.
+  need_different_version: Need a different version of the docs?
+  see_available_versions: Kullanılabilir sürümleri gör.
+  want_something_searchable: Want something searchable?
+  view_all_docs: View all docs on one page
+  see_the_faq: See the frequently asked questions
 apps:
   title: Apps built on Electron
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: Daha fazla uygulama görüntüleyin
   submit_your_own: submit your own
+  something_missing: Something missing?
+  edit_this_app: Bu uygulamayı düzenle.
 or: veya
 pages:
+  '/':
+    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
-    title: Electron Apps
+    title: Electron Uygulamaları
     description: Apps Built on Electron
+  '/docs':
+    title: Dökümantasyon
+    description: Guides and API reference documentation for the latest Electron release
+  '/docs/all':
+    title: All the Electron Docs!
+    description: All of Electron's guides and API documentation on a single, searchable page.
+  '/blog':
+    title: Electron Blog
+    description: All the latest news from the Electron team and community.
+  '/community':
+    title: Topluluk
+  '/releases':
+    title: Sürümler
   '/contact':
     title: İletişim
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Twitter, Slack, Github yada E-Posta aracılığıyla Electron ekibiyle iletişime geç.
+  '/languages':
+    title: Diller
+_404:
+  page_not_found: Sayfa bulunamadı.
+  if_this_is_an_error: Bu bir hata ise
+  please_file_an_issue: please file an issue.

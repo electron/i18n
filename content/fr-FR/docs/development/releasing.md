@@ -33,7 +33,7 @@ Cela va changer le numéro de version dans plusieurs fichiers. Voir [ce changeme
 
 La plupart des nouvelles versions seront de niveau `patch`. Les mises à jour de Chrome ou d'autres changements majeurs doivent utiliser le niveau `minor`. Pour plus d’informations, consultez [electron-versioning](/docs/tutorial/electron-versioning.md).
 
-## Attendez la compilation :hourglass_flowing_sand:
+## Attendre pendant la compilation :hourglass_flowing_sand:
 
 La présence du mot [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) dans le message du commit est réalisée par le script `bump-version` qui va [déclencher le processus de versionnage](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
 
@@ -42,15 +42,15 @@ Pour surveiller la progression de la compilation, allez voir les pages suivantes
 - [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) pour Mac et Windows
 - [jenkins.githubapp.com/label/chromium/](https://jenkins.githubapp.com/label/chromium/) pour Linux
 
-## Notes de compilation
+## Notes de publication
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Écrire une note de publication est un bon moyen de vous tenir occupé pendant que la compilation se fasse. Pour avoir un modèle, vous pouvez voir les publications existantes sur [la page des publications](https://github.com/electron/electron/releases).
 
 Astuces :
 
-- Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc.
-- No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com.
-- To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+- Chaque élément listé doit référencer une PR sur electron/electron, pas une issue, ni une PR d'un autre repo comme libcc.
+- Pas besoin d'utiliser la balise de lien pour référencer les PRs. Une chaîne de caractère comme `#123` va être automatiquement convertie par un lien sur github.com.
+- Pour voir la version de Chromium, V8 et Node dans chaque version d'Electron, voir [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Versions patch
 
@@ -176,21 +176,21 @@ git branch -D release # delete local branch
 git push origin :release # delete remote branch
 ```
 
-## Promoting a release on npm
+## Rendre stable une release sur npm
 
-New releases are published to npm with the `beta` tag. Every release should eventually get promoted to stable unless there's a good reason not to.
+Les nouvelles version sont publiées sur npm avec le tag `beta`. Chaque version devrait finalement être rendu stable sauf s'il existe une bonne raison de ne pas le faire.
 
-Releases are normally given around two weeks in the wild before being promoted. Before promoting a release, check to see if there are any bug reports against that version, e.g. issues labeled with `version/1.7.x`.
+Les versions sont rendu stable après environ deux semaines de publication. Avant de rendre stable une version, vérifiez qu'il n'y a aucun rapport de bug envers cette version, par exemple des issues avec le label `version/1.7.x`.
 
-It's also good to ask users in Slack if they're using the beta versions successfully.
+Il est également conseillé de demander aux utilisateurs sur Slack s'ils utilisent cette version bêta sans rencontrer de problème.
 
-To see what's beta and stable at any given time:
+Pour voir quelle version est en bêta et stable à tout moment :
 
     $ npm dist-tag ls electron  
     beta: 1.7.5
     latest: 1.6.11
     
 
-To promote a beta version to stable (aka `latest`):
+Pour rendre une version bêta stable (dit `latest`):
 
     npm dist-tag add electron@1.2.3 latest

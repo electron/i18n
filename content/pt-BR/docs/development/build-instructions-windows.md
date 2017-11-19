@@ -90,15 +90,15 @@ Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
 
 ### Comando xxxx não encontrado
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Se você encontrar um erro parecido com `Command xxxx not found`, você pode tentar usar o console do `Prompt de Comando do VS2015` para executar os scripts do build.
 
-### Erro do compilador interno fatal: C1001
+### Erro fatal do compilador interno: C1001
 
 Verifique se você tem a atualização mais recente do Visual Studio instalada.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Se estiver fazendo build pelo Cygwin, você poderá ter uma falha no `bootstrap.py` com a seguinte mensagem de erro:
 
     Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
     

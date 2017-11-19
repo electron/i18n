@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -87,7 +87,7 @@ Returns:
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 Objects created with `new Notification` have the following instance methods:
 

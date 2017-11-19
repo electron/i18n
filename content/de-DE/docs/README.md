@@ -52,7 +52,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [Browserfenster](api/browser-window.md)
+* [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
@@ -65,7 +65,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [protocol](api/protocol.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [Fach](api/tray.md)
+* [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### Module für den Renderer-Prozess (Webseite):
@@ -96,7 +96,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Debug Anweisungen (macOS)](development/debugging-instructions-macos.md)
 * [Debug Anweisungen (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Chrome Upgrade](development/upgrading-chrome.md)
-* [Chromium Entwicklung](development/chromium-development.md)
+* [Dokumentations-Gestaltungsrichtlinie](styleguide.md)
+* [Chrome aktualisieren](development/upgrading-chrome.md)
+* [Chromium-Entwicklung](development/chromium-development.md)
 * [V8 Entwicklung](development/v8-development.md)

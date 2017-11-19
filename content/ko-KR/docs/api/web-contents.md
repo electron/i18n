@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 ### Instance Events
 
@@ -504,7 +504,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 #### `contents.loadURL(url[, options])`
 
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `contents.id`
 

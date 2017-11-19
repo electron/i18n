@@ -5,7 +5,7 @@
 线程：[主线程](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// 在主进程.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -866,7 +866,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `callback` 函数 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.

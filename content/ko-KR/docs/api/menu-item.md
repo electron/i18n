@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 See [`Menu`](menu.md) for examples.
 
@@ -73,7 +73,7 @@ The following additional roles are available on macOS:
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 The following properties are available on instances of `MenuItem`:
 

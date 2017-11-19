@@ -1,8 +1,8 @@
-# Browserfenster
+# BrowserWindow
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -110,7 +110,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 

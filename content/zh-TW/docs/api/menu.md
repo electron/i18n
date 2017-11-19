@@ -1,14 +1,14 @@
-## Class: Menu
+## 類別: Menu
 
 > Create native application menus and context menus.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 ### `new Menu()`
 
 Creates a new menu.
 
-### Static Methods
+### 靜態方法
 
 The `menu` class has the following static methods:
 
@@ -90,11 +90,11 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-## Examples
+## 範例
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### 主處理序
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -103,7 +103,7 @@ const {app, Menu} = require('electron')
 
 const template = [
   {
-    label: 'Edit',
+    label: '編輯',
     submenu: [
       {role: 'undo'},
       {role: 'redo'},
@@ -117,7 +117,7 @@ const template = [
     ]
   },
   {
-    label: 'View',
+    label: '檢視',
     submenu: [
       {role: 'reload'},
       {role: 'forcereload'},
@@ -141,7 +141,7 @@ const template = [
     role: 'help',
     submenu: [
       {
-        label: 'Learn More',
+        label: '深入學習',
         click () { require('electron').shell.openExternal('https://electron.atom.io') }
       }
     ]
@@ -164,11 +164,11 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // 編輯選單
   template[1].submenu.push(
     {type: 'separator'},
     {
-      label: 'Speech',
+      label: '語音',
       submenu: [
         {role: 'startspeaking'},
         {role: 'stopspeaking'}
@@ -176,7 +176,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // Window 選單
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -190,7 +190,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### 畫面轉譯處理序
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -248,7 +248,7 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
-### Examples
+### 範例
 
 Template:
 
@@ -262,7 +262,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
     <br />- 1
     - 2
@@ -284,7 +284,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
     <br />- ---
     - a

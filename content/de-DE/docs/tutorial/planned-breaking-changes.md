@@ -13,7 +13,7 @@ app.getAppMemoryInfo()
 app.getAppMetrics()
 ```
 
-## `Browserfenster`
+## `BrowserWindow`
 
 ```js
 // Deprecated
@@ -128,7 +128,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Fach`
+## `Tray`
 
 ```js
 // Deprecated

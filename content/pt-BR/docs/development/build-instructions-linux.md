@@ -132,16 +132,13 @@ The default building configuration is targeted for major desktop Linux distribut
 
 To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
 
-    bash
-      $ git submodule update --init --recursive 4. Copy the .gclient config file
+    $ git submodule update --init --recursive 4. Copy the .gclient config file
 
-    bash
-      $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
+    $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
 
 `--build_libchromiumcontent` switch to `bootstrap.py` script:
 
-    bash
-      $ ./script/bootstrap.py -v --build_libchromiumcontent
+    $ ./script/bootstrap.py -v --build_libchromiumcontent
 
 Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
 

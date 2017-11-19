@@ -1,32 +1,32 @@
 # Electron FAQ
 
-## Why am I having trouble installing Electron?
+## Por que estou tendo problemas para instalar o Electron?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Ao executar o `npm install electron`, alguns usuários encontram erros de instalação.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Geralmente esses erros são resultados de problemas com a falta de conexão de internet e não é relacionado ao pacote npm do `Electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, e `ETIMEDOUT` são resultados da falta de internet. A melhor solução é tenta troca de rede, ou esperar um pouco e tenta instalar novamente o pacote.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Você também pode tentar baixa o Electron diretamente do [electron/electron/releases](https://github.com/electron/electron/releases). se a instalação via `npm` falha.
 
-## When will Electron upgrade to latest Chrome?
+## Quando o Electron será atualizado para a versão mais recente do Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+A versão do Chrome usada no Electron é geralmente disponibilizada dentro de uma ou duas semanas depois que uma versão estável do Chrome é liberada. Esta estimativa não é garantida, depende da quantidade de trabalho envolvido na atualização.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Apenas a versão estável do Chrome é usado. Se uma correção importante estiver disponível na versão Beta ou Dev, vamos portá-la.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Para mais informações, consulte a [introdução de segurança](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Quando o Electron será atualizado para a versão mais recente do Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Quando uma nova versão do Node.js é lançada, geralmente esperamos por cerca de um mês antes de atualizar a do Electron. Assim, podemos evitar sermos afetados por erros introduzidos na nova versão do Node.js, o que acontece muito frequentemente.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Novos recursos do Node.js geralmente são trazidos por atualização da V8, desde que o Electron usa o V8 enviado pelo navegador Chrome. Os novos recursos brilhante do JavaScript de uma nova versão Node.js esta geralmente no Electron.
 
-## How to share data between web pages?
+## Como compartilhar dados entre página da web?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Para compartilhar dados entre páginas web (os processos de renderização) a maneira mais simples é usar as APIs do HTML5 que já estão disponíveis nos navegadores. Bons candidatos são [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) e [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Ou você pode usar o sistema IPC, que é específico para o Electron, para armazenar objetos no processo principal como uma variável global e depois acessar os representantes através da propriedade `remote` do módulo do `electron`:
 
 ```javascript
 // No processo principal.
@@ -49,9 +49,9 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 This happens when the variable which is used to store the window/tray gets garbage collected.
 
-If you encounter this problem, the following articles may prove helpful:
+Se você encontrar esse problema, veja os artigos útil:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Gerenciamento de Memória](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+para isto:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,14 +75,14 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Eu não posso usar jQuery/RequireJS/Meteor/AngularJS em Electron.
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
-To solve this, you can turn off node integration in Electron:
+Para resolver isso, você pode desativar a integração com node no Electron:
 
 ```javascript
-// In the main process.
+// No processo principal
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Mas se você quer manter as habilidades de usar Node.JS e Electron APIs, você tem que renomear os símbolos na página, antes de incluir outras bibliotecas:
 
 ```html
 <head>
@@ -106,7 +106,7 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` é indefinido.
 
 When using Electron's built-in module you might encounter an error like this:
 

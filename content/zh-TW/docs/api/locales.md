@@ -1,4 +1,4 @@
-# Locales
+# 語系
 
 > Locale values returned by `app.getLocale()`.
 

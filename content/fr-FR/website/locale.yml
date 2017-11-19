@@ -7,9 +7,30 @@ nav:
   userland: Userland
   releases: Versions
   contact: Contact
+  languages: Langues
+docs:
+  title: Documentation d'Electron
+  description: Voir toute la <a href="/docs/all/">documentation sur une seule page</a> ou consulter la <a href="/docs/faq">FAQ</a>.
+  guides: Guides
+  api_reference: Références de l'API
+  advanced: Avancé
+languages:
+  choose_language: Choisissez votre langue
+  translation_progress: Progression de la traduction
+  current: sélectionné
+community:
+  title: Communauté d'Electron
+  description: 'Outils, boilerplates, vidéos et bien plus par les contributeurs open-source <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> d''Electron. Trouver ou ajouter des <a href="/community#meetups">meetups</a> près de chez vous.'
+  tools: Outils
+  boilerplates: Boilerplates
+  components: Composants
+  videos: Vidéos
+  meetups: Meetups
+  awesome_notice: 'Cette liste est générée depuis le repository <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron de @sindresorhus</a>. <br> Quelque chose manquant ? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Faites une pull request</a>.'
+  meetup_notice: 'Pour ajouter un meetup, éditez <code>data/meetups.json</code> et <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">faites une pull request</a>.'
 electron_is_easy:
-  title: C'est plus facile que vous ne le pensez
-  description: Si vous pouvez développer un site, vous pouvez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme le JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
+  title: C'est plus simple que vous ne le pensez
+  description: Si vous pouvez développer un site, vous pouvez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
   video_link: Voir la vidéo
 web_technologies:
   title: Technologies Web
@@ -48,17 +69,54 @@ quick_start:
   dive_deeper: Ou allez plus loin en lisant la <a href='/docs'>documentation</a>.
 need_help:
   title: Besoin d'aide ?
-  description: 'Posez vos questions sur le forum <a href=''https://discuss.atom.io/c/electron''>Discussion</a> ou sur notre channel <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Suivez <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> sur Twitter pour les annonces importantes. Besoin de nous contacter directement ? Envoyez un email à <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: 'Posez vos questions sur le forum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> ou sur notre channel <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Suivez <a href="https://twitter.com/electronjs">@electronjs</a> sur Twitter pour les annonces importantes. Besoin de nous contacter directement ? Envoyez un mail à <a href="mailto:electron@github.com">electron@github.com</a>.'
+headings:
+  languages: Langues
+taglines:
+  languages: Contenu multilingue de notre fantastique communauté mondiale de développeurs.
+help_translate: "Aider à traduire"
+footer:
+  see_something: Vous voyez quelque chose qui a besoin d'être corrigé ?
+  propose_change: Proposez des modifications au fichier source.
+  need_different_version: Besoin d'une version différente de la documentation ?
+  see_available_versions: Voir les versions disponibles.
+  want_something_searchable: Vous voulez quelque chose de consultable ?
+  view_all_docs: Voir toute la documentation sur une seule page
+  see_the_faq: Consulter la foire aux questions
 apps:
   title: Apps développées sur Electron
   description: 'Avec Electron, il est facile de créer des applications bureau pour votre entreprise ou votre projet. Initialement développé pour <a href=''https://atom.io'' target=''_blank''>l''éditeur Atom</a> de GitHub, Electron est maintenant utilisé pour créer des applications par des entreprises comme Microsoft, Facebook, Slack ou encore Docker.'
   view_more: Voir plus d'applications
   submit_your_own: proposer votre app
+  something_missing: Quelque chose manquant ?
+  edit_this_app: Éditer cette app.
 or: ou
 pages:
+  '/':
+    title: Electron | Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS.
+    description: 'Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS.'
   '/apps':
     title: Applications Electron
     description: Applications développées avec Electron
+  '/docs':
+    title: Documentation
+    description: Guides et documentation de l'API pour la dernière version d'Electron
+  '/docs/all':
+    title: Tous les docs d'Electron!
+    description: Tous les guides et documentation de l'API d'Electron sur une seule page.
+  '/blog':
+    title: Blog d'Electron
+    description: Toutes les dernières nouvelles de l'équipe d'Electron et de la communauté.
+  '/community':
+    title: Communauté
+  '/releases':
+    title: Mise à jour
   '/contact':
     title: Contact
     description: Entrez en contact avec l'équipe d'Electron sur Twitter, Slack, GitHub, ou par e-mail.
+  '/languages':
+    title: Langues
+_404:
+  page_not_found: Page non trouvée.
+  if_this_is_an_error: S'il s'agit d'une erreur
+  please_file_an_issue: veuillez écrire une issue.

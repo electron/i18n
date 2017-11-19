@@ -1,22 +1,22 @@
-# Mac App Store 上架指引
+# Mac App Store 上架導引
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+從 0.34.0 版開始，Electron 允許你將打包後的應用程式上架到 Mac App Store (MAS)。這份導引文件將教你: 如何上架你的應用程式，並了解 MAS 建置的限制。
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意:** 將應用程式上架到 Mac App Store 要註冊 [Apple Developer Program](https://developer.apple.com/support/compare-memberships/)，需要支付費用。
 
-## How to Submit Your App
+## 如何上架你的應用程式
 
 The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
 
-### Get Certificate
+### 取得憑證
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+To submit your app to the Mac App Store, you first must get a certificate from Apple. 你可以參考網路上的[導引](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps)。
 
-### Get Team ID
+### 取得 Team ID
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
-### Sign Your App
+### 簽章你的應用程式
 
 After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
 
@@ -71,11 +71,11 @@ And then sign your app with the following script:
 ```bash
 #!/bin/bash
 
-# Name of your app.
+# 你應用程式的名稱。
 APP="YourApp"
-# The path of your app to sign.
+# 你要簽章的應用程式路徑
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# 存放你簽章過的套件的路徑。
 RESULT_PATH="~/Desktop/$APP.pkg"
 # The name of certificates you requested.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
@@ -106,7 +106,7 @@ If you are new to app sandboxing under macOS, you should also read through Apple
 
 Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
 
-#### Sign Native Modules
+#### 簽章原生模組
 
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
@@ -116,15 +116,15 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
-### Upload Your App
+### 上傳你的應用程式
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
-### Submit Your App for Review
+### 提交你的應用程式以供審核
 
 After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## MAS 建置的限制
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
@@ -144,7 +144,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
-#### Network Access
+#### 網路存取
 
 Enable outgoing network connections to allow your app to connect to a server:
 
@@ -180,7 +180,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
 
-## Known issues
+## 已知問題
 
 ### `shell.openItem(filePath)`
 
@@ -210,7 +210,7 @@ Electron uses following cryptographic algorithms:
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](http://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - 《On the Design and Security of Block Ciphers》來學嘉 著作
 * MD2 - [RFC 1319](http://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)

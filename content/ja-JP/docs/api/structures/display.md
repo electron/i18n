@@ -1,7 +1,7 @@
 # Display オブジェクト
 
 * `id` Number -ディスプレイに関連付けられている一意の識別子。
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `rotation` Rotation - 0, 90, 180, 270を選択することができ、時計回りで回転します。
 * `scaleFactor` Number - 出力デバイスのピクセルスケール係数。
 * `touchSupport` String - `available`, `unavailable`, `unknown`
 * `bounds` [Rectangle](rectangle.md) 

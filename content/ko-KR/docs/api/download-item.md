@@ -2,7 +2,7 @@
 
 > Control file downloads from remote sources.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 The `downloadItem` object has the following methods:
 

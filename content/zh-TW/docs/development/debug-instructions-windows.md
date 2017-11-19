@@ -1,4 +1,4 @@
-# Debugging on Windows
+# 在 Windows 上 Debug
 
 If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
 
@@ -18,7 +18,7 @@ To start a debugging session, open up PowerShell/CMD and execute your debug buil
 $ ./out/D/electron.exe ~/my-electron-app/
 ```
 
-### Setting Breakpoints
+### 設定中斷點
 
 Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 

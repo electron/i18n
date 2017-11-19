@@ -1,6 +1,6 @@
-# 支援 Chrome 命令行開關
+# 支援的 Chrome 命令列參數
 
-> Command line switches supported by Electron.
+> Electron 支援的命令列參數。
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
@@ -28,7 +28,7 @@ Disable HTTP/2 and SPDY/3.1 protocols.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Debug 相關的旗標，細節可參考[Debug 主處理序](../tutorial/debugging-main-process.md)導引。
 
 ## --remote-debugging-port=`port`
 

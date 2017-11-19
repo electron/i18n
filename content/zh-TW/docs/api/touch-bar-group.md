@@ -1,8 +1,8 @@
-## Class: TouchBarGroup
+## 類別: TouchBarGroup
 
 > Create a group in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+處理序: [主要](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarGroup(options)` *Experimental*
 

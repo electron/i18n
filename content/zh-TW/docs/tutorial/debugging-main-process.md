@@ -1,10 +1,10 @@
-# Debugging the Main Process
+# Debug 主處理序
 
 The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
 
-## Command Line Switches
+## 命令列參數
 
-Use one of the following command line switches to enable debugging of the main process:
+使用以下的命令列參數，啟用主處理序 Debug 功能:
 
 ### `--inspect=[port]`
 
@@ -18,9 +18,9 @@ electron --inspect=5858 your/app
 
 Like `--inspector` but pauses execution on the first line of JavaScript.
 
-## External Debuggers
+## 外部 Debug 工具
 
 You will need to use a debugger that supports the V8 inspector protocol.
 
 - Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
+- [在 VSCode 中 Debug 主處理序](debugging-main-process-vscode.md)

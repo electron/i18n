@@ -1,8 +1,8 @@
-## Class: IncomingMessage
+## 類別: IncomingMessage
 
 > Handle responses to HTTP/HTTPS requests.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -10,7 +10,7 @@ Process: [Main](../glossary.md#main-process)
 
 #### Event: 'data'
 
-Returns:
+回傳:
 
 * `chunk` Buffer - A chunk of response body's data.
 
@@ -26,7 +26,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 #### Event: 'error'
 
-Returns:
+回傳:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 

@@ -2,23 +2,23 @@
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 ## Using in the renderer process
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## 類別: Notification
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### 靜態方法靜態方法
 
 The `Notification` class has the following static methods:
 
@@ -47,7 +47,7 @@ Objects created with `new Notification` emit the following events:
 
 #### Event: 'show'
 
-Returns:
+回傳:
 
 * `event` Event
 
@@ -55,7 +55,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 #### Event: 'click'
 
-Returns:
+回傳:
 
 * `event` Event
 
@@ -63,7 +63,7 @@ Emitted when the notification is clicked by the user.
 
 #### Event: 'close'
 
-Returns:
+回傳:
 
 * `event` Event
 
@@ -73,7 +73,7 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 * `reply` String - The string the user entered into the inline reply field
@@ -82,7 +82,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 #### Event: 'action' *macOS*
 
-Returns:
+回傳:
 
 * `event` Event
 * `index` Number - The index of the action that was activated

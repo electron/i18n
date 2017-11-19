@@ -2,38 +2,38 @@
 
 > Get system preferences.
 
-Process: [Main](../glossary.md#main-process)
+處理序: [主要](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## 事件
 
 The `systemPreferences` object emits the following events:
 
 ### Event: 'accent-color-changed' *Windows*
 
-Returns:
+回傳:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
-Returns:
+回傳:
 
 * `event` Event
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
-Returns:
+回傳:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
-## Methods
+## 方法
 
 ### `systemPreferences.isDarkMode()` *macOS*
 

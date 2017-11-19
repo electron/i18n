@@ -2,7 +2,7 @@
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
-Process: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
@@ -28,7 +28,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Instance Methods
+### Instance Methods (인스턴스 메소드)
 
 The following methods are available on instances of `WebRequest`:
 

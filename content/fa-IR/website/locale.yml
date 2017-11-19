@@ -7,6 +7,27 @@ nav:
   userland: فضای کاربری
   releases: نسخه‌ها
   contact: تماس به ما
+  languages: زبان‌ها
+docs:
+  title: مستندات الکترون
+  description: تمام مستندات را در <a href="/docs/all/">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq/">سوالات متداول</a> را بررسی کنید.
+  guides: راهنماها
+  api_reference: API Reference
+  advanced: پیشرفته
+languages:
+  choose_language: زبان سایت را انتخاب کنید
+  translation_progress: پیشرفت ترجمه
+  current: انتخاب کنونی
+community:
+  title: Electron Community
+  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  tools: Tools
+  boilerplates: Boilerplates
+  components: Components
+  videos: Videos
+  meetups: Meetups
+  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
+  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
 electron_is_easy:
   title: ساده‌تر از آن چیزی است که فکر می‌کنید
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
@@ -38,7 +59,7 @@ explore:
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
 download_from_github: دانلود از گیت‌هاب
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
@@ -48,17 +69,54 @@ quick_start:
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: کمکی نیاز دارید؟
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+headings:
+  languages: زبان‌ها
+taglines:
+  languages: Localized content from our awesome global developer community.
+help_translate: "همکاری در ترجمه"
+footer:
+  see_something: See something that needs fixing?
+  propose_change: Propose a change to the source file.
+  need_different_version: Need a different version of the docs?
+  see_available_versions: See available versions.
+  want_something_searchable: Want something searchable?
+  view_all_docs: View all docs on one page
+  see_the_faq: See the frequently asked questions
 apps:
   title: برنامه‌های ساخته شده برپایه الکترون
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: مشاهده برنامه‌های بیشتر
   submit_your_own: برنامه خودتان را ارسال کنید
-or: or
+  something_missing: Something missing?
+  edit_this_app: Edit this app.
+or: یا
 pages:
+  '/':
+    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron Apps
     description: Apps Built on Electron
+  '/docs':
+    title: مستندات
+    description: Guides and API reference documentation for the latest Electron release
+  '/docs/all':
+    title: All the Electron Docs!
+    description: All of Electron's guides and API documentation on a single, searchable page.
+  '/blog':
+    title: وبلاگ الکترون
+    description: All the latest news from the Electron team and community.
+  '/community':
+    title: جامعه
+  '/releases':
+    title: نسخه‌ها
   '/contact':
     title: تماس به ما
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+  '/languages':
+    title: زبان‌ها
+_404:
+  page_not_found: صفحه یافت نشد.
+  if_this_is_an_error: If this is an error
+  please_file_an_issue: please file an issue.
