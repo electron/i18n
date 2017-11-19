@@ -13,7 +13,8 @@ Os atalhos são registrados com o módulo [`globalShortcut`](global-shortcut.md)
 
 ```javascript
 const {app, globalShortcut} = require('electron') app.on('ready', () => {   // Registrar um 'listener' para o atalho 'CommandOrControl+Y'.
-  globalShortcut.register('CommandOrControl+Y', () => {     //  Fazer algo quando Y e Command ou Control forem pressionados.
+  globalShortcut.register('CommandOrControl+Y', () => {
+  // Fazer algo quando Y e Command ou Control forem pressionados.
   }) 
 })
 ```
@@ -24,34 +25,34 @@ No Linux e no Windows, a tecla `Command` não tem nenhum efeito, então, para de
 
 Utilize `Alt` ao invés de `Option`. A tecla `Option` só existe no macOS, em compensação, a tecla `Alt` está disponível em todas as plataformas.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a tecla `Cmd` no macOS.
 
-## Available modifiers
+## Modificadores disponíveis
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (ou `Cmd`)
+* `Control` (ou `Ctrl`)
+* `CommandOrControl` (ou `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Códigos de tecla disponíveis
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* `` a `9`
+* `A` a `Z`
+* `F1` a `F24`
+* Pontuações como `~`, `!`, `@`, `#`, `$` e etc.
+* `Plus (+)`
+* `Space (Espaço)`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
+* `Return` (ou `Enter`)
+* `Up`, `Down`, `Left` e `Right` (Setas do teclado: cima, baixo, esquerda e direita respectivamente)
+* `Home` e `End`
 * `PageUp` and `PageDown`
 * `Escape` (or `Esc` for short)
 * `VolumeUp`, `VolumeDown` and `VolumeMute`
