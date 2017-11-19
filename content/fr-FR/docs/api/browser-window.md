@@ -318,19 +318,19 @@ Emitted when the window is being moved to a new position.
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Événement : 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Événement : 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Événement : 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Événement : 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
