@@ -60,9 +60,9 @@ electron/resources/
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+또한 helper 앱이 프로세스 모니터에 `Electron Helper`로 나오지 않도록 이름을 변경할 수 있습니다. 하지만 반드시 내부 및 모든 helper 앱의 이름을 변경해야 합니다.
 
-The structure of a renamed app would be like:
+애플리케이션 이름을 원하는 이름으로 변경한 예시:
 
     MyApp.app/Contents
     ├── Info.plist
@@ -85,25 +85,25 @@ The structure of a renamed app would be like:
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+실행파일 `electron`의 이름을 원하는 대로 바꿀 수 있습니다.
 
 ## 패키징 툴
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+애플리케이션을 일일이 수동으로 패키지로 만드는 대신, 서드 파티 패키징 툴을 사용하며 이러한 작업을 자동화 시킬 수 있습니다:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Electron 소스 코드를 다시 빌드하여 리소스 수정하기
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+또한 Electron 소스 코드를 다시 빌드할 때 애플리케이션 이름을 변경할 수 있습니다. `atom.gyp` 파일을 수정하여 다음과 같이 다시 빌드할 수 있습니다:
 
-### Creating a Custom Electron Fork
+### Electron 커스텀 포크 만들기
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드는데 있어서 필요한 작업이 아닐 수 있으며, 심지어 "제품 등급"의 애플리케이션이라도 필요하지 않습니다. `electron-packager` 또는 `electron-builder`와 같은 도구를 사용하면 다른 특별한 과정 없이 Electron을 "Rebrand" 할 수 있습니다.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+업스트림 단에서 추가될 수 없는 기능이나 이미 공식 버전에서 거부된 기능을 Electron에 직접적으로 패치하기 위해 커스텀 C++를 추가해야 한다면 Electron을 포크해야 합니다. Electron의 개발자로써, Electron을 매우 많은 시나리오에서도 작동하도록 만들려고 합니다. 따라서 가능한한 변경 사항을 공식 버전의 Electron에 추가할 수 있도록 시도해 주길 바라며, 당신에겐 아주 아주 쉬운 작업일 것이고 이러한 당신의 도움에 대해 감사하게 생각합니다. 
 
 #### surf-build와 함께 커스텀 릴리즈 만들기
 
