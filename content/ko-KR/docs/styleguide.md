@@ -216,9 +216,9 @@ Electron 문서의 번역본은 `docs-translations` 아래에 위치합니다.
 
 아직 번역되지 않은 언어를 추가하려면 (일부분 포함):
 
-* •언어의 약어로 서브 디렉토리를 만듭니다.
+* 언어의 약어로 서브 디렉토리를 만듭니다.
 * 파일을 번역합니다.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* 언어 디렉토리의 `README.md` 의 링크를 번역된 문서로 변경합니다.
+* 언어 디렉토리의 링크를 Electron 의 [README](https://github.com/electron/electron#documentation-translations)에 추가합니다.
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+참고로 `docs-translations` 아래의 파일들은 번역된 것만 있어야 합니다. 영어 원문 파일을 복사하면 안됩니다.
