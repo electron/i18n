@@ -9,31 +9,31 @@
 Do you speak multiple languages? We need your help! 
 
 To get started translating, visit
-[crowdin.com/projects/electron](https://crowdin.com/projects/electron)
+[crowdin.com/project/electron](https://crowdin.com/project/electron)
 and log in with your GitHub account.
 
 The following languages are currently being translated, but we can
 [easily add more]((https://github.com/electron/electron-i18n/issues/new?title=new%20language%20request)):
 
-- [Français (French)](https://crowdin.com/projects/electron/fr)
-- [Việt Nam (Vietnamese)](https://crowdin.com/projects/electron/vi)
-- [日本語 (Japanese)](https://crowdin.com/projects/electron/ja)
-- [中文 (Chinese Simplified)](https://crowdin.com/projects/electron/zh)
-- [Indonesian](https://crowdin.com/projects/electron/id)
-- [Português (Portuguese)](https://crowdin.com/projects/electron/pt)
-- [한국어 (Korean)](https://crowdin.com/projects/electron/ko)
-- [Nederlands (Dutch)](https://crowdin.com/projects/electron/nl)
-- [中文 (Chinese Traditional)](https://crowdin.com/projects/electron/zh)
-- [Deutsch (German)](https://crowdin.com/projects/electron/de)
-- [ไทย (Thai)](https://crowdin.com/projects/electron/th)
-- [Русский (Russian)](https://crowdin.com/projects/electron/ru)
-- [język polski (Polish)](https://crowdin.com/projects/electron/pl)
-- [Italiano (Italian)](https://crowdin.com/projects/electron/it)
-- [فارسی (Persian)](https://crowdin.com/projects/electron/fa)
-- [Türkçe (Turkish)](https://crowdin.com/projects/electron/tr)
-- [українська мова (Ukrainian)](https://crowdin.com/projects/electron/uk)
-- [Español (Spanish)](https://crowdin.com/projects/electron/es)
-- [čeština (Czech)](https://crowdin.com/projects/electron/cs)
+- [Français (French)](https://crowdin.com/project/electron/fr)
+- [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
+- [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
+- [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh)
+- [Indonesian](https://crowdin.com/project/electron/id)
+- [Português (Portuguese)](https://crowdin.com/project/electron/pt)
+- [한국어 (Korean)](https://crowdin.com/project/electron/ko)
+- [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
+- [中文 (Chinese Traditional)](https://crowdin.com/project/electron/zh)
+- [Deutsch (German)](https://crowdin.com/project/electron/de)
+- [ไทย (Thai)](https://crowdin.com/project/electron/th)
+- [Русский (Russian)](https://crowdin.com/project/electron/ru)
+- [język polski (Polish)](https://crowdin.com/project/electron/pl)
+- [Italiano (Italian)](https://crowdin.com/project/electron/it)
+- [فارسی (Persian)](https://crowdin.com/project/electron/fa)
+- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
+- [українська мова (Ukrainian)](https://crowdin.com/project/electron/uk)
+- [Español (Spanish)](https://crowdin.com/project/electron/es)
+- [čeština (Czech)](https://crowdin.com/project/electron/cs)
 
 
 
