@@ -135,7 +135,7 @@ Retorna:
 * `event` Event
 * `window` BrowserWindow
 
-Emitido quando [browserWindow](browser-window.md) fica focado.
+Emitido quando [browserWindow](browser-window.md) é focado.
 
 ### Evento: 'browser-window-created'
 
