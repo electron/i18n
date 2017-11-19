@@ -80,9 +80,9 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 Например:
 
 * `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP *.google.com proxy` Заставляет все google.com поддомены обращаться к "proxy".
+* `MAP test.com [::1]:77` Заставляет "test.com" обращаться к IPv6 loopback. Конечным портом для адреса сокета будет 77.
+* `MAP * baz, EXCLUDE www.google.com` Перенаправляет всё на "baz", за исключением "www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
