@@ -1,10 +1,10 @@
-# Locales
+# 로케일
 
-> Locale values returned by `app.getLocale()`.
+> `app.getLocale()`으로 반환되는 로케일 값
 
 Electron은 크로미움의 `l10n_util` 라이브러리를 사용하여 locale을 가져옵니다. 가능한 값은 다음과 같습니다:
 
-| 언어 코드  | Language Name           |
+| 언어 코드  | 언어명                     |
 | ------ | ----------------------- |
 | af     | Afrikaans               |
 | am     | Amharic                 |
@@ -71,7 +71,7 @@ Electron은 크로미움의 `l10n_util` 라이브러리를 사용하여 locale�
 | kk     | Kazakh                  |
 | km     | Cambodian               |
 | kn     | Kannada                 |
-| ko     | Korean                  |
+| ko     | 한국어                     |
 | ku     | Kurdish                 |
 | ky     | Kyrgyz                  |
 | la     | Latin                   |
@@ -93,7 +93,7 @@ Electron은 크로미움의 `l10n_util` 라이브러리를 사용하여 locale�
 | no     | Norwegian               |
 | oc     | Occitan                 |
 | om     | Oromo                   |
-| 또는     | Oriya                   |
+| or     | Oriya                   |
 | pa     | Punjabi                 |
 | pl     | Polish                  |
 | ps     | Pashto                  |
