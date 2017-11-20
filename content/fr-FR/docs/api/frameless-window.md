@@ -69,7 +69,7 @@ win.show()
 
 ## Fenêtre non cliquable
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+Pour créer une fenêtre non cliquable, c'est-à-dire faire en sorte que la fenêtre ignore tous les événements de la souris, vous pouvez appeler l'API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -100,7 +100,7 @@ button {
 
 If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
-## Text selection
+## Sélection de texte
 
 In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 
@@ -111,6 +111,6 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 }
 ```
 
-## Context menu
+## Menu contextuel
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
