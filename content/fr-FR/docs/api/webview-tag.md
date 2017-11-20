@@ -536,11 +536,11 @@ Retourne :
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### Événement : 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### Événement : 'did-fail-load'
 
 Retourne :
 
@@ -551,7 +551,7 @@ Retourne :
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### Événement : 'did-frame-finish-load'
 
 Retourne :
 
@@ -559,15 +559,15 @@ Retourne :
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Événement : 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Événement : 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Événement : 'did-get-response-details'
 
 Retourne :
 
@@ -582,7 +582,7 @@ Retourne :
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Événement : 'did-get-redirect-request'
 
 Retourne :
 
@@ -592,7 +592,7 @@ Retourne :
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### Événement : 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -605,7 +605,7 @@ Retourne :
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### Événement : 'page-favicon-updated'
 
 Retourne :
 
@@ -641,7 +641,7 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Événement : 'found-in-page'
 
 Retourne :
 
@@ -664,13 +664,13 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Événement : 'new-window'
 
 Retourne :
 
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
@@ -689,7 +689,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Événement : 'will-navigate'
 
 Retourne :
 
@@ -703,7 +703,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### Événement : 'did-navigate'
 
 Retourne :
 
@@ -713,7 +713,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-### Event: 'did-navigate-in-page'
+### Événement : 'did-navigate-in-page'
 
 Retourne :
 
@@ -766,7 +766,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Événement : 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -774,7 +774,7 @@ Fired when the renderer process is crashed.
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### Événement : 'plugin-crashed'
 
 Retourne :
 
@@ -783,19 +783,19 @@ Retourne :
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### Événement : 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### Événement : 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Événement : 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### Événement : 'did-change-theme-color'
 
 Retourne :
 
@@ -807,7 +807,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Événement : 'update-target-url'
 
 Retourne :
 
@@ -815,14 +815,14 @@ Retourne :
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### Événement : 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### Événement : 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-### Event: 'devtools-focused'
+### Événement : 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
