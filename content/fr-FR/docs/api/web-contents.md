@@ -996,7 +996,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message)  // Prints 'whoooooooh!'
+      console.log(message)  // Affiche 'whoooooooh!'
     })
   </script>
 </body>
@@ -1037,8 +1037,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**requis**)
+* `y` Integer (**requis**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
 * `globalY` Integer
@@ -1102,7 +1102,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('Page sauvegardée correctement')
   })
 })
 ```
