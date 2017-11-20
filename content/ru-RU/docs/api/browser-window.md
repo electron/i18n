@@ -33,7 +33,7 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 ### Использование `ready-to-show` события
 
-При загрузке страницы, после рендеринга страницы будет вызвано событие `ready-to-show`, которое будет вызвано первый раз если окно до этого еще не было показано. Showing the window after this event will have no visual flash:
+При загрузке страницы, после рендеринга страницы будет вызвано событие `ready-to-show`, которое будет вызвано первый раз если окно до этого еще не было показано. Окно, показанное после этого события, не будет иметь визуальной ступенчатой подгрузки:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Событие, которое обычно вызывается после загрузки страницы - `did-finish-load`. Однако, страницы, включающие в себя удаленные ресурсы, могут продолжать подгружаться после вызова данного события.
 
-### Setting `backgroundColor`
+### Настройка `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
 ```javascript
 const {BrowserWindow} = require('electron')
