@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Processus : [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -38,7 +38,7 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## CSS Styling Notes
+## Note de style CSS
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
@@ -57,9 +57,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## Attribut de balise
 
-The `webview` tag has the following attributes:
+La balise `webview` possède les attributs suivants :
 
 ### `src`
 
@@ -223,7 +223,7 @@ win.on('resize', () => {
 
 ## Méthodes
 
-The `webview` tag has the following methods:
+La balise `webview` possède les méthodes suivantes :
 
 **Note:** The webview element must be loaded before using the methods.
 
@@ -337,7 +337,7 @@ Injects CSS into the guest page.
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - `false` par défaut.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
