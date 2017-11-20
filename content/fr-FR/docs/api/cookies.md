@@ -1,4 +1,4 @@
-## Class: Cookies
+## Classe : Cookies
 
 > Query and modify a session's cookies.
 
@@ -33,7 +33,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 The following events are available on instances of `Cookies`:
 
-#### Event: 'changed'
+#### Événement : 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
