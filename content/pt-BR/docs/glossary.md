@@ -1,6 +1,6 @@
 # Glossário
 
-Esta página define algumas terminologias que é comumente utilizada no desenvolvimento com Electron.
+Esta página define alguns termos usados frequentemente no desenvolvimento com Electron.
 
 ### ASAR
 
