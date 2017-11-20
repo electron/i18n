@@ -16,16 +16,16 @@ Para compilar qualquer aplicação Electron já existente, certifique-se de que 
 * SDK do Windows 10, [disponível para download aqui](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
 * Pelo menos Node na versão 4 (para verificar, execute o comando `node -v`)
 
-Then, go and install the `electron-windows-store` CLI:
+Então, instale o `electron-windows-store` CLI:
 
     npm install -g electron-windows-store
     
 
-## Step 1: Package Your Electron Application
+## Etapa 1: Empacotar sua aplicação Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Empacote a aplicação utilizando [electron-packager](https://github.com/electron-userland/electron-packager) (ou uma ferramenta similar). Certifique-se de remover `node_modules` que você não precisa em sua aplicação final, sendo que qualquer módulo que você realmente não precisar vai apenas aumentar o tamanho de sua aplicação.
 
-The output should look roughly like this:
+A saída deve ser algo mais ou menos assim:
 
     ├── Ghost.exe
     ├── LICENSE
