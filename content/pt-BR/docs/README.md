@@ -75,7 +75,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Módulos para ambos os processos:
+### Módulos para Ambos os Processos:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
