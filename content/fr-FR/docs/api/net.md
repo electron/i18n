@@ -10,12 +10,12 @@ Voici une liste non exhaustive de pourquoi vous devriez utiliser le module `net`
 
 * Gestion automatique de la configuration de proxy système, support du protocole wpad et les fichiers de configuration de proxy pac.
 * Tunnel automatique des requêtes HTTPS.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Prise en charge de l'authentification proxy en utilisant basic, digest, NTLM, Kerberos ou en négociant des schémas d'authentification.
+* Prise en charge des proxy de surveillance du trafic: Proxy de type Fiddler utilisés pour le contrôle et la surveillance des accès.
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+L'API du module `net` a été spécifiquement conçu pour imiter, autant que possible, l'API de Node.js. Les composants de l'API, y compris les classes, les méthodes, les propriétés et les noms d'événement sont similaires à ceux généralement utilisés dans Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Par exemple, l'exemple suivant montre rapidement comment utiliser l'API `net` :
 
 ```javascript
 const {app} = require('electron')
@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('Plus de données dans response.')
     })
   })
   request.end()
