@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-全てのウィンドウが閉じられたときにアプリケーションを終了する方法は以下の通りです:
+最後のウィンドウが閉じられたときにアプリケーションを終了する方法を次の例に示します:
 
 ```javascript
 const {app} = require('electron')
