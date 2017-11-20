@@ -8,7 +8,7 @@ To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The
 npm install electron --save-dev --save-exact
 ```
 
-The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+建議使用 `--save-exact` 旗標，因為 Electron 並沒有遵守語意化版號規則。 請參考[版號規則文件](https://electron.atom.io/docs/tutorial/electron-versioning/)，了解如何管理你應用程式中的 Electron 版本。
 
 ## 全域安裝
 
