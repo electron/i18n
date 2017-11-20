@@ -1,6 +1,6 @@
 # app
 
-> Control your application's event lifecycle.
+> Контролируйте жизненный цикл Вашего приложения.
 
 Process: [Main](../glossary.md#main-process)
 
