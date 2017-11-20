@@ -6,7 +6,7 @@ Processus : [Renderer](../glossary.md#renderer-process)
 
 The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
 
-See [ipcMain](ipc-main.md) for code examples.
+Voir [ipcMain](ipc-main.md) pour des exemples de code.
 
 ## Méthodes
 
@@ -35,7 +35,7 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` String (facultatif)
 
 Removes all listeners, or those of the specified `channel`.
 
