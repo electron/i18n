@@ -1,8 +1,8 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Создание и работа с окном браузера.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -29,11 +29,11 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 ## Showing window gracefully
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Когда загружается страница в окно напрямую, пользователи могут видеть ступенчатую прогрузку страницы, что является дурным тоном для нативного приложения. Для создания окна без ступенчатой загрузки существует два решения, которые можно использовать в различных ситуациях.
 
-### Using `ready-to-show` event
+### Использование `ready-to-show` события
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+При загрузке страницы, после рендеринга страницы будет вызвано событие `ready-to-show`, которое будет вызвано первый раз если окно до этого еще не было показано. Showing the window after this event will have no visual flash:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Создание и работа с окном браузера.
 
 Process: [Main](../glossary.md#main-process)
 
