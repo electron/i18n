@@ -31,12 +31,12 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```
 
 ```javascript
-// In renderer process (web page).
+// Dans le processus de rendu (page web).
 const {ipcRenderer} = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // affiche "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // affiche "pong"
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
@@ -72,7 +72,7 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 Removes listeners of the specified `channel`.
 
-## Event object
+## Objet event
 
 The `event` object passed to the `callback` has the following methods:
 
