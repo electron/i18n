@@ -26,7 +26,7 @@ In the example above, both `BrowserWindow` and `win` were remote objects and `ne
 
 **Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
 
-## Lifetime of Remote Objects
+## Durée de vie de l'objet remote
 
 Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
@@ -71,7 +71,7 @@ For example, the following code seems innocent at first glance. It installs a ca
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // la fenêtre s'est fermée
 })
 ```
 
@@ -92,7 +92,7 @@ console.log(app)
 
 ## Méthodes
 
-The `remote` module has the following methods:
+Le module `remote` dispose des méthodes suivantes :
 
 ### `remote.require(module)`
 
@@ -100,12 +100,12 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+exemple :
 
     project/
     ├── main
-    │   ├── foo.js
-    │   └── index.js
+    │   ├── foo.js
+    │   └── index.js
     ├── package.json
     └── renderer
         └── index.js
