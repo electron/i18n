@@ -78,8 +78,8 @@ L'objet `event` passé au `callback` dispose des méthodes suivantes :
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Définir ceci à la valeur à renvoyer pour un message synchrone.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Retourne le `webContents` qui a envoyé le message, vous pouvez appeler `event.sender.send` pour répondre au message asynchrone. Voir [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) pour plus d'information.
