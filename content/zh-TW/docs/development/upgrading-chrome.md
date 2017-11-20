@@ -26,14 +26,14 @@ These are things to do in addition to updating the Electron code for any Chrome/
   - 32 位元版 Windows
   - 64 位元版 Windows
   - 32 位元版 Linux
-  - 64-bit Linux
+  - 64 位元版 Linux
   - ARM Linux
 - Verify tests pass on: 
   - macOS
   - 32 位元版 Windows
   - 64 位元版 Windows
   - 32 位元版 Linux
-  - 64-bit Linux
+  - 64 位元版 Linux
   - ARM Linux
 
 ## 驗證 ffmpeg 支援
