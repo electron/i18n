@@ -110,7 +110,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Создание и работа с окном браузера.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
