@@ -1,4 +1,4 @@
-# Frameless Window
+# 테두리없는 윈도우
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
