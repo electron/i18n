@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Voir [`Menu`](menu.md) pour des exemples.
 
 ### `new MenuItem(options)`
 
