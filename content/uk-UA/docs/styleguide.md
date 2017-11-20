@@ -93,15 +93,15 @@ Each page must use the actual object name returned by `require('electron')` as t
 * API класи або класи, які є частиною модулів, повинні бути перераховані в розділі `## Клас: TheClassName`.
 * Одна сторінка може мати кілька класів.
 * Конструктори, повинні бути перераховані на `###` рівні.
-* [Статичні методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) мають бути перераховані в розділі `### Static Methods`.
+* [Статичні методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) мають бути перераховані в розділі `### Статичеі методи`.
 * [Методи об'єкта класу](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) повинні біти перераховані в главі `### Instance Methods`.
 * Опис всіх методів, що повертають значення, повинен починатися з "Повертає `[TYPE]` - Опис повернення" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+  * Якщо метод повертає `Object`, його структура може бути визначена з використанням двокрапки потім з нового рядка невпорядкований список властивостей у стилі параметрів функції.
+* Події об'єкта класу повинні бути перераховані в розділі `### Instance Events`.
+* Властивості об'єкта класу повинні бути перераховані в `### Instance Properties` розділі. 
+  * Власстивості об'єкта класу мають починатися з "A [тип властивості] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Для прикладу `Session` та `Cookies` класи:
 
 ```markdown
 # session
