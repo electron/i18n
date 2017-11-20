@@ -42,12 +42,12 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 ## Méthodes
 
-The `net` module has the following methods:
+Le module `net` dispose des méthodes suivantes :
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - Les options constructor de `ClientRequest`.
 
-Returns [`ClientRequest`](./client-request.md)
+Retourne [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Créer une instance de [`ClientRequest`](./client-request.md) avec les `options` founies qui sont directement transmis au constructor de `ClientRequest`. La méthode `net.request` doit être utilisée pour émettre des requêtes HTTP sécurisés et non sécurisés selon le schéma de protocole spécifié dans l'objet `options`.
