@@ -116,7 +116,7 @@ Quando usar o módulo built-in do Electron você pode encontrar um erro como est
 
 Isto é porque você tem o [módulo npm do `Electron`](https://www.npmjs.com/package/electron) instalado localmente ou globalmente, que substitui o módulo interno do Electron.
 
-Para verificar que se você estiver usando o módulo interno correto, você pode imprimir o caminho do módulo `Electron`:
+Para verificar que se você estiver usando o módulo interno correto, você pode imprimir o caminho do módulo `electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
@@ -124,7 +124,7 @@ console.log(require.resolve('electron'))
 
 e, em seguida, verifique se é do seguinte formulário:
 
-    "/caminho/do/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
 Se é algo parecido com `node_modules/electron/index.js`, então você tem que remover o módulo de `Electron` npm ou renomeá-lo.
