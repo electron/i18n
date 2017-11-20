@@ -93,9 +93,9 @@ Each page must use the actual object name returned by `require('electron')` as t
 * API класи або класи, які є частиною модулів, повинні бути перераховані в розділі `## Клас: TheClassName`.
 * Одна сторінка може мати кілька класів.
 * Конструктори, повинні бути перераховані на `###` рівні.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* [Статичні методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) мають бути перераховані в розділі `### Static Methods`.
+* [Методи об'єкта класу](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) повинні біти перераховані в главі `### Instance Methods`.
+* Опис всіх методів, що повертають значення, повинен починатися з "Повертає `[TYPE]` - Опис повернення" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
