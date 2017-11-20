@@ -47,11 +47,11 @@ Processus : [Main](../glossary.md#main-process)
 
 ### Événements d’instance
 
-#### Event: 'did-finish-load'
+#### Événement : 'did-finish-load'
 
 Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
 
-#### Event: 'did-fail-load'
+#### Événement : 'did-fail-load'
 
 Retourne :
 
@@ -63,7 +63,7 @@ Retourne :
 
 This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Événement : 'did-frame-finish-load'
 
 Retourne :
 
@@ -72,15 +72,15 @@ Retourne :
 
 Emitted when a frame has done navigation.
 
-#### Event: 'did-start-loading'
+#### Événement : 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab started spinning.
 
-#### Event: 'did-stop-loading'
+#### Événement : 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### Event: 'did-get-response-details'
+#### Événement : 'did-get-response-details'
 
 Retourne :
 
@@ -96,7 +96,7 @@ Retourne :
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### Event: 'did-get-redirect-request'
+#### Événement : 'did-get-redirect-request'
 
 Retourne :
 
@@ -111,7 +111,7 @@ Retourne :
 
 Emitted when a redirect is received while requesting a resource.
 
-#### Event: 'dom-ready'
+#### Événement : 'dom-ready'
 
 Retourne :
 
@@ -119,23 +119,23 @@ Retourne :
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-favicon-updated'
+#### Événement : 'page-favicon-updated'
 
 Retourne :
 
 * `event` Event
-* `favicons` String[] - Array of URLs
+* `favicons` String[] - Tableau d'URLs
 
 Emitted when page receives favicon urls.
 
-#### Event: 'new-window'
+#### Événement : 'new-window'
 
 Retourne :
 
 * `event` Event
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
@@ -155,7 +155,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### Événement : 'will-navigate'
 
 Retourne :
 
@@ -170,7 +170,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
-#### Event: 'did-navigate'
+#### Événement : 'did-navigate'
 
 Retourne :
 
@@ -181,7 +181,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### Event: 'did-navigate-in-page'
+#### Événement : 'did-navigate-in-page'
 
 Retourne :
 
@@ -193,7 +193,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### Event: 'will-prevent-unload'
+#### Événement : 'will-prevent-unload'
 
 Retourne :
 
@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### Événement : 'crashed'
 
 Retourne :
 
@@ -231,7 +231,7 @@ Retourne :
 
 Emitted when the renderer process crashes or is killed.
 
-#### Event: 'plugin-crashed'
+#### Événement : 'plugin-crashed'
 
 Retourne :
 
@@ -241,11 +241,11 @@ Retourne :
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### Événement : 'destroyed'
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### Événement : 'before-input-event'
 
 Retourne :
 
@@ -276,15 +276,15 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Événement : 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-#### Event: 'devtools-closed'
+#### Événement : 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-#### Event: 'devtools-focused'
+#### Événement : 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
 
@@ -340,7 +340,7 @@ Retourne :
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Événement : 'found-in-page'
 
 Retourne :
 
@@ -354,15 +354,15 @@ Retourne :
 
 Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### Event: 'media-started-playing'
+#### Événement : 'media-started-playing'
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### Événement : 'media-paused'
 
 Emitted when media is paused or done playing.
 
-#### Event: 'did-change-theme-color'
+#### Événement : 'did-change-theme-color'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -370,7 +370,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
+#### Événement : 'update-target-url'
 
 Retourne :
 
@@ -379,29 +379,29 @@ Retourne :
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Événement : 'cursor-changed'
 
 Retourne :
 
 * `event` Event
 * `type` String
-* `image` NativeImage (optional)
+* `image` NativeImage (facultatif)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Emitted when the cursor's type changes. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Événement : 'context-menu'
 
 Retourne :
 
 * `event` Event
 * `params` Object 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
+  * `x` Integer - coordonnée x
+  * `y` Integer - coordonée y
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
@@ -436,7 +436,7 @@ Retourne :
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Événement : 'select-bluetooth-device'
 
 Retourne :
 
@@ -466,7 +466,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Événement : 'paint'
 
 Retourne :
 
@@ -486,11 +486,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Événement : 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Événement : 'will-attach-webview'
 
 Retourne :
 
