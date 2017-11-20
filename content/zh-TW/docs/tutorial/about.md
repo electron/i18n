@@ -32,7 +32,7 @@ Electron 中的 Node.js 跟 Chromium 共用同一份 V8，通常是 Chromium 用
 
 目前並沒有舊版 Electron 的長期支援方案。 如果你目前這一版 Electron 用起來沒什麼問題，你可以一路繼續用下去。 如果你想要用新版提供的功能，你應該升到新一點的版本。
 
-`1.0.0` 版帶來了幾項重大更新。 If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+`1.0.0` 版帶來了幾項重大更新。 如果你還沒使用到這一版，應該先[瞭解 `1.0.0` 版變更事項](https://electron.atom.io/blog/2016/05/11/electron-1-0)。
 
 ## 核心理念
 
