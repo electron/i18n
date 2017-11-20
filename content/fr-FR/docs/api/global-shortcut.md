@@ -53,14 +53,14 @@ Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appe
 
 Retourne un `Boolean` - Si l'application à enregistrer l'`accelerator`.
 
-Lorsque l'accelerator est déjà utilisé par d'autres applications, cet appel retournera toujours `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Lorsque l'accelerator est déjà utilisé par d'autres applications, cet appel retournera toujours `false`. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Supprime le raccourci global de l'`accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Supprime tous les raccourcis globaux.
