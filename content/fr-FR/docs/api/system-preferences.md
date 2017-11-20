@@ -79,7 +79,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+Supprime l'abonnement avec `l'id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -99,7 +99,7 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Peut être `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
 Returns `any` - The value of `key` in system preferences.
 
