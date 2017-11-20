@@ -116,7 +116,7 @@ This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - Voir [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
 Set the value of `key` in system preferences.
