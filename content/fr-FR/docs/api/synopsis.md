@@ -1,6 +1,6 @@
 # Synopsis
 
-> How to use Node.js and Electron APIs.
+> Comment utiliser les APIs de Nodejs et d'Electron.
 
 All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
 
@@ -34,7 +34,7 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Pour lancer votre app, lisez [Lancer votre application](../tutorial/quick-start.md#run-your-app).
 
 ## Destructuring assignment
 
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Ce qui est équivalent au code suivant :
 
 ```javascript
 const electron = require('electron')
