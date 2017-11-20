@@ -1,8 +1,8 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> Gerencia arquivos e URLs usando seus aplicativos padrão.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
