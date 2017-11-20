@@ -35,7 +35,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+自動更新功能並不支援 Linux，建議你使用各發行版本的套件管理機制來更新你的應用程式。
 
 ## 事件
 
