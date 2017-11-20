@@ -26,7 +26,7 @@ Electron 中的 Node.js 跟 Chromium 共用同一份 V8，通常是 Chromium 用
 
 ### 版號規則
 
-因為硬性相依於 Node.js 及 Chromium 的關係，要訂出 Electron 的版號真的很尷尬，而且我們[無法遵守`語意化版本編號 semver`](http://semver.org)。 You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+因為硬性相依於 Node.js 及 Chromium 的關係，要訂出 Electron 的版號真的很尷尬，而且我們[無法遵守`語意化版本編號 semver`](http://semver.org)。 因此，你應該每次都選定一版 Electron 來用。 [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
 
 ### 長期支援
 
