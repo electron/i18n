@@ -8,13 +8,13 @@ A Microsoft [desenvolveu uma ferramenta que compila aplicações Electron em for
 
 A "Atualização de Aniversário" do Windows 10 é capaz de rodar binários win32 `.exe` os executando juntamente com um sistema de arquivos e de registros virtualizados. Ambos são criados durante a compilação ao executar a aplicação e o instalador dentro de um Container Windows, permitindo que o Windows identifique exatamente quais modificações ao sistema operacional são realizadas durante a instalação. Parear o executável com um sistema de arquivos e de registros virtualizados permite com que o Windows habilite a instalação e desinstalação de um clique.
 
-Adicionalmente, o exe é executado dentro do modelo appx, ou seja, ele pode utilizar muitas das APIs disponívels para a Plataforma Universal do Windows. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Adicionalmente, o exe é executado dentro do modelo appx, ou seja, ele pode utilizar muitas das APIs disponívels para a Plataforma Universal do Windows. Para ganhar ainda mais recursos, uma aplicação Electron pode parear com um processo em segundo plano da UWP (Plataforma Universal do Windows), que é executado juntamente com o `exe`, ou seja, uma espécie de ajudante para rodar processos em segundo plano, receber notificações push ou para se comunicar com outras aplicações UWP.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+Para compilar qualquer aplicação Electron já existente, certifique-se de que você está de acordo com os seguintes requisitos:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Atualização de Aniversário do Windows 10 (lançada em 2 de agosto de 2016)
+* SDK do Windows 10, [disponível para download aqui](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Pelo menos Node na versão 4 (para verificar, execute o comando `node -v`)
 
 Then, go and install the `electron-windows-store` CLI:
 
