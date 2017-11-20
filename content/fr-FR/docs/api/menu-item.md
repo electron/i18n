@@ -1,4 +1,4 @@
-## Class: MenuItem
+## Classe : MenuItem
 
 > Add items to native application menus and context menus.
 
@@ -26,7 +26,7 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
-### Roles
+### Rôles
 
 Roles allow menu items to have predefined behaviors.
 
