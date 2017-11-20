@@ -6,27 +6,27 @@ Electron 源於 2013 年，是 GitHub 文字編輯器 [Atom](https://atom.io) �
 
 Electron 已經成為開放原始碼開發者、新創公司及老字號公司的熱門工具。[看看誰在用 Electron](https://electron.atom.io/apps/)。
 
-請繼續閱讀，學習更多關於貢獻者與 Electron 發布版本的資訊，或是瀏覽 [Quick Start Guide](quick-start.md) 開始使用 Electron 開發。
+請繼續看下去，瞭解更多有關 Electron 貢獻者與發行版本的資訊，或是從[快速入門導引](quick-start.md) 開始，用 Electron 開發。
 
 ## 核心團隊和貢獻者
 
-Electron 是由 GitHub 的一個團隊以及一群來自社群的 [活躍的貢獻者](https://github.com/electron/electron/graphs/contributors) 所維護的。 有些貢獻者是個人，而有些貢獻者工作於大型公司，這些公司正在使用 Electron 開發。 我們很樂於將經常貢獻的貢獻者加入專案，作為維護人員。 閱讀更多關於[貢獻 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
+Electron 是由 GitHub 的一組團隊以及社群[活躍貢獻者](https://github.com/electron/electron/graphs/contributors)們所維護。 有些貢獻者是個人，也有些貢獻者任職於使用 Electron 的大公司。 我們很樂於將經常貢獻的人設定成專案維護人員。 閱讀更多有關[貢獻 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)的資訊。
 
 ## 版本發佈
 
-[Electron 發佈](https://github.com/electron/electron/releases)頻繁。當有重大的臭蟲修復、提供新的 API、或是 Chromium 或 Node.js 有版本更新時，我們會發佈 Electron。
+[Electron 發佈](https://github.com/electron/electron/releases)頻繁。當有重大的臭蟲修復、新增 API 或是升級 Chromium 或 Node.js 時，我們就會發佈新版。
 
 ### 相依套件更版
 
-Electron 的 Chromium 版本通常會在 Chromium 穩定版釋出後的一至兩個星期內更新，這取決於 Chromium 更新版所牽涉的努力。
+Electron 中的 Chromium 通常會在 Chromium 穩定版發佈的一到兩週內更新，取決於升級 Chromium 時所要花的功夫。
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Node.js 新版發佈後，Electron 通常會等一個月左右才開始升級，通常這時候的版本會比較穩定。
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Electron 中的 Node.js 跟 Chromium 共用同一份 V8，通常是 Chromium 用的那版。大多數情況下這樣*就會動了*，不過有時可能要改動到 Node.js。
 
 ### 版號規則
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+因為硬性相依於 Node.js 及 Chromium 的關係，要訂出 Electron 的版號真的很尷尬，而且我們[無法遵守`語意化版本編號 semver`](http://semver.org)。 You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
 
 ### 長期支援
 
