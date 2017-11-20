@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Janela do meu app desapareceu depois de alguns minutos.
+## Janela/bandeja do meu app desapareceu depois de alguns minutos.
 
-Isto acontece quando a variável que é usada para armazenar a janela fica com resto coletado.
+Isto acontece quando a variável que é usada para armazenar a janela/bandeja fica com o resto coletado.
 
 Se você encontrar esse problema, veja os artigos útil:
 
@@ -77,7 +77,7 @@ app.on('ready', () => {
 
 ## Eu não posso usar jQuery/RequireJS/Meteor/AngularJS em Electron.
 
-Devido à integração de Node. js do Electron, existem alguns símbolos extras inseridos o DOM como `module`, `exports`, `require`. Isso causa problemas por causa de algumas bibliotecas que querem inserir os símbolos com os mesmos nomes.
+Devido à integração de Node.js do Electron, existem alguns símbolos extras inseridos o DOM como `module`, `exports` e `require`. Isso causa problemas por causa de algumas bibliotecas que querem inserir os símbolos com os mesmos nomes.
 
 Para resolver isso, você pode desativar a integração com node no Electron:
 
@@ -114,7 +114,7 @@ Quando usar o módulo built-in do Electron você pode encontrar um erro como est
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-Isto é porque você tem o [módulo npm do `Electron`](https://www.npmjs.com/package/electron) instalado localmente ou globalmente, que substitui o módulo interno do Electron.
+Isto é porque você tem o [módulo npm do `electron`](https://www.npmjs.com/package/electron) instalado localmente ou globalmente, que substitui o módulo interno do Electron.
 
 Para verificar que se você estiver usando o módulo interno correto, você pode imprimir o caminho do módulo `electron`:
 
