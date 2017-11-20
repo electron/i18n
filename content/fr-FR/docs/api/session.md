@@ -20,13 +20,13 @@ console.log(ses.getUserAgent())
 
 ## Méthodes
 
-The `session` module has the following methods:
+Le module `session` dispose des méthodes suivantes :
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Object 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - Si vous voulez activer le cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
@@ -36,15 +36,15 @@ To create a `Session` with `options`, you have to ensure the `Session` with the 
 
 ## Propriétés
 
-The `session` module has the following properties:
+Le module `session` dispose des propriétés suivantes :
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Un objet `Session`, l'objet d'une session par défaut de l'application.
 
-## Class: Session
+## Classe : Session
 
-> Get and set properties of a session.
+> Les propriétés getter et setter d'une session.
 
 Processus : [Main](../glossary.md#main-process)
 
