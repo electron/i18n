@@ -1,8 +1,8 @@
 # Объект "Cookie"
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
+* `name` String - название cookie файла.
+* `value` String - Значение файла cookie.
+* `domain` String (необязательный параметр) - домен файла cookie.
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
 * `path` String (optional) - The path of the cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
