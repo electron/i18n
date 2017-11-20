@@ -4,7 +4,7 @@
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
-## Create a frameless window
+## Créer un frameless window
 
 To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
 
@@ -14,7 +14,7 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### Alternatives on macOS
+### Alternatives sur macOS
 
 On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
 
@@ -48,7 +48,7 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## Fenêtre transparente
 
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
@@ -67,7 +67,7 @@ win.show()
 * On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac the native window shadow will not be shown on a transparent window.
 
-## Click-through window
+## Fenêtre non cliquable
 
 To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
 
@@ -77,7 +77,7 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-## Draggable region
+## Région déplaçable
 
 By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
