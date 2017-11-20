@@ -22,7 +22,7 @@ O módulo `shell` tem os seguintes métodos:
 
 * `fullPath` String
 
-Retorna `booleano` - Se o item for mostrado com sucesso
+Retorna `Boolean` - Se o item for mostrado com sucesso
 
 Mostra o arquivo especificado em um gerenciador de arquivos. Se possível, seleciona o arquivo.
 
