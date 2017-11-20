@@ -31,7 +31,7 @@ The `crashReporter` module has the following methods:
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (optional)
+  * `companyName` String (facultatif)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
@@ -65,13 +65,13 @@ You are required to call this method before using any other `crashReporter` APIs
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+Retourne [`CrashReport`](structures/crash-report.md) :
 
 Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+Retourne [`CrashReport[]`](structures/crash-report.md) :
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
@@ -96,7 +96,7 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
-## Crash Report Payload
+## Payload du Crash Report
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
