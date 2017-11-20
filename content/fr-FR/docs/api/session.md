@@ -332,19 +332,19 @@ Clears the session’s HTTP authentication cache.
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `Session`:
+Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objet [Cookies](cookies.md) pour cette session.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objet [WebRequest](web-request.md) pour cette session.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objet [Protocol](protocol.md) pour cette session.
 
 ```javascript
 const {app, session} = require('electron')
@@ -356,7 +356,7 @@ app.on('ready', function () {
     var url = request.url.substr(7)
     callback({path: path.normalize(`${__dirname}/${url}`)})
   }, function (error) {
-    if (error) console.error('Failed to register protocol')
+    if (error) console.error('Enregistrement du protocole échoué')
   })
 })
 ```
