@@ -523,11 +523,11 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## DOM events
+## Événements DOM
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### Événement : 'load-commit'
 
 Retourne :
 
@@ -609,7 +609,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Retourne :
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - Tableau d'URLs.
 
 Fired when page receives favicon urls.
 
@@ -621,7 +621,7 @@ Fired when page enters fullscreen triggered by HTML API.
 
 Fired when page leaves fullscreen triggered by HTML API.
 
-### Event: 'console-message'
+### Événement : 'console-message'
 
 Retourne :
 
@@ -637,7 +637,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('La page invité a envoyé un message :', e.message)
 })
 ```
 
@@ -737,7 +737,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### Événement : 'ipc-message'
 
 Retourne :
 
@@ -759,7 +759,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// Dans la page invité.
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -770,7 +770,7 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### Événement : 'gpu-crashed'
 
 Fired when the gpu process is crashed.
 
