@@ -36,11 +36,11 @@ A major update came with version `v1.0.0`. If you're not yet using this version,
 
 ## 核心理念
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+為了保持 Electron 的精巧 (檔案大小) 及永續性 (相依套件及 API 擴展)，我們限縮了核心專案的範圍。
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+例如，Electron 只用了 Chromium 中的畫面轉譯程式庫，而不是將整個 Chromium 整進來。 這使得升級 Chromium 更容易，但相對的也代表 Electron 可能會少了某些 Google Chrome 中有的功能。
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+新增進 Electron 中的功能主要都是原生 API。 如果一個功能可以獨立成為 Node.js 模組，就該這樣做。 請參閱[由社群打造的 Electron 工具](https://electron.atom.io/community)。
 
 ## 歷史
 
