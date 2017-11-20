@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Si vous avez besoin la totalité du module `electron`, vous pouvez faire un require et décomposer ensuite le tout pour accéder aux modules venant d'`electron` individuellement.
 
 ```javascript
 const electron = require('electron')
