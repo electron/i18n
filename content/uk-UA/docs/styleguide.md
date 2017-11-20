@@ -90,9 +90,9 @@ Each page must use the actual object name returned by `require('electron')` as t
 
 ### Класи
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
+* API класи або класи, які є частиною модулів, повинні бути перераховані в розділі `## Клас: TheClassName`.
+* Одна сторінка може мати кілька класів.
+* Конструктори, повинні бути перераховані на `###` рівні.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
