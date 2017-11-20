@@ -36,9 +36,9 @@ app.on('ready', () => {
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+Par ailleurs, cela est presque identique à la façon dont vous utiliseriez normalement le module [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) de Node.js
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+L'API `net` peut être utilisé seulement une fois que l'application ait émis l'événement `ready`. Essayer d'utiliser le module avant l'événement `ready` soulèvera une erreur.
 
 ## Méthodes
 
