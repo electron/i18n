@@ -45,15 +45,15 @@ Le module `globalShortcut` dispose des méthodes suivantes :
 
 Enregistre un raccourci global avec un `accelerator`. Le `callback` est appelé lorsque le raccourci est utilisé par l'utilisateur.
 
-Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Retourne un `Boolean` - Si l'application à enregistrer l'`accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Lorsque l'accelerator est déjà utilisé par d'autres applications, cet appel retournera toujours `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
 ### `globalShortcut.unregister(accelerator)`
 
