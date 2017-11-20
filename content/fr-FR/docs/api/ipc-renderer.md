@@ -17,21 +17,21 @@ The `ipcRenderer` module has the following method to listen for events and send 
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+En écoutant `channel`, lorsqu'un nouveau message arrive, `listener` sera appelé comme ceci `listener(event, args...)`.
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Permet une seule exécution de la fonction `listener` pour cet événement. Ce `listener` est invoqué seulement après qu'un message est envoyé à `channel`, après quoi il sera supprimé.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Supprime le `listener` spécifié du tableau d'écouteurs pour le `channel` spécifié.
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
