@@ -1,4 +1,4 @@
-## Class: DownloadItem
+## Classe : DownloadItem
 
 > Control file downloads from remote sources.
 
@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Événements d’instance
 
-#### Event: 'updated'
+#### Événement 'updated'
 
 Retourne :
 
@@ -51,7 +51,7 @@ The `state` can be one of following:
 * `progressing` - The download is in-progress.
 * `interrupted` - The download has interrupted and can be resumed.
 
-#### Event: 'done'
+#### Événement 'done'
 
 Retourne :
 
@@ -82,7 +82,7 @@ Returns `String` - The save path of the download item. This will be either the p
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Met en pause le téléchargement.
 
 #### `downloadItem.isPaused()`
 
