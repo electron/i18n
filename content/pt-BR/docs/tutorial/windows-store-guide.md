@@ -6,9 +6,9 @@ A Microsoft [desenvolveu uma ferramenta que compila aplicações Electron em for
 
 ## Contexto e requisitos
 
-A "Atualização de Aniversário" do Windows 10 é capaz de rodar binários win32 `.exe` os executando juntamente com um sistema de arquivos e de registros virtualizados. Ambos são criados durante a compilação ao executar a aplicação e o instalador dentro de um Container Windows, permitindo que o Windows identifique exatamente quais modificações ao sistema operacional são realizadas durante a instalação. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+A "Atualização de Aniversário" do Windows 10 é capaz de rodar binários win32 `.exe` os executando juntamente com um sistema de arquivos e de registros virtualizados. Ambos são criados durante a compilação ao executar a aplicação e o instalador dentro de um Container Windows, permitindo que o Windows identifique exatamente quais modificações ao sistema operacional são realizadas durante a instalação. Parear o executável com um sistema de arquivos e de registros virtualizados permite com que o Windows habilite a instalação e desinstalação de um clique.
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Adicionalmente, o exe é executado dentro do modelo appx, ou seja, ele pode utilizar muitas das APIs disponívels para a Plataforma Universal do Windows. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
