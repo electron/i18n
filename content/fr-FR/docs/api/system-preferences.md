@@ -143,10 +143,10 @@ if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.frame = false
 }
 
-// Create the window.
+// Créer la fenêtre.
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+// Navigation.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
