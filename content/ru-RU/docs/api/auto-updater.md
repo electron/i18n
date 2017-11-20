@@ -43,7 +43,7 @@ The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Возвращает:
 
 * `error` Error
 
@@ -63,7 +63,7 @@ Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
-Returns:
+Возвращает:
 
 * `event` Event
 * `releaseNotes` String
