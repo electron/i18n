@@ -2,9 +2,9 @@
 
 > Контролируйте жизненный цикл Вашего приложения.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Это пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
 
 ```javascript
 const {app} = require('electron')
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## События
 
 The `app` object emits the following events:
 
