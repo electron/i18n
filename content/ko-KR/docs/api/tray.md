@@ -1,6 +1,6 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> 시스템의 알림 영역에 아이콘 및 컨텍스트 메뉴를 추가합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**플랫폼 제한 사항:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
