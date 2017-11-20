@@ -4,17 +4,17 @@
 
 Quando `window.open` é chamada para criar uma nova janela em uma página web, uma nova instância de `BrowserWindow` será criada para a `url` e um proxy será retornado para `window.open`, deixando o controle sobre ele limitado.
 
-A proxy é limitada a funcionalidade padrão implementada para ser compatível com página web tradicionais. Para ter controle total da nova janela você deve criar um `BrowserWindow` diretamente.
+O proxy é limitado a funcionalidade padrão implementada para ser compatível com páginas web tradicionais. Para ter o controle total da nova janela, você deve criar um `BrowserWindow` diretamente.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+O recém-criado `BrowserWindow` herdará as opções da janela pai por padrão. Para substituir as opções herdadas, você pode defini-las na string `features`.
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String (opcional)
+* `features` String (opcional)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Retorna [`BrowserWindowProxy`](browser-window-proxy.md) - Cria uma nova janela e retorna uma instância da classe `BrowserWindowProxy`.
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
