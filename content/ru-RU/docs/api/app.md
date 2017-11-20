@@ -27,9 +27,9 @@ In most cases, you should just do everything in the `ready` event handler.
 
 Returns:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` объект *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Вызывается при завершении инициализации Electron. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
 ### Event: 'window-all-closed'
 
