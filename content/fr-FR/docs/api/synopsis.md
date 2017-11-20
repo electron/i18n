@@ -6,9 +6,9 @@ Tous les [modules intégrés de Node.js](https://nodejs.org/api/) sont disponibl
 
 Electron fournit également quelques modules supplémentaires intégrés pour le développement d'application de bureau natives. Certains modules sont seulement disponibles dans le processus main, d'autres sont seulement disponibles dans le processus renderer (page web), et certains peuvent être utilisés dans les deux processus.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
+La règle de base est : si un module est une [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou un système de bas niveau est associé, il devrait être disponible dans le processus main. Vous devez être familier avec le concept de [processus main vs. processus renderer](../tutorial/quick-start.md#main-process) pour pouvoir utiliser ces modules.
 
-The main process script is just like a normal Node.js script:
+Le script du processus main est simplement comme un script Node.js :
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+Le processus renderer n'est pas différent d'une page web normale, à l'exception que l'on peut utiliser des modules nodes :
 
 ```html
 <!DOCTYPE html>
@@ -36,9 +36,9 @@ The renderer process is no different than a normal web page, except for the extr
 
 Pour lancer votre app, lisez [Lancer votre application](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## Affectation par décomposition
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+À partir de la 0.37, vous pouvez utiliser l'[affectation par décomposition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) pour rendre l'utilisation des modules intégrés plus simple.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
