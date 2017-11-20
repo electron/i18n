@@ -48,7 +48,7 @@ Un objet `Session`, l'objet d'une session par défaut de l'application.
 
 Processus : [Main](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Vous pouvez créer un objet `Session` avec le module `session` :
 
 ```javascript
 const {session} = require('electron')
@@ -58,9 +58,9 @@ console.log(ses.getUserAgent())
 
 ### Événements d’instance
 
-The following events are available on instances of `Session`:
+Les événements suivants sont disponibles pour les instances de `Session` :
 
-#### Event: 'will-download'
+#### Événement : 'will-download'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 ### Méthodes d’instance
 
-The following methods are available on instances of `Session`:
+Les méthodes suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.getCacheSize(callback)`
 
@@ -95,7 +95,7 @@ Callback is invoked with the session's current cache size.
 
 * `callback` Function - Called when operation is done
 
-Clears the session’s HTTP cache.
+Efface le cache HTPP de la session.
 
 #### `ses.clearStorageData([options, callback])`
 
@@ -148,25 +148,25 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Match all hostnames that match the pattern HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
     Match a particular domain suffix.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Exemples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
   Match URLs which are IP address literals.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Exemples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Exemples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
@@ -204,7 +204,7 @@ window.webContents.session.enableNetworkEmulation({
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// Pour simuler une panne réseau.
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
@@ -257,7 +257,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const {session} = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // interdit.
   }
 
   callback(true)
@@ -289,7 +289,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (facultatif)
 
 Overrides the `userAgent` and `acceptLanguages` for this session.
 
@@ -303,9 +303,9 @@ Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` String - UUID valide.
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `result` Buffer - données Blob.
 
 Returns `Blob` - The blob data associated with the `identifier`.
 
