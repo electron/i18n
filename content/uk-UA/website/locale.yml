@@ -1,6 +1,6 @@
-tagline: Будуйте прикладні програми за допомогою JavaScript, HTML та CSS не залежно від платформи
+tagline: Будуйте прикладні програми за допомогою JavaScript, HTML та CSS незалежно від платформи
 nav:
-  docs: Документи
+  docs: Документація
   blog: Блог
   community: Спільнота
   apps: Додатки
@@ -15,7 +15,7 @@ docs:
   api_reference: Довідник API
   advanced: Додатково
 languages:
-  choose_language: Виберіть мову для сайту
+  choose_language: Оберіть мову
   translation_progress: Прогрес перекладу
   current: поточне виділення
 community:
@@ -44,7 +44,7 @@ cross_platform:
 benefits:
   hard_parts_made_easy: Важкі частини зроблені просто
   automatic_updates: Автоматичні оновлення
-  native_menus_and_notifications: Природні меню та сповіщення
+  native_menus_and_notifications: Нативні меню та сповіщення
   crash_reporting: Звіти про збої
   debugging_and_profiling: Налагоджування та профілювання
   windows_installers: Установник для Windows
@@ -59,7 +59,7 @@ explore:
     - Дізнайтеся що можливо з Electron за допомогою зразків коду та корисних порад для
     - створення вашого додатку.
 download_from_github: Завантажити з GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Переглянкти всі релізи</a> на GitHub'
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub'
 quick_start:
   title: "Спробуйте <a href='https://github.com/electron/electron-quick-start' target='_blank'>Швидкий Старт</a>, щоб побачити Electron в дії:"
   description: Мінімальний Electron застосунок з корисними нотатками.
