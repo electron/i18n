@@ -4,9 +4,9 @@
 
 處理序: [主要](../glossary.md#main-process)
 
-`autoUpdater` 模組提供了使用 [Squirrel](https://github.com/Squirrel) 框架的介面。
+`autoUpdater` 模組提供介面，將 [Squirrel](https://github.com/Squirrel) 框架封裝起來。
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+透過下列任一專案，你就能快速建出跨平台的發佈伺服器，將你的應用程式發佈出去:
 
 * [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
 * [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
