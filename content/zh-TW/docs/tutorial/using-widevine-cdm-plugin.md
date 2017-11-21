@@ -1,14 +1,14 @@
 # 使用 Widevine CDM 外掛程式
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+你可以在 Electron 裡使用 Chrome 瀏覽器搭載的 Widevine CDM 用外掛程式。
 
-## Getting the plugin
+## 取得外掛程式
 
 Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
 
 **Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
 
-### Windows & macOS
+### Windows 及 macOS
 
 Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
 
@@ -20,7 +20,7 @@ On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.d
 
 On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## 使用外掛程式
 
 After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
 
@@ -33,19 +33,19 @@ Example code:
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
+// 你必須在這裡傳入 `widevinecdmadapter` 的檔名:
+// * macOS 上是 `widevinecdmadapter.plugin`，
+// * Linux 上是 `libwidevinecdmadapter.so`，
+// * Windows 上是 `widevinecdmadapter.dll`。
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// 可以在 Chrome 的 `chrome://plugins` 頁面裡找到外掛程式的版本。
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
 app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
-      // The `plugins` have to be enabled.
+      // 要啟用的「外掛程式」。
       plugins: true
     }
   })
@@ -53,7 +53,7 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## 驗證外掛程式
 
 To verify whether the plugin works, you can use following ways:
 
