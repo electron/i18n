@@ -1,6 +1,6 @@
 # Локализация
 
-> Locale values returned by `app.getLocale()`.
+> Код языка возвращается функцией `app.getLocale()`.
 
 Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
