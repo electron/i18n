@@ -2,7 +2,7 @@
 
 > Код языка возвращается функцией `app.getLocale()`.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron использует Chromium библиотеку `l10n_util` для получения локализации. Возможные значения перечислены ниже:
 
 | Код Языка | Название Языка                |
 | --------- | ----------------------------- |
@@ -89,7 +89,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | nb        | Норвежский (Букмол)           |
 | ne        | Непальский                    |
 | nl        | Голландский                   |
-| nn        | Norwegian (Nynorsk)           |
+| nn        | Норвежский (Нюнорск)          |
 | no        | Норвежский                    |
 | oc        | Окситанская                   |
 | om        | Оромо                         |
