@@ -203,13 +203,13 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## 프레임 깜빡이기 (윈도우즈)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+윈도우즈에서 사용자의 관심을 끌기 위해ㅣ 작업표시줄 버튼을 강조할 수 있습니다. 이것은 macOS 의 독 아이콘을 튕기는 것과 유사합니다. MSDN에서 인용하자면 (영문):
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+the keyboard focus. BrowserWindow 작업표시줄 버튼을 깜빡이려면, [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API 를 사용하면됩니다:
 
 ```javascript
 const {BrowserWindow} = require('electron')
