@@ -53,13 +53,13 @@ Retourne :
 
 Émis lorsque la notification est affiché à l'utilisateur, notez que cet événement peut être émis plusieurs fois du fait qu'une notification peut être affiché plusieurs fois par le biais de la méthode `show()`.
 
-#### Event: 'click'
+#### Événement : 'click'
 
 Retourne :
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+Émis lorsque l'utilisateur clique sur la notification.
 
 #### Événement : 'close'
 
@@ -67,29 +67,29 @@ Retourne :
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+Cette événement ne garanti pas d'être émis dans tous les cas où la notification est fermée.
 
-#### Event: 'reply' *macOS*
-
-Retourne :
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' *macOS*
+#### Événement : 'reply' *macOS*
 
 Retourne :
 
 * `event` Event
-* `index` Number - The index of the action that was activated
+* `reply` String - La chaîne de caractère que l'utilisateur a écrit dans le champ de réponse
+
+Émis lorsque l'utilisateur clique sur le bouton "Reply" sur une notification avec `hasReply: true`.
+
+#### Événement : 'action' *macOS*
+
+Retourne :
+
+* `event` Event
+* `index` Number - L'index de l'action qui a été activée
 
 ### Méthodes d’instance
 
-Objects created with `new Notification` have the following instance methods:
+Les objets créés avec `new Notification` ont les méthodes d'instance suivant :
 
 #### `notification.show()`
 
