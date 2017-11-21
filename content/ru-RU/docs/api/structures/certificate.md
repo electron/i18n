@@ -1,6 +1,6 @@
-# Certificate Object
+# Certificate Объект
 
-* `data` String - PEM encoded data
+* `data` String - PEM закодированные данные
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
 * `issuerName` String - Issuer's Common Name
 * `issuerCert` Certificate - Issuer certificate (if not self-signed)
