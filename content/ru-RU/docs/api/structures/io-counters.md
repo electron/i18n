@@ -5,4 +5,4 @@
 * `otherOperationCount` Number - Количество других операций с I/O.
 * `readTransferCount` Number - Количество переданных операций на чтение из I/O.
 * `writeTransferCount` Number - Количество переданных операций на запись в I/O.
-* `otherTransferCount` Number - Then number of I/O other transfers.
+* `otherTransferCount` Number - Количество переданных других операций с I/O.
