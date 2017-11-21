@@ -41,9 +41,9 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 ### Événements d’instance
 
-Objects created with `new Notification` emit the following events:
+Les objets créés avec `new Notification` émettent les événements suivants :
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### Événement : 'show'
 
@@ -51,7 +51,7 @@ Retourne :
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Émis lorsque la notification est affiché à l'utilisateur, notez que cet événement peut être émis plusieurs fois du fait qu'une notification peut être affiché plusieurs fois par le biais de la méthode `show()`.
 
 #### Event: 'click'
 
