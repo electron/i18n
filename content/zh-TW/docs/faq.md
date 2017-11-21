@@ -29,7 +29,7 @@ To share data between web pages (the renderer processes) the simplest way is to 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
-// In the main process.
+// 在主處理序裡。
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -82,7 +82,7 @@ app.on('ready', () => {
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
+// 在主處理序中
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
