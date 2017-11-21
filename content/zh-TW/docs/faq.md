@@ -36,12 +36,12 @@ global.sharedObject = {
 ```
 
 ```javascript
-// In page 1.
+// 第 1 頁裡。
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// 第 2 頁裡。
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,7 +82,7 @@ app.on('ready', () => {
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// 在主處理序中
+// 在主處理序裡。
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
