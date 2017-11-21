@@ -2,9 +2,9 @@
 
 * `type` String (опиционально) - Одно из следующего: 
   * `tasks` - Элементы этой категории будут помещены в стандартную категорию `Tasks`. Там может быть только одна такая категория, и она всегда будет отображается в нижней части списка переходов.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
+  * `frequent` - Отображать список файлов, недавно открытых приложением, имя категории и этого элемента устанавливаются в Windows.
+  * `recent` - Отображать список файлов, недавно открытых приложением, имя категории и этого элемента устанавливаются в Windows. Элементы могут быть добавлены в эту категорию косвенно, используя `app.addRecentDocument(path)`.
+  * `custom` - Отображать ссылки на задачи или файлы, `name` должно быть установлено приложением.
 * `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
 * `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
