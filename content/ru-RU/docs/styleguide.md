@@ -1,10 +1,10 @@
-# Electron Documentation Styleguide
+# Styleguide документация для Electron
 
-These are the guidelines for writing Electron documentation.
+Это руководство для написания Electron документации.
 
-## Titles
+## Названия
 
-* Each page must have a single `#`-level title at the top.
+* Каждая страница должна иметь один заголовок `#` в верхней части.
 * Chapters in the same page must have `##`-level titles.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
