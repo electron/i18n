@@ -187,15 +187,15 @@ win.setProgressBar(0.5)
 
 ## 작업 표시줄의 아이콘 오버레이 (Windows)
 
-Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시하는 작은 오버레이를 사용할 수 있습니다. MSDN에서 인용하자면:
+Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시하는 작은 오버레이를 사용할 수 있습니다. MSDN에서 인용하자면(영문):
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**Overlay on taskbar button:**
+**작업 표시줄 버튼 위의 오버레이:**
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+윈도우에 오버레이 아이콘을 설정하려면 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API를 사용할 수 있습니다:
 
 ```javascript
 const {BrowserWindow} = require('electron')
