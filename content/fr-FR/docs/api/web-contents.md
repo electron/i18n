@@ -61,7 +61,7 @@ Retourne :
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Cet événement est comme `did-finish-load`, mais il est émis lorsque le chargement a échoué ou a été annulé, par exemple lorsque `window.stop()` est appelé. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 #### Événement : 'did-frame-finish-load'
 
@@ -70,7 +70,7 @@ Retourne :
 * `event` Event
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+Émis lorsqu'un frame a fini sa navigation.
 
 #### Événement : 'did-start-loading'
 
