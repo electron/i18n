@@ -9,7 +9,6 @@
 Do you speak multiple languages? We need your help!
 
 To get started translating, visit
-
 [crowdin.com/project/electron](https://crowdin.com/project/electron)
 and log in with your GitHub account.
 
