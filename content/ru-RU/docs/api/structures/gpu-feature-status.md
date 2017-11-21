@@ -6,7 +6,7 @@
 * `flash_stage3d_baseline` String - Flash Stage3D Базовый профиль
 * `gpu_compositing` String - Композитный
 * `multiple_raster_threads` String - Несколько растровых потоков
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
+* `native_gpu_memory_buffers` String - нативный GpuMemoryBuffers
 * `rasterization` String - Растеризация
 * `video_decode` Строка - Видео декодирование
 * `video_encode` String - Видео кодирование
@@ -16,13 +16,13 @@
 
 Возможные значения:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
-* `disabled_off_ok` - Disabled (yellow)
-* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
-* `unavailable_off` - Unavailable (red)
-* `unavailable_off_ok` - Unavailable (yellow)
-* `enabled_readback` - Hardware accelerated but at reduced performance (yellow)
+* `disabled_software` - Только программная обработка. Аппаратное ускорение отключено (желтый)
+* `disabled_off` - Отключено (красный)
+* `disabled_off_ok` - Отключено (желтый)
+* `unavailable_software` - Только программная обработка, аппаратное ускорение недоступно (желтый)
+* `unavailable_off` - Недоступно (красный)
+* `unavailable_off_ok` - Недоступно (желтый)
+* `enabled_readback` - Аппаратное ускорение, но с пониженной производительностью (желтый)
 * `enabled_force` - Hardware accelerated on all pages (green)
 * `enabled` - Hardware accelerated (green)
 * `enabled_on` - Enabled (green)
