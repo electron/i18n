@@ -1,8 +1,8 @@
 # RemovePassword Объект
 
 * `type` String - `password`.
-* `origin` String (optional) - When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.
-* `scheme` String (optional) - Scheme of the authentication. Can be `basic`, `digest`, `ntlm`, `negotiate`. Must be provided if removing by `origin`.
-* `realm` String (optional) - Realm of the authentication. Must be provided if removing by `origin`.
-* `username` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
+* `origin` String (опционально) - Когда предоставлена информация аутентификации связанная с происхождением, то будет удалена только в том случае, если весь кэш будет очищен.
+* `scheme` String (опиционально) - Схема аутентификации. Может быть `basic`, `digest`, `ntlm`, `negotiate`. Должно быть предоставлена, если вы удалили `origin`.
+* `realm` String (опиционально) - Realm аутентификация. Должна быть предоставлена, если вы удалили `origin`.
+* `username` String (опиционально) - учетные данные проверки подлинности. Должна предоставляться, если удаление с помощью `origin`.
 * `password` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
