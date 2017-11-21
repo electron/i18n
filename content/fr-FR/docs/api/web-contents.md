@@ -41,7 +41,7 @@ Retourne `WebContents` - Une instance WebContents avec l'ID donné.
 
 ## Classe : WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Affiche et contrôle le contenu d'une instance de BrowserWindow.
 
 Processus : [Main](../glossary.md#main-process)
 
