@@ -1,6 +1,6 @@
-# Объект "Cookie"
+# Cookie Объект
 
-* `name` String - название cookie файла.
+* `name` String - Название cookie файла.
 * `value` String - Значение файла cookie.
 * `domain` String (необязательный параметр) - домен файла cookie.
 * `hostOnly` Boolean (необязательно) - является ли файл cookie только для хоста.
