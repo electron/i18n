@@ -74,11 +74,11 @@ Retourne :
 
 #### Événement : 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Correspond au moment où le loader de l'onglet commence à tourner.
 
 #### Événement : 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Correspond au moment où le loader de l'onglet arrête de tourner.
 
 #### Événement : 'did-get-response-details'
 
