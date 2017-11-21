@@ -32,12 +32,12 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'il est affiché
   * `subtitle` String - (facultatif) Un sous-titre pour la notification, qui s'affichera en dessous du titre. *macOS*
   * `body` String - Le corp de texte de la notification, qui s'affichera sous le titre ou le sous-titre
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `silent` Boolean - (facultatif) Émet ou non le signal sonore d'une notification lors de l'affichage de la notification
+  * `icon` [NativeImage](native-image.md) - (facultatif) Icône à utiliser dans la notification
+  * `hasReply` Boolean - (facultatif) Ajoute ou non une ligne de réponse en option à la notification. *macOS*
+  * `replyPlaceholder` String - (facultatif) Le placeholder à écrire dans le champ de saisie de réponse. *macOS*
+  * `sound` String - (facultatif) Le nom du fichier son à jouer lorsque la notification est affichée. *macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (facultatif) Les actions à ajouter à la notification. Veuillez retrouver les actions disponibles et limitations dans la documentation de `NotificationAction` *macOS*
 
 ### Événements d’instance
 
