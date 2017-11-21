@@ -97,11 +97,11 @@ Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela
 
 ### Lire un son
 
-Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Tous les sons par défaut (dans préférences système > Son) peut être utilisé, en plus des fichiers audio personnalisés. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Tous les sons par défaut (dans préférences système > Son) peut être utilisé, en plus des fichiers audio personnalisés. Assurez-vous que le fichier audio soit copié dans le app bundle (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
 
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
+* `~/Librairie/Son`
+* `/Librairie/Son`
+* `/Réseau/Librairie/Son`
+* `/Système/Librairie/Son`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Consultez la documentation de [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) pour plus d'informations.
