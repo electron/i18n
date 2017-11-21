@@ -86,7 +86,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | mr        | Маратхи                       |
 | ms        | Малайский                     |
 | mt        | Мальтийский                   |
-| nb        | Norwegian (Bokmal)            |
+| nb        | Норвежский (Букмол)           |
 | ne        | Непальский                    |
 | nl        | Голландский                   |
 | nn        | Norwegian (Nynorsk)           |
@@ -96,7 +96,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | or        | Ория                          |
 | pa        | Пунджаби                      |
 | pl        | Польский                      |
-| ps        | Pashto                        |
+| ps        | Пушту                         |
 | pt        | Португальский                 |
 | pt-BR     | Португальский (Бразилия)      |
 | pt-PT     | Португальский (Португалия)    |
@@ -105,29 +105,29 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ro        | Румынская                     |
 | ru        | Русский                       |
 | sd        | Синдхи                        |
-| sh        | Serbo-Croatian                |
-| si        | Sinhalese                     |
-| sk        | Slovak                        |
-| sl        | Slovenian                     |
-| sn        | Shona                         |
-| so        | Somali                        |
-| sq        | Albanian                      |
-| sr        | Serbian                       |
-| st        | Sesotho                       |
-| su        | Sundanese                     |
-| sv        | Swedish                       |
-| sw        | Swahili                       |
-| ta        | Tamil                         |
-| te        | Telugu                        |
-| tg        | Tajik                         |
-| th        | Thai                          |
-| ti        | Tigrinya                      |
-| tk        | Turkmen                       |
-| to        | Tonga                         |
+| sh        | Сербохорватский               |
+| si        | Сингальский                   |
+| sk        | Словацкий                     |
+| sl        | Словенский                    |
+| sn        | Шона                          |
+| so        | Сомали                        |
+| sq        | Албанский                     |
+| sr        | Сербский                      |
+| st        | Сесото                        |
+| su        | Сунданский                    |
+| sv        | Шведский                      |
+| sw        | Суахили                       |
+| ta        | Тамильский                    |
+| te        | Телугу                        |
+| tg        | Таджикский                    |
+| th        | Тайский                       |
+| ti        | Тигринья                      |
+| tk        | Туркменский                   |
+| to        | Тонга                         |
 | tr        | Турецкий                      |
 | tt        | Татарский                     |
-| tw        | Twi                           |
-| ug        | Uighur                        |
+| tw        | Чви                           |
+| ug        | Уйгурский                     |
 | uk        | Украинский                    |
 | ur        | Урду                          |
 | uz        | Узбекский                     |
