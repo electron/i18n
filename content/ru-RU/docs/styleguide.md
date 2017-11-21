@@ -10,30 +10,30 @@
 * Все слова в названии страницы должны быть заглавными, за исключением союзов как «из» и «и».
 * Только первое слово название главы должны быть заглавными.
 
-Using `Quick Start` as example:
+Используй `Быстрый старт` как пример:
 
 ```markdown
-# Quick Start
+# Быстрый старт (Quick Start)
 
-...
+... 
 
-## Main process
+## Главный процесс (Main process)
 
-...
+... 
 
-## Renderer process
+## Процесс отображения (Renderer process)
 
-...
+... 
 
-## Run your app
+## Запуск вашего приложения (Run your app)
 
-...
+... 
 
-### Run as a distribution
+### Запуск в качестве дистрибутива (Run as a distribution)
 
-...
+... 
 
-### Manually downloaded Electron binary
+### Ручная загрузка бинарных файлов Electron
 
 ...
 ```
