@@ -44,19 +44,19 @@
 
 * Используйте `bash` вместо `cmd` в блоках кода (за счет выделения синтаксиса).
 * Строки должны быть ограничены в 80 столбцов.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Не делать вложенные списки более чем 2 уровня (из-за markdown отображения).
+* Все блоки кода `js` и `javascript` проверяются линтером по [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Выбор слов
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Используйте «будет» над «был бы» при описании результатов.
+* Предпочитайте «в ___ процессе» чем «в».
 
-## API references
+## Справочник по API
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### Название страницы
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
