@@ -42,8 +42,8 @@
 
 ## Markdown правила
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
+* Используйте `bash` вместо `cmd` в блоках кода (за счет выделения синтаксиса).
+* Строки должны быть ограничены в 80 столбцов.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
