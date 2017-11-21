@@ -48,7 +48,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | fr-FR     | Французский (Франция)         |
 | fy        | Фризский                      |
 | ga        | Ирландский                    |
-| gd        | Scots Gaelic                  |
+| gd        | Шотландский гэльский          |
 | gl        | Галисийский                   |
 | gn        | Гуарани                       |
 | gu        | Гуджаратский                  |
@@ -80,31 +80,31 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | lt        | Литовский                     |
 | lv        | Латышский                     |
 | mk        | Македонский                   |
-| ml        | Malayalam                     |
-| mn        | Mongolian                     |
-| mo        | Moldavian                     |
-| mr        | Marathi                       |
-| ms        | Malay                         |
-| mt        | Maltese                       |
+| ml        | Малайялам                     |
+| mn        | Монгольский                   |
+| mo        | Молдавский                    |
+| mr        | Маратхи                       |
+| ms        | Малайский                     |
+| mt        | Мальтийский                   |
 | nb        | Norwegian (Bokmal)            |
-| ne        | Nepali                        |
-| nl        | Dutch                         |
+| ne        | Непальский                    |
+| nl        | Голландский                   |
 | nn        | Norwegian (Nynorsk)           |
-| no        | Norwegian                     |
-| oc        | Occitan                       |
-| om        | Oromo                         |
-| or        | Oriya                         |
-| pa        | Punjabi                       |
+| no        | Норвежский                    |
+| oc        | Окситанская                   |
+| om        | Оромо                         |
+| or        | Ория                          |
+| pa        | Пунджаби                      |
 | pl        | Польский                      |
 | ps        | Pashto                        |
 | pt        | Португальский                 |
 | pt-BR     | Португальский (Бразилия)      |
 | pt-PT     | Португальский (Португалия)    |
 | qu        | Кечуа                         |
-| rm        | Romansh                       |
+| rm        | Романшский                    |
 | ro        | Румынская                     |
 | ru        | Русский                       |
-| sd        | Sindhi                        |
+| sd        | Синдхи                        |
 | sh        | Serbo-Croatian                |
 | si        | Sinhalese                     |
 | sk        | Slovak                        |
@@ -132,10 +132,10 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ur        | Урду                          |
 | uz        | Узбекский                     |
 | vi        | Вьетнамский                   |
-| xh        | Xhosa                         |
-| yi        | Yiddish                       |
-| yo        | Yoruba                        |
-| zh        | Chinese                       |
-| zh-CN     | Chinese (Simplified)          |
-| zh-TW     | Chinese (Traditional)         |
-| zu        | Zulu                          |
+| xh        | Коса                          |
+| yi        | Идиш                          |
+| yo        | Йоруба                        |
+| zh        | Китайский                     |
+| zh-CN     | Китайский (упрощенный)        |
+| zh-TW     | Китайский (традиционный)      |
+| zu        | Зулу                          |
