@@ -38,9 +38,9 @@
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Для ссылок на API есть исключения из этого правила.
 
-## Markdown rules
+## Markdown правила
 
 * Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
