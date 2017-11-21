@@ -10,7 +10,7 @@
 * Все слова в названии страницы должны быть заглавными, за исключением союзов как «из» и «и».
 * Только первое слово название главы должны быть заглавными.
 
-Используй `Быстрый старт` как пример:
+Используйте `Быстрый старт` как пример:
 
 ```markdown
 # Быстрый старт (Quick Start)
@@ -54,15 +54,15 @@
 
 ## Справочник по API
 
-The following rules only apply to the documentation of APIs.
+Следующие правила применяются только к документации по API-интерфейсам.
 
 ### Название страницы
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Каждая страница должна использовать имя фактического объекта, возвращенное `require('electron')` как название, такие как `BrowserWindow`, `autoUpdater` и `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Под страницей названия должна быть однострочное описание, начиная с `>`.
 
-Using `session` as example:
+Используйте `session` как пример:
 
 ```markdown
 # session
