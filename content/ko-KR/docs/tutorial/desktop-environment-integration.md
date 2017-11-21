@@ -42,9 +42,9 @@ app.clearRecentDocuments()
 
 ### macOS에서 주의할 점
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+파일이 최근 문서 메뉴에서 요청될 경우 `app` 모듈의 `open-file` 이벤트가 호출됩니다.
 
-## Custom Dock Menu (macOS)
+## 커스텀 독 메뉴 (macOS)
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
