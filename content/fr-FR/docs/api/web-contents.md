@@ -94,7 +94,7 @@ Retourne :
 * `headers` Object
 * `resourceType` String
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+Émis lorsque les détails concernant une ressource demandée sont disponibles. `status` indique la connexion socket pour télécharger la ressource.
 
 #### Événement : 'did-get-redirect-request'
 
@@ -109,7 +109,7 @@ Retourne :
 * `referrer` String
 * `headers` Object
 
-Emitted when a redirect is received while requesting a resource.
+Émis lorsqu’une redirection est reçue tout en demandant une ressource.
 
 #### Événement : 'dom-ready'
 
@@ -117,7 +117,7 @@ Retourne :
 
 * `event` Event
 
-Emitted when the document in the given frame is loaded.
+Émis lorsque le document dans le frame donné est chargé.
 
 #### Événement : 'page-favicon-updated'
 
@@ -126,7 +126,7 @@ Retourne :
 * `event` Event
 * `favicons` String[] - Tableau d'URLs
 
-Emitted when page receives favicon urls.
+Émis lorsque la page reçoit l’url du favicon.
 
 #### Événement : 'new-window'
 
