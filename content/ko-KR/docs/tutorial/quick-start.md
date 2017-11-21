@@ -20,9 +20,9 @@ Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고, 그렇
 
 메인 프로세스는 모든 웹 페이지와 해당하는 렌더러 프로세스를 관리합니다. 각각의 렌더러 프로세스는 분리되어 있으며 실행되는 웹 페이지 에서만 보호 받습니다.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+웹 페이지에서 네이티브 GUI 관련 API는 웹 페이지에서 네이티브 GUI리소스를 관리하는 것이 매우 위험하고 리소스의 유출이 쉽게 때문에 허용하지 않습니다. 웹페이지에서 GUI작업을 수행하려면, 웹 페이지의 렌더러 프로세스가 메인 프로세스에게 이러한 작업을 수행하도록 요청해야 합니다.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+Electron에서, 우리는 메인 프로세스와 렌더러 프로세스 간의 통신하는 여러 방법이 있습니다. 예로, 메시지를 보내는 [`ipcRenderer`](../api/ipc-renderer.md) 와 [`ipcMain`](../api/ipc-main.md) 모듈, RPC 스타일 통신인 [remote](../api/remote.md)모듈이 있다. 또한 FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 기입해 놓았습니다.
 
 ## Write your First Electron App
 
