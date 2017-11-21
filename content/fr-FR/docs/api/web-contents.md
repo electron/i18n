@@ -49,7 +49,7 @@ Processus : [Main](../glossary.md#main-process)
 
 #### Événement : 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Émis lorsque la navigation est fini, par exemple le loader de l'onglet a cessé de tourner, et l'événement `onload` a été émis.
 
 #### Événement : 'did-fail-load'
 
