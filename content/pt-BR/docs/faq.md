@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Janela/bandeja do meu app desapareceu depois de alguns minutos.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Isto acontece quando a variável que é usada para armazenar a janela/bandeja fica com o resto coletado.
 
 Se você encontrar esse problema, veja os artigos útil:
 
 * [Gerenciamento de Memória](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Escopo de variável](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Se você quer uma solução rápida, você pode fazer as variáveis globais, alterando seu código:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -77,7 +77,7 @@ app.on('ready', () => {
 
 ## Eu não posso usar jQuery/RequireJS/Meteor/AngularJS em Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Devido à integração de Node.js do Electron, existem alguns símbolos extras inseridos o DOM como `module`, `exports` e `require`. Isso causa problemas por causa de algumas bibliotecas que querem inserir os símbolos com os mesmos nomes.
 
 Para resolver isso, você pode desativar a integração com node no Electron:
 
@@ -108,30 +108,30 @@ delete window.module;
 
 ## `require('electron').xxx` é indefinido.
 
-When using Electron's built-in module you might encounter an error like this:
+Quando usar o módulo built-in do Electron você pode encontrar um erro como este:
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Isto é porque você tem o [módulo npm do `electron`](https://www.npmjs.com/package/electron) instalado localmente ou globalmente, que substitui o módulo interno do Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Para verificar que se você estiver usando o módulo interno correto, você pode imprimir o caminho do módulo `electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+e, em seguida, verifique se é do seguinte formulário:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Se é algo parecido com `node_modules/electron/index.js`, então você tem que remover o módulo de `Electron` npm ou renomeá-lo.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.

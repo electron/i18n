@@ -16,10 +16,10 @@ app.getAppMetrics()
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 別再這樣寫
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 請寫成
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```

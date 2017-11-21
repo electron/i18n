@@ -1,10 +1,10 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> 원격 서버에 충돌 보고서를 제출합니다.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+아래는 자동으로 원격 서버에 충돌 보고서를 제출하는 예제입니다.
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -24,9 +24,9 @@ For setting up a server to accept and process crash reports, you can use followi
 
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
-## 메소드
+## 메서드
 
-The `crashReporter` module has the following methods:
+`CrashReporter` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
 ### `crashReporter.start(options)`
 

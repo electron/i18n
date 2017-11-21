@@ -1,4 +1,4 @@
-# MimeTypedBuffer Object
+# MimeTypedBuffer объект
 
-* `mimeType` String - The mimeType of the Buffer that you are sending
-* `data` Buffer - The actual Buffer content
+* `mimeType` String - mimeType буфер, который вы отправляете
+* `data` Buffer - фактическое содержимое буфера

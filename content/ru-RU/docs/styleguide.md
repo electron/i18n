@@ -1,107 +1,107 @@
-# Electron Documentation Styleguide
+# Руководство по написанию документации Electron
 
-These are the guidelines for writing Electron documentation.
+Это руководство для написания Electron документации.
 
-## Titles
+## Названия
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Каждая страница должна иметь один заголовок `#` в верхней части.
+* Главы на одной странице должны иметь `##` - уровень названий.
+* В подзаголовках необходимо увеличить количество `#` в названии согласно их вложенной глубине.
+* Все слова в названии страницы должны быть заглавными, за исключением союзов как «из» и «и».
+* Только первое слово название главы должны быть заглавными.
 
-Using `Quick Start` as example:
+Используйте `Быстрый старт` как пример:
 
 ```markdown
-# Quick Start
+# Быстрый старт (Quick Start)
 
-...
+... 
 
-## Main process
+## Главный процесс (Main process)
 
-...
+... 
 
-## Renderer process
+## Процесс отображения (Renderer process)
 
-...
+... 
 
-## Run your app
+## Запуск вашего приложения (Run your app)
 
-...
+... 
 
-### Run as a distribution
+### Запуск в качестве дистрибутива (Run as a distribution)
 
-...
+... 
 
-### Manually downloaded Electron binary
+### Ручная загрузка бинарных файлов Electron
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Для ссылок на API есть исключения из этого правила.
 
-## Markdown rules
+## Markdown правила
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Используйте `bash` вместо `cmd` в блоках кода (за счет выделения синтаксиса).
+* Строки должны быть ограничены в 80 столбцов.
+* Не делать вложенные списки более чем 2 уровня (из-за markdown отображения).
+* Все блоки кода `js` и `javascript` проверяются линтером по [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Выбор слов
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Используйте «будет» над «был бы» при описании результатов.
+* Предпочитайте «в ___ процессе» чем «в».
 
-## API references
+## Справочник по API
 
-The following rules only apply to the documentation of APIs.
+Следующие правила применяются только к документации по API-интерфейсам.
 
-### Page title
+### Название страницы
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Каждая страница должна использовать имя фактического объекта, возвращенное `require('electron')` как название, такие как `BrowserWindow`, `autoUpdater` и `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Под страницей названия должна быть однострочное описание, начиная с `>`.
 
-Using `session` as example:
+Используйте `session` как пример:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Управление сеансами браузера, куками, кешем, настройками прокси и т.д.
 ```
 
-### Module methods and events
+### Методы и события модуля
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Для модулей, которые не являются классами, методы и события должны быть перечислены под главами `## Методы` и `## События` .
 
-Using `autoUpdater` as an example:
+Используйте `autoUpdater` как пример:
 
 ```markdown
 # autoUpdater
 
-## Events
+## События (Events) 
 
-### Event: 'error'
+### Event: 'error' 
 
-## Methods
+## Методы (Methods)
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Классы
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* Классы API или классы, которые являются частью модулей должны быть перечислены под главой `## Class: TheClassName`.
+* Одна страница может иметь несколько классов.
+* Конструкторы должны быть перечислены с `###`-уровнем названия.
+* [Статические методы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) должны быть перечислены под главой `### Статические методы`.
+* [Методы экземпляра](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) должны быть перечислены под главой `### Методы экземпляра`.
+* Все методы, которые возвращают значение должно начинаться с описания "Возвращают `[TYPE]` - Возвращают описание" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Используйте классы `Session` и `Cookies` в качестве примера:
 
 ```markdown
 # session
@@ -135,17 +135,16 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Методы
 
-The methods chapter must be in the following form:
+Методы главы должны быть в следующем виде:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `required` String - описание параметра. 
+* `optional` Integer (опционально) - еще одно описание параметра.
+  ...
 ```
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.

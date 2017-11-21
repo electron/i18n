@@ -40,7 +40,7 @@ Electronのファイルサイズを小さく、そして依存とAPIを維持可
 
 例えば、ElectronはChromiumのすべてを使用するわけではなく、Chromiumのレンダリングライブラリのみを使用します。 これにより、使用しているChromiumのアップデートをしやすくしますが、Google Chromeにある機能のうちいくつかがElectronにはふくまれないことになります。
 
-Electronに追加される新しい機能はネイティブAPIであるべきです。 If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Electronに追加される新しい機能はネイティブAPIであるべきです。 独立したNode.jsモジュールとして機能可能なものはモジュールのままで問題ありません。 [コミュニティによって作成されたツール](https://electron.atom.io/community) を参照してください。
 
 ## 履歴
 

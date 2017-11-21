@@ -52,7 +52,7 @@ For API references, there are exceptions to this rule.
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
 
-## API 参考
+## API 參考
 
 The following rules only apply to the documentation of APIs.
 

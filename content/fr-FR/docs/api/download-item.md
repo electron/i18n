@@ -1,4 +1,4 @@
-## Class: DownloadItem
+## Classe : DownloadItem
 
 > Control file downloads from remote sources.
 
@@ -11,15 +11,15 @@ Processus : [Main](../glossary.md#main-process)
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // Définit le chemin de sauvegarde, ce qui fait qu'Electron n'affichera pas une boite de dialogue de sauvegarde.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
     if (state === 'interrupted') {
-      console.log('Download is interrupted but can be resumed')
+      console.log('Le téléchargement est interrompu mais peut être redémarrer')
     } else if (state === 'progressing') {
       if (item.isPaused()) {
-        console.log('Download is paused')
+        console.log('Le téléchargement est en pause')
       } else {
         console.log(`Received bytes: ${item.getReceivedBytes()}`)
       }
@@ -27,9 +27,9 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
   })
   item.once('done', (event, state) => {
     if (state === 'completed') {
-      console.log('Download successfully')
+      console.log('Téléchargement réussi')
     } else {
-      console.log(`Download failed: ${state}`)
+      console.log(`Téléchargement échoué : ${state}`)
     }
   })
 })
@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Événements d’instance
 
-#### Event: 'updated'
+#### Événement 'updated'
 
 Retourne :
 
@@ -51,7 +51,7 @@ The `state` can be one of following:
 * `progressing` - The download is in-progress.
 * `interrupted` - The download has interrupted and can be resumed.
 
-#### Event: 'done'
+#### Événement 'done'
 
 Retourne :
 
@@ -82,7 +82,7 @@ Returns `String` - The save path of the download item. This will be either the p
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Met en pause le téléchargement.
 
 #### `downloadItem.isPaused()`
 

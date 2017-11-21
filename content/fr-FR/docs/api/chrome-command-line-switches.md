@@ -1,6 +1,6 @@
 # Commandes Chromes Supportées
 
-> Command line switches supported by Electron.
+> Les paramètres de ligne de commande pris en charge par Electron.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
@@ -8,9 +8,8 @@ You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswit
 const {app} = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
-
 app.on('ready', () => {
-  // Your code here
+  // Votre code ici
 })
 ```
 
@@ -26,7 +25,7 @@ Disables the disk cache for HTTP requests.
 
 Disable HTTP/2 and SPDY/3.1 protocols.
 
-## --inspect=`port` and --inspect-brk=`port`
+## --inspect=`port` et --inspect-brk=`port`
 
 Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
 
@@ -43,7 +42,7 @@ Forces the maximum disk space to be used by the disk cache, in bytes.
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```bash
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+$ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
 ```
 
 See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.

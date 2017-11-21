@@ -1,10 +1,10 @@
 # webContents
 
-> Render and control web pages.
+> Fait le rendu et contrôle des pages web.
 
 Processus : [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## Méthodes
 
-These methods can be accessed from the `webContents` module:
+Ces méthodes sont accessibles depuis le module `webContents` :
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,31 +27,31 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Retourne `WebContents[]` - Un tableau de toutes les instances de `WebContents`. Celui-ci contiendra le contenu web de toutes les fenêtres, webviews, devtools ouverts et pages devtools d'extention en arrière-plan.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Retourne `WebContents` - Le contenu web qui est au premier-plan dans cette application, autrement cela retourne `null`.
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Retourne `WebContents` - Une instance WebContents avec l'ID donné.
 
-## Class: WebContents
+## Classe : WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Affiche et contrôle le contenu d'une instance de BrowserWindow.
 
 Processus : [Main](../glossary.md#main-process)
 
 ### Événements d’instance
 
-#### Event: 'did-finish-load'
+#### Événement : 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Émis lorsque la navigation est fini, par exemple le loader de l'onglet a cessé de tourner, et l'événement `onload` a été émis.
 
-#### Event: 'did-fail-load'
+#### Événement : 'did-fail-load'
 
 Retourne :
 
@@ -61,26 +61,26 @@ Retourne :
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Cet événement est comme `did-finish-load`, mais il est émis lorsque le chargement a échoué ou a été annulé, par exemple lorsque `window.stop()` est appelé. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Événement : 'did-frame-finish-load'
 
 Retourne :
 
 * `event` Event
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+Émis lorsqu'un frame a fini sa navigation.
 
-#### Event: 'did-start-loading'
+#### Événement : 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Correspond au moment où le loader de l'onglet commence à tourner.
 
-#### Event: 'did-stop-loading'
+#### Événement : 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Correspond au moment où le loader de l'onglet arrête de tourner.
 
-#### Event: 'did-get-response-details'
+#### Événement : 'did-get-response-details'
 
 Retourne :
 
@@ -94,9 +94,9 @@ Retourne :
 * `headers` Object
 * `resourceType` String
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+Émis lorsque les détails concernant une ressource demandée sont disponibles. `status` indique la connexion socket pour télécharger la ressource.
 
-#### Event: 'did-get-redirect-request'
+#### Événement : 'did-get-redirect-request'
 
 Retourne :
 
@@ -109,33 +109,33 @@ Retourne :
 * `referrer` String
 * `headers` Object
 
-Emitted when a redirect is received while requesting a resource.
+Émis lorsqu’une redirection est reçue tout en demandant une ressource.
 
-#### Event: 'dom-ready'
-
-Retourne :
-
-* `event` Event
-
-Emitted when the document in the given frame is loaded.
-
-#### Event: 'page-favicon-updated'
+#### Événement : 'dom-ready'
 
 Retourne :
 
 * `event` Event
-* `favicons` String[] - Array of URLs
 
-Emitted when page receives favicon urls.
+Émis lorsque le document dans le frame donné est chargé.
 
-#### Event: 'new-window'
+#### Événement : 'page-favicon-updated'
+
+Retourne :
+
+* `event` Event
+* `favicons` String[] - Tableau d'URLs
+
+Émis lorsque la page reçoit l’url du favicon.
+
+#### Événement : 'new-window'
 
 Retourne :
 
 * `event` Event
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
@@ -155,7 +155,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### Événement : 'will-navigate'
 
 Retourne :
 
@@ -170,7 +170,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
-#### Event: 'did-navigate'
+#### Événement : 'did-navigate'
 
 Retourne :
 
@@ -181,7 +181,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### Event: 'did-navigate-in-page'
+#### Événement : 'did-navigate-in-page'
 
 Retourne :
 
@@ -193,7 +193,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### Event: 'will-prevent-unload'
+#### Événement : 'will-prevent-unload'
 
 Retourne :
 
@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### Événement : 'crashed'
 
 Retourne :
 
@@ -231,7 +231,7 @@ Retourne :
 
 Emitted when the renderer process crashes or is killed.
 
-#### Event: 'plugin-crashed'
+#### Événement : 'plugin-crashed'
 
 Retourne :
 
@@ -241,11 +241,11 @@ Retourne :
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### Événement : 'destroyed'
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### Événement : 'before-input-event'
 
 Retourne :
 
@@ -276,15 +276,15 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Événement : 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-#### Event: 'devtools-closed'
+#### Événement : 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-#### Event: 'devtools-focused'
+#### Événement : 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
 
@@ -340,7 +340,7 @@ Retourne :
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Événement : 'found-in-page'
 
 Retourne :
 
@@ -354,15 +354,15 @@ Retourne :
 
 Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### Event: 'media-started-playing'
+#### Événement : 'media-started-playing'
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### Événement : 'media-paused'
 
 Emitted when media is paused or done playing.
 
-#### Event: 'did-change-theme-color'
+#### Événement : 'did-change-theme-color'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -370,7 +370,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
+#### Événement : 'update-target-url'
 
 Retourne :
 
@@ -379,29 +379,29 @@ Retourne :
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Événement : 'cursor-changed'
 
 Retourne :
 
 * `event` Event
 * `type` String
-* `image` NativeImage (optional)
+* `image` NativeImage (facultatif)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Emitted when the cursor's type changes. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Événement : 'context-menu'
 
 Retourne :
 
 * `event` Event
 * `params` Object 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
+  * `x` Integer - coordonnée x
+  * `y` Integer - coordonée y
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
@@ -436,7 +436,7 @@ Retourne :
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Événement : 'select-bluetooth-device'
 
 Retourne :
 
@@ -466,7 +466,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Événement : 'paint'
 
 Retourne :
 
@@ -486,11 +486,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Événement : 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Événement : 'will-attach-webview'
 
 Retourne :
 
@@ -681,7 +681,7 @@ Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Facteur de zoom.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
@@ -694,7 +694,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - Niveau de zoom
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -842,7 +842,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Récupère la liste des imprimantes système.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
@@ -936,23 +936,23 @@ Removes the specified path from DevTools workspace.
 * `options` Object (facultatif) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Ouvre les devtools.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Ferme les devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Retourne `Boolean` - Si les devtools sont ouvert.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Retourne `Boolean` - Si les devtools ont le focus.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Active/désactive les outils développeur.
 
 #### `contents.inspectElement(x, y)`
 
@@ -996,7 +996,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message)  // Prints 'whoooooooh!'
+      console.log(message)  // Affiche 'whoooooooh!'
     })
   </script>
 </body>
@@ -1037,8 +1037,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**requis**)
+* `y` Integer (**requis**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
 * `globalY` Integer
@@ -1102,7 +1102,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('Page sauvegardée correctement')
   })
 })
 ```

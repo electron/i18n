@@ -1,26 +1,26 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> 열기 및 파일 저장, 경고, 기타 등등에 대한 기본 시스템 대화 상자를 표시합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+다중 파일 선택 및 경로를 선택하는 다이얼로그 창을 표시하는 예제입니다:
 
 ```javascript
 const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+다이얼로그 창은 Electron의 메인 쓰레드에서 불러옵니다. 렌더러 프로세스에서 다이얼로그 창을 사용하려면 원격으로 사용해야한다는 것을 기억하세요:
 
 ```javascript
 const {dialog} = require('electron').remote
 console.log(dialog)
 ```
 
-## 메소드
+## 메서드
 
-The `dialog` module has the following methods:
+`다이얼로그 창` 모듈은 다음과 같은 메서드를 참조합니다:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 

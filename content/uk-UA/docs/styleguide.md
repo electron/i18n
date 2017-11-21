@@ -90,65 +90,65 @@ Each page must use the actual object name returned by `require('electron')` as t
 
 ### Класи
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* API класи або класи, які є частиною модулів, повинні бути перераховані в розділі `## Клас: TheClassName`.
+* Одна сторінка може мати кілька класів.
+* Конструктори, повинні бути перераховані на `###` рівні.
+* [Статичні методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) мають бути перераховані в розділі `### Статичні Методи`.
+* [Методи об'єкта класу](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) повинні біти перераховані в главі `### Методи Екземпляру`.
+* Опис всіх методів, що повертають значення, повинен починатися з "Повертає `[TYPE]` - Опис повернення" 
+  * Якщо метод повертає `Object`, його структура може бути визначена з використанням двокрапки потім з нового рядка невпорядкований список властивостей у стилі параметрів функції.
+* Події об'єкта класу повинні бути перераховані в розділі `### Події Еекземпляру`.
+* Властивості об'єкта класу повинні бути перераховані в `### Instance Properties` розділі. 
+  * Власстивості об'єкта класу мають починатися з "A [тип властивості] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Для прикладу `Session` та `Cookies` класи:
 
 ```markdown
 # session
 
-## Methods
+## Методи
 
 ### session.fromPartition(partition)
 
-## Properties
+## Властивості
 
 ### session.defaultSession
 
-## Class: Session
+## Клас: Session
 
-### Instance Events
+### Події екзкмпляру
 
-#### Event: 'will-download'
+#### Подія: 'will-download'
 
-### Instance Methods
+### Методи екземпляру
 
 #### `ses.getCacheSize(callback)`
 
-### Instance Properties
+### Властивості екземпляру
 
 #### `ses.cookies`
 
-## Class: Cookies
+## Клас: Cookies
 
-### Instance Methods
+### Методи екземпляру
 
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Методи
 
-The methods chapter must be in the following form:
+Розділи методів мають мати наступну форму:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Опис параметру.
+* `optional` Integer (optional) - Інший опис параметру.
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Заголовок може мати рівні `###` чи `####` в залежності від того, чи це метод модуля чи класу.
 
 For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 

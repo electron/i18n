@@ -10,12 +10,12 @@ Voici une liste non exhaustive de pourquoi vous devriez utiliser le module `net`
 
 * Gestion automatique de la configuration de proxy système, support du protocole wpad et les fichiers de configuration de proxy pac.
 * Tunnel automatique des requêtes HTTPS.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Prise en charge de l'authentification proxy en utilisant basic, digest, NTLM, Kerberos ou en négociant des schémas d'authentification.
+* Prise en charge des proxy de surveillance du trafic: Proxy de type Fiddler utilisés pour le contrôle et la surveillance des accès.
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+L'API du module `net` a été spécifiquement conçu pour imiter, autant que possible, l'API de Node.js. Les composants de l'API, y compris les classes, les méthodes, les propriétés et les noms d'événement sont similaires à ceux généralement utilisés dans Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Par exemple, l'exemple suivant montre rapidement comment utiliser l'API `net` :
 
 ```javascript
 const {app} = require('electron')
@@ -29,25 +29,25 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('Plus de données dans response.')
     })
   })
   request.end()
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+Par ailleurs, cela est presque identique à la façon dont vous utiliseriez normalement le module [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) de Node.js
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+L'API `net` peut être utilisé seulement une fois que l'application ait émis l'événement `ready`. Essayer d'utiliser le module avant l'événement `ready` soulèvera une erreur.
 
 ## Méthodes
 
-The `net` module has the following methods:
+Le module `net` dispose des méthodes suivantes :
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - Les options constructor de `ClientRequest`.
 
-Returns [`ClientRequest`](./client-request.md)
+Retourne [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Créer une instance de [`ClientRequest`](./client-request.md) avec les `options` founies qui sont directement transmis au constructor de `ClientRequest`. La méthode `net.request` doit être utilisée pour émettre des requêtes HTTP sécurisés et non sécurisés selon le schéma de protocole spécifié dans l'objet `options`.

@@ -4,7 +4,7 @@ nav:
   blog: 部落格
   community: 社群
   apps: 應用程式
-  userland: Userland
+  userland: 使用者園地
   releases: 版本發佈
   contact: 聯絡
   languages: 語言
@@ -12,7 +12,7 @@ docs:
   title: Electron 文件
   description: 瀏覽<a href="/docs/all/">完整文件頁</a>，或是到<a href="/docs/faq/">常見問題集</a>中看看。
   guides: 導引
-  api_reference: API 参考
+  api_reference: API 參考
   advanced: 進階
 languages:
   choose_language: 選擇網站語言

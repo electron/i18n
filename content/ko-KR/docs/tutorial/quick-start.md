@@ -1,32 +1,32 @@
 # 시작하기
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron을 사용하면 풍부한 네이비트(운영 체제)API를 사용하여 런타임을 제공하는 순수 자바 스크립트로 데스크탑 앱을 만들 수 있습니다. 웹 서버 대신 데스크탑 앱에 초점을 맞춘 Node.js 런타임의 모델로 보시면 됩니다.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+이건 Electron이 graphical user interface(GUI)라이브러리에 대한 자바 스크립트 바인딩이 아닙니다. 대신, Electron은 웹 페이지를 GUI로 사용하므로, 자바스크립트로 제어되는 크롬 브라우저로도 볼 수 있습니다.
 
-### Main Process
+### Main Process 
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **the main process**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지를 만들어서 GUI를 표시 할 수 있습니다.
 
 ### Renderer Process
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고, 그렇기에 Chromium의 멀티 프로세스 아키텍쳐 또한 사용됩니다. 각각의 Electron 웹페이지는 자체 프로세스로 동작하고 이것을 **the renderer process**라고 부릅니다.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행하고 네이티브 리소스에 액세스 할 수 없습니다. 그러나 Electron 유저들은 Node.js APIs 의 낮은 수준의 운영체제 상호 작용을 허용하는 웹 페이지에서 힘이 있다.
 
 ### Differences Between Main Process and Renderer Process
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+메인 프로세스는 `BrowserWindow` 인스턴스를 생성하여 웹페이지를 만듭니다. 각각의 `BrowserWindow` 인스턴스는 자체 렌더러 프로세스에서 웹 페이지를 실행합니다. `BrowserWindow` 인스턴스가 소멸되면, 해당 렌더러 프로세스도 종료됩니다.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+메인 프로세스는 모든 웹 페이지와 해당하는 렌더러 프로세스를 관리합니다. 각각의 렌더러 프로세스는 분리되어 있으며 실행되는 웹 페이지 에서만 보호 받습니다.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+웹 페이지에서 네이티브 GUI 관련 API는 웹 페이지에서 네이티브 GUI리소스를 관리하는 것이 매우 위험하고 리소스의 유출이 쉽게 때문에 허용하지 않습니다. 웹페이지에서 GUI작업을 수행하려면, 웹 페이지의 렌더러 프로세스가 메인 프로세스에게 이러한 작업을 수행하도록 요청해야 합니다.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+Electron에서, 우리는 메인 프로세스와 렌더러 프로세스 간의 통신하는 여러 방법이 있습니다. 예로, 메시지를 보내는 [`ipcRenderer`](../api/ipc-renderer.md) 와 [`ipcMain`](../api/ipc-main.md) 모듈, RPC 스타일 통신인 [remote](../api/remote.md)모듈이 있다. 또한 FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 기입해 놓았습니다.
 
 ## Write your First Electron App
 
-Generally, an Electron app is structured like this:
+일반적으로 Electron 앱의 구조는 이렇습니다:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+`package.json`의 형식은 Node들의 모듈과 일치하고, 스크립트에서 `main`필드가 메인 프로세스를 시작하는 앱의 시작 스크립트입니다. `package.json`의 예는 다음과 같습니다:
 
 ```json
 {
@@ -45,9 +45,9 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Note**: 만약 `main` 필드가 `package.json`에 없으면, 일렉트론은 `index.js`를 로드하려고 할 것입니다.
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js`는 윈도우를 생성하고 시스템 이벤트를 처리하는데 대표적인 예는 다음과 같습니다:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')

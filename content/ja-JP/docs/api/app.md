@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-全てのウィンドウが閉じられたときにアプリケーションを終了する方法は以下の通りです:
+最後のウィンドウが閉じられたときにアプリケーションを終了する方法を次の例に示します:
 
 ```javascript
 const {app} = require('electron')
@@ -15,21 +15,21 @@ app.on('window-all-closed', () => {
 
 ## イベント
 
-`app`オブジェクトは以下のイベントを発生します。
+`app`オブジェクトは次のイベントを発生します。
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションが基本的なスタートアップを完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では、このイベントは`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定して、クラッシュレポーターと自動アップデーターを起動します。
+アプリケーションが基本的な起動が終わったときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では`NSApplication` の `applicationWillFinishLaunching`に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定、クラッシュレポーターと自動アップデーターを起動します。
 
-ほとんどの場合、`ready` イベントハンドラーで処理を記述してください。
+ほとんどの場合、`ready` イベントハンドラーであらゆる処理を記述するべきです。
 
-### Event: 'ready'
+### イベント: 'ready'
 
-Returns:
+戻り値：
 
 * `launchInfo` Object *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Electronの初期化処理が終わった時に発生します。 MacOS では、`launchInfo` は、通知センターから起動された場合、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` 情報を保持しています。 また、このイベントが既に発生しているかどうかをチェックする `app.isReady()` を呼び出すことができます。
 
 ### Event: 'window-all-closed'
 
@@ -39,7 +39,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 ### Event: 'before-quit'
 
-Returns:
+戻り値：
 
 * `event` Event
 
@@ -49,7 +49,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+戻り値：
 
 * `event` Event
 
@@ -59,7 +59,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `exitCode` Integer
@@ -68,7 +68,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+戻り値：
 
 * `event` Event
 * `path` String
@@ -81,7 +81,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+戻り値：
 
 * `event` Event
 * `url` String
@@ -92,7 +92,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+戻り値：
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -101,7 +101,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+戻り値：
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -113,7 +113,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+戻り値：
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `window` BrowserWindow
@@ -130,7 +130,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `window` BrowserWindow
@@ -139,7 +139,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `window` BrowserWindow
@@ -148,7 +148,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `webContents` WebContents
@@ -157,7 +157,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -185,7 +185,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -209,7 +209,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -242,7 +242,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+戻り値：
 
 * `event` Event
 * `killed` Boolean
@@ -251,7 +251,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+戻り値：
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.

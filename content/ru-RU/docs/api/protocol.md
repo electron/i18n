@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -22,7 +22,7 @@ app.on('ready', () => {
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## Methods
+## Методы
 
 The `protocol` module has the following methods:
 

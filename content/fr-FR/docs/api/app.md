@@ -262,7 +262,7 @@ Retourne :
 
 L'objet `app` dispose des méthodes suivantes :
 
-**Remarque :** Certaines méthodes sont disponibles uniquement sur les systèmes d’exploitation spécifiques et sont étiquetés comme tels.
+**Remarque :** Certaines méthodes sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 ### `app.quit()`
 

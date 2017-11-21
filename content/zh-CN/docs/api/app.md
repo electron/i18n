@@ -53,9 +53,9 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+当所有窗口都已关闭并且应用程序将退出时发出。调用 ` event. preventDefault () ` 将阻止终止应用程序的默认行为。
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
 ### Event: 'quit'
 
@@ -126,7 +126,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+在 [ browserWindow ](browser-window.md) 失去焦点时发出。
 
 ### Event: 'browser-window-focus'
 
@@ -260,13 +260,13 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ## 方法
 
-The `app` object has the following methods:
+` app ` 对象具有以下方法:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+** 注意: **某些方法仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Try to close all windows. 将首先发出 ` before-quit ` 事件。 如果所有窗口都已成功关闭, 则将发出 ` will-quit` 事件, 并且默认情况下应用程序将终止。
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 

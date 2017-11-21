@@ -1,12 +1,12 @@
-# Frameless Window
+# 테두리없는 윈도우
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
-## Create a frameless window
+## 테두리 없는 창 만들기
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+테두리 없는 창을 만들기 위해서는 [BrowserWindow](browser-window.md)의 `옵션` 중에서 `frame`을 `false`로 설정 해야 합니다.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -48,7 +48,7 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## 투명한 윈도우
 
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
@@ -67,7 +67,7 @@ win.show()
 * On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac the native window shadow will not be shown on a transparent window.
 
-## Click-through window
+## 클릭을 통과하는 윈도우
 
 To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
 
@@ -77,7 +77,7 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-## Draggable region
+## 드래그 가능한 영역
 
 By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
@@ -100,7 +100,7 @@ button {
 
 If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
-## Text selection
+## 텍스트 선택
 
 In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 
@@ -111,6 +111,6 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 }
 ```
 
-## Context menu
+## 컨텍스트 메뉴
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.

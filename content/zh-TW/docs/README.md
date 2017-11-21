@@ -34,7 +34,7 @@
 * [REPL](tutorial/repl.md)
 * [系統原生通知](tutorial/notifications.md)
 
-## API 参考
+## API 參考
 
 * [簡介](api/synopsis.md)
 * [處理序物件](api/process.md)

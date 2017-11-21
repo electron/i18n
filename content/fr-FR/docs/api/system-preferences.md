@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> Récuperer les préférences système.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -11,22 +11,22 @@ console.log(systemPreferences.isDarkMode())
 
 ## Événements
 
-The `systemPreferences` object emits the following events:
+L'objet `systemPreferences` émet les événements suivants :
 
-### Event: 'accent-color-changed' *Windows*
+### Événement : 'accent-color-changed' *Windows*
 
 Retourne :
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
-### Event: 'color-changed' *Windows*
+### Événement : 'color-changed' *Windows*
 
 Retourne :
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Événement : 'inverted-color-scheme-changed' *Windows*
 
 Retourne :
 
@@ -37,7 +37,7 @@ Retourne :
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Retourne `Boolean` - Si le système est en mode sombre.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
@@ -79,7 +79,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+Supprime l'abonnement avec `l'id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -99,7 +99,7 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - Peut être `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
 Returns `any` - The value of `key` in system preferences.
 
@@ -116,7 +116,7 @@ This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - Voir [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
 Set the value of `key` in system preferences.
@@ -143,10 +143,10 @@ if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.frame = false
 }
 
-// Create the window.
+// Créer la fenêtre.
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+// Navigation.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {

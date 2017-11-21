@@ -1,4 +1,4 @@
-## Class: WebRequest
+## Classe : WebRequest
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
@@ -46,7 +46,7 @@ The following methods are available on instances of `WebRequest`:
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Object 
-      * `cancel` Boolean (optional)
+      * `cancel` Boolean (facultatif)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
@@ -72,7 +72,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `requestHeaders` Object
 * `callback` Function 
   * `response` Object 
-    * `cancel` Boolean (optional)
+    * `cancel` Boolean (facultatif)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `callback` has to be called with an `response` object.
@@ -184,6 +184,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - La description de l'erreur.
 
 The `listener` will be called with `listener(details)` when an error occurs.

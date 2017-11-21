@@ -1,6 +1,6 @@
 # Glossário
 
-Esta página define algumas terminologias que é comumente utilizada no desenvolvimento com Electron.
+Esta página define alguns termos usados frequentemente no desenvolvimento com Electron.
 
 ### ASAR
 
@@ -18,11 +18,11 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Uma imagem de disco da Apple é um formato de embalagem usado pelo macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Editor de Método de Entrada. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IPC
 
@@ -30,7 +30,7 @@ IPC stands for Inter-Process Communication. Electron uses IPC to send serialized
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Também conhecido como "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
@@ -40,7 +40,7 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Consulte também: [processo](#process), [processo de processador](#renderer-process)
 
 ### MAS
 

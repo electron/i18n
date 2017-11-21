@@ -1,6 +1,6 @@
-## Class: Cookies
+## Classe : Cookies
 
-> Query and modify a session's cookies.
+> Interroger et modifier la session des cookies.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -33,7 +33,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 The following events are available on instances of `Cookies`:
 
-#### Event: 'changed'
+#### Événement : 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
@@ -49,7 +49,7 @@ Emitted when a cookie is changed because it was added, edited, removed, or expir
 
 ### Méthodes d’instance
 
-The following methods are available on instances of `Cookies`:
+Les méthodes suivantes sont disponibles sur les instances de `Cookies` :
 
 #### `cookies.get(filter, callback)`
 
@@ -88,10 +88,10 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 * `name` String - The name of cookie to remove.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Supprime les cookies correspondant à `url` et `nom`, `rappel` seront appelé avec `callback()` complet.
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Écrit toutes les données des cookies non écrites sur le disque.

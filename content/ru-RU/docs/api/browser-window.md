@@ -1,8 +1,8 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Создание и работа с окном браузера.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -29,11 +29,11 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 ## Showing window gracefully
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Когда загружается страница в окно напрямую, пользователи могут видеть ступенчатую прогрузку страницы, что является дурным тоном для нативного приложения. Для создания окна без ступенчатой загрузки существует два решения, которые можно использовать в различных ситуациях.
 
-### Using `ready-to-show` event
+### Использование `ready-to-show` события
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+При загрузке страницы, после рендеринга страницы будет вызвано событие `ready-to-show`, которое будет вызвано первый раз если окно до этого еще не было показано. Окно, показанное после этого события, не будет иметь визуальной ступенчатой подгрузки:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Событие, которое обычно вызывается после загрузки страницы - `did-finish-load`. Однако, страницы, включающие в себя удаленные ресурсы, могут продолжать подгружаться после вызова данного события.
 
-### Setting `backgroundColor`
+### Настройка `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -108,9 +108,9 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Создание и работа с окном браузера.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -223,7 +223,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+Возвращает:
 
 * `event` Event
 * `title` String
@@ -232,7 +232,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-Returns:
+Возвращает:
 
 * `event` Event
 
@@ -336,7 +336,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Возвращает:
 
 * `event` Event
 * `command` String
@@ -370,7 +370,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Возвращает:
 
 * `event` Event
 * `direction` String

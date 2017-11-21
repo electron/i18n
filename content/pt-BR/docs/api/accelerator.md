@@ -1,63 +1,63 @@
-# Accelerator
+# Aceleradores
 
-> Define keyboard shortcuts.
+> Definem atalhos de teclado.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Aceleradores são Strings que podem conter múltiplos modificadores e códigos de teclas combinados pelo '`+`' e que são utilizados para definir atalhos de teclado para sua aplicação.
 
-Examples:
+Exemplos:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Os atalhos são registrados com o módulo [`globalShortcut`](global-shortcut.md) usando o método [`registrar`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ou seja:
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const {app, globalShortcut} = require('electron') 
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+// Registrar um 'listener' para o atalho 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
-  })
+  // Fazer algo quando Y e Command ou Control forem pressionados.
+  }) 
 })
 ```
 
-## Platform notice
+## Aviso de plataforma
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+No Linux e no Windows, a tecla `Command` não tem nenhum efeito, então, para definir alguns aceleradores é recomendado utilizar `CommandOrControl` que representa `Command` no macOS e `Control` no Linux e no Windows.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Utilize `Alt` ao invés de `Option`. A tecla `Option` só existe no macOS, em compensação, a tecla `Alt` está disponível em todas as plataformas.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a tecla `Cmd` no macOS.
 
-## Available modifiers
+## Modificadores disponíveis
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (ou `Cmd`)
+* `Control` (ou `Ctrl`)
+* `CommandOrControl` (ou `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Códigos de tecla disponíveis
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* `` a `9`
+* `A` a `Z`
+* `F1` a `F24`
+* Pontuações como `~`, `!`, `@`, `#`, `$` e etc.
+* `Plus (+)`
+* `Space (Espaço)`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (ou `Enter`)
+* `Up`, `Down`, `Left` e `Right` (Setas do teclado: cima, baixo, esquerda e direita respectivamente)
+* `Home` e `End`
+* `PageUp` e `PageDown`
+* `Escape` (ou `Esc`)
+* `VolumeUp`, `VolumeDown` e `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` e `MediaPlayPause`
 * `PrintScreen`

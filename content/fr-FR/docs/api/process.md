@@ -8,7 +8,7 @@ Electron's `process` object is extended from the [Node.js `process` object](http
 
 ## Événements
 
-### Event: 'loaded'
+### Événement : 'loaded'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
@@ -65,11 +65,11 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+Un `String` représentant la version de Chrome.
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+Un `String` représentant la version d'Electron.
 
 ### `process.windowsStore`
 
@@ -85,11 +85,11 @@ Causes the main thread of the current process crash.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Retourne [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Retourne [`IOCounters`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 

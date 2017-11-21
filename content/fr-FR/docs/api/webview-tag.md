@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Processus : [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -38,7 +38,7 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## CSS Styling Notes
+## Note de style CSS
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
@@ -57,9 +57,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## Attribut de balise
 
-The `webview` tag has the following attributes:
+La balise `webview` possède les attributs suivants :
 
 ### `src`
 
@@ -223,7 +223,7 @@ win.on('resize', () => {
 
 ## Méthodes
 
-The `webview` tag has the following methods:
+La balise `webview` possède les méthodes suivantes :
 
 **Note:** The webview element must be loaded before using the methods.
 
@@ -337,7 +337,7 @@ Injects CSS into the guest page.
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - `false` par défaut.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -505,13 +505,13 @@ See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent)
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Facteur de zoom.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - Niveau de zoom
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -523,11 +523,11 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## DOM events
+## Événements DOM
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### Événement : 'load-commit'
 
 Retourne :
 
@@ -536,11 +536,11 @@ Retourne :
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### Événement : 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### Événement : 'did-fail-load'
 
 Retourne :
 
@@ -551,7 +551,7 @@ Retourne :
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### Événement : 'did-frame-finish-load'
 
 Retourne :
 
@@ -559,15 +559,15 @@ Retourne :
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Événement : 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Événement : 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Événement : 'did-get-response-details'
 
 Retourne :
 
@@ -582,7 +582,7 @@ Retourne :
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Événement : 'did-get-redirect-request'
 
 Retourne :
 
@@ -592,11 +592,11 @@ Retourne :
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### Événement : 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### Événement : 'page-title-updated'
 
 Retourne :
 
@@ -605,11 +605,11 @@ Retourne :
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### Événement : 'page-favicon-updated'
 
 Retourne :
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - Tableau d'URLs.
 
 Fired when page receives favicon urls.
 
@@ -621,7 +621,7 @@ Fired when page enters fullscreen triggered by HTML API.
 
 Fired when page leaves fullscreen triggered by HTML API.
 
-### Event: 'console-message'
+### Événement : 'console-message'
 
 Retourne :
 
@@ -637,11 +637,11 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('La page invité a envoyé un message :', e.message)
 })
 ```
 
-### Event: 'found-in-page'
+### Événement : 'found-in-page'
 
 Retourne :
 
@@ -664,13 +664,13 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Événement : 'new-window'
 
 Retourne :
 
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
@@ -689,7 +689,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Événement : 'will-navigate'
 
 Retourne :
 
@@ -703,7 +703,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### Événement : 'did-navigate'
 
 Retourne :
 
@@ -713,7 +713,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-### Event: 'did-navigate-in-page'
+### Événement : 'did-navigate-in-page'
 
 Retourne :
 
@@ -737,7 +737,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### Événement : 'ipc-message'
 
 Retourne :
 
@@ -759,22 +759,22 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// Dans la page invité.
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })
 ```
 
-### Event: 'crashed'
+### Événement : 'crashed'
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### Événement : 'gpu-crashed'
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### Événement : 'plugin-crashed'
 
 Retourne :
 
@@ -783,19 +783,19 @@ Retourne :
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### Événement : 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### Événement : 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Événement : 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### Événement : 'did-change-theme-color'
 
 Retourne :
 
@@ -807,7 +807,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Événement : 'update-target-url'
 
 Retourne :
 
@@ -815,14 +815,14 @@ Retourne :
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### Événement : 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### Événement : 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-### Event: 'devtools-focused'
+### Événement : 'devtools-focused'
 
 Emitted when DevTools is focused / opened.

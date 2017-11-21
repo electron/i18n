@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> Gerencia arquivos e URLs usando seus aplicativos padrão.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+O módulo `shell` fornece funções relacionadas à integração com a área de trabalho.
 
-An example of opening a URL in the user's default browser:
+Um exemplo de como abrir uma URL no navegador padrão do usuário:
 
 ```javascript
 const {shell} = require('electron')
@@ -14,17 +14,17 @@ const {shell} = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Methods
+## Métodos
 
-The `shell` module has the following methods:
+O módulo `shell` tem os seguintes métodos:
 
 ### `shell.showItemInFolder(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+Retorna `Boolean` - Se o item for mostrado com sucesso
 
-Show the given file in a file manager. If possible, select the file.
+Mostra o arquivo especificado em um gerenciador de arquivos. Se possível, seleciona o arquivo.
 
 ### `shell.openItem(fullPath)`
 

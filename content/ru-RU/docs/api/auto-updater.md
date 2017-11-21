@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
 
@@ -43,7 +43,7 @@ The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Возвращает:
 
 * `error` Error
 
@@ -63,7 +63,7 @@ Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
-Returns:
+Возвращает:
 
 * `event` Event
 * `releaseNotes` String
@@ -75,7 +75,7 @@ Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
-## Methods
+## Методы
 
 The `autoUpdater` object has the following methods:
 

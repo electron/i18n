@@ -1,49 +1,49 @@
 # Notification
 
-> Create OS desktop notifications
+> Créer des notifications bureau spécifique à l'OS
 
 Processus : [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Utilisation dans le processus renderer
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+SI vous voulez afficher des notifications depuis un processus renderer, vous devez utiliser l'[API HTML5 de notification](../tutorial/notifications.md)
 
-## Class: Notification
+## Classe : Notification
 
-> Create OS desktop notifications
+> Créer des notifications bureau spécifique à l'OS
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` est un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+Cela créer une nouvelle `Notification` avec les propriétés natives défini par les `options`.
 
 ### Méthodes statiques
 
-The `Notification` class has the following static methods:
+La classe `Notification` dispose des méthodes statiques suivantes :
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Retourne `Boolean` - Si le système actuel prend en charge les notification bureau
 
 ### `new Notification([options])` *Experimental*
 
 * `options` Object 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'il est affiché
+  * `subtitle` String - (facultatif) Un sous-titre pour la notification, qui s'affichera en dessous du titre. *macOS*
+  * `body` String - Le corp de texte de la notification, qui s'affichera sous le titre ou le sous-titre
+  * `silent` Boolean - (facultatif) Émet ou non le signal sonore d'une notification lors de l'affichage de la notification
+  * `icon` [NativeImage](native-image.md) - (facultatif) Icône à utiliser dans la notification
+  * `hasReply` Boolean - (facultatif) Ajoute ou non une ligne de réponse en option à la notification. *macOS*
+  * `replyPlaceholder` String - (facultatif) Le placeholder à écrire dans le champ de saisie de réponse. *macOS*
+  * `sound` String - (facultatif) Le nom du fichier son à jouer lorsque la notification est affichée. *macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (facultatif) Les actions à ajouter à la notification. Veuillez retrouver les actions disponibles et limitations dans la documentation de `NotificationAction` *macOS*
 
 ### Événements d’instance
 
-Objects created with `new Notification` emit the following events:
+Les objets créés avec `new Notification` émettent les événements suivants :
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### Événement : 'show'
 
@@ -51,15 +51,15 @@ Retourne :
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Émis lorsque la notification est affiché à l'utilisateur, notez que cet événement peut être émis plusieurs fois du fait qu'une notification peut être affiché plusieurs fois par le biais de la méthode `show()`.
 
-#### Event: 'click'
+#### Événement : 'click'
 
 Retourne :
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+Émis lorsque l'utilisateur clique sur la notification.
 
 #### Événement : 'close'
 
@@ -67,41 +67,41 @@ Retourne :
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+Cette événement ne garanti pas d'être émis dans tous les cas où la notification est fermée.
 
-#### Event: 'reply' *macOS*
-
-Retourne :
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' *macOS*
+#### Événement : 'reply' *macOS*
 
 Retourne :
 
 * `event` Event
-* `index` Number - The index of the action that was activated
+* `reply` String - La chaîne de caractère que l'utilisateur a écrit dans le champ de réponse
+
+Émis lorsque l'utilisateur clique sur le bouton "Reply" sur une notification avec `hasReply: true`.
+
+#### Événement : 'action' *macOS*
+
+Retourne :
+
+* `event` Event
+* `index` Number - L'index de l'action qui a été activée
 
 ### Méthodes d’instance
 
-Objects created with `new Notification` have the following instance methods:
+Les objets créés avec `new Notification` ont les méthodes d'instance suivant :
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela signifie, contrairement à l'implémentation des Notifications HTML5, que simplement instancier un `new Notification` ne va pas afficher immédiatement la notification à l'utilisateur. Vous devez appeler cette méthode avant pour que l'OS l'affiche à l'écran.
 
-### Playing Sounds
+### Lire un son
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Tous les sons par défaut (dans préférences système > Son) peut être utilisé, en plus des fichiers audio personnalisés. Assurez-vous que le fichier audio soit copié dans le app bundle (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
 
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
+* `~/Librairie/Son`
+* `/Librairie/Son`
+* `/Réseau/Librairie/Son`
+* `/Système/Librairie/Son`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Consultez la documentation de [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) pour plus d'informations.

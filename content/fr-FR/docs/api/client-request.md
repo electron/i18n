@@ -1,6 +1,6 @@
-## Class: ClientRequest
+## Classe : ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Permet de faire des requêtes HTTP/HTTPS.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -8,7 +8,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `options` (Object | String) - Si `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
@@ -36,7 +36,7 @@ const request = net.request({
 
 ### Événements d’instance
 
-#### Event: 'response'
+#### Événement : 'response'
 
 Retourne :
 
@@ -83,11 +83,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Événement : 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### Événement : 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
@@ -103,7 +103,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### Événement : 'redirect'
 
 Retourne :
 
@@ -155,9 +155,9 @@ Adds a chunk of data to the request body. The first write operation may cause th
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (facultatif)
+* `encoding` String (facultatif)
+* `callback` Function (facultatif)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 

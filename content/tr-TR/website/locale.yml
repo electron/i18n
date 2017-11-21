@@ -1,6 +1,6 @@
 tagline: Javascript, HTML ve CSS ile çapraz platform Masaüstü uygulamaları geliştir
 nav:
-  docs: Dökümanlar
+  docs: Dokümanlar
   blog: Blog
   community: Topluluk
   apps: Uygulamalar
@@ -9,8 +9,8 @@ nav:
   contact: İletişim
   languages: Diller
 docs:
-  title: Electron Dökümanları
-  description: Dökümanları <a href="/docs/all/">tek bir sayfada</a> görün veya <a href="/docs/faq/"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
+  title: Electron Dokümanları
+  description: Dokümanları <a href="/docs/all/">tek bir sayfada</a> görün veya <a href="/docs/faq/"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
   guides: Kılavuzlar
   api_reference: API Referansı
   advanced: Gelişmiş
@@ -99,7 +99,7 @@ pages:
     title: Electron Uygulamaları
     description: Apps Built on Electron
   '/docs':
-    title: Dökümantasyon
+    title: Dokümantasyon
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!

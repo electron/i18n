@@ -31,7 +31,7 @@ git push origin HEAD
 
 This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. 參考[Electron 版號規則](/docs/tutorial/electron-versioning.md)可以得到更多相關資訊。
 
 ## Wait for builds :hourglass_flowing_sand:
 

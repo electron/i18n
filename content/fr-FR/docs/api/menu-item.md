@@ -1,15 +1,15 @@
-## Class: MenuItem
+## Classe : MenuItem
 
 > Add items to native application menus and context menus.
 
 Processus : [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Voir [`Menu`](menu.md) pour des exemples.
 
 ### `new MenuItem(options)`
 
 * `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` lorsque l'élément du menu est cliqué. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
@@ -26,7 +26,7 @@ See [`Menu`](menu.md) for examples.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
-### Roles
+### Rôles
 
 Roles allow menu items to have predefined behaviors.
 

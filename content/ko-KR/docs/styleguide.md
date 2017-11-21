@@ -1,56 +1,57 @@
 # Electron 문서 스타일 안내
 
-Electron 문서 작성 지침입니다.
+Electron 문서 작성 가이드입니다.
 
 ## 제목
 
-* 각 페이지는 상단에 단일 `#` 레벨 제목을 가지고 있어야 합니다.
-* 같은 페이지의 챕터는 `##` 레벨 제목을 가지고 있어야 합니다.
-* 하위 챕터는 중첩 깊이에 따라 제목에 `#` 의 수를 늘려야 합니다.
+* 각 페이지는 상단에 하나의 `#`-단계의 제목을 사용해야 합니다.
+* 같은 페이지의 챕터는 `##`-단계의 제목을 사용해야 합니다.
+* 하위 챕터는 포함 단계에따라 제목에 `#` 의 수를 증가시켜야 합니다.
 * "of" 와 "and" 같은 접속사를 제외한, 페이지 제목의 모든 단어는 대문자로 시작해야 합니다.
 * 챕터 제목의 첫 단어만 대문자로 시작해야 합니다.
 
-`시작하기` 를 예로 듭니다:
+`Quick Start` 를 예로 듭니다:
 
 ```markdown
-# 시작하기
+# Quick Start
 
 ...
 
-## 주요 프로세스
+## Main process
 
 ...
 
-## 렌더러 프로세스
+## Renderer process
+
 
 ...
 
-## 앱 실행
+## Run your app
 
 ...
 
-### 배포판으로 실행
+### Run as a distribution
 
 ...
 
-### 수동으로 내려받은 Electron 바이너리
+### Manually downloaded Electron binary
 
 ...
 ```
 
-API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
+API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 ## 마크다운 규칙
 
-* 코드 블럭에서 `cmd` 대신 `bash` 를 사용하세요 (구문 강조기로 인해).
-* 줄은 80 열로 줄 바꿈 되어야 합니다.
-* 2 단계 이상의 중첩 목록은 없습니다 (마크다운 렌더러로 인해).
-* 모든 `js` 와 `javascript` 코드 블록은 [standard-markdown](http://npm.im/standard-markdown) 으로 검사합니다.
+* 코드 블럭에서 `cmd` 대신 `bash` 를 사용하세요 (문법 강조기 때문입니다.)
+* 한줄은 영문 80 자 길이로 맞춰야 합니다.
+* 2단계를 넘는 중첩 목록은 사용하면 안됩니다. (마크다운 렌더러 때문입니다.)
+* 모든 `js` 와 `javascript` 코드 블럭들은 [표준-마크다운](http://npm.im/standard-markdown)에 의해 분석됩니다.
 
 ## 단어 선택
 
-* 결과를 기술 할 때 "would" 보다 "will" 을 사용하세요.
-* "on" 보다 "in the ___ process" 를 선호합니다.
+* 결과를 설명할 때 "would" 대신 "will" 을 사용합니다.
+* "on" 대신 "in the ___ process" 표현을 지향합니다. 
 
 ## API 참조
 
@@ -58,81 +59,82 @@ API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
 
 ### 페이지 제목
 
-각 페이지는 `require('electron')` 에 의해 반환 된 실제 객체 이름을 제목으로 사용해야 하며, `BrowserWindow`, `autoUpdater`, `session` 와 같은 것 들이 있습니다.
+각 페이지는 `BrowserWindow`, `autoUpdater`, `session` 와 같은 `require('electron')` 에 의해 반환되는 실 객체의 이름을 제목으로 사용해야 합니다.
 
 페이지 제목 아래에는 `>` 로 시작하는 한 줄 짜리 설명이 있어야 합니다.
 
-`session` 을 예로 듭니다:
+`session` 사용 예시:
 
 ```markdown
 # session
 
-> 브라우저 세션, 쿠키, 캐시, 프록시 설정, 등을 관리 합니다.
+> 브라우저 세션, 쿠키, 캐시, 프록시 설정, 등을 관리.
 ```
 
 ### 모듈 메소드 및 이벤트
 
-클래스가 아닌 모듈의 경우, 메소드 및 이벤트는 `## 메소드` 와 `## 이벤트` 장 아래에 나열해야 합니다.
+클래스가 아닌 모듈에서 메소드 및 이벤트는 `## Methods` 와 `## Events` 챕터에 있어야 합니다.
 
-`autoUpdater` 을 예로 듭니다:
+`autoUpdater` 사용 예시:
 
 ```markdown
 # autoUpdater
 
-## 이벤트
+## Events
 
-### 이벤트: 'error'
+### Event: 'error'
 
-## 메소드
+## Methods
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
 ### 클래스
 
-* API 클래스 또는 모듈의 일부인 클래스는 `## 클래스: TheClassName` 장 아래에 나열되야 합니다.
+* API 클래스와 모듈 클래스는 `## Class: TheClassName` 챕터 아래에 표시합니다.
 * 한 페이지에 여러 개의 클래스가 있을 수 있습니다.
 * 생성자는 `###` 레벨 제목으로 나열되야 합니다.
-* [정적 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)는 `### 정적 메소드` 장 아래에 나열되야 합니다.
-* [인스턴스 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)는 `### 인스턴스 메소드` 장 아래에 나열되야 합니다.
-* 반환 값이 있는 모든 메소드는 다음 문구로 설명을 시작해야 합니다. "반환값 `[TYPE]` - 반환 값 설명" 
-  * 메소드가 `객체` 를 반환하면, 그 구조는 콜론과 개행 문자 다음에 함수 매개 변수와 같은 방식으로 된 정렬되지 않은 속성의 목록으로 지정할 수 있습니다.
-* 인스턴스 이벤트는 `### 인스턴스 이벤트` 장 아래에 나열되야 합니다.
-* 인스턴스 이벤트는 `### 인스턴스 속성` 장 아래에 나열되야 합니다. 
+* [정적 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)는 `### Statis Methods` 챕터 아래에 표시합니다.
+* [인스턴스 메소드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)는 `### Instance Methods` 챕터 아래에 표시합니다.
+* 반환 값이 있는 모든 메소드는 "반환값 `[TYPE]` - 반환 값 설명" 형태의 설명으로 시작해야 합니다. 
+  * 메소드가 `Object` 를 반환하면, 끝에 콜론을 붙인 뒤 다음줄부터 함수 매개변수와 같은 스타일로 순서에 상관없이 그 구조를 명시해야 합니다.
+* 인스턴스 이벤트는 `### Instance Events` 챕터 아래에 표시합니다.
+* 인스턴스 이벤트는 `### Instance Properties` 챕터 아래에 표시합니다. 
   * 인스턴스 속성은 "[속성 유형] ..." 으로 시작해야 합니다.
 
-`Session` 과 `Cookies` 클래스를 예로 듭니다:
+`Session` 과 `Cookies` 클래스 사용 예시:
 
 ```markdown
 # session
 
-## 메소드
+## Methods
 
 ### session.fromPartition(partition)
 
-## 속성
+## Properties
 
 ### session.defaultSession
 
-## 클래스: Session
+## Class: Session
 
-### 인스턴스 이벤트
+### Instance Events
 
 #### Event: 'will-download'
 
-### 인스턴스 메소드
+### Instance Methods
 
 #### `ses.getCacheSize(callback)`
 
-### 인스턴스 속성
+### Instance Properties
 
 #### `ses.cookies`
 
-## 클래스: Cookies
+## Class: Cookies
 
-### 인스턴스 메소드
+### Instance Methods
 
 #### `cookies.get(filter, callback)`
+
 ```
 
 ### 메소드
@@ -148,39 +150,39 @@ API 참조의 경우, 이 규칙에 대한 예외가 있습니다.
 ...
 ```
 
-제목은 모듈의 메소드인지 클래스인지에 따라 `###` 혹은 `####` 레벨을 사용할 수 있습니다.
+제목은 `###` 혹은 `####`-단계로 합니다. 모듈이냐 클래스냐에 따라 달라집니다.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+모듈의 경우, `objectName`은 모듈의 이름입니다. 클래스의 경우, 클래스의 인스턴스 이름이어야 하며, 모듈의 이름과 달라야합니다.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+예를 들어, `session` 모듈의 `Session`클래스의 메소드는 `objectName` 으로 `ses`를 사용해야 합니다.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+선택적인 인수는 각각을 컴마로 구분하여 대괄호 `[]` 로 감쌉니다:
 
     required[, optional]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+아래 메소드에 각 인수에 대한 더 자세한 내용이 있습니다. 인수의 유형은 기본 유형 중 하나로 표시합니다.
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* •또는 Electron 의 [`WebContent`](api/web-contents.md)와 같은 사용자 타입
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+인수 또는 메소드가 특정 플랫폼에만 사용된다면, 이 플랫폼들은 자료형 다음에 공백으로 구분된 이탤릭체 목록으로 표시됩니다. 값은 <0>macOS</0>, <0>windows</0>, 또는 <0>Linux</0> 일 수 있습니다. 
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` 유형의 인수는 배열이 무엇을 포함하는지 아래에 명시해야 합니다.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` 유형의 인수를 위한 설명은 호출방법을 명확히 하고, 전달되는 매개변수의 유형을 표시해야 합니다.
 
-### Events
+### 이벤트
 
-The events chapter must be in following form:
+이벤트 챕터는 다음을 따릅니다:
 
 ```markdown
 ### Event: 'wake-up'
@@ -192,13 +194,13 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+제목은 `###` 또는 `####`-단계로 합니다. 모듈이냐 클래스냐에 따라 달라집니다.
 
-The arguments of an event follow the same rules as methods.
+이벤트의 인수는 메소드와 같은 규칙을 따릅니다.
 
-### Properties
+### 속성
 
-The properties chapter must be in following form:
+속성 챕터는 다음을 따릅니다:
 
 ```markdown
 ### session.defaultSession
@@ -206,17 +208,17 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+제목은 `###` 또는 `####`-단계로 합니다. 모듈이냐 클래스냐에 따라 달라집니다.
 
-## Documentation Translations
+## 문서 번역
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Electron 문서의 번역본은 `docs-translations` 아래에 위치합니다.
 
-To add another set (or partial set):
+아직 번역되지 않은 언어를 추가하려면 (일부분 포함):
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* 언어의 약어로 서브 디렉토리를 만듭니다.
+* 파일을 번역합니다.
+* 언어 디렉토리의 `README.md` 의 링크를 번역된 문서로 변경합니다.
+* 언어 디렉토리의 링크를 Electron 의 [README](https://github.com/electron/electron#documentation-translations)에 추가합니다.
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+참고로 `docs-translations` 아래의 파일들은 번역된 것만 있어야 합니다. 영어 원문 파일을 복사하면 안됩니다.

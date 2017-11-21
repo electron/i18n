@@ -19,7 +19,6 @@ app.on('ready', () => {
 
   contentTracing.startRecording(options, () => {
     console.log('Tracing started')
-
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
         console.log('Tracing data recorded to ' + path)

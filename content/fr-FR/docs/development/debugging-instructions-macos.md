@@ -1,16 +1,16 @@
-# Déboggage sur macOS
+# Débogage sur macOS
 
-Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le déboggage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le déboggage natif/C++. Toutefois, à l’aide de base et du code source d'Electron, il est assez facile d'activer le déboggage avec des points d’arrêt dans le code source d'Electron.
+Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez qu'il ne viennent pas de votre app JavaScript, mais plutôt d'Electron lui-même, alors le débogage peut être un peu difficile, surtout pour les développeurs peu expérimentés pour le débogage natif/C++. Toutefois, à l’aide de base et du code source d'Electron, il est assez facile d'activer le débogage avec des points d’arrêt dans le code source d'Electron.
 
 ## Spécifications requises
 
-* **Un debug build d'Electron** : le moyen le plus simple est généralement de le build vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-osx.md). Alors que vous pouvez facilement débogguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le déboggage sensiblement plus difficile : le déboggueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’in-Lining, queue d’appels et autres optimisations du compilateur.
+* **Une compilation debug d'Electron** : le moyen le plus simple est généralement de le compiler vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-osx.md). Alors que vous pouvez facilement déboguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le déboggage sensiblement plus difficile : le débogueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’in-Lining, queue d’appels et autres optimisations du compilateur.
 
-* **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le déboggueur par défaut dans Xcode sur Mac OS X. Il prend en charge le déboggage C, Objective-C et C++ sur les ordinateurs , les appareils iOS et simulateur.
+* **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le débogueur par défaut dans Xcode sur Mac OS X. Il prend en charge le déboggage C, Objective-C et C++ sur les ordinateurs , les appareils iOS et simulateur.
 
-## Déboggage d'Electrons
+## Débogage d'Electron
 
-Pour démarrer une session de déboggage, ouvrez terminal et lancez `lldb`, passez une version debug d'Electron en tant que paramètre.
+Pour démarrer une session de débogage, ouvrez terminal et lancez `lldb`, passez une version debug d'Electron en tant que paramètre.
 
 ```bash
 $ lldb ./out/D/Electron.app
@@ -24,7 +24,7 @@ LLDB est un outil puissant et supporte plusieurs stratégies d'inspection de cod
 
 Les fichiers de code appropriés peuvent se trouver dans `./atom/`, comme pour Brightray, se trouvant dans `./brightray/browser` et `./brightray/common`. Si vous êtes hardcore, vous pouvez également débogguer Chromium directement, qui se trouve évidemment dans `chromium_src`.
 
-Supposons que vous souhaitez débogguer `app.setName()`, qui est définie dans `browser.cc` comme `Browser::SetName()`. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et la ligne à couper :
+Supposons que vous souhaitez déboguer `app.setName()`, qui est définie dans `browser.cc` comme `Browser::SetName()`. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et la ligne à couper :
 
 ```bash
 (lldb) breakpoint set --file browser.cc --line 117
@@ -80,12 +80,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-Pour terminer de débogguer à ce stade, exécutez : `process continue`. Vous pouvez également continuer jusqu'à ce que la ligne soit frappée dans ce thread (`thread jusqu'à 100`). Cette commande exécutera le thread dans le frame actif jusqu'à ce qu’il atteigne la ligne 100 dans cette trame ou s’arrête si elle quitte le frame en cours.
+Pour terminer de déboguer à ce stade, exécutez : `process continue`. Vous pouvez également continuer jusqu'à ce que la ligne soit frappée dans ce thread (`thread jusqu'à 100`). Cette commande exécutera le thread dans le frame actif jusqu'à ce qu’il atteigne la ligne 100 dans cette trame ou s’arrête si elle quitte le frame en cours.
 
 Maintenant, si vous ouvrez les outils de développement d'Electron et appelez `setName`, vous frapperez une fois de plus le point d’arrêt.
 
 ### Lectures additionnelles
 
-LLDB est un outil puissant, avec une excellente documentation. Pour en savoir plus à ce sujet, examinez la documentation de déboggage d'Apple, par exemple, la [Structure de référence des commandes de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) ou l’introduction de [Utiliser LLDB à l'aide d'un déboggueur autonome](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB est un outil puissant, avec une excellente documentation. Pour en savoir plus à ce sujet, examinez la documentation de débogage d'Apple, par exemple, la [Structure de référence des commandes de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) ou l’introduction de [Utiliser LLDB à l'aide d'un débogueur autonome](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
 Vous pouvez également consulter les fantastiques [manuel et didacticiel](http://lldb.llvm.org/tutorial.html) pour LLDB, qui vous expliquera des scénarios de déboggage plus complexes.

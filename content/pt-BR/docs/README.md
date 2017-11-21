@@ -22,8 +22,8 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Extensão de DevTools](tutorial/devtools-extension.md)
 * [Usando o Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Usando o Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Renderização fora da tela](tutorial/offscreen-rendering.md)
 * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
 
 ## Tutoriais
@@ -37,13 +37,13 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 ## Referências da API
 
 * [Sinopse](api/synopsis.md)
-* [Processamento de Objeto](api/process.md)
+* [Process Object](api/process.md)
 * [Suporte ao Terminal de Comando do Chrome](api/chrome-command-line-switches.md)
 * [Variáveis de Ambiente](api/environment-variables.md)
 
 ### Elementos de DOM Personalizado:
 
-* [`Arquivo` Objeto](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Função](api/window-open.md)
 
@@ -75,7 +75,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Módulos para Ambos os Processos:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -89,13 +89,13 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Usando clang-format em Código C++](development/clang-format.md)
 * [Estrutura de Diretório do Código Fonte](development/source-code-directory-structure.md)
 * [Diferentes Técnicas para o NW.js (formalmente node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
+* [Construir Resumo do Sistema](development/build-system-overview.md)
 * [Instruções de Compilação (macOS)](development/build-instructions-osx.md)
 * [Instruções para Configuração (Windows)](development/build-instructions-windows.md)
 * [Instruções para Configurar (Linux)](development/build-instructions-linux.md)
 * [Introdução de Depuração (macOS)](development/debugging-instructions-macos.md)
 * [Introdução de Depuração (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
+* [Configuração para servidor de símbolos no depurador](development/setting-up-symbol-server.md)
 * [Estilo da Documentação](styleguide.md)
 * [Atualizando o Chrome](development/upgrading-chrome.md)
 * [Desenvolvimento do Chromium](development/chromium-development.md)
