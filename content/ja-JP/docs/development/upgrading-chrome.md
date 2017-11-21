@@ -36,7 +36,7 @@ These are things to do in addition to updating the Electron code for any Chrome/
   - 64bit Linux
   - ARM Linux
 
-## Verify ffmpeg Support
+## ffmpegサポートの確認
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
