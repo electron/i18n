@@ -1,4 +1,4 @@
-# UploadBlob Object
+# UploadBlob Объект
 
 * `type` String - `blob`.
-* `blobUUID` String - UUID of blob data to upload.
+* `blobUUID` String - UUID blob данных для загрузки.
