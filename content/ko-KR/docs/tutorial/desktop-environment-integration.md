@@ -165,19 +165,19 @@ Unity 환경에선 `.desktop` 파일을 수정함으로써 런처에 새로운 �
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## 작업 표시줄 안의 프로그레스 바 (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Windows에선 작업 표시줄의 애플리케이션 버튼에 프로그레스 바를 추가할 수 있습니다. 이 기능은 사용자가 애플리케이션의 창을 열지 않고도 애플리케이션의 작업의 상태 정보를 시각적으로 보여줄 수 있도록 해줍니다.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+macOS에선 프로그레스바가 dock 아이콘의 일부에 표시됩니다.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+또한 Unity DE도 런처에 프로그레스 바를 부착할 수 있습니다.
 
-**Progress bar in taskbar button:**
+**작업 표시줄 버튼의 프로그레스 바:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+이 기능은 [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API를 사용하여 구현할 수 있습니다:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,9 +185,9 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## 작업 표시줄의 아이콘 오버레이 (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시하는 작은 오버레이를 사용할 수 있습니다. MSDN에서 인용하자면:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
