@@ -6,21 +6,21 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 
 | Код Языка | Название Языка                |
 | --------- | ----------------------------- |
-| af        | Afrikaans                     |
-| am        | Amharic                       |
+| af        | Африкаанс                     |
+| am        | Амхарский                     |
 | ar        | Арабский                      |
-| az        | Azerbaijani                   |
-| be        | Belarusian                    |
-| bg        | Bulgarian                     |
-| bh        | Bihari                        |
-| bn        | Bengali                       |
-| br        | Breton                        |
-| bs        | Bosnian                       |
-| ca        | Catalan                       |
-| co        | Corsican                      |
-| cs        | Czech                         |
-| cy        | Welsh                         |
-| da        | Danish                        |
+| az        | Азербайджанский               |
+| be        | Белорусский                   |
+| bg        | Болгарский                    |
+| bh        | Бихари                        |
+| bn        | Бенгальский                   |
+| br        | Бретонский                    |
+| bs        | Боснийский                    |
+| ca        | Каталанский                   |
+| co        | Корсиканский                  |
+| cs        | Чешский                       |
+| cy        | Валлийский                    |
+| da        | Датский                       |
 | de        | Немецкий                      |
 | de-AT     | Немецкий (Австрия)            |
 | de-CH     | Немецкий (Швейцария)          |
@@ -37,15 +37,15 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | es        | Испанский                     |
 | es-419    | Испанский (Латинская Америка) |
 | et        | Эстонский                     |
-| eu        | Basque                        |
-| fa        | Persian                       |
-| fi        | Finnish                       |
-| fil       | Filipino                      |
-| fo        | Faroese                       |
-| fr        | French                        |
-| fr-CA     | French (Canada)               |
-| fr-CH     | French (Switzerland)          |
-| fr-FR     | French (France)               |
+| eu        | Баскский                      |
+| fa        | Персидский                    |
+| fi        | Финский                       |
+| fil       | Филиппинский                  |
+| fo        | Фарерский                     |
+| fr        | Французский                   |
+| fr-CA     | Французский (Канада)          |
+| fr-CH     | Французский (Швейцария)       |
+| fr-FR     | Французский (Франция)         |
 | fy        | Frisian                       |
 | ga        | Irish                         |
 | gd        | Scots Gaelic                  |
