@@ -532,7 +532,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Retourne `String` - l'URL de la page web courante.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -545,43 +545,43 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Retourne `String` - le titre de la page web courante.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Retourne `Boolean` - si la page web est détruite.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Met au premier plan la page web.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Retourne `Boolean` - si la page web est au premier plan.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Retourne `Boolean` - Si la page web est toujours en train de charger des ressources.
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Retourne `Boolean` - Si la frame principale (et pas seulement un iframe ou frames qu'il contient) sont toujours en chargement.
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Retourne `Boolean` - Si la page web est en attente d'une première réponse de la principale ressource de la page.
 
 #### `contents.stop()`
 
-Stops any pending navigation.
+Arrête toute navigation en attente.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Recharge la page web courante.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Recharge la page courante et ignore le cache.
 
 #### `contents.canGoBack()`
 
