@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 웹 페이지 내에선 아카이브 내의 파일을 `file:` 프로토콜을 사용하여 요청할 수 있습니다. 이 또한 `Node API`와 같이 가상 디렉터리 구조를 가집니다.
 
-For example, to get a file with `$.get`:
+예를 들어 jQuery의 `$.get`을 사용하여 파일을 가져올 수 있습니다:
 
 ```html
 <script>
@@ -84,16 +84,16 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### `asar` 아카이브를 일반 파일로 취급하기
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+`asar` 아카이브의 체크섬(checksum) 을 검사하는 작업등을 하기 위해선 `asar` 아카이브를 파일 그대로 읽어야 합니다. 이러한 작업을 하기 위해 `original-fs` 빌트인 모듈을 `fs` 모듈 대신에 사용할 수 있습니다. 이 모듈은 `asar` 지원이 빠져있습니다. 즉 파일 그대로를 읽어들입니다:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+또한 `process.noAsar`를 `true`로 지정하면 `fs` 모듈의 `asar` 지원을 비활성화 시킬 수 있습니다.
 
 ```javascript
 const fs = require('fs')
@@ -101,21 +101,21 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Node API의 한계
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+`asar` 아카이브를 Node API가 최대한 디렉터리 구조로 작동하도록 노력해왔지만, 여전히 저수준(low-level nature) Node API 때문에 한계가 있습니다.
 
-### Archives Are Read-only
+### 아카이브는 읽기 전용입니다
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+아카이브는 수정할 수 없으며 기본적으로는 Node API로 파일을 수정할 수 있지만 `asar` 아카이브에선 작동하지 않습니다.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### 아카이브 안의 디렉터리를 작업 경로로 설정하면 안됩니다
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+`asar/0>아카이브는 디렉터리처럼 사용할 수 있도록 구현되었지만 그것은 실제 파일시스템의 디렉터리가 아닌 가상의 디렉터리이고, 그런 이유로 <code>asar` 아카이브 안의 디렉터리 경로로 작업할 수 없다. 따라서 몇몇 API에서 지원하는 `cwd` 옵션 또한 문제를 야기한다. 
 
-### Extra Unpacking on Some APIs
+### 특정 API로 인한 예외적인 아카이브 압축 해제
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+많은 `fs` API가 `asar` 아카이브의 압축을 해제하지 않고 바로 아카이브를 읽거나 정보를 가져올 수 있으나 몇몇 API는 시스템의 실제 파일의 경로를 기반으로 작동하므로 Electron은 API가 원할하게 작동할 수 있도록 임시 경로에 해당되는 파일의 압축을 해제합니다. This adds a little overhead for those APIs.
 
 APIs that requires extra unpacking are:
 
