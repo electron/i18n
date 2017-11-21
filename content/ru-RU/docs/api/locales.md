@@ -46,34 +46,34 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | fr-CA     | Французский (Канада)          |
 | fr-CH     | Французский (Швейцария)       |
 | fr-FR     | Французский (Франция)         |
-| fy        | Frisian                       |
-| ga        | Irish                         |
+| fy        | Фризский                      |
+| ga        | Ирландский                    |
 | gd        | Scots Gaelic                  |
-| gl        | Galician                      |
-| gn        | Guarani                       |
-| gu        | Gujarati                      |
-| ha        | Hausa                         |
-| haw       | Hawaiian                      |
-| he        | Hebrew                        |
-| hi        | Hindi                         |
-| hr        | Croatian                      |
-| hu        | Hungarian                     |
-| hy        | Armenian                      |
-| ia        | Interlingua                   |
-| id        | Indonesian                    |
-| is        | Icelandic                     |
-| it        | Italian                       |
-| it-CH     | Italian (Switzerland)         |
-| it-IT     | Italian (Italy)               |
-| ja        | Japanese                      |
-| jw        | Javanese                      |
-| ka        | Georgian                      |
-| kk        | Kazakh                        |
-| km        | Cambodian                     |
-| kn        | Kannada                       |
-| ko        | Korean                        |
-| ku        | Kurdish                       |
-| ky        | Kyrgyz                        |
+| gl        | Галисийский                   |
+| gn        | Гуарани                       |
+| gu        | Гуджаратский                  |
+| ha        | Хауса                         |
+| haw       | Гавайский                     |
+| he        | Иврит                         |
+| hi        | Хинди                         |
+| hr        | Хорватский                    |
+| hu        | Венгерский                    |
+| hy        | Армянский                     |
+| ia        | Интерлингва                   |
+| id        | Индонезийский                 |
+| is        | Исландский                    |
+| it        | Итальянский                   |
+| it-CH     | Итальянский (Швейцария)       |
+| it-IT     | Итальянский (Италия)          |
+| ja        | Японский                      |
+| jw        | Яванский                      |
+| ka        | Грузинский                    |
+| kk        | Казахский                     |
+| km        | Камбоджийский                 |
+| kn        | Каннада                       |
+| ko        | Корейский                     |
+| ku        | Курдский                      |
+| ky        | Киргизский                    |
 | la        | Latin                         |
 | ln        | Lingala                       |
 | lo        | Laothian                      |
