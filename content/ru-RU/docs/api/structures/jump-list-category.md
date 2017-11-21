@@ -8,4 +8,4 @@
 * `name` String (опиционально) - Должно быть установлено, если `type` является `custom`, в противном случае он должно быть опущено.
 * `items` JumpListItem[] (опиционально) - Массив [`JumpListItem`](jump-list-item.md) объектов, если `type` является `tasks` или `custom`, в противном случае оно должно быть опущено.
 
-**Примечание:** Если объект `JumpListCategory` не имеет свойства `type` или `name` то его `type` считается `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет свойства `type` или `name` то его `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, то `type` считается `custom`.
