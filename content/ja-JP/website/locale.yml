@@ -7,19 +7,19 @@ nav:
   userland: Userland
   releases: リリース
   contact: お問い合わせ
-  languages: Languages
+  languages: 言語
 docs:
   title: Electron Documentation
   description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
   guides: ガイド
-  api_reference: API Reference
+  api_reference: API リファレンス
   advanced: Advanced
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
+  choose_language: 言語選択
+  translation_progress: 翻訳状態
   current: current selection
 community:
-  title: Electron Community
+  title: Electronコミュニティー
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: Tools
   boilerplates: Boilerplates
@@ -74,7 +74,7 @@ headings:
   languages: 言語
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "翻訳する"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
@@ -82,30 +82,30 @@ footer:
   see_available_versions: See available versions.
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  see_the_faq: よくある質問（FAQ）
 apps:
   title: Electronで構築されたアプリ
   description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
   view_more: もっとアプリを見る
   submit_your_own: あなたのアプリを送信する
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  something_missing: 何か見つかりませんか？
+  edit_this_app: アプリを編集する
 or: または
 pages:
   '/':
     title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
-    title: Electron Apps
+    title: Electron アプリ
     description: Apps Built on Electron
   '/docs':
-    title: Documentation
+    title: ドキュメント
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
-    title: Electron Blog
+    title: Electron ブログ
     description: All the latest news from the Electron team and community.
   '/community':
     title: コミュニティ
@@ -115,8 +115,8 @@ pages:
     title: お問い合わせ
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: 言語
 _404:
-  page_not_found: Page not found.
+  page_not_found: ページが見つかりません
   if_this_is_an_error: If this is an error
   please_file_an_issue: please file an issue.
