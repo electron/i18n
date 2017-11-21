@@ -46,13 +46,13 @@ app.clearRecentDocuments()
 
 ## 커스텀 독 메뉴 (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+macOS는 개발자가 dock에 커스텀 메뉴를 만들 수 있도록 허용하고 있습니다. 보통 애플리케이션의 특정 기능 바로가기를 만들 때 사용합니다:
 
-**Dock menu of Terminal.app:**
+**Terminal.app의 dock menu:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+커스텀 dock menu를 설정하려면 `app.dock.setMenu` API를 사용하면 됩니다. macOS에서만 사용 가능합니다:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -70,9 +70,9 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## 사용자 작업 (Windows)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows에선 JumpList의 `Tasks` 카테고리에 원하는 작업을 설정할 수 있습니다. MSDN에선 해당 기능을 다음과 같이 설명하고 있습니다:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
