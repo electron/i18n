@@ -67,10 +67,10 @@
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Управление сеансами браузера, куками, кешем, настройками прокси и т.д.
 ```
 
-### Module methods and events
+### Методы и события модуля
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
