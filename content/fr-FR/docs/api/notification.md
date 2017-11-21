@@ -6,32 +6,32 @@ Processus : [Main](../glossary.md#main-process)
 
 ## Utilisation dans le processus renderer
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+SI vous voulez afficher des notifications depuis un processus renderer, vous devez utiliser l'[API HTML5 de notification](../tutorial/notifications.md)
 
-## Class: Notification
+## Classe : Notification
 
 > Créer des notifications bureau spécifique à l'OS
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` est un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+Cela créer une nouvelle `Notification` avec les propriétés natives défini par les `options`.
 
 ### Méthodes statiques
 
-The `Notification` class has the following static methods:
+La classe `Notification` dispose des méthodes statiques suivantes :
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Retourne `Boolean` - Si le système actuel prend en charge les notification bureau
 
 ### `new Notification([options])` *Experimental*
 
 * `options` Object 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
+  * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'il est affiché
+  * `subtitle` String - (facultatif) Un sous-titre pour la notification, qui s'affichera en dessous du titre. *macOS*
+  * `body` String - Le corp de texte de la notification, qui s'affichera sous le titre ou le sous-titre
   * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
   * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
