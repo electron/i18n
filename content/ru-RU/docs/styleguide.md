@@ -72,18 +72,18 @@
 
 ### Методы и события модуля
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Для модулей, которые не являются классами, методы и события должны быть перечислены под главами `## Методы` и `## События` .
 
-Using `autoUpdater` as an example:
+Используйте `autoUpdater` как пример:
 
 ```markdown
 # autoUpdater
 
-## Events
+## События 
 
-### Event: 'error'
+### Событие: 'error' 
 
-## Methods
+## Методы 
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
