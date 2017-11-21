@@ -1,46 +1,46 @@
-# 데스크탑 환경 통합
+# 데스크톱 환경 통합
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+애플리케이션 배포의 대상이 되는 서로 다른 운영체제 시스템의 환경에 맞춰 애플리케이션의 기능을 통합할 수 있습니다. 예를 들어 Windows에선 태스크바의 JumpList에 바로가기를 추가할 수 있고 Mac(macOS)에선 dock 메뉴에 커스텀 메뉴를 추가할 수 있습니다.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+이 문서는 Electron API를 이용하여 각 운영체제 시스템의 기능을 활용하는 방법을 설명합니다.
 
-## Notifications
+## 알림
 
-See [Notifications](notifications.md)
+[Notifications](notifications.md) 을 보면
 
-## Recent documents (Windows & macOS)
+## 최근 문서 (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows와 macOS는 JumpList 또는 dock 메뉴를 통해 최근 문서 리스트에 쉽게 접근할 수 있습니다.
 
 **JumpList:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**dock menu 애플리케이션:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+파일을 최근 문서에 추가하려면 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API를 사용할 수 있습니다:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+그리고 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API로 최근 문서 리스트를 비울 수 있습니다:
 
 ```javascript
-const {app} = require('electron')
+onst {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Windows에서 주의할 점
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+이 기능을 Windows에서 사용할 땐 운영체제 시스템에 애플리케이션에서 사용하는 파일 확장자가 등록되어 있어야 합니다. 그렇지 않은 경우 파일을 JumpList에 추가해도 추가되지 않습니다. 애플리케이션 등록에 관련된 API의 모든 내용은 [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx)에서 찾아볼 수 있습니다.
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+유저가 JumpList에서 파일을 클릭할 경우 클릭된 파일의 경로가 커맨드 라인 인수로 추가되어 새로운 인스턴스의 애플리케이션이 실행됩니다.
 
-### macOS Notes
+### macOS에서 주의할 점
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
