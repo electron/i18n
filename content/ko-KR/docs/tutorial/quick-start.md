@@ -12,7 +12,7 @@ Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세�
 
 Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고, 그렇기에 Chromium의 멀티 프로세스 아키텍쳐 또한 사용됩니다. 각각의 Electron 웹페이지는 자체 프로세스로 동작하고 이것을 **the renderer process**라고 부릅니다.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행하고 네이티브 리소스에 액세스 할 수 없습니다. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
 ### Differences Between Main Process and Renderer Process
 
