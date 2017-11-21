@@ -1,26 +1,26 @@
-# Debugging the Main Process
+# 메인 프로세스 디버깅하기
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+Electron 브라우저 창의 개발자 도구는 윈도우(i.e 웹 페이지) 같은 창에서 실행된 스크립트만 디버깅이 가능합니다. 메인 프로세스에서 실행된 자바스크립트를 디버깅 하기 위해 외부 디버거가 필요하며, Electron 실행시 `--debug` 또는 `--debug-brk` 스위치가 필요합니다.
 
-## Command Line Switches
+## 커맨드 라인 스위치(command line switches)
 
-Use one of the following command line switches to enable debugging of the main process:
+다음 커맨드 라인 스위치들을 사용하여 메인 프로세스를 디버깅 할 수 있습니다:
 
-### `--inspect=[port]`
+### `<0>--debug=[port]</0>`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+이 스위치를 사용하면 Electron은 지정한 `port`에 V8 디버거 프로토콜을 리스닝합니다. 기본 `port`는 `5858` 입니다.
 
 ```shell
-electron --inspect=5858 your/app
+electron --debug=5858 your/app
 ```
 
-### `--inspect-brk=[port]`
+### `<0>--debug-brk=[port]</0>`
 
-Like `--inspector` but pauses execution on the first line of JavaScript.
+`--debug`와 비슷하지만 스크립트의 첫번째 라인에서 일시정지합니다
 
-## External Debuggers
+## 외부 디버거
 
-You will need to use a debugger that supports the V8 inspector protocol.
+V8 디버거 프로토콜을 지원하는 디버거가 필요합니다. 다음 가이드들이 도움이 됩니다:
 
 - Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
 - [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
