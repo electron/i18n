@@ -219,7 +219,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 Objects created with `new BrowserWindow` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### Événement : 'page-title-updated'
 
@@ -497,7 +497,7 @@ A `Integer` representing the unique ID of the window.
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
-**Remarque :** Certaines méthodes sont disponibles uniquement sur les systèmes d’exploitation spécifiques et sont étiquetés comme tels.
+**Remarque :** Certaines méthodes sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### `win.destroy()`
 
