@@ -26,7 +26,7 @@ Electron에서, 우리는 메인 프로세스와 렌더러 프로세스 간의 �
 
 ## Write your First Electron App
 
-Generally, an Electron app is structured like this:
+일반적으로 Electron 앱의 구조는 이렇습니다:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+`package.json`의 형식은 Node들의 모듈과 일치하고, 스크립트에서 `main`필드가 메인 프로세스를 시작하는 앱의 시작 스크립트입니다. `package.json`의 예는 다음과 같습니다:
 
 ```json
 {
@@ -45,9 +45,9 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Note**: 만약 `main` 필드가 `package.json`에 없으면, 일렉트론은 `index.js`를 로드하려고 할 것입니다.
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js`는 윈도우를 생성하고 시스템 이벤트를 처리하는데 대표적인 예는 다음과 같습니다:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
