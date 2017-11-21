@@ -1,34 +1,34 @@
-# 응용 프로그램 패키징
+# 애플리케이션 패키징
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.com/joyent/node/issues/6960)를 완화하고 `require` 속도를 약간 빠르게 하며 애플리케이션의 리소스와 소스 코드를 좋지 않은 사용자로부터 보호하기 위해 애플리케이션을 [asar](https://github.com/electron/asar) 아카이브로 패키징 할 수 있습니다.
 
-## Generating `asar` Archive
+## `asar` 아카이브 생성
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+[asar](https://github.com/electron/asar) 아카이브는 tar과 비슷한 포맷으로 모든 리소스를 하나의 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
 
-Steps to package your app into an `asar` archive:
+간단한 작업을 통해 애플리케이션을 `asar` 아카이브로 압축할 수 있습니다:
 
-### 1. Install the asar Utility
+### 1. asar 유틸리티 설치
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. `asar pack` 커맨드로 앱 패키징
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## `asar` 아카이브 사용하기
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electron은 Node.js로부터 제공된 Node API와 Chromium으로부터 제공된 Web API 두 가지 API를 가지고 있습니다. 따라서 `asar` 아카이브는 두 API 모두 사용할 수 있도록 지원합니다.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Electron에선 `fs.readFile`과 `require` 같은 Node API들을 지원하기 위해 `asar` 아카이브가 가상의 디렉터리 구조를 가지도록 패치했습니다. 그래서 아카이브 내부 리소스들을 정상적인 파일 시스템처럼 접근할 수 있습니다.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+예를 들어 `/path/to`라는 경로에 `example.asar`라는 아카이브가 있다고 가정하면:
 
 ```bash
 $ asar list /path/to/example.asar
@@ -40,32 +40,33 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+`asar` 아카이브에선 다음과 같이 파일을 읽을 수 있습니다:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+아카이브 내의 루트 디렉터리를 리스팅합니다:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+아카이브 안의 모듈 사용하기:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+`asar`아카이브의`BrowserWindow` 클래스를 이용해 원하는 웹 페이지도 표시할 수 있습니다
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('file:///path/to/example.asar/static/index.html')
+
 ```
 
 ### Web API
