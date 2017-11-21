@@ -15,11 +15,11 @@ app.on('window-all-closed', () => {
 
 ## События
 
-The `app` object emits the following events:
+Объект `приложения` имеет следующие события:
 
-### Event: 'will-finish-launching'
+### Событие: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Происходит когда приложение заканчивает основной запуск. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
@@ -29,11 +29,11 @@ In most cases, you should just do everything in the `ready` event handler.
 
 * `launchInfo` Object *macOS*
 
-Вызывается при завершении инициализации Electron. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
+Происходит при завершении инициализации Electron. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
 
 ### Событие: 'window-all-closed'
 
-Вызывается при закрытии всех окон.
+Происходит при закрытии всех окон.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
