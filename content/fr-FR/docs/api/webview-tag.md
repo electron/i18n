@@ -266,7 +266,7 @@ Returns `Boolean` - Whether the guest page is waiting for a first-response for t
 
 ### `<webview>.stop()`
 
-Stops any pending navigation.
+Arrête toute navigation en attente.
 
 ### `<webview>.reload()`
 
