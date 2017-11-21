@@ -95,13 +95,13 @@
 * Конструкторы должны быть перечислены с `###`-уровнем названия.
 * [Статические методы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) должны быть перечислены под главой `### Статические методы`.
 * [Методы экземпляра](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) должны быть перечислены под главой `### Методы экземпляра`.
-* Все методы, которые возвращают значение должно начинаться с описания "Возвращают `[TYPE]` - Return description" 
+* Все методы, которые возвращают значение должно начинаться с описания "Возвращают `[TYPE]` - Возвращают описание" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Используйте классы `Session` и `Cookies` в качестве примера:
 
 ```markdown
 # session
@@ -135,17 +135,16 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Методы
 
-The methods chapter must be in the following form:
+Методы главы должны быть в следующем виде:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `required` String - описание параметра. 
+* `optional` Integer (опционально) - еще одно описание параметра.
+  ...
 ```
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
