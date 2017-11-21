@@ -9,7 +9,7 @@
 Do you speak multiple languages? We need your help!
 
 To get started translating, visit
-[crowdin.com/projects/electron](https://crowdin.com/project/electron)
+[crowdin.com/project/electron](https://crowdin.com/project/electron)
 and log in with your GitHub account.
 
 The following languages are currently being translated, but we can
@@ -35,6 +35,7 @@ The following languages are currently being translated, but we can
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [українська мова (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
+
 
 
 
