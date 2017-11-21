@@ -1,8 +1,8 @@
-# Display Object
+# Display Объект
 
-* `id` Number - уникальный числовой идентификатор дисплея.
-* `rotation` Number - число, которое представляет собой угол поворота экрана. Может быть 0, 90, 180, 270.
-* `scaleFactor` Number - Output device's pixel scale factor.
+* `id` Number - Уникальный числовой идентификатор дисплея.
+* `rotation` Number - Число, которое представляет собой угол поворота экрана. Может быть 0, 90, 180, 270.
+* `scaleFactor` Number - Матричный коэффициент пиксельного маштабирования выходного устройства.
 * `touchSupport` String - Может быть `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
