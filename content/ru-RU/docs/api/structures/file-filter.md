@@ -1,4 +1,4 @@
-# FileFilter Object
+# FileFilter объект
 
-* `name` String
+* `date` String
 * `extensions` String[]
