@@ -1,14 +1,14 @@
-# Styleguide документация для Electron
+# Руководство по написанию документации Electron
 
 Это руководство для написания Electron документации.
 
 ## Названия
 
 * Каждая страница должна иметь один заголовок `#` в верхней части.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Главы на одной странице должны иметь `##` - уровень названий.
+* В подзаголовках необходимо увеличить количество `#` в названии согласно их вложенной глубине.
+* Все слова в названии страницы должны быть заглавными, за исключением союзов как «из» и «и».
+* Только первое слово название главы должны быть заглавными.
 
 Using `Quick Start` as example:
 
