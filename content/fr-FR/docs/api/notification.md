@@ -1,16 +1,16 @@
 # Notification
 
-> Create OS desktop notifications
+> Créer des notifications bureau spécifique à l'OS
 
 Processus : [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Utilisation dans le processus renderer
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> Créer des notifications bureau spécifique à l'OS
 
 Processus : [Main](../glossary.md#main-process)
 
