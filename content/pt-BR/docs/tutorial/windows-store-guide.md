@@ -27,26 +27,26 @@ Empacote a aplicação utilizando [electron-packager](https://github.com/electro
 
 A saída deve ser algo mais ou menos assim:
 
-    ├── Ghost.exe 
-    ├── LICENSE 
-    ├── content_resources_200_percent.pak 
-    ├── content_shell.pak 
-    ├── d3dcompiler_47.dll 
-    ├── ffmpeg.dll 
-    ├── icudtl.dat 
-    ├── libEGL.dll 
-    ├── libGLESv2.dll 
-    ├── locales 
-    │ ├── am.pak
-    │ ├── ar.pak 
-    │ ├── [...] 
-    ├── natives_blob.bin 
-    ├── node.dll 
-    ├── resources 
-    │ ├── app
-    │ └── atom.asar 
-    ├── snapshot_blob.bin 
-    ├── squirrel.exe 
+    ├── Ghost.exe
+    ├── LICENSE
+    ├── content_resources_200_percent.pak
+    ├── content_shell.pak
+    ├── d3dcompiler_47.dll
+    ├── ffmpeg.dll
+    ├── icudtl.dat
+    ├── libEGL.dll
+    ├── libGLESv2.dll
+    ├── locales
+    │   ├── am.pak
+    │   ├── ar.pak
+    │   ├── [...]
+    ├── natives_blob.bin
+    ├── node.dll
+    ├── resources
+    │   ├── app
+    │   └── atom.asar
+    ├── snapshot_blob.bin
+    ├── squirrel.exe
     └── ui_resources_200_percent.pak
     
 
@@ -55,11 +55,11 @@ A saída deve ser algo mais ou menos assim:
 Abra o PowerShell em modo de administrador e execute `electron-windows-store` com os parâmetros necessários, informando tanto o diretório de origem quanto o diretório de destino, o nome da aplicação, sua versão e a confirmação de que os `node_modules` devem estar achatados.
 
     electron-windows-store `
-         --input-directory C:\myelectronapp `
-         --output-directory C:\output\myelectronapp `
-         --flatten true `
-         --package-version 1.0.0.0 `
-         --package-name myelectronapp
+        --input-directory C:\myelectronapp `
+        --output-directory C:\output\myelectronapp `
+        --flatten true `
+        --package-version 1.0.0.0 `
+        --package-name myelectronapp
     
 
 Assim que executada, a ferramenta faz seu trabalho: Ela aceita sua aplicação Electron como entrada, achatando os `node_modules`. Então, ela empacota sua aplicação como `app.zip`. Utilizando um instalador e um container Windows, a ferramenta cria um pacote AppX "expandido" - incluindo o Manifesto de Aplicação Windows (`AppXManifest.xml`), assim como o sistema de arquivos e sistema de registros virtual dentro da pasta de destino.
