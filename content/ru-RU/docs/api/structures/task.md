@@ -1,7 +1,7 @@
-# Task Object
+# Task объект
 
-* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
-* `arguments` String - The command line arguments when `program` is executed.
+* `program` String - Путь к исполняемой программы, как правило следует указывать `process.execPath`, который открывает текущую программу.
+* `arguments` String - Аргументы командной строки при выполнении `program`.
 * `title` String - The string to be displayed in a JumpList.
 * `description` String - Описание задания.
 * `iconPath` String - Абсолютный пусть к файлу иконок. You can usually specify `process.execPath` to show the icon of the program.
