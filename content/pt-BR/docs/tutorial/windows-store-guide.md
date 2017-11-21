@@ -27,42 +27,42 @@ Empacote a aplicação utilizando [electron-packager](https://github.com/electro
 
 A saída deve ser algo mais ou menos assim:
 
-    ├── Ghost.exe
-    ├── LICENSE
-    ├── content_resources_200_percent.pak
-    ├── content_shell.pak
-    ├── d3dcompiler_47.dll
-    ├── ffmpeg.dll
-    ├── icudtl.dat
-    ├── libEGL.dll
-    ├── libGLESv2.dll
-    ├── locales
-    │   ├── am.pak
-    │   ├── ar.pak
-    │   ├── [...]
-    ├── natives_blob.bin
-    ├── node.dll
-    ├── resources
-    │   ├── app
-    │   └── atom.asar
-    ├── snapshot_blob.bin
-    ├── squirrel.exe
+    ├── Ghost.exe 
+    ├── LICENSE 
+    ├── content_resources_200_percent.pak 
+    ├── content_shell.pak 
+    ├── d3dcompiler_47.dll 
+    ├── ffmpeg.dll 
+    ├── icudtl.dat 
+    ├── libEGL.dll 
+    ├── libGLESv2.dll 
+    ├── locales 
+    │ ├── am.pak
+    │ ├── ar.pak 
+    │ ├── [...] 
+    ├── natives_blob.bin 
+    ├── node.dll 
+    ├── resources 
+    │ ├── app
+    │ └── atom.asar 
+    ├── snapshot_blob.bin 
+    ├── squirrel.exe 
     └── ui_resources_200_percent.pak
     
 
-## Step 2: Running electron-windows-store
+## Etapa 2: Executando o electron-windows-store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Abra o PowerShell em modo de administrador e execute `electron-windows-store` com os parâmetros necessários, informando tanto o diretório de origem quanto o diretório de destino, o nome da aplicação, sua versão e a confirmação de que os `node_modules` devem estar achatados.
 
     electron-windows-store `
-        --input-directory C:\myelectronapp `
-        --output-directory C:\output\myelectronapp `
-        --flatten true `
-        --package-version 1.0.0.0 `
-        --package-name myelectronapp
+         --input-directory C:\myelectronapp `
+         --output-directory C:\output\myelectronapp `
+         --flatten true `
+         --package-version 1.0.0.0 `
+         --package-name myelectronapp
     
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Assim que executada, a ferramenta faz seu trabalho: Ela aceita sua aplicação Electron como entrada, achatando os `node_modules`. Então, ela empacota sua aplicação como `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
 
 Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
 
