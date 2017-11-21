@@ -62,7 +62,7 @@ Abra o PowerShell em modo de administrador e execute `electron-windows-store` co
          --package-name myelectronapp
     
 
-Assim que executada, a ferramenta faz seu trabalho: Ela aceita sua aplicação Electron como entrada, achatando os `node_modules`. Então, ela empacota sua aplicação como `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Assim que executada, a ferramenta faz seu trabalho: Ela aceita sua aplicação Electron como entrada, achatando os `node_modules`. Então, ela empacota sua aplicação como `app.zip`. Utilizando um instalador e um container Windows, a ferramenta cria um pacote AppX "expandido" - incluindo o Manifesto de Aplicação Windows (`AppXManifest.xml`), assim como o sistema de arquivos e sistema de registros virtual dentro da pasta de destino.
 
 Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
 
