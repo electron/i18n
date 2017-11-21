@@ -145,4 +145,4 @@ Node API에는 `child_process.exec`, `child_process.spawn` 그리고 `child_proc
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+커맨드를 실행한 후 같은 디렉터리에 `app.asar` 파일 외에 `app.asar.unpacked` 폴더가 같이 생성됩니다. 이 폴더안에 unpack 옵션에서 설정한 파일들이 압축이 풀려진 상태로 포함되어 있습니다. 사용자에게 애플리케이션을 배포할 때 반드시 `app.asar` 폴더도 같이 배포해야 합니다.
