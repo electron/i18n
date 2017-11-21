@@ -1,6 +1,6 @@
 # 关于 Electron
 
-[Electron](https://electron.atom.io)是由GitHub开发的，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的开源库。 Electron通过结合[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org)到一个runtime中然后把应用打包为Mac，Windows和Linux来实现。
+[Electron](https://electron.atom.io)是由GitHub开发的，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的开源库。 Electron通过结合[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org)到一个运行时环境中，并将其打包为Mac，Windows和Linux应用来实现这一目的。
 
 Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)文本编译器的框架。这两个项目在2014春季开源。
 
