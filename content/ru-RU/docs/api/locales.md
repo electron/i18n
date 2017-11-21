@@ -74,12 +74,12 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ko        | Корейский                     |
 | ku        | Курдский                      |
 | ky        | Киргизский                    |
-| la        | Latin                         |
-| ln        | Lingala                       |
-| lo        | Laothian                      |
-| lt        | Lithuanian                    |
-| lv        | Latvian                       |
-| mk        | Macedonian                    |
+| la        | Латинский                     |
+| ln        | Лингала                       |
+| lo        | Лаосский                      |
+| lt        | Литовский                     |
+| lv        | Латышский                     |
+| mk        | Македонский                   |
 | ml        | Malayalam                     |
 | mn        | Mongolian                     |
 | mo        | Moldavian                     |
@@ -95,15 +95,15 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | om        | Oromo                         |
 | or        | Oriya                         |
 | pa        | Punjabi                       |
-| pl        | Polish                        |
+| pl        | Польский                      |
 | ps        | Pashto                        |
-| pt        | Portuguese                    |
-| pt-BR     | Portuguese (Brazil)           |
-| pt-PT     | Portuguese (Portugal)         |
-| qu        | Quechua                       |
+| pt        | Португальский                 |
+| pt-BR     | Португальский (Бразилия)      |
+| pt-PT     | Португальский (Португалия)    |
+| qu        | Кечуа                         |
 | rm        | Romansh                       |
-| ro        | Romanian                      |
-| ru        | Russian                       |
+| ro        | Румынская                     |
+| ru        | Русский                       |
 | sd        | Sindhi                        |
 | sh        | Serbo-Croatian                |
 | si        | Sinhalese                     |
@@ -124,14 +124,14 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ti        | Tigrinya                      |
 | tk        | Turkmen                       |
 | to        | Tonga                         |
-| tr        | Turkish                       |
-| tt        | Tatar                         |
+| tr        | Турецкий                      |
+| tt        | Татарский                     |
 | tw        | Twi                           |
 | ug        | Uighur                        |
-| uk        | Ukrainian                     |
-| ur        | Urdu                          |
-| uz        | Uzbek                         |
-| vi        | Vietnamese                    |
+| uk        | Украинский                    |
+| ur        | Урду                          |
+| uz        | Узбекский                     |
+| vi        | Вьетнамский                   |
 | xh        | Xhosa                         |
 | yi        | Yiddish                       |
 | yo        | Yoruba                        |
