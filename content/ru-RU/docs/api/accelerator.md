@@ -28,36 +28,36 @@ app.on('ready', () => {
 
 Используйте `Alt` вместо `Option`. Ключ `Option` существует только на MacOS, в то время как ключ`Alt` доступен на всех платформах.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+Клавиша `Super` сопоставляется с `Windows` в Windows и Linux, и `Cmd` на macOS.
 
 ## Доступные модификаторы
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (или `Cmd` для краткости)
+* `Control` (или `Ctrl` для краткости)
+* `CommandOrControl` (или `CmdOrCtrl` для краткости)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Доступные коды клавиш
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* от `` до `9`
+* от `A` до `Z`
+* от `F1` до `F24`
+* Символы пунктуации как `~`, `!`, `@`, `#`, `$`, т.д.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (или `Enter` как псевдоним)
+* `Up`, `Down`, `Left` и `Right`
+* `Home` и `End`
+* `PageUp` и `PageDown`
+* `Escape` (или `Esc` для краткости)
+* `VolumeUp`, `VolumeDown` и `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` и `MediaPlayPause`
 * `PrintScreen`
