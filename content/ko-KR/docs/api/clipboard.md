@@ -1,17 +1,17 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> 시스템 클립보드에 복사와 붙여넣기를 수행합니다.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+다음 예시는 클립보드에 문자열을 쓰는 방법을 보여줍니다:
 
 ```javascript
 const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+X Window 시스템에선 selection 클립보드도 존재합니다. 이를 사용하려면 인수 뒤에 `selection` 문자열을 같이 지정해주어야 합니다:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -21,9 +21,9 @@ console.log(clipboard.readText('selection'))
 
 ## 메소드
 
-The `clipboard` module has the following methods:
+`clipboard` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**참고**: Experimental 마크가 붙은 API는 실험적인 기능이며 차후 최신 버전에서 제거될 수 있습니다.
 
 ### `clipboard.readText([type])`
 
