@@ -1,12 +1,12 @@
 # 시작하기
 
-Electron을 사용하면 풍부한 네이비트(운영 체제)API를 사용하여 런타임을 제공하는 순수 자바 스크립트로 데스크탑 앱을 만들 수 있습니다. 웹 서버 대신 데스크탑 앱에 초점을 맞춘 Node.js 런타임의 모델로 보시면 됩니다.
+Electron은 순수 JavaScript를 사용하여 풍부한 네이티브(운영 체제) API를 제공하는 런타임 데스크탑 앱을 만들 수 있습니다. 웹 서버 대신 데스크탑 앱에 초점을 맞춘 Node.js 런타임의 모델로 보시면 됩니다.
 
 이건 Electron이 graphical user interface(GUI)라이브러리에 대한 자바 스크립트 바인딩이 아닙니다. 대신, Electron은 웹 페이지를 GUI로 사용하므로, 자바스크립트로 제어되는 크롬 브라우저로도 볼 수 있습니다.
 
 ### Main Process 
 
-Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **the main process**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지를 만들어서 GUI를 표시 할 수 있습니다.
+Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **메인 프로세스**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지를 만들어서 GUI를 표시 할 수 있습니다.
 
 ### Renderer Process
 
