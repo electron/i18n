@@ -30,11 +30,11 @@ Electron версия обычно обновляется в течение од
 
 ### LTS
 
-Долгосрочная поддержка более старых версий Electron в настоящее время не существует. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Долгосрочная поддержка более старых версий Electron в настоящее время не существует. Если ваша текущая версия Electron работает для вас, вы можете оставаться на ней столько, сколько захотите. Если вы хотите использовать новые функции по мере их поступления, вы должны перейти на более новую версию.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+Основные обновления появились с версией `v1.0.0`. Если вы еще не используете эту версию, вы должны  узнать больше об изменениях ` v1.0.0 ` </ 0>.</p> 
 
-## Core Philosophy
+## Основная философия
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
