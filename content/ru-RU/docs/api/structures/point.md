@@ -1,4 +1,4 @@
-# Point объект
+# Point Объект
 
-* `x` число
-* `y` число
+* `x` Number
+* `y` Number

@@ -1,12 +1,12 @@
 # 시작하기
 
-Electron을 사용하면 풍부한 네이비트(운영 체제)API를 사용하여 런타임을 제공하는 순수 자바 스크립트로 데스크탑 앱을 만들 수 있습니다. 웹 서버 대신 데스크탑 앱에 초점을 맞춘 Node.js 런타임의 모델로 보시면 됩니다.
+Electron은 순수 JavaScript를 사용하여 풍부한 네이티브(운영 체제) API를 제공하는 런타임 데스크탑 앱을 만들 수 있습니다. 웹 서버 대신 데스크탑 앱에 초점을 맞춘 Node.js 런타임의 모델로 보시면 됩니다.
 
 이건 Electron이 graphical user interface(GUI)라이브러리에 대한 자바 스크립트 바인딩이 아닙니다. 대신, Electron은 웹 페이지를 GUI로 사용하므로, 자바스크립트로 제어되는 크롬 브라우저로도 볼 수 있습니다.
 
 ### Main Process 
 
-Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **the main process**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지를 만들어서 GUI를 표시 할 수 있습니다.
+Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **메인 프로세스**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지를 만들어서 GUI를 표시 할 수 있습니다.
 
 ### Renderer Process
 
@@ -22,9 +22,9 @@ Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고, 그렇
 
 웹 페이지에서 네이티브 GUI 관련 API는 웹 페이지에서 네이티브 GUI리소스를 관리하는 것이 매우 위험하고 리소스의 유출이 쉽게 때문에 허용하지 않습니다. 웹페이지에서 GUI작업을 수행하려면, 웹 페이지의 렌더러 프로세스가 메인 프로세스에게 이러한 작업을 수행하도록 요청해야 합니다.
 
-Electron에서, 우리는 메인 프로세스와 렌더러 프로세스 간의 통신하는 여러 방법이 있습니다. 예로, 메시지를 보내는 [`ipcRenderer`](../api/ipc-renderer.md) 와 [`ipcMain`](../api/ipc-main.md) 모듈, RPC 스타일 통신인 [remote](../api/remote.md)모듈이 있다. 또한 FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 기입해 놓았습니다.
+Electron에는 메인 프로세스와 렌더러 프로세스 사이에 통신할 수 있는 몇 가지 방법이 있습니다. 예로, 메시지를 보내는 [`ipcRenderer`](../api/ipc-renderer.md) 와 [`ipcMain`](../api/ipc-main.md) 모듈, RPC 스타일 통신인 [remote](../api/remote.md)모듈이 있다. 또한 FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 기입해 놓았습니다.
 
-## Write your First Electron App
+## 당신의 첫 번째 Electron 앱을 만드세요
 
 일반적으로 Electron 앱의 구조는 이렇습니다:
 
@@ -125,13 +125,13 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## 앱 실행하기
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt)은 Electron의 미리 컴파일된 버전을 포함하는 `npm` 모듈입니다.
 
 If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 

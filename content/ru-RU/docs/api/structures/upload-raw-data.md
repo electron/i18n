@@ -1,4 +1,4 @@
-# UploadRawData Object
+# UploadRawData Объект
 
 * `type` String - `rawData`.
-* `bytes` Buffer - Data to be uploaded.
+* `bytes` Buffer - Данные для отправки.

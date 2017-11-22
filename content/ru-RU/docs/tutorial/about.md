@@ -1,6 +1,6 @@
 # О Electron
 
-[Electron](https://electron.atom.io) - это библиотека с открытым исходным кодом, разработанная GitHub, для создания кросс-платформенных приложений с помощью HTML, CSS и JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electron.atom.io) - это библиотека с открытым исходным кодом, разработанная GitHub, для создания кросс-платформенных приложений с помощью HTML, CSS и JavaScript. Electron выполняет это путем объединения [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org) в единую среду выполнения, а приложения могут быть упакованы для Mac, Windows и Linux.
 
 Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
 
@@ -8,39 +8,39 @@ It has since become a popular tool used by open source developers, startups, and
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 
-## Core Team and Contributors
+## Основная команда и участники
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron поддерживается командой в GitHub, а также группой [активных участников](https://github.com/electron/electron/graphs/contributors) от сообщества. Некоторые из авторов самозанятые люди, а некоторые работают в крупных компаниях, которые развиваются на Electron. Мы рады добавить в проект постоянных участников проекта в качестве сопровождающих. Подробнее о [развитии Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## Releases
+## Релизы
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron релизы](https://github.com/electron/electron/releases) частые. Мы их выпускаем, когда есть значительные исправления ошибок, новое API или обновляется версия Chromium или Node.js.
 
-### Updating Dependencies
+### Обновление зависимостей
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron версия обычно обновляется в течение одной или двух недель после выхода новой стабильной версии Chromium, в зависимости от усилий, связанных с обновлением.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+При новой версии релиза Node.js, Electron обычно выжидает около месяца, перед обновлением, чтобы перевести в более стабильную версию.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+В Electron Node.js и Chromium используют один экземпляр V8 - обычно версия, которую использует Chromium. В большинстве случаев это *просто работает*, но иногда это означает исправление Node.js.
 
-### Versioning
+### Версионность
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+Из-за жесткой зависимости от Node.js и Chromium, Electron находится в затруднительном положении версионности и [не соответствует`semver`](http://semver.org). Поэтому вы всегда должны ссылаться на конкретную версию Electron. [Подробнее о версионности Electron](https://electron.atom.io/docs/tutorial/electron-versioning/) или смотрите [текущая используемая версия](https://electron.atom.io/#electron-versions).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Долгосрочная поддержка более старых версий Electron в настоящее время не существует. Если ваша текущая версия Electron работает для вас, вы можете оставаться на ней столько, сколько захотите. Если вы хотите использовать новые функции по мере их поступления, вы должны перейти на более новую версию.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
+Основные обновления появились с версией `v1.0.0`. Если вы еще не используете эту версию, вы должны  узнать больше об изменениях ` v1.0.0 ` </ 0>.</p> 
 
-## Core Philosophy
+## Основная философия
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Для того, чтобы сохранить Electron маленьким (размер файла) и устойчивого (распространения зависимостей и API) проект ограничивает рамки основного проекта.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Например, Electron использует только библиотеку рендеринга от Chromium, а не всего Chromium. Это упрощает обновление Chromium, но также означает, что некоторые функции браузера, найденные в Google Chrome, не существуют в Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Новые функции, добавленные в Electron, должны в первую очередь быть нативными к API. Если функция может быть собственным модулем Node.js, то он, вероятно, должен быть. See the [Electron tools built by the community](https://electron.atom.io/community).
 
 ## History
 

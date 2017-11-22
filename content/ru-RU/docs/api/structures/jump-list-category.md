@@ -1,11 +1,11 @@
-# JumpListCategory Object
+# JumpListCategory Объект
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
-* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+* `type` String (опиционально) - Одно из следующего: 
+  * `tasks` - Элементы этой категории будут помещены в стандартную категорию `Tasks`. Там может быть только одна такая категория, и она всегда будет отображается в нижней части списка переходов.
+  * `frequent` - Отображать список файлов, недавно открытых приложением, имя категории и этого элемента устанавливаются в Windows.
+  * `recent` - Отображать список файлов, недавно открытых приложением, имя категории и этого элемента устанавливаются в Windows. Элементы могут быть добавлены в эту категорию косвенно, используя `app.addRecentDocument(path)`.
+  * `custom` - Отображать ссылки на задачи или файлы, `name` должно быть установлено приложением.
+* `name` String (опиционально) - Должно быть установлено, если `type` является `custom`, в противном случае он должно быть опущено.
+* `items` JumpListItem[] (опиционально) - Массив [`JumpListItem`](jump-list-item.md) объектов, если `type` является `tasks` или `custom`, в противном случае оно должно быть опущено.
 
-**Примечание:** Если `JumpListCategory` не имеет `типа` или `имени` , то он будет приведен к `типу` `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет свойства `type` или `name` то его `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, то `type` считается `custom`.

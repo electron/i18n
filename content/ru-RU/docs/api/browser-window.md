@@ -966,18 +966,18 @@ The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `click` Функция
+  * `tooltip` String (опиционально) - Текст подсказки на кнопке.
+  * `flags` String[] (опиционально) - Контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
 
-The `flags` is an array that can include following `String`s:
+`flags` — это массив, который может включать следующие `String`:
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `enabled` - Кнопка активна и доступна пользователю.
+* `disabled` - Кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
+* `dismissonclick` - Когда кнопка нажата, окно миниатюры закрывается немедленно.
+* `nobackground` - Не рисует границы кнопок, использует только изображение.
+* `hidden` - Кнопка не отображается пользователю.
+* `noninteractive` - Кнопка включена, но не интерактивна; рисуется не нажатое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
 
 #### `win.setThumbnailClip(region)` *Windows*
 

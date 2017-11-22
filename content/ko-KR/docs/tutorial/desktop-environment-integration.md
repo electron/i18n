@@ -14,7 +14,7 @@ Windows와 macOS는 JumpList 또는 dock 메뉴를 통해 최근 문서 리스�
 
 **JumpList:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![최근파일의  JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **dock menu 애플리케이션:**
 
@@ -121,7 +121,8 @@ MSDN의 설명에 의하면:
 
 **Windows Media Player의 미리보기 툴바:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![사용자
+](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) API를 통해 애플리케이션에 미리보기 툴바를 설정할 수 있습니다:
 
@@ -218,19 +219,19 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+`flashFrame` 메소드를 `false` 인자로 호출하여 깜빡임을 중단시키는 것을 잊지마세요. 위의 예제에서, 윈도우가 포커스되었을 때 호출합니다. 그러나 타임아웃 또는 다른 이벤트에서 비활성화할 수 있습니다.
 
-## Represented File of Window (macOS)
+## 대표 파일 제시 (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+macOS는 창에서 대표 파일을 설정할 수 있습니다. 타이틀바에서 파일 아이콘이 있고, 사용자가 Command-Click 또는 Control-Click 키를 누를 경우 파일 경로 팝업이 보여집니다.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+또한 창의 상태도 지정할 수 있습니다. 다시 말해 로드된 문서의 수정 여부를 제목의 파일 아이콘에 표시할 수 있습니다.
 
-**Represented file popup menu:**
+**대표 파일 팝업 메뉴:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+대표 파일 관련 API는 [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) 과 [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x)를 사용할 수 있습니다:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,11 +240,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## 파일을 윈도우 밖으로 드래그할 수 있도록 만들기
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+파일을 조작하는 특정 종류의 애플리케이션들에서 파일을 Electron에서 다른 애플리케이션으로 드래그할 수 있는 기능은 중요합니다. 이 기능을 구현하려면 애플리케이션에서 `ondragstart` 이벤트가 발생했을 때 `webContents.startDrag`(item) API를 호출해야 합니다:
 
-In web page:
+웹 페이지에서:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +256,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+메인 프로세스에서:
 
 ```javascript
 const {ipcMain} = require('electron')

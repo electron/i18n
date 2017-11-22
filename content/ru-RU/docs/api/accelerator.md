@@ -1,63 +1,63 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> Определить сочетания клавиш.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Ускорители - это Strings, которые могут содержать несколько модификаторов, коды клавиш и комбинироваться символом `+`, используются определения сочетаний клавиш на протяжении всего приложения.
 
-Examples:
+Примеры:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Сочетания клавиш регистрируются с помощью модуля [`globalShortcut`](global-shortcut.md) используя метод [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), т.е.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // Регистрация 'CommandOrControl+Y' слушателя шортката.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // Сделайте что-нибудь, когда Y и Command/Control нажата.
   })
 })
 ```
 
-## Platform notice
+## Платформа заметок
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+На Linux и Windows, `Command` ключ не имеет никакого эффекта, так используйте `CommandOrControl` который представляет собой `Command` на MacOS и `Control` на Linux и Windows для определения некоторых ускорителей.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Используйте `Alt` вместо `Option`. Ключ `Option` существует только на MacOS, в то время как ключ`Alt` доступен на всех платформах.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+Клавиша `Super` сопоставляется с `Windows` в Windows и Linux, и `Cmd` на macOS.
 
-## Available modifiers
+## Доступные модификаторы
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (или `Cmd` для краткости)
+* `Control` (или `Ctrl` для краткости)
+* `CommandOrControl` (или `CmdOrCtrl` для краткости)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Доступные коды клавиш
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* от `` до `9`
+* от `A` до `Z`
+* от `F1` до `F24`
+* Символы пунктуации как `~`, `!`, `@`, `#`, `$`, т.д.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (или `Enter` как псевдоним)
+* `Up`, `Down`, `Left` и `Right`
+* `Home` и `End`
+* `PageUp` и `PageDown`
+* `Escape` (или `Esc` для краткости)
+* `VolumeUp`, `VolumeDown` и `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` и `MediaPlayPause`
 * `PrintScreen`

@@ -1,4 +1,4 @@
-# MemoryUsageDetails Object
+# MemoryUsageDetails Объект
 
 * `count` Number
 * `size` Number

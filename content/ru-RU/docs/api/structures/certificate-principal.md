@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# CertificatePrincipal Объект
 
-* `commonName` String - общее имя
+* `commonName` String - Общее имя
 * `organizations` String[] - Имена организаций
-* `organizationUnits` String[] - имена единиц организаций (Organization Unit names)
-* `locality` String - Местоположение
-* `state` String - город
-* `country` String - страна
+* `organizationUnits` String[] - Названия организационных подразделений (Organization Unit names)
+* `locality` String - Местонахождение
+* `state` String - Город
+* `country` String - Страна или Регион

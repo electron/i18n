@@ -1,7 +1,7 @@
-# UploadFileSystem Object
+# UploadFileSystem Объект
 
 * `type` String - `fileSystem`.
-* `filsSystemURL` String - FileSystem url to read data for upload.
-* `offset` Integer - Defaults to ``.
-* `length` Integer - Number of bytes to read from `offset`. Defaults to ``.
-* `modificationTime` Double - Last Modification time in number of seconds sine the UNIX epoch.
+* `filsSystemURL` String - FileSystem url для чтения данных для отправки.
+* `offset` Integer - По умолчанию ``.
+* `length` Integer - Количество байтов для чтения от `offset`. По умолчанию ``.
+* `modificationTime` Double - Количество секунд со времени последней модификации в эпоху UNIX.

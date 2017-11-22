@@ -1,6 +1,6 @@
-# Rectangle Object
+# Rectangle Объект
 
-* `x` Number - The x coordinate of the origin of the rectangle (must be an integer)
-* `y` Number - The y coordinate of the origin of the rectangle (must be an integer)
-* `width` Number - The width of the rectangle (must be an integer)
-* `height` Number - The height of the rectangle (must be an integer)
+* `x` Number - Координата x начала координат прямоугольника (должна быть целым числом)
+* `y` Number - Координата y начала координат прямоугольника (должна быть целым числом)
+* `width` Number - Ширина прямоугольника (должна быть целым числом)
+* `height` Number - Высота прямоугольника (должна быть целым)

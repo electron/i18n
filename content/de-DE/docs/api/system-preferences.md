@@ -1,15 +1,15 @@
-# systemPreferences
+# systemEinstellungen
 
-> Get system preferences.
+> Systemeinstellungen anschauen.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Ereignisse
 
 The `systemPreferences` object emits the following events:
 
