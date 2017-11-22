@@ -2,7 +2,7 @@
 
 > Control your application's event lifecycle.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 The following example shows how to quit the application when the last window is closed:
 
