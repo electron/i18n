@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
-В большинстве случаев вы просто должны сделать все в обработчике событий `готов`.
+В большинстве случаев вы просто должны сделать все в обработчике событий `ready`.
 
 ### Событие: 'ready'
 
@@ -47,7 +47,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-### Event: 'will-quit'
+### Событие: 'will-quit'
 
 Возвращает:
 
@@ -57,7 +57,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
-### Event: 'quit'
+### Событие: 'quit'
 
 Возвращает:
 
