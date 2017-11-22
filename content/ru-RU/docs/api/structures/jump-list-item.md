@@ -8,6 +8,6 @@
 * `program` String (опиционально) - Путь программы для выполнения, обычно вы должны указать `process.execPath`, который открывает текущую программу. Должно быть установлен, если `type` является `task`.
 * `args` String (опиционально) - Аргументы командной строки, когда выполняется `program`. Должен быть установлен, если `type` является `task`.
 * `title` String (опиционально) - Текст, который будет отображаться для элемента в Jump List. Должен быть установлен, если `type` является `task`.
-* `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
-* `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
-* `iconIndex` Number (optional) - The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
+* `description` String (опиционально) - Описание задачи (отображается в tooltip). Должен быть установлен, если `type` является `task`.
+* `iconPath` String (опиционально) - Абсолютный путь к значку, отображаемому в Jump List, который может быть произвольным файлом ресурсов, который содержит значок (пр. `.ico`, `.exe`, `.dll`). Обычно вы можете указать `process.execPath`, чтобы показать значок программы.
+* `iconIndex` Number (опиционально) - Индекс значка в файле ресурсов. Если файл ресурса содержит несколько значков, это значение можно использовать для указания нулевого индекса значка, который должен отображаться для этой задачи. Если файл ресурса содержит только один значок, это свойство должно быть установлено равным нулю.
