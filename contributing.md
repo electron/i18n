@@ -64,7 +64,7 @@ Here's the directory structure:
 
 ```
 content
-└── en
+└── en-US
     ├── api
     ├── docs
     └── website
@@ -78,11 +78,11 @@ Translations are added under a directory named after the locale. The _contents_ 
 
 ```
 content
-├── en
+├── en-US
 │   ├── api
 │   ├── docs
 │   └── website
-├── es
+├── es-ES
 │   ├── api
 │   ├── docs
 │   └── website
