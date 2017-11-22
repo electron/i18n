@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
-In most cases, you should just do everything in the `ready` event handler.
+В большинстве случаев вы просто должны сделать все в обработчике событий `готов`.
 
 ### Событие: 'ready'
 
@@ -37,7 +37,7 @@ In most cases, you should just do everything in the `ready` event handler.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
-### Event: 'before-quit'
+### Событие: 'before-quit'
 
 Возвращает:
 
