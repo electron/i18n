@@ -1,8 +1,8 @@
 # Sobre Electron
 
-[Electron](https://electron.atom.io) é uma biblioteca open soruce desenvolvida pelo o GitHub para o desenvolvimento de aplicações desktop multi-plataforma com HTML, CSS e JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electron.atom.io) é uma biblioteca open soruce desenvolvida pelo o GitHub para o desenvolvimento de aplicações desktop multi-plataforma com HTML, CSS e JavaScript. Electron foi feito com uma combinação entre [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) em uma única runtime e os applicativos podem ser empacotados para Mac, Windows e Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron começou em 2013, como uma framewok que seria utilizado no [Atom](https://atom.io), editor de texto hackable do GitHub, que seria construído. Os dois foram disponibilizados na primavera de 2014, com seu código fonte aberto.
 
 It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
 
