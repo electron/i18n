@@ -1,8 +1,8 @@
-# DevTools 확장
+# 개발자 도구 확장 기능
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Electron은 유명한 웹 프레임워크를 디버깅하기 위해 사용할 수 있는 개발자 도구 확장 기능을 사용할 수 있도록 [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools)(크롬 개발자 도구 확장 기능)을 지원합니다.
 
-## How to load a DevTools Extension
+## 개발자 도구는 어떻게 로드하나요
 
 This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
