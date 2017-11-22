@@ -10,17 +10,17 @@ Read on to learn more about the contributors and releases of Electron or get sta
 
 ## Основная команда и участники
 
-Electron поддерживается командой в GitHub, а также группой [активных участников](https://github.com/electron/electron/graphs/contributors) от сообщества. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron поддерживается командой в GitHub, а также группой [активных участников](https://github.com/electron/electron/graphs/contributors) от сообщества. Некоторые из авторов самозанятые люди, а некоторые работают в крупных компаниях, которые развиваются на Electron. Мы рады добавить в проект постоянных участников проекта в качестве сопровождающих. Подробнее о [развитии Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Релизы
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron релизы](https://github.com/electron/electron/releases) частые. Мы их выпускаем, когда есть значительные исправления ошибок, новое API или обновляется версия Chromium или Node.js.
 
-### Updating Dependencies
+### Обновление зависимостей
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron версия обычно обновляется в течение одной или двух недель после выхода новой стабильной версии Chromium, в зависимости от усилий, связанных с обновлением.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+При новой версии релиза Node.js, Electron обычно выжидает около месяца, перед обновлением, чтобы перевести в более стабильную версию.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
