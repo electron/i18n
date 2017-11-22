@@ -1,9 +1,9 @@
-# ThumbarButton Object
+# ThumbarButton Объект
 
-* `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
-* `click` Function
-* `tooltip` String (optional) - The text of the button's tooltip.
-* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+* `icon` [NativeImage](../native-image.md) - Значок, отображаемый на панели инструментов эскизов.
+* `click` Функция
+* `tooltip` String (опиционально) - Текст подсказки на кнопке.
+* `flags` String[] (опиционально) - Контролировать определенные состояния и поведение кнопки. По умолчанию `['enabled']`.
 
 The `flags` is an array that can include following `String`s:
 
