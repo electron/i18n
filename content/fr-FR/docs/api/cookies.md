@@ -56,8 +56,8 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
 * `filter` Object 
   * `url` String (facultatif) - Récupère les cookies qui sont associés à des `url`. S'il est vide, cela va récupérer les cookies avec toutes les urls.
   * `name` String (facultatif) - Filtre les cookies par nom.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
+  * `domain` String (facultatif) - Récupère les cookies dont les domaines correspondent ou sont des sous-domaines de `domains`
+  * `path` String (facultatif) - Récupère les cookies dont le chemin correspond à `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `callback` Function 
