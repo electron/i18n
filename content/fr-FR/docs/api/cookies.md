@@ -58,22 +58,22 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
   * `name` String (facultatif) - Filtre les cookies par nom.
   * `domain` String (facultatif) - Récupère les cookies dont les domaines correspondent ou sont des sous-domaines de `domains`
   * `path` String (facultatif) - Récupère les cookies dont le chemin correspond à `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `secure` Boolean (facultatif) - Filtre les cookies par leur propriété de sécuritée.
+  * `session` Boolean (facultatif) - filtre les session ou les cookies persistants.
 * `callback` Function 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - Un tableau d'objet de cookie.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Envoie une demande pour obtenir tous les cookies correspondants à `details`, `callback` sera appelé avec `callback(error, cookies)` une fois fini.
 
 #### `cookies.set(details, callback)`
 
 * `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+  * `url` String - L'url à associer au cookie.
+  * `name` String (facultatif) - Le nom du cookie. Vide par défaut si omis.
+  * `value` String (facultatif) - Le contenu du cookie. Vide par défaut si omis.
+  * `domain` String (facultatif) - Le domaine du cookie. Vide par défaut si omis.
+  * `path` String (facultatif) - Le chemin d'accès du cookie. Vide par défaut si omis.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
