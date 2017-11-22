@@ -101,8 +101,8 @@ Des ressources seront chargées de ce `scheme` quelle que soit la politique de s
   * `secure` Boolean - (facultatif) true par défaut.
   * `bypassCSP` Boolean - (facultatif) true par défaut.
   * `allowServiceWorkers` Boolean - (facultatif) true par défaut.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+  * `supportFetchAPI` Boolean - (facultatif) true par défaut.
+  * `corsEnabled` Boolean - (facultatif) true par défaut.
 
 Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
