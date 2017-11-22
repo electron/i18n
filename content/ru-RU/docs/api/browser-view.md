@@ -2,7 +2,7 @@
 
 > Create and control views.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.
 
 Процесс: [Main](../glossary.md#main-process)
 
@@ -34,7 +34,7 @@ view.webContents.loadURL('https://electron.atom.io')
 * `options` Object (optional) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Статические методы
 
 #### `BrowserView.fromId(id)`
 
