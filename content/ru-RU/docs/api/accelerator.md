@@ -2,22 +2,22 @@
 
 > Определить сочетания клавиш.
 
-Ускорители - это Strings, которые могут содержать несколько модификаторов и кодов ключей, комбинироваться символом `+` и используется для определения сочетаний клавиш на протяжении всего приложения.
+Ускорители - это Strings, которые могут содержать несколько модификаторов, коды клавиш и комбинироваться символом `+`, используются определения сочетаний клавиш на протяжении всего приложения.
 
 Примеры:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Сочетания клавиш регистрируются с помощью модуля [`globalShortcut`](global-shortcut.md) используя метод [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), т.е.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // Регистрация 'CommandOrControl+Y' слушателя шортката.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // Сделайте что-нибудь, когда Y и Command/Control нажата.
   })
 })
 ```
