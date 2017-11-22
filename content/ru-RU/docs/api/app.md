@@ -43,7 +43,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Происходит перед тем как запущенное приложение закрывает окна. Вызов `event.preventDefault()` предотвращает поведение по умолчанию, которое завершает работу приложения.
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
@@ -64,7 +64,7 @@ See the description of the `window-all-closed` event for the differences between
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Происходит при выходе из приложения.
 
 ### Event: 'open-file' *macOS*
 
