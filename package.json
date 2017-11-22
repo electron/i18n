@@ -40,7 +40,7 @@
     "test": "mocha && standard --fix",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
-    "pretest": "npm run stats && npm run build",
+    "pretest": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   }
 }
