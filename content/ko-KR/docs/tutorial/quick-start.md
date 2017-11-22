@@ -125,13 +125,13 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## 앱 실행하기
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt)은 Electron의 미리 컴파일된 버전을 포함하는 `npm` 모듈입니다.
 
 If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 
