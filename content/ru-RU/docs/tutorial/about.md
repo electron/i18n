@@ -2,11 +2,11 @@
 
 [Electron](https://electron.atom.io) - это библиотека с открытым исходным кодом, разработанная GitHub, для создания кросс-платформенных приложений с помощью HTML, CSS и JavaScript. Electron выполняет это путем объединения [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org) в единую среду выполнения, а приложения могут быть упакованы для Mac, Windows и Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron был создан в 2013 году в качестве фреймворка как платформа для [Atom](https://atom.io), GitHub's хакнул текстовый редактор, будущего построения. Оба были открыты весной 2014 года.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
+С тех пор он стал популярным инструментом, используемым разработчиками с открытым исходным кодом, стартапами и стабильными компаниями. [Посмотрите, кто создает на Electron](https://electron.atom.io/apps/).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Читайте дальше, чтобы узнать больше о вкладчиках и выпусках Electron или начать работу с Electron в [Кратком начальном руководстве](quick-start.md).
 
 ## Основная команда и участники
 
@@ -14,7 +14,7 @@ Electron поддерживается командой в GitHub, а также 
 
 ## Релизы
 
-[Electron релизы](https://github.com/electron/electron/releases) частые. Мы их выпускаем, когда есть значительные исправления ошибок, новое API или обновляется версия Chromium или Node.js.
+[Electron релизы](https://github.com/electron/electron/releases) частые. Мы их выпускаем, когда есть значительные исправления ошибок, новое API или обновлённая версия Chromium или Node.js.
 
 ### Обновление зависимостей
 
