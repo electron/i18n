@@ -123,14 +123,14 @@ Insère le `text` à l'élément ciblé.
 
 * `code` String
 * `userGesture` Boolean (facultatif) - `false` par défaut.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (facultatif) - Appelé après l'exécution du script. 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Retourne `Promise` - Une promesse qui se résout avec le résultat du code exécuté ou se rejette si le résultat du code est une promesse rejetée.
 
-Evaluates `code` in page.
+Évalue le `code` dans la page.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
 ### `webFrame.getResourceUsage()`
 
@@ -142,7 +142,7 @@ Retourne `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Retourne un objet décrivant les informations d'utilisation de caches de mémoire interne de Blink.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -167,6 +167,6 @@ Cela va générer :
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Tente de libérer de la mémoire qui n'est plus utilisée (comme les images d'une navigation précédente).
 
 Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
