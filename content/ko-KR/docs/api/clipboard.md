@@ -111,7 +111,7 @@ Returns `String` - FindPasteboard 의 텍스트. 이 메소드는 렌더러 프�
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+`text` 를 FindPasteboard 에 일반 텍스트로 씁니다. 이 메소드는 렌더러 프로세스에서 호출되었을 떄 동기 IPC 를 사용합니다.
 
 ### `clipboard.clear([type])`
 
@@ -123,14 +123,14 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (optional)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Return `String[]` - 클립보드 `type` 에 지원되는 형식의 배열.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
 * `type` String (optional)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Returns `Boolean` - 클립보드가 지정한 `format`을 지원하는지 여부.
 
 ```javascript
 const {clipboard} = require('electron')
@@ -141,13 +141,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+Returns `String` - 클립보드로부터 `format`를 읽습니다.
 
 ### `clipboard.readBuffer(format)` *Experimental*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Returns `Buffer` - 클립보드로부터 `format` 타입을 읽습니다.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
@@ -155,7 +155,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 * `buffer` Buffer
 * `type` String (optional)
 
-Writes the `buffer` into the clipboard as `format`.
+`buffer`에 있는 `format`을 클립보드에 씁니다 .
 
 ### `clipboard.write(data[, type])`
 
