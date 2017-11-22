@@ -1,10 +1,10 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> Определить сочетания клавиш.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Ускорители - это Strings, которые могут содержать несколько модификаторов и кодов ключей, комбинироваться символом `+` и используется для определения сочетаний клавиш на протяжении всего приложения.
 
-Examples:
+Примеры:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
