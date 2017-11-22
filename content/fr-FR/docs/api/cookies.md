@@ -74,7 +74,7 @@ Envoie une demande pour obtenir tous les cookies correspondants à `details`, `c
   * `value` String (facultatif) - Le contenu du cookie. Vide par défaut si omis.
   * `domain` String (facultatif) - Le domaine du cookie. Vide par défaut si omis.
   * `path` String (facultatif) - Le chemin d'accès du cookie. Vide par défaut si omis.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (facultatif) - Si le cookie doit être marqué comme sécurisé. False par défaut.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
