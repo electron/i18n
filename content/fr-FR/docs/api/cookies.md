@@ -49,13 +49,13 @@ Les événements suivants sont disponibles pour les instances de `Cookies` :
 
 ### Méthodes d’instance
 
-Les méthodes suivantes sont disponibles sur les instances de `Cookies` :
+Les méthodes suivants sont disponibles pour les instances de `Cookies` :
 
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
+  * `url` String (facultatif) - Récupère les cookies qui sont associés à des `url`. S'il est vide, cela va récupérer les cookies avec toutes les urls.
+  * `name` String (facultatif) - Filtre les cookies par nom.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
