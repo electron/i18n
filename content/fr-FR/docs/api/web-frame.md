@@ -67,13 +67,13 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
 
 Définit un fournisseur pour la correction orthographique dans les champs de saisie et les zones de texte.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+Le `provider` doit être un objet contenant la méthode `spellCheck` qui indiquera si le mot donné est correctement orthographié.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Un exemple d'utilisation de [node-spellchecker](https://github.com/atom/node-spellchecker) comme fournisseur :
 
 ```javascript
 const {webFrame} = require('electron')
-webFrame.setSpellCheckProvider('en-US', true, {
+webFrame.setSpellCheckProvider('fr-FR', true, {
   spellCheck (text) {
     return !(require('spellchecker').isMisspelled(text))
   }
@@ -84,21 +84,21 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+Enregistre le `scheme` comme schéma sécurisé.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Les schémas sécurisés ne déclenchent pas d'avertissements de contenu mixtes. Par exemple, `https` et `data` sont des schémas sécurisés car il ne peuvent pas être altérées par des attaquants de réseau actif.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Des ressources seront chargées de ce `scheme` quelle que soit la politique de sécurité de la page courante.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
 * `options` Object (facultatif) 
-  * `secure` Boolean - (optional) Default true.
+  * `secure` Boolean - (facultatif) true par défaut.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
   * `supportFetchAPI` Boolean - (optional) Default true.
