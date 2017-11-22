@@ -14,22 +14,22 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
 2. `chrome://extensions`로 이동한 후 해시된 `fmkadmapgofadopljbjfkapdkoienihi` 같이 생긴 확장 기능의 ID를 찾습니다.
 3. Chrome에서 사용하는 확장 기능을 저장해둔 파일 시스템 경로를 찾습니다: 
     * Windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions<0>;</li>
-<li>on Linux it could be:
+<li>Linux에선:
 
 <ul>
 <li><code>~/.config/google-chrome/Default/Extensions/`
     * `~/.config/google-chrome-beta/Default/Extensions/`
     * `~/.config/google-chrome-canary/Default/Extensions/`
     * `~/.config/chromium/Default/Extensions/`
-4. on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.</ul></li> 
+4. macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions.`</ul></li> 
 
-5. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+5. 확장 기능의 경로를 `BrowserWindow.addDevToolsExtension` API로 전달합니다. React Developer Tools의 경우 다음과 비슷해야 합니다: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**참고:** `BrowserWindow.addDevToolsExtension` API는 app 모듈의 ready 이벤트가 발생하기 전까지 사용할 수 없습니다.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+확장 기능의 이름은 `BrowserWindow.addDevToolsExtension`에서 반환되며, 이 이름을 `BrowserWindow.removeDevToolsExtension` API로 전달함으로써 해당하는 확장 기능을 언로드할 수 있습니다.
 
-## Supported DevTools Extensions
+## 지원하는 개발자 도구 확장 기능
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
