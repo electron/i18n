@@ -22,15 +22,15 @@ Electron версия обычно обновляется в течение од
 
 При новой версии релиза Node.js, Electron обычно выжидает около месяца, перед обновлением, чтобы перевести в более стабильную версию.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+В Electron Node.js и Chromium используют один экземпляр V8 - обычно версия, которую использует Chromium. В большинстве случаев это *просто работает*, но иногда это означает исправление Node.js.
 
-### Versioning
+### Версионность
 
-Due to the hard dependency on Node.js and Chromium, Electron is in a tricky versioning position and [does not follow `semver`](http://semver.org). You should therefore always reference a specific version of Electron. [Read more about Electron's versioning](https://electron.atom.io/docs/tutorial/electron-versioning/) or see the [versions currently in use](https://electron.atom.io/#electron-versions).
+Из-за жесткой зависимости от Node.js и Chromium, Electron находится в затруднительном положении версионности и [не соответствует`semver`](http://semver.org). Поэтому вы всегда должны ссылаться на конкретную версию Electron. [Подробнее о версионности Electron](https://electron.atom.io/docs/tutorial/electron-versioning/) или смотрите [текущая используемая версия](https://electron.atom.io/#electron-versions).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Долгосрочная поддержка более старых версий Electron в настоящее время не существует. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electron.atom.io/blog/2016/05/11/electron-1-0).
 
