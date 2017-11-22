@@ -31,7 +31,7 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
 
 ## 지원하는 개발자 도구 확장 기능
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron은 아주 제한적인 `chrome.*` API만을 지원하므로 확장 기능이 지원하지 않는 `chrome.*` API를 사용한다면 해당 기능은 작동하지 않을 것입니다. 다음 개발자 도구들은 Electron에서 정상적으로 작동하는 것을 확인했으며 작동 여부를 보장할 수 있는 확장 기능입니다:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -42,8 +42,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-### What should I do if a DevTools Extension is not working?
+### 개발자 도구가 작동하지 않을 때 어떻게 해야 하나요?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+먼저 해당 확장 기능이 확실히 계속 유지되고 있는지를 확인하세요. 몇몇 확장 기능들은 최신 버전의 Chrome 브라우저에서도 작동하지 않습니다. 그리고 이러한 확장 기능에 대해선 Electron 개발팀에 해줄 수 있는 것이 아무것도 없습니다.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+위와 같은 상황이 아니라면 Electron의 이슈 리스트에 버그 보고를 추가한 후 예상한 것과 달리 확장 기능의 어떤 부분의 정상적으로 작동하지 않았는지 설명하세요.
