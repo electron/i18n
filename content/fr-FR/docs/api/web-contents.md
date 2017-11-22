@@ -139,11 +139,11 @@ Retourne :
 * `option` Object - Les options qui seront utilisés pour la création d'un nouveau `BrowserWindow`.
 * `additionalFeatures` String[] - Les fonctionnalités non standards (fonctionnalités non gérés par Chromium ou Electron) donné à `window.open()`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Émis lorsque la page demande d'ouvrir une nouvelle fenêtre pour une `url`. Cela peut être demandé par `window.open` ou un lien externe avec `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Un nouveau `BrowserWindow` sera créé par défaut pour l'`url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Par exemple :
+Appeler `event.preventDefault()` empêchera Electron de créer automatiquement un nouveau `BrowserWindow`. Si vous appelez `event.preventDefault()` et créez manuellement un nouveau `BrowserWindow`, alors vous devez définir `event.newGuest` en passant la nouvelle instance de `BrowserWindow`, oublier de faire cela peut entraîner un comportement inattendu. Par exemple :
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -162,13 +162,13 @@ Retourne :
 * `event` Event
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Émis quand un utilisateur ou la page veut démarrer la navigation. Cela peut arriver quand l'objet `window.location` est modifié ou un utilisateur clique sur un lien dans la page.
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+Cet événement ne sera pas émis lorsque la navigation démarre par programmation grâce aux APIs comme `webContents.loadURL` et `webContents.back`.
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Il n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage. ou la mise à jour de la fenêtre `window.location.hash`. Utiliser l'événement `did-navigate-in-page` pour cet usage.
 
-Calling `event.preventDefault()` will prevent the navigation.
+Appeler `event.preventDefault()` permet d'éviter la navigation.
 
 #### Événement : 'did-navigate'
 
@@ -177,7 +177,7 @@ Retourne :
 * `event` Event
 * `url` String
 
-Emitted when a navigation is done.
+Émis lorsqu'une navigation est faite.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
