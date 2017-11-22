@@ -117,12 +117,12 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Insère le `text` à l'élément ciblé.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Boolean (facultatif) - `false` par défaut.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
