@@ -16,14 +16,14 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// Récupère tous les cookies associés à une url spécifique.
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Définit un cookie avec les données du cookie donné;
+// Peut écraser des cookies équivalents s'ils existent.
+const cookie = {url: 'http://www.github.com', name: 'nom_fictif', value: 'fictif'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
@@ -31,21 +31,21 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### Événements d’instance
 
-The following events are available on instances of `Cookies`:
+Les événements suivants sont disponibles pour les instances de `Cookies` :
 
 #### Événement : 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - Le cookie qui a été changé
+* `cause` String - La cause du changement avec l'une des valeurs suivantes : 
+  * `explicit` - Le cookie a été modifié directement par l'action du consommateur.
+  * `overwrite` - Le cookie a été supprimé automatiquement a cause d'une insertion écrasante.
+  * `expired` - Le cookie a été supprimé automatiquement par expiration.
+  * `evicted` - Le cookie a été expulsée automatiquement par le ramasse-miettes.
+  * `expired-overwrite` - Le cookie a été écrasé avec une date d'expiration dépassée.
+* `removed` Boolean - `true` si le cookie a été supprimé, `false` autrement.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Émis lorsqu’un cookie a été changé car il a été ajouté, édité, enlevé ou a expiré.
 
 ### Méthodes d’instance
 
