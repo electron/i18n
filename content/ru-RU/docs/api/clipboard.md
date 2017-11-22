@@ -1,6 +1,6 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Выполняет копирование и вставку в буфер обмена системы.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -21,7 +21,7 @@ console.log(clipboard.readText('selection'))
 
 ## Методы
 
-The `clipboard` module has the following methods:
+Модуль `clipboard` имеет следующие методы:
 
 **Note:** Experimental APIs are marked as such and could be removed in future.
 
@@ -29,27 +29,27 @@ The `clipboard` module has the following methods:
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as plain text.
+Возвращает `String` - содержимое в буфере обмена в виде обычного текста.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (optional)
 
-Writes the `text` into the clipboard as plain text.
+Записывает `text` в буфер обмена как обычный текст.
 
 ### `clipboard.readHTML([type])`
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as markup.
+Возвращает `String` - содержимое в буфере обмена в виде разметки.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
 * `type` String (optional)
 
-Writes `markup` to the clipboard.
+Записывает `markup` в буфер обмена.
 
 ### `clipboard.readImage([type])`
 
@@ -117,7 +117,7 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (optional)
 
-Clears the clipboard content.
+Очищает содержимое буфера обмена.
 
 ### `clipboard.availableFormats([type])`
 
@@ -172,4 +172,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+Записывает `data` в буфер обмена.
