@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-require('dotenv-safe').load()
+require('dotenv-safe').load({
+    allowEmptyValues: true
+});
 
 const del = require('del')
 const electronDocs = require('electron-docs')
