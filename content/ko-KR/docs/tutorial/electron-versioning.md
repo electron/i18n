@@ -1,6 +1,6 @@
 # Electron 버전 관리
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+노련한 Node 개발자라면, [Semantic Versioning](http://semver.org)에 대해 확실히 알고 있을 것입니다 - 그리고 제공된 의존성 관리 시스템은 고정된 버전 숫자 대신 견고한 가이드라인을 따릅니다. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
 
 ## Overview of Semantic Versioning
 
