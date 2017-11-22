@@ -2,7 +2,7 @@
 
 > Monitor power state changes.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
