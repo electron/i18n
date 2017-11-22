@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
