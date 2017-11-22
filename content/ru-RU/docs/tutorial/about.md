@@ -36,11 +36,11 @@ Electron версия обычно обновляется в течение од
 
 ## Основная философия
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Для того, чтобы сохранить Electron маленьким (размер файла) и устойчивого (распространения зависимостей и API) проект ограничивает рамки основного проекта.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Например, Electron использует только библиотеку рендеринга от Chromium, а не всего Chromium. Это упрощает обновление Chromium, но также означает, что некоторые функции браузера, найденные в Google Chrome, не существуют в Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electron.atom.io/community).
+Новые функции, добавленные в Electron, должны в первую очередь быть нативными к API. Если функция может быть собственным модулем Node.js, то он, вероятно, должен быть. See the [Electron tools built by the community](https://electron.atom.io/community).
 
 ## History
 
