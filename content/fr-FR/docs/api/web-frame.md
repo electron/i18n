@@ -99,8 +99,8 @@ Des ressources seront chargées de ce `scheme` quelle que soit la politique de s
 * `scheme` String
 * `options` Object (facultatif) 
   * `secure` Boolean - (facultatif) true par défaut.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
+  * `bypassCSP` Boolean - (facultatif) true par défaut.
+  * `allowServiceWorkers` Boolean - (facultatif) true par défaut.
   * `supportFetchAPI` Boolean - (optional) Default true.
   * `corsEnabled` Boolean - (optional) Default true.
 
