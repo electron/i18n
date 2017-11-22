@@ -2,7 +2,7 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 For example:
 
