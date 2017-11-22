@@ -75,17 +75,17 @@ Envoie une demande pour obtenir tous les cookies correspondants à `details`, `c
   * `domain` String (facultatif) - Le domaine du cookie. Vide par défaut si omis.
   * `path` String (facultatif) - Le chemin d'accès du cookie. Vide par défaut si omis.
   * `secure` Boolean (facultatif) - Si le cookie doit être marqué comme sécurisé. False par défaut.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `httpOnly` Boolean (facultatif) - Si le cookie doit être marqué comme HTTP uniquement. False par défaut.
+  * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
 * `callback` Function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Définit un cookie avec `details`, `callback` sera appelé avec `callback(error)` une fois fini.
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - L'url associée au cookie.
+* `name` String - Le nom du cookie à supprimer.
 * `callback` Function
 
 Supprime les cookies correspondant à `url` et `nom`, `rappel` seront appelé avec `callback()` complet.
