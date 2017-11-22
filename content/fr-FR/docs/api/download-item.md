@@ -1,10 +1,10 @@
 ## Classe : DownloadItem
 
-> Control file downloads from remote sources.
+> Gère les téléchargementq de fichiers depuis des sources distantes.
 
 Processus : [Main](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` est un `EventEmitter` qui représente un élément en cours de téléchargement dans Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
 
 ```javascript
 // Dans le processus main.
@@ -44,12 +44,12 @@ Retourne :
 * `event` Event
 * `state` String
 
-Emitted when the download has been updated and is not done.
+Émis lorsque le téléchargement a été mis à jour et n'est pas fini.
 
-The `state` can be one of following:
+Le `state` peut être un de ces cas :
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - Le téléchargement est en cours.
+* `interrupted` - Le téléchargement a interrompu et peut être repris.
 
 #### Événement 'done'
 
@@ -60,7 +60,7 @@ Retourne :
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
-The `state` can be one of following:
+Le `state` peut être un de ces cas :
 
 * `completed` - The download completed successfully.
 * `cancelled` - The download has been cancelled.
