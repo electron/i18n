@@ -166,7 +166,7 @@ Retourne :
 
 Cet événement ne sera pas émis lorsque la navigation démarre par programmation grâce aux APIs comme `webContents.loadURL` et `webContents.back`.
 
-Il n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage. ou la mise à jour de la fenêtre `window.location.hash`. Utiliser l'événement `did-navigate-in-page` pour cet usage.
+Il n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
 Appeler `event.preventDefault()` permet d'éviter la navigation.
 
@@ -179,7 +179,7 @@ Retourne :
 
 Émis lorsqu'une navigation est faite.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
 #### Événement : 'did-navigate-in-page'
 
@@ -189,7 +189,7 @@ Retourne :
 * `url` String
 * `isMainFrame` Boolean
 
-Emitted when an in-page navigation happened.
+Émis lorsqu'une navigation dans la page s'est produite.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
