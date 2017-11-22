@@ -77,7 +77,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## Méthodes
 
-The `process` object has the following methods:
+L'objet `process` dispose des méthodes suivantes :
 
 ### `process.crash()`
 
