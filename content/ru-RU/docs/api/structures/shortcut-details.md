@@ -4,6 +4,6 @@
 * `cwd` String (опиционально) - Рабочий каталог. По умолчанию пусто.
 * `args` String (опиционально) - Аргументы, которые следует применять к `target`, когда запуск был из этого ярлыка. По умолчанию пусто.
 * `description` String (опиционально) - Описание ярлыка. По умолчанию пусто.
-* `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
-* `iconIndex` Number (optional) - The resource ID of icon when `icon` is a DLL or EXE. Default is 0.
-* `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
+* `icon` String (опиционально) - Путь к значку, может быть к DLL или EXE. `icon` и `iconIndex` должны быть установлены вместе. По умолчанию пуст, который использует значок цели.
+* `iconIndex` Number (опиционально) - ID ресурса значка, когда `icon` является DLL или EXE. Значение по умолчанию - 0.
+* `appUserModelId` String (опиционально) - ID пользовательской Модели приложения. По умолчанию пусто.
