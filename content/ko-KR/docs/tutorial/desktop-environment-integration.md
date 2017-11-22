@@ -14,7 +14,7 @@ Windows와 macOS는 JumpList 또는 dock 메뉴를 통해 최근 문서 리스�
 
 **JumpList:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![최근파일의  JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **dock menu 애플리케이션:**
 
@@ -121,7 +121,8 @@ MSDN의 설명에 의하면:
 
 **Windows Media Player의 미리보기 툴바:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![사용자
+](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) API를 통해 애플리케이션에 미리보기 툴바를 설정할 수 있습니다:
 
@@ -230,7 +231,7 @@ macOS는 창에서 대표 파일을 설정할 수 있습니다. 타이틀바에�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+대표 파일 관련 API는 [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) 과 [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x)를 사용할 수 있습니다:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,11 +240,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## 파일을 윈도우 밖으로 드래그할 수 있도록 만들기
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+파일을 조작하는 특정 종류의 애플리케이션들에서 파일을 Electron에서 다른 애플리케이션으로 드래그할 수 있는 기능은 중요합니다. 이 기능을 구현하려면 애플리케이션에서 `ondragstart` 이벤트가 발생했을 때 `webContents.startDrag`(item) API를 호출해야 합니다:
 
-In web page:
+웹 페이지에서:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +256,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+메인 프로세스에서:
 
 ```javascript
 const {ipcMain} = require('electron')
