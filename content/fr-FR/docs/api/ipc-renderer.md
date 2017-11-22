@@ -1,16 +1,16 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Communiquer de manière asynchrone depuis le processus renderer au processus main.
 
 Processus : [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+Le module `ipcRenderer` est une instance de la classe [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il fournit quelques méthodes pour pouvoir envoyer des messages synchrones et asynchrones depuis le processus render (page web) pour le processus main. Vous pouvez également recevoir des réponses du processus main.
 
 Voir [ipcMain](ipc-main.md) pour des exemples de code.
 
 ## Méthodes
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+Le module de `ipcRenderer` possède les méthodes suivantes pour écouter les événements et envoyer des messages :
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -37,14 +37,14 @@ Supprime le `listener` spécifié du tableau d'écouteurs pour le `channel` spé
 
 * `channel` String (facultatif)
 
-Removes all listeners, or those of the specified `channel`.
+Supprime tous les écouteurs, ou ceux du `channel` spécifié.
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Envoi un message au processus main de façon asynchrone via le `channel`, vous pouvez également envoyer des arguments arbitraire. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 
