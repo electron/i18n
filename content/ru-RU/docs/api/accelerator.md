@@ -22,15 +22,15 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## Платформа заметок
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+На Linux и Windows, `Command` ключ не имеет никакого эффекта, так используйте `CommandOrControl` который представляет собой `Command` на MacOS и `Control` на Linux и Windows для определения некоторых ускорителей.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Используйте `Alt` вместо `Option`. Ключ `Option` существует только на MacOS, в то время как ключ`Alt` доступен на всех платформах.
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Available modifiers
+## Доступные модификаторы
 
 * `Command` (or `Cmd` for short)
 * `Control` (or `Ctrl` for short)
