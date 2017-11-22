@@ -218,15 +218,15 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+`flashFrame` 메소드를 `false` 인자로 호출하여 깜빡임을 중단시키는 것을 잊지마세요. 위의 예제에서, 윈도우가 포커스되었을 때 호출합니다. 그러나 타임아웃 또는 다른 이벤트에서 비활성화할 수 있습니다.
 
-## Represented File of Window (macOS)
+## 대표 파일 제시 (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+macOS는 창에서 대표 파일을 설정할 수 있습니다. 타이틀바에서 파일 아이콘이 있고, 사용자가 Command-Click 또는 Control-Click 키를 누를 경우 파일 경로 팝업이 보여집니다.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+또한 창의 상태도 지정할 수 있습니다. 다시 말해 로드된 문서의 수정 여부를 제목의 파일 아이콘에 표시할 수 있습니다.
 
-**Represented file popup menu:**
+**대표 파일 팝업 메뉴:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
