@@ -4,14 +4,14 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Les instances de la classe `Cookies` sont accessibles à l'aide de la propriété `cookies` d'une `Session`.
 
 Par exemple :
 
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// Récupère tous les cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
