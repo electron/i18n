@@ -2,7 +2,7 @@
 
 > 讓應用程式能自動更新版本。
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `autoUpdater` 模組提供介面，將 [Squirrel](https://github.com/Squirrel) 框架封裝起來。
 
