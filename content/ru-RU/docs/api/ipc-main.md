@@ -1,10 +1,10 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> Асинхронно взаимодействуйте с процессом рендеринга из главного процесса.
 
 Процесс: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+Модуль `ipcMain` является экземпляром класса [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). При использовании в основном процессе, он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Messages sent from a renderer will be emitted to this module.
 
 ## Sending Messages
 
