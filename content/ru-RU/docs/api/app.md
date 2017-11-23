@@ -1,4 +1,4 @@
-# app
+# приложение
 
 > Контролируйте жизненный цикл Вашего приложения.
 
@@ -27,7 +27,7 @@ app.on('window-all-closed', () => {
 
 Возвращает:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` Объект *macOS*
 
 Происходит при завершении инициализации Electron. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
 
