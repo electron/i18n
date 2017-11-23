@@ -217,7 +217,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` 函数 
   * `request` Object 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
+    * `certificate` [证书](structures/certificate.md)
     * `error` String - Verification result from chromium.
   * `callback` 函数 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
