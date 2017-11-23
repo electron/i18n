@@ -142,15 +142,15 @@ Retourne `String` - L'état actuel. Peut être `progressing`, `completed`, `canc
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Retourne `String[]` - La chaîne d'url complète du téléchargement, y compris les redirections.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Retourne `String` - La valeur de l'en-tête Last-Modified.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Retourne `String` - La valeur de l'en-tête ETag.
 
 #### `downloadItem.getStartTime()`
 
