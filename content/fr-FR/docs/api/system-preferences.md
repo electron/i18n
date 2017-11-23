@@ -169,13 +169,13 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
-  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-  * `3d-highlight` - Highlight color for three-dimensional display elements.
-  * `3d-light` - Light color for three-dimensional display elements.
-  * `3d-shadow` - Shadow color for three-dimensional display elements.
-  * `active-border` - Active window border.
+* `color` String - Une des valeurs suivantes : 
+  * `3d-dark-shadow` - Ombre noir pour les éléments affichés en trois dimensions.
+  * `3d-face` - Couleur de la face pour les éléments affichés en trois dimensions et le fond des boîtes de dialogue.
+  * `3d-hihlight` - Couleur de surlignage pour les éléments affichés en trois dimensions.
+  * `3d-light` - Couleur de la lumière pour les éléments affichés en trois dimensions.
+  * `3d-shadow` - Couleur d'ombre pour les éléments affichés en trois dimensions.
+  * `active-border` - Bordure active de la fenêtre.
   * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
   * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
   * `app-workspace` - Background color of multiple document interface (MDI) applications.
