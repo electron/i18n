@@ -45,7 +45,7 @@ app.on('window-all-closed', () => {
 
 在应用程序开始关闭窗口之前触发。 调用 `event.preventDefault()` 会阻止默认的行为。默认的行为是终结应用程序。
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+** 注意: **如果应用程序退出是因调用了` autoUpdater. quitAndInstall () `, 所有窗口都会发出` close ` Event *然后* ` before-quit ` Event 并关闭所有窗口。
 
 ### Event: 'will-quit'
 
@@ -64,7 +64,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+在应用程序退出时发出。
 
 ### Event: 'open-file' *macOS*
 
