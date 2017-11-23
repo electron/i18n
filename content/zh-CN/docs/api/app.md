@@ -109,17 +109,17 @@ app.on('window-all-closed', () => {
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 想要恢复时触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-只有具有支持相应的活动类型并且相同的开发团队 ID 作为启动程序时，用户行为才会进行。 Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+只有具有支持相应的活动类型并且相同的开发团队 ID 作为启动程序时，用户行为才会进行。 所支持活动类型已在应用的 `Info.plist` 中的 `NSUserActivityTypes` 里明确定义。
 
-### Event: 'new-window-for-tab' *macOS*
+### 事件: 'new-window-for-tab' *macOS*
 
 返回:
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+当用户单击 macOS 新选项卡按钮时发出。仅当当前 ` BrowserWindow ` 具有 ` tabbingIdentifier ` 时, 才会显示新的选项卡按钮
 
-### Event: 'browser-window-blur'
+### 事件: 'browser-window-blur'
 
 返回:
 
@@ -128,44 +128,44 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 在 [ browserWindow ](browser-window.md) 失去焦点时发出。
 
-### Event: 'browser-window-focus'
+### 事件: 'browser-window-focus'
 
 返回:
 
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+在 [ browserWindow ](browser-window.md) 获得焦点时发出。
 
-### Event: 'browser-window-created'
+### 事件: 'browser-window-created'
 
 返回:
 
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+在创建新的 [ browserWindow ](browser-window.md) 时发出。
 
-### Event: 'web-contents-created'
+### 事件: 'web-contents-created'
 
 返回:
 
 * `event` Event
-* `webContents` WebContents
+* ` webContents `WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+在创建新的 [ webContents ](web-contents.md) 时发出。
 
-### Event: 'certificate-error'
+### 事件: 'certificate-error'
 
 返回:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` 函数 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+* `error` String - 错误码
+* `certificate` [证书](structures/certificate.md)
+* `callback` Function 
+  * ` isTrusted `Boolean-是否将证书视为可信的
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
