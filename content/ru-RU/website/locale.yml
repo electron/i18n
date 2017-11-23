@@ -4,7 +4,7 @@ nav:
   blog: Блог
   community: Сообщество
   apps: Приложения
-  userland: Userland
+  userland: Пользовательское пространство
   releases: Релизы
   contact: Связаться
   languages: Языки
@@ -13,7 +13,7 @@ docs:
   description: Просмотрите всю <a href="/docs/all/">документацию на одной странице</a> или посетите <a href="/docs/faq/">FAQ</a>.
   guides: Руководства
   api_reference: Справочник по API
-  advanced: Advanced
+  advanced: Расширенный
 languages:
   choose_language: Выберите язык сайта
   translation_progress: Прогресс перевода
