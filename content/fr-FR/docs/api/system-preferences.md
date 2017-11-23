@@ -175,15 +175,15 @@ const alpha = color.substr(6, 2) // "dd"
   * `3d-hihlight` - Couleur de surlignage pour les éléments affichés en trois dimensions.
   * `3d-light` - Couleur de la lumière pour les éléments affichés en trois dimensions.
   * `3d-shadow` - Couleur d'ombre pour les éléments affichés en trois dimensions.
-  * `active-border` - Bordure active de la fenêtre.
-  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-  * `app-workspace` - Background color of multiple document interface (MDI) applications.
-  * `button-text` - Text on push buttons.
-  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-  * `desktop` - Desktop background color.
-  * `disabled-text` - Grayed (disabled) text.
-  * `highlight` - Item(s) selected in a control.
+  * `active-border` - Bordure de la fenêtre active.
+  * `active-caption` - Barre de titre de la fenêtre active. Retourne la couleur du côté gauche du dégradé de couleur si la barre de titre de la fenêtre a l'effet de dégradé actif.
+  * `active-caption-gradient` - Couleur du côté droit du dégradé de couleur de la barre de titre de la fenêtre active.
+  * `app-workspace` - Couleur de fond d'une interface d'application de document multiple (MDI).
+  * `button-text` - Texte sur les boutons d'envoi.
+  * `caption-text` - Texte dans une légende, boîte de dimensions, boîte avec la flèche pour la barre de défilement.
+  * `desktop` - Couleur de fond du bureau.
+  * `disabled-text` - Texte grisé (désactivé).
+  * `highlight` - Élément(s) sélectionné(s) dans un groupe.
   * `highlight-text` - Text of item(s) selected in a control.
   * `hotlight` - Color for a hyperlink or hot-tracked item.
   * `inactive-border` - Inactive window border.
@@ -205,4 +205,4 @@ Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`).
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Retourne `Boolean` - `true` si le jeu de couleurs est inversé, comme un thème de contraste élevé en cours d'utilisation, `false` autrement.
