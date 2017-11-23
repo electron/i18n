@@ -66,16 +66,16 @@ app.on('window-all-closed', () => {
 
 在应用程序退出时发出。
 
-### Event: 'open-file' *macOS*
+### 事件: 'open-file' *macOS*
 
 返回:
 
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+当用户想要在应用中打开一个文件时发出。 `open-file` 事件通常在应用已经打开，并且系统要再次使用该应用打开文件时发出。 `open-file`也会在一个文件被拖到 dock 并且还没有运行的时候发出。 请确认在应用启动的时候(甚至在 `ready` 事件发出前) 就对 `open-file` 事件进行监听。
 
-You should call `event.preventDefault()` if you want to handle this event.
+如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
@@ -88,7 +88,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
 ### Event: 'activate' *macOS*
 
