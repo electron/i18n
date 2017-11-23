@@ -92,7 +92,7 @@ Retourne `Boolean` - Si le téléchargement est en pause.
 
 Reprend le téléchargement qui a été mis en pause.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Remarque :** Pour permettre la reprise des téléchargements, le serveur sur lequel vous téléchargez doit supporter les requêtes de plage (range requests) et doit fournir les en-têtes `Last-Modified` et `ETag`. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
 
 #### `downloadItem.canResume()`
 
