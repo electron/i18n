@@ -96,49 +96,49 @@ Reprend le téléchargement qui a été mis en pause.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Retourne `Boolean` - Si le téléchargement peut être repris.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Annule le téléchargement.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Retourne `String` - L'url d'origine d'où le fichier téléchargé provient.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Retourne `String` - Le mime type du fichier.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Retourne `Boolean` - Si le téléchargement à des gestures.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Retourne `String` - le nom du fichier du téléchargement.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Remarque :** Le nom du fichier n'est pas toujours le même que celui enregistré dans le disque local. Si l'utilisateur modifie le nom du fichier dans la boîte de dialogue de sauvegarde, alors le nom actuel et le nom du fichier sauvegardé seront différent.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Retourne `Integer` - La taille totale en octets du téléchargement.
 
-If the size is unknown, it returns 0.
+Si la taille est inconnue, cela retournera 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Retourne `Integer` - Le nombre d'octets reçu du téléchargement.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Retourne `String` - Le champ Content-Disposition venant de l'en-tête de la réponse.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Retourne `String` - L'état actuel. Peut être `progressing`, `completed`, `cancelled` ou `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Remarque :** Les méthodes suivantes sont utiles spécifiquement pour relancer un téléchargement `cancelled` au redémarrage de la session.
 
 #### `downloadItem.getURLChain()`
 
