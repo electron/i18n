@@ -45,7 +45,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 Происходит перед тем как запущенное приложение закрывает окна. Вызов `event.preventDefault()` предотвращает поведение по умолчанию, которое завершает работу приложения.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Примечание:** Если выход приложения был инициирован `autoUpdater.quitAndInstall()` затем `before-quit` выделил *after* испуская `close` событие на всех окнах и их закрывает.
 
 ### Событие: 'will-quit'
 
