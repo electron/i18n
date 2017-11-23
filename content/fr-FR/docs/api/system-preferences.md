@@ -18,7 +18,7 @@ L'objet `systemPreferences` émet les événements suivants :
 Retourne :
 
 * `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* `newColor` String - La nouvelle couleur RGBA que l'utilisateur à assigné à son système.
 
 ### Événement : 'color-changed' *Windows*
 
@@ -31,7 +31,7 @@ Retourne :
 Retourne :
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+* `invertedColorScheme` Boolean - `true` si le jeu de couleurs est inversé, comme un thème de contraste élevé en cours d'utilisation, `false` autrement.
 
 ## Méthodes
 
@@ -41,7 +41,7 @@ Retourne `Boolean` - Si le système est en mode sombre.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Retourne `Boolean` - Si l'option Swipe entre les pages est activé.
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
