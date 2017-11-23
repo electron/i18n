@@ -1,6 +1,6 @@
 ## Classe : DownloadItem
 
-> Gère les téléchargementq de fichiers depuis des sources distantes.
+> Gère les téléchargements de fichiers depuis des sources distantes.
 
 Processus : [Main](../glossary.md#main-process)
 
