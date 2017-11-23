@@ -27,9 +27,9 @@ app.on('window-all-closed', () => {
 
 Возвращает:
 
-* `launchInfo` Объект *macOS*
+* `launchInfo` Object *macOS*
 
-Происходит при завершении инициализации Electron. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
+Происходит при завершении инициализации Electron. На macOS `launchInfo` держит `userInfo` `NSUserNotification`, которая была использована для открытия приложения, если он был запущен из центра уведомлений. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
 
 ### Событие: 'window-all-closed'
 
@@ -51,7 +51,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 Возвращает:
 
-* `event` Event
+* `event` Событие
 
 Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -90,7 +90,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'activate' *macOS*
+### Событие: 'activate' *macOS*
 
 Возвращает:
 
