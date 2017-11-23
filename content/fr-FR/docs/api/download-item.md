@@ -49,7 +49,7 @@ Retourne :
 Le `state` peut être un de ces cas :
 
 * `progressing` - Le téléchargement est en cours.
-* `interrupted` - Le téléchargement a interrompu et peut être repris.
+* `interrupted` - Le téléchargement a été interrompu et peut être repris.
 
 #### Événement 'done'
 
@@ -58,27 +58,27 @@ Retourne :
 * `event` Event
 * `state` String
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Émis lorsque le téléchargement est dans un état final. Cela inclus un téléchargement fini, annulé (via `downloadItem.cancel()`) et interrompu tout en ne pouvant pas pas être repris.
 
 Le `state` peut être un de ces cas :
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - Le téléchargement s'est terminé avec succès.
+* `cancelled` - Le téléchargement a été annulé.
+* `interrupted` - Le téléchargement a été interrompu et ne peux pas être repris.
 
 ### Méthodes d’instance
 
-The `downloadItem` object has the following methods:
+L'objet `downloadItem` dispose des méthodes suivantes :
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - Définit le chemin d'accès pour le téléchargement.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. Si l'utilisateur ne définit pas de chemin d'accès via l'API, Electron utilisera la routine originale pour déterminer le chemin d'accès (Affiche généralement une boîte de dialogue de sauvegarde).
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Retourne `String` - Le chemin d'accès pour le téléchargement. Ce sera soit le chemin définit par `downloadItem.setSavePath(path)` ou le chemin indiqué par la boîte de dialogue de sauvegarde.
 
 #### `downloadItem.pause()`
 
@@ -86,11 +86,11 @@ Met en pause le téléchargement.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Retourne `Boolean` - Si le téléchargement est en pause.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Reprend le téléchargement qui a été mis en pause.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
