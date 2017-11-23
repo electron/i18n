@@ -35,7 +35,7 @@ app.on('window-all-closed', () => {
 
 当所有的窗口都被关闭时触发。
 
-如果你没有订阅本事件并且所有窗口都关闭了，默认的行为是控制退出程序；然而，如果你订阅了，你可以控制是否退出程序。 如果用户点击 `Cmd + Q`，或者开发者调用了 `app.quit()`，Electron 会首先关闭所有的窗口然后触发 `will-quit` 事件，在这种情况下 `window-all-closed` 事件不会被触发。
+如果你没有监听此事件并且所有窗口都关闭了，默认的行为是控制退出程序；但如果你监听了此事件，你可以控制是否退出程序。 如果用户按下了 `Cmd + Q`，或者开发者调用了 `app.quit()`，Electron 会首先关闭所有的窗口然后触发 `will-quit` 事件，在这种情况下 `window-all-closed` 事件不会被触发。
 
 ### 事件：'before-quit'
 
@@ -47,7 +47,7 @@ app.on('window-all-closed', () => {
 
 ** 注意: **如果应用程序退出是因调用了` autoUpdater. quitAndInstall () `, 所有窗口都会发出` close ` Event *然后* ` before-quit ` Event 并关闭所有窗口。
 
-### Event: 'will-quit'
+### 事件: 'will-quit'
 
 返回:
 
@@ -57,7 +57,7 @@ app.on('window-all-closed', () => {
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
-### Event: 'quit'
+### 事件: 'quit'
 
 返回:
 
