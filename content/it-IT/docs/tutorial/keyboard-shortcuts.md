@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Scorciatoie da tastiera
 
 > Configure local and global keyboard shortcuts
 
