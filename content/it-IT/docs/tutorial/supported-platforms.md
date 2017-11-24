@@ -1,4 +1,4 @@
-# Supported Platforms
+# Piattaforme supportate
 
 Following platforms are supported by Electron:
 
