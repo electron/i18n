@@ -5,7 +5,7 @@ Dieses Dokument ist eine Übersicht der nötigen Schritte bei jedem Chrome Upgra
 Die folgende Auflistung beinhaltet zusätzliche Schritte für das updaten des Electron Codes für jede Chrom/Node API Änderung.
 
 - Sicherstellen, dass die neue Chrome Version hier verfügbar ist: https://github.com/zcbenz/chromium-source-tarball/releases
-- Update the `VERSION` file at the root of the `electron/libchromiumcontent` repository
+- Update die `VERSION`-Datei im Root-Verzeichnis des `electron/libchromiumcontent` Repository
 - Update the `CLANG_REVISION` in `script/update-clang.sh` to match the version Chrome is using in `libchromiumcontent/src/tools/clang/scripts/update.py`
 - Upgrade `vendor/node` to the Node release that corresponds to the v8 version being used in the new Chrome release. See the v8 versions in Node on https://nodejs.org/en/download/releases for more details
 - Upgrade `vendor/crashpad` for any crash reporter changes needed
