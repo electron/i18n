@@ -35,11 +35,11 @@
     
     ### Linux
     
-    There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+    Не существует встроенной поддержки для автоматического обновления на Linux, поэтому рекомендуется использовать дистрибутив пакетного менеджера для обновления вашего приложения.
     
-    ## Events
+    ## События
     
-    The `autoUpdater` object emits the following events:
+    Объект `autoUpdater` имеет следующие события:
     
     ### Event: 'error'
     
@@ -47,13 +47,13 @@
     
     * `error` Error
     
-    Emitted when there is an error while updating.
+    Возникает когда происходит ошибка при обновлении.
     
-    ### Event: 'checking-for-update'
+    ### Событие: 'checking-for-update'
     
-    Emitted when checking if an update has started.
+    Возникает при проверке, если обновление началось.
     
-    ### Event: 'update-available'
+    ### Событие: 'update-available'
     
     Emitted when there is an available update. The update is downloaded automatically.
     
