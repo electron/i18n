@@ -1,6 +1,6 @@
-Použijte prosím dokumentaci, která odpovídá vámi používanou Elektron verzi. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Použijte prosím dokumentaci, která odpovídá vámi používanou Elektron verzi. Číslo verze by mělo být součástí URL. Pokud ne, používáte pravděpodobně dokumentaci vývojové větve, která může obsahovat změny v API, který nemusí být kompatibilní s vaší verzí Elektronu. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
-## FAQ
+## Časté dotazy
 
 There are questions that are asked quite often. Check this out before creating an issue:
 
