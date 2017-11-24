@@ -2,13 +2,13 @@ Použijte prosím dokumentaci, která odpovídá vámi používanou Elektron ver
 
 ## Časté dotazy
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím než vytvoříte problém:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Návody
 
-* [Glossary of Terms](glossary.md)
+* [Slovníček pojmů](glossary.md)
 * [Supported Platforms](tutorial/supported-platforms.md)
 * [Security](tutorial/security.md)
 * [Electron Versioning](tutorial/electron-versioning.md)
