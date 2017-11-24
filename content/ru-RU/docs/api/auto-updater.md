@@ -4,7 +4,7 @@
 
 Процесс: [Main](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+`autoUpdater` модуль предоставляющий интерфейс для [Squirrel](https://github.com/Squirrel) фреймфорка.
 
 You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
 
