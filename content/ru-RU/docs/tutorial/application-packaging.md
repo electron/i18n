@@ -2,25 +2,25 @@
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
 
-## Generating `asar` Archive
+## Создание `asar` архива
 
 An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
 Steps to package your app into an `asar` archive:
 
-### 1. Install the asar Utility
+### 1. Установка утилиты asar
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Упаковка в `asar pack`
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Использование архива `asar`
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
@@ -122,7 +122,7 @@ APIs that requires extra unpacking are:
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - использует `require` на нативных модулях
 
 ### Fake Stat Information of `fs.stat`
 
