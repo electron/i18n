@@ -46,22 +46,22 @@ electron/resources/
 
 ## Ребрендинг из скачанных бинарных файлов
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+После построения вашего приложения в Electron, вы хотите ребрендинга Electron перед распространением пользователям.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Вы можете переименовать `electron.exe` на любое имя, которое вам нравится и редактировать его значок и другой информации инструментами, как [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Вы можете переименовать `Electron.app` на любое имя, которое вы хотите, и вы также должны переименовать поля `CFBundleDisplayName`, `CFBundleIdentifier` и `CFBundleName` в следующих файлах:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Вы также можете переименовать helper приложения, чтобы избежать показа `Electron Helper` в Activity Monitor, но убедитесь, что вы переименовали имя исполняемого файла helper приложения.
 
-The structure of a renamed app would be like:
+Структура переименования app будет такая:
 
     MyApp.app/Contents
     ├── Info.plist
@@ -84,9 +84,9 @@ The structure of a renamed app would be like:
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+`Electron` исполняемый файл можно переименовать на любое имя, которое вам нравится.
 
-## Packaging Tools
+## Упаковочные инструменты
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
