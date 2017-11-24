@@ -307,7 +307,7 @@ Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Sur Linux, met le focus sur la première fenêtre visible. Sur MacOS, rend l'application active. Sur windows met le focus sur la première fenêtre de l'application.
 
 ### `app.hide()` *macOS*
 
