@@ -1,12 +1,12 @@
 # Доступность
 
-Создание доступных приложений важно, и мы рады представить новые функции [Devtron](https://electron.atom.io/devtron) и [Spectron](https://electron.atom.io/spectron), что дает разработчикам возможность сделать свои приложения лучше для всех.
+Создание доступных приложений важно и мы рады представить новые функции [Devtron](https://electron.atom.io/devtron) и [Spectron](https://electron.atom.io/spectron), что дает разработчикам возможность делать свои приложения лучше для всех.
 
 * * *
 
 Проблемы с доступностью в приложениях Electron аналогичны веб-сайтам, поскольку они оба в конечном итоге являются HTML. Однако в приложениях Electron вы не можете использовать онлайн-ресурсы для аудита доступности, потому что ваше приложение не имеет URL-адреса, чтобы указать аудитору.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) for more information.
+Эти новые возможности принести эти средства аудита в приложение Electron. Вы можете добавить аудит тесты Spectron или использовать их в рамках DevTools с Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) for more information.
 
 ### Spectron
 
