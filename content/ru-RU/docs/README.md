@@ -44,7 +44,7 @@
 ### Пользовательские DOM-элементы:
 
 * [Объект `File`](api/file-object.md)
-* [Тэг `<webview>`](api/webview-tag.md)
+* [Тег `<webview>`](api/webview-tag.md)
 * [Функция `window.open`](api/window-open.md)
 
 ### Модули для главного процесса:
