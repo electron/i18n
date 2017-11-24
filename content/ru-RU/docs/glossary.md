@@ -60,7 +60,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ## OSR
 
-Off-screen rendering.
+Фоновый рендеринг.
 
 ### process
 
