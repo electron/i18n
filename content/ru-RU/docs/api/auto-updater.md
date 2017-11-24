@@ -98,4 +98,4 @@
     
     Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
     
-    **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+    **Примечание:** `autoUpdater.quitAndInstall()` сначала закройте все окна приложения и только потом возникнет `before-quit` событие после этого на `app`. Это отличается от нормальной последовательности события выход.
