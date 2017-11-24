@@ -26,7 +26,7 @@ electron/resources/app
 
 Помимо доставки вашего приложения путем копирование всех его исходных файлов, можно также упаковать приложение в архив ["Асар"](https://github.com/electron/asar) чтобы не подвергать исходный код вашего приложения для пользователей.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Чтобы использовать архив `asar` для замены папки `app`, необходимо переименовать архив к `app.asar` и положить его под каталог ресурсов Electron как ниже, и Electron будет пытаться прочитать архив и начать с него.
 
 На macOS:
 
@@ -42,9 +42,9 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Более подробную информацию можно найти в [Application packaging](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Ребрендинг из скачанных бинарных файлов
 
 After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
 
