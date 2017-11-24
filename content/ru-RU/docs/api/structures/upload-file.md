@@ -1,7 +1,7 @@
-# UploadFile Объект
+# Объект UploadFile
 
 * `type` String - `file`.
-* `filePath` String - Путь к файлу, который будет отправлен.
-* `offset` Integer - По умолчанию ``.
-* `length` Integer - Количество байтов для чтения от `offset`. По умолчанию ``.
-* `modificationTime` Double - Количество секунд со времени последней модификации в эпоху UNIX.
+* `filePath` String - путь к файлу, который будет отправлен.
+* `offset` Integer - по умолчанию ``.
+* `length` Integer - количество байтов для чтения от `offset`. По умолчанию ``.
+* `modificationTime` Double - количество секунд со времени последней модификации в эпоху UNIX.
