@@ -1,6 +1,6 @@
 # Интеграция со средами рабочего стола
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Различные операционные системы предоставляют различные возможности для интеграции приложений для настольных компьютеров в их окружения рабочего стола. Например в Windows, приложения можно поместить ярлыки в JumpList панели задач, а на Mac, приложение можно поместить пользовательское меню в меню dock.
 
 Это руководство объясняет, как интегрировать в эти настольные среды Electron APIs приложение.
 
@@ -20,7 +20,7 @@ Windows и macOS предоставляют легкий доступ к спи�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Чтобы добавить файл в недавние документы, можно использовать [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
 
 ```javascript
 const {app} = require('electron')
@@ -34,7 +34,7 @@ const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows заметки
+### Windows примечания
 
 In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
@@ -48,7 +48,7 @@ When a file is requested from the recent documents menu, the `open-file` event o
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
-**Dock menu of Terminal.app:**
+**Dock меню из Terminal.app:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
@@ -70,7 +70,7 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Задачи пользователя (Windows)
 
 On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
 
@@ -78,7 +78,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Tasks of Internet Explorer:**
+**Задачи Internet Explorer:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
@@ -169,7 +169,7 @@ In Unity, you can add custom entries to its launcher via modifying the `.desktop
 
 On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+На macOS progress bar будет отображаться как часть значка в dock.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
