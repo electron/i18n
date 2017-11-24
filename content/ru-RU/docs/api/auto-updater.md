@@ -6,10 +6,10 @@
 
 `autoUpdater` модуль предоставляющий интерфейс для [Squirrel](https://github.com/Squirrel) фреймфорка.
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+Вы можете быстро запустить серверный релиз мульти-платформы для распространения вашего приложения используя один из проектов:
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
+* [nuts](https://github.com/GitbookIO/nuts): * Смарт-релиз сервера для ваших приложений, используя GitHub как бэкэнд. Авто обновления с Squirrel (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): * Полнофункциональный, резидентный серверный релиз для приложения Electron, совместимый с auto-updater*
 * [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
 * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
