@@ -2,21 +2,21 @@
 
 Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Это руководство объясняет, как интегрировать в эти настольные среды Electron APIs приложение.
 
-## Notifications
+## Уведомления
 
-See [Notifications](notifications.md)
+Смотрите [Notifications](notifications.md)
 
-## Recent documents (Windows & macOS)
+## Недавние документы (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows и macOS предоставляют легкий доступ к списку последних документов открытых приложением через JumpList или dock меню, соответственно.
 
 **JumpList:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Dock меню приложения:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
@@ -34,13 +34,13 @@ const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Windows заметки
 
 In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
-### macOS Notes
+### macOS примечания
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
