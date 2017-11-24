@@ -88,19 +88,19 @@ electron/resources/
 
 ## Упаковочные инструменты
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Помимо упаковки приложения вручную, вы также можете использовать инструменты сторонних производителей инструментов упаковки, которые сделают эту работу для вас:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Ребрендинг, перестроив Electron из источника
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Это также возможно для ребрендинга Electron, изменив название продукта и построение из источника. Для этого вам нужно изменить файл `atom.gyp` и иметь чистую среду ребилда.
 
-### Creating a Custom Electron Fork
+### Создание пользовательских Electron форков
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Создание пользовательского форка Electron это почти наверняка не то, что вам будет нужно сделать для того, чтобы построить приложение даже уровня "Production Level". С помощью такого инструмента как `electron-packager` или `electron-forge` позволит вам совершить "Ребрендинг" Electron без необходимости делать эти шаги.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
