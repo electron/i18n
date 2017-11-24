@@ -1,4 +1,4 @@
-# Build Instructions (macOS)
+# Istruzioni per la compilazione (macOS)
 
 Follow the guidelines below for building Electron on macOS.
 
