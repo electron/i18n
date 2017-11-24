@@ -27,7 +27,7 @@ const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+И вы можете использовать [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API, чтобы очистить список последних документов:
 
 ```javascript
 const {app} = require('electron')
@@ -36,15 +36,15 @@ app.clearRecentDocuments()
 
 ### Windows примечания
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Вы можете найти все о регистрации вашего приложения в [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Когда пользователь щелкает файл из JumpList, новый экземпляр приложения будет запущен с добавленного пути файла, как аргумент командной строки.
 
 ### macOS примечания
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
-## Custom Dock Menu (macOS)
+## Пользовательское меню Dock (macOS)
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
