@@ -1,8 +1,8 @@
 # Распространение приложения
 
-Для распространения вашего приложения с электроном, вам нужно скачать электронов [Готовые двоичные файлы](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Для распространения вашего приложения с электроном, вам нужно скачать электронов [Готовые двоичные файлы](https://github.com/electron/electron/releases). Далее в папку, содержащую ваше приложение следует именовать `app` и помещать в каталог ресурсов Electron, как показано в следующих примерах. Обратите внимание, что расположение Electron предсобранных бинарных файлов, обозначается `electron/` в приведенных ниже примерах.
 
-On macOS:
+На macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+На Windows и Linux:
 
 ```text
 electron/resources/app
@@ -28,14 +28,14 @@ Apart from shipping your app by copying all of its source files, you can also pa
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+На macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+На Windows и Linux:
 
 ```text
 electron/resources/
