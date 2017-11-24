@@ -315,7 +315,7 @@ Masque toutes les fenêtres de l'application sans les minimiser.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Montre les fenêtres de l'application après qu'elles aient été cachées. Ne met pas automatiquement le focus sur ces dernières.
 
 ### `app.getAppPath()`
 
