@@ -15,7 +15,7 @@ docs:
   api_reference: API Reference
   advanced: Advanced
 languages:
-  choose_language: Choose Your Site Language
+  choose_language: Scegli la lingua da usare
   translation_progress: Translation Progress
   current: current selection
 community:
@@ -71,7 +71,7 @@ need_help:
   title: Hai bisogno di aiuto?
   description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Languages
+  languages: Lingue
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -97,7 +97,7 @@ pages:
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron Apps
-    description: Apps Built on Electron
+    description: Applicazioni sviluppate con Electron
   '/docs':
     title: Documentation
     description: Guides and API reference documentation for the latest Electron release
@@ -115,7 +115,7 @@ pages:
     title: Contatti
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: Lingue
 _404:
   page_not_found: Page not found.
   if_this_is_an_error: If this is an error
