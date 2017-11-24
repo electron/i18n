@@ -30,4 +30,4 @@ app.client.auditAccessibility().then(function (audit) {
 
 Оба эти средства используют [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) библиотеки, построенных для Google Chrome. Вы можете узнать больше о доступности правила аудита, которые эта библиотека использует в этих [репозиториях wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) with a pull request.
+Если вы знаете другие инструменты доступности для Electron, добавьте их к [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) pull request'том.
