@@ -10,7 +10,7 @@
 
 * [nuts](https://github.com/GitbookIO/nuts): * Смарт-релиз сервера для ваших приложений, используя GitHub как бэкэнд. Авто обновления с Squirrel (Mac & Windows)*
 * [electron-release-server](https://github.com/ArekSredzki/electron-release-server): * Полнофункциональный, резидентный серверный релиз для приложения Electron, совместимый с auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простой node.js сервер для Squirrel.Mac и Squirrel.Windows с использованием GitHub релизов*
 * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
 ## Platform notices
