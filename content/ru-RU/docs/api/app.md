@@ -51,7 +51,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 Возвращает:
 
-* `event` Событие
+* `event` Event
 
 Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -66,7 +66,7 @@ See the description of the `window-all-closed` event for the differences between
 
 Происходит при выходе из приложения.
 
-### Event: 'open-file' *macOS*
+### Событие: 'open-file' *macOS*
 
 Возвращает:
 
