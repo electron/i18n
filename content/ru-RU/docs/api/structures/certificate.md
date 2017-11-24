@@ -1,12 +1,12 @@
-# Certificate Объект
+# Объект Certificate
 
 * `data` String - PEM закодированные данные
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Основной эмитент
-* `issuerName` String - Общее наименование эмитента
-* `issuerCert` Certificate - Сертификат эмитента (если не самоподписанный)
-* `subject` [CertificatePrincipal](certificate-principal.md) - Основной субъект
-* `subjectName` String - Общее наименование субъекта
-* `serialNumber` String - Hex значение, представленное строкой
-* `validStart` Number - Дата начала действия сертификата в секундах
-* `validExpiry` Number - Дата окончания действия сертификата в секундах
-* `fingerprint` String - Отпечаток сертификата
+* `issuer` [CertificatePrincipal](certificate-principal.md) - основной эмитент
+* `issuerName` String - общее наименование эмитента
+* `issuerCert` Certificate - сертификат эмитента (если не самоподписанный)
+* `subject` [CertificatePrincipal](certificate-principal.md) - основной субъект
+* `subjectName` String - общее наименование субъекта
+* `serialNumber` String - HEX значение, представленное строкой
+* `validStart` Number - дата начала действия сертификата в секундах
+* `validExpiry` Number - дата окончания действия сертификата в секундах
+* `fingerprint` String - отпечаток сертификата
