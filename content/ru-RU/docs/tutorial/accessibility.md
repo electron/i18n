@@ -24,10 +24,10 @@ app.client.auditAccessibility().then(function (audit) {
 
 ### Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+В Devtron есть новая вкладка доступности, которая позволит вам совершить аудит страницы в вашем приложении, сортировать и фильтровать результаты.
 
 ![devtron скриншот](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Оба эти средства используют [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) библиотеки, построенных для Google Chrome. Вы можете узнать больше о доступности правила аудита, которые эта библиотека использует в этих [репозиториях wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
 If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) with a pull request.
