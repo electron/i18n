@@ -102,22 +102,22 @@ electron/resources/
 
 Создание пользовательского форка Electron это почти наверняка не то, что вам будет нужно сделать для того, чтобы построить приложение даже уровня "Production Level". С помощью такого инструмента как `electron-packager` или `electron-forge` позволит вам совершить "Ребрендинг" Electron без необходимости делать эти шаги.
 
-Вам нужно форкнуть Electron, когда у вас имеется собственный код C++, который вы примените в виде патча непосредственно в Electron, который не может быть upstreamed или были отклонения от официальной версии. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Вам нужно форкнуть Electron, когда у вас имеется собственный код C++, который вы примените в виде патча непосредственно в Electron, который не может быть upstreamed или были отклонения от официальной версии. Как сопровождающие Electron, мы очень многое хотели сделать по вашему сценарию работы, так что пожалуйста попробуйте как сложность и вы сможете получить ваши изменения в официальной версии Electron, это будет намного легче на вас, и мы оценим вашу помощь.
 
-#### Creating a Custom Release with surf-build
+#### Создание surf-build пользовательского релиза
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Установить [Surf](https://github.com/surf-build/surf), через npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Создайте новый S3 bucket и создайте следующую структуру пустых каталогов:
     
         - atom-shell/
           - symbols/
           - dist/
         
 
-3. Set the following Environment Variables:
+3. Установите следующие переменные среды:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
+* `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
