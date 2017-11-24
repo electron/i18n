@@ -88,14 +88,14 @@
     
     ### `autoUpdater.getFeedURL()`
     
-    Returns `String` - The current update feed URL.
+    `String` - возвращает URL текущей подписки обновления.
     
     ### `autoUpdater.checkForUpdates()`
     
-    Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+    Запрашивает сервер, есть ли обновления. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
     
     ### `autoUpdater.quitAndInstall()`
     
-    Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+    Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
     
     **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
