@@ -1,11 +1,11 @@
-# GPUFeatureStatus Объект
+# Объект GPUFeatureStatus
 
-* `2d_canvas` String - Холст
-* `flash_3d` String - Flash
-* `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Flash Stage3D Базовый профиль
-* `gpu_compositing` String - Композитный
-* `multiple_raster_threads` String - Несколько растровых потоков
+* `2d_canvas` String - холст
+* `flash_3d` String - вспышка
+* `flash_stage3d` String - вспышка Stage3D
+* `flash_stage3d_baseline` String - базовый профиль вспышки Stage3D
+* `gpu_compositing` String - композитный
+* `multiple_raster_threads` String - несколько растровых потоков
 * `native_gpu_memory_buffers` String - нативный GpuMemoryBuffers
 * `rasterization` String - Растеризация
 * `video_decode` Строка - Видео декодирование
