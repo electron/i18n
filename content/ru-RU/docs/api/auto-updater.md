@@ -55,13 +55,13 @@
     
     ### Событие: 'update-available'
     
-    Emitted when there is an available update. The update is downloaded automatically.
+    Возникает при наличии доступных обновлений. Обновление загружается автоматически.
     
-    ### Event: 'update-not-available'
+    ### Событие: 'update-not-available'
     
-    Emitted when there is no available update.
+    Возникает, когда нет доступных обновлений.
     
-    ### Event: 'update-downloaded'
+    ### Событие: 'update-downloaded'
     
     Возвращает:
     
@@ -71,20 +71,20 @@
     * `releaseDate` Date
     * `updateURL` String
     
-    Emitted when an update has been downloaded.
+    Возникает при загрузке обновления.
     
-    On Windows only `releaseName` is available.
+    На Windows доступен только `releaseName`.
     
     ## Методы
     
-    The `autoUpdater` object has the following methods:
+    Объект `autoUpdater` имеет следующие методы:
     
     ### `autoUpdater.setFeedURL(url[, requestHeaders])`
     
     * `url` String
-    * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+    * `requestHeaders` Object *macOS* (опиционально) - http-header запроса.
     
-    Sets the `url` and initialize the auto updater.
+    Задает `url` и инициализирует автоматическое обновление.
     
     ### `autoUpdater.getFeedURL()`
     
