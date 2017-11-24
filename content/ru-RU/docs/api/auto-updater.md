@@ -1,6 +1,6 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Включает в приложении автоматическое самообновление.
 
 Процесс: [Main](../glossary.md#main-process)
 
