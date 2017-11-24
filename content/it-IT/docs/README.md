@@ -1,18 +1,18 @@
-Si prega di assicurarsi di usare la documentazione corrispondente alla versione in uso di Electron. Il numero di versione dovrebbe essere una parte dell'URL della pagina. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Si prega di assicurarsi di usare la documentazione corrispondente alla versione in uso di Electron. Il numero di versione dovrebbe essere una parte dell'URL della pagina. Se non lo è, probabilmente si sta utilizzando la documentazione di un ramo di sviluppo che può contenere modifiche alle API che non sono compatibili con la versione di Electron in uso. Per visualizzare le versioni precedenti della documentazione, è possibile [navigare per tag](https://github.com/electron/electron/tree/v1.4.0) su GitHub aprendo il menu a tendina "Switch branches/tags" e selezionando il tag che corrisponde alla versione in uso.
 
-## FAQ
+## FAQ (Domande frequenti)
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di proporne una nuova:
 
-* [Electron FAQ](faq.md)
+* [Domande frequenti su Electron](faq.md)
 
-## Guides
+## Guide
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
+* [Glossario dei termini](glossary.md)
+* [Piattaforme supportate](tutorial/supported-platforms.md)
+* [Sicurezza](tutorial/security.md)
+* [Versionamento di Electron](tutorial/electron-versioning.md)
+* [Distribuzione delle applicazioni](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store Guide](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
