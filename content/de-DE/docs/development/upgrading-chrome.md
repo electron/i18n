@@ -1,10 +1,10 @@
 # Upgrading Chrome Checklist
 
-This document is meant to serve as an overview of what steps are needed on each Chrome upgrade in Electron.
+Dieses Dokument ist eine Übersicht der nötigen Schritte bei jedem Chrome Upgrade in Electron.
 
-These are things to do in addition to updating the Electron code for any Chrome/Node API changes.
+Die folgende Auflistung beinhaltet zusätzliche Schritte für das updaten des Electron Codes für jede Chrom/Node API Änderung.
 
-- Verify the new Chrome version is available from https://github.com/zcbenz/chromium-source-tarball/releases
+- Sicherstellen, dass die neue Chrome Version hier verfügbar ist: https://github.com/zcbenz/chromium-source-tarball/releases
 - Update the `VERSION` file at the root of the `electron/libchromiumcontent` repository
 - Update the `CLANG_REVISION` in `script/update-clang.sh` to match the version Chrome is using in `libchromiumcontent/src/tools/clang/scripts/update.py`
 - Upgrade `vendor/node` to the Node release that corresponds to the v8 version being used in the new Chrome release. See the v8 versions in Node on https://nodejs.org/en/download/releases for more details
