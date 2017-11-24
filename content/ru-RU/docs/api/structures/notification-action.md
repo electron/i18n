@@ -1,7 +1,7 @@
-# NotificationAction Объект
+# Объект NotificationAction
 
-* `type` String - Тип действия, может быть `button`.
-* `text` String - (опиционально) Метка для данного действия.
+* `type` String - тип действия, может быть `button`.
+* `text` String - (опиционально) метка для данного действия.
 
 ## Платформа / Поддержка действий
 
