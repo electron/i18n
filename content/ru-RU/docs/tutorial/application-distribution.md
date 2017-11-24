@@ -118,10 +118,10 @@ electron/resources/
 3. Установите следующие переменные среды:
 
 * `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
+* `ELECTRON_RELEASE` - установите `true` и отправьте часть выполняться, оставить без изменений, `surf-build` просто будет делать проверки CI-типа, необходимо запускать для каждого pull request'а.
+* `CI` - установите в `true` или иначе произойдет сбой
+* `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
 * `TARGET_ARCH` - set to `ia32` or `x64` 
 
