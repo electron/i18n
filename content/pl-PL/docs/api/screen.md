@@ -8,7 +8,7 @@ Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie z
 
 `screen` jest klasą [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Uwaga:** W module renderowania / DevTools, `window.screen` jest zarezerwowaną właściwością DOM, więc napisanie `let{screen} = require('electron')` nie będzie działać.
 
 Przykład tworzenia okna, która wypełnia cały ekran:
 
@@ -51,7 +51,7 @@ app.on('ready', () => {
 
 ## Zdarzenia
 
-The `screen` module emits the following events:
+Moduł `screen` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'display-added'
 
@@ -60,7 +60,7 @@ Zwraca:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Emitowane, gdy `newDisplay` został dodany.
 
 ### Zdarzenie: 'display-removed'
 
@@ -69,7 +69,7 @@ Zwraca:
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Emitowane, gdy `oldDisplay` został usunięty.
 
 ### Zdarzenie: 'display-metrics-changed'
 
