@@ -153,7 +153,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 * `event` Event
 * `webContents` WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+Возникает при создании нового [webContents](web-contents.md).
 
 ### Событие: 'certificate-error'
 
@@ -165,7 +165,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 * `error` String - код ошибки
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - учитывать ли сертификат как надёжный
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
@@ -353,7 +353,7 @@ You can request the following paths by the name:
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, не поддерживается на *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -557,7 +557,7 @@ app.setJumpList([
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
-Returns `Boolean`.
+Возвращает `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -576,7 +576,7 @@ const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+// Кто-то пытался запустить второй экземпляр, мы должны сфокусироваться на нашем окне.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -587,7 +587,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// Создать myWindow, загрузить rest из app, etc...
 app.on('ready', () => {
 })
 ```
