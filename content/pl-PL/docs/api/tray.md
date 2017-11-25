@@ -1,6 +1,6 @@
-## Class: Tray
+## Klasa: Tray
 
-> Add icons and context menus to the system's notification area.
+> Dodaje ikonę i menu kontekstowe do obszaru powiadomień systemu.
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**Ograniczenia dotyczące platformy:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
@@ -50,7 +50,7 @@ app.on('ready', () => {
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* W systemie Windows zalecane jest użycie ikony `ICO`, aby uzyskać najlepsze efekty wizualne.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
@@ -58,11 +58,11 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Creates a new tray icon associated with the `image`.
+Tworzy nową ikonę skojarzoną z `image`.
 
 ### Instance Events
 
-The `Tray` module emits the following events:
+Moduł `Tray` emituje następujące zdarzenia:
 
 #### Event: 'click'
 
@@ -161,7 +161,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Metody instancji
 
 The `Tray` class has the following methods:
 
