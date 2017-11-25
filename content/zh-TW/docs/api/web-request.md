@@ -69,7 +69,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `method` String
   * `resourceType` String
   * `timestamp` Double
-  * `requestHeaders` Object
+  * `requestHeaders` 物件
 * `callback` Function 
   * `response` Object 
     * `cancel` Boolean (optional)
@@ -88,7 +88,7 @@ The `callback` has to be called with an `response` object.
     * `method` String
     * `resourceType` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` 物件
 
 The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
@@ -108,7 +108,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
-  * `responseHeaders` Object
+  * `responseHeaders` 物件
 * `callback` Function 
   * `response` Object 
     * `cancel` Boolean
@@ -128,7 +128,7 @@ The `callback` has to be called with an `response` object.
     * `method` String
     * `resourceType` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` 物件
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
     * `statusLine` String
@@ -150,7 +150,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `statusCode` Integer
     * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
-    * `responseHeaders` Object
+    * `responseHeaders` 物件
 
 The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
@@ -165,7 +165,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `method` String
     * `resourceType` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` 物件
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
