@@ -97,7 +97,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (optional) 
+* `options` 物件 (選用) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
@@ -134,7 +134,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+回傳 `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
