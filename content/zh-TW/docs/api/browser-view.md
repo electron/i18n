@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### 靜態方法
