@@ -42,7 +42,7 @@ const request = net.request({
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Событие: 'login'
 
 Возвращает:
 
