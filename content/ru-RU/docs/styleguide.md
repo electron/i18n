@@ -216,6 +216,6 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 * Создайте подкаталог с именем аббревиатуры языка.
 * Перевод файлов.
 * Обновите `README.md` ссылки на файлы в папке языка, которые вы переводили.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* Добавьте ссылку в главном каталоге вашего перевода Electron на [README](https://github.com/electron/electron#documentation-translations).
 
 Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
