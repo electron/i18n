@@ -336,12 +336,12 @@ Returns `String` - A path to a special directory or file associated with `name`.
   * `~/Library/Application Support` на macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
 * ` temp ` временный каталог.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
+* `exe` текущий исполняемый файл.
+* `module` библиотека `libchromiumcontent`.
+* `desktop` каталог рабочего стола, текущего пользователя.
+* `documents` каталог пользователя "Мои документы".
+* `downloads` Каталог пользователя "Downloads".
+* `music` каталог пользователя "Music".
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
