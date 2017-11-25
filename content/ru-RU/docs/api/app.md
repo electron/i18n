@@ -73,9 +73,9 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `path` String
 
-Возникает, когда пользователь хочет открыть файл. Событие `open-file` обычно возникает, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` также возникает, когда файл удаляется на dock, а приложение еще не запущено. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Возникает, когда пользователь хочет открыть файл. Событие `open-file` обычно возникает, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` также возникает, когда файл удаляется на dock, а приложение еще не запущено. Убедитесь, что обработчик `open-file` события в самом начале запуска вашего приложения обрабатывает этот случай (даже прежде, чем возникнет ` ready` событие).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
@@ -88,7 +88,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
 ### Событие: 'activate' *macOS*
 
@@ -97,7 +97,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Возникает при активации приложения. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
 ### Событие: 'continue-activity' *macOS*
 
