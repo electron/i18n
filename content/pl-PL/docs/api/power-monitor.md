@@ -27,7 +27,7 @@ The `powerMonitor` module emits the following events:
 
 Emitted when the system is suspending.
 
-### Event: 'resume'
+### Zdarzenie: 'resume'
 
 Emitted when system is resuming.
 
