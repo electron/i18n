@@ -149,16 +149,16 @@
 
 Название может быть`###` или`####`-уровня в зависимости от того, является ли эти методы модуля или класса.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Для модулей, `objectName` это имя модуля. Для классов это должны быть имена экземпляров класса и не должны быть таким же, как имя модулей.
 
 Например, методы класса `Session` под модулем `session` должны использовать `ses` как `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Необязательные аргументы нотированы в квадратные скобки `[]` окружают необязательный аргумент, а также запятая, если за необязательным аргументом следует еще один аргумент:
 
     required[, optional]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Ниже метода объявляется более подробная информация о каждом из аргументов. Тип аргумента нотируется из общих типов:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
