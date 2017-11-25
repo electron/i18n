@@ -288,7 +288,7 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Событие: 'certificate-error'
 
 Возвращает:
 
