@@ -606,7 +606,7 @@ Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+回傳 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -617,7 +617,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+回傳 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
