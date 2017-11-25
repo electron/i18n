@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `options` Object (optional) 
+* `options` 物件 (選用) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -95,7 +95,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (選用)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -147,7 +147,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` 物件 (選用) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
@@ -239,7 +239,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` 物件 (選用) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
