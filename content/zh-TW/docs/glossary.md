@@ -48,15 +48,15 @@ Apple Mac App Store 的縮寫。如何將你的應用程式送上 MAS，可以�
 
 ### 原生模組
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+原生模組 (在 Node.js 裡也叫做 [附加元件 (Addon)](https://nodejs.org/api/addons.html)) 是用 C 或 C++ 開發的模組。可以在 Node.js 或 Electron 中透過 require() 方法載入，使用起來就像一般的 Node.js 模組一樣。 主要是提供 Node.js 中的 JavaScript 與 C/C++ 程式庫溝通的介面。
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+可再參考[使用原生 Node 模組](tutorial/using-native-node-modules.md)。
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Microsoft Windows 上的一套腳本式安裝程式編寫工具。 It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
 ## OSR
 
@@ -94,7 +94,7 @@ V8 是 Goolge 開放原始碼的 JavaScript 引擎。以 C++ 撰寫，被用在 
 
 Electron 把 V8 視為 Chromium 的一部分一起建置，再建置 Node 時就直接指到這份 V8。
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8 的版本會對應 Google Chrome 的版本。例如 Chrome 59 包含 V8 5.9 版，而 Chrome 58 則包含 V8 5.8 版。
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
