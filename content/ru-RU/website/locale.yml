@@ -85,7 +85,7 @@ footer:
   see_the_faq: Просмотреть часто задаваемые вопросы
 apps:
   title: Приложения, созданные на Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: 'С помощью Electron, создание настольного приложения для вашей компании или идеи легко. Первоначально разработанный для GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom редактор</a>, Electron с тех пор используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.'
   view_more: Просмотреть другие приложения
   submit_your_own: или опубликовать своё
   something_missing: Что-то отсутствует?
