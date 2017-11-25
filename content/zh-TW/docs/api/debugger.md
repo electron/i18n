@@ -59,14 +59,14 @@ Send given command to the debugging target.
 
 ### Instance Events
 
-#### Event: 'detach'
+#### 事件: 'detach'
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### 事件: 'message'
 
 * `event` Event
 * `method` String - Method name.
