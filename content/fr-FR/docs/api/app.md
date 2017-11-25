@@ -325,22 +325,22 @@ Retourne `String` - Répertoire courant de l'application.
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Retourne `String` - Un chemin vers un répertoire spécial ou un fichier associé au `nom`. En cas d’échec, une `Erreur` est générée.
 
-You can request the following paths by the name:
+Vous pouvez demander les chemins suivants sous le nom :
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
+* `home` Répertoire d'accueil de l'utilisateur.
+* `appData` Dossiers de donnée des applications pour chaque utilisateur, qui pointe par défaut vers: 
   * `%APPDATA%` sur Windows
   * `$XDG_CONFIG_HOME` ou `~/.config` sur Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
+  * `~/Library/Application Support` sur macOS
+* `userData` Le dossier pour stocker les fichiers de configuration de votre application, qui par défaut est le dossier `appData` avec le nom de votre application.
+* `temp` Dossier temporaire.
+* `exe` Le fichier exécutable actuel.
+* `module` La bibliothèque de `libchromiumcontent`.
+* `desktop` Le dossier du Bureau de l’utilisateur actuel.
+* `documents` Dossier "Mes Documents" d'un utilisateur.
+* `downloads` Dossier pour les téléchargements de l’utilisateur.
 * `music` Directory for a user's music.
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
