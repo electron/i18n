@@ -175,7 +175,7 @@
 
 Аргументы типа `Array` должны указывать, какие элементы может включать массив в описание ниже.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Описание аргументов типа `Function` должно дать понять, как это может быть сделано и перечислить типы параметров, которые будут переданы ему.
 
 ### События
 
