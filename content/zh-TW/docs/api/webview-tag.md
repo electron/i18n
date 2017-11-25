@@ -527,7 +527,7 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### 事件: 'load-commit'
 
 回傳:
 
@@ -536,11 +536,11 @@ The following DOM events are available to the `webview` tag:
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### 事件: 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### 事件: 'did-fail-load'
 
 回傳:
 
@@ -551,7 +551,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### 事件: 'did-frame-finish-load'
 
 回傳:
 
@@ -559,15 +559,15 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### 事件: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### 事件: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### 事件: 'did-get-response-details'
 
 回傳:
 
@@ -582,7 +582,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### 事件: 'did-get-redirect-request'
 
 回傳:
 
@@ -592,7 +592,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### 事件: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -605,7 +605,7 @@ Fired when document in the given frame is loaded.
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### 事件: 'page-favicon-updated'
 
 回傳:
 
@@ -621,7 +621,7 @@ Fired when page enters fullscreen triggered by HTML API.
 
 Fired when page leaves fullscreen triggered by HTML API.
 
-### Event: 'console-message'
+### 事件: 'console-message'
 
 回傳:
 
@@ -641,7 +641,7 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### 事件: 'found-in-page'
 
 回傳:
 
@@ -664,7 +664,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### 事件: 'new-window'
 
 回傳:
 
@@ -689,7 +689,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### 事件: 'will-navigate'
 
 回傳:
 
@@ -703,7 +703,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### 事件: 'did-navigate'
 
 回傳:
 
@@ -713,7 +713,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-### Event: 'did-navigate-in-page'
+### 事件: 'did-navigate-in-page'
 
 回傳:
 
@@ -737,7 +737,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### 事件: 'ipc-message'
 
 回傳:
 
@@ -766,15 +766,15 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### 事件: 'crashed'
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### 事件: 'gpu-crashed'
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### 事件: 'plugin-crashed'
 
 回傳:
 
@@ -783,19 +783,19 @@ Fired when the gpu process is crashed.
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### 事件: 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### 事件: 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### 事件: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### 事件: 'did-change-theme-color'
 
 回傳:
 
@@ -807,7 +807,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### 事件: 'update-target-url'
 
 回傳:
 
@@ -815,14 +815,14 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### 事件: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### 事件: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-### Event: 'devtools-focused'
+### 事件: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
