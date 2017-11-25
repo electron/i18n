@@ -204,7 +204,7 @@ window.webContents.session.enableNetworkEmulation({
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+//W celu symulacji awarii sieci.
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Właściwości instancji
 
 The following properties are available on instances of `Session`:
 
