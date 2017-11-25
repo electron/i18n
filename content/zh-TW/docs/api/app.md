@@ -272,7 +272,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (選用)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -280,9 +280,9 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` 物件 (選用) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (選用) 
+  * `args` String[] - (選用)
+  * `execPath` String (選用)
 
 Relaunches the app when current instance exits.
 
@@ -349,11 +349,11 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux* 上是 48x48, *Windows* 上是 32x32，不支援 *macOS*。
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
