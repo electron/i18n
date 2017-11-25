@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Статические методы
