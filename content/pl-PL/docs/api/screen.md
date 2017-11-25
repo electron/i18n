@@ -6,11 +6,11 @@ Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-
 
 Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie zostanie wyemitowane.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` jest klasą [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 **Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
 
-An example of creating a window that fills the whole screen:
+Przykład tworzenia okna, która wypełnia cały ekran:
 
 ```javascript
 const electron = require('electron')
@@ -25,7 +25,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+Inny przykład utworzenia okna na ekranie zewnętrznym:
 
 ```javascript
 const electron = require('electron')
@@ -62,7 +62,7 @@ Zwraca:
 
 Emitted when `newDisplay` has been added.
 
-### Event: 'display-removed'
+### Zdarzenie: 'display-removed'
 
 Zwraca:
 
@@ -101,7 +101,7 @@ Zwraca [`Display`](structures/display.md) - ekran główny.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Zwraca [`Display[]`](structures/display.md) - tablicę obiektów Display, które są obecnie dostępne.
 
 ### `screen.getDisplayNearestPoint(point)`
 
