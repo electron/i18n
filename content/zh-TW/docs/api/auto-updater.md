@@ -41,7 +41,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 The `autoUpdater` object emits the following events:
 
-### Event: 'error'
+### 事件: 'error'
 
 回傳:
 
