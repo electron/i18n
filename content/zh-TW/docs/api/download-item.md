@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Instance Events
 
-#### Event: 'updated'
+#### 事件: 'updated'
 
 回傳:
 
@@ -51,7 +51,7 @@ The `state` can be one of following:
 * `progressing` - The download is in-progress.
 * `interrupted` - The download has interrupted and can be resumed.
 
-#### Event: 'done'
+#### 事件: 'done'
 
 回傳:
 
