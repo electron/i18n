@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie zostanie wyemitowane.
 
@@ -49,13 +49,13 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Zdarzenia
 
 The `screen` module emits the following events:
 
-### Event: 'display-added'
+### Zdarzenie: 'display-added'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -64,16 +64,16 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
 
-### Event: 'display-metrics-changed'
+### Zdarzenie: 'display-metrics-changed'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `display` [Display](structures/display.md)
@@ -81,23 +81,23 @@ Returns:
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Methods
+## Metody
 
-The `screen` module has the following methods:
+Moduł `screen` posiada następujące metody:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Zwraca [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+Bieżącą pozycję bezwzględną wskaźnika myszy.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+Zwraca `Integer` - wysokość paska menu w pikselach.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Zwraca [`Display`](structures/display.md) - ekran główny.
 
 ### `screen.getAllDisplays()`
 
