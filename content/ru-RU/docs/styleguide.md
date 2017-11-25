@@ -177,7 +177,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### События
 
 The events chapter must be in following form:
 
@@ -195,7 +195,7 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### Свойства
 
 The properties chapter must be in following form:
 
@@ -207,14 +207,14 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## Переводы документации
 
 Translations of the Electron docs are located within the `docs-translations` directory.
 
 To add another set (or partial set):
 
 * Create a subdirectory named by language abbreviation.
-* Translate the files.
+* Перевод файлов.
 * Update the `README.md` within your language directory to link to the files you have translated.
 * Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
 
