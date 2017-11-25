@@ -36,9 +36,9 @@ IPC 全名是跨處理序通訊 (Inter-Process Communication)。Electron 使用 
 
 ### 主處理序
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+主處理序通常命名為 `main.js`，是每個 Electron 應用程式的入口點。控制應用程式由開啟到關閉的整個生命週期。 通常也會用它來管理功能表、功能表列、Dock、Tray 等原生元素。 主處理序也負責建立應用程式中的每個畫面轉譯處理序。內建完成的 Node API。
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+每個應用程式的主處理序檔是 `package.json` 的 `main` 值指定。`electron` 才知道啟動時要執行哪隻程式。
 
 可再參考: [處理序](#process), [畫面轉譯處理序](#renderer-process)
 
