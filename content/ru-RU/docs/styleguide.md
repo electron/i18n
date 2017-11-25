@@ -193,7 +193,7 @@ Returns:
 
 Название может быть`###` или`####`-уровня в зависимости от того, является ли это событие модуля или класса.
 
-The arguments of an event follow the same rules as methods.
+Аргументы события следуют тем же правилам методов.
 
 ### Свойства
 
@@ -205,7 +205,7 @@ The arguments of an event follow the same rules as methods.
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Название может быть`###` или`####`-уровня в зависимости от того, является ли это свойство модуля или класса.
 
 ## Переводы документации
 
@@ -218,4 +218,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 * Обновите `README.md` ссылки на файлы в папке языка, которые вы переводили.
 * Добавьте ссылку в главном каталоге вашего перевода Electron на [README](https://github.com/electron/electron#documentation-translations).
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+Обратите внимание, что файлы в `docs-translations` должны включать только переведёенное, оригинальный Английский файлы не должны копироваться туда.
