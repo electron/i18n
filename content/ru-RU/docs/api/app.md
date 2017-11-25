@@ -97,7 +97,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Возникает при активации приложения. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Возникает при активации приложения. Различные действия могут запускать это событие, например, запуск приложения в первый раз, попытка перезапустить приложение, когда оно уже запущено, или щелкнуть значок приложения в dock или панели задач.
 
 ### Событие: 'continue-activity' *macOS*
 
@@ -107,7 +107,7 @@ app.on('window-all-closed', () => {
 * `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - содержит состояние приложения, сохраняющего состояние по активности на другом устройстве.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активности на различных устройствах для возобновления. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
