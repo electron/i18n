@@ -111,7 +111,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'new-window-for-tab' *macOS*
+### Событие: 'new-window-for-tab' *macOS*
 
 Возвращает:
 
@@ -119,7 +119,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Событие: 'browser-window-blur'
 
 Возвращает:
 
@@ -162,7 +162,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - код ошибки
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
@@ -174,7 +174,7 @@ const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // Сверка логики.
     event.preventDefault()
     callback(true)
   } else {
@@ -192,7 +192,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (опиционально)
 
 Emitted when a client certificate is requested.
 
@@ -207,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Событие: 'login'
 
 Возвращает:
 
@@ -240,7 +240,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Событие: 'gpu-process-crashed'
 
 Возвращает:
 
@@ -249,7 +249,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Emitted when the gpu process crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
 Возвращает:
 
@@ -272,7 +272,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (опиционально)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -280,9 +280,9 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (опиционально) 
+  * `args` String[] - (опиционально)
+  * `execPath` String (опиционально)
 
 Relaunches the app when current instance exits.
 
@@ -349,7 +349,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -670,7 +670,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
