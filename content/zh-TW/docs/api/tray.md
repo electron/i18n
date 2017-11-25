@@ -13,12 +13,12 @@ let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
+    {label: '項目 1', type: 'radio'},
+    {label: '項目 2', type: 'radio'},
+    {label: '項目 3', type: 'radio', checked: true},
+    {label: '項目 4', type: 'radio'}
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('這是我的應用程式。')
   tray.setContextMenu(contextMenu)
 })
 ```
