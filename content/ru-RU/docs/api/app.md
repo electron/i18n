@@ -73,13 +73,13 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `path` String
 
-Возникает, когда пользователь хочет открыть файл. Событие `open-file` обычно возникает, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Возникает, когда пользователь хочет открыть файл. Событие `open-file` обычно возникает, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` также возникает, когда файл удаляется на dock, а приложение еще не запущено. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' *macOS*
+### Событие: 'open-file' *macOS*
 
 Возвращает:
 
@@ -99,13 +99,13 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
-### Event: 'continue-activity' *macOS*
+### Событие: 'continue-activity' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `type` String - строка индентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - содержит состояние приложения, сохраняющего состояние по активности на другом устройстве.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
 
@@ -128,7 +128,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### Событие: 'browser-window-focus'
 
 Возвращает:
 
@@ -137,7 +137,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### Событие: 'browser-window-created'
 
 Возвращает:
 
@@ -146,7 +146,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### Событие: 'web-contents-created'
 
 Возвращает:
 
@@ -155,7 +155,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 Emitted when a new [webContents](web-contents.md) is created.
 
-### Event: 'certificate-error'
+### Событие: 'certificate-error'
 
 Возвращает:
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
