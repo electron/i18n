@@ -117,13 +117,13 @@ delete window.module;
 </head>
 ```
 
-## ` yêu cầu ('electron'). Xxx </ 0> bị không xác định.</h2>
+## `require('electron').xxx` bị undefined.
 
-<p>Khi sử dụng các mô đun được xây dựng sẵn trong Electron, bạn có thể gặp lỗi như sau:</p>
+Khi sử dụng các mô đun được xây dựng sẵn trong Electron, bạn có thể gặp lỗi như sau:
 
-<pre><code>> require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-`</pre> 
+    > require('electron').webFrame.setZoomFactor(1.0)
+    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+    
 
 This has been occurred because you have a different modules of ` electron </ 1> </ 0> <if> <input> installed in the current directory or on global, it was ghi đè vào các module built in built in Electron.</p>
 
