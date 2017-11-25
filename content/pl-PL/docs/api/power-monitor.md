@@ -4,7 +4,7 @@
 
 Proces: [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie zostanie wyemitowane.
 
 Na przykład:
 
@@ -25,7 +25,7 @@ Modułu `powerMonitor` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'suspend'
 
-Emitted when the system is suspending.
+Emitowane, gdy praca systemu jest zawieszana.
 
 ### Zdarzenie: 'resume'
 
