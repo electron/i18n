@@ -1,4 +1,4 @@
-# `window.open` Function
+# Funkcja `window.open`
 
 > Open a new window and load a URL.
 
@@ -18,7 +18,7 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window a
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
-**Notes:**
+**Uwagi:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -47,7 +47,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// main process
+// główny proces
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -71,7 +71,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// proces renderowania (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
