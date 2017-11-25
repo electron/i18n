@@ -45,7 +45,7 @@ Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### 事件: 'show'
 
 回傳:
 
@@ -61,7 +61,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### 事件: 'close'
 
 回傳:
 
