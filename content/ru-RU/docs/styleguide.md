@@ -209,13 +209,13 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## Переводы документации
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Переводы документов Electron находятся в папке `docs-translations`.
 
-To add another set (or partial set):
+Чтобы добавить другой набор (или частичный набор):
 
-* Create a subdirectory named by language abbreviation.
+* Создайте подкаталог с именем аббревиатуры языка.
 * Перевод файлов.
-* Update the `README.md` within your language directory to link to the files you have translated.
+* Обновите `README.md` ссылки на файлы в папке языка, которые вы переводили.
 * Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
 
 Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
