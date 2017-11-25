@@ -147,11 +147,11 @@
   ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Название может быть`###` или`####`-уровня в зависимости от того, является ли эти методы модуля или класса.
 
 For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Например, методы класса `Session` под модулем `session` должны использовать `ses` как `objectName`.
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
@@ -179,7 +179,7 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### События
 
-The events chapter must be in following form:
+Глава события должна быть в следующем виде:
 
 ```markdown
 ### Event: 'wake-up'
@@ -218,4 +218,4 @@ Returns:
 * Обновите `README.md` ссылки на файлы в папке языка, которые вы переводили.
 * Добавьте ссылку в главном каталоге вашего перевода Electron на [README](https://github.com/electron/electron#documentation-translations).
 
-Обратите внимание, что файлы в `docs-translations` должны включать только переведёенное, оригинальный Английский файлы не должны копироваться туда.
+Обратите внимание, что файлы в `docs-translations` должны включать только переведённое, оригинальные Английские файлы не должны копироваться туда.
