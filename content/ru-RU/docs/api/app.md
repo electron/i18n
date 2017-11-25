@@ -77,7 +77,7 @@ app.on('window-all-closed', () => {
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+В Windows вам необходимо распарсить `process.argv` (в основном процессе), чтобы получить путь к файлу.
 
 ### Событие: 'open-file' *macOS*
 
@@ -86,7 +86,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Возникает, когда пользователь хочет открыть URL-адрес из приложения. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
