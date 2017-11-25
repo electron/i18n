@@ -167,13 +167,13 @@
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * или пользовательский тип как Electron [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Если аргумент или метод является уникальным для определенных платформ, эти платформы обозначаются списком разделенных пробелами, курсивом после datatype. Значения могут быть `macOS`, `Windows` или `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (optional) _macOS_ _Windows_ - анимационные вещи.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Аргументы типа `Array` должны указывать, какие элементы может включать массив в описание ниже.
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
