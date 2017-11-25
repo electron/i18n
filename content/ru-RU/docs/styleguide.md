@@ -49,8 +49,8 @@
 
 ## Выбор слов
 
-* Используйте «будет» над «был бы» при описании результатов.
-* Предпочитайте «в ___ процессе» чем «в».
+* Используйте "будет" над "был бы" при описании результатов.
+* Предпочитайте "в ___ процессе" чем "в".
 
 ## Справочник по API
 
@@ -165,7 +165,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* или пользовательский тип как Electron [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
