@@ -35,7 +35,7 @@ app.on('window-all-closed', () => {
 
 Происходит при закрытии всех окон.
 
-Если вы не подпишитесь на это событие, и все окна будут закрыты, поведением по умолчанию является выход из app; Однако если вы подпишитесь, то вы определяете, будет ли приложение закрыто или нет. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Если вы не подпишитесь на это событие, и все окна будут закрыты, поведением по умолчанию является выход из app; Однако если вы подпишитесь, то вы определяете, будет ли приложение закрыто или нет. Если пользователь нажал `Cmd + Q` или разработчик вызвал `app.quit ()`, Electron сначала попытается закрыть все окна, а затем возникает `will-quit`, и в этом случае событие `window-all-closed` не будет возникать.
 
 ### Событие: 'before-quit'
 
