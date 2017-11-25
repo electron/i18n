@@ -57,7 +57,7 @@
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
-* [選單](api/menu.md)
+* [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
