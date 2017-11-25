@@ -6,7 +6,7 @@ Proces: [Main](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
-For example:
+Na przykład:
 
 ```javascript
 const electron = require('electron')
@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Zdarzenia
 
 The `powerMonitor` module emits the following events:
 
