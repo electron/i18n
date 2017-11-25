@@ -96,10 +96,10 @@
 * [Статические методы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) должны быть перечислены под главой `### Статические методы`.
 * [Методы экземпляра](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) должны быть перечислены под главой `### Методы экземпляра`.
 * Все методы, которые возвращают значение должно начинаться с описания "Возвращают `[TYPE]` - Возвращают описание" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+  * Если метод возвращает `Object`, его структуру можно указать с помощью двоеточия, следующие строки в виде неупорядоченного списка свойств в том же стиле параметров функции.
+* Экземпляр событий, должнен быть перечислены под `### Instance Events` главой.
+* Свойства экземпляра должны быть перечислены под `### Instance Properties` главой. 
+  * Свойства экземпляра должно начинаться с "[Property Type] ..."
 
 Используйте классы `Session` и `Cookies` в качестве примера:
 
@@ -191,7 +191,7 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Название может быть`###` или`####`-уровня в зависимости от того, является ли это событие модуля или класса.
 
 The arguments of an event follow the same rules as methods.
 
