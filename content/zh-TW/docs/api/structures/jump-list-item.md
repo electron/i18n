@@ -1,4 +1,4 @@
-# JumpListItem Object
+# JumpListItem 物件
 
 * `type` String (optional) - One of the following: 
   * `task` - A task will launch an app with specific arguments.
