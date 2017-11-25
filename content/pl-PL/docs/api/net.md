@@ -15,7 +15,7 @@ The following is a non-exhaustive list of why you may consider using the `net` m
 
 The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Poniższy przykład szybko pokazuje, jak API `net` może być używane:
 
 ```javascript
 const {app} = require('electron')
@@ -48,6 +48,6 @@ The `net` module has the following methods:
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
-Returns [`ClientRequest`](./client-request.md)
+Zwraca [`ClientRequest`](./client-request.md)
 
 Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
