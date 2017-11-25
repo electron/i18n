@@ -15,9 +15,9 @@ Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module 
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // 註冊 'CommandOrControl+Y' 快捷鍵監聽器。
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // 做同時按 Y 和 Command 跟 Control 其中一個鍵時要做的事。
   })
 })
 ```
@@ -32,9 +32,9 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Available modifiers
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (或縮寫成 `Cmd`)
+* `Control` (或縮寫成 `Ctrl`)
+* `CommandOrControl` (或縮寫成 `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
