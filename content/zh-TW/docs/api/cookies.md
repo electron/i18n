@@ -33,7 +33,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 The following events are available on instances of `Cookies`:
 
-#### Event: 'changed'
+#### 事件: 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
