@@ -14,11 +14,11 @@ Brightray [之前是](https://github.com/electron-archive/brightray)讓應用程
 
 ### CRT
 
-C 執行期程式庫 (C Run-time Library，縮寫為 CRT) 是 C++ 標準程式庫的一部分，整合了 ISO C99 標準程式庫。 The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C 執行期程式庫 (C Run-time Library，縮寫為 CRT) 是 C++ 標準程式庫的一部分，整合了 ISO C99 標準程式庫。 Visual C++ 程式庫的 CRT 實作，支援機器碼開發、機器碼與 Managed 程式碼混用開發，以及 .NET 上的純 Managed 程式碼開發。
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Apple 磁碟映像檔 (Apple Disk Image) 是 macOS 用的打包格式。 DMG 檔案常被用來打包應用程式的「安裝程式」。 [electron-builder](https://github.com/electron-userland/electron-builder) 支援打包成 `dmg`。
 
 ### IME
 
@@ -26,11 +26,11 @@ An Apple Disk Image is a packaging format used by macOS. DMG files are commonly 
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC 全名是跨處理序通訊 (Inter-Process Communication)。Electron 使用 IPC 在[主處理序](#main-process)及[畫面轉譯處理序](#renderer-process)間傳送序列化的 JSON 訊息。
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+包含 [Chromium Content](https://www.chromium.org/developers/content-module) 及其相依的所有模組 (例如 Blink, [V8](#v8) 等) 的共用程式庫。 也稱作 "libcc"。
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
