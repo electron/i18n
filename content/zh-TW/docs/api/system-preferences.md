@@ -46,14 +46,14 @@ Returns `Boolean` - Whether the Swipe between pages setting is on.
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` 物件
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` 物件
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -62,7 +62,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` 物件
 
 Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -86,7 +86,7 @@ Removes the subscriber with `id`.
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` 物件
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
 
