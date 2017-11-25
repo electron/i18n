@@ -79,11 +79,11 @@ Using `autoUpdater` as an example:
 ```markdown
 # autoUpdater
 
-## Events
+## 事件
 
-### Event: 'error'
+### 事件: 'error'
 
-## Methods
+## 方法
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
