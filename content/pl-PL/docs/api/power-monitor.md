@@ -23,7 +23,7 @@ app.on('ready', () => {
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend'
+### Zdarzenie: 'suspend'
 
 Emitted when the system is suspending.
 
