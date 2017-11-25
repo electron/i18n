@@ -8,7 +8,7 @@
 
 ### Instance Events
 
-#### Event: 'data'
+#### 事件: 'data'
 
 回傳:
 
@@ -16,7 +16,7 @@
 
 The `data` event is the usual method of transferring response data into applicative code.
 
-#### Event: 'end'
+#### 事件: 'end'
 
 Indicates that response body has ended.
 
