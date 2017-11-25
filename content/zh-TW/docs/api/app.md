@@ -66,7 +66,7 @@ See the description of the `window-all-closed` event for the differences between
 
 Emitted when the application is quitting.
 
-### Event: 'open-file' *macOS*
+### 事件: 'open-file' *macOS*
 
 回傳:
 
@@ -79,7 +79,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' *macOS*
+### 事件: 'open-url' *macOS*
 
 回傳:
 
