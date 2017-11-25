@@ -245,7 +245,7 @@ Emitted when a plugin process has crashed.
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### 事件: 'before-input-event'
 
 回傳:
 
@@ -276,15 +276,15 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### 事件: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-#### Event: 'devtools-closed'
+#### 事件: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-#### Event: 'devtools-focused'
+#### 事件: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
 
@@ -340,7 +340,7 @@ Emitted when `webContents` wants to do basic auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### 事件: 'found-in-page'
 
 回傳:
 
@@ -354,15 +354,15 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### Event: 'media-started-playing'
+#### 事件: 'media-started-playing'
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### 事件: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-#### Event: 'did-change-theme-color'
+#### 事件: 'did-change-theme-color'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -370,7 +370,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
+#### 事件: 'update-target-url'
 
 回傳:
 
@@ -379,7 +379,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### 事件: 'cursor-changed'
 
 回傳:
 
@@ -394,7 +394,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### 事件: 'context-menu'
 
 回傳:
 
@@ -436,7 +436,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### 事件: 'select-bluetooth-device'
 
 回傳:
 
@@ -466,7 +466,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### 事件: 'paint'
 
 回傳:
 
@@ -486,11 +486,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### 事件: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### 事件: 'will-attach-webview'
 
 回傳:
 
