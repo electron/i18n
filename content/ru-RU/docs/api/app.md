@@ -19,7 +19,7 @@ app.on('window-all-closed', () => {
 
 ### Событие: 'will-finish-launching'
 
-Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. Обычно настраивают слушателей для `open-file` и `open-url` событий, и запуская репортер сбоев и автообновления.
 
 В большинстве случаев вы просто должны сделать все в обработчике событий `ready`.
 
