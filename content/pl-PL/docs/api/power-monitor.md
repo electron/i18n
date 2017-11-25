@@ -1,6 +1,6 @@
 # powerMonitor
 
-> Monitor power state changes.
+> Monitoruje zmiany stanu zasilania.
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -9,19 +9,19 @@ You cannot require or use this module until the `ready` event of the `app` modul
 Na przykład:
 
 ```javascript
-const electron = require('electron')
+const electron = require('electron') 
 const {app} = electron
 
-app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
+app.on('ready', () => {   
+     electron.powerMonitor.on('suspend', () => {
+             console.log('The system is going to sleep')   
+     }) 
 })
 ```
 
 ## Zdarzenia
 
-The `powerMonitor` module emits the following events:
+Modułu `powerMonitor` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'suspend'
 
@@ -29,12 +29,12 @@ Emitted when the system is suspending.
 
 ### Zdarzenie: 'resume'
 
-Emitted when system is resuming.
+Emitowane, gdy praca systemu jest wznawiana.
 
-### Event: 'on-ac' *Windows*
+### Zdarzenie: 'ac' *Windows*
 
-Emitted when the system changes to AC power.
+Emitowane, gdy system znajduje się na zasilaniu sieciowym.
 
-### Event: 'on-battery' *Windows*
+### Zdarzenie: 'bateria' *Windows*
 
-Emitted when system changes to battery power.
+Emitowane, gdy system znajduje się na zasilaniu z baterii.
