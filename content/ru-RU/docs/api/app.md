@@ -126,7 +126,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Возникает, когда [browserWindow](browser-window.md) получает размытие.
 
 ### Событие: 'browser-window-focus'
 
@@ -135,7 +135,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Возникает, когда [browserWindow](browser-window.md) получает фокус.
 
 ### Событие: 'browser-window-created'
 
@@ -144,7 +144,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Возникает, когда создается новый [browserWindow](browser-window.md).
 
 ### Событие: 'web-contents-created'
 
@@ -260,7 +260,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ## Методы
 
-The `app` object has the following methods:
+Объект `app` имеет следующие методы:
 
 **Note:** Some methods are only available on specific operating systems and are labeled as such.
 
@@ -327,15 +327,15 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+Вы можете запросить следующие пути по имени:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
+* `home` домашний каталог пользователя.
+* `appData` каталог данных приложений для каждого пользователя, который по умолчанию указывает на: 
+  * `%APPDATA%` на Windows
+  * `$XDG_CONFIG_HOME` или `~/.config` на Linux
+  * `~/Library/Application Support` на macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
+* ` temp ` временный каталог.
 * `exe` The current executable file.
 * `module` The `libchromiumcontent` library.
 * `desktop` The current user's Desktop directory.
