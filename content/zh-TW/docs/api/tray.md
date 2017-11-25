@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` 是個 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -38,14 +38,14 @@ let appIcon = null
 app.on('ready', () => {
   appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'}
+    {label: '項目 1', type: 'radio'},
+    {label: '項目 2', type: 'radio'}
   ])
 
-  // Make a change to the context menu
+  // 修改操作功能表
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // 在 Linux 裡要再呼叫一次，因為我們動到了操作功能表
   appIcon.setContextMenu(contextMenu)
 })
 ```
@@ -64,7 +64,7 @@ Creates a new tray icon associated with the `image`.
 
 The `Tray` module emits the following events:
 
-#### Event: 'click'
+#### 事件: 'click'
 
 * `event` Event 
   * `altKey` Boolean
@@ -75,7 +75,7 @@ The `Tray` module emits the following events:
 
 Emitted when the tray icon is clicked.
 
-#### Event: 'right-click' *macOS* *Windows*
+#### 事件: 'right-click' *macOS* *Windows*
 
 * `event` Event 
   * `altKey` Boolean
@@ -86,7 +86,7 @@ Emitted when the tray icon is clicked.
 
 Emitted when the tray icon is right clicked.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### 事件: 'double-click' *macOS* *Windows*
 
 * `event` Event 
   * `altKey` Boolean
@@ -97,49 +97,49 @@ Emitted when the tray icon is right clicked.
 
 Emitted when the tray icon is double clicked.
 
-#### Event: 'balloon-show' *Windows*
+#### 事件: 'balloon-show' *Windows*
 
 Emitted when the tray balloon shows.
 
-#### Event: 'balloon-click' *Windows*
+#### 事件: 'balloon-click' *Windows*
 
 Emitted when the tray balloon is clicked.
 
-#### Event: 'balloon-closed' *Windows*
+#### 事件: 'balloon-closed' *Windows*
 
 Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
-#### Event: 'drop' *macOS*
+#### 事件: 'drop' *macOS*
 
 Emitted when any dragged items are dropped on the tray icon.
 
-#### Event: 'drop-files' *macOS*
+#### 事件: 'drop-files' *macOS*
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
-#### Event: 'drop-text' *macOS*
+#### 事件: 'drop-text' *macOS*
 
 * `event` Event
 * `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
 
-#### Event: 'drag-enter' *macOS*
+#### 事件: 'drag-enter' *macOS*
 
 Emitted when a drag operation enters the tray icon.
 
-#### Event: 'drag-leave' *macOS*
+#### 事件: 'drag-leave' *macOS*
 
 Emitted when a drag operation exits the tray icon.
 
-#### Event: 'drag-end' *macOS*
+#### 事件: 'drag-end' *macOS*
 
 Emitted when a drag operation ends on the tray or ends at another location.
 
-#### Event: 'mouse-enter' *macOS*
+#### 事件: 'mouse-enter' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
@@ -150,7 +150,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 Emitted when the mouse enters the tray icon.
 
-#### Event: 'mouse-leave' *macOS*
+#### 事件: 'mouse-leave' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
@@ -224,9 +224,9 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `icon` ([NativeImage](native-image.md) | String) - (選用)
+  * `title` String - (選用)
+  * `content` String - (選用)
 
 Displays a tray balloon.
 
@@ -247,7 +247,7 @@ Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+回傳 [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this tray icon as `Object`.
 
