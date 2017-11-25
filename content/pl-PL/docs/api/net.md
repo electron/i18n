@@ -40,7 +40,7 @@ By the way, it is almost identical to how you would normally use the [HTTP](http
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Methods
+## Metody
 
 The `net` module has the following methods:
 
