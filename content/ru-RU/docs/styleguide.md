@@ -197,7 +197,7 @@ The arguments of an event follow the same rules as methods.
 
 ### Свойства
 
-The properties chapter must be in following form:
+Свойства главы должны быть в следующем виде:
 
 ```markdown
 ### session.defaultSession
