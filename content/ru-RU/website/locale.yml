@@ -76,12 +76,12 @@ taglines:
   languages: Локализованное содержимое от нашего удивительного сообщества разработчиков по всему миру.
 help_translate: "Помочь перевести"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
+  see_something: Увидели, что нуждается в исправлении?
+  propose_change: Предлогаю изменить в исходном файле.
   need_different_version: Нужна другая версия документации?
   see_available_versions: Просмотреть доступные версии.
-  want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
+  want_something_searchable: Желаете что-либо поискать?
+  view_all_docs: Смотрите все документы на одной странице
   see_the_faq: Просмотреть часто задаваемые вопросы
 apps:
   title: Приложения, созданные на Electron
@@ -100,10 +100,10 @@ pages:
     description: Приложения, созданные на Electron
   '/docs':
     title: Документация
-    description: Guides and API reference documentation for the latest Electron release
+    description: Руководства и API справочной документации для последнего релиза Electron
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Все документы Electron!
+    description: Все руководства Electron и API документация на единой, поисковой странице.
   '/blog':
     title: Блог Electron
     description: Все последние новости от команды Electron и сообщества.
