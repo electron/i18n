@@ -596,7 +596,7 @@ Fired when a redirect was received while requesting a resource.
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### 事件: 'page-title-updated'
 
 回傳:
 
@@ -613,11 +613,11 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Fired when page receives favicon urls.
 
-### Event: 'enter-html-full-screen'
+### 事件: 'enter-html-full-screen'
 
 Fired when page enters fullscreen triggered by HTML API.
 
-### Event: 'leave-html-full-screen'
+### 事件: 'leave-html-full-screen'
 
 Fired when page leaves fullscreen triggered by HTML API.
 
@@ -724,7 +724,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-### Event: 'close'
+### 事件: 'close'
 
 Fired when the guest page attempts to close itself.
 
