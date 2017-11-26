@@ -598,9 +598,9 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - специфичное для приложение состояние для использование других устроиств.
+* `webpageURL` String (опиционально) - веб-страница для загрузки в браузере, если нет подходящего приложения, установленного на проснувшемся устройстве. Схема должна быть `http` или `https`.
 
 Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
 
@@ -656,9 +656,9 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 Задает счетчик-значок для текущего приложения. При значении счетчика `` будет скрыть значок.
 
-На macOS показывает на значок в dock. На Linux это только работает для загрузчика Unity,
+В macOS показывает на значке в dock. На Linux это работает только для Unity.
 
-**Примечание:** загрузчик Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -728,12 +728,12 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
   * `credits` String (optional) - Credit information.
   * `version` String (optional) - The app's build version number.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Установите описание панели опций. Это переопределит значения, определенные в файле `.plist` приложения. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - переключатель командной строки
+* `value` String (опиционально) - значение для данного переключателя
 
 Append a switch (with optional `value`) to Chromium's command line.
 
