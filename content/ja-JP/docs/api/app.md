@@ -15,11 +15,11 @@ app.on('window-all-closed', () => {
 
 ## イベント
 
-`app`オブジェクトは次のイベントを発生します。
+`app`オブジェクトは次のイベントを発生させます。
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションが基本的な起動が終わったときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では`NSApplication` の `applicationWillFinishLaunching`に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定、クラッシュレポーターと自動アップデーターを起動します。
+アプリケーションの起動プロセスの基本部分が完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では`NSApplication` の `applicationWillFinishLaunching`に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定、クラッシュレポーターと自動アップデーターを起動します。
 
 ほとんどの場合、`ready` イベントハンドラーであらゆる処理を記述するべきです。
 
@@ -31,13 +31,13 @@ app.on('window-all-closed', () => {
 
 Electronの初期化処理が終わった時に発生します。 MacOS では、`launchInfo` は、通知センターから起動された場合、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` 情報を保持しています。 また、このイベントが既に発生しているかどうかをチェックする `app.isReady()` を呼び出すことができます。
 
-### Event: 'window-all-closed'
+### イベント: 'window-all-closed'
 
-Emitted when all windows have been closed.
+すべてのウィンドウが閉じられたときに発生します。
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+もしこのイベントをハンドルしていないときは、すべてのウィンドウが閉じられたときのデフォルト動作はアプリケーションの終了になります。イベントをハンドルすれば、アプリケーションを終了するかどうかを制御することが出来ます。 もし、ユーザーが`Cmd + Q`を押下したか、開発者が`app.quit()`を呼び出した際、Electronはすべてのウィンドウを閉じて、`will-quit`イベントを発生させます。この場合は、`window-all-closed`イベントは発生しないことになります。
 
-### Event: 'before-quit'
+### イベント: 'before-quit'
 
 戻り値：
 
