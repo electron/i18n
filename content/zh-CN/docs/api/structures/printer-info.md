@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# PrinterInfo 对象
 
 * `name` String
 * `description` String
 * `status` Number
 * `isDefault` Boolean
 
-## Example
+## 例子
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+下面是一些可能在每个平台上不同的附加选项的示例。
 
 ```javascript
 {
