@@ -73,11 +73,11 @@ Electronの初期化処理が終わった時に発生します。 MacOS では�
 * `event` Event
 * `path` String
 
-ユーザーがファイルを開こうとした際に発生します。 この`open-file`イベントは、アプリケーションがすでに起動しており、OSがアプリケーションにファイルを開くよう再利用する際に発生します。 `open-file`は、アプリケーションが起動していないときに、ドック上のアイコンにファイルをドロップした際にも発生します。 Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+ユーザーがファイルを開こうとした際に発生します。 この`open-file`イベントは、アプリケーションがすでに起動しており、OSがアプリケーションにファイルを開くよう再利用する際に発生します。 `open-file`は、アプリケーションが起動していないときに、ドック上のアイコンにファイルをドロップした際にも発生します。 そういったケースに対応できるように、アプリケーション起動の早い段階で`open-file`イベントをハンドル する用にしてください。(`ready`イベント発生前でも良いです。)
 
-You should call `event.preventDefault()` if you want to handle this event.
+このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+Windowsでは、ファイル名はメインプロセスの`process.argv`に渡されます。
 
 ### Event: 'open-url' *macOS*
 
@@ -88,7 +88,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
 
 ### Event: 'activate' *macOS*
 
