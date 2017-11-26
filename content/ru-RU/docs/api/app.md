@@ -617,24 +617,24 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `options` Object 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+  * `certificate` String - путь к pkcs12 файлу.
+  * `password` String - парольная фраза для сертификата.
 * `callback` Function 
-  * `result` Integer - Result of import.
+  * `result` Integer - результат импорта.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Отключает аппаратное ускорение для текущего приложения.
 
-This method can only be called before app is ready.
+Этот метод может быть вызван только до того, как приложение будет готово.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-This method can only be called before app is ready.
+Этот метод может быть вызван только до того, как приложение будет готово.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
@@ -741,17 +741,17 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* `value` String - аргумент для добавления в командную строку
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Добавляет аргумент к Chromium в командной строке. Аргумент будет указан правильно.
 
-**Note:** This will not affect `process.argv`.
+**Примечание:** Это не повлияет на `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Этот метод может быть вызван только до того, как приложение будет готово.
 
 ### `app.dock.bounce([type])` *macOS*
 
@@ -807,4 +807,4 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Задает `image`, связывает со значком в dock.
