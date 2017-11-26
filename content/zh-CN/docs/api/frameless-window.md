@@ -1,4 +1,4 @@
-# Frameless Window
+# 无边框窗口
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
