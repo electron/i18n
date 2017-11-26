@@ -1,8 +1,8 @@
 # Функция `window.open`
 
-> Open a new window and load a URL.
+> Открыть новое окно и загрузить URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Когда `window.open` вызывается для создания нового окна на веб-странице, будет создаваться новый экземпляр `BrowserWindow` по `url` и прокси возвратит `window.open` и позволить странице иметь ограниченный контроль над ним.
 
 The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
