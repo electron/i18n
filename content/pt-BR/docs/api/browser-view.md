@@ -1,14 +1,14 @@
-## Class: BrowserView
+## Classe: BrowserView
 
-> Create and control views.
+> Cria e controla views.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** A API BrowserView atualmente é experimental e pode mudar ou ser removida em versões futuras do Electron.
 
 Processo: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Uma `BrowserView` pode ser usada para incorporar conteúdo web adicional em uma `BrowserWindow`. Ela é como uma janela filha, exceto que ela está posicionada em relação à janela a que pertence. Isso quer dizer que ela pretende ser uma alternativa à tag `webview`.
 
-## Example
+## Exemplo
 
 ```javascript
 // In the main process.
