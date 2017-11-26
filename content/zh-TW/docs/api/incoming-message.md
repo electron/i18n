@@ -20,7 +20,7 @@ The `data` event is the usual method of transferring response data into applicat
 
 Indicates that response body has ended.
 
-#### Event: 'aborted'
+#### 事件: 'aborted'
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
