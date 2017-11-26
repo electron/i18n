@@ -117,7 +117,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Возникает, когда пользователь нажимает нативную новую кнопку вкладки macOS. Новая кнопка вкладки доступна только в том случае, если текущий `BrowserWindow` имеет `tabbingIdentifier`
 
 ### Событие: 'browser-window-blur'
 
@@ -167,7 +167,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 * `callback` Function 
   * `isTrusted` Boolean - учитывать ли сертификат как надёжный
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -194,9 +194,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (опиционально)
 
-Emitted when a client certificate is requested.
+Возникает при запросе сертификата клиента.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает приложению использование первого сертификата из хранилища.
 
 ```javascript
 const {app} = require('electron')
