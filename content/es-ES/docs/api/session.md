@@ -1,4 +1,4 @@
-# período de sesiones
+# session
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
