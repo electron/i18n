@@ -20,7 +20,7 @@ languages:
   current: selección actual
 community:
   title: Comunidad Electron
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: "Herramientas, boilerplates, vídeos y mas sobre los <a href=\"https://github.com/sindresorhus/awesome-electron\">increibles</a> contribuidores open-source de Electron.\nBusca o añade <a href=\"/community#meetups\">meetups</a> cercanos a ti."
   tools: Herramientas
   boilerplates: Boilerplates
   components: Componentes
@@ -46,7 +46,7 @@ benefits:
   automatic_updates: Actualizaciones automáticas
   native_menus_and_notifications: Menús nativos y notificaciones
   crash_reporting: Informe de errores
-  debugging_and_profiling: Debugging & profiling
+  debugging_and_profiling: Depuración y optimización
   windows_installers: Instaladores de Windows
 get_started:
   title: Empezar
