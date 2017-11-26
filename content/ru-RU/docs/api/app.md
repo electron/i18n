@@ -268,15 +268,15 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
 
-Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
 
 ### `app.exit([exitCode])`
 
 * `exitCode` Integer (опиционально)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Выход немедленно `exitCode`. `exitCode` по умолчанию 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Все окна будут закрыты сразу без запросов пользователя и `before-quit` и `will-quit` события не будут возникать.
 
 ### `app.relaunch([options])`
 
@@ -284,11 +284,11 @@ All windows will be closed immediately without asking user and the `before-quit`
   * `args` String[] - (опиционально)
   * `execPath` String (опиционально)
 
-Relaunches the app when current instance exits.
+Перезапуск приложения когда существует текущий экземпляр.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+По умолчанию новый экземпляр будет использовать тот же рабочий каталог и аргументы командной строки с текущим экземпляром. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска вместо текущего приложения.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Обратите внимание, что этот метод не завершает приложение при выполнении, вам нужно вызвать `app.quit` или `app.exit` после вызова `app.relaunch` чтобы перезапустить приложение.
 
 When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
 
