@@ -4,15 +4,15 @@
 
 Когда `window.open` вызывается для создания нового окна на веб-странице, будет создаваться новый экземпляр `BrowserWindow` по `url` и прокси возвратит `window.open` и позволить странице иметь ограниченный контроль над ним.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Прокси имеет ограниченную стандартную функциональность реализованную для совместимости с традиционными веб-страницами. Для полного контроля нового окна следует создать `BrowserWindow` напрямую.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Вновь созданный `BrowserWindow` будет наследовать параметры родительского окна по умолчанию. Переопределить унаследованные параметры вы можете в строке `features`.
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String (опиционально)
+* `features` String (опиционально)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
@@ -47,7 +47,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// main process
+// основной процесс
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +57,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // открыть окно как модальное
     event.preventDefault()
     Object.assign(options, {
       modal: true,
