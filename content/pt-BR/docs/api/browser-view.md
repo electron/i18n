@@ -11,7 +11,7 @@ Uma `BrowserView` pode ser usada para incorporar conteúdo web adicional em uma 
 ## Exemplo
 
 ```javascript
-// In the main process.
+// No processo main.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,20 +29,20 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([opções])` *Experimental*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `opções` Objeto (opcional) 
+  * `webPreferences` Objeto (opcional) - Veja [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Métodos estáticos
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Inteiro
 
-Returns `BrowserView` - The view with the given `id`.
+Retorna `BrowserView` - A view com o `id` passado.
 
-### Instance Properties
+### Propriedades da Instância
 
 Objects created with `new BrowserView` have the following properties:
 
