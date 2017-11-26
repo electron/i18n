@@ -55,29 +55,29 @@ Hay preguntas que se hacen a frecuentemente. Revisa esto antes de crear una cons
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
-* [Atajos Globales](api/global-shortcut.md)
+* [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [red](api/net.md)
+* [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocolo](api/protocol.md)
-* [período de sesiones](api/session.md)
+* [protocol](api/protocol.md)
+* [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [Bandeja](api/tray.md)
+* [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### Módulos para el proceso de renderizado (Página Web):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remoto](api/remote.md)
+* [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Módulos para ambos procesos:
 
-* [portapapeles](api/clipboard.md)
+* [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [screen](api/screen.md)
@@ -86,7 +86,7 @@ Hay preguntas que se hacen a frecuentemente. Revisa esto antes de crear una cons
 ## Desarrollo
 
 * [Estilo de codigo](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
+* [Usar clang-format en código C++](development/clang-format.md)
 * [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
 * [Diferencias técnicas con NW.js (antes node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Resumen de compilación de sistemas](development/build-system-overview.md)
