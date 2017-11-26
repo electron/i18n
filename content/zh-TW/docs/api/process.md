@@ -8,7 +8,7 @@ Electron's `process` object is extended from the [Node.js `process` object](http
 
 ## 事件
 
-### Event: 'loaded'
+### 事件: 'loaded'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
