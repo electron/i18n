@@ -1,4 +1,4 @@
-Použijte prosím dokumentaci, která odpovídá vámi používanou Elektron verzi. Číslo verze by mělo být součástí URL. Pokud ne, používáte pravděpodobně dokumentaci vývojové větve, která může obsahovat změny v API, který nemusí být kompatibilní s vaší verzí Elektronu. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Použijte prosím dokumentaci, která odpovídá vámi používanou Elektron verzi. Číslo verze by mělo být součástí URL. Pokud ne, používáte pravděpodobně dokumentaci vývojové větve, která může obsahovat změny v API, který nemusí být kompatibilní s vaší verzí Elektronu. Chcete-li zobrazit starší verze dokumentace, můžete na GitHubu využít možnost [Switch branches/tags](https://github.com/electron/electron/tree/v1.4.0) a tak pomocí značek přepnout na starší verzi.
 
 ## Časté dotazy
 
@@ -18,9 +18,9 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Aplikace balení](tutorial/application-packaging.md)
 * [Používání nativních Node modulů](tutorial/using-native-node-modules.md)
 * [Ladění hlavního procesu](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Využití Selenium a WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [DevTools rozšíření](tutorial/devtools-extension.md)
+* [Používání Pepper Flash Pluginu](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
