@@ -254,19 +254,19 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` когда доступность поддержки Chrome включена, `false` в противном случае.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ## Методы
 
 Объект `app` имеет следующие методы:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
