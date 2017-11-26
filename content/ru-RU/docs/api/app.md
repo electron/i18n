@@ -722,13 +722,13 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `applicationName` String (опиционально) - имя приложения.
+  * `applicationVersion` String (опиционально) - версия приложения.
+  * `copyright` String (опиционально) - copyright информация.
+  * `credits` String (опиционально) - сredit информация.
+  * `version` String (опиционально) - номер версии сборки приложения.
 
-Установите описание панели опций. Это переопределит значения, определенные в файле `.plist` приложения. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Установите описание панели опций. Это переопределит значения, определенные в файле `.plist` приложения. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
