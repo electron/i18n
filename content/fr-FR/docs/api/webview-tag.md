@@ -817,12 +817,12 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 ### Événement : 'devtools-opened'
 
-Emitted when DevTools is opened.
+Émis lorsque la DevTools est ouverte.
 
 ### Événement : 'devtools-closed'
 
-Emitted when DevTools is closed.
+Émis lorsque la DevTools est fermée.
 
 ### Événement : 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Émis lorsque la DevTools est active / ouverte.
