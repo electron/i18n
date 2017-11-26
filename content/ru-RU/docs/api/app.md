@@ -735,9 +735,9 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 * `switch` String - переключатель командной строки
 * `value` String (опиционально) - значение для данного переключателя
 
-Append a switch (with optional `value`) to Chromium's command line.
+Добавьте переключатель (с опциональным значением `value`) Chromium в командной строке.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Примечание:** Это не влияет на `process.argv` и главным образом используется разработчиками для контроля поведения некоторых низкоуровневых поведений Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
@@ -749,7 +749,7 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Включение смешанного изолированного режима в приложении.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
