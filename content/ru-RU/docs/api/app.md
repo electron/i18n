@@ -554,8 +554,8 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` String [] - массив аргументов командной строки вторичных экземпляров
+  * `workingDirectory` String - рабочий каталог вторичных экземпляров
 
 Возвращает `Boolean`.
 
@@ -767,7 +767,7 @@ Returns `Integer` an ID representing the request.
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Отменить отскок по `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
@@ -783,15 +783,15 @@ Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Возвращает `String` - значок строки dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Скрывает значок в dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Показать значок в dock.
 
 ### `app.dock.isVisible()` *macOS*
 
@@ -801,7 +801,7 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Задает приложению [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
 ### `app.dock.setIcon(image)` *macOS*
 
