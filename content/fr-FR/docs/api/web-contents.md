@@ -191,7 +191,7 @@ Retourne :
 
 Émis lorsqu'une navigation dans la page s'est produite.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
 #### Événement : 'will-prevent-unload'
 
@@ -199,9 +199,9 @@ Retourne :
 
 * `event` Event
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+Émis lorsqu’un écouteur de l'événement `beforeunload` tente d’annuler un déchargement de la page.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+Appeler `event.preventDefault()` ignorera l'écouteur de l'événement `beforeunload` et va laisser la page se décharger.
 
 ```javascript
 const {BrowserWindow, dialog} = require('electron')
@@ -229,7 +229,7 @@ Retourne :
 * `event` Event
 * `killed` Boolean
 
-Emitted when the renderer process crashes or is killed.
+Émis lorsque le processus renderer crash ou est interrompu.
 
 #### Événement : 'plugin-crashed'
 
@@ -239,20 +239,20 @@ Retourne :
 * `name` String
 * `version` String
 
-Emitted when a plugin process has crashed.
+Émis lorsqu’un processus de plugin crash.
 
 #### Événement : 'destroyed'
 
-Emitted when `webContents` is destroyed.
+Émis lorsqu'un `webContents` est détruit.
 
 #### Événement : 'before-input-event'
 
 Retourne :
 
 * `event` Event
-* `input` Object - Input properties 
-  * `type` String - Either `keyUp` or `keyDown`
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+* `input` Object - propriétés de l'input 
+  * `type` String - `keyUp` ou `keyDown`
+  * `key` String - Équivalent à [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
