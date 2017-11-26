@@ -278,15 +278,15 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Événement : 'devtools-opened'
 
-Emitted when DevTools is opened.
+Émis lorsque la DevTools est ouverte.
 
 #### Événement : 'devtools-closed'
 
-Emitted when DevTools is closed.
+Émis lorsque la DevTools est fermée.
 
 #### Événement : 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Émis lorsque la DevTools est active / ouverte.
 
 #### Événement 'certificate-error'
 
@@ -297,9 +297,9 @@ Retourne :
 * `error` String - Le code d'erreur
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `isTrusted` Boolean - Indique si le certificat peut être considéré comme fiable
 
-Emitted when failed to verify the `certificate` for `url`.
+Émis lorsqu'il n'a pas pu vérifier le `certificat` de l'`url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
