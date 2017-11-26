@@ -53,7 +53,7 @@ app.on('ready', () => {
 
 The `screen` module emits the following events:
 
-### Event: 'display-added'
+### 事件: 'display-added'
 
 回傳:
 
@@ -62,7 +62,7 @@ The `screen` module emits the following events:
 
 Emitted when `newDisplay` has been added.
 
-### Event: 'display-removed'
+### 事件: 'display-removed'
 
 回傳:
 
@@ -71,7 +71,7 @@ Emitted when `newDisplay` has been added.
 
 Emitted when `oldDisplay` has been removed.
 
-### Event: 'display-metrics-changed'
+### 事件: 'display-metrics-changed'
 
 回傳:
 
