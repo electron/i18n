@@ -14,7 +14,7 @@
 * `frameName` String (опиционально)
 * `features` String (опиционально)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Возвращает [`BrowserWindowProxy`](browser-window-proxy.md) - создает новое окно и возвращает экземпляр класса `BrowserWindowProxy`.
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
@@ -32,7 +32,7 @@ The `features` string follows the format of standard browser, but each feature h
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
-### Using Chrome's `window.open()` implementation
+### С помощью Chrome `window.open()` реализации
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
@@ -71,7 +71,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// отрендерить процесс (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
