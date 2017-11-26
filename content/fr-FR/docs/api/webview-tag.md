@@ -647,9 +647,9 @@ Retourne :
 
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Position du résultat actif.
+  * `matches` Integer - Nombre de résultats.
+  * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
 Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
@@ -789,11 +789,11 @@ Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
-Emitted when media starts playing.
+Émis lorsqu'un média se démarre.
 
 ### Événement : 'media-paused'
 
-Emitted when media is paused or done playing.
+Émis lorsque le média est suspendu ou terminé.
 
 ### Événement : 'did-change-theme-color'
 
@@ -813,7 +813,7 @@ Retourne :
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
 
 ### Événement : 'devtools-opened'
 
