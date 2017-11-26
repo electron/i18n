@@ -412,15 +412,15 @@ app.exit(0)
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Очищает список последних документов.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - имя вашего протокола, без `://`. Если вы хотите, чтобы ваше приложение обрабатывала `electron://` ссылки, вызовите этот метод из `electron` в качестве параметра.
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
-Returns `Boolean` - Whether the call succeeded.
+Возвращает `Boolean` - был ли вызов успешным.
 
 This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
@@ -434,9 +434,9 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 
 * `protocol` String - имя вашего протокола, без `://`.
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
-Returns `Boolean` - Whether the call succeeded.
+Возвращает `Boolean` - был ли вызов успешным.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
@@ -444,7 +444,7 @@ This method checks if the current executable as the default handler for a protoc
 
 * `protocol` String - имя вашего протокола, без `://`.
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
 Returns `Boolean`
 
@@ -462,7 +462,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Возвращает `Boolean` - был ли вызов успешным.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
@@ -652,7 +652,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Возвращает `Boolean` - был ли вызов успешным.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
@@ -676,7 +676,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Возвращает `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
