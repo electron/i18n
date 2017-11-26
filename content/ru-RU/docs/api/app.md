@@ -717,7 +717,7 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Возвращает `Boolean` - `true` если включена поддержка специальных возможностей Chrome, и `false` в противном случае. Этот API будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -759,7 +759,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 Когда `critical` передается, значок dock будет отскакивать, пока приложение не станет активным или запрос отменяется.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Когда `informational` передается, значок dock будет отскакивать в течение одной секунды. Однако запрос остается до тех пор, пока приложение не станет активным или запрос отменяется.
 
 Возвращает `Integer` ID, представляющий запрос.
 
@@ -773,7 +773,7 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Отскакивает от "Downloads", если путь к файлу находится в папке "Downloads".
 
 ### `app.dock.setBadge(text)` *macOS*
 
@@ -795,7 +795,7 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Возвращает `Boolean` - является ли значок в dock видимым. Вызов `app.dock.show ()` является асинхронным, поэтому этот метод не может вернуть true сразу после этого вызова.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
