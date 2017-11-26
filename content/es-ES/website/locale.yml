@@ -55,11 +55,11 @@ explore:
   title: Explorar las APIs de Electron
   description:
     - 'La <a href="https://github.com/electron/electron-api-demos">API de Electron de la aplicación Desmos</a>'
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
+    - de forma interactiva demuestra las características mas importantes de la API de Electron.
+    - Ve que es posible con Electron con códigos de ejemplo y consejos útiles para
     - construyendo tu app.
 download_from_github: Descargar desde GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Ver todas las versiones</a> en GitHub'
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: Una aplicación mínima de Electron con útiles anotaciones.
@@ -106,17 +106,17 @@ pages:
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
     title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    description: Todas las ultimas noticias del equipo y la comunidad de Electron.
   '/community':
     title: Comunidad
   '/releases':
     title: Releases
   '/contact':
     title: Contacto
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Ponte en contacto con el equipo de Electron en Twitter, Slack, GitHub o vía email.
   '/languages':
     title: Idioma
 _404:
   page_not_found: Página no encontrada.
-  if_this_is_an_error: If this is an error
+  if_this_is_an_error: Si esto es un error
   please_file_an_issue: please file an issue.
