@@ -53,7 +53,7 @@ Objects created with `new Notification` emit the following events:
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
-#### Event: 'click'
+#### 事件: 'click'
 
 回傳:
 
@@ -71,7 +71,7 @@ Emitted when the notification is closed by manual intervention from the user.
 
 This event is not guarunteed to be emitted in all cases where the notification is closed.
 
-#### Event: 'reply' *macOS*
+#### 事件: 'reply' *macOS*
 
 回傳:
 
@@ -80,7 +80,7 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
-#### Event: 'action' *macOS*
+#### 事件: 'action' *macOS*
 
 回傳:
 
