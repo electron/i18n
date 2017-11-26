@@ -33,7 +33,7 @@ let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `portapapeles`
+## `clipboard`
 
 ```js
 // Deprecated
@@ -115,7 +115,7 @@ process.versions.electron
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
-## `período de sesiones`
+## `session`
 
 ```js
 // Deprecated
@@ -128,7 +128,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Bandeja`
+## `Tray`
 
 ```js
 // Deprecated
