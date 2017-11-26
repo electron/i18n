@@ -35,7 +35,7 @@ app.on('window-all-closed', () => {
 
 Происходит при закрытии всех окон.
 
-Если вы не подпишитесь на это событие, и все окна будут закрыты, поведением по умолчанию является выход из app; Однако если вы подпишитесь, то вы определяете, будет ли приложение закрыто или нет. Если пользователь нажал `Cmd + Q` или разработчик вызвал `app.quit ()`, Electron сначала попытается закрыть все окна, а затем возникает `will-quit`, и в этом случае событие `window-all-closed` не будет возникать.
+Если Вы не подпишитесь на это событие, и все окна будут закрыты, поведением по умолчанию является выход из приложения; Однако, если вы подпишитесь, то вы определяете, будет ли приложение закрыто или нет. Если пользователь нажал `Cmd + Q` или разработчик вызвал `app.quit ()`, Electron сначала попытается закрыть все окна, а затем возникает `will-quit`, и в этом случае событие `window-all-closed` не будет возникать.
 
 ### Событие: 'before-quit'
 
@@ -77,7 +77,7 @@ app.on('window-all-closed', () => {
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
-В Windows вам необходимо распарсить `process.argv` (в основном процессе), чтобы получить путь к файлу.
+В Windows Вам необходимо распарсить `process.argv` (в основном процессе), чтобы получить путь к файлу.
 
 ### Событие: 'open-file' *macOS*
 
@@ -448,7 +448,7 @@ API использует внутренний реестр Windows и LSSetDefau
 
 Возвращает `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то возвращает true. Иначе, возвращает false.
 
 **Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
 
@@ -622,7 +622,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 * `callback` Function 
   * `result` Integer - результат импорта.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывает `result` импорт операции, значение `` указывает на успех в то время как любое другое значение указывает на ошибку в соответствии с Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -632,7 +632,7 @@ Imports the certificate in pkcs12 format into the platform certificate store. `c
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+По умолчанию Chromium отключает 3D интерфейсы API (например, WebGL) до перезагрузки на основе домена, если GPU обрабатывает сбои слишком часто. Эта функция отключает поведение.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
@@ -755,9 +755,9 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (опиционально) - может быть `critical` или `informational`. По умолчанию `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Когда `critical` передается, значок dock будет отскакивать, пока приложение не станет активным или запрос отменяется.
 
 When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
