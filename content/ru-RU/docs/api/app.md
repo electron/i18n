@@ -266,9 +266,9 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### `app.quit()`
 
-Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
