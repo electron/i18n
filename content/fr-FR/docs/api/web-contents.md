@@ -392,7 +392,7 @@ Retourne :
 
 Émis lorsque le type du curseur change. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Si le paramètre `type` est `custom`, le paramètre `image` aura l'image du curseur personnalisé dans un `NativeImage`, et `scale`, `size` et `hotspot` auront les informations complémentaires à propos du curseur personnalisé.
 
 #### Événement : 'context-menu'
 
@@ -402,10 +402,10 @@ Retourne :
 * `params` Object 
   * `x` Integer - coordonnée x
   * `y` Integer - coordonée y
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
+  * `linkURL` String - L'URL du lien qui englobe le nœud du menu contextuel.
+  * `linkText` String - Texte associé au lien. Peut être une chaîne de caractère vide si le contenu du lien est une image.
+  * `pageURL` String - L'URL de la page haut niveau d'où le menu contextuel a été invoqué.
+  * `frameURL` String - L'URL de la subframe d'où le menu contextuel a été invoqué.
   * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
   * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
   * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
