@@ -23,18 +23,18 @@ app.on('ready', () => {
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend'
+### 事件: 'suspend'
 
 Emitted when the system is suspending.
 
-### Event: 'resume'
+### 事件: 'resume'
 
 Emitted when system is resuming.
 
-### Event: 'on-ac' *Windows*
+### 事件: 'on-ac' *Windows*
 
 Emitted when the system changes to AC power.
 
-### Event: 'on-battery' *Windows*
+### 事件: 'on-battery' *Windows*
 
 Emitted when system changes to battery power.
