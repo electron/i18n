@@ -60,7 +60,7 @@ console.log(ses.getUserAgent())
 
 The following events are available on instances of `Session`:
 
-#### Event: 'will-download'
+#### 事件: 'will-download'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
