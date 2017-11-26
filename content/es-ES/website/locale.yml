@@ -40,7 +40,7 @@ open_source:
   desciption: Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.
 cross_platform:
   title: Multiplataforma
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Compatible con Mac, Windows y Linux las aplicaciones de Electron compilan y corren en tres plataformas.
 benefits:
   hard_parts_made_easy: Las partes difíciles de manera sencilla
   automatic_updates: Actualizaciones automáticas
@@ -50,11 +50,11 @@ benefits:
   windows_installers: Instaladores de Windows
 get_started:
   title: Empezar
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Para comenzar con Electron, revisa los recursos de abajo. Aprende como ajustar tu aplicación web con ELectron, acceder a todas las APIs, y generar instaladores.
 explore:
   title: Explorar las APIs de Electron
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
+    - 'La <a href="https://github.com/electron/electron-api-demos">API de Electron de la aplicación Desmos</a>'
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - construyendo tu app.
