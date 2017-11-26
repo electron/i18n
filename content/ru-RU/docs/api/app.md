@@ -384,7 +384,7 @@ app.exit(0)
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Возвращает `String` - имя текущего приложения, который является именем в файле приложения `package.json`.
 
 Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
