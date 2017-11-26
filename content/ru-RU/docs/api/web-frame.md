@@ -134,7 +134,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Возвращает `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
