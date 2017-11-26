@@ -109,7 +109,7 @@ app.on('window-all-closed', () => {
 
 Возникает во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активности на различных устройствах для возобновления. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Активность пользователей может быть продолжена только в приложении, которое имеет ID разработчика команды как активность исходного приложения и который поддерживает этот тип действия. Поддержка типов активности, указаны в приложении `Info.plist` под ключом `NSUserActivityTypes`.
 
 ### Событие: 'new-window-for-tab' *macOS*
 
