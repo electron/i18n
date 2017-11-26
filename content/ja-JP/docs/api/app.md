@@ -35,7 +35,7 @@ Electronの初期化処理が終わった時に発生します。 MacOS では�
 
 すべてのウィンドウが閉じられたときに発生します。
 
-もしこのイベントをハンドルしていないときは、すべてのウィンドウが閉じられたときのデフォルト動作はアプリケーションの終了になります。イベントをハンドルすれば、アプリケーションを終了するかどうかを制御することが出来ます。 もし、ユーザーが`Cmd + Q`を押下したか、開発者が`app.quit()`を呼び出した際、Electronはすべてのウィンドウを閉じて、`will-quit`イベントを発生させます。この場合は、`window-all-closed`イベントは発生しないことになります。
+もしこのイベントをハンドルしていないときは、すべてのウィンドウが閉じられたときのデフォルト動作はアプリケーションの終了になります。イベントをハンドルすれば、アプリケーションを終了する(quit)かどうかを制御することが出来ます。 もし、ユーザーが`Cmd + Q`を押下したか、開発者が`app.quit()`を呼び出した際、Electronはすべてのウィンドウを閉じて、`will-quit`イベントを発生させます。この場合は、`window-all-closed`イベントは発生しないことになります。
 
 ### イベント: 'before-quit'
 
@@ -43,37 +43,37 @@ Electronの初期化処理が終わった時に発生します。 MacOS では�
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+アプリケーションがウィンドウを閉じようとする前に発生します。`event.preventDefault()`を呼び出すことで、デフォルト動作 (アプリケーションの終了)が起こらないように出来ます。
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**注:** アプリケーションの終了が`autoUpdater.quitAndInstall()`から発生されている場合は、`before-quit`イベントは、すべてのウィンドウに`close`イベントが送られてウィンドウが閉じられた*後に*発生することになります。
 
-### Event: 'will-quit'
+### イベント: 'will-quit'
 
 戻り値：
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+すべてのウィンドウが閉じられ、アプリケーションが終了する前に送られます。 `event.preventDefault()`を呼び出すことでデフォルト動作(アプリケーションの終了; terminate)を阻止することが出来ます。
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+`will-quit`と`window-all-closed`の違いを確認するためにも、`window-all-closed`イベントの説明もお読みください。
 
-### Event: 'quit'
+### イベント: 'quit'
 
 戻り値：
 
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+アプリケーションの終了時に発生します。
 
-### Event: 'open-file' *macOS*
+### イベント: 'open-file' *macOS*
 
 戻り値：
 
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+ユーザーがファイルを開こうとした際に発生します。 この`open-file`イベントは、アプリケーションがすでに起動しており、OSがアプリケーションにファイルを開くよう再利用する際に発生します。 `open-file`は、アプリケーションが起動していないときに、ドック上のアイコンにファイルをドロップした際にも発生します。 Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
