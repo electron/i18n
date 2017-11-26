@@ -301,7 +301,7 @@ Retourne :
 
 Émis lorsqu'il n'a pas pu vérifier le `certificat` de l'`url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+L'utilisation est pareil que [l'événement `certificate-error` de `app`](app.md#event-certificate-error).
 
 #### Événement : 'select-client-certificate'
 
@@ -311,11 +311,11 @@ Retourne :
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `certificate` [Certificate](structures/certificate.md) - Doit être un certificat dans la liste donnée
 
 Émis lorsqu'un certificat client est demandé.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+L'utilisation est pareil que [l'événement `select-client-certificate` de `app`](app.md#event-select-client-certificate).
 
 #### Événement : 'login'
 
@@ -338,7 +338,7 @@ Retourne :
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+L'utilisation est pareil que [l'événement `login` de `app`](app.md#event-login).
 
 #### Événement : 'found-in-page'
 
@@ -347,24 +347,24 @@ Retourne :
 * `event` Event
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Position du résultat actif.
+  * `matches` Integer - Nombre de résultats.
+  * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Émis lorsqu'un résultat est disponible pour la requête [`webContents.findInPage`].
 
 #### Événement : 'media-started-playing'
 
-Emitted when media starts playing.
+Émis lorsqu'un média se démarre.
 
 #### Événement : 'media-paused'
 
-Emitted when media is paused or done playing.
+Émis lorsque le média est suspendu ou terminé.
 
 #### Événement : 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -377,7 +377,7 @@ Retourne :
 * `event` Event
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
 
 #### Événement : 'cursor-changed'
 
@@ -386,11 +386,11 @@ Retourne :
 * `event` Event
 * `type` String
 * `image` NativeImage (facultatif)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `scale` Float (facultatif) - Facteur de mise à l'échelle pour le curseur personnalisé
+* `size` [Size](structures/size.md) (facultatif) - La taille de l'`image`
+* `hotspot` [Point](structures/point.md) (facultatif) - Coordonnées du point actif du curseur personnalisé
 
-Emitted when the cursor's type changes. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Émis lorsque le type du curseur change. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
