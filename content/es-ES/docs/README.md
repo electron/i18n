@@ -1,10 +1,10 @@
-Por favor, asegúrese de que utilizar los documentos que coinciden con su versión de Electron. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver la documentación de las versiones pasadas desde GitHub usted puede [navegar usando las etiquetas](https://github.com/electron/electron/tree/v1.4.0) al abrir el cuadro de selección "Switch branches/tags" y seleccionar la versión que coincida con la suya.
+Por favor, asegúrese de que utilizar los documentos que coinciden con su versión de Electron. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver las antiguas versiones de la documentación, puedes [navegar por las etiquetas](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable de "Switch branches/tags" y seleccionado la etiqueta que coincida con tu versión.
 
-## Preguntas más frecuentes
+## Preguntas frecuentes
 
-Hay preguntas que se hacen a frecuentemente. Revise la siguiente liga antes de realizar una nueva consulta:
+Hay preguntas que se hacen a frecuentemente. Revisa esto antes de crear una consulta:
 
-* [Preguntas más frecuentes de Electron](faq.md)
+* [Preguntas frecuentes sobre Electron](faq.md)
 
 ## Guías
 
@@ -18,7 +18,7 @@ Hay preguntas que se hacen a frecuentemente. Revise la siguiente liga antes de r
 * [Empaquetado de la aplicación](tutorial/application-packaging.md)
 * [Uso de módulos nativos de Node](tutorial/using-native-node-modules.md)
 * [Depuración del proceso principal](tutorial/debugging-main-process.md)
-* [Uso de selenio y WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [Extensión de herramientas de desarrollo](tutorial/devtools-extension.md)
 * [Uso del Plugin de Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Uso del plugin MDL Widevine](tutorial/using-widevine-cdm-plugin.md)
@@ -38,7 +38,7 @@ Hay preguntas que se hacen a frecuentemente. Revise la siguiente liga antes de r
 
 * [Sinopsis](api/synopsis.md)
 * [Objeto de proceso](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Soporte para los interruptores de la linea de comando de Chrome](api/chrome-command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
 
 ### Elementos de DOM personalizados:
