@@ -4,7 +4,7 @@ nav:
   blog: Blog
   community: Comunidad
   apps: Aplicaciones
-  userland: Userland
+  userland: Entorno
   releases: Lanzamientos
   contact: Contacto
   languages: Idioma
@@ -15,7 +15,7 @@ docs:
   api_reference: Referencia de la API
   advanced: Avanzado
 languages:
-  choose_language: Choose Your Site Language
+  choose_language: Elige el idioma del sitio
   translation_progress: Progreso de la traducción
   current: selección actual
 community:
@@ -27,17 +27,17 @@ community:
   videos: Vídeos
   meetups: MeetUps
   awesome_notice: 'Esta lista es generada por el increíble repositorio de<a href="https://github.com/sindresorhus/awesome-electron">Electron por @sindresorhus</a>.<br>¿Falta algo?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Haz una petición</a>.'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  meetup_notice: 'Para añadir un meetup, edita <code>data/meetups.json</code> y <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">haz un pedido</a>.'
 electron_is_easy:
   title: Es más fácil de lo que piensas
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
+  description: Si puedes desarrollar un sitio web. puedes hacer aplicaciones de escritorio. Electron es un framework para crear aplicaciones nativas con tecnologías web como Javascript, HTML, y CSS. El se encarga de las partes mas difíciles así puedes enfocarte en el núcleo de tu aplicación.
   video_link: Ver vídeo
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: Tecnologías Web
+  description: Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.
 open_source:
   title: Código Abierto
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  desciption: Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.
 cross_platform:
   title: Multiplataforma
   description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
@@ -82,10 +82,10 @@ footer:
   see_available_versions: See available versions.
   want_something_searchable: Want something searchable?
   view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  see_the_faq: Ver las preguntas frecuentes
 apps:
-  title: Apps built on Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  title: Aplicaciones hechas con Electron
+  description: 'Con Electron, crear aplicaciones de escritorio para tu empresa o idea es fácil. Inicialmente desarrollada para el editor de GitHub <a href=''https://atom.io'' target=''_blank''>Atom</a>, Electron ha sido usado desde entonces para crear aplicaciones por empresas como Microsoft, Facebook, Slack y Docker.'
   view_more: Ver mas aplicaciones
   submit_your_own: sube tu propio
   something_missing: '¿Falta algo?'
