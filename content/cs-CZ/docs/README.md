@@ -11,8 +11,8 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Slovníček pojmů](glossary.md)
 * [Podporované platformy](tutorial/supported-platforms.md)
 * [Bezpečnost](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Distribuce aplikace](tutorial/application-distribution.md)
+* [Verzování elektronu](tutorial/electron-versioning.md)
+* [Distribuce aplikací](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Aplikace Windows Obchodu](tutorial/windows-store-guide.md)
 * [Aplikace balení](tutorial/application-packaging.md)
@@ -23,8 +23,8 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Offscreen vykreslování](tutorial/offscreen-rendering.md)
+* [Klávesové zkratky](tutorial/keyboard-shortcuts.md)
 
 ## Návody
 
@@ -43,11 +43,11 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 
 ### Custom DOM Elements:
 
-* [`File` Object](api/file-object.md)
+* [`File` Objekt](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`window.open` Funkce](api/window-open.md)
 
-### Modules for the Main Process:
+### Moduly pro hlavní proces:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -68,7 +68,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Moduly pro renderovací proces (webová stránka):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
