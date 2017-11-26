@@ -428,7 +428,7 @@ app.exit(0)
 
 **Замечание:** На macOS Вы можете регистрировать только те протоколы, которые были добавлены в `info.plist` Вашего приложения, которое не может быть модифицирована во время выполнения. Однако Вы можете изменить файл с помощью простого текстового редактора или скрипта во время сборки. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+API использует внутренний реестр Windows и LSSetDefaultHandlerForURLScheme.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -602,17 +602,17 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 * `userInfo` Object - специфичное для приложение состояние для использование других устроиств.
 * `webpageURL` String (опиционально) - веб-страница для загрузки в браузере, если нет подходящего приложения, установленного на проснувшемся устройстве. Схема должна быть `http` или `https`.
 
-Создает `NSUserActivity` и задает её в качестве текущей активности. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Создает `NSUserActivity` и задает её в качестве текущей активности. Активность позже имеет право для [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) на другом устройстве.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Возвращает `String` - тип текущей выполняемой активности.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Изменяет [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
