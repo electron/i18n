@@ -9,15 +9,15 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 ## Návody
 
 * [Slovníček pojmů](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
+* [Podporované platformy](tutorial/supported-platforms.md)
+* [Bezpečnost](tutorial/security.md)
 * [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
+* [Distribuce aplikace](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Aplikace Windows Obchodu](tutorial/windows-store-guide.md)
 * [Aplikace balení](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
+* [Používání nativních Node modulů](tutorial/using-native-node-modules.md)
+* [Ladění hlavního procesu](tutorial/debugging-main-process.md)
 * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools Extension](tutorial/devtools-extension.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
@@ -26,9 +26,9 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Návody
 
-* [Quick Start](tutorial/quick-start.md)
+* [Rychlý začátek](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
 * [Online/Offline Event Detection](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
