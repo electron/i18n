@@ -80,8 +80,8 @@ footer:
   propose_change: Proponer un cambio a nuestro código fuente.
   need_different_version: '¿Necesitas una versión diferente de la documentación?'
   see_available_versions: Ver las versiones disponibles.
-  want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
+  want_something_searchable: '¿Quieres algo que buscar?'
+  view_all_docs: Ver todos la documentación en una pagina
   see_the_faq: Ver las preguntas frecuentes
 apps:
   title: Aplicaciones hechas con Electron
@@ -100,17 +100,17 @@ pages:
     description: Aplicaciones hechas con Electron
   '/docs':
     title: Documentación
-    description: Guides and API reference documentation for the latest Electron release
+    description: Guías y documentación de referencia de la API para la ultima versión de Electron
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: '¡Todos la documentación de Electron!'
+    description: Toda las guías de Electron y la documentación de la API en una única pagina searchable.
   '/blog':
-    title: Electron Blog
+    title: Blog de Electron
     description: Todas las ultimas noticias del equipo y la comunidad de Electron.
   '/community':
     title: Comunidad
   '/releases':
-    title: Releases
+    title: Lanzamientos
   '/contact':
     title: Contacto
     description: Ponte en contacto con el equipo de Electron en Twitter, Slack, GitHub o vía email.
@@ -119,4 +119,4 @@ pages:
 _404:
   page_not_found: Página no encontrada.
   if_this_is_an_error: Si esto es un error
-  please_file_an_issue: please file an issue.
+  please_file_an_issue: por favor notifica un problema.
