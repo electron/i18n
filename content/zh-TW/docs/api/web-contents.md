@@ -47,11 +47,11 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 ### Instance Events
 
-#### Event: 'did-finish-load'
+#### 事件: 'did-finish-load'
 
 Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
 
-#### Event: 'did-fail-load'
+#### 事件: 'did-fail-load'
 
 回傳:
 
@@ -63,7 +63,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### 事件: 'did-frame-finish-load'
 
 回傳:
 
@@ -72,15 +72,15 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Emitted when a frame has done navigation.
 
-#### Event: 'did-start-loading'
+#### 事件: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab started spinning.
 
-#### Event: 'did-stop-loading'
+#### 事件: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### Event: 'did-get-response-details'
+#### 事件: 'did-get-response-details'
 
 回傳:
 
@@ -96,7 +96,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### Event: 'did-get-redirect-request'
+#### 事件: 'did-get-redirect-request'
 
 回傳:
 
@@ -111,7 +111,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Emitted when a redirect is received while requesting a resource.
 
-#### Event: 'dom-ready'
+#### 事件: 'dom-ready'
 
 回傳:
 
@@ -119,7 +119,7 @@ Emitted when a redirect is received while requesting a resource.
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-favicon-updated'
+#### 事件: 'page-favicon-updated'
 
 回傳:
 
@@ -128,7 +128,7 @@ Emitted when the document in the given frame is loaded.
 
 Emitted when page receives favicon urls.
 
-#### Event: 'new-window'
+#### 事件: 'new-window'
 
 回傳:
 
@@ -155,7 +155,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### 事件: 'will-navigate'
 
 回傳:
 
@@ -170,7 +170,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
-#### Event: 'did-navigate'
+#### 事件: 'did-navigate'
 
 回傳:
 
@@ -181,7 +181,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### Event: 'did-navigate-in-page'
+#### 事件: 'did-navigate-in-page'
 
 回傳:
 
@@ -193,7 +193,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### Event: 'will-prevent-unload'
+#### 事件: 'will-prevent-unload'
 
 回傳:
 
@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### 事件: 'crashed'
 
 回傳:
 
@@ -231,7 +231,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Emitted when the renderer process crashes or is killed.
 
-#### Event: 'plugin-crashed'
+#### 事件: 'plugin-crashed'
 
 回傳:
 
@@ -241,7 +241,7 @@ Emitted when the renderer process crashes or is killed.
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### 事件: 'destroyed'
 
 Emitted when `webContents` is destroyed.
 
