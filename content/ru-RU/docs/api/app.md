@@ -290,9 +290,9 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Обратите внимание, что этот метод не завершает приложение при выполнении, вам нужно вызвать `app.quit` или `app.exit` после вызова `app.relaunch` чтобы перезапустить приложение.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Когда `app.relaunch` вызывается несколько раз, несколько экземпляров будет запущено после выхода из текущего экземпляра.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Пример перезапуска немедленно текущего экземпляра и добавив новый аргумент командной строки в новый экземпляр:
 
 ```javascript
 const {app} = require('electron')
@@ -303,29 +303,29 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Возвращает `Boolean` - `true,` если Electron завершил инициализацию, `false` в противном случае.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+На Linux перемещает фокус на первое видимое окно. В macOS делает приложение активным. На Windows перемещает фокус на первое окно приложения.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Скрывает все окна приложения, не минимизируя их.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Показывает окна приложения, после того как они были скрыты. Фокус не будет перемещён автоматически.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Возвращает `String` - текущего каталога приложения.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Возвращает `String` - путь в специальный каталог или файл, связанный с `name`. В случае неудачи возникает `Error`.
 
 Вы можете запросить следующие пути по имени:
 
@@ -334,17 +334,17 @@ Returns `String` - A path to a special directory or file associated with `name`.
   * `%APPDATA%` на Windows
   * `$XDG_CONFIG_HOME` или `~/.config` на Linux
   * `~/Library/Application Support` на macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
+* `userData` каталог для хранения файлов конфигурации вашего приложения, которые по умолчанию является `appData` добавляется с именем вашего приложения.
 * ` temp ` временный каталог.
 * `exe` текущий исполняемый файл.
 * `module` библиотека `libchromiumcontent`.
 * `desktop` каталог рабочего стола, текущего пользователя.
-* `documents` каталог пользователя "Мои документы".
+* `documents` каталог пользователя "My Documents".
 * `downloads` Каталог пользователя "Downloads".
 * `music` каталог пользователя "Music".
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pictures` каталог пользователя для фотографии.
+* `videos` каталог пользователя для видео.
+* `pepperFlashSystemPlugin` полный путь к версии системы плагина Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -358,9 +358,9 @@ Returns `String` - A path to a special directory or file associated with `name`.
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Извлекает путь значка.
 
-On *Windows*, there a 2 kinds of icons:
+На *Windows*, там 2 вида значков:
 
 * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
 * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
