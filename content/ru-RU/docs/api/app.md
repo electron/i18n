@@ -362,25 +362,25 @@ app.exit(0)
 
 На *Windows*, там 2 вида значков:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
+* Значки внутри файла, как `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* и *macOS* значки зависят от приложения, связанного с типом mime файла.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Переопределяет `path` в специальный каталог или файл, связанный с `name`. Если путь указывает каталог, который не существует, этот метод создаст его. В случае неудачи возникнет `Error`.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Можно переопределять только пути `name`, определенное в `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+По умолчанию cookies и кэш веб-страницы будут храниться в каталоге `userData`. Если вы хотите изменить это расположение, вам необходимо переопределить путь `userData` прежде, чем событие `ready` модуля `app` возникнет.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Возвращает `String` - версии загруженного приложения. Если версия не найдена в файле `package.json` приложения, возвращается версия текущего пакета или исполняемого файла.
 
 ### `app.getName()`
 
