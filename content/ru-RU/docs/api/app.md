@@ -227,9 +227,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Возникает `webContents`, когда делается базовый auth.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Поведением по умолчанию является отмена всех идентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
 
 ```javascript
 const {app} = require('electron')
@@ -247,7 +247,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Возникает когда процесс gpu аварийно завершает работу или убит.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
