@@ -11,7 +11,7 @@ For example:
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// Запрос всех cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
