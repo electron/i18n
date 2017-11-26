@@ -2,7 +2,7 @@
 
 > 打开一个无工具栏、边框、和其它图形化界面的"谷歌浏览器"窗口
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+无边框窗口它不是完整的谷歌浏览器窗口，它只是窗口的一部分，像工具栏，它不是网页的一个部分 These are options on the [`BrowserWindow`](browser-window.md) class.
 
 ## Create a frameless window
 
