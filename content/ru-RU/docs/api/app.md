@@ -438,7 +438,7 @@ API использует внутренний реестр Windows и LSSetDefau
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то убирает приложение, как обработчик по умолчанию.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -446,7 +446,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
 * `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
-Returns `Boolean`
+Возвращает `Boolean`
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
