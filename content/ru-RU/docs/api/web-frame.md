@@ -97,9 +97,9 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (опиционально) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
+* `options` Object (опционально) 
+  * `secure` Boolean - (опционально) по умолчанию true.
+  * `bypassCSP` Boolean - (опционально) по умолчанию true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
   * `supportFetchAPI` Boolean - (optional) Default true.
   * `corsEnabled` Boolean - (optional) Default true.
@@ -158,10 +158,10 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* то же самое с "images" */ },
+  xslStyleSheets: { /* то же самое с "images" */ },
+  fonts: { /* то же самое с "images" */ },
+  other: { /* то же самое с "images" */ }
 }
 ```
 
