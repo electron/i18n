@@ -7,8 +7,8 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
 ## 原始碼結構
 
     Electron
-    ├── atom/ - C++ source code.
-    |   ├── app/ - System entry code.
+    ├── atom/ - C++ 原始碼。
+    |   ├── app/ - 系統入口點程式碼。
     |   ├── browser/ - The frontend including the main window, UI, and all of the
     |   |   main process things. This talks to the renderer to manage web pages.
     |   |   ├── ui/ - Implementation of UI stuff for different platforms.
@@ -17,7 +17,7 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
     |   |   |   └── x/ - X11 specific source code.
     |   |   ├── api/ - The implementation of the main process APIs.
     |   |   ├── net/ - Network related code.
-    |   |   ├── mac/ - Mac specific Objective-C source code.
+    |   |   ├── mac/ - Mac 用的 Objective-C 原始碼。
     |   |   └── resources/ - Icons, platform-dependent files, etc.
     |   ├── renderer/ - Code that runs in renderer process.
     |   |   └── api/ - The implementation of renderer process APIs.
@@ -29,31 +29,31 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
     ├── chromium_src/ - Source code that copied from Chromium.
     ├── default_app/ - The default page to show when Electron is started without
     |   providing an app.
-    ├── docs/ - Documentations.
-    ├── lib/ - JavaScript source code.
+    ├── docs/ - 文件。
+    ├── lib/ - JavaScript 原始碼。
     |   ├── browser/ - Javascript main process initialization code.
     |   |   └── api/ - Javascript API implementation.
     |   ├── common/ - JavaScript used by both the main and renderer processes
     |   |   └── api/ - Javascript API implementation.
     |   └── renderer/ - Javascript renderer process initialization code.
     |       └── api/ - Javascript API implementation.
-    ├── spec/ - Automatic tests.
-    ├── electron.gyp - Building rules of Electron.
+    ├── spec/ - 自動測試案例。
+    ├── electron.gyp - Electron 建置規則。
     └── common.gypi - Compiler specific settings and building rules for other
         components like `node` and `breakpad`.
     
 
 ## 其他目錄的結構
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
+* **script** - 開發時期用的腳本，例如建置、打包、測試等。
+* **tools** - 供 gyp 檔用的輔助腳本，跟 `script` 不同，放在這裡的腳本使用者應該都不會直接用到。
 * **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
+* **node_modules** - 建置時使用的第三方 Node 模組。
+* **out** - `ninja` 的暫存目錄。
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
 
-## Keeping Git Submodules Up to Date
+## 持續更新 Git 子模組
 
 The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
 
