@@ -674,23 +674,23 @@ app.on('ready', () => {
   * `path` String (опиционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
   * `args` String [] (опционально) *Windows* - аргументы командной строки для сравнения. По умолчанию пустой массив.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Если вы указали `path` и `args` параметры в `app.setLoginItemSettings`, вам нужно правильно задать те же аргументы для `openAtLogin`.
 
 Возвращает `Object`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
+* `openAsHidden` Boolean - `true` если приложение установлено как скрытое при входе в систему. Этот параметр поддерживается только в macOS.
+* `wasOpenedAtLogin` Boolean - `true` если приложение было открыто при входе в систему автоматически. Этот параметр поддерживается только в macOS.
+* `wasOpenedAsHidden` Boolean - `true` если приложение было открыто в качестве скрытого элемента при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Этот параметр поддерживается только на macOS.
+* `restoreState` Boolean - `true` если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Этот параметр поддерживается только на macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Примечание:** Этот API не влияет на [MAS сборки](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+  * `openAtLogin` Boolean (опиционально) - `true` открыть приложение при входе в систему, `false` удалять приложение в качестве элемента входа. По умолчанию `false`.
+  * `openAsHidden` Boolean (опиционально) - `true` открыть приложение как скрытое. Значение по умолчанию: `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
