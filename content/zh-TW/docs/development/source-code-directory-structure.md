@@ -66,7 +66,7 @@ $ git status
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+如果你覺得自己很常執行這組指令，可以在 `~/.gitconfig` 檔中建立別名:
 
     [alias]
         su = submodule update --init --recursive
