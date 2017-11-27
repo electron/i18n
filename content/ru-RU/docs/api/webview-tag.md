@@ -243,7 +243,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опиционально)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
@@ -641,7 +641,7 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Событие: 'certificate-error'
 
 Возвращает:
 
@@ -766,7 +766,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Событие: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -774,7 +774,7 @@ Fired when the renderer process is crashed.
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### Событие: 'plugin-crashed'
 
 Возвращает:
 
@@ -783,19 +783,19 @@ Fired when the gpu process is crashed.
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### Событие: 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### Событие: 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Событие: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### Событие: 'did-change-theme-color'
 
 Возвращает:
 
@@ -807,7 +807,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Событие: 'update-target-url'
 
 Возвращает:
 
@@ -815,11 +815,11 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### Событие: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### Событие: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
