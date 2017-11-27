@@ -69,7 +69,7 @@ webFrame.setZoomFactor(2)
 
 `provider` должен быть объект, имеющий `spellCheck` метод, возвращающий, результат правильного написания слова.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Пример использования [node-spellchecker](https://github.com/atom/node-spellchecker) как поставщик:
 
 ```javascript
 const {webFrame} = require('electron')
