@@ -46,16 +46,16 @@ Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/
 
 Jeśli instalacja powoduje błąd `EACCESS`, być może musisz naprawić [uprawnienia npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-Jeśli powyższe błędy nie ustępują, flaga [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm), może wymagać ustawienia wartości "true":
+Jeżeli powyższe błędy nie ustępują, flaga [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm), może wymagać ustawienia wartości "true":
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+W przypadku wolnego połączenia z internetem, zalecane jest użycie flagi `--verbose`, celem podglądu postępu pobierania:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+W przypadku, gdy musisz wymusić ponowne pobranie sumy kontrolnej oraz danych, ustaw zmienną środowiskową `force_no_cache` na wartość `true`.
