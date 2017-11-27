@@ -45,38 +45,38 @@ your-app/
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Примечание**: Если в `package.json` `main` поля отсутствует, Electron попытается загрузить `index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+В `main.js` следует создавать окна и обработчики системных событий, типичный пример:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Храните глобальную ссылку на объект окна, если вы этого не сделаете, окно будет
+// автоматически закрываться, когда объект JavaScript собирает мусор.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Создаёт окно браузера.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // и загрузит index.html приложение.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Откроет DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Возникает, когда окно будет закрыто.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Разбирает объект окна, обычно вы можете хранить окна     
+    // в массиве, если ваше приложение поддерживает несколько окон в это время,
+    // тогда вы должны удалить соответствующий элемент.
     win = null
   })
 }
