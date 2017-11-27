@@ -40,7 +40,7 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Siehe auch: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
@@ -76,7 +76,7 @@ The renderer process is a browser window in your app. Unlike the main process, t
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-See also: [process](#process), [main process](#main-process)
+Siehe auch: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
