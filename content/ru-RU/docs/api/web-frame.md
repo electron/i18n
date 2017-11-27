@@ -1,10 +1,10 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> Настройка отображения текущей веб-страницы.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Процесс: [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Пример масштабирования текущей страницы до 200%.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,17 +14,17 @@ webFrame.setZoomFactor(2)
 
 ## Методы
 
-The `webFrame` module has the following methods:
+`webFrame` имеет следующие методы:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - фактор увилечения.
+* `factor` Number - маштаб.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Изменяет указанный масштаб. Коэффициент масштабирования является процент масштабирования, делится на 100, поэтому 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Возвращает `Number` - текущего маштаба.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -100,9 +100,9 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 * `options` Object (опционально) 
   * `secure` Boolean - (опционально) по умолчанию true.
   * `bypassCSP` Boolean - (опционально) по умолчанию true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+  * `allowServiceWorkers` Boolean - (опционально) по умолчанию true.
+  * `supportFetchAPI` Boolean - (опционально) по умолчанию true.
+  * `corsEnabled` Boolean - (опционально) по умолчанию true.
 
 Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
@@ -117,13 +117,13 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Вставляет `text` в элемент с фокусом.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (опционально) - вызывается после выполнения сценария. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
