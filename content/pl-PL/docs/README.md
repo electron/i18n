@@ -6,12 +6,12 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 
 * [Electron FAQ](faq.md)
 
-## Poradniki
+## Przewodniki
 
-* [Słownik terminów](glossary.md)
-* [Wspierane platformy](tutorial/supported-platforms.md)
+* [Słownik Terminów](glossary.md)
+* [Wspierane Platformy](tutorial/supported-platforms.md)
 * [Bezpieczeństwo](tutorial/security.md)
-* [Wersjonowanie wersji Electrona](tutorial/electron-versioning.md)
+* [Wersjonowanie Electrona](tutorial/electron-versioning.md)
 * [Dystrybuowanie Aplikacji](tutorial/application-distribution.md)
 * [Dodawanie aplikacji do Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Dodawanie aplikacji do Windows Store](tutorial/windows-store-guide.md)
@@ -23,31 +23,31 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Używanie Pluginu Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Używanie Pluginu Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
+* [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Poradniki
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Pierwsze Kroki](tutorial/quick-start.md)
+* [Integracja z Powłoką Systemową](tutorial/desktop-environment-integration.md)
+* [Wykrywanie Wydarzeń Offline oraz Online](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Natywne Powiadomienia](tutorial/notifications.md)
 
-## API References
+## API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Streszczenie](api/synopsis.md)
+* [Obiekt Process](api/process.md)
+* [Wspierane Zmienne Konsoli Chrome](api/chrome-command-line-switches.md)
+* [Zmienne Środowiskowe](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Własne Elementy DOM:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [Obiekt `File`](api/file-object.md)
+* [Tag `<webview>`](api/webview-tag.md)
+* [Funkcja `window.open`](api/window-open.md)
 
-### Modules for the Main Process:
+### Moduły Głównego Wątku:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -68,14 +68,14 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Moduły Procesu Renderowania (Strony Internetowej):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Moduły wspólne obu procesów:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -83,20 +83,20 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Rozwój
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Styl Kodowania](development/coding-style.md)
+* [Używanie formatu clang w kodzie C++](development/clang-format.md)
+* [Struktura Ścieżki Kodu Źródłowego](development/source-code-directory-structure.md)
+* [Techniczne Różnice wobec NW.js (wcześniej node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Przegląd Systemu Budowania](development/build-system-overview.md)
+* [Instrukcje Budowania (macOS)](development/build-instructions-osx.md)
+* [Instrukcje Budowania (Windows)](development/build-instructions-windows.md)
+* [Instrukcje Budowania (Linux)](development/build-instructions-linux.md)
+* [Instrukcje Debugowania (macOS)](development/debugging-instructions-macos.md)
+* [Instrukcje Debugowania (Windows)](development/debug-instructions-windows.md)
+* [Ustawianie Serwera Symboli w Debuggerze](development/setting-up-symbol-server.md)
+* [Formatowanie Dokumentacji](styleguide.md)
+* [Aktualizacja Chrome](development/upgrading-chrome.md)
+* [Programowanie Chrome](development/chromium-development.md)
+* [Rozwój V8](development/v8-development.md)
