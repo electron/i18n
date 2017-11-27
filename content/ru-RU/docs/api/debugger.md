@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (опиционально) - запрошенная версия протокола отладки.
+* `protocolVersion` String (опционально) - запрошенная версия протокола отладки.
 
 Подключает отладчик к `webContents`.
 
@@ -72,4 +72,4 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `method` String - имя метода.
 * `params` Object - параметры события, определенные 'параметрами' атрибута в протоколе удаленной отладки.
 
-Emitted whenever debugging target issues instrumentation event.
+Возникает при отладке инструментальных событий.
