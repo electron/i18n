@@ -416,10 +416,10 @@ Retourne :
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
+  * `mediaFlags` Object - Les attributs de l'élément média que le menu contextuel a invoqué. 
+    * `inError` Boolean - Si l'élément média a crash.
+    * `isPaused` Boolean - Si l'élément média est en pause.
+    * `isMuted` Boolean - Si l'élément média est mis en sourdine.
     * `hasAudio` Boolean - Whether the media element has audio.
     * `isLooping` Boolean - Whether the media element is looping.
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
