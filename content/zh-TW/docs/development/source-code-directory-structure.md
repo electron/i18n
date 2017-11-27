@@ -21,22 +21,19 @@ Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組�
     |   |   └── resources/ - 圖示等跨平臺的東西。
     |   ├── renderer/ - 在畫面轉譯處理序中執行的程式碼。
     |   |   └── api/ - 畫面轉譯處理序 API 的實作。
-    |   └── common/ - Code that used by both the main and renderer processes,
-    |       including some utility functions and code to integrate node's message
-    |       loop into Chromium's message loop.
-    |       └── api/ - The implementation of common APIs, and foundations of
-    |           Electron's built-in modules.
+    |   └── common/ - 主處理序及畫面轉譯處理序期用的程式碼。包含一些工具函式，
+    |       以及將 Node 訊息迴圈整合進 Chromium 訊息迴圈的程式碼。
+    |       └── api/ - 共用 API 實作、Electron 內建模組的基礎架構。
     ├── chromium_src/ - 由 Chromium 複製過來的原始碼。
-    ├── default_app/ - The default page to show when Electron is started without
-    |   providing an app.
+    ├── default_app/ - Electron 沒有指定 app 啟動時使用的預設頁面。
     ├── docs/ - 文件。
     ├── lib/ - JavaScript 原始碼。
-    |   ├── browser/ - Javascript main process initialization code.
-    |   |   └── api/ - Javascript API implementation.
-    |   ├── common/ - JavaScript used by both the main and renderer processes
-    |   |   └── api/ - Javascript API implementation.
-    |   └── renderer/ - Javascript renderer process initialization code.
-    |       └── api/ - Javascript API implementation.
+    |   ├── browser/ - JavaScript 主處理序初始化程式碼。
+    |   |   └── api/ - JavaScript API 實作。
+    |   ├── common/ - 主處理序及畫面轉譯處理序共用的 JavaScript 程式碼。
+    |   |   └── api/ - JavaScript API 實作。
+    |   └── renderer/ - JavaScript 畫面轉譯處理序初始化程式碼。
+    |       └── api/ - JavaScript API 實作。
     ├── spec/ - 自動測試案例。
     ├── electron.gyp - Electron 建置規則。
     └── common.gypi - 供 `node` 及 `breakpad` 等其他元件使用的編譯器設定及建置規則。
@@ -63,7 +60,7 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+執行下列指令可以更新相依的外部模組:
 
 ```sh
 git submodule update --init --recursive
