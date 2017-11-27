@@ -681,7 +681,7 @@ Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - фактор увилечения.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
@@ -694,7 +694,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - уровень увеличения
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -1059,7 +1059,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (опиционально) - по умолчанию `false`
 * `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `contents.id`
 
@@ -1192,4 +1192,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Экземпляр [Отладчика](debugger.md) для webContents.
