@@ -122,7 +122,7 @@ Inserts `text` to the focused element.
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
