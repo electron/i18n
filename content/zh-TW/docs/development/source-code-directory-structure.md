@@ -2,23 +2,23 @@
 
 Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組切分的結構。
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+為了更加了解原始碼，你應該熟悉 [Chromium 的多處理序架構](http://dev.chromium.org/developers/design-documents/multi-process-architecture)。
 
 ## 原始碼結構
 
     Electron
     ├── atom/ - C++ 原始碼。
     |   ├── app/ - 系統入口點程式碼。
-    |   ├── browser/ - The frontend including the main window, UI, and all of the
-    |   |   main process things. This talks to the renderer to manage web pages.
-    |   |   ├── ui/ - Implementation of UI stuff for different platforms.
-    |   |   |   ├── cocoa/ - Cocoa specific source code.
-    |   |   |   ├── win/ - Windows GUI specific source code.
-    |   |   |   └── x/ - X11 specific source code.
-    |   |   ├── api/ - The implementation of the main process APIs.
-    |   |   ├── net/ - Network related code.
-    |   |   ├── mac/ - Mac 用的 Objective-C 原始碼。
-    |   |   └── resources/ - Icons, platform-dependent files, etc.
+    |   ├── browser/ - 前端程式碼，包含主視窗、UI 及所有主處理序的東西。
+    |   |    跟畫面轉譯器溝通以管理頁面。
+    |   |   ├── ui/ - 不用平臺的 UI 實作。
+    |   |   |   ├── cocoa/ - Cocoa 專用原始碼。
+    |   |   |   ├── win/ - Windows GUI 專用原始碼。
+    |   |   |   └── x/ - X11 專用原始碼。
+    |   |   ├── api/ - 主處理序 API 的實作。
+    |   |   ├── net/ - 網路相關原始碼。
+    |   |   ├── mac/ - Mac 專用的 Objective-C 原始碼。
+    |   |   └── resources/ - 圖示等跨平臺的東西。
     |   ├── renderer/ - Code that runs in renderer process.
     |   |   └── api/ - The implementation of renderer process APIs.
     |   └── common/ - Code that used by both the main and renderer processes,
@@ -55,7 +55,7 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
 
 ## 持續更新 Git 子模組
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Electron 儲存庫裡有一些外部的相依模組，存放在 [/vendor](https://github.com/electron/electron/tree/master/vendor) 目錄中。 執行 `git status` 時，你可能會看到這樣的訊息:
 
 ```sh
 $ git status
