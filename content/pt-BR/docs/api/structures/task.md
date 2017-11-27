@@ -2,7 +2,7 @@
 
 * `program` String - Caminho do programa para executar, geralmente você deve especificar `process.execPath` que abre o programa atual.
 * `arguments` String - os argumentos de linha de comando quando o `programa` é executado.
-* `title` String - The string to be displayed in a JumpList.
-* `description` String - Description of this task.
-* `iconPath` String - The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. You can usually specify `process.execPath` to show the icon of the program.
-* `iconIndex` Number - The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
+* `title` String - A String a ser exibida em um JumpList.
+* `description` String - Descrição desta tarefa.
+* `iconPath` String - O caminho absoluto para um ícone a ser exibido em um JumpList, que pode ser um arquivo de recurso arbitrário que contenha um ícone. Geralmente, você pode especificar `process.execPath` para mostrar o ícone do programa.
+* `iconIndex` Number - O índice de ícone no arquivo de ícone. Se um arquivo de ícone é composto por dois ou mais ícones, defina esse valor para identificar o ícone. Se um arquivo de ícone consiste em um único ícone, esse valor é 0.
