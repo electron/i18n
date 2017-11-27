@@ -26,11 +26,11 @@
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+Вы также должны включить Xcode, чтобы построить на 10.10 SDK:
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Откройте `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- Установите `MinimumSDKVersion` в `10.10`
+- Сохраните файл
 
 ## Получение кода
 
@@ -40,7 +40,7 @@ $ git clone https://github.com/electron/electron
 
 ## Самонастройка
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Обратите внимание, что мы используем [ninja](https://ninja-build.org/) для сборки Electron, пока не создан проект Xcode.
 
 ```bash
 $ cd electron
@@ -49,27 +49,27 @@ $ ./script/bootstrap.py -v
 
 ## Сборка
 
-Build both `Release` and `Debug` targets:
+Построить обе `Release` и `Debug` цели:
 
 ```bash
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Вы можете построить только `Debug`:
 
 ```bash
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+После того, как построение будет сделано, вы можете найти `Electron.app` под `out/D`.
 
 ## Поддержка 32bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Электрон может быть построен только для 64-битных macOS и нет будущих планов поддержки 32-битных macOS.
 
 ## Очистка
 
-To clean the build files:
+Очистить файлы построения:
 
 ```bash
 $ npm run clean
