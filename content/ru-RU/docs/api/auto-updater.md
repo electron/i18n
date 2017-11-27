@@ -19,7 +19,7 @@
 
 ### macOS
 
-На macOS `autoUpdater` модуль построен на [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), что означает, что вам не нужно каких-либо специальных настроек, чтобы сделать его работу. Для сервера стороны вы можете прочитать требования [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Заметьте, что [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) применяется ко всем запросам, как часть процесса обновления. Приложения, что нужно отключить ATS, добавив ключ `NSAllowsArbitraryLoads` в plist приложений.
+На macOS `autoUpdater` модуль построен на [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), что означает, что вам не нужно каких-либо специальных настроек, чтобы сделать его работу. Для серверной стороны вы можете прочитать требования [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Заметьте, что [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) применяется ко всем запросам, как часть процесса обновления. Приложению, что нужно отключить ATS, добавте ключ `NSAllowsArbitraryLoads` в plist приложения.
 
 **Примечание:** Ваше приложение должно быть подписано для автоматического обновления на macOS. Это требование `Squirrel.Mac`.
 
@@ -31,7 +31,7 @@
 
 Установщик сгенерирует Squirrel создаст ярлык с [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) в формате `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Вы должны использовать тот же ID для вашего приложения с `app.setAppUserModelId` API, в противном случае Windows не сможет должным образом закрепить приложение в панели задач.
 
-В отличие от Squirrel.Mac, Windows можно размещать обновления на S3 или любом другом хостинге статических файлов. Вы можете прочитать документы [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для получения более подробной информации о том, как работает Squirrel.Windows.
+В отличие от Squirrel.Mac, Windows обновления можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документы [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для получения более подробной информации о том, как работает Squirrel.Windows.
 
 ### Linux
 
@@ -41,7 +41,7 @@
 
 Объект `autoUpdater` имеет следующие события:
 
-### Event: 'error'
+### Событие: 'error'
 
 Возвращает:
 
@@ -92,10 +92,10 @@
 
 ### `autoUpdater.checkForUpdates()`
 
-Запрашивает сервер, есть ли обновления. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
+Запрашивает сервер на наличие обновлений. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
 
 ### `autoUpdater.quitAndInstall()`
 
 Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
 
-**Примечание:** `autoUpdater.quitAndInstall()` сначала закройте все окна приложения и только потом возникнет `before-quit` событие после этого на `app`. Это отличается от нормальной последовательности события выход.
+**Примечание:** `autoUpdater.quitAndInstall()` сначала закроет все окна приложения и только потом возникнет событие `before-quit` после этого на `app`. Это отличается от нормальной последовательности события выход.
