@@ -152,7 +152,7 @@ $ ./node_modules/.bin/electron .
     $ .\node_modules\.bin\electron .
     
 
-### Manually Downloaded Electron Binary
+### Руководство скачивания Electron бинарников
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
@@ -173,17 +173,17 @@ $ ./electron/electron your-app/
     $ .\electron\electron.exe your-app\
     
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` здесь является частью релиз пакета Electron, вы можете скачать его [тут](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Запуск как дистрибутив
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+После того, как вы закончите написание приложения, можно создать дистрибутив, следуя руководству [Распространение приложения](./application-distribution.md) и затем исполнить упакованное приложение.
 
-### Try this Example
+### Попробуйте этот пример
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Клонировать и запустить код в этом руководстве, используйте [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Примечание**: запуск этого требует [Git](https://git-scm.com) и [Node.js](https://nodejs.org/en/download/) (которая включает [npm](https://npmjs.org)) на вашей системе.
 
 ```bash
 # Clone the repository
