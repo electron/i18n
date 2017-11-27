@@ -30,36 +30,36 @@ community:
   meetup_notice: Aby dodać spotkanie, edytuj plik <code>data/meetups.json</code> i <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">wyślij zapytanie</a>.
 electron_is_easy:
   title: To łatwiejsze, niż myślisz
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  description: Jeśli potrafisz stworzyć stronę internetową, potrafisz też napisać aplikację desktopową. Electron to framework, służący tworzeniu natywnych aplikacji, z użyciem takich technologii jak JavaScript, HTML, czy CSS. Sam zadba o trudniejsze tematy, tak, abyś mógł się skupić na najważniejszych elementach swojej aplikacji.
+  video_link: Zobacz wideo
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: Technologie Webowe
+  description: Electron używa Chromium oraz Node.js, więc możesz napisać swoją własną aplikację używając języków HTML, CSS oraz JavaScript.
 open_source:
-  title: Open Source
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: Otwartoźródłowy
+  desciption: Electron to otwartoźródłowy projekt zarządzany przez GitHub'a oraz aktywną społeczność.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: Wieloplatformowy
+  description: Kompatybilny z systemami MacOS, Windows oraz Linux.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: Trudne kwestie uczyniono łatwymi
+  automatic_updates: Automatyczne aktualizacje
+  native_menus_and_notifications: Natywne menu oraz powiadomienia
+  crash_reporting: Raportowanie błędów
+  debugging_and_profiling: Debugowanie oraz profiling
+  windows_installers: Instalator Windows
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: Pierwsze kroki
+  description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak uzbroić swoją aplikację internetową w Electron, przeglądaj API, generuj instalatory.
 explore:
-  title: Explore the Electron APIs
+  title: Przeglądaj API Electrona
   description:
-    - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
-download_from_github: Download from GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+    - <a href="https://github.com/electron/electron-api-demos">Aplikacje demonstracyjne Electron API</a>
+    - interaktywnie przedstawia najważniejsze cechy Electron API.
+    - Zobacz przykładowy kod i przydatne wskazówki, aby dowiedzieć się,
+    - co można stworzyć.
+download_from_github: Pobierz z GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
