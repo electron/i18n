@@ -1,4 +1,4 @@
-Bitte stellen Sie sicher, dass die Dokumente, die Sie benutzen, mit Ihrer Electron Version übereinstimmen. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## Häufige Fragen
 
@@ -8,17 +8,17 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 
 ## Anleitungen
 
-* [Glossary of Terms](glossary.md)
+* [Glossar](glossary.md)
 * [Unterstützte Plattformen](tutorial/supported-platforms.md)
 * [Sicherheit](tutorial/security.md)
-* [Electron Versionierung](tutorial/electron-versioning.md)
+* [Versionierung von Electron](tutorial/electron-versioning.md)
 * [Application Distribution](tutorial/application-distribution.md)
 * [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md)
 * [Anleitung: Windows Store](tutorial/windows-store-guide.md)
 * [Anwendungspakete](tutorial/application-packaging.md)
-* [Native Node Module verwenden](tutorial/using-native-node-modules.md)
+* [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md)
 * [Debugging des Main Process](tutorial/debugging-main-process.md)
-* [Selenium und WebDriver verwenden](tutorial/using-selenium-and-webdriver.md)
+* [Nutzen von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools Erweiterung](tutorial/devtools-extension.md)
 * [Verwendung des Pepper Flash-Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Verwendung des Widevine CDM-Plugin](tutorial/using-widevine-cdm-plugin.md)
@@ -34,7 +34,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [REPL](tutorial/repl.md)
 * [Native Benachrichtigungen](tutorial/notifications.md)
 
-## API Referenzen
+## API-Referenz
 
 * [Übersicht](api/synopsis.md)
 * [Prozess-Objekt](api/process.md)
