@@ -65,9 +65,9 @@ webFrame.setZoomFactor(2)
   * `spellCheck` Function - возвращает `Boolean` 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+`provider` должен быть объект, имеющий `spellCheck` метод, возвращающий, результат правильного написания слова.
 
 An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
@@ -92,7 +92,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Ресурсы будут загружены из этой `scheme` независимо от текущей страницы и политики безопасности контента.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
@@ -104,9 +104,9 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
   * `supportFetchAPI` Boolean - (опционально) по умолчанию true.
   * `corsEnabled` Boolean - (опционально) по умолчанию true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Регистрирует `scheme` как безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Указав параметр со значением `false` - исключит его из регистрации. Пример регистрации привилегированной схемы, без обхода политики безопасности контента:
 
 ```javascript
 const {webFrame} = require('electron')
