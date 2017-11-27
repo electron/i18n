@@ -1,28 +1,28 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Upewnij się, że dokumentacja dotyczy twojej wersji Electrona. Numer wersji powinien być zawarty w URL tej strony. Jeżeli nie jest, prawdopodobnie przeglądasz dokumentację gałęzi deweloperskiej, która może zawierać zmiany w API, które nie są kompatybilne z twoją wersją Electrona. Aby przeglądać starsze wersje dokumentacji, możesz [przeglądać tagami](https://github.com/electron/electron/tree/v1.4.0) na GitHubie, rozwijając pole "Zmień gałąź/tagi" oraz wybierając tag, który odpowiada twojej wersji.
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zanim stworzysz zapytanie:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Poradniki
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Słownik terminów](glossary.md)
+* [Wspierane platformy](tutorial/supported-platforms.md)
+* [Bezpieczeństwo](tutorial/security.md)
+* [Wersjonowanie wersji Electrona](tutorial/electron-versioning.md)
+* [Dystrybuowanie Aplikacji](tutorial/application-distribution.md)
+* [Dodawanie aplikacji do Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Dodawanie aplikacji do Windows Store](tutorial/windows-store-guide.md)
+* [Pakowanie Aplikacji](tutorial/application-packaging.md)
+* [Używanie Natywnych Modułów Node.JS](tutorial/using-native-node-modules.md)
+* [Debugowanie Głównego Wątku](tutorial/debugging-main-process.md)
+* [Używanie Selenium oraz WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Rozszerzenie DevTools](tutorial/devtools-extension.md)
+* [Używanie Pluginu Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Używanie Pluginu Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
+* [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 
