@@ -28,8 +28,8 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 
 You will also need to enable Xcode to build against the 10.10 SDK:
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
+- 開啟 `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- 將 `MinimumSDKVersion` 設為 `10.10`
 - 存檔
 
 ## Getting the Code
