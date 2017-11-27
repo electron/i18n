@@ -75,13 +75,13 @@ $ ./script/build.py -c D
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Для очистки только `out` и `dist` каталогов:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
 
 ## Тестирование
 
