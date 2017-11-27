@@ -210,8 +210,8 @@ win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
     buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    title: 'Вы действительно хотите покинуть этот сайт?',
+    message: 'Изменения не могут быть сохранены.',
     defaultId: 0,
     cancelId: 1
   })
@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### Событие: 'crashed'
 
 Возвращает:
 
@@ -231,7 +231,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Emitted when the renderer process crashes or is killed.
 
-#### Event: 'plugin-crashed'
+#### Событие: 'plugin-crashed'
 
 Возвращает:
 
@@ -241,11 +241,11 @@ Emitted when the renderer process crashes or is killed.
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### Событие: 'destroyed'
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### Событие: 'before-input-event'
 
 Возвращает:
 
@@ -270,17 +270,17 @@ const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // Например, только включить меню приложения нужно нажать 
+  // сочетания клавиш Ctrl/Cmd.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Событие: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-#### Event: 'devtools-closed'
+#### Событие: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
@@ -340,7 +340,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Событие: 'certificate-error'
 
 Возвращает:
 
@@ -354,15 +354,15 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### Event: 'media-started-playing'
+#### Событие: 'media-started-playing'
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### Событие: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-#### Event: 'did-change-theme-color'
+#### Событие: 'did-change-theme-color'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -370,7 +370,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
+#### Событие: 'update-target-url'
 
 Возвращает:
 
@@ -379,22 +379,22 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Событие: 'cursor-changed'
 
 Возвращает:
 
 * `event` Event
 * `type` String
-* `image` NativeImage (optional)
+* `image` NativeImage (опиционально)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Emitted when the cursor's type changes. `type` параметры могут быть `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Событие: 'context-menu'
 
 Возвращает:
 
@@ -436,7 +436,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Событие: 'select-bluetooth-device'
 
 Возвращает:
 
@@ -466,7 +466,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Событие: 'paint'
 
 Возвращает:
 
@@ -486,11 +486,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Событие: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Событие: 'will-attach-webview'
 
 Возвращает:
 
@@ -504,7 +504,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Методы экземпляра
 
 #### `contents.loadURL(url[, options])`
 
@@ -513,7 +513,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опиционально)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -644,7 +644,7 @@ Injects CSS into the current web page.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -659,7 +659,7 @@ If the result of the executed code is a promise the callback result will be the 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // должен быть объект JSON  из запрашиваемого вызова
   })
 ```
 
