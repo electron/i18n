@@ -91,7 +91,7 @@ Emitted just after the last chunk of the `request`'s data has been written into 
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### Событие: 'error'
 
 Возвращает:
 
