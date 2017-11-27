@@ -8,45 +8,45 @@ W celu zainstalowania prekompilowanych plików Electrona, użyj [`npm`](https://
 npm install electron --save-dev --save-exact
 ```
 
-The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+Flaga `--save-exact` jest zalecana, jako iż Electron nie wspiera semantycznego systemu kontroli wersji. Zobacz [dokumentację systemu kontroli wersji](https://electron.atom.io/docs/tutorial/electron-versioning/), aby dowiedzieć się więcej o zarządzaniu wersjami Electrona w twoich aplikacjach.
 
-## Global Installation
+## Instalacja globalna
 
-You can also install the `electron` command globally in your `$PATH`:
+Możesz także zainstalować komendę `electron` globalnie w twojej zmiennej `$PATH`:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Dostosowywanie
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Jeśli chcesz zmienić architekturę pobieranych pakietów (np. `ia32` na maszynie `x64`), możesz użyć flagi `--arch` w komendzie npm, albo ustawić zmienną środowiskową `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Dodatkowo, możesz także określić platformę (np. `win32`, `linux`, itd.), używając flagi `--platform`:
 
 ```shell
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## Proxy
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+Jeżeli używasz serwera HTTP Proxy, możesz [użyć tych zmiennych środowiskowych](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Troubleshooting
+## Rozwiązywanie problemów
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Uruchomiając komendę `npm install electron`, niewielka część użytkowników czasami napotyka się na błędy instalacji.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+W większości przypadków, błędy te są wynikiem problemów z połączeniem internetowym, a nie błędami pakietu `electron`. Błędy typu `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` są objawami tego typu błędów z połączeniem. Najlepszym ich rozwiązaniem jest podjęcie próby zmiany sieci, bądź odczekanie chwili i ponowna próba instalacji.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/releases](https://github.com/electron/electron/releases), jeśli instalacja poprzez `npm` zawodzi.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Jeśli instalacja powoduje błąd `EACCESS`, być może musisz naprawić [uprawnienia npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Jeśli powyższe błędy nie ustępują, flaga [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm), może wymagać ustawienia wartości "true":
 
 ```sh
 sudo npm install electron --unsafe-perm=true
