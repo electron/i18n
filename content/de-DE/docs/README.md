@@ -17,7 +17,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Anleitung: Windows Store](tutorial/windows-store-guide.md)
 * [Anwendungspakete](tutorial/application-packaging.md)
 * [Native Node Module verwenden](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
+* [Debugging des Main Process](tutorial/debugging-main-process.md)
 * [Selenium und WebDriver verwenden](tutorial/using-selenium-and-webdriver.md)
 * [DevTools Erweiterung](tutorial/devtools-extension.md)
 * [Verwendung des Pepper Flash-Plugin](tutorial/using-pepper-flash-plugin.md)
