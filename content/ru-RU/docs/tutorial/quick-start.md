@@ -18,11 +18,11 @@ Electron позволяет создавать настольные прилож
 
 Основной процесс создает веб-страницы путем создания экземпляров `BrowserWindow`. Каждый экземпляр `BrowserWindow` запускает веб-страницу в процессе визуализации. Когда экземпляр `BrowserWindow` уничтожается, соответствующий процесс визуализации также прекращается.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Основной процесс управляет всеми веб-страницами и их соответствующими процессами визуализации. Каждый процесс визуализации изолирован и заботится только о веб-странице, в котором работает.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+В веб-страницах вызов нативного GUI связывать интерфейсы API не допускается, поскольку управление нативными GUI ресурсами на веб-страницах очень опасно, и это легко допустить утечку ресурсов. Если вы хотите выполнить GUI операции на веб-странице, процесс визуализации веб-страницы должен общаться с основным процессом для запроса выполнения этих операций основного процесса.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+В Electron у нас есть несколько способов общения между основным процессом и процессами визуализации. Как [`ipcRenderer`](../api/ipc-renderer.md) и [`ipcMain`](../api/ipc-main.md) модули для отправки сообщений и [remote](../api/remote.md) модуль для RPC стиля общения. Существует также запись FAQ о [том, как передавать данные между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
 
 ## Напишите своё первое Electron приложение
 
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+Формат `package.json` является точно таким же, как Node модули, и сценарий, указанный в поле `main` является сценарий запуска вашего приложения, который будет выполняться в основном процессе. Пример вашего `package.json` может выглядеть следующим образом:
 
 ```json
 {
