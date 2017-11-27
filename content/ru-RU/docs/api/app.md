@@ -505,7 +505,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // имеет имя, поэтому `type` считается "custom"
     name: 'Tools',
     items: [
       {
@@ -515,7 +515,7 @@ app.setJumpList([
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'Запустить инструмент A'
       },
       {
         type: 'task',
@@ -524,19 +524,19 @@ app.setJumpList([
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'Запустить инструмент B'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // не имеет имени и никакого типа, поэтому `type` считается "tasks"
     items: [
       {
         type: 'task',
         title: 'New Project',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: 'Создать новый проект.'
       },
       { type: 'separator' },
       {
@@ -559,7 +559,7 @@ app.setJumpList([
 
 Возвращает `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Этот метод делает ваше приложение одним экземпляром приложения, а не позволяя запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
 `callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
@@ -594,7 +594,7 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Освобождает все блокировки, которые были созданы `makeSingleInstance`. Это позволит нескольким экземплярам приложения, снова работать бок о бок.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
