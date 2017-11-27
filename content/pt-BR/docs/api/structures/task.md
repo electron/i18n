@@ -1,6 +1,6 @@
 # Task Object
 
-* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
+* `program` String - Caminho do programa para executar, geralmente você deve especificar `process.execPath` que abre o programa atual.
 * `arguments` String - The command line arguments when `program` is executed.
 * `title` String - The string to be displayed in a JumpList.
 * `description` String - Description of this task.
