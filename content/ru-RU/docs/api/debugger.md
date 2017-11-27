@@ -1,10 +1,10 @@
 ## Class: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Альтернативный транспорт для удаленной отладки протокола Chrome.
 
 Процесс: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Инструменты разработчика Chrome имеют [специальную привязку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и инструментарием.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -31,21 +31,21 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### Методы экземпляра
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (опиционально) - запрошенная версия протокола отладки.
 
-Attaches the debugger to the `webContents`.
+Подключает отладчик к `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Возвращает `Boolean` - если отладчик присоединен к `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Отключает отладчик от `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
