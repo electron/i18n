@@ -1,4 +1,4 @@
-# CrashReport Object
+# Objeto CrashReport
 
-* `date` Cadena de Texto
+* `date` String
 * `ID` Numero entero
