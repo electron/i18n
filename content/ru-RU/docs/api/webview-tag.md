@@ -559,15 +559,15 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Событие: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Событие: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Событие: 'did-get-response-details'
 
 Возвращает:
 
@@ -582,7 +582,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Событие: 'did-get-redirect-request'
 
 Возвращает:
 
@@ -592,7 +592,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### Событие: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -605,7 +605,7 @@ Fired when document in the given frame is loaded.
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### Событие: 'page-favicon-updated'
 
 Возвращает:
 
@@ -664,7 +664,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Событие: 'new-window'
 
 Возвращает:
 
@@ -689,7 +689,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Событие: 'will-navigate'
 
 Возвращает:
 
@@ -703,7 +703,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### Событие: 'did-navigate'
 
 Возвращает:
 
