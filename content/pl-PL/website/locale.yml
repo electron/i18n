@@ -1,35 +1,35 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Twórz wieloplatformowe aplikacje z użyciem języków JavaScript, HTML oraz Css
 nav:
-  docs: Docs
+  docs: Dokumentacja
   blog: Blog
-  community: Community
-  apps: Apps
-  userland: Userland
-  releases: Releases
-  contact: Contact
-  languages: Languages
+  community: Społeczność
+  apps: Aplikacje
+  userland: Strefa użytkownika
+  releases: Wydania
+  contact: Kontakt
+  languages: Języki
 docs:
-  title: Electron Documentation
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
-  guides: Guides
-  api_reference: API Reference
-  advanced: Advanced
+  title: Dokumentacja Electron'a
+  description: Zobacz całą <a href="/docs/all/">dokumentację na jednej stronie</a> lub sprawdź <a href="/docs/faq/">FAQ</a>.
+  guides: Poradniki
+  api_reference: API
+  advanced: Zaawansowane
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: Wybierz język strony
+  translation_progress: Postęp tłumaczenia
+  current: aktualnie wybrano
 community:
-  title: Electron Community
+  title: Społeczność Electrona
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: Narzędzia
   boilerplates: Boilerplates
-  components: Components
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: 'This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  components: Komponenty
+  videos: Wideo
+  meetups: Spotkania
+  awesome_notice: Ta lista została wygenerowana z repozytorium <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Czegoś brakuje? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Wyślij zapytanie</a>.
+  meetup_notice: Aby dodać spotkanie, edytuj plik <code>data/meetups.json</code> i <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">wyślij zapytanie</a>.
 electron_is_easy:
-  title: It's easier than you think
+  title: To łatwiejsze, niż myślisz
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
   video_link: Watch the video
 web_technologies:
@@ -54,12 +54,12 @@ get_started:
 explore:
   title: Explore the Electron APIs
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
+    - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
 download_from_github: Download from GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
@@ -69,9 +69,9 @@ quick_start:
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: Need Help?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
-  languages: Languages
+  languages: Języki
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -85,7 +85,7 @@ footer:
   see_the_faq: See the frequently asked questions
 apps:
   title: Apps built on Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
   view_more: View more apps
   submit_your_own: submit your own
   something_missing: Something missing?
@@ -108,14 +108,14 @@ pages:
     title: Electron Blog
     description: All the latest news from the Electron team and community.
   '/community':
-    title: Community
+    title: Społeczność
   '/releases':
     title: Releases
   '/contact':
-    title: Contact
+    title: Kontakt
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: Języki
 _404:
   page_not_found: Page not found.
   if_this_is_an_error: If this is an error
