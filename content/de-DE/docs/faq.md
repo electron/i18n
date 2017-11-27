@@ -49,7 +49,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 This happens when the variable which is used to store the window/tray gets garbage collected.
 
-If you encounter this problem, the following articles may prove helpful:
+Wenn dieses Problem auftritt, könnten die folgenden Artikel hilfreich sein:
 
 * [Speicherverwaltung](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Geltungsbereich von Variablen](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
@@ -75,7 +75,7 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Ich kann jQuery/RequireJS/Meteor/AngularJS in Electron nicht verwenden.
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
