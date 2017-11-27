@@ -19,14 +19,14 @@ Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組�
     |   |   ├── net/ - 網路相關原始碼。
     |   |   ├── mac/ - Mac 專用的 Objective-C 原始碼。
     |   |   └── resources/ - 圖示等跨平臺的東西。
-    |   ├── renderer/ - Code that runs in renderer process.
-    |   |   └── api/ - The implementation of renderer process APIs.
+    |   ├── renderer/ - 在畫面轉譯處理序中執行的程式碼。
+    |   |   └── api/ - 畫面轉譯處理序 API 的實作。
     |   └── common/ - Code that used by both the main and renderer processes,
     |       including some utility functions and code to integrate node's message
     |       loop into Chromium's message loop.
     |       └── api/ - The implementation of common APIs, and foundations of
     |           Electron's built-in modules.
-    ├── chromium_src/ - Source code that copied from Chromium.
+    ├── chromium_src/ - 由 Chromium 複製過來的原始碼。
     ├── default_app/ - The default page to show when Electron is started without
     |   providing an app.
     ├── docs/ - 文件。
@@ -39,19 +39,18 @@ Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組�
     |       └── api/ - Javascript API implementation.
     ├── spec/ - 自動測試案例。
     ├── electron.gyp - Electron 建置規則。
-    └── common.gypi - Compiler specific settings and building rules for other
-        components like `node` and `breakpad`.
+    └── common.gypi - 供 `node` 及 `breakpad` 等其他元件使用的編譯器設定及建置規則。
     
 
 ## 其他目錄的結構
 
 * **script** - 開發時期用的腳本，例如建置、打包、測試等。
 * **tools** - 供 gyp 檔用的輔助腳本，跟 `script` 不同，放在這裡的腳本使用者應該都不會直接用到。
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
+* **vendor** - 第三方相依模組的原始碼。我們不用 `third_party`，是為了避免與 Chromium 原始碼目錄裡的那份混淆。
 * **node_modules** - 建置時使用的第三方 Node 模組。
 * **out** - `ninja` 的暫存目錄。
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **dist** - `script/create-dist.py` 建立發佈檔時產生的暫存目錄。
+* **external_binaries** - 不支援以 `gyp` 建置的第三方框架下載檔。
 
 ## 持續更新 Git 子模組
 
