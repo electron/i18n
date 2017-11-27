@@ -72,15 +72,15 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Emitted when a frame has done navigation.
 
-#### Event: 'did-start-loading'
+#### Событие: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab started spinning.
 
-#### Event: 'did-stop-loading'
+#### Событие: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### Event: 'did-get-response-details'
+#### Событие: 'did-get-response-details'
 
 Возвращает:
 
@@ -96,7 +96,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### Event: 'did-get-redirect-request'
+#### Событие: 'did-get-redirect-request'
 
 Возвращает:
 
@@ -111,7 +111,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Emitted when a redirect is received while requesting a resource.
 
-#### Event: 'dom-ready'
+#### Событие: 'dom-ready'
 
 Возвращает:
 
@@ -119,7 +119,7 @@ Emitted when a redirect is received while requesting a resource.
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-favicon-updated'
+#### Событие: 'page-favicon-updated'
 
 Возвращает:
 
@@ -128,7 +128,7 @@ Emitted when the document in the given frame is loaded.
 
 Emitted when page receives favicon urls.
 
-#### Event: 'new-window'
+#### Событие: 'new-window'
 
 Возвращает:
 
@@ -155,7 +155,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### Событие: 'will-navigate'
 
 Возвращает:
 
@@ -170,7 +170,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
-#### Event: 'did-navigate'
+#### Событие: 'did-navigate'
 
 Возвращает:
 
@@ -193,7 +193,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### Event: 'will-prevent-unload'
+#### Событие: 'will-prevent-unload'
 
 Возвращает:
 
