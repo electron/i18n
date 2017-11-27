@@ -1,4 +1,4 @@
-# Using Selenium and WebDriver
+# Używanie Selenium oraz WebDriver
 
 From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
