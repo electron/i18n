@@ -6,9 +6,9 @@ Electron позволяет создавать настольные прилож
 
 ### Основной процесс
 
-В Electron процесс, который запускает `package.json` `main` сценарий называется **основной процесс**. The script that runs in the main process can display a GUI by creating web pages.
+В Electron процесс, который запускает `package.json` `main` сценарий называется **основной процесс**. Сценарий, который выполняется в основном процессе может отображать GUI путем создания веб-страниц.
 
-### Renderer Process
+### Процесс визуализации
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
