@@ -80,7 +80,7 @@ footer:
   propose_change: Proponer un cambio a nuestro código fuente.
   need_different_version: '¿Necesitas una versión diferente de la documentación?'
   see_available_versions: Ver las versiones disponibles.
-  want_something_searchable: '¿Quieres algo que buscar?'
+  want_something_searchable: '¿Quieres algo searchable?'
   view_all_docs: Ver todos la documentación en una pagina
   see_the_faq: Ver las preguntas frecuentes
 apps:
