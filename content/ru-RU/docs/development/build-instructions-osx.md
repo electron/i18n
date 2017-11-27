@@ -1,12 +1,12 @@
 # Инструкции по сборке (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Следуйте рекомендациям ниже для сборки Electron на macOS.
 
-## Prerequisites
+## Требования
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](http://nodejs.org) (внешнее)
 
 If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
 
