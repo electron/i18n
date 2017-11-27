@@ -52,7 +52,7 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Siehe auch: [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -68,7 +68,7 @@ A process is an instance of a computer program that is being executed. Electron 
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
@@ -80,7 +80,7 @@ Siehe auch: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. Siehe dir die [autoUpdater](api/auto-updater.md) API an für mehr Informationen wie du mit Squirrel startest.
 
 ### userland
 
