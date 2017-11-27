@@ -30,39 +30,39 @@ webFrame.setZoomFactor(2)
 
 * `level` Number - уровень увеличения
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Возвращает `Number` - текущего уровня маштаба.
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Устарело:** Вызовите `setVisualZoomLevelLimits` вместо этого предельного уровня визуального масштабирования. Этот метод будет удален в Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Устанавливает максимальный и минимальный на основе слоя (т.е. невизуальный) уровень масштаба.
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
+  * `spellCheck` Function - возвращает `Boolean` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -84,9 +84,9 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+Регистрирует `scheme` как безопасную схему.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Безопасные схемы не допускают смешанного контента предупреждений. Например `https` и `data` являются безопасными схемами, потому что они не могут быть повреждены активными сетевыми атаками.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
@@ -142,14 +142,14 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Возвращает объект, описывающий сведения об использовании Blink внутренней памяти кэшей.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Это будет генерировать:
 
 ```javascript
 {
