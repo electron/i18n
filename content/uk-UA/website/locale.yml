@@ -113,7 +113,7 @@ pages:
     description: Developing with Electron
   '/docs/tutorial':
     title: 'Посібник'
-    description: Guides and tutorials for the latest Electron release
+    description: 'Посібники та методичні рекомендації для останнього випуску Electron'
   '/blog':
     title: 'Блог Electron'
     description: 'Всі останні новини від команди та спільноти Electron.'
@@ -130,7 +130,7 @@ pages:
     title: 'Користувацький простір'
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron це інструмент з відкритим кодом який допоможе вам перевіряти, моніторити та налагоджувати ваші програми на Electron. Розроблений на базі дивовижного Chrome Developer Tools.
   '/spectron':
     title: Spectron
     description: Spectron - це фреймворк з відкритим кодом для полегшеного написання інтеграційних тестів для вашої програми Electron. Цей фреймворк раздробленный на базі ChromeDriver та WebDriverIO.
