@@ -1,6 +1,6 @@
 # Electron FAQ
 
-## Why am I having trouble installing Electron?
+## Waarom ondervind ik problemen met het installeren van Electron?
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
