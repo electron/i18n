@@ -81,12 +81,12 @@ function createWindow () {
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Этот метод будет вызываться, когда Electron закончит 
+// инициализацию и готова к созданию окон браузера.
+// Некоторые интерфейсы API могут использоваться только после возникновения этого события.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Выйти, когда все окна будут закрыты.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -133,13 +133,13 @@ Finally the `index.html` is the web page you want to show:
 
 [`electron`](https://github.com/electron-userland/electron-prebuilt) является модулем `npm`, который содержит предварительно скомпилированные версии Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Если вы установили его глобально из `npm`, то вам лишь нужно запустить следующее в исходном каталоге вашего приложения:
 
 ```bash
 electron .
 ```
 
-If you've installed it locally, then run:
+Если вы установили его локально, затем выполните:
 
 #### macOS / Linux
 
@@ -154,7 +154,7 @@ $ ./node_modules/.bin/electron .
 
 ### Руководство скачивания Electron бинарников
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Если вы скачали Electron вручную, то можете подключить бинарный файлы для выполнения вашего приложения непосредственно.
 
 #### macOS
 
