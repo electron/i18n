@@ -1,6 +1,6 @@
 # 應用程式發佈
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+要用 Electron 發佈應用程式，你要先下載 Electron [預先建置好的二進位檔](https://github.com/electron/electron/releases)。 Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
 
 macOS 平臺:
 
@@ -22,7 +22,7 @@ electron/resources/app
 
 Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
 
-## Packaging Your App into a File
+## 將你的應用程式打包成一個檔案
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
@@ -86,7 +86,7 @@ The structure of a renamed app would be like:
 
 You can rename the `electron` executable to any name you like.
 
-## Packaging Tools
+## 打包工具
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
@@ -129,4 +129,4 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. 很有耐心的等到建置完成。
