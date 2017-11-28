@@ -1,122 +1,122 @@
-tagline: 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式
+tagline: '使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式'
 nav:
-  docs: 文件
-  blog: 部落格
-  community: 社群
-  apps: 應用程式
-  userland: 使用者園地
-  releases: 版本發佈
-  contact: 聯絡
-  languages: 語言
+  docs: '文件'
+  blog: '部落格'
+  community: '社群'
+  apps: '應用程式'
+  userland: '使用者園地'
+  releases: '版本發佈'
+  contact: '聯絡'
+  languages: '語言'
 docs:
   title: Electron 文件
-  description: 瀏覽<a href="/docs/all/">完整文件頁</a>，或是到<a href="/docs/faq/">常見問題集</a>中看看。
-  guides: 導引
+  description: '瀏覽<a href="/docs/all/">完整文件頁</a>，或是到<a href="/docs/faq/">常見問題集</a>中看看。'
+  guides: '導引'
   api_reference: API 參考
-  advanced: 進階
+  advanced: '進階'
 languages:
-  choose_language: 選擇網站語言
-  translation_progress: 翻譯進度
-  current: 目前選的
+  choose_language: '選擇網站語言'
+  translation_progress: '翻譯進度'
+  current: '目前選的'
 community:
   title: Electron 社群
   description: '出自 Electron <a href="https://github.com/sindresorhus/awesome-electron">超棒</a>原始碼貢獻者的工具、模版、影片及其他資源。 找找在你附近的<a href="/community#meetups">聚會</a>，或是自己創辦一個吧!'
-  tools: 工具
-  boilerplates: 模版
-  components: 元件
-  videos: 影片
-  meetups: 聚會
+  tools: '工具'
+  boilerplates: '模版'
+  components: '元件'
+  videos: '影片'
+  meetups: '聚會'
   awesome_notice: '這份清單是由 <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus 的 Awesome Electron</a>儲存庫自動產生的。<br> 發現少了什麼嗎? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">發個 Pull Request</a> 吧。'
   meetup_notice: '如果要增加聚會，改好 <code>data/meetups.json</code> 後<a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">發個 Pull Request</a>。'
 electron_is_easy:
-  title: 比你想像的更容易
-  description: 如果你有能力寫網站，就能寫得出桌用應用程式。 Electron 就是個用 JavaScrtip、HTML 及 CSS 等網頁技術開發原生應用程式的框架。鳥事它都包了，專注在你的核心功能吧。
-  video_link: 觀看影片
+  title: '比你想像的更容易'
+  description: '如果你有能力寫網站，就能寫得出桌用應用程式。 Electron 就是個用 JavaScrtip、HTML 及 CSS 等網頁技術開發原生應用程式的框架。鳥事它都包了，專注在你的核心功能吧。'
+  video_link: '觀看影片'
 web_technologies:
-  title: 網頁技術
+  title: '網頁技術'
   description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTM、CSS 和 JavaScript 打造自己的應用程式。
 open_source:
-  title: 開放原始碼
-  desciption: Electron 是由 GitHub 及活躍的貢獻者社群共用維護的開放原始碼專案。
+  title: '開放原始碼'
+  desciption: Electron 開放原始碼專案是由 GitHub 及活躍的貢獻者社群共用維護。
 cross_platform:
-  title: 跨平臺
-  description: 相容 Mac, Windows 及 Linux，Electron 應用程式可以在三大主流平臺上建置及執行。
+  title: '跨平臺'
+  description: '相容 Mac, Windows 及 Linux，Electron 應用程式可以在三大主流平臺上建置及執行。'
 benefits:
-  hard_parts_made_easy: 難的事不再難了
-  automatic_updates: 自動更新
-  native_menus_and_notifications: 原生選單及通知
-  crash_reporting: 當機回報
-  debugging_and_profiling: 偵錯及分析
+  hard_parts_made_easy: '難的事不再難了'
+  automatic_updates: '自動更新'
+  native_menus_and_notifications: '原生選單及通知'
+  crash_reporting: '當機回報'
+  debugging_and_profiling: '偵錯及分析'
   windows_installers: Windows 安裝程式
 get_started:
-  title: 開始使用
-  description: 想要開始用 Electron 了嗎? 可以參考下列資源，學會怎麼透過 Electron 包裝你的網頁應用程式、存取 API，並產出安裝程式。
+  title: '開始使用'
+  description: '想要開始用 Electron 了嗎? 可以參考下列資源，學會怎麼透過 Electron 包裝你的網頁應用程式、存取 API，並產出安裝程式。'
 explore:
-  title: 探索 Electron API
+  title: '探索 Electron API'
   description:
-    - '<a href="https://github.com/electron/electron-api-demos">Electron API 展示應用程式</a>'
-    - 以互動的方式展示 Electron API 中最重要的功能。
-    - 透過範例程式及提示說明，看看 Electron 有什麼能耐
-    - 幫你打造應用程式。
-download_from_github: 從 GitHub 下載
+    - <a href="https://github.com/electron/electron-api-demos">Electron API 展示應用程式</a>
+    - '以互動的方式展示 Electron API 中最重要的功能。'
+    - '透過範例程式及提示說明，看看 Electron 有什麼能耐'
+    - '幫你打造應用程式。'
+download_from_github: '從 GitHub 下載'
 view_all_releases_on_github: '查看 GitHub 上的<a href="https://github.com/electron/electron-api-demos/releases">所有發行版本</a>'
 quick_start:
   title: "玩玩 <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> 快速入門應用程式，實戰 Electron:"
-  description: 滿滿註解的微型 Electron 應用程式。
-  clone: 複製 Quick Start 儲存庫
-  go_into_repo: 進到儲存庫裡
-  install_deps: 安裝相依的套件並執行
-  dive_deeper: 或是深入閱讀<a href='/docs'>說明文件</a>。
+  description: '滿滿註解的微型 Electron 應用程式。'
+  clone: '複製 Quick Start 儲存庫'
+  go_into_repo: '進到儲存庫裡'
+  install_deps: '安裝相依的套件並執行'
+  dive_deeper: '或是深入閱讀<a href=''/docs''>說明文件</a>。'
 need_help:
-  title: 需要協助嗎?
+  title: '需要協助嗎?'
   description: '到 <a href=''https://discuss.atom.io/c/electron''>Discuss</a> 論壇或我們的 <a href=''http://atom-slack.herokuapp.com/''>Slack</a> 頻道上發問。 在 Twitter 上跟隨 <a href="https://twitter.com/electronjs">@electronjs</a> ，不錯過任何重大消息。不想那麼公開嗎? Email 到 <a href="mailto:electron@github.com">electron@github.com</a>。'
 headings:
-  languages: 語言
+  languages: '語言'
 taglines:
-  languages: 由我們強大的全球開發者社群提供的在地化內容。
+  languages: '由我們強大的全球開發者社群提供的在地化內容。'
 help_translate: "幫忙翻譯"
 footer:
-  see_something: 發現有東西欠修理嗎?
-  propose_change: 在原始碼上改好再提出來。
-  need_different_version: 在找其他版本的文件嗎?
-  see_available_versions: 瀏覽可用的版本。
-  want_something_searchable: 想來點好搜尋的東西嗎?
-  view_all_docs: 查看文件大全
-  see_the_faq: 看看常見問題集
+  see_something: '發現有東西欠修理嗎?'
+  propose_change: '在原始碼上改好再提出來。'
+  need_different_version: '在找其他版本的文件嗎?'
+  see_available_versions: '瀏覽可用的版本。'
+  want_something_searchable: '想來點好搜尋的東西嗎?'
+  view_all_docs: '查看文件大全'
+  see_the_faq: '看看常見問題集'
 apps:
-  title: 用 Electron 打造的應用程式
+  title: '用 Electron 打造的應用程式'
   description: '有了 Electron，把你的工作或想法打造成桌用應用程式變得超容易。 最早是為 GitHub 的 <a href=''https://atom.io'' target=''_blank''>Atom 編輯器</a>開發的，後來 Microsoft, Facebook, Slack 及 Docker 等公司也用 Electron 來開發應用程式。'
-  view_more: 瀏覽更多應用程式
-  submit_your_own: 提交您自己的
-  something_missing: 少了什麼嗎?
-  edit_this_app: 編輯這個應用程式。
-or: 或
+  view_more: '瀏覽更多應用程式'
+  submit_your_own: '提交您自己的'
+  something_missing: '少了什麼嗎?'
+  edit_this_app: '編輯這個應用程式。'
+or: '或'
 pages:
   '/':
     title: Electron | 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式。
     description: '使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式。'
   '/apps':
     title: Electron 應用程式
-    description: 用 Electron 打造的應用程式
+    description: '用 Electron 打造的應用程式'
   '/docs':
-    title: 文件
-    description: 最新版 Electron 的使用導引及 API 參考文件。
+    title: '文件'
+    description: '最新版 Electron 的使用導引及 API 參考文件。'
   '/docs/all':
     title: Electron 文件大全!
     description: Electron 的使用導引及 API 說明文件大全，全部放在同一頁方便搜尋。
   '/blog':
     title: Electron 部落格
-    description: 來自 Electron 團隊及社群的最新消息。
+    description: '來自 Electron 團隊及社群的最新消息。'
   '/community':
-    title: 社群
+    title: '社群'
   '/releases':
-    title: 版本發佈
+    title: '版本發佈'
   '/contact':
-    title: 聯絡
-    description: 在 Twitter, Slack, GitHub 或 e-mail 與 Electron 團隊聯絡。
+    title: '聯絡'
+    description: '在 Twitter, Slack, GitHub 或 e-mail 與 Electron 團隊聯絡。'
   '/languages':
-    title: 語言
+    title: '語言'
 _404:
-  page_not_found: 找不到頁面。
-  if_this_is_an_error: 如果這個情況不該發生
-  please_file_an_issue: 請提出議題。
+  page_not_found: '找不到頁面。'
+  if_this_is_an_error: '如果這個情況不該發生'
+  please_file_an_issue: '請提出議題。'
