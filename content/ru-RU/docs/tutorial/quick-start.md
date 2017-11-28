@@ -88,26 +88,26 @@ app.on('ready', createWindow)
 
 // Выйти, когда все окна будут закрыты.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // На macOS это обычно для приложений и их строки меню   
+  // оставаться активным до тех пор, пока пользователь не выйдет явно с помощью Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+   // На MacOS это общее для того чтобы создать окно в приложении, когда значок 
+   // dock нажали и нет других открытых окон.
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// В этом файле вы можете включить код другого основного процесса 
+// вашего приложения. Можно также поместить их в отдельные файлы и применить к ним require.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Наконец `index.html` — веб-страница, которую вы хотите показать:
 
 ```html
 <!DOCTYPE html>
@@ -118,9 +118,9 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    Мы используем node <script> document.write (process.versions.node)</script>,
+    Chrome <script>document.write (process.versions.chrome)</script>,
+    и Electron<script>document.write (process.versions.electron)</script>.
   </body>
 </html>
 ```
