@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
+  * `spellCheck` Function - 回傳 `Boolean` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
