@@ -4,9 +4,9 @@
 
 Процес: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+Модуль `globalShortcut` може зареєструвати/скасувати реєстрацію глобального сполучення клавіш в операційній системі, тож ви можете налаштувати операції для різних сполучень клавіш.
 
-**Примітка:** Це сполучення клавіш глобальне; воно буде працювати навіть якщо програма зараз не активна. You should not use this module until the `ready` event of the app module is emitted.
+**Примітка:** Це сполучення клавіш глобальне; воно буде працювати навіть якщо програма зараз не у фокусі. You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
