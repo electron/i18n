@@ -1,4 +1,4 @@
-# Об'єкт "MemoryInfo"
+# Об'єкт MemoryInfo
 
 * `pid` Integer - Ідентифікатор процесу.
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
