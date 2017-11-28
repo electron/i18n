@@ -94,7 +94,7 @@ $ ./script/build.py -c D
 
 After building is done, you can find the `electron` debug binary under `out/D`.
 
-## Cleaning
+## 清除
 
 To clean the build files:
 
