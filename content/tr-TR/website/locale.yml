@@ -6,28 +6,29 @@ nav:
   apps: Uygulamalar
   userland: Kullanıcı alanı
   releases: Sürümler
-  contact: İletişim
+  contact: 'İletişim'
   languages: Diller
+  code_of_conduct: Code of Conduct
 docs:
   title: Electron Dokümanları
-  description: Dokümanları <a href="/docs/all/">tek bir sayfada</a> görün veya <a href="/docs/faq/"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
+  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: Kılavuzlar
   api_reference: API Referansı
   advanced: Gelişmiş
 languages:
   choose_language: Site dilinizi seçin
-  translation_progress: Çeviri Süreci
+  translation_progress: 'Çeviri Süreci'
   current: mevcut seçim
 community:
   title: Electron Topluluğu
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: Araçlar
-  boilerplates: Şablonlar
+  boilerplates: 'Şablonlar'
   components: Bileşenler
   videos: Videolar
   meetups: Buluşmalar
-  awesome_notice: 'Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus''s Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.'
-  meetup_notice: 'To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.'
+  awesome_notice: Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
 electron_is_easy:
   title: Sandığından daha kolay
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
@@ -37,7 +38,7 @@ web_technologies:
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
   title: Açık Kaynak
-  desciption: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: Platformlar Arası
   description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
@@ -54,12 +55,12 @@ get_started:
 explore:
   title: Elektron API'leri keşfetmek
   description:
-    - 'The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>'
+    - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - building your app.
 download_from_github: Github'dan indirin
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub'
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
@@ -69,7 +70,7 @@ quick_start:
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: Yardıma mı ihtiyacınız var?
-  description: 'Ask questions in the <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
   languages: Diller
 taglines:
@@ -85,7 +86,7 @@ footer:
   see_the_faq: See the frequently asked questions
 apps:
   title: Apps built on Electron
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.'
+  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
   view_more: Daha fazla uygulama görüntüleyin
   submit_your_own: submit your own
   something_missing: Something missing?
@@ -104,6 +105,15 @@ pages:
   '/docs/all':
     title: Tüm Electron Dokümanları!
     description: All of Electron's guides and API documentation on a single, searchable page.
+  '/docs/api':
+    title: API
+    description: API reference documentation for the latest Electron release
+  '/docs/development':
+    title: Development
+    description: Developing with Electron
+  '/docs/tutorial':
+    title: Tutorial
+    description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron Blog
     description: All the latest news from the Electron team and community.
@@ -112,10 +122,18 @@ pages:
   '/releases':
     title: Sürümler
   '/contact':
-    title: İletişim
+    title: 'İletişim'
     description: Twitter, Slack, Github yada E-Posta aracılığıyla Electron ekibiyle iletişime geç.
   '/languages':
     title: Diller
+  '/userland':
+    title: Kullanıcı alanı
+  '/devtron':
+    title: Devtron
+    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+  '/spectron':
+    title: Spectron
+    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: Sayfa bulunamadı.
   if_this_is_an_error: Bu bir hata ise
