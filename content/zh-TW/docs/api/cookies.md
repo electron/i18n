@@ -1,4 +1,4 @@
-## 類別: Cookies
+## Class: Cookies
 
 > Query and modify a session's cookies.
 
