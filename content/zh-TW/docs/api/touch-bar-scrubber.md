@@ -18,7 +18,7 @@
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### 物件屬性
 
 The following properties are available on instances of `TouchBarScrubber`:
 
