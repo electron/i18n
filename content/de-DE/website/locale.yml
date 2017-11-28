@@ -77,11 +77,11 @@ taglines:
 help_translate: "Hilf bei der Übersetzung"
 footer:
   see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
+  propose_change: Schlage eine Änderung einer Source-Datei vor.
   need_different_version: Need a different version of the docs?
   see_available_versions: Alle verfügbaren Versionen.
   want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
+  view_all_docs: Komplette Dokumentation auf einer Seite ansehen
   see_the_faq: Häufig gestellte Fragen
 apps:
   title: Mit Electron entwickelte Apps
@@ -102,7 +102,7 @@ pages:
     title: Dokumentation
     description: Anleitungen und API-Referenz-Dokumentation für die neueste Version von Elektron
   '/docs/all':
-    title: All the Electron Docs!
+    title: Komplette Dokumentation von Electron!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
     title: Electron-Blog
