@@ -152,14 +152,14 @@
 
 Для модулів, `objectName` це ім'я модуля. Для класів це повинно бути імена екземплярів класу і не повинні бути такими ж як і ім'я модулів.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Наприклад, методи класу `Session` у модулі `session` повинні використовувати `ses` як `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Необов'язкові аргументи мають бути зазначені в квадратні дужки `[]`, що оточують необов'язковий аргумент, а також кома, якщо за необов'язковим аргументом слідує ще один аргумент:
 
     required[, optional]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Нижче методу оголошується більш детальна інформація про кожний аргумент. Тип аргументу має бути зазначеним із загальних типів:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
