@@ -68,9 +68,9 @@ Assim que os arquivos AppX expandidos são criados, a ferramente utiliza o Windo
 
 ## Etapa 3: Utilizando a aplicação AppX
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+Para conseguir executar sua aplicação, seus usuários precisarão do Windows 10 com sua então chamada "Atualização de Aniversário" - detalhes em como atualizar o Windows podem ser encontrados [aqui](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Ao contrário de aplicações UWP tradicionais, aplicações empacotadas deverão seguir um processo de verificação manual, em qual você pode se increver [aqui](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Entretanto, até a sua aprovação, todos os usuários serão capazes de instalar a aplicação apenas com um clique duplo, logo, o pedido de aprovação na loja pode não ser necessária se você está apenas à procura de um método mais simples de instalação. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 
