@@ -12,7 +12,7 @@
   * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
 
-### Instance Properties
+### 物件屬性
 
 The following properties are available on instances of `TouchBarPopover`:
 
