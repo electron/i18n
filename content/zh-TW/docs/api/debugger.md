@@ -1,4 +1,4 @@
-## 類別: Debugger
+## Class: Debugger
 
 > An alternate transport for Chrome's remote debugging protocol.
 
