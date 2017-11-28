@@ -8,7 +8,7 @@ nav:
   releases: 'Релізи'
   contact: 'Контакти'
   languages: 'Мови'
-  code_of_conduct: Code of Conduct
+  code_of_conduct: 'Норми поведінки'
 docs:
   title: 'Документація Electron'
   description: 'Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.'
