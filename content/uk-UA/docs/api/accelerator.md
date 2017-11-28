@@ -46,18 +46,18 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * Від `` до `9`
 * Від `A` до `Z`
 * Від `F1` до `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* Символи пунктуації як `~`, `!`, `@`, `#`, `$` і т.д.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (або `Enter` як псевдонім)
+* `Up`, `Down`, `Left` та `Right`
+* `Home` та `End`
+* `PageUp` та `PageDown`
+* `Escape` (або скорочено `Esc`)
+* `VolumeUp`, `VolumeDown` та `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` та `MediaPlayPause`
 * `PrintScreen`
