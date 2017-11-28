@@ -102,4 +102,4 @@ V8 的版本會對應 Google Chrome 的版本。例如 Chrome 59 包含 V8 5.9 �
 
 ### webview
 
-`webview` 標籤可在你的 Electron 應用程式中嵌入「客體」內容 (例如外部網頁)。很像 `iframe`，只是每個 webview 都在獨立的處理序中執行。 It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` 標籤可在你的 Electron 應用程式中嵌入「客體」內容 (例如外部網頁)。很像 `iframe`，只是每個 webview 都在獨立的處理序中執行。 它跟你一般的網頁有不一樣的權限，應用程式與嵌入內容之間的溝通全部都是非同步的。 這麼一來可以確保你應用程式的安全性不會受到嵌入內容影響。
