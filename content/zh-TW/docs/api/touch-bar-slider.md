@@ -1,4 +1,4 @@
-## 類別: TouchBarSlider
+## Class: TouchBarSlider
 
 > Create a slider in the touch bar for native macOS applications
 
