@@ -2,25 +2,25 @@
 
 To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
 
-## Generating `asar` Archive
+## 產生 `asar` 封存檔
 
 An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
 Steps to package your app into an `asar` archive:
 
-### 1. Install the asar Utility
+### 1. 安裝 asar 工具
 
 ```bash
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. 透過 `asar pack` 打包
 
 ```bash
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## 使用 `asar` 封存檔
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
@@ -100,11 +100,11 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Node API 的限制
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
-### Archives Are Read-only
+### 封存檔是唯讀的
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 
