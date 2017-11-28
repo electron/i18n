@@ -82,7 +82,7 @@ footer:
   see_available_versions: Xem các phiên bản có sẵn.
   want_something_searchable: Muốn tìm kiếm một cái gì đó?
   view_all_docs: Xem tất cả tài liệu trên một trang
-  see_the_faq: See the frequently asked questions
+  see_the_faq: Xem các câu hỏi thường gặp
 apps:
   title: Các ứng dụng được xây dựng từ Electron
   description: Với Electron, tạo ra một ứng dụng desktop cho công ty hoặc các ý tưởng của bạn thật đơn giản. Ban đầu, Electron được phát triển cho trình soạn thảo <a href='https://atom.io' target='_blank'>Atom</a> của Github, sau đó, Electron đã được sử dụng rộng rãi để tạo ra các ứng dụng của các công ty như Microsoft, Facebook, Slack và Docker.
@@ -103,7 +103,7 @@ pages:
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: Tất cả các tài liệu Electron!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Tất cả hướng dẫn và tài liệu API của Electron chỉ trên một trang.
   '/blog':
     title: Blog Electron
     description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.
