@@ -17,7 +17,7 @@ An example of adding `User-Agent` header for requests:
 ```javascript
 const {session} = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// 修改存取下列 URL 時使用的 User Agent。
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -46,7 +46,7 @@ The following methods are available on instances of `WebRequest`:
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Object 
-      * `cancel` Boolean (optional)
+      * `cancel` Boolean (選用)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
@@ -69,10 +69,10 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `method` String
   * `resourceType` String
   * `timestamp` Double
-  * `requestHeaders` 物件
+  * `requestHeaders` Object
 * `callback` Function 
   * `response` Object 
-    * `cancel` Boolean (optional)
+    * `cancel` Boolean (選用)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `callback` has to be called with an `response` object.
@@ -88,7 +88,7 @@ The `callback` has to be called with an `response` object.
     * `method` String
     * `resourceType` String
     * `timestamp` Double
-    * `requestHeaders` 物件
+    * `requestHeaders` Object
 
 The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
@@ -108,7 +108,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
-  * `responseHeaders` 物件
+  * `responseHeaders` Object
 * `callback` Function 
   * `response` Object 
     * `cancel` Boolean
@@ -128,7 +128,7 @@ The `callback` has to be called with an `response` object.
     * `method` String
     * `resourceType` String
     * `timestamp` Double
-    * `responseHeaders` 物件
+    * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
     * `statusLine` String
@@ -150,7 +150,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `statusCode` Integer
     * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
-    * `responseHeaders` 物件
+    * `responseHeaders` Object
 
 The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
@@ -165,7 +165,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `method` String
     * `resourceType` String
     * `timestamp` Double
-    * `responseHeaders` 物件
+    * `responseHeaders` Object
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
@@ -184,6 +184,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - 錯誤說明。
 
 The `listener` will be called with `listener(details)` when an error occurs.
