@@ -5,12 +5,12 @@ All three operating systems provide means for applications to send notifications
 **Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
 
 ```javascript
-let myNotification = new Notification('Title', {
-  body: 'Lorem Ipsum Dolor Sit Amet'
+let myNotification = new Notification('標題', {
+  body: '鼠牛虎兔龍蛇馬羊猴雞狗豬'
 })
 
 myNotification.onclick = () => {
-  console.log('Notification clicked')
+  console.log('點了通知')
 }
 ```
 
@@ -24,7 +24,7 @@ While code and user experience across operating systems are similar, there are s
 
 Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
-### Advanced Notifications
+### 進階通知
 
 Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
