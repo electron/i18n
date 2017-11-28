@@ -16,11 +16,11 @@
 
 我們認為現在的 Chromium 元件升級機制，已經在有限資源及多數桌面應用程式需求之間取得平衡。 我們真的很想聽到大家又把 Electron 應用在什麼特別的地方。 隨時歡迎各位提出 Pull Request 或是其他貢獻。
 
-## 忽略以上建議
+## 先不管上面那些建議
 
-由遠端取得程式碼並在本機執行就存在安全性問題。 一起想像一下，會在瀏覽器視窗裡顯示的遠端網站內容。 If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+由遠端取得程式碼並在本機執行就會有安全議題。 一起想像一下，有個遠端網站的內容將在瀏覽器視窗裡顯示。 如果攻擊者有辦法改變上述內容 (可能是直接攻擊來源，或是藏在你的應用程式與實際目的地中間)，他們就有機會在使用者的機器上執行原生程式。
 
-> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: 無論如何，你都不該在啟用 Node 整合的情況下，由遠端載入並執行程式碼。 如果需要執行 Node 程式碼，請只用本機檔案 (跟你的應用程式打包在一起的那些)。 To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
 
 #### 檢查清單
 
