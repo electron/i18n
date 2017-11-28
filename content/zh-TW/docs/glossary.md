@@ -64,17 +64,17 @@ Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Micros
 
 ### 處理序
 
-處理序 (Process) 是電腦程式執行中的一個執行個體。 Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+處理序 (Process) 是電腦程式執行中的一個執行個體。 使用[主處理序](#main-process)及一或多個[畫面轉譯處理序](#renderer-process)的 Electron 應用程式，實際上是同時執行多個程式。
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+在 Node.js 和 Electron 中，每個執行中的處理序都有相對應的 `process` 物件。 這是個全域物件，可以提供目前處理序的相關資訊，也能操作控制它。 因為它是全域的，應用程式可以不用透過 require() 直接存取。
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+可再參考: [主處理序](#main-process)、[畫面轉譯處理序](#renderer-process)
 
 ### 畫面轉譯處理序
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+畫面轉譯處理序就是你應用程式中的瀏覽器視窗。與主處理序不同，同時能有畫面轉譯程式分別在不同的處理序中執行。它們也可以是看不見的。
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
 可再參考: [處理序](#process), [主處理序](#main-process)
 
@@ -102,4 +102,4 @@ V8 的版本會對應 Google Chrome 的版本。例如 Chrome 59 包含 V8 5.9 �
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` 標籤可在你的 Electron 應用程式中嵌入「客體」內容 (例如外部網頁)。很像 `iframe`，只是每個 webview 都在獨立的處理序中執行。 It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
