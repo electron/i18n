@@ -24,9 +24,9 @@ electron/resources/app
 
 ## 將你的應用程式打包成一個檔案
 
-除了將應用程式的所有原始碼複製一份來發佈外，你還可以將應用程式打包成一個 [asar](https://github.com/electron/asar) 封裝檔，免得使用者直接看到你應用程式的原始碼。
+除了將應用程式的所有原始碼複製一份來發佈外，你還可以將應用程式打包成一個 [asar](https://github.com/electron/asar) 封存檔，免得使用者直接看到你應用程式的原始碼。
 
-想用 `asar` 封裝檔取代 `app` 資料夾，你得將封裝檔改名為 `app.asar`，放到 Electron 的資源目錄中，就像下面的範例一樣。Electron 就會試著由封裝檔載入並啟動應用程式。
+想用 `asar` 封存檔取代 `app` 資料夾，你得將封存檔改名為 `app.asar`，放到 Electron 的資源目錄中，就像下面的範例一樣。Electron 就會試著由封存檔載入並啟動應用程式。
 
 macOS 平臺:
 
