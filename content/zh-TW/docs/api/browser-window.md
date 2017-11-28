@@ -106,7 +106,7 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## 類別: BrowserWindow
+## Class: BrowserWindow
 
 > Create and control browser windows.
 
