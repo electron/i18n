@@ -43,7 +43,7 @@ First, in order to avoid deadlocks, the callbacks passed to the main process are
 For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
 
 ```javascript
-// main process mapNumbers.js
+// 主處理序 mapNumbers.js
 exports.withRendererCallback = (mapper) => {
   return [1, 2, 3].map(mapper)
 }
@@ -54,7 +54,7 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
+// 畫面轉譯處理序
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
@@ -71,7 +71,7 @@ For example, the following code seems innocent at first glance. It installs a ca
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // 視窗已經被關閉了...
 })
 ```
 
@@ -100,7 +100,7 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+例如:
 
     project/
     ├── main
@@ -112,13 +112,13 @@ e.g.
     
 
 ```js
-// main process: main/index.js
+// 主處理序: main/index.js
 const {app} = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
+// 其他相關的模組: main/foo.js
 module.exports = 'bar'
 ```
 
