@@ -12,9 +12,9 @@
 
 ## Chromium 安全性議題及升級
 
-While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+雖然 Electron 致力於盡快支援新版的 Chromium，但開發人員都應該知道，升級是件嚴肅的事，可能要手動修改數十，甚至上百個檔案。 以現有的資源及貢獻程度來看，Electron 通常沒辦法跟到最新版的 Chromium，可能會落後數日或數週。
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+我們認為現在的 Chromium 元件升級機制，已經在有限資源及多數桌面應用程式需求之間取得平衡。 我們真的很想聽到大家又把 Electron 應用在什麼特別的地方。 隨時歡迎各位提出 Pull Request 或是其他貢獻。
 
 ## 忽略以上建議
 
