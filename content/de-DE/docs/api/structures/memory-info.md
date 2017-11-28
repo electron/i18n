@@ -1,6 +1,6 @@
 # MemoryInfo Object
 
-* `pid` Integer - Process id of the process.
+* `pid` Integer - Prozess Id des Prozesses.
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM. On macOS its value will always be 0.
 * `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
