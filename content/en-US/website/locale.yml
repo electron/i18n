@@ -9,10 +9,11 @@ nav:
   releases: Releases
   contact: Contact
   languages: Languages
+  code_of_conduct: Code of Conduct
 
 docs:
   title: Electron Documentation
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: Guides
   api_reference: API Reference
   advanced: Advanced
@@ -41,7 +42,7 @@ community:
     <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice:
     To add a meetup, edit <code>data/meetups.json</code> and 
-    <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.
+    <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
 
 electron_is_easy:
   title: It's easier than you think
@@ -60,7 +61,7 @@ web_technologies:
 
 open_source:
   title: Open Source
-  desciption:
+  description:
     Electron is an open source project maintained by GitHub and an active
     community of contributors.
 
@@ -156,6 +157,15 @@ pages:
   '/docs/all':
     title: All the Electron Docs!
     description: All of Electron's guides and API documentation on a single, searchable page.
+  '/docs/api':
+    title: API
+    description: API reference documentation for the latest Electron release
+  '/docs/development':
+    title: Development
+    description: Developing with Electron
+  '/docs/tutorial':
+    title: Tutorial
+    description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron Blog
     description: All the latest news from the Electron team and community.
@@ -168,6 +178,14 @@ pages:
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: Languages
+  '/userland':
+    title: Userland
+  '/devtron':
+    title: Devtron
+    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+  '/spectron':
+    title: Spectron
+    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 
 _404:
   page_not_found: Page not found.
