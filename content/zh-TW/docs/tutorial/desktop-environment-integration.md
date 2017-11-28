@@ -2,17 +2,17 @@
 
 不同的作業系統提供不同的功能特性，將桌面應用程式整合進桌面環境中。 For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+這份導引文件，將介紹如何透過 Electron API 把應用程式整合進桌面環境中。
 
 ## 通知
 
 參考[通知](notifications.md)
 
-## Recent documents (Windows & macOS)
+## 最近的文件 (Windows & macOS)
 
 Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-**JumpList:**
+**捷徑清單 (JumpList):**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
