@@ -1,21 +1,21 @@
-# 使用原生 Node 模組
+# 使用 Node 原生模組
 
 The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
 
-## How to install native modules
+## 如何安裝原生模組
 
 Three ways to install native modules:
 
-### Using `npm`
+### 使用 `npm`
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
 An example of installing all dependencies for Electron:
 
 ```bash
-# Electron's version.
+# Electron 版本。
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+# Electron 硬體架構，可以是 ia32 或 x64。
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Download headers for Electron.
