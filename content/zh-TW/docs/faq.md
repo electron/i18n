@@ -6,7 +6,7 @@
 
 大多數情況下，這些錯誤是來自於網路問題，而不是 `electron` npm 套件本身的問題。 諸如 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 及 `ETIMEDOUT` 全都是網路方面的問題。 最好的處理方式就是切換網路看看，或是晚點再重裝一次。
 
-你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron，如果用 `npm` 怎樣都裝不起來的話。
+如果用 `npm` 怎樣都裝不起來的話，你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron。
 
 ## Electron 什麼時候會升級到最新的 Chrome?
 
@@ -14,11 +14,11 @@
 
 我們只會用穩定版的 Chrome。如果測試版或開發版中有重大的修正，我們會移植回來。
 
-For more information, please see the [security introduction](tutorial/security.md).
+詳情請參閱[安全性簡介](tutorial/security.md)。
 
 ## Electron 什麼時候會升級到最新的 Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本。 如此一來我們可以避開新版 Node.js 帶來的 bug，這種事很常發生。
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+改為:
 
 ```javascript
 const {app, Tray} = require('electron')
