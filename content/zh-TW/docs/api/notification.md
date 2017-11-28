@@ -87,7 +87,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### 物件方法
 
 Objects created with `new Notification` have the following instance methods:
 
