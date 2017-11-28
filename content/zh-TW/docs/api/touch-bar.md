@@ -1,4 +1,4 @@
-## 類別: TouchBar
+## Class: TouchBar
 
 > Create TouchBar layouts for native macOS applications
 
