@@ -55,7 +55,7 @@ explore:
   title: Erkunden Sie die Electron-APIs
   description:
     - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
-    - interactively demonstrates the most important features of the Electron API.
+    - zeigt interaktiv die wichtigsten Funktionen der Electron API.
     - See what's possible with Electron with sample code and helpful tips for
     - bauen deiner App.
 download_from_github: Von GitHub herunterladen
