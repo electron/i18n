@@ -8,7 +8,7 @@ Electron 支援 Node 原生模組，但是 Electron 很有可能會用跟你安�
 
 ### 使用 `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+設定幾個環境變數後，你就可以使用 `npm` 直接安裝模組。
 
 An example of installing all dependencies for Electron:
 
@@ -37,10 +37,10 @@ An example of installing `electron-rebuild` and then rebuild modules with it:
 ```bash
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# 每次執行完 "npm install" 後，記得再跑:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# 如果你在 Windows 下碰到問題，可以試:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
