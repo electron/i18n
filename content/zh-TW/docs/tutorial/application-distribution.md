@@ -26,7 +26,7 @@ electron/resources/app
 
 除了將應用程式的所有原始碼複製一份來發佈外，你還可以將應用程式打包成一個 [asar](https://github.com/electron/asar) 封裝檔，免得使用者直接看到你應用程式的原始碼。
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+想用 `asar` 封裝檔取代 `app` 資料夾，你得將封裝檔改名為 `app.asar`，放到 Electron 的資源目錄中，就像下面的範例一樣。Electron 就會試著由封裝檔載入並啟動應用程式。
 
 macOS 平臺:
 
@@ -42,7 +42,7 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+細節可以參考[應用程式打包](application-packaging.md)。
 
 ## Rebranding with Downloaded Binaries
 
@@ -50,18 +50,18 @@ After bundling your app into Electron, you will want to rebrand Electron before 
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+你可以將 `electron.exe` 改成任何你想要的名字，再使用 [rcedit](https://github.com/atom/rcedit) 這類工具編輯圖示及其他資訊。
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+你可以將 `Electron.app` 改成任何你想要的名字。此外，你還要修改下列檔案中的 `CFBundleDisplayName`、`CFBundleIdentifier` 及 `CFBundleName` 欄位:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
 You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
 
-The structure of a renamed app would be like:
+改名後的應用程式結構應該像:
 
     MyApp.app/Contents
     ├── Info.plist
@@ -84,7 +84,7 @@ The structure of a renamed app would be like:
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+你可以將 `electron` 執行檔改成任何你想要的名字。
 
 ## 打包工具
 
