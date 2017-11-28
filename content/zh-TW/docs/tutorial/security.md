@@ -33,13 +33,13 @@ A security issue exists whenever you receive code from a remote destination and 
 * Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
 * Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
 * [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
+* 不要將 `allowRunningInsecureContent` 設為 true。
 * Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
+* 別用 `blinkFeatures`，除非你很清楚自已在幹嘛。
+* WebViews: 不要加 `nodeintegration` 屬性。
+* WebViews: 不要用 `disablewebsecurity`。
+* WebViews: 不要用 `allowpopups`。
+* WebViews: 不要在遠端 CSS/JS 上用 `insertCSS` 或 `executeJavaScript`。
 * WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
 
 ```js
