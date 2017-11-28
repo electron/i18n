@@ -176,7 +176,7 @@
 
 Аргументи типу `Array` повинні вказувати, які саме елементи включає масив та бути вказані в описі нижче.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Опис аргументів для типу `Function` повинно бути чітко зазначено, як саме мають бути названі та перелік типів цих аргументів, що будут передані в функцію.
 
 ### Events
 
