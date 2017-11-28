@@ -427,14 +427,14 @@ Retourne :
     * `canRotate` Boolean - Si l'élément multimédia peut être pivoté.
   * `editFlags` Object - Ces attributs indiquent si le moteur de rendu pense être en mesure d'effectuer l'action correspondante. 
     * `canUndo` Boolean - Si le moteur de rendu pense pouvoir aller en arrière.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+    * `canRedo` Boolean - Si le moteur de rendu pense pouvoir aller en avant.
+    * `canCut` Boolean - Si le moteur de rendu pense pouvoir couper.
+    * `canCopy` Boolean - Si le moteur de rendu pense pouvoir copier
+    * `canPaste` Boolean - Si le moteur de rendu pense pouvoir coller.
+    * `canDelete` Boolean - Si le moteur de rendu pense pouvoir supprimer.
+    * `canSelectAll` Boolean - Si le moteur de rendu pense pouvoir tout sélectionner.
 
-Emitted when there is a new context menu that needs to be handled.
+Émis lorsqu'un nouveau menu contextuel a besoin d'être pris en charge.
 
 #### Événement : 'select-bluetooth-device'
 
