@@ -29,7 +29,7 @@ app.on('will-quit', () => {
   // Скасувати реєстрацію сполучення клавіш.
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // Скасувати реєстрацію всіх сполучень клавіш.
   globalShortcut.unregisterAll()
 })
 ```
@@ -43,7 +43,7 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Функція
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Реєструє глобальне сполучення клавіш `accelerator`. `callback` буде викликаний коли зареєстроване сполучення клавіш буде натиснуте користувачем.
 
 When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
@@ -51,7 +51,7 @@ When the accelerator is already taken by other applications, this call will sile
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Повертає `Boolean` - Якщо додаток має зареєстрований `accelerator`.
 
 When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
@@ -59,7 +59,7 @@ When the accelerator is already taken by other applications, this call will stil
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Скасувати реєстрацію глобального сполучення клавіш `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
