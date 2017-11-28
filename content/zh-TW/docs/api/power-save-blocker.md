@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-For example:
+例如:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
