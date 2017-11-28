@@ -2,7 +2,7 @@
 
 * `commonName` String - загальне им'я
 * `organizations` String[] - ім'я організаціЇ
-* `organizationUnits` String[] - Organization Unit names
-* `locality` String - Locality
-* `state` String - State or province
+* `organizationUnits` String[] - назва(и) посад(и) в організації
+* `locality` String - Місцезнаходження
+* `state` String - Регіон або область
 * `country` String - Country or region
