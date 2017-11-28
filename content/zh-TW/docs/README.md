@@ -45,7 +45,7 @@
 
 * [`File` 物件](api/file-object.md)
 * [`<webview>` 標籤](api/webview-tag.md)
-* [`window.open`函數](api/window-open.md)
+* [`window.open` 函式](api/window-open.md)
 
 ### 主處理序可用的模組：
 
