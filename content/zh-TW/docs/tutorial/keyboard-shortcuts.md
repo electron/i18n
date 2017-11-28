@@ -34,7 +34,7 @@ const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('按了 CommandOrControl+X')
   })
 })
 ```
