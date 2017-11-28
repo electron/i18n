@@ -85,11 +85,11 @@ footer:
   see_the_faq: Häufig gestellte Fragen
 apps:
   title: Mit Electron entwickelte Apps
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
+  description: Mit Electron ist das Erstellen einer Desktop-Anwendung für Ihre Firma oder Idee einfach. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom Editor</a> von GitHub entwickelt, wurde Electron bereits von Firmen wie Microsoft, Facebook, Slack und Docker verwendet.
   view_more: Mehr Apps anzeigen
   submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
-  edit_this_app: Edit this app.
+  edit_this_app: Diese App bearbeiten.
 or: oder
 pages:
   '/':
