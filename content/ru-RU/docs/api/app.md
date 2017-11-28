@@ -481,9 +481,9 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 * `ok` - ничего не случилось.
 * `error` - произошла одна или несколько ошибок, включите ведение журнала выполнения, чтобы выяснить возможную ошибку.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+* `invalidSeparatorError` - была сделана попытка добавить сепаратор в пользовательскую категорию в Jump List. Сепараторы разрешены только в стандартной категории `Tasks`.
+* `fileTypeRegistrationError` - была сделана попытка добавить ссылку на файл в Jump List для типа файла, который в приложении не зарегистрирован для обработки.
+* `customCategoryAccessDeniedError` - пользовательские категории не могут быть добавлены в Jump List из-за ограничений конфиденциальности пользователей или групповой политики.
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
