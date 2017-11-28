@@ -1,4 +1,4 @@
-# `window.open`函數
+# `window.open` 函式
 
 > Open a new window and load a URL.
 
@@ -11,8 +11,8 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String (選用)
+* `features` String (選用)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
@@ -32,7 +32,7 @@ The `features` string follows the format of standard browser, but each feature h
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
-### Using Chrome's `window.open()` implementation
+### 使用 Chrome 的 `window.open()` 實作
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
@@ -71,7 +71,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// 畫面轉譯處理序 (mainWindow)
 let modal = window.open('', 'modal')
-modal.document.write('<h1>Hello</h1>')
+modal.document.write('<h1>你好</h1>')
 ```
