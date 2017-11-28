@@ -12,21 +12,21 @@ The `globalShortcut` module can register/unregister a global keyboard shortcut w
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // Реєстрація слухача сполучення клавіш 'CommandOrControl+X'.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X було натиснуто')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('реєстрація була невдалою')
   }
 
-  // Check whether a shortcut is registered.
+  // Перевірити чи сполучення клавіш зареєстровано.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // Скасувати реєстрацію сполучення клавіш.
   globalShortcut.unregister('CommandOrControl+X')
 
   // Unregister all shortcuts.
@@ -36,12 +36,12 @@ app.on('will-quit', () => {
 
 ## Методи
 
-The `globalShortcut` module has the following methods:
+Модуль `GlobalShortcut` має такі методи:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `callback` Функція
 
 Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
