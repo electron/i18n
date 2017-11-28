@@ -35,7 +35,7 @@ app.on('window-all-closed', () => {
 
 当所有的窗口都被关闭时触发。
 
-如果你没有订阅本事件并且所有窗口都关闭了，默认的行为是控制退出程序；然而，如果你订阅了，你可以控制是否退出程序。 如果用户点击 `Cmd + Q`，或者开发者调用了 `app.quit()`，Electron 会首先关闭所有的窗口然后触发 `will-quit` 事件，在这种情况下 `window-all-closed` 事件不会被触发。
+如果你没有监听此事件并且所有窗口都关闭了，默认的行为是控制退出程序；但如果你监听了此事件，你可以控制是否退出程序。 如果用户按下了 `Cmd + Q`，或者开发者调用了 `app.quit()`，Electron 会首先关闭所有的窗口然后触发 `will-quit` 事件，在这种情况下 `window-all-closed` 事件不会被触发。
 
 ### 事件：'before-quit'
 
@@ -45,9 +45,9 @@ app.on('window-all-closed', () => {
 
 在应用程序开始关闭窗口之前触发。 调用 `event.preventDefault()` 会阻止默认的行为。默认的行为是终结应用程序。
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+** 注意: **如果应用程序退出是因调用了` autoUpdater. quitAndInstall () `, 所有窗口都会发出` close ` Event *然后* ` before-quit ` Event 并关闭所有窗口。
 
-### Event: 'will-quit'
+### 事件: 'will-quit'
 
 返回:
 
@@ -57,69 +57,69 @@ app.on('window-all-closed', () => {
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
-### Event: 'quit'
+### 事件: 'quit'
 
 返回:
 
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+在应用程序退出时发出。
 
-### Event: 'open-file' *macOS*
+### 事件: 'open-file' *macOS*
 
 返回:
 
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+当用户想要在应用中打开一个文件时发出。 `open-file` 事件通常在应用已经打开，并且系统要再次使用该应用打开文件时发出。 `open-file`也会在一个文件被拖到 dock 并且还没有运行的时候发出。 请确认在应用启动的时候(甚至在 `ready` 事件发出前) 就对 `open-file` 事件进行监听。
 
-You should call `event.preventDefault()` if you want to handle this event.
+如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+在 Windows 系统中，你需要解析 `process.argv` (在主进程中) 来获取文件路径
 
-### Event: 'open-url' *macOS*
+### 事件: 'open-url' *macOS*
 
 返回:
 
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+当用户想要在应用中打开一个 URL 时发出。 应用程序的 ` Info. plist ` 文件必须在 ` CFBundleURLTypes ` 项中定义 url 方案, 并将 ` NSPrincipalClass ` 设置为 ` AtomApplication `。
 
-You should call `event.preventDefault()` if you want to handle this event.
+如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-### Event: 'activate' *macOS*
+### 事件: 'activate' *macOS*
 
 返回:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+当应用被激活时发出。 各种操作都可以触发此事件, 例如首次启动应用程序、尝试在应用程序已运行时或单击应用程序的坞站或任务栏图标时重新激活它。
 
-### Event: 'continue-activity' *macOS*
-
-返回:
-
-* `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
-
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
-
-### Event: 'new-window-for-tab' *macOS*
+### 事件: 'continue-activity' *macOS*
 
 返回:
 
 * `event` Event
+* ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
+* ` userInfo `Object-包含由其他设备上的活动存储的应用程序特定状态。
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 想要恢复时触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
-### Event: 'browser-window-blur'
+只有具有支持相应的活动类型并且相同的开发团队 ID 作为启动程序时，用户行为才会进行。 所支持活动类型已在应用的 `Info.plist` 中的 `NSUserActivityTypes` 里明确定义。
+
+### 事件: 'new-window-for-tab' *macOS*
+
+返回:
+
+* `event` Event
+
+当用户单击 macOS 新选项卡按钮时发出。仅当当前 ` BrowserWindow ` 具有 ` tabbingIdentifier ` 时, 才会显示新的选项卡按钮
+
+### 事件: 'browser-window-blur'
 
 返回:
 
@@ -128,44 +128,44 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 在 [ browserWindow ](browser-window.md) 失去焦点时发出。
 
-### Event: 'browser-window-focus'
+### 事件: 'browser-window-focus'
 
 返回:
 
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+在 [ browserWindow ](browser-window.md) 获得焦点时发出。
 
-### Event: 'browser-window-created'
+### 事件: 'browser-window-created'
 
 返回:
 
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+在创建新的 [ browserWindow ](browser-window.md) 时发出。
 
-### Event: 'web-contents-created'
+### 事件: 'web-contents-created'
 
 返回:
 
 * `event` Event
-* `webContents` WebContents
+* ` webContents `WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+在创建新的 [ webContents ](web-contents.md) 时发出。
 
-### Event: 'certificate-error'
+### 事件: 'certificate-error'
 
 返回:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` 函数 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+* `error` String - 错误码
+* `certificate` [证书](structures/certificate.md)
+* `callback` Function 
+  * ` isTrusted `Boolean-是否将证书视为可信的
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
@@ -266,9 +266,9 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### `app.quit()`
 
-Try to close all windows. 将首先发出 ` before-quit ` 事件。 如果所有窗口都已成功关闭, 则将发出 ` will-quit` 事件, 并且默认情况下应用程序将终止。
+尝试关闭所有窗口 将首先发出 ` before-quit ` 事件。 如果所有窗口都已成功关闭, 则将发出 ` will-quit` 事件, 并且默认情况下应用程序将终止。
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+此方法会确保执行所有` beforeunload ` 和 `unload`事件处理程序。 可以在退出窗口之前的` beforeunload `事件处理程序中返回` false `取消退出。
 
 ### `app.exit([exitCode])`
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 

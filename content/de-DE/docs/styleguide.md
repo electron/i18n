@@ -1,10 +1,10 @@
 # Electron Documentation Styleguide
 
-These are the guidelines for writing Electron documentation.
+Dies sind die Richtlinien für das Schreiben von Dokumentation zu Elektron.
 
 ## Titel
 
-* Each page must have a single `#`-level title at the top.
+* Jede Seite hat ein einzelnen Titel mit `#` am Anfang.
 * Chapters in the same page must have `##`-level titles.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
@@ -40,7 +40,7 @@ Using `Quick Start` as example:
 
 For API references, there are exceptions to this rule.
 
-## Markdown rules
+## Regeln für Markdown
 
 * Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
@@ -56,7 +56,7 @@ For API references, there are exceptions to this rule.
 
 Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
-### Page title
+### Seitentitel
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
@@ -70,7 +70,7 @@ Using `session` as example:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### Methoden und Events von Modulen
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 

@@ -1,88 +1,88 @@
 # Инструкции по сборке (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Следуйте рекомендациям ниже для сборки Electron на macOS.
 
-## Prerequisites
+## Требования
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](http://nodejs.org) (внешнее)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Если вы используете Python, скачайте Homebrew, необходимо также установить следующие модули Python:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Если вы просто разрабатываете Electron и не планируют распространять пользовательские сборки Electron, вы можете пропустить этот раздел.
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+Для работы некоторых функций (например pinch-zoom) правильно, вы должны выбрать macOS 10.10 SDK.
 
-Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+Официальные Electron сборки создаются на [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), которая не содержит 10.10 SDK по умолчанию. Для его получения, сначала загрузите и установите [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
 
-Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
+Затем предполагая, что Xcode 6.4 DMG был смонтирован в `/Volumes/Xcode` и установленый Xcode 8.2.1 находится в `/Applications/Xcode.app`, запустите:
 
 ```bash
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+Вы также должны включить Xcode, чтобы построить на 10.10 SDK:
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Откройте `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- Установите `MinimumSDKVersion` в `10.10`
+- Сохраните файл
 
-## Getting the Code
+## Получение кода
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Самонастройка
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Обратите внимание, что мы используем [ninja](https://ninja-build.org/) для сборки Electron, пока не создан проект Xcode.
 
 ```bash
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## Сборка
 
-Build both `Release` and `Debug` targets:
+Построить обе `Release` и `Debug` цели:
 
 ```bash
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Вы можете построить только `Debug`:
 
 ```bash
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+После того, как построение будет сделано, вы можете найти `Electron.app` под `out/D`.
 
-## 32bit Support
+## Поддержка 32bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Электрон может быть построен только для 64-битных macOS и нет будущих планов поддержки 32-битных macOS.
 
-## Cleaning
+## Очистка
 
-To clean the build files:
+Очистить файлы построения:
 
 ```bash
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Для очистки только `out` и `dist` каталогов:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
 
-## Tests
+## Тестирование
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Смотрите [Build System Overview: Tests](build-system-overview.md#tests)

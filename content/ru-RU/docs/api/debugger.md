@@ -1,10 +1,10 @@
 ## Class: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Альтернативный транспорт для удаленной отладки протокола Chrome.
 
 Процесс: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Инструменты разработчика Chrome имеют [специальную привязку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и инструментарием.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -31,45 +31,45 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### Методы экземпляра
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (опционально) - запрошенная версия протокола отладки.
 
-Attaches the debugger to the `webContents`.
+Подключает отладчик к `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Возвращает `Boolean` - если отладчик присоединен к `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Отключает отладчик от `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `callback` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+* `method` String - имя метода должно быть одним из методов, определенным удаленным протоколом отладки.
+* `commandParams` Object (опционально) - JSON объект с параметрами запроса.
+* `callback` Function (опционально) - ответ 
+  * `error` Object - сообщение об ошибке, указывающее на сбой команды.
+  * `result` Any - возвращает ответ, определяемый атрибутом 'returns' описание команды в протоколе удаленной отладки.
 
-Send given command to the debugging target.
+Отправьте заданную команду на цель отладки.
 
-### Instance Events
+### События экземпляра
 
-#### Event: 'detach'
-
-* `event` Event
-* `reason` String - Reason for detaching debugger.
-
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
-
-#### Event: 'message'
+#### Событие: 'detach'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `reason` String - причина отсоединения отладчика.
 
-Emitted whenever debugging target issues instrumentation event.
+Возникает при завершении сеанса отладки. Это происходит либо когда `webContents` закрыт или devtools вызывается для присоединения к `webContents`.
+
+#### Событие: 'message'
+
+* `event` Event
+* `method` String - имя метода.
+* `params` Object - параметры события, определенные 'параметрами' атрибута в протоколе удаленной отладки.
+
+Возникает при отладке инструментальных событий.

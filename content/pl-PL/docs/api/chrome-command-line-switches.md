@@ -1,4 +1,4 @@
-# Supported Chrome Command Line Switches
+# Wspierane Zmienne Konsoli Chrome
 
 > Command line switches supported by Electron.
 

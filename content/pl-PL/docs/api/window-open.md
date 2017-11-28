@@ -1,12 +1,12 @@
-# `window.open` Function
+# Funkcja `window.open`
 
-> Open a new window and load a URL.
+> Otwiera nowe okno i ładuje adres URL.
 
 When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
 The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Nowo utworzony obiekt `BrowserWindow` domyślnie dziedziczy opcje okna nadrzędnego. Aby zastąpić dziedziczone opcje, można je ustawić za pomocą `funkcji` typu String.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -14,11 +14,11 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 * `frameName` String (optional)
 * `features` String (optional)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Zwraca [`BrowserWindowProxy`](browser-window-proxy.md) - tworzy nowe okno i zwraca wystąpienie klasy `BrowserWindowProxy`.
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
-**Notes:**
+**Uwagi:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -30,15 +30,15 @@ The `features` string follows the format of standard browser, but each feature h
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Wysyła komunikat do okna nadrzędnego określonego pochodzenia lub `*` w przypadku braku preferencji pochodzenia.
 
 ### Using Chrome's `window.open()` implementation
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+Natywne wywołanie funkcji `window.open()` pozwala na synchroniczny dostęp do otwartych okien, dzięki temu jest to wygodny wybór, jeśli potrzebujesz otworzyć okno dialogowe lub okno Ustawień aplikacji.
 
-This option can also be set on `<webview>` tags as well:
+Tę opcję można również ustawić poprzez tag `<webview>`:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
@@ -47,7 +47,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// main process
+// główny proces
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -71,7 +71,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// proces renderowania (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```

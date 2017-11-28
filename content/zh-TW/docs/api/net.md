@@ -2,7 +2,7 @@
 
 > Issue HTTP/HTTPS requests using Chromium's native networking library
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
 
@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('response 中已經沒資料了。')
     })
   })
   request.end()
@@ -48,6 +48,6 @@ The `net` module has the following methods:
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
-Returns [`ClientRequest`](./client-request.md)
+回傳 [`ClientRequest`](./client-request.md)
 
 Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.

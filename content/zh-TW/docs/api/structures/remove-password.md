@@ -1,4 +1,4 @@
-# RemovePassword Object
+# RemovePassword 物件
 
 * `type` String - `password`.
 * `origin` String (optional) - When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.

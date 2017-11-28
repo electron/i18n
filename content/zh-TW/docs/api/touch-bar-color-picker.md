@@ -1,8 +1,8 @@
-## 類別: TouchBarColorPicker
+## Class: TouchBarColorPicker
 
 > Create a color picker in the touch bar for native macOS applications
 
-處理序: [主要](../tutorial/quick-start.md#main-process)
+處理序: [主處理序](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
@@ -12,7 +12,7 @@
   * `change` Function (optional) - Function to call when a color is selected. 
     * `color` String - The color that the user selected from the picker
 
-### Instance Properties
+### 物件屬性
 
 The following properties are available on instances of `TouchBarColorPicker`:
 

@@ -2,7 +2,7 @@
 
 > 讓應用程式能自動更新版本。
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `autoUpdater` 模組提供介面，將 [Squirrel](https://github.com/Squirrel) 框架封裝起來。
 
@@ -41,7 +41,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 The `autoUpdater` object emits the following events:
 
-### Event: 'error'
+### 事件: 'error'
 
 回傳:
 
@@ -49,19 +49,19 @@ The `autoUpdater` object emits the following events:
 
 Emitted when there is an error while updating.
 
-### Event: 'checking-for-update'
+### 事件: 'checking-for-update'
 
 Emitted when checking if an update has started.
 
-### Event: 'update-available'
+### 事件: 'update-available'
 
 Emitted when there is an available update. The update is downloaded automatically.
 
-### Event: 'update-not-available'
+### 事件: 'update-not-available'
 
 Emitted when there is no available update.
 
-### Event: 'update-downloaded'
+### 事件: 'update-downloaded'
 
 回傳:
 

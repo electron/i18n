@@ -1,34 +1,34 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Použijte prosím dokumentaci, která odpovídá vámi používanou Elektron verzi. Číslo verze by mělo být součástí URL. Pokud ne, používáte pravděpodobně dokumentaci vývojové větve, která může obsahovat změny v API, který nemusí být kompatibilní s vaší verzí Elektronu. Chcete-li zobrazit starší verze dokumentace, můžete na GitHubu využít možnost [Switch branches/tags](https://github.com/electron/electron/tree/v1.4.0) a tak pomocí značek přepnout na starší verzi.
 
-## FAQ
+## Časté dotazy
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím než vytvoříte problém:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Návody
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
+* [Slovníček pojmů](glossary.md)
+* [Podporované platformy](tutorial/supported-platforms.md)
+* [Bezpečnost](tutorial/security.md)
+* [Verzování elektronu](tutorial/electron-versioning.md)
+* [Distribuce aplikací](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Aplikace Windows Obchodu](tutorial/windows-store-guide.md)
+* [Aplikace balení](tutorial/application-packaging.md)
+* [Používání nativních Node modulů](tutorial/using-native-node-modules.md)
+* [Ladění hlavního procesu](tutorial/debugging-main-process.md)
+* [Využití Selenium a WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [DevTools rozšíření](tutorial/devtools-extension.md)
+* [Používání Pepper Flash Pluginu](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Offscreen vykreslování](tutorial/offscreen-rendering.md)
+* [Klávesové zkratky](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Návody
 
-* [Quick Start](tutorial/quick-start.md)
+* [Rychlý začátek](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
 * [Online/Offline Event Detection](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
@@ -43,11 +43,11 @@ There are questions that are asked quite often. Check this out before creating a
 
 ### Custom DOM Elements:
 
-* [`File` Object](api/file-object.md)
+* [`File` Objekt](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`window.open` Funkce](api/window-open.md)
 
-### Modules for the Main Process:
+### Moduly pro hlavní proces:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -68,7 +68,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Moduly pro renderovací proces (webová stránka):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)

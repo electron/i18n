@@ -288,14 +288,14 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### 事件: 'certificate-error'
 
 返回:
 
 * `event` Event
 * `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
+* `error` String - 错误码
+* `certificate` [证书](structures/certificate.md)
 * `callback` 函数 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 

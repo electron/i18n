@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Returns:
+반환:
 
 * `event` Event
 * `errorCode` Integer
@@ -65,7 +65,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-Returns:
+반환:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -82,7 +82,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-Returns:
+반환:
 
 * `event` Event
 * `status` Boolean
@@ -98,7 +98,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Returns:
+반환:
 
 * `event` Event
 * `oldURL` String
@@ -113,7 +113,7 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-Returns:
+반환:
 
 * `event` Event
 * `favicons` String[] - Array of URLs
@@ -130,7 +130,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -157,7 +157,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -172,7 +172,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -183,7 +183,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -195,7 +195,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -224,7 +224,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-Returns:
+반환:
 
 * `event` Event
 * `killed` Boolean
@@ -233,7 +233,7 @@ Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Returns:
+반환:
 
 * `event` Event
 * `name` String
@@ -247,7 +247,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Returns:
+반환:
 
 * `event` Event
 * `input` Object - Input properties 
@@ -290,7 +290,7 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -305,7 +305,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` URL
@@ -319,7 +319,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-Returns:
+반환:
 
 * `event` Event
 * `request` Object 
@@ -342,7 +342,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Returns:
+반환:
 
 * `event` Event
 * `result` Object 
@@ -372,7 +372,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -381,7 +381,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `type` String
@@ -396,7 +396,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Returns:
+반환:
 
 * `event` Event
 * `params` Object 
@@ -438,7 +438,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Returns:
+반환:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -468,7 +468,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Returns:
+반환:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -492,7 +492,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Returns:
+반환:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.

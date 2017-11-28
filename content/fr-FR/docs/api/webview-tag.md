@@ -647,9 +647,9 @@ Retourne :
 
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Position du résultat actif.
+  * `matches` Integer - Nombre de résultats.
+  * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
 Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
@@ -695,7 +695,7 @@ Retourne :
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Émis quand un utilisateur ou la page veut démarrer la navigation. Cela peut arriver quand l'objet `window.location` est modifié ou un utilisateur clique sur un lien dans la page.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -709,9 +709,9 @@ Retourne :
 
 * `url` String
 
-Emitted when a navigation is done.
+Émis lorsqu'une navigation est faite.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
 ### Événement : 'did-navigate-in-page'
 
@@ -720,9 +720,9 @@ Retourne :
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Émis lorsqu'une navigation dans la page s'est produite.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
 ### Événement : 'close'
 
@@ -789,11 +789,11 @@ Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
-Emitted when media starts playing.
+Émis lorsqu'un média se démarre.
 
 ### Événement : 'media-paused'
 
-Emitted when media is paused or done playing.
+Émis lorsque le média est suspendu ou terminé.
 
 ### Événement : 'did-change-theme-color'
 
@@ -813,16 +813,16 @@ Retourne :
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
 
 ### Événement : 'devtools-opened'
 
-Emitted when DevTools is opened.
+Émis lorsque la DevTools est ouverte.
 
 ### Événement : 'devtools-closed'
 
-Emitted when DevTools is closed.
+Émis lorsque la DevTools est fermée.
 
 ### Événement : 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Émis lorsque la DevTools est active / ouverte.

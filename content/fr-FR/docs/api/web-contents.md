@@ -136,14 +136,14 @@ Retourne :
 * `url` String
 * `frameName` String
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `option` Object - Les options qui seront utilisés pour la création d'un nouveau `BrowserWindow`.
+* `additionalFeatures` String[] - Les fonctionnalités non standards (fonctionnalités non gérés par Chromium ou Electron) donné à `window.open()`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Émis lorsque la page demande d'ouvrir une nouvelle fenêtre pour une `url`. Cela peut être demandé par `window.open` ou un lien externe avec `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Un nouveau `BrowserWindow` sera créé par défaut pour l'`url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Par exemple :
+Appeler `event.preventDefault()` empêchera Electron de créer automatiquement un nouveau `BrowserWindow`. Si vous appelez `event.preventDefault()` et créez manuellement un nouveau `BrowserWindow`, alors vous devez définir `event.newGuest` en passant la nouvelle instance de `BrowserWindow`, oublier de faire cela peut entraîner un comportement inattendu. Par exemple :
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -162,13 +162,13 @@ Retourne :
 * `event` Event
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Émis quand un utilisateur ou la page veut démarrer la navigation. Cela peut arriver quand l'objet `window.location` est modifié ou un utilisateur clique sur un lien dans la page.
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+Cet événement ne sera pas émis lorsque la navigation démarre par programmation grâce aux APIs comme `webContents.loadURL` et `webContents.back`.
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Il n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
-Calling `event.preventDefault()` will prevent the navigation.
+Appeler `event.preventDefault()` permet d'éviter la navigation.
 
 #### Événement : 'did-navigate'
 
@@ -177,9 +177,9 @@ Retourne :
 * `event` Event
 * `url` String
 
-Emitted when a navigation is done.
+Émis lorsqu'une navigation est faite.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
 #### Événement : 'did-navigate-in-page'
 
@@ -189,9 +189,9 @@ Retourne :
 * `url` String
 * `isMainFrame` Boolean
 
-Emitted when an in-page navigation happened.
+Émis lorsqu'une navigation dans la page s'est produite.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
 #### Événement : 'will-prevent-unload'
 
@@ -199,9 +199,9 @@ Retourne :
 
 * `event` Event
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+Émis lorsqu’un écouteur de l'événement `beforeunload` tente d’annuler un déchargement de la page.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+Appeler `event.preventDefault()` ignorera l'écouteur de l'événement `beforeunload` et va laisser la page se décharger.
 
 ```javascript
 const {BrowserWindow, dialog} = require('electron')
@@ -229,7 +229,7 @@ Retourne :
 * `event` Event
 * `killed` Boolean
 
-Emitted when the renderer process crashes or is killed.
+Émis lorsque le processus renderer crash ou est interrompu.
 
 #### Événement : 'plugin-crashed'
 
@@ -239,30 +239,30 @@ Retourne :
 * `name` String
 * `version` String
 
-Emitted when a plugin process has crashed.
+Émis lorsqu’un processus de plugin crash.
 
 #### Événement : 'destroyed'
 
-Emitted when `webContents` is destroyed.
+Émis lorsqu'un `webContents` est détruit.
 
 #### Événement : 'before-input-event'
 
 Retourne :
 
 * `event` Event
-* `input` Object - Input properties 
-  * `type` String - Either `keyUp` or `keyDown`
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+* `input` Object - propriétés de l'input 
+  * `type` String - `keyUp` ou `keyDown`
+  * `key` String - Équivalent à [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `code` String - Équivalent à [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `isAutoRepeat` Boolean - Équivalent à [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `shift` Boolean - Équivalent à [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `control` Boolean - Équivalent à [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `alt` Boolean - Équivalent à [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `meta` Boolean - Équivalent à [KeyboardEvent.metakey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
 
-Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+Émis avant d'envoyer les événements `keydown` et `keyup` dans la page. Appeler `event.preventDefault` empêchera les événements `keydown`/`keyup` et les raccourcis du menu dans la page.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+Pour seulement empêcher les raccourcis du menu, utilisez [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -270,23 +270,23 @@ const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // Par exemple, seulement activer les raccourcis lorsque
+  // Ctrl/Cmd sont inexistant.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
 #### Événement : 'devtools-opened'
 
-Emitted when DevTools is opened.
+Émis lorsque la DevTools est ouverte.
 
 #### Événement : 'devtools-closed'
 
-Emitted when DevTools is closed.
+Émis lorsque la DevTools est fermée.
 
 #### Événement : 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Émis lorsque la DevTools est active / ouverte.
 
 #### Événement 'certificate-error'
 
@@ -297,11 +297,11 @@ Retourne :
 * `error` String - Le code d'erreur
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `isTrusted` Boolean - Indique si le certificat peut être considéré comme fiable
 
-Emitted when failed to verify the `certificate` for `url`.
+Émis lorsqu'il n'a pas pu vérifier le `certificat` de l'`url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+L'utilisation est pareil que [l'événement `certificate-error` de `app`](app.md#event-certificate-error).
 
 #### Événement : 'select-client-certificate'
 
@@ -311,11 +311,11 @@ Retourne :
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `certificate` [Certificate](structures/certificate.md) - Doit être un certificat dans la liste donnée
 
 Émis lorsqu'un certificat client est demandé.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+L'utilisation est pareil que [l'événement `select-client-certificate` de `app`](app.md#event-select-client-certificate).
 
 #### Événement : 'login'
 
@@ -338,7 +338,7 @@ Retourne :
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+L'utilisation est pareil que [l'événement `login` de `app`](app.md#event-login).
 
 #### Événement : 'found-in-page'
 
@@ -347,24 +347,24 @@ Retourne :
 * `event` Event
 * `result` Object 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Position du résultat actif.
+  * `matches` Integer - Nombre de résultats.
+  * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Émis lorsqu'un résultat est disponible pour la requête [`webContents.findInPage`].
 
 #### Événement : 'media-started-playing'
 
-Emitted when media starts playing.
+Émis lorsqu'un média se démarre.
 
 #### Événement : 'media-paused'
 
-Emitted when media is paused or done playing.
+Émis lorsque le média est suspendu ou terminé.
 
 #### Événement : 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -377,7 +377,7 @@ Retourne :
 * `event` Event
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
 
 #### Événement : 'cursor-changed'
 
@@ -386,13 +386,13 @@ Retourne :
 * `event` Event
 * `type` String
 * `image` NativeImage (facultatif)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `scale` Float (facultatif) - Facteur de mise à l'échelle pour le curseur personnalisé
+* `size` [Size](structures/size.md) (facultatif) - La taille de l'`image`
+* `hotspot` [Point](structures/point.md) (facultatif) - Coordonnées du point actif du curseur personnalisé
 
-Emitted when the cursor's type changes. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Émis lorsque le type du curseur change. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Si le paramètre `type` est `custom`, le paramètre `image` aura l'image du curseur personnalisé dans un `NativeImage`, et `scale`, `size` et `hotspot` auront les informations complémentaires à propos du curseur personnalisé.
 
 #### Événement : 'context-menu'
 
@@ -402,10 +402,10 @@ Retourne :
 * `params` Object 
   * `x` Integer - coordonnée x
   * `y` Integer - coordonée y
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
+  * `linkURL` String - L'URL du lien qui englobe le nœud du menu contextuel.
+  * `linkText` String - Texte associé au lien. Peut être une chaîne de caractère vide si le contenu du lien est une image.
+  * `pageURL` String - L'URL de la page haut niveau d'où le menu contextuel a été invoqué.
+  * `frameURL` String - L'URL de la subframe d'où le menu contextuel a été invoqué.
   * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
   * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
   * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
@@ -416,25 +416,25 @@ Retourne :
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+  * `mediaFlags` Object - Les attributs de l'élément multimédia que le menu contextuel a invoqué. 
+    * `inError` Boolean - Si l'élément multimédia a crash.
+    * `isPaused` Boolean - Si l'élément multimédia est en pause.
+    * `isMuted` Boolean - Si l'élément multimédia est mis en sourdine.
+    * `hasAudio` Boolean - Si l'élément multimédia émet un son audio.
+    * `isLooping` Boolean - Si l'élément multimédia est en boucle.
+    * `isControlsVisible` Boolean - Si les contrôles de l'élément multimédia sont visibles.
+    * `canToggleControls` Boolean - Si les contrôles de l'élément multimédia sont toggleable.
+    * `canRotate` Boolean - Si l'élément multimédia peut être pivoté.
+  * `editFlags` Object - Ces attributs indiquent si le moteur de rendu pense être en mesure d'effectuer l'action correspondante. 
+    * `canUndo` Boolean - Si le moteur de rendu pense pouvoir aller en arrière.
+    * `canRedo` Boolean - Si le moteur de rendu pense pouvoir aller en avant.
+    * `canCut` Boolean - Si le moteur de rendu pense pouvoir couper.
+    * `canCopy` Boolean - Si le moteur de rendu pense pouvoir copier
+    * `canPaste` Boolean - Si le moteur de rendu pense pouvoir coller.
+    * `canDelete` Boolean - Si le moteur de rendu pense pouvoir supprimer.
+    * `canSelectAll` Boolean - Si le moteur de rendu pense pouvoir tout sélectionner.
 
-Emitted when there is a new context menu that needs to be handled.
+Émis lorsqu'un nouveau menu contextuel a besoin d'être pris en charge.
 
 #### Événement : 'select-bluetooth-device'
 
@@ -970,7 +970,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 

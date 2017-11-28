@@ -1,67 +1,67 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Включает в приложении автоматическое самообновление.
 
 Процесс: [Main](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+`autoUpdater` модуль предоставляющий интерфейс для [Squirrel](https://github.com/Squirrel) фреймворка.
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+Вы можете быстро запустить серверный релиз мульти-платформы для распространения вашего приложения используя один из проектов:
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [nuts](https://github.com/GitbookIO/nuts): * Смарт-релиз сервера для ваших приложений, используя GitHub как бэкэнд. Авто обновления с Squirrel (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Полнофункциональный, резидентный серверный релиз для приложения Electron, совместимый с auto-updater*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простой node.js сервер для Squirrel.Mac и Squirrel.Windows с использованием GitHub релизов*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Простое PHP приложение для Squirrel.Windows, которая читает обновления из папки. Поддержка дельта обновлений.*
 
-## Platform notices
+## Платформа заметок
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+Хотя `autoUpdater` предоставляет единый API для разных платформ, есть еще некоторые тонкие различия на каждой платформе.
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+На macOS `autoUpdater` модуль построен на [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), что означает, что вам не нужно каких-либо специальных настроек, чтобы сделать его работу. Для серверной стороны вы можете прочитать требования [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Заметьте, что [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) применяется ко всем запросам, как часть процесса обновления. Приложению, что нужно отключить ATS, добавте ключ `NSAllowsArbitraryLoads` в plist приложения.
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**Примечание:** Ваше приложение должно быть подписано для автоматического обновления на macOS. Это требование `Squirrel.Mac`.
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
+На Windows, вам придется установить приложение на компьютер пользователя, прежде чем вы можете использовать `autoUpdater`, поэтому рекомендуется использовать [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) или [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) пакет для создания установщика Windows.
 
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
+При использовании [electron-winstaller](https://github.com/electron/windows-installer) или [electron-forge](https://github.com/electron-userland/electron-forge) убедитесь, что вы не пытаетесь обновить ваше приложение [при первом запуске](https://github.com/electron/windows-installer#handling-squirrel-events) (также см. [этот вопрос для получения дополнительной информации](https://github.com/electron/electron/issues/7155)). Также рекомендуется использовать [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) для получения ярлыка рабочего стола для вашего приложения.
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
+Установщик сгенерирует Squirrel создаст ярлык с [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) в формате `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Вы должны использовать тот же ID для вашего приложения с `app.setAppUserModelId` API, в противном случае Windows не сможет должным образом закрепить приложение в панели задач.
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+В отличие от Squirrel.Mac, Windows обновления можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документы [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для получения более подробной информации о том, как работает Squirrel.Windows.
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Не существует встроенной поддержки для автоматического обновления на Linux, поэтому рекомендуется использовать дистрибутив пакетного менеджера для обновления вашего приложения.
 
-## Events
+## События
 
-The `autoUpdater` object emits the following events:
+Объект `autoUpdater` имеет следующие события:
 
-### Event: 'error'
+### Событие: 'error'
 
 Возвращает:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Возникает когда происходит ошибка при обновлении.
 
-### Event: 'checking-for-update'
+### Событие: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Возникает при проверке, если обновление началось.
 
-### Event: 'update-available'
+### Событие: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Возникает при наличии доступных обновлений. Обновление загружается автоматически.
 
-### Event: 'update-not-available'
+### Событие: 'update-not-available'
 
-Emitted when there is no available update.
+Возникает, когда нет доступных обновлений.
 
-### Event: 'update-downloaded'
+### Событие: 'update-downloaded'
 
 Возвращает:
 
@@ -71,31 +71,31 @@ Emitted when there is no available update.
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Возникает при загрузке обновления.
 
-On Windows only `releaseName` is available.
+На Windows доступен только `releaseName`.
 
 ## Методы
 
-The `autoUpdater` object has the following methods:
+Объект `autoUpdater` имеет следующие методы:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (опиционально) - http-header запроса.
 
-Sets the `url` and initialize the auto updater.
+Задает `url` и инициализирует автоматическое обновление.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+`String` - возвращает URL текущей подписки обновления.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Запрашивает сервер на наличие обновлений. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Примечание:** `autoUpdater.quitAndInstall()` сначала закроет все окна приложения и только потом возникнет событие `before-quit` на `app`. Это отличается от нормальной последовательности события выход.

@@ -1,5 +1,5 @@
-# DesktopCapturerSource Object
+# Objeto DesktopCapturerSource
 
-* `id` String - The identifier of a window or screen that can be used as a `chromeMediaSourceId` constraint when calling [`navigator.webkitGetUserMedia`]. The format of the identifier will be `window:XX` or `screen:XX`, where `XX` is a random generated number.
-* `name` String - A screen source will be named either `Entire Screen` or `Screen <index>`, while the name of a window source will match the window title.
-* `thumbnail` [NativeImage](../native-image.md) - A thumbnail image. **Note:** There is no guarantee that the size of the thumbnail is the same as the `thumbnailSize` specified in the `options` passed to `desktopCapturer.getSources`. The actual size depends on the scale of the screen or window.
+* `id` String - El identificador de una ventana o pantalla que puede ser usado como una restricción de `chromeMediaSourceId` cuando se llama a [`navigator.webkitGetUserMedia`]. El formato del identificador sera `window:XX` o `screen:XX`, donde `XX` es un numero generado aleatoriamente.
+* `name` String - Una fuente de pantalla sera nombrada o bien `Entire Screen` o `Screen <index>`, mientras el nombre de una fuente de ventana coincida con el titulo de la ventana.
+* `thumbnail` [NativeImage](../native-image.md) - Una imagen miniatura. **Nota:** No hay garantia que el tamaño de la miniatura sea el mismo que de `thumbnailSize` especificado en las opciones `options` escritas en `desktopCapturer.getSources`. El tamaño real depende de la escala de la pantalla o ventana.

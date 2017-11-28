@@ -1,8 +1,8 @@
-## 類別: Menu
+## Class: Menu
 
 > Create native application menus and context menus.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -46,14 +46,14 @@ Generally, the `template` is just an array of `options` for constructing a [Menu
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods
+### 物件方法
 
 The `menu` object has the following instance methods:
 
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
@@ -80,7 +80,7 @@ Appends the `menuItem` to the menu.
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Instance Properties
+### 物件屬性
 
 `menu` objects also have the following properties:
 

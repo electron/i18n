@@ -1,10 +1,10 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> Настройка отображения текущей веб-страницы.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Процесс: [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Пример масштабирования текущей страницы до 200%.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,62 +14,62 @@ webFrame.setZoomFactor(2)
 
 ## Методы
 
-The `webFrame` module has the following methods:
+`webFrame` имеет следующие методы:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - маштаб.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Изменяет указанный масштаб. Коэффициент масштабирования является процент масштабирования, делится на 100, поэтому 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Возвращает `Number` - текущего маштаба.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - уровень увеличения
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Возвращает `Number` - текущего уровня маштаба.
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Устарело:** Вызовите `setVisualZoomLevelLimits` вместо этого предельного уровня визуального масштабирования. Этот метод будет удален в Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Устанавливает максимальный и минимальный на основе слоя (т.е. невизуальный) уровень масштаба.
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
+  * `spellCheck` Function - возвращает `Boolean` 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+`provider` должен быть объект, имеющий `spellCheck` метод, возвращающий, результат правильного написания слова.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Пример использования [node-spellchecker](https://github.com/atom/node-spellchecker) как поставщик:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -84,29 +84,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+Регистрирует `scheme` как безопасную схему.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Безопасные схемы не допускают смешанного контента предупреждений. Например `https` и `data` являются безопасными схемами, потому что они не могут быть повреждены активными сетевыми атаками.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Ресурсы будут загружены из этой `scheme` независимо от текущей страницы и политики безопасности контента.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (optional) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+* `options` Object (опционально) 
+  * `secure` Boolean - (опционально) по умолчанию true.
+  * `bypassCSP` Boolean - (опционально) по умолчанию true.
+  * `allowServiceWorkers` Boolean - (опционально) по умолчанию true.
+  * `supportFetchAPI` Boolean - (опционально) по умолчанию true.
+  * `corsEnabled` Boolean - (опционально) по умолчанию true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Регистрирует `scheme` как безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Указав параметр со значением `false` - исключит его из регистрации. Пример регистрации привилегированной схемы, без обхода политики безопасности контента:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -117,24 +117,24 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Вставляет `text` в элемент с фокусом.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (опиционально) - по умолчанию `false`.
+* `callback` Function (опционально) - вызывается после выполнения сценария. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Evaluates `code` in page.
+Вычисляет `code` на странице.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Setting `userGesture` to `true` will remove this limitation.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Возвращает `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -142,14 +142,14 @@ Returns `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Возвращает объект, описывающий сведения об использовании Blink внутренней памяти кэшей.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Это будет генерировать:
 
 ```javascript
 {
@@ -158,15 +158,15 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* то же самое с "images" */ },
+  xslStyleSheets: { /* то же самое с "images" */ },
+  fonts: { /* то же самое с "images" */ },
+  other: { /* то же самое с "images" */ }
 }
 ```
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Пытается освободить память, которая больше не используется (например, изображения из предыдущей навигации).
 
 Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).

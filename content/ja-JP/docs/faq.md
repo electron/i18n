@@ -1,12 +1,12 @@
 # Electron FAQ
 
-## Why am I having trouble installing Electron?
+## Electronがインストールできません。
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+`npm install electron`を実行するとき、ユーザによっては時にインストール時エラーが発生する場合があります。
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+ほとんどの場合、これらのエラーはネットワークの問題の結果としてのものであり、`electron`のnpmパッケージには実際の問題はありません。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, および `ETIMEDOUT` というエラーはすべてそういったネットワークの問題を示しています。 最も良い解決法はネットワークを切り替えること、あるいは少し待ってからもう一度インストールしてみることです。
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+`npm`経由でのインストールが失敗する場合、Electronを[electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
 ## When will Electron upgrade to latest Chrome?
 
@@ -29,19 +29,19 @@ To share data between web pages (the renderer processes) the simplest way is to 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
-// In the main process.
+// メインプロセス内
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// ページ１内
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// ページ２内
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -54,7 +54,7 @@ If you encounter this problem, the following articles may prove helpful:
 * [メモリ管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [変数スコープ](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+もし簡単に修正したい場合は、コード内の
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+という部分を以下のように修正して、変数をグローバルに宣言すると良いでしょう。
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -128,11 +128,11 @@ and then check if it is in the following form:
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+もし `node_modules/electron/index.js`という形式になっていれば、npm`electron`モジュールを取り除くか、これをリネームする必要があります。
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. たとえば、 `electron.app`はメインプロセスでのみ利用でき、また `electron.webFrame`はレンダラプロセスでのみ利用できます。

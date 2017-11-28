@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `language` String
 * `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
+  * `spellCheck` Function - 回傳 `Boolean` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -97,7 +97,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
@@ -122,7 +122,7 @@ Inserts `text` to the focused element.
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Boolean (選用) - 預設值為 `false`。
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -134,7 +134,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+回傳 `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -158,10 +158,10 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* 跟 "images" 相同 */ },
+  xslStyleSheets: { /* 跟 "images" 相同 */ },
+  fonts: { /* 跟 "images" 相同 */ },
+  other: { /* 跟 "images" 相同 */ }
 }
 ```
 

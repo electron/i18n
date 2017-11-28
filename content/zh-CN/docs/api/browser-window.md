@@ -385,7 +385,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### 事件: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 

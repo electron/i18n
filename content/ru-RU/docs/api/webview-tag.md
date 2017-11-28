@@ -1,4 +1,4 @@
-# Тэг `<webview>`
+# Тег `<webview>`
 
 > Display external web content in an isolated frame and process.
 
@@ -8,7 +8,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## Пример
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -227,7 +227,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**Пример**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -239,11 +239,11 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опиционально)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -457,7 +457,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -505,13 +505,13 @@ See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent)
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - фактор увилечения.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - уровень увеличения
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -559,15 +559,15 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Событие: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Событие: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Событие: 'did-get-response-details'
 
 Возвращает:
 
@@ -582,7 +582,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Событие: 'did-get-redirect-request'
 
 Возвращает:
 
@@ -592,7 +592,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### Событие: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -605,7 +605,7 @@ Fired when document in the given frame is loaded.
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### Событие: 'page-favicon-updated'
 
 Возвращает:
 
@@ -641,7 +641,7 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Событие: 'certificate-error'
 
 Возвращает:
 
@@ -664,7 +664,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Событие: 'new-window'
 
 Возвращает:
 
@@ -689,7 +689,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Событие: 'will-navigate'
 
 Возвращает:
 
@@ -703,7 +703,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### Событие: 'did-navigate'
 
 Возвращает:
 
@@ -766,7 +766,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Событие: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -774,7 +774,7 @@ Fired when the renderer process is crashed.
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### Событие: 'plugin-crashed'
 
 Возвращает:
 
@@ -783,19 +783,19 @@ Fired when the gpu process is crashed.
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### Событие: 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### Событие: 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Событие: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### Событие: 'did-change-theme-color'
 
 Возвращает:
 
@@ -807,7 +807,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Событие: 'update-target-url'
 
 Возвращает:
 
@@ -815,11 +815,11 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### Событие: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### Событие: 'devtools-closed'
 
 Emitted when DevTools is closed.
 

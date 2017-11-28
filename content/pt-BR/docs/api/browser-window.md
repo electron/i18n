@@ -5,7 +5,7 @@
 Processo: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// No processo main.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -1110,4 +1110,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** A API BrowserView atualmente é experimental e pode mudar ou ser removida em versões futuras do Electron.

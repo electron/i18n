@@ -2,60 +2,56 @@
 
 Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組切分的結構。
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+為了更加了解原始碼，你應該熟悉 [Chromium 的多處理序架構](http://dev.chromium.org/developers/design-documents/multi-process-architecture)。
 
 ## 原始碼結構
 
     Electron
-    ├── atom/ - C++ source code.
-    |   ├── app/ - System entry code.
-    |   ├── browser/ - The frontend including the main window, UI, and all of the
-    |   |   main process things. This talks to the renderer to manage web pages.
-    |   |   ├── ui/ - Implementation of UI stuff for different platforms.
-    |   |   |   ├── cocoa/ - Cocoa specific source code.
-    |   |   |   ├── win/ - Windows GUI specific source code.
-    |   |   |   └── x/ - X11 specific source code.
-    |   |   ├── api/ - The implementation of the main process APIs.
-    |   |   ├── net/ - Network related code.
-    |   |   ├── mac/ - Mac specific Objective-C source code.
-    |   |   └── resources/ - Icons, platform-dependent files, etc.
-    |   ├── renderer/ - Code that runs in renderer process.
-    |   |   └── api/ - The implementation of renderer process APIs.
-    |   └── common/ - Code that used by both the main and renderer processes,
-    |       including some utility functions and code to integrate node's message
-    |       loop into Chromium's message loop.
-    |       └── api/ - The implementation of common APIs, and foundations of
-    |           Electron's built-in modules.
-    ├── chromium_src/ - Source code that copied from Chromium.
-    ├── default_app/ - The default page to show when Electron is started without
-    |   providing an app.
-    ├── docs/ - Documentations.
-    ├── lib/ - JavaScript source code.
-    |   ├── browser/ - Javascript main process initialization code.
-    |   |   └── api/ - Javascript API implementation.
-    |   ├── common/ - JavaScript used by both the main and renderer processes
-    |   |   └── api/ - Javascript API implementation.
-    |   └── renderer/ - Javascript renderer process initialization code.
-    |       └── api/ - Javascript API implementation.
-    ├── spec/ - Automatic tests.
-    ├── electron.gyp - Building rules of Electron.
-    └── common.gypi - Compiler specific settings and building rules for other
-        components like `node` and `breakpad`.
+    ├── atom/ - C++ 原始碼。
+    |   ├── app/ - 系統入口點程式碼。
+    |   ├── browser/ - 前端程式碼，包含主視窗、UI 及所有主處理序的東西。
+    |   |    跟畫面轉譯器溝通以管理頁面。
+    |   |   ├── ui/ - 不用平臺的 UI 實作。
+    |   |   |   ├── cocoa/ - Cocoa 專用原始碼。
+    |   |   |   ├── win/ - Windows GUI 專用原始碼。
+    |   |   |   └── x/ - X11 專用原始碼。
+    |   |   ├── api/ - 主處理序 API 的實作。
+    |   |   ├── net/ - 網路相關原始碼。
+    |   |   ├── mac/ - Mac 專用的 Objective-C 原始碼。
+    |   |   └── resources/ - 圖示等跨平臺的東西。
+    |   ├── renderer/ - 在畫面轉譯處理序中執行的程式碼。
+    |   |   └── api/ - 畫面轉譯處理序 API 的實作。
+    |   └── common/ - 主處理序及畫面轉譯處理序期用的程式碼。包含一些工具函式，
+    |       以及將 Node 訊息迴圈整合進 Chromium 訊息迴圈的程式碼。
+    |       └── api/ - 共用 API 實作、Electron 內建模組的基礎架構。
+    ├── chromium_src/ - 由 Chromium 複製過來的原始碼。
+    ├── default_app/ - Electron 沒有指定 app 啟動時使用的預設頁面。
+    ├── docs/ - 文件。
+    ├── lib/ - JavaScript 原始碼。
+    |   ├── browser/ - JavaScript 主處理序初始化程式碼。
+    |   |   └── api/ - JavaScript API 實作。
+    |   ├── common/ - 主處理序及畫面轉譯處理序共用的 JavaScript 程式碼。
+    |   |   └── api/ - JavaScript API 實作。
+    |   └── renderer/ - JavaScript 畫面轉譯處理序初始化程式碼。
+    |       └── api/ - JavaScript API 實作。
+    ├── spec/ - 自動測試案例。
+    ├── electron.gyp - Electron 建置規則。
+    └── common.gypi - 供 `node` 及 `breakpad` 等其他元件使用的編譯器設定及建置規則。
     
 
 ## 其他目錄的結構
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **script** - 開發時期用的腳本，例如建置、打包、測試等。
+* **tools** - 供 gyp 檔用的輔助腳本，跟 `script` 不同，放在這裡的腳本使用者應該都不會直接用到。
+* **vendor** - 第三方相依模組的原始碼。我們不用 `third_party`，是為了避免與 Chromium 原始碼目錄裡的那份混淆。
+* **node_modules** - 建置時使用的第三方 Node 模組。
+* **out** - `ninja` 的暫存目錄。
+* **dist** - `script/create-dist.py` 建立發佈檔時產生的暫存目錄。
+* **external_binaries** - 不支援以 `gyp` 建置的第三方框架下載檔。
 
-## Keeping Git Submodules Up to Date
+## 持續更新 Git 子模組
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Electron 儲存庫裡有一些外部的相依模組，存放在 [/vendor](https://github.com/electron/electron/tree/master/vendor) 目錄中。 執行 `git status` 時，你可能會看到這樣的訊息:
 
 ```sh
 $ git status
@@ -64,13 +60,13 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+執行下列指令可以更新相依的外部模組:
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+如果你覺得自己很常執行這組指令，可以在 `~/.gitconfig` 檔中建立別名:
 
     [alias]
         su = submodule update --init --recursive

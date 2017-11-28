@@ -2,7 +2,7 @@
 
 > Display native system dialogs for opening and saving files, alerting, etc.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 An example of showing a dialog to select multiple files and directories:
 

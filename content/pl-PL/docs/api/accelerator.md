@@ -1,10 +1,10 @@
-# Accelerator
+# Akcelerator
 
-> Define keyboard shortcuts.
+> Definiowanie skrótów klawiaturowych.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Akceleratory są to ciągi znaków typu String, które mogą zawierać wiele modyfikatorów i kodów klawiszy, połączonych przez znak `+` i są używane do definiowania skrótów klawiaturowych w całej aplikacji.
 
-Examples:
+Przykłady:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`

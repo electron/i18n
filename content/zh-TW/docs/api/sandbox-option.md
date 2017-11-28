@@ -1,4 +1,4 @@
-# `sandbox` Option
+# `sandbox` 選項
 
 > Create a browser window with a renderer that can run inside Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
 
@@ -14,7 +14,7 @@ A sandboxed renderer doesn't have a node.js environment running and doesn't expo
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
-## Example
+## 範例
 
 To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
 
@@ -39,7 +39,7 @@ To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sand
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // 沒必要傳入 `sandbox: true`，因為已經透過 `--enable-sandbox` 啟用。
   win = new BrowserWindow()
   w.loadURL('http://google.com')
 })
@@ -54,7 +54,7 @@ It is not possible to have the OS sandbox active only for some renderers, if `--
 
 If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
-## Preload
+## 預先載入
 
 An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
@@ -71,7 +71,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+及 preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
@@ -80,7 +80,7 @@ and preload.js:
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
-// read a configuration file using the `fs` module
+// 使用 `fs` 模組讀取設定檔
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -116,7 +116,7 @@ The `-x` flag should be used with any required module that is already exposed in
 Currently the `require` function provided in the preload scope exposes the following modules:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `electron` (crashReporter, remote 及 ipcRenderer)
 - `fs`
 - `os`
 - `timers`
@@ -124,7 +124,7 @@ Currently the `require` function provided in the preload scope exposes the follo
 
 More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
 
-## Status
+## 狀態
 
 Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 

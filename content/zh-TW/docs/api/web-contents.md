@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -39,19 +39,19 @@ Returns `WebContents` - The web contents that is focused in this application, ot
 
 Returns `WebContents` - A WebContents instance with the given ID.
 
-## 類別: WebContents
+## Class: WebContents
 
 > Render and control the contents of a BrowserWindow instance.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
-### Instance Events
+### 物件事件
 
-#### Event: 'did-finish-load'
+#### 事件: 'did-finish-load'
 
 Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
 
-#### Event: 'did-fail-load'
+#### 事件: 'did-fail-load'
 
 回傳:
 
@@ -63,7 +63,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### 事件: 'did-frame-finish-load'
 
 回傳:
 
@@ -72,15 +72,15 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Emitted when a frame has done navigation.
 
-#### Event: 'did-start-loading'
+#### 事件: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab started spinning.
 
-#### Event: 'did-stop-loading'
+#### 事件: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### Event: 'did-get-response-details'
+#### 事件: 'did-get-response-details'
 
 回傳:
 
@@ -96,7 +96,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### Event: 'did-get-redirect-request'
+#### 事件: 'did-get-redirect-request'
 
 回傳:
 
@@ -111,7 +111,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Emitted when a redirect is received while requesting a resource.
 
-#### Event: 'dom-ready'
+#### 事件: 'dom-ready'
 
 回傳:
 
@@ -119,16 +119,16 @@ Emitted when a redirect is received while requesting a resource.
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-favicon-updated'
+#### 事件: 'page-favicon-updated'
 
 回傳:
 
 * `event` Event
-* `favicons` String[] - Array of URLs
+* `favicons` String[] - URL 陣列
 
 Emitted when page receives favicon urls.
 
-#### Event: 'new-window'
+#### 事件: 'new-window'
 
 回傳:
 
@@ -143,7 +143,7 @@ Emitted when the page requests to open a new window for a `url`. It could be req
 
 By default a new `BrowserWindow` will be created for the `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 例如:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -155,7 +155,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### 事件: 'will-navigate'
 
 回傳:
 
@@ -170,7 +170,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
-#### Event: 'did-navigate'
+#### 事件: 'did-navigate'
 
 回傳:
 
@@ -181,7 +181,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### Event: 'did-navigate-in-page'
+#### 事件: 'did-navigate-in-page'
 
 回傳:
 
@@ -193,7 +193,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### Event: 'will-prevent-unload'
+#### 事件: 'will-prevent-unload'
 
 回傳:
 
@@ -209,9 +209,9 @@ const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['離開', '留下來'],
+    title: '你確定要離開本站嗎?',
+    message: '你修改的東西可能不會被存下來。',
     defaultId: 0,
     cancelId: 1
   })
@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### 事件: 'crashed'
 
 回傳:
 
@@ -231,7 +231,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Emitted when the renderer process crashes or is killed.
 
-#### Event: 'plugin-crashed'
+#### 事件: 'plugin-crashed'
 
 回傳:
 
@@ -241,11 +241,11 @@ Emitted when the renderer process crashes or is killed.
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### 事件: 'destroyed'
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### 事件: 'before-input-event'
 
 回傳:
 
@@ -270,21 +270,20 @@ const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // 這個範例是只在按下 Ctrl/Cmd 時才啟用應用程式選單快速鍵。
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
-#### Event: 'devtools-opened'
+#### 事件: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-#### Event: 'devtools-closed'
+#### 事件: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-#### Event: 'devtools-focused'
+#### 事件: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
 
@@ -294,7 +293,7 @@ Emitted when DevTools is focused / opened.
 
 * `event` Event
 * `url` String
-* `error` String - The error code
+* `error` String - 錯誤代碼
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
@@ -340,7 +339,7 @@ Emitted when `webContents` wants to do basic auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### 事件: 'found-in-page'
 
 回傳:
 
@@ -354,15 +353,15 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### Event: 'media-started-playing'
+#### 事件: 'media-started-playing'
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### 事件: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-#### Event: 'did-change-theme-color'
+#### 事件: 'did-change-theme-color'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -370,7 +369,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
+#### 事件: 'update-target-url'
 
 回傳:
 
@@ -379,13 +378,13 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### 事件: 'cursor-changed'
 
 回傳:
 
 * `event` Event
 * `type` String
-* `image` NativeImage (optional)
+* `image` NativeImage (選用)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
@@ -394,7 +393,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### 事件: 'context-menu'
 
 回傳:
 
@@ -436,7 +435,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### 事件: 'select-bluetooth-device'
 
 回傳:
 
@@ -466,7 +465,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### 事件: 'paint'
 
 回傳:
 
@@ -486,11 +485,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### 事件: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### 事件: 'will-attach-webview'
 
 回傳:
 
@@ -504,12 +503,12 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### 物件方法
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -644,7 +643,7 @@ Injects CSS into the current web page.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Boolean (選用) - 預設值為 `false`。
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -659,11 +658,11 @@ If the result of the executed code is a promise the callback result will be the 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // 會是 fetch 執行結果的 JSON 物件
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *實驗性質*
 
 * `ignore` Boolean
 
@@ -790,7 +789,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -844,11 +843,11 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+回傳 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -905,7 +904,7 @@ win.webContents.on('did-finish-load', () => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
+      console.log('PDF 寫入成功。')
     })
   })
 })
@@ -933,7 +932,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -977,7 +976,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// In the main process.
+// 在主處理序裡。
 const {app, BrowserWindow} = require('electron')
 let win = null
 
@@ -996,7 +995,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message)  // Prints 'whoooooooh!'
+      console.log(message)  // 印出 'whoooooooh!'
     })
   </script>
 </body>
@@ -1037,8 +1036,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**必填**)
+* `y` Integer (**必填**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
 * `globalY` Integer
@@ -1059,7 +1058,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (選用) - 預設值是 `false`
 * `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1084,7 +1083,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
+* `fullPath` String - 檔案完整路徑。
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
@@ -1102,7 +1101,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('頁面儲存成功')
   })
 })
 ```
@@ -1170,7 +1169,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### 物件屬性
 
 #### `contents.id`
 

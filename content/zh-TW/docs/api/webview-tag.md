@@ -1,4 +1,4 @@
-# `<webview>`<webview></0> 標籤
+# `<webview>` 標籤
 
 > Display external web content in an isolated frame and process.
 
@@ -8,7 +8,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## 範例
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -25,7 +25,7 @@ If you want to control the guest content in any way, you can write JavaScript th
     const indicator = document.querySelector('.indicator')
 
     const loadstart = () => {
-      indicator.innerText = 'loading...'
+      indicator.innerText = '載入中...'
     }
 
     const loadstop = () => {
@@ -201,13 +201,12 @@ This can be used in combination with [`webContents.setSize`](web-contents.md#con
 ```javascript
 const {webContents} = require('electron')
 
-// We assume that `win` points to a `BrowserWindow` instance containing a
-// `<webview>` with `disableguestresize`.
+// 我們假設 `win` 指到包含 `disableguestresize` 的 `<webview>` 的 `BrowserWindow` 物件。
 
 win.on('resize', () => {
   const [width, height] = win.getContentSize()
   for (let wc of webContents.getAllWebContents()) {
-    // Check if `wc` belongs to a webview in the `win` window.
+    // 檢查 `wc` 是否屬於 `win` 視窗中的 webview。
     if (wc.hostWebContents &&
         wc.hostWebContents.id === win.webContents.id) {
       wc.setSize({
@@ -227,7 +226,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**範例**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -239,7 +238,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -337,7 +336,7 @@ Injects CSS into the guest page.
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - 預設值是 `false`。
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -437,7 +436,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -457,7 +456,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -527,7 +526,7 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### 事件: 'load-commit'
 
 回傳:
 
@@ -536,11 +535,11 @@ The following DOM events are available to the `webview` tag:
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### 事件: 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### 事件: 'did-fail-load'
 
 回傳:
 
@@ -551,7 +550,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### 事件: 'did-frame-finish-load'
 
 回傳:
 
@@ -559,15 +558,15 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### 事件: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### 事件: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### 事件: 'did-get-response-details'
 
 回傳:
 
@@ -582,7 +581,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### 事件: 'did-get-redirect-request'
 
 回傳:
 
@@ -592,11 +591,11 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### 事件: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### 事件: 'page-title-updated'
 
 回傳:
 
@@ -605,23 +604,23 @@ Fired when document in the given frame is loaded.
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### 事件: 'page-favicon-updated'
 
 回傳:
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - URL 陣列。
 
 Fired when page receives favicon urls.
 
-### Event: 'enter-html-full-screen'
+### 事件: 'enter-html-full-screen'
 
 Fired when page enters fullscreen triggered by HTML API.
 
-### Event: 'leave-html-full-screen'
+### 事件: 'leave-html-full-screen'
 
 Fired when page leaves fullscreen triggered by HTML API.
 
-### Event: 'console-message'
+### 事件: 'console-message'
 
 回傳:
 
@@ -641,7 +640,7 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### 事件: 'found-in-page'
 
 回傳:
 
@@ -664,7 +663,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### 事件: 'new-window'
 
 回傳:
 
@@ -689,7 +688,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### 事件: 'will-navigate'
 
 回傳:
 
@@ -703,7 +702,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### 事件: 'did-navigate'
 
 回傳:
 
@@ -713,7 +712,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-### Event: 'did-navigate-in-page'
+### 事件: 'did-navigate-in-page'
 
 回傳:
 
@@ -724,7 +723,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-### Event: 'close'
+### 事件: 'close'
 
 Fired when the guest page attempts to close itself.
 
@@ -737,7 +736,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### 事件: 'ipc-message'
 
 回傳:
 
@@ -753,7 +752,7 @@ With `sendToHost` method and `ipc-message` event you can easily communicate betw
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // Prints "pong"
+  // 列出 "pong"
 })
 webview.send('ping')
 ```
@@ -766,15 +765,15 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### 事件: 'crashed'
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### 事件: 'gpu-crashed'
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### 事件: 'plugin-crashed'
 
 回傳:
 
@@ -783,19 +782,19 @@ Fired when the gpu process is crashed.
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### 事件: 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### 事件: 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### 事件: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### 事件: 'did-change-theme-color'
 
 回傳:
 
@@ -807,7 +806,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### 事件: 'update-target-url'
 
 回傳:
 
@@ -815,14 +814,14 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### 事件: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### 事件: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-### Event: 'devtools-focused'
+### 事件: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.

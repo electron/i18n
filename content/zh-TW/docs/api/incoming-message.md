@@ -1,14 +1,14 @@
-## 類別: IncomingMessage
+## Class: IncomingMessage
 
 > Handle responses to HTTP/HTTPS requests.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### Instance Events
 
-#### Event: 'data'
+#### 事件: 'data'
 
 回傳:
 
@@ -16,15 +16,15 @@
 
 The `data` event is the usual method of transferring response data into applicative code.
 
-#### Event: 'end'
+#### 事件: 'end'
 
 Indicates that response body has ended.
 
-#### Event: 'aborted'
+#### 事件: 'aborted'
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
-#### Event: 'error'
+#### 事件: 'error'
 
 回傳:
 
@@ -32,7 +32,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Instance Properties
+### 物件屬性
 
 An `IncomingMessage` instance has the following readable properties:
 

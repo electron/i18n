@@ -10,11 +10,11 @@ ASAR был создан для повышения производительн�
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [была](https://github.com/electron-archive/brightray) статическая библиотека, которая сделала [libchromiumcontent](#libchromiumcontent) облегчив использование в приложениях. Она является теперь устаревшей и была объединена с Electron кодовой базой.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Библиотека C времени выполнения (CRT) является частью стандартной библиотеки C ++, которая включает стандартную библиотеку ISO C99. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -26,7 +26,7 @@ Input Method Editor. Это программа, которая позволяе�
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC стенды для взаимодействия между процессами. Electron использует IPC для отправки сериализованных сообщений JSON, между [основными](#main-process) и [визуализационными](#renderer-process) процессами.
 
 ### libchromiumcontent
 
@@ -34,7 +34,7 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### основной процесс
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
@@ -46,9 +46,9 @@ See also: [process](#process), [renderer process](#renderer-process)
 
 Акроним к Apple's Mac App Store. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### собственные модули
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Собственные модули (также называемые [addons](https://nodejs.org/api/addons.html) в Node.js) являются модули, написанные на C или C++, которые могут быть загружены в Node.js или Electron с помощью функции require() и используется, как обычные модули Node.js. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
@@ -60,7 +60,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ## OSR
 
-Off-screen rendering.
+Фоновый рендеринг.
 
 ### process
 
@@ -74,7 +74,7 @@ See also: [main process](#main-process), [renderer process](#renderer-process)
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+В нормальных браузерах, веб-страницы обычно выполняются в изолированной среде и им не разрешается доступ к нативным ресурсам. Electron пользователей, однако, имеют право использовать API Node.js на веб-страницах, позволяя взаимодействия нижнего уровня операционной системы.
 
 See also: [process](#process), [main process](#main-process)
 

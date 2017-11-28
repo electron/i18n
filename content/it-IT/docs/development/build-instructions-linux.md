@@ -1,4 +1,4 @@
-# Build Instructions (Linux)
+# Istruzioni per la compilazione (Linux)
 
 Follow the guidelines below for building Electron on Linux.
 

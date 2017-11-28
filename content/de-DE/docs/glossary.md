@@ -1,16 +1,16 @@
 # Glossar
 
-This page defines some terminology that is commonly used in Electron development.
+Diese Seite enthält Begriffe, die während der Entwicklung von Electron häufig verwendet werden.
 
 ### ASAR
 
 ASAR steht für Atom-Shell-Archiv-Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+Das ASAR-Format wurde primär für Performance-Vorteile unter Windows entwickelt.... TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Sie wurde mittlerweile in die Codebasis von Electron eingepflegt.
 
 ### CRT
 
@@ -26,7 +26,7 @@ Input Method Editor. A program that allows users to enter characters and symbols
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC steht für Inter-Process-Communication. Electron verwendet IPC serialisierte JSON-Nachrichten zwischen den [main](#main-process) und [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -40,11 +40,11 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Siehe auch: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Abkürzung für Apples Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md).
 
 ### native modules
 
@@ -52,7 +52,7 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Siehe auch: [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -60,7 +60,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ## OSR
 
-Off-screen rendering.
+Offscreen Rendering.
 
 ### process
 
@@ -68,7 +68,7 @@ A process is an instance of a computer program that is being executed. Electron 
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
@@ -76,11 +76,11 @@ The renderer process is a browser window in your app. Unlike the main process, t
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-See also: [process](#process), [main process](#main-process)
+Siehe auch: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel ist ein Open-Source Framework, welches Electron Apps ermöglicht sich automatisch zu aktualisieren, wenn neue Versionen veröffentlicht werden. Siehe dir die [autoUpdater](api/auto-updater.md) API an für mehr Informationen wie du mit Squirrel startest.
 
 ### userland
 

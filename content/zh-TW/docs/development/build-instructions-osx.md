@@ -28,11 +28,11 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 
 You will also need to enable Xcode to build against the 10.10 SDK:
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
+- 開啟 `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- 將 `MinimumSDKVersion` 設為 `10.10`
 - 存檔
 
-## Getting the Code
+## 取得程式碼
 
 ```bash
 $ git clone https://github.com/electron/electron
@@ -63,11 +63,11 @@ $ ./script/build.py -c D
 
 After building is done, you can find `Electron.app` under `out/D`.
 
-## 32bit Support
+## 32 位元支援
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
-## Cleaning
+## 清除
 
 To clean the build files:
 

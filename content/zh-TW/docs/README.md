@@ -44,8 +44,8 @@
 ### 自訂 DOM 元素：
 
 * [`File` 物件](api/file-object.md)
-* [`<webview>`<webview></0> 標籤](api/webview-tag.md)
-* [`window.open`函數](api/window-open.md)
+* [`<webview>` 標籤](api/webview-tag.md)
+* [`window.open` 函式](api/window-open.md)
 
 ### 主處理序可用的模組：
 
@@ -57,7 +57,7 @@
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
-* [選單](api/menu.md)
+* [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)

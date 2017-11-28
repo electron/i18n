@@ -40,7 +40,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-## Getting the Code
+## 取得程式碼
 
 ```bash
 $ git clone https://github.com/electron/electron
@@ -94,7 +94,7 @@ $ ./script/build.py -c D
 
 After building is done, you can find the `electron` debug binary under `out/D`.
 
-## Cleaning
+## 清除
 
 To clean the build files:
 
@@ -128,9 +128,9 @@ See [Build System Overview: Tests](build-system-overview.md#tests)
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### Building `libchromiumcontent` locally
+### 在本機建置 `libchromiumcontent`
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. 安裝 [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
 
     bash
       $ git submodule update --init --recursive 4. Copy the .gclient config file
@@ -153,14 +153,14 @@ $ ./script/build.py -c R
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+假設你把 `clang` 安裝在 `/user/local/bin/clang` 下:
 
 ```bash
 $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### 使用 `clang` 以外的編譯器
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 

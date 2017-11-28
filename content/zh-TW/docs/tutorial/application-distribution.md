@@ -1,8 +1,8 @@
 # 應用程式發佈
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+要用 Electron 發佈應用程式，你要先下載 Electron [預先建置好的二進位檔](https://github.com/electron/electron/releases)。 接下來，你的應用程式應要放在 Electron 的資源目錄下，並命名為 `app`，就像以下的範例。 請注意，下列範例中以 `electron/` 表示 Electron 二進位檔存放的地方。
 
-On macOS:
+macOS 平臺:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Windows 及 Linux 平臺:
 
 ```text
 electron/resources/app
@@ -20,29 +20,29 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+執行 `Electron.app` (Linux 是 `electron`，Windows 是 `electron.exe`)，Electron 就會啟動你的應用程式。`electron` 目錄就是你要發佈給最終使用者的東西。
 
-## Packaging Your App into a File
+## 將你的應用程式打包成一個檔案
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+除了將應用程式的所有原始碼複製一份來發佈外，你還可以將應用程式打包成一個 [asar](https://github.com/electron/asar) 封存檔，免得使用者直接看到你應用程式的原始碼。
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+想用 `asar` 封存檔取代 `app` 資料夾，你得將封存檔改名為 `app.asar`，放到 Electron 的資源目錄中，就像下面的範例一樣。Electron 就會試著由封存檔載入並啟動應用程式。
 
-On macOS:
+macOS 平臺:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Windows 及 Linux 平臺:
 
 ```text
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+細節可以參考[應用程式打包](application-packaging.md)。
 
 ## Rebranding with Downloaded Binaries
 
@@ -50,18 +50,18 @@ After bundling your app into Electron, you will want to rebrand Electron before 
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+你可以將 `electron.exe` 改成任何你想要的名字，再使用 [rcedit](https://github.com/atom/rcedit) 這類工具編輯圖示及其他資訊。
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+你可以將 `Electron.app` 改成任何你想要的名字。此外，你還要修改下列檔案中的 `CFBundleDisplayName`、`CFBundleIdentifier` 及 `CFBundleName` 欄位:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
 You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
 
-The structure of a renamed app would be like:
+改名後的應用程式結構應該像:
 
     MyApp.app/Contents
     ├── Info.plist
@@ -84,9 +84,9 @@ The structure of a renamed app would be like:
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+你可以將 `electron` 執行檔改成任何你想要的名字。
 
-## Packaging Tools
+## 打包工具
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
@@ -106,7 +106,7 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 #### Creating a Custom Release with surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. 透過 npm 安裝 [Surf](https://github.com/surf-build/surf): `npm install -g surf-build@latest`
 
 2. Create a new S3 bucket and create the following empty directory structure:
     
@@ -115,7 +115,7 @@ You need to fork Electron when you have custom C++ code that you have patched di
           - dist/
         
 
-3. Set the following Environment Variables:
+3. 設定以下環境變數:
 
 * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
@@ -129,4 +129,4 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. 很有耐心的等到建置完成。

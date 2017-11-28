@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -106,11 +106,11 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## 類別: BrowserWindow
+## Class: BrowserWindow
 
 > Create and control browser windows.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -118,7 +118,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
+* `options` 物件 (選用) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -221,7 +221,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'page-title-updated'
+#### 事件: 'page-title-updated'
 
 回傳:
 
@@ -230,7 +230,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### 事件: 'close'
 
 回傳:
 
@@ -238,7 +238,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 例如:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -252,89 +252,89 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### 事件: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' *Windows*
+#### 事件: 'session-end' *Windows*
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### 事件: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### 事件: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### 事件: 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### 事件: 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### 事件: 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### 事件: 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### 事件: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### 事件: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### 事件: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### 事件: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### 事件: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### 事件: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### 事件: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### 事件: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### 事件: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### 事件: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### 事件: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### 事件: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### 事件: 'app-command' *Windows*
 
 回傳:
 
@@ -356,19 +356,19 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### 事件: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### 事件: 'scroll-touch-end' *macOS*
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### 事件: 'scroll-touch-edge' *macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' *macOS*
+#### 事件: 'swipe' *macOS*
 
 回傳:
 
@@ -377,11 +377,11 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### 事件: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### 事件: 'sheet-end' *macOS*
 
 Emitted when the window has closed a sheet.
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### 物件屬性
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### 物件方法
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -606,7 +606,7 @@ Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+回傳 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -617,7 +617,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+回傳 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
@@ -874,7 +874,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -922,7 +922,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].

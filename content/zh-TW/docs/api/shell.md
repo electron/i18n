@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-處理序: [主要](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
+處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -37,7 +37,7 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
-* `options` Object (optional) *macOS* 
+* `options` Object (選用) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error

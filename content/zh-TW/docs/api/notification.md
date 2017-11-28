@@ -2,17 +2,17 @@
 
 > Create OS desktop notifications
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ## Using in the renderer process
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
-## 類別: Notification
+## Class: Notification
 
 > Create OS desktop notifications
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -45,7 +45,7 @@ Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### 事件: 'show'
 
 回傳:
 
@@ -53,7 +53,7 @@ Objects created with `new Notification` emit the following events:
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
-#### Event: 'click'
+#### 事件: 'click'
 
 回傳:
 
@@ -61,7 +61,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### 事件: 'close'
 
 回傳:
 
@@ -71,7 +71,7 @@ Emitted when the notification is closed by manual intervention from the user.
 
 This event is not guarunteed to be emitted in all cases where the notification is closed.
 
-#### Event: 'reply' *macOS*
+#### 事件: 'reply' *macOS*
 
 回傳:
 
@@ -80,14 +80,14 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
-#### Event: 'action' *macOS*
+#### 事件: 'action' *macOS*
 
 回傳:
 
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### 物件方法
 
 Objects created with `new Notification` have the following instance methods:
 

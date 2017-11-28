@@ -1,8 +1,8 @@
-## 類別: ClientRequest
+## Class: ClientRequest
 
 > Make HTTP/HTTPS requests.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -36,7 +36,7 @@ const request = net.request({
 
 ### Instance Events
 
-#### Event: 'response'
+#### 事件: 'response'
 
 回傳:
 
@@ -83,15 +83,15 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### 事件: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### 事件: 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### 事件: 'error'
 
 回傳:
 
@@ -99,11 +99,11 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
-#### Event: 'close'
+#### 事件: 'close'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### 事件: 'redirect'
 
 回傳:
 
@@ -114,7 +114,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### 物件屬性
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### 物件方法
 
 #### `request.setHeader(name, value)`
 

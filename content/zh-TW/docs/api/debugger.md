@@ -1,8 +1,8 @@
-## 類別: Debugger
+## Class: Debugger
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### 物件方法
 
 #### `debugger.attach([protocolVersion])`
 
@@ -59,14 +59,14 @@ Send given command to the debugging target.
 
 ### Instance Events
 
-#### Event: 'detach'
+#### 事件: 'detach'
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### 事件: 'message'
 
 * `event` Event
 * `method` String - Method name.

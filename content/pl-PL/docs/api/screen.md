@@ -2,15 +2,15 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie zostanie wyemitowane.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` jest klasą [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Uwaga:** W module renderowania / DevTools, `window.screen` jest zarezerwowaną właściwością DOM, więc napisanie `let{screen} = require('electron')` nie będzie działać.
 
-An example of creating a window that fills the whole screen:
+Przykład tworzenia okna, która wypełnia cały ekran:
 
 ```javascript
 const electron = require('electron')
@@ -25,7 +25,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+Inny przykład utworzenia okna na ekranie zewnętrznym:
 
 ```javascript
 const electron = require('electron')
@@ -49,31 +49,31 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Zdarzenia
 
-The `screen` module emits the following events:
+Moduł `screen` emituje następujące zdarzenia:
 
-### Event: 'display-added'
+### Zdarzenie: 'display-added'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Emitowane, gdy `newDisplay` został dodany.
 
-### Event: 'display-removed'
+### Zdarzenie: 'display-removed'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Emitowane, gdy `oldDisplay` został usunięty.
 
-### Event: 'display-metrics-changed'
+### Zdarzenie: 'display-metrics-changed'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `display` [Display](structures/display.md)
@@ -81,27 +81,27 @@ Returns:
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Methods
+## Metody
 
-The `screen` module has the following methods:
+Moduł `screen` posiada następujące metody:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Zwraca [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+Bieżącą pozycję bezwzględną wskaźnika myszy.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+Zwraca `Integer` - wysokość paska menu w pikselach.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Zwraca [`Display`](structures/display.md) - ekran główny.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Zwraca [`Display[]`](structures/display.md) - tablicę obiektów Display, które są obecnie dostępne.
 
 ### `screen.getDisplayNearestPoint(point)`
 

@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
@@ -55,7 +55,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+반환:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -64,7 +64,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+반환:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -73,7 +73,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `display` [Display](structures/display.md)

@@ -26,11 +26,11 @@ Input Method Editor. A program that allows users to enter characters and symbols
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC là viết tắt cho Inter-Process Communication. Electron sử dụng IPC để gửi các file tin nhắn JSON tuần tự giữa các [main process](#main-process) và [renderer process](#renderer-process).
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Cũng được gọi là "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
@@ -40,19 +40,19 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Xem thêm: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
 Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### các module native
 
 Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 

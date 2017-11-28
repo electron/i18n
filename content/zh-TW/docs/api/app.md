@@ -2,7 +2,7 @@
 
 > Control your application's event lifecycle.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 The following example shows how to quit the application when the last window is closed:
 
@@ -66,7 +66,7 @@ See the description of the `window-all-closed` event for the differences between
 
 Emitted when the application is quitting.
 
-### Event: 'open-file' *macOS*
+### 事件: 'open-file' *macOS*
 
 回傳:
 
@@ -79,7 +79,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' *macOS*
+### 事件: 'open-url' *macOS*
 
 回傳:
 
@@ -162,7 +162,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - 錯誤代碼
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
@@ -174,7 +174,7 @@ const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // 驗證邏輯。
     event.preventDefault()
     callback(true)
   } else {
@@ -192,7 +192,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (選用)
 
 Emitted when a client certificate is requested.
 
@@ -272,7 +272,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (選用)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -280,9 +280,9 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (選用) 
+  * `args` String[] - (選用)
+  * `execPath` String (選用)
 
 Relaunches the app when current instance exits.
 
@@ -349,11 +349,11 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux* 上是 48x48, *Windows* 上是 32x32，不支援 *macOS*。
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -670,7 +670,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` 物件 (選用) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -696,7 +696,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 例如:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)

@@ -18,7 +18,7 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Methods
+## Metody
 
 The `session` module has the following methods:
 
@@ -34,7 +34,7 @@ If `partition` starts with `persist:`, the page will use a persistent session av
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Properties
+## Właściwości
 
 The `session` module has the following properties:
 
@@ -42,7 +42,7 @@ The `session` module has the following properties:
 
 A `Session` object, the default session object of the app.
 
-## Class: Session
+## Klasa: Session
 
 > Get and set properties of a session.
 
@@ -60,7 +60,7 @@ console.log(ses.getUserAgent())
 
 The following events are available on instances of `Session`:
 
-#### Event: 'will-download'
+#### Zdarzenie: 'will-download'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Metody instancji
 
 The following methods are available on instances of `Session`:
 
@@ -132,7 +132,7 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-For example:
+Na przykład:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -204,7 +204,7 @@ window.webContents.session.enableNetworkEmulation({
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+//W celu symulacji awarii sieci.
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Właściwości instancji
 
 The following properties are available on instances of `Session`:
 

@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### Платформа заметок
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -118,7 +118,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -385,7 +385,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Событие: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 
@@ -497,7 +497,7 @@ A `Integer` representing the unique ID of the window.
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
 #### `win.destroy()`
 
@@ -874,11 +874,11 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опиционально)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Same as `webContents.loadURL(url[, options])`.
@@ -922,7 +922,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -966,18 +966,18 @@ The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Функция
-  * `tooltip` String (опиционально) - Текст подсказки на кнопке.
-  * `flags` String[] (опиционально) - Контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
+  * `click` Function
+  * `tooltip` String (опиционально) - текст всплывающей подсказки на кнопке.
+  * `flags` String[] (опиционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
 
 `flags` — это массив, который может включать следующие `String`:
 
-* `enabled` - Кнопка активна и доступна пользователю.
-* `disabled` - Кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
-* `dismissonclick` - Когда кнопка нажата, окно миниатюры закрывается немедленно.
-* `nobackground` - Не рисует границы кнопок, использует только изображение.
-* `hidden` - Кнопка не отображается пользователю.
-* `noninteractive` - Кнопка включена, но не интерактивна; рисуется не нажатое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
+* `enabled` - кнопка активна и доступна пользователю.
+* `disabled` - кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
+* `dismissonclick` - когда кнопка нажата, окно миниатюры закрывается немедленно.
+* `nobackground` - не рисует границы кнопок, использует только изображение.
+* `hidden` - кнопка не отображается пользователю.
+* `noninteractive` - кнопка включена, но не интерактивна; рисуется не нажатое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
@@ -1110,4 +1110,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.

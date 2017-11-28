@@ -1,10 +1,10 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Wydaje żądania HTTP/HTTPS za pomocą natywnej biblioteka sieciowej Chromium
 
 Proces: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+Modułu `net` jest to API po stronie klienta dla wydawania żądań HTTP(S). It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
 
 The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
 
@@ -15,7 +15,7 @@ The following is a non-exhaustive list of why you may consider using the `net` m
 
 The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Poniższy przykład szybko pokazuje, jak API `net` może być używane:
 
 ```javascript
 const {app} = require('electron')
@@ -40,7 +40,7 @@ By the way, it is almost identical to how you would normally use the [HTTP](http
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Methods
+## Metody
 
 The `net` module has the following methods:
 
@@ -48,6 +48,6 @@ The `net` module has the following methods:
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
-Returns [`ClientRequest`](./client-request.md)
+Zwraca [`ClientRequest`](./client-request.md)
 
 Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.

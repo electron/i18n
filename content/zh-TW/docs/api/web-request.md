@@ -1,8 +1,8 @@
-## 類別: WebRequest
+## Class: WebRequest
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
@@ -17,7 +17,7 @@ An example of adding `User-Agent` header for requests:
 ```javascript
 const {session} = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// 修改存取下列 URL 時使用的 User Agent。
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -28,7 +28,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Instance Methods
+### 物件方法
 
 The following methods are available on instances of `WebRequest`:
 
@@ -46,7 +46,7 @@ The following methods are available on instances of `WebRequest`:
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Object 
-      * `cancel` Boolean (optional)
+      * `cancel` Boolean (選用)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
@@ -72,7 +72,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `requestHeaders` Object
 * `callback` Function 
   * `response` Object 
-    * `cancel` Boolean (optional)
+    * `cancel` Boolean (選用)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `callback` has to be called with an `response` object.
@@ -184,6 +184,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - 錯誤說明。
 
 The `listener` will be called with `listener(details)` when an error occurs.

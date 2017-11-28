@@ -1,4 +1,4 @@
-# ProcessMetric Object
+# ProcessMetric 物件
 
 * `pid` Integer - Process id of the process.
 * `type` String - Process type (Browser or Tab or GPU etc).

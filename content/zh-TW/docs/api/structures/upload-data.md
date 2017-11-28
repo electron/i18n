@@ -1,4 +1,4 @@
-# UploadData Object
+# UploadData 物件
 
 * `bytes` Buffer - Content being sent.
 * `file` String - Path of file being uploaded.

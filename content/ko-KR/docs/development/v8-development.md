@@ -9,4 +9,4 @@
     * [최적화된 컴파일러](https://github.com/v8/v8/wiki/TurboFan)
     * [V8 GDB 디버깅](https://github.com/v8/v8/wiki/GDB-JIT-Interface)</ul> 
     
-    또한  Chromium Development </ 0>도 참조하십시오.</p>
+    또한 [ Chromium Development](chromium-development.md)도 참조하십시오.

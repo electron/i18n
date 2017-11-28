@@ -1,12 +1,12 @@
-## 類別: Cookies
+## Class: Cookies
 
 > Query and modify a session's cookies.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+例如:
 
 ```javascript
 const {session} = require('electron')
@@ -33,7 +33,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 The following events are available on instances of `Cookies`:
 
-#### Event: 'changed'
+#### 事件: 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
@@ -47,7 +47,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### 物件方法
 
 The following methods are available on instances of `Cookies`:
 

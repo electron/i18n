@@ -73,14 +73,14 @@ And then sign your app with the following script:
 
 # 你應用程式的名稱。
 APP="YourApp"
-# 你要簽章的應用程式路徑
+# 你要簽章的應用程式路徑。
 APP_PATH="/path/to/YourApp.app"
 # 存放你簽章過的套件的路徑。
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# 請求用的憑證名稱。
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# 你的 plist 檔案路徑。
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 

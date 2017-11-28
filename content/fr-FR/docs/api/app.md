@@ -266,7 +266,7 @@ L'objet `app` dispose des méthodes suivantes :
 
 ### `app.quit()`
 
-Essaye de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et mettra fin à l’application par défaut.
+Essayez de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et mettra fin à l’application par défaut.
 
 Cette méthode garantit que tous les écouteurs d’événements de `beforeunload` et `unload` seront correctement exécutées. Il est possible qu’une fenêtre annule la fermeture en retournant `false` dans l'écouteur d’événement `beforeunload`.
 
@@ -307,7 +307,7 @@ Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Sur Linux, met le focus sur la première fenêtre visible. Sur MacOS, rend l'application active. Sur windows met le focus sur la première fenêtre de l'application.
 
 ### `app.hide()` *macOS*
 
@@ -315,7 +315,7 @@ Masque toutes les fenêtres de l'application sans les minimiser.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Montre les fenêtres de l'application après qu'elles aient été cachées. Ne met pas automatiquement le focus sur ces dernières.
 
 ### `app.getAppPath()`
 
@@ -325,26 +325,26 @@ Retourne `String` - Répertoire courant de l'application.
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Retourne `String` - Un chemin vers un répertoire spécial ou un fichier associé au `nom`. En cas d’échec, une `Erreur` est générée.
 
-You can request the following paths by the name:
+Vous pouvez demander les chemins suivants sous le nom :
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
+* `home` Répertoire d'accueil de l'utilisateur.
+* `appData` Dossiers de donnée des applications pour chaque utilisateur, qui pointe par défaut vers: 
   * `%APPDATA%` sur Windows
   * `$XDG_CONFIG_HOME` ou `~/.config` sur Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `~/Library/Application Support` sur macOS
+* `userData` Le dossier pour stocker les fichiers de configuration de votre application, qui par défaut est le dossier `appData` avec le nom de votre application.
+* `temp` Dossier temporaire.
+* `exe` Le fichier exécutable actuel.
+* `module` La bibliothèque de `libchromiumcontent`.
+* `desktop` Le dossier du Bureau de l’utilisateur actuel.
+* `documents` Dossier "Mes Documents" d'un utilisateur.
+* `downloads` Dossier pour les téléchargements de l’utilisateur.
+* `music` Dossier de musique de l’utilisateur.
+* `pictures` Dossier des images de l’utilisateur.
+* `videos` Dossier des vidéos de l’utilisateur.
+* `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -360,10 +360,10 @@ You can request the following paths by the name:
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+Sous *Windows*, il y a 2 sortes d’icônes :
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Icônes associées à certaines extensions de fichier, comme `.mp3`, `.png`, etc.
+* Icônes à l’intérieur du fichier lui-même, comme les `.exe`, `.dll`, `.ico`.
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
@@ -400,7 +400,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Remarque :** Sous Windows, vous devrez l’appeler après que l'événement `prêt` soit émit.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 

@@ -2,7 +2,7 @@
 
 > Detect keyboard events when the application does not have keyboard focus.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 

@@ -2,13 +2,13 @@
 
 > Extensions to process object.
 
-處理序: [主要](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
+處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
 ## 事件
 
-### Event: 'loaded'
+### 事件: 'loaded'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## 屬性
 
 ### `process.defaultApp`
 
@@ -85,15 +85,15 @@ Causes the main thread of the current process crash.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+回傳 [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+回傳 [`IOCounters`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Object`:
+回傳 `Object`:
 
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
@@ -104,7 +104,7 @@ Returns an object giving memory usage statistics about the current process. Note
 
 ### `process.getSystemMemoryInfo()`
 
-Returns `Object`:
+回傳 `Object`:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.

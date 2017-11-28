@@ -1,4 +1,4 @@
-# MemoryInfo Object
+# MemoryInfo 物件
 
 * `pid` Integer - Process id of the process.
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.

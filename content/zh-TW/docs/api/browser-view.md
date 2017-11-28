@@ -1,10 +1,10 @@
-## 類別: BrowserView
+## Class: BrowserView
 
 > Create and control views.
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### 靜態方法
@@ -42,7 +42,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Instance Properties
+### 物件屬性
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -54,7 +54,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### 物件方法
 
 Objects created with `new BrowserView` have the following instance methods:
 

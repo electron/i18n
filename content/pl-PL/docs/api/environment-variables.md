@@ -1,4 +1,4 @@
-# Environment Variables
+# Zmienne Środowiskowe
 
 > Control application configuration and behavior without changing code.
 

@@ -93,16 +93,16 @@ apps:
 or: veya
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Javascript, HTML ve CSS ile çapraz platform Masaüstü uygulamaları geliştir.
+    description: 'Javascript, HTML ve CSS ile çapraz platform Masaüstü uygulamaları geliştir.'
   '/apps':
     title: Electron Uygulamaları
-    description: Apps Built on Electron
+    description: Electron ile Yapılmış Uygulamalar
   '/docs':
     title: Dokümantasyon
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
-    title: All the Electron Docs!
+    title: Tüm Electron Dokümanları!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/blog':
     title: Electron Blog

@@ -28,7 +28,7 @@ After getting the plugin files, you should pass the `widevinecdmadapter`'s path 
 
 The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
 
-Example code:
+範例程式碼:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')

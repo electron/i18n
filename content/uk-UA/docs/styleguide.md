@@ -58,9 +58,9 @@
 
 ### Заголовок сторінки
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Кожна сторінка повинна використовувати актуальне ім'я об'єкту як назву, що повертається з `require('electron')`, як-от `BrowserWindow`, `autoUpdater` і `session`.
 
-Під заголовом сторінки має бути стрічка опису, яка починаєтсья з `>`.
+Під заголовком сторінки має бути стрічка опису, яка починається з `>`.
 
 Для прикладу `session`:
 
@@ -150,63 +150,64 @@ Each page must use the actual object name returned by `require('electron')` as t
 
 Заголовок може мати рівні `###` чи `####` в залежності від того, чи це метод модуля чи класу.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Для модулів, `objectName` це ім'я модуля. Для класів це повинно бути імена екземплярів класу і не повинні бути такими ж як і ім'я модулів.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Наприклад, методи класу `Session` у модулі `session` повинні використовувати `ses` як `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Необов'язкові аргументи мають бути зазначені в квадратні дужки `[]`, що оточують необов'язковий аргумент, а також кома, якщо за необов'язковим аргументом слідує ще один аргумент:
 
     required[, optional]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Нижче методу оголошується більш детальна інформація про кожний аргумент. Тип аргументу має бути зазначеним із загальних типів:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Чи нестандартний тип як Electron's [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Якщо аргумент або метод є унікальним для певних платформ, тоді ці платформи позначаються списком які розділені пробілами та виділені курсивом після типу даних (datatype). Значення можуть бути `macOS`, `Windows`, or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Аргументи типу `Array` повинні вказувати, які саме елементи включає масив та бути вказані в описі нижче.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Опис аргументів для типу `Function` повинно бути чітко зазначено, як саме мають бути названі та перелік типів цих аргументів, що будут передані в функцію.
 
-### Events
+### Події (Events)
 
-The events chapter must be in following form:
+Розділи подій мають мати наступну форму:
 
 ```markdown
 ### Event: 'wake-up'
 
-Returns:
+Повертає:
 
 * `time` String
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Назва повинна починатися с `###` або `####`-рівня в залежності від того, це подія модуля чи класу.
 
-The arguments of an event follow the same rules as methods.
+Аргументи події слідують тим же правилам що й методи.
 
-### Properties
+### Властивості (Properties)
 
-The properties chapter must be in following form:
+Розділи властивостей мають мати наступну форму:
 
 ```markdown
 ### session.defaultSession
 
 ...
+
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Назва повинна починатися с `###` або `####`-рівня в залежності від того, це властивість модуля чи класу.
 
 ## Documentation Translations
 

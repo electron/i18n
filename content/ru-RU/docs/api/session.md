@@ -34,7 +34,7 @@ If `partition` starts with `persist:`, the page will use a persistent session av
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Properties
+## Свойства
 
 The `session` module has the following properties:
 
@@ -99,7 +99,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Object (optional) 
+* `options` Object (опиционально) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.

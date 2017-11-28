@@ -1,4 +1,4 @@
-# BluetoothDevice Объект
+# Объект BluetoothDevice
 
 * `deviceName` String
 * `deviceId` String

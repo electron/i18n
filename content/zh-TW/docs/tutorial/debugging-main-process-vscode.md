@@ -1,6 +1,6 @@
 # 在 VSCode 中 Debug 主處理序
 
-### 1. Open an Electron project in VSCode.
+### 1. 在 VSCode 中開啟 Electron 專案。
 
 ```bash
 $ git clone git@github.com:electron/electron-quick-start.git

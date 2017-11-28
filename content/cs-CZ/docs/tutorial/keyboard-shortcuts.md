@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Klávesové zkratky
 
 > Configure local and global keyboard shortcuts
 

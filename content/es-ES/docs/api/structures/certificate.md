@@ -1,12 +1,12 @@
-# Certificate Object
+# El objeto Certificate
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
-* `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
-* `subjectName` String - Subject's Common Name
-* `serialNumber` String - Hex value represented string
-* `validStart` Number - Start date of the certificate being valid in seconds
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `data` String - Datos cifrados en formato PEM
+* `issuer` [CertificatePrincipal](certificate-principal.md) - Editor principal
+* `issuerName` String - Nombre común del emisor
+* `issuerCert` Certificate - Certificado de emisor (si no esta autofimado)
+* `subject` [CertificatePrincipal](certificate-principal.md) - Asunto principal
+* `subjectName` String - Nombre común del asunto
+* `serialNumber` String - Valor hexagesimal representado por un string
+* `validStart` Number - Fecha de inicio del certificado siendo validado en segundos
+* `validExpiry` Number - Fecha de finalización del certificado siendo validado en segundos
+* `fingerprint` String - Huella digital del certificado

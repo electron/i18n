@@ -2,7 +2,7 @@
 
 > Get system preferences.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
@@ -13,20 +13,20 @@ console.log(systemPreferences.isDarkMode())
 
 The `systemPreferences` object emits the following events:
 
-### Event: 'accent-color-changed' *Windows*
+### 事件: 'accent-color-changed' *Windows*
 
 回傳:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
-### Event: 'color-changed' *Windows*
+### 事件: 'color-changed' *Windows*
 
 回傳:
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### 事件: 'inverted-color-scheme-changed' *Windows*
 
 回傳:
 
@@ -46,14 +46,14 @@ Returns `Boolean` - Whether the Swipe between pages setting is on.
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` 物件
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` 物件
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -62,7 +62,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` 物件
 
 Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -86,7 +86,7 @@ Removes the subscriber with `id`.
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` 物件
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
 
@@ -137,20 +137,20 @@ An example of using it to determine if you should create a transparent window or
 const {BrowserWindow, systemPreferences} = require('electron')
 let browserOptions = {width: 1000, height: 800}
 
-// Make the window transparent only if the platform supports it.
+// 只在支援的平臺上設定視窗透明度。
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// Create the window.
+// 建立視窗。
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+// 導頁。
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
+  // 不支援透明，所以退而求其次使用基本樣式。
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```

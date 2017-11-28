@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -34,7 +34,7 @@ If `partition` starts with `persist:`, the page will use a persistent session av
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Properties
+## 屬性
 
 The `session` module has the following properties:
 
@@ -42,11 +42,11 @@ The `session` module has the following properties:
 
 A `Session` object, the default session object of the app.
 
-## 類別: Session
+## Class: Session
 
 > Get and set properties of a session.
 
-處理序: [主要](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -60,7 +60,7 @@ console.log(ses.getUserAgent())
 
 The following events are available on instances of `Session`:
 
-#### Event: 'will-download'
+#### 事件: 'will-download'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### 物件方法
 
 The following methods are available on instances of `Session`:
 
@@ -99,7 +99,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Object (optional) 
+* `options` Object (選用) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -132,7 +132,7 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-For example:
+例如:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### 物件屬性
 
 The following properties are available on instances of `Session`:
 

@@ -1,24 +1,24 @@
 # Функция `window.open`
 
-> Open a new window and load a URL.
+> Открыть новое окно и загрузить URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Когда `window.open` вызывается для создания нового окна на веб-странице, будет создаваться новый экземпляр `BrowserWindow` по `url` и прокси возвратит `window.open` и позволить странице иметь ограниченный контроль над ним.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Прокси имеет ограниченную стандартную функциональность реализованную для совместимости с традиционными веб-страницами. Для полного контроля нового окна следует создать `BrowserWindow` напрямую.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Вновь созданный `BrowserWindow` будет наследовать параметры родительского окна по умолчанию. Переопределить унаследованные параметры вы можете в строке `features`.
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String (опиционально)
+* `features` String (опиционально)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Возвращает [`BrowserWindowProxy`](browser-window-proxy.md) - создает новое окно и возвращает экземпляр класса `BrowserWindowProxy`.
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
-**Notes:**
+**Заметки:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -32,7 +32,7 @@ The `features` string follows the format of standard browser, but each feature h
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
-### Using Chrome's `window.open()` implementation
+### С помощью Chrome `window.open()` реализации
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
@@ -47,7 +47,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// main process
+// основной процесс
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +57,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // открыть окно как модальное
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -71,7 +71,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// отрендерить процесс (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```

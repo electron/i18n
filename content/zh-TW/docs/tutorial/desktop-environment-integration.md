@@ -1,18 +1,18 @@
 # 桌面環境整合
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+不同的作業系統提供不同的功能特性，將桌面應用程式整合進桌面環境中。 For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+這份導引文件，將介紹如何透過 Electron API 把應用程式整合進桌面環境中。
 
 ## 通知
 
 參考[通知](notifications.md)
 
-## Recent documents (Windows & macOS)
+## 最近的文件 (Windows & macOS)
 
 Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-**JumpList:**
+**捷徑清單 (JumpList):**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
@@ -34,13 +34,13 @@ const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Windows 注意事項
 
 In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
-### macOS Notes
+### macOS 注意事項
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
@@ -58,7 +58,7 @@ To set your custom dock menu, you can use the `app.dock.setMenu` API, which is o
 const {app, Menu} = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
-  {label: 'New Window', click () { console.log('New Window') }},
+  {label: 'New Window', click () { console.log('新視窗') }},
   {label: 'New Window with Settings',
     submenu: [
       {label: 'Basic'},
@@ -95,7 +95,7 @@ app.setUserTasks([
     iconPath: process.execPath,
     iconIndex: 0,
     title: 'New Window',
-    description: 'Create a new window'
+    description: '建立新視窗'
   }
 ])
 ```
@@ -138,13 +138,13 @@ win.setThumbarButtons([
   {
     tooltip: 'button1',
     icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    click () { console.log('點了 button1。') }
   },
   {
     tooltip: 'button2',
     icon: path.join(__dirname, 'button2.png'),
     flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    click () { console.log('點了 button2。') }
   }
 ])
 ```
@@ -200,7 +200,7 @@ To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayI
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Overlay 的說明')
 ```
 
 ## Flash Frame (Windows)
@@ -239,11 +239,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## 將檔案拖出視窗
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+在網頁中:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+在主處理序中:
 
 ```javascript
 const {ipcMain} = require('electron')

@@ -15,11 +15,11 @@ app.on('window-all-closed', () => {
 
 ## イベント
 
-`app`オブジェクトは次のイベントを発生します。
+`app`オブジェクトは次のイベントを発生させます。
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションが基本的な起動が終わったときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では`NSApplication` の `applicationWillFinishLaunching`に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定、クラッシュレポーターと自動アップデーターを起動します。
+アプリケーションの起動プロセスの基本部分が完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では`NSApplication` の `applicationWillFinishLaunching`に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定、クラッシュレポーターと自動アップデーターを起動します。
 
 ほとんどの場合、`ready` イベントハンドラーであらゆる処理を記述するべきです。
 
@@ -31,53 +31,53 @@ app.on('window-all-closed', () => {
 
 Electronの初期化処理が終わった時に発生します。 MacOS では、`launchInfo` は、通知センターから起動された場合、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` 情報を保持しています。 また、このイベントが既に発生しているかどうかをチェックする `app.isReady()` を呼び出すことができます。
 
-### Event: 'window-all-closed'
+### イベント: 'window-all-closed'
 
-Emitted when all windows have been closed.
+すべてのウィンドウが閉じられたときに発生します。
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+もしこのイベントをハンドルしていないときは、すべてのウィンドウが閉じられたときのデフォルト動作はアプリケーションの終了になります。イベントをハンドルすれば、アプリケーションを終了する(quit)かどうかを制御することが出来ます。 もし、ユーザーが`Cmd + Q`を押下したか、開発者が`app.quit()`を呼び出した際、Electronはすべてのウィンドウを閉じて、`will-quit`イベントを発生させます。この場合は、`window-all-closed`イベントは発生しないことになります。
 
-### Event: 'before-quit'
-
-戻り値：
-
-* `event` Event
-
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
-
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
-
-### Event: 'will-quit'
+### イベント: 'before-quit'
 
 戻り値：
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+アプリケーションがウィンドウを閉じようとする前に発生します。`event.preventDefault()`を呼び出すことで、デフォルト動作 (アプリケーションの終了)が起こらないように出来ます。
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+**注:** アプリケーションの終了が`autoUpdater.quitAndInstall()`から発生されている場合は、`before-quit`イベントは、すべてのウィンドウに`close`イベントが送られてウィンドウが閉じられた*後に*発生することになります。
 
-### Event: 'quit'
+### イベント: 'will-quit'
+
+戻り値：
+
+* `event` Event
+
+すべてのウィンドウが閉じられ、アプリケーションが終了する前に送られます。 `event.preventDefault()`を呼び出すことでデフォルト動作(アプリケーションの終了; terminate)を阻止することが出来ます。
+
+`will-quit`と`window-all-closed`の違いを確認するためにも、`window-all-closed`イベントの説明もお読みください。
+
+### イベント: 'quit'
 
 戻り値：
 
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+アプリケーションの終了時に発生します。
 
-### Event: 'open-file' *macOS*
+### イベント: 'open-file' *macOS*
 
 戻り値：
 
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+ユーザーがファイルを開こうとした際に発生します。 この`open-file`イベントは、アプリケーションがすでに起動しており、OSがアプリケーションにファイルを開くよう再利用する際に発生します。 `open-file`は、アプリケーションが起動していないときに、ドック上のアイコンにファイルをドロップした際にも発生します。 そういったケースに対応できるように、アプリケーション起動の早い段階で`open-file`イベントをハンドル する用にしてください。(`ready`イベント発生前でも良いです。)
 
-You should call `event.preventDefault()` if you want to handle this event.
+このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+Windowsでは、ファイル名はメインプロセスの`process.argv`に渡されます。
 
 ### Event: 'open-url' *macOS*
 
@@ -88,7 +88,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
 
 ### Event: 'activate' *macOS*
 

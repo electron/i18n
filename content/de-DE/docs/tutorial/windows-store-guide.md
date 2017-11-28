@@ -12,11 +12,11 @@ In addition, the exe is launched inside the appx model - meaning that it can use
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
+* Windows 10 mit Anniversary Update (veröffentlicht am 2. August 2016)
 * The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
 * At least Node 4 (to check, run `node -v`)
 
-Then, go and install the `electron-windows-store` CLI:
+Als nächstes: Installieren der `electron-windows-store` CLI:
 
     npm install -g electron-windows-store
     
@@ -25,7 +25,7 @@ Then, go and install the `electron-windows-store` CLI:
 
 Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
 
-The output should look roughly like this:
+Die Ausgabe sollte etwa wie folgt aussehen:
 
     ├── Ghost.exe
     ├── LICENSE

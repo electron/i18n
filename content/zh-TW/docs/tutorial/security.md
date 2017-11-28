@@ -1,6 +1,6 @@
-# 安全性，原生支援及你的責任
+# 安全性、原生功能及你的責任
 
-身為網頁開發人員，我們常常恩澤於瀏覽器建立的強大安全網，我們的程式再怎麼搞，所能引起的風險都微乎其微。 我們的網站被限制在獨立的沙盒環境中運作，我們相信使用者都習慣於享受由龐大工程師團隊開發維護的瀏覽器，能在第一時間快速處理新發現的安全性威脅。
+身為網頁開發人員，我們常常受惠於瀏覽器建立的強大安全網，我們的程式再怎麼搞，所能引起的風險都微乎其微。 我們的網站被限制在獨立的沙盒環境中運作，我們相信使用者都習慣於享受由龐大工程師團隊開發維護的瀏覽器，能在第一時間快速處理新發現的安全性威脅。
 
 而在使用 Electron 時，千萬要記住一點: Electron 並不是網頁瀏覽器。 它讓你能用熟悉的網頁技術打造出功能完善的桌面應用程式，只不過你的程式碼具有更大的能力。 JavaScript 能存取檔案系統，使用者 Shell 等等。 你能做出高品質的原生應用程式，但是你的程式碼被賦與的能力越強，相對的安全性問題也會越重。
 
@@ -12,15 +12,15 @@
 
 ## Chromium 安全性議題及升級
 
-While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+雖然 Electron 致力於盡快支援新版的 Chromium，但開發人員都應該知道，升級是件嚴肅的事，可能要手動修改數十，甚至上百個檔案。 以現有的資源及貢獻程度來看，Electron 通常沒辦法跟到最新版的 Chromium，可能會落後數日或數週。
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+我們認為現在的 Chromium 元件升級機制，已經在有限資源及多數桌面應用程式需求之間取得平衡。 我們真的很想聽到大家又把 Electron 應用在什麼特別的地方。 隨時歡迎各位提出 Pull Request 或是其他貢獻。
 
-## 忽略以上建議
+## 先不管上面那些建議
 
-A security issue exists whenever you receive code from a remote destination and execute it locally. As an example, consider a remote website being displayed inside a browser window. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+由遠端取得程式碼並在本機執行就會有安全議題。 一起想像一下，有個遠端網站的內容將在瀏覽器視窗裡顯示。 如果攻擊者有辦法改變上述內容 (可能是直接攻擊來源，或是藏在你的應用程式與實際目的地中間)，他們就有機會在使用者的機器上執行原生程式。
 
-> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: 無論如何，你都不該在啟用 Node 整合的情況下，由遠端載入並執行程式碼。 如果需要執行 Node 程式碼，請只用本機檔案 (跟你的應用程式打包在一起的那些)。 如果要顯示遠端內容，請用 `webview` 標籤，並確定已經停掉 `nodeIntegration`。
 
 #### 檢查清單
 
@@ -28,19 +28,19 @@ A security issue exists whenever you receive code from a remote destination and 
 
 * 只顯示安全連線 (https) 的內容
 * 在所有會顯示遠端內容的畫面轉譯程式中停用 Node 整合功能 (將 `webPreferences` 中的 `nodeIntegration` 設為 `false`)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
-* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+* 在所有會顯示遠端內容的畫面轉譯器中啟用內容隔離功能 (將 `webPreferences` 中的 `contextIsolation` 設為 `true`)
+* 在所有會載入遠端內容的工作階段中使用 `ses.setPermissionRequestHandler()`
+* 不要停用 `webSecurity`。否則同源政策也會同時被停用。
+* 定義 [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)，並使用限制性規則 (例如 `script-src 'self'`)
+* [覆寫並停用 `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8)，否則可以透過它將字串視為程式碼執行。
+* 不要將 `allowRunningInsecureContent` 設為 true。
+* 不要啟用 `experimentalFeatures` 或 `experimentalCanvasFeatures`，除非你很清楚自己在幹嘛。
+* 別用 `blinkFeatures`，除非你很清楚自己在幹嘛。
+* WebViews: 不要加 `nodeintegration` 屬性。
+* WebViews: 不要用 `disablewebsecurity`。
+* WebViews: 不要用 `allowpopups`。
+* WebViews: 不要在遠端 CSS/JS 上用 `insertCSS` 或 `executeJavaScript`。
+* WebViews: 透過 `will-attach-webview` 事件連結任何 `<webview>` 標籤時，驗證所有的選項及參數:
 
 ```js
 app.on('web-contents-created', (event, contents) => {

@@ -67,13 +67,13 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
 
 Définit un fournisseur pour la correction orthographique dans les champs de saisie et les zones de texte.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+Le `provider` doit être un objet contenant la méthode `spellCheck` qui indiquera si le mot donné est correctement orthographié.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Un exemple d'utilisation de [node-spellchecker](https://github.com/atom/node-spellchecker) comme fournisseur :
 
 ```javascript
 const {webFrame} = require('electron')
-webFrame.setSpellCheckProvider('en-US', true, {
+webFrame.setSpellCheckProvider('fr-FR', true, {
   spellCheck (text) {
     return !(require('spellchecker').isMisspelled(text))
   }
@@ -84,29 +84,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+Enregistre le `scheme` comme schéma sécurisé.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Les schémas sécurisés ne déclenchent pas d'avertissements de contenu mixtes. Par exemple, `https` et `data` sont des schémas sécurisés car il ne peuvent pas être altérées par des attaquants de réseau actif.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Des ressources seront chargées de ce `scheme` quelle que soit la politique de sécurité de la page courante.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
 * `options` Object (facultatif) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+  * `secure` Boolean - (facultatif) true par défaut.
+  * `bypassCSP` Boolean - (facultatif) true par défaut.
+  * `allowServiceWorkers` Boolean - (facultatif) true par défaut.
+  * `supportFetchAPI` Boolean - (facultatif) true par défaut.
+  * `corsEnabled` Boolean - (facultatif) true par défaut.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Enregistre le `scheme` comme étant sécurisé, contournant la politique de sécurité du contenu des ressources, permet d'enregistrer ServiceWorker et prend en charge l'API fetch.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Spécifier une option avec la valeur `false` afin de l'omettre de l'enregistrement. Un exemple d'enregistrement d'un schema prioritaire, sans contourner la politique de sécurité du contenu :
 
 ```javascript
 const {webFrame} = require('electron')
@@ -117,20 +117,20 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Insère le `text` à l'élément ciblé.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (facultatif) - `false` par défaut.
+* `callback` Function (facultatif) - Appelé après l'exécution du script. 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Retourne `Promise` - Une promesse qui se résout avec le résultat du code exécuté ou se rejette si le résultat du code est une promesse rejetée.
 
-Evaluates `code` in page.
+Évalue le `code` dans la page.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
 ### `webFrame.getResourceUsage()`
 
@@ -142,7 +142,7 @@ Retourne `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Retourne un objet décrivant les informations d'utilisation de caches de mémoire interne de Blink.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -167,6 +167,6 @@ Cela va générer :
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Tente de libérer de la mémoire qui n'est plus utilisée (comme les images d'une navigation précédente).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Notez que le fait d'appeler aveuglément cette méthode rend probablement Electron plus lent car il devra remplir ces caches vides, vous ne devriez l'appeler que si un événement dans votre application s'est produit vous faisant penser que votre page utilise réellement moins mémoire (c. -à-d. que vous avez navigué d'une page super lourde à une page presque vide, et avez l'intention d'y rester).

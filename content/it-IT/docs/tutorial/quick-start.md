@@ -1,12 +1,12 @@
 # Avvio rapido
 
-Electron consente di creare applicazioni desktop in JavaScript pure fornendo un eseguibile arricchito delle API (del sistema operativo) native. Puoi immaginarlo come una variante di Node.js che si focalizza su applicazioni desktop invece dei web server.
+Electron consente di creare applicazioni desktop in JavaScript fornendo un eseguibile inclusivo di numerose API native (sistema operativo). Puoi immaginarlo come una variante di Node.js che si focalizza su applicazioni desktop invece dei web server.
 
-Questo non significa che Electron è un'associazione tra JavaScript e le librerie della interfaccia grafica (GUI). Invece, Electron utilizza pagine web come GUI, quindi puoi immaginarlo come un browser Chromium minimale, controllato da JavaScript.
+Questo non significa che Electron è un legame tra JavaScript e le librerie della interfaccia grafica (GUI). Al contrario, Electron utilizza pagine web come GUI, quindi puoi immaginarlo come un browser Chromium minimale, controllato da JavaScript.
 
 ### Processo principale (main)
 
-In Electron, il processo chiamato `main` che esegue lo script indicato nel file `package.json` è chiamato **il processo principale**. Lo script che viene eseguito nel processo principale può visualizzare una GUI tramite la creazione di pagine web.
+In Electron, il processo chiamato `main` che esegue lo script indicato nel file `package.json` è chiamato **processo principale**. Lo script che viene eseguito nel processo principale può visualizzare una GUI tramite la creazione di pagine web.
 
 ### Processo di rendering
 

@@ -18,7 +18,7 @@ The workflow to format your changed code:
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
-## Editor Integration
+## 編輯器整合
 
 You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 

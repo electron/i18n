@@ -49,8 +49,8 @@
 
 ## Выбор слов
 
-* Используйте «будет» над «был бы» при описании результатов.
-* Предпочитайте «в ___ процессе» чем «в».
+* Используйте "будет" над "был бы" при описании результатов.
+* Предпочитайте "в ___ процессе" чем "в".
 
 ## Справочник по API
 
@@ -96,10 +96,10 @@
 * [Статические методы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) должны быть перечислены под главой `### Статические методы`.
 * [Методы экземпляра](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) должны быть перечислены под главой `### Методы экземпляра`.
 * Все методы, которые возвращают значение должно начинаться с описания "Возвращают `[TYPE]` - Возвращают описание" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+  * Если метод возвращает `Object`, его структуру можно указать с помощью двоеточия, следующие строки в виде неупорядоченного списка свойств в том же стиле параметров функции.
+* Экземпляр событий, должнен быть перечислены под `### Instance Events` главой.
+* Свойства экземпляра должны быть перечислены под `### Instance Properties` главой. 
+  * Свойства экземпляра должно начинаться с "[Property Type] ..."
 
 Используйте классы `Session` и `Cookies` в качестве примера:
 
@@ -147,39 +147,39 @@
   ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Название может быть`###` или`####`-уровня в зависимости от того, является ли эти методы модуля или класса.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Для модулей, `objectName` это имя модуля. Для классов это должны быть имена экземпляров класса и не должны быть таким же, как имя модулей.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Например, методы класса `Session` под модулем `session` должны использовать `ses` как `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Необязательные аргументы нотированы в квадратные скобки `[]` окружают необязательный аргумент, а также запятая, если за необязательным аргументом следует еще один аргумент:
 
     required[, optional]
     
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Ниже метода объявляется более подробная информация о каждом из аргументов. Тип аргумента нотируется из общих типов:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* или пользовательский тип как Electron [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Если аргумент или метод является уникальным для определенных платформ, эти платформы обозначаются списком разделенных пробелами, курсивом после datatype. Значения могут быть `macOS`, `Windows` или `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (optional) _macOS_ _Windows_ - анимационные вещи.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Аргументы типа `Array` должны указывать, какие элементы может включать массив в описание ниже.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Описание аргументов типа `Function` должно дать понять, как это может быть сделано и перечислить типы параметров, которые будут переданы ему.
 
-### Events
+### События
 
-The events chapter must be in following form:
+Глава события должна быть в следующем виде:
 
 ```markdown
 ### Event: 'wake-up'
@@ -191,13 +191,13 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Название может быть`###` или`####`-уровня в зависимости от того, является ли это событие модуля или класса.
 
-The arguments of an event follow the same rules as methods.
+Аргументы события следуют тем же правилам методов.
 
-### Properties
+### Свойства
 
-The properties chapter must be in following form:
+Свойства главы должны быть в следующем виде:
 
 ```markdown
 ### session.defaultSession
@@ -205,17 +205,17 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Название может быть`###` или`####`-уровня в зависимости от того, является ли это свойство модуля или класса.
 
-## Documentation Translations
+## Переводы документации
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Переводы документов Electron находятся в папке `docs-translations`.
 
-To add another set (or partial set):
+Чтобы добавить другой набор (или частичный набор):
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* Создайте подкаталог с именем аббревиатуры языка.
+* Перевод файлов.
+* Обновите `README.md` ссылки на файлы в папке языка, которые вы переводили.
+* Добавьте ссылку в главном каталоге вашего перевода Electron на [README](https://github.com/electron/electron#documentation-translations).
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+Обратите внимание, что файлы в `docs-translations` должны включать только переведённое, оригинальные Английские файлы не должны копироваться туда.
