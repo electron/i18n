@@ -1,6 +1,6 @@
-# Planned Breaking API Changes
+# 預計變更的 API
 
-The following list includes the APIs that will be removed in Electron 2.0.
+這份清單包含將會在 Electron 2.0 中被拿掉的 API。
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
@@ -60,13 +60,13 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 已被取代
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 請寫成
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -77,28 +77,28 @@ crashReporter.start({
 ## `menu`
 
 ```js
-// Deprecated
+// 已被取代
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// 請寫成
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 已被取代
 nativeImage.toPng()
-// Replace with
+// 請寫成
 nativeImage.toPNG()
 
-// Deprecated
+// 已被取代
 nativeImage.toJpeg()
-// Replace with
+// 請寫成
 nativeImage.toJPEG()
 
-// Deprecated
+// 已被取代
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 請寫成
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -107,22 +107,22 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// 已被取代
 process.versions['atom-shell']
-// Replace with
+// 請寫成
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` 及 `process.version.chrome` 將變為唯讀的屬性，與其他由 Node 設定的 `process.versions` 一致。
 
 ## `session`
 
 ```js
-// Deprecated
+// 已被取代
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// 請寫成
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -131,58 +131,58 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 已被取代
 tray.setHighlightMode(true)
-// Replace with
+// 請寫成
 tray.setHighlightMode('on')
 
-// Deprecated
+// 已被取代
 tray.setHighlightMode(false)
-// Replace with
+// 請寫成
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 已被取代
 webContents.openDevTools({detach: true})
-// Replace with
+// 請寫成
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
+// 已被取代
 webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// 請寫成
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// 已被取代
 webFrame.setZoomLevelLimits(1, 2)
-// Replace with
+// 請寫成
 webFrame.setVisualZoomLevelLimits(1, 2)
 
-// Deprecated
+// 已被取代
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// 請寫成
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// 已被取代
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// 請寫成
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
+// 已被取代
 webview.setZoomLevelLimits(1, 2)
-// Replace with
+// 請寫成
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
