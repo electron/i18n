@@ -201,13 +201,12 @@ This can be used in combination with [`webContents.setSize`](web-contents.md#con
 ```javascript
 const {webContents} = require('electron')
 
-// We assume that `win` points to a `BrowserWindow` instance containing a
-// `<webview>` with `disableguestresize`.
+// 我們假設 `win` 指到包含 `disableguestresize` 的 `<webview>` 的 `BrowserWindow` 物件。
 
 win.on('resize', () => {
   const [width, height] = win.getContentSize()
   for (let wc of webContents.getAllWebContents()) {
-    // Check if `wc` belongs to a webview in the `win` window.
+    // 檢查 `wc` 是否屬於 `win` 視窗中的 webview。
     if (wc.hostWebContents &&
         wc.hostWebContents.id === win.webContents.id) {
       wc.setSize({
@@ -227,7 +226,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**範例**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -337,7 +336,7 @@ Injects CSS into the guest page.
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - 預設值是 `false`。
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -497,7 +496,7 @@ See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` 物件
+* `event` Object
 
 Sends an input `event` to the page.
 
@@ -609,7 +608,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 回傳:
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - URL 陣列。
 
 Fired when page receives favicon urls.
 
@@ -753,7 +752,7 @@ With `sendToHost` method and `ipc-message` event you can easily communicate betw
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // Prints "pong"
+  // 列出 "pong"
 })
 webview.send('ping')
 ```
