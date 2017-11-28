@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 處理序: [主處理序](../glossary.md#main-process)
 
-### Instance Events
+### 物件事件
 
 #### 事件: 'did-finish-load'
 
@@ -91,7 +91,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 * `httpResponseCode` Integer
 * `requestMethod` String
 * `referrer` String
-* `headers` 物件
+* `headers` Object
 * `resourceType` String
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
@@ -107,7 +107,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 * `httpResponseCode` Integer
 * `requestMethod` String
 * `referrer` String
-* `headers` 物件
+* `headers` Object
 
 Emitted when a redirect is received while requesting a resource.
 
@@ -124,7 +124,7 @@ Emitted when the document in the given frame is loaded.
 回傳:
 
 * `event` Event
-* `favicons` String[] - Array of URLs
+* `favicons` String[] - URL 陣列
 
 Emitted when page receives favicon urls.
 
@@ -209,9 +209,9 @@ const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['離開', '留下來'],
+    title: '你確定要離開本站嗎?',
+    message: '你修改的東西可能不會被存下來。',
     defaultId: 0,
     cancelId: 1
   })
@@ -270,8 +270,7 @@ const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // 這個範例是只在按下 Ctrl/Cmd 時才啟用應用程式選單快速鍵。
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -385,7 +384,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 * `event` Event
 * `type` String
-* `image` NativeImage (optional)
+* `image` NativeImage (選用)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
@@ -644,7 +643,7 @@ Injects CSS into the current web page.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Boolean (選用) - 預設值為 `false`。
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -659,11 +658,11 @@ If the result of the executed code is a promise the callback result will be the 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // 會是 fetch 執行結果的 JSON 物件
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *實驗性質*
 
 * `ignore` Boolean
 
