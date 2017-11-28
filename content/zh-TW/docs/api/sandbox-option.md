@@ -1,4 +1,4 @@
-# `sandbox` Option
+# `sandbox` 選項
 
 > Create a browser window with a renderer that can run inside Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
 
@@ -14,7 +14,7 @@ A sandboxed renderer doesn't have a node.js environment running and doesn't expo
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
-## Example
+## 範例
 
 To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
 
@@ -39,7 +39,7 @@ To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sand
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // 沒必要傳入 `sandbox: true`，因為已經透過 `--enable-sandbox` 啟用。
   win = new BrowserWindow()
   w.loadURL('http://google.com')
 })
