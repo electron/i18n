@@ -11,7 +11,7 @@ nav:
   code_of_conduct: Code of Conduct
 docs:
   title: 'Документація Electron'
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: 'Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.'
   guides: 'Посібники'
   api_reference: 'Довідник API'
   advanced: 'Додатково'
@@ -28,7 +28,7 @@ community:
   videos: 'Відео'
   meetups: 'Зустрічі'
   awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Чогось не вистачає? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
+  meetup_notice: 'Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml"> зробіть пул реквест</a>.'
 electron_is_easy:
   title: 'Все простіше, ніж здається'
   description: 'Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.'
@@ -38,7 +38,7 @@ web_technologies:
   description: Electron використовує Chromium та Node.js, тому ви можете створювати додатки за допомогою HTML, CSS та JavaScript.
 open_source:
   title: 'Відкрите ПЗ'
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Electron - це проект з відкритим кодом який підтримується завдяки GitHub та активною спільнотою розробників.
 cross_platform:
   title: 'Крос-платформний'
   description: 'Сумісний з Mac, Windows та Linux, застосунки Electron збираються та запускаються на трьох платформах.'
@@ -112,7 +112,7 @@ pages:
     title: Development
     description: Developing with Electron
   '/docs/tutorial':
-    title: Tutorial
+    title: 'Посібник'
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: 'Блог Electron'
