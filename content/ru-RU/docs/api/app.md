@@ -561,7 +561,7 @@ app.setJumpList([
 
 Этот метод делает ваше приложение одним экземпляром приложения, а не позволяя запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` будет вызван первым экземпляром из `callback(argv, workingDirectory)` когда второй экземпляр выполнен. `argv` является массивом аргументов командной строки вторичных экземпляров, и `workingDirectory` является его текущим рабочим каталогом. Usually applications respond to this by making their primary window focused and non-minimized.
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
