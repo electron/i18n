@@ -423,10 +423,10 @@ Retourne :
     * `hasAudio` Boolean - Si l'élément multimédia émet un son audio.
     * `isLooping` Boolean - Si l'élément multimédia est en boucle.
     * `isControlsVisible` Boolean - Si les contrôles de l'élément multimédia sont visibles.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
+    * `canToggleControls` Boolean - Si les contrôles de l'élément multimédia sont toggleable.
+    * `canRotate` Boolean - Si l'élément multimédia peut être pivoté.
+  * `editFlags` Object - Ces attributs indiquent si le moteur de rendu pense être en mesure d'effectuer l'action correspondante. 
+    * `canUndo` Boolean - Si le moteur de rendu pense pouvoir aller en arrière.
     * `canRedo` Boolean - Whether the renderer believes it can redo.
     * `canCut` Boolean - Whether the renderer believes it can cut.
     * `canCopy` Boolean - Whether the renderer believes it can copy
