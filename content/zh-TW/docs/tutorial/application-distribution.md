@@ -1,6 +1,6 @@
 # 應用程式發佈
 
-要用 Electron 發佈應用程式，你要先下載 Electron [預先建置好的二進位檔](https://github.com/electron/electron/releases)。 Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+要用 Electron 發佈應用程式，你要先下載 Electron [預先建置好的二進位檔](https://github.com/electron/electron/releases)。 接下來，你的應用程式應要放在 Electron 的資源目錄下，並命名為 `app`，就像以下的範例。 請注意，下列範例中以 `electron/` 表示 Electron 二進位檔存放的地方。
 
 macOS 平臺:
 
@@ -20,11 +20,11 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+執行 `Electron.app` (Linux 是 `electron`，Windows 是 `electron.exe`)，Electron 就會啟動你的應用程式。`electron` 目錄就是你要發佈給最終使用者的東西。
 
 ## 將你的應用程式打包成一個檔案
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+除了將應用程式的所有原始碼複製一份來發佈外，你還可以將應用程式打包成一個 [asar](https://github.com/electron/asar) 封裝檔，免得使用者直接看到你應用程式的原始碼。
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
