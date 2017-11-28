@@ -82,7 +82,7 @@ Due to the Node.js integration of Electron, there are some extra symbols inserte
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
+// Im Hauptprozess.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
