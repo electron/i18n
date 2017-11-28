@@ -58,9 +58,9 @@
 
 ### Заголовок сторінки
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Кожна сторінка повинна використовувати ім'я фактичного об'єкта, що повертається з `require('electron')`, як назву, такі як `BrowserWindow`, `autoUpdater` і `session`.
 
-Під заголовом сторінки має бути стрічка опису, яка починаєтсья з `>`.
+Під заголовком сторінки має бути стрічка опису, яка починається з `>`.
 
 Для прикладу `session`:
 
@@ -150,7 +150,7 @@ Each page must use the actual object name returned by `require('electron')` as t
 
 Заголовок може мати рівні `###` чи `####` в залежності від того, чи це метод модуля чи класу.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Для модулів, `objectName` це ім'я модуля. Для класів це повинно бути імена екземплярів класу і не повинні бути такими ж як і ім'я модулів.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
