@@ -14,7 +14,7 @@
   * `change` Function (optional) - Function to call when the slider is changed. 
     * `newValue` Number - The value that the user selected on the Slider
 
-### Instance Properties
+### 物件屬性
 
 The following properties are available on instances of `TouchBarSlider`:
 
