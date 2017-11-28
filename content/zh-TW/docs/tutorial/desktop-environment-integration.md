@@ -58,7 +58,7 @@ To set your custom dock menu, you can use the `app.dock.setMenu` API, which is o
 const {app, Menu} = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
-  {label: 'New Window', click () { console.log('New Window') }},
+  {label: 'New Window', click () { console.log('新視窗') }},
   {label: 'New Window with Settings',
     submenu: [
       {label: 'Basic'},
@@ -95,7 +95,7 @@ app.setUserTasks([
     iconPath: process.execPath,
     iconIndex: 0,
     title: 'New Window',
-    description: 'Create a new window'
+    description: '建立新視窗'
   }
 ])
 ```
@@ -138,13 +138,13 @@ win.setThumbarButtons([
   {
     tooltip: 'button1',
     icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    click () { console.log('點了 button1。') }
   },
   {
     tooltip: 'button2',
     icon: path.join(__dirname, 'button2.png'),
     flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    click () { console.log('點了 button2。') }
   }
 ])
 ```
