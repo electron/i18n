@@ -17,7 +17,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## 取得程式碼
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -120,9 +120,9 @@ This is caused by a bug when using Cygwin Python and Win32 Node together. The so
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: 無法開啟輸入的檔案 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+請試著重新安裝 32 位元的 Node.js。
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
