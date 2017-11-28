@@ -56,12 +56,12 @@ explore:
   description:
     - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
     - zeigt interaktiv die wichtigsten Funktionen der Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
+    - Siehe was Electron kann mit Code-Beispielen und hilfreichen Tipps
     - bauen deiner App.
 download_from_github: Von GitHub herunterladen
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen anzeigen</a> auf GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Starte mit der <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start-App</a>, um Electron in Aktion zu sehen:"
   description: Eine minimale Electron App mit hilfreichen Anmerkungen.
   clone: Das Quick-Start Repository klonen
   go_into_repo: Gehen Sie in das Repository
