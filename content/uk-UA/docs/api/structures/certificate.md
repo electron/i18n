@@ -1,9 +1,9 @@
-# Certificate Object
+# Об'єкт Certificate
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
+* `data` String - PEM закодовані дані
+* `issuer` [CertificatePrincipal](certificate-principal.md) - Головний емітент
+* `issuerName` String - загальне ім'я чи назва емітента
+* `issuerCert` Certificate - Сертифікат емітента (якщо не самостійно підписанний)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
