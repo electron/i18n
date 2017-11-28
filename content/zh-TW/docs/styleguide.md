@@ -1,6 +1,6 @@
 # Electron 文件編寫風格
 
-These are the guidelines for writing Electron documentation.
+Electron 說明文件撰寫指導方針。
 
 ## 標題
 
@@ -47,7 +47,7 @@ For API references, there are exceptions to this rule.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## 選字
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
@@ -106,31 +106,31 @@ Using the `Session` and `Cookies` classes as an example:
 ```markdown
 # session
 
-## Methods
+## 方法
 
 ### session.fromPartition(partition)
 
-## Properties
+## 屬性
 
 ### session.defaultSession
 
 ## Class: Session
 
-### Instance Events
+### 物件事件
 
-#### Event: 'will-download'
+#### 事件: 'will-download'
 
-### Instance Methods
+### 物件方法
 
 #### `ses.getCacheSize(callback)`
 
-### Instance Properties
+### 物件屬性
 
 #### `ses.cookies`
 
 ## Class: Cookies
 
-### Instance Methods
+### 物件方法
 
 #### `cookies.get(filter, callback)`
 ```
@@ -142,8 +142,8 @@ The methods chapter must be in the following form:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - 參數描述。
+* `optional` Integer (選用) - 另一個參數的描述。
 
 ...
 ```
@@ -171,7 +171,7 @@ Below the method is more detailed information on each of the arguments. The type
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (選用) _macOS_ _Windows_ - 使用動畫。
 ```
 
 `Array` type arguments must specify what elements the array may include in the description below.
@@ -183,9 +183,9 @@ The description for `Function` type arguments should make it clear how it may be
 The events chapter must be in following form:
 
 ```markdown
-### Event: 'wake-up'
+### 事件: 'wake-up'
 
-Returns:
+回傳:
 
 * `time` String
 
