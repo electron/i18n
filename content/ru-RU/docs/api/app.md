@@ -477,10 +477,10 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) или `null` - массив типа `JumpListCategory`, состоящий из объектов.
 
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
+Задает или удаляет пользовательский Jump List для приложения и возвращает одну из следующих строк:
 
-* `ok` - Nothing went wrong.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
+* `ok` - ничего не случилось.
+* `error` - произошла одна или несколько ошибок, включите ведение журнала выполнения, чтобы выяснить возможную ошибку.
 * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
 * `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
