@@ -1,6 +1,6 @@
 # Cookie Object
 
-* `name` String - The name of the cookie.
+* `name` String - Ім'я кукі.
 * `value` String - The value of the cookie.
 * `domain` String (optional) - The domain of the cookie.
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
