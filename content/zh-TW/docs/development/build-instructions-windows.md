@@ -66,7 +66,7 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## 清除
 
 To clean the build files:
 
