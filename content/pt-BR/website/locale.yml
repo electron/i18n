@@ -8,9 +8,10 @@ nav:
   releases: Versões
   contact: Contato
   languages: Idiomas
+  code_of_conduct: Code of Conduct
 docs:
   title: Documentação do Electron
-  description: Veja toda os <a href="/docs/all/">documentos em uma só página</a> ou verifique as <a href="/docs/faq/">perguntas frequente</a>.
+  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: Guias
   api_reference: Referência da API
   advanced: Avançado
@@ -26,10 +27,10 @@ community:
   components: Componentes
   videos: Vídeos
   meetups: Meetups
-  awesome_notice: 'Esta é uma lista gerada a partir do <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> repositório. <br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pull request</a>.'
-  meetup_notice: 'Para adicionar um meetup, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">crie um pull requests</a>.'
+  awesome_notice: Esta é uma lista gerada a partir do <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repositório. <br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pull request</a>.
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
 electron_is_easy:
-  title: É mais fácil do que você pensa
+  title: 'É mais fácil do que você pensa'
   description: Se você pode construir um website, você pode construir um aplicativo desktop. Electron é um framework para criação de aplicações nativas utilizando tecnologias web como JavaScript, HTML, e CSS. Ele cuida das partes mais difíceis para que você possa se concentrar somente com o principal da aplicação.
   video_link: Assista o vídeo
 web_technologies:
@@ -37,7 +38,7 @@ web_technologies:
   description: Electron usa Chromium e Node.js, assim você pode construir seu aplicação com HTML, CSS e JavaScript.
 open_source:
   title: Código Aberto
-  desciption: Electron é um projeto de código aberto mantido pelo o GitHub e com uma comunidade ativa de colaboradores.
+  description: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: Multiplataforma
   description: Compatível com Mac, Windows, e Linux, Aplicativos Electron são construídos e executados nas três plataformas.
@@ -54,12 +55,12 @@ get_started:
 explore:
   title: Explore as APIs do Electron
   description:
-    - 'Os <a href="https://github.com/electron/electron-api-demos">Exemplos de aplicativo das APIs do Electron</a>'
+    - Os <a href="https://github.com/electron/electron-api-demos">Exemplos de aplicativo das APIs do Electron</a>
     - interativamente, demonstra as características mais importantes da API do Electron.
     - Veja o que é possível com Electron com exemplos de código e dicas úteis para
     - construindo seu aplicativo.
 download_from_github: Download no GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a>no GitHub'
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a>no GitHub
 quick_start:
   title: "Inicie com o app <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> para ver o Electron em ação:"
   description: Um pequeno aplicativo Electron com notações úteis.
@@ -69,7 +70,7 @@ quick_start:
   dive_deeper: Ou você pode ir mais fundo e ler a <a href='/docs'>documentação</a>.
 need_help:
   title: Precisa de Ajuda?
-  description: 'Faça perguntas no fórum <a href=''https://discuss.atom.io/c/electron''>Discuss</a> ou em nosso canal do <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:electron@github.com">electron@github.com</a>.'
+  description: Fazer perguntas no <a href='https://discuss.atom.io/c/electron'>Discuss</a> fórum ou nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? E-mail <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
   languages: Idiomas
 taglines:
@@ -85,7 +86,7 @@ footer:
   see_the_faq: Veja as perguntas frequentes
 apps:
   title: Aplicativos construídos com Electron
-  description: 'Com Electron, criar uma aplicação desktop para sua empresa ou ideia é fácil. Inicialmente foi desenvolvido para GitHubs o <a href=''https://atom.io'' target=''_blank''>Atom editor</a>, Electron já foi usado para criar aplicativos por empresas como Microsoft, Facebook, Slack e Docker.'
+  description: Com Electron, criar uma aplicação desktop para sua empresa ou ideia é fácil. Inicialmente foi desenvolvido para GitHubs o <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron já foi usado para criar aplicativos por empresas como Microsoft, Facebook, Slack e Docker.
   view_more: Ver mais aplicativos
   submit_your_own: envie o seu
   something_missing: Faltando alguma coisa?
@@ -104,6 +105,15 @@ pages:
   '/docs/all':
     title: Todas as documentações do Electron!
     description: Todos os guias e API do Electron em uma só local, com página pesquisável.
+  '/docs/api':
+    title: API
+    description: API reference documentation for the latest Electron release
+  '/docs/development':
+    title: Desenvolvimento
+    description: Developing with Electron
+  '/docs/tutorial':
+    title: Tutorial
+    description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Blog do Electron
     description: Todas as últimas notícias da equipe e comunidade do Electron.
@@ -116,6 +126,14 @@ pages:
     description: Entre em contato com a equipe do Electron através do Twitter, Slack, GitHub ou por email.
   '/languages':
     title: Idiomas
+  '/userland':
+    title: Userland
+  '/devtron':
+    title: Devtron
+    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+  '/spectron':
+    title: Spectron
+    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: Página não encontrada.
   if_this_is_an_error: Se isto é um erro
