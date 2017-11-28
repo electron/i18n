@@ -174,7 +174,7 @@
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Аргументи типу `Array` повинні вказувати, які саме елементи включає масив та бути вказані в описі нижче.
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
