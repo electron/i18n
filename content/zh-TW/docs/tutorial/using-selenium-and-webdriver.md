@@ -4,7 +4,7 @@ From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.o
 
 > WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
 
-## Setting up Spectron
+## 設定 Spectron
 
 [Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
@@ -42,11 +42,11 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## 設定 WebDriverJs
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
-### 1. Start ChromeDriver
+### 1. 啟動 ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
@@ -59,13 +59,13 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebDriverJS
+### 2. 安裝 WebDriverJS
 
 ```bash
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. 連線到 ChromeDriver
 
 The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
@@ -73,7 +73,7 @@ The usage of `selenium-webdriver` with Electron is basically the same with upstr
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // "9515" 是 Chrome 驅動程式開的連接埠。
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
@@ -100,7 +100,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. 啟動 ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
