@@ -13,7 +13,7 @@
   * `iconPosition` String - Can be `left`, `right` or `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
 
-### Instance Properties
+### 物件屬性
 
 The following properties are available on instances of `TouchBarButton`:
 
