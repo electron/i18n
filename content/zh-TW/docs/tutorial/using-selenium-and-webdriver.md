@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// 簡單的測試案例，驗證指定標題的視窗有正常顯示出來
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,22 +22,22 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Check if the window is visible
+  // 檢查視窗是可視的
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verify the window is visible
+  // 驗證視窗是可視的
   assert.equal(isVisible, true)
 }).then(function () {
-  // Get the window's title
+  // 取得視窗標題
   return app.client.getTitle()
 }).then(function (title) {
-  // Verify the window's title
+  // 驗證視窗標題
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log any failures
-  console.error('Test failed', error.message)
+  // 將錯誤記錄下來
+  console.error('測試失敗', error.message)
 }).then(function () {
-  // Stop the application
+  // 停止應用程式
   return app.stop()
 })
 ```
@@ -77,7 +77,7 @@ const driver = new webdriver.Builder()
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      // Electron 執行檔的路徑。
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -113,24 +113,24 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebdriverIO
+### 2. 安裝 WebdriverIO
 
 ```bash
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. 連線到 Chrome 驅動程式
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  host: 'localhost', // 使用 localhost 的 Chromes 驅動程式伺服器
+  port: 9515,        // "9515" 是由 Chrome 驅動程式開的連接埠。
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Electron 執行檔的路徑。
+      args: [/* cli arguments */]           // 非必填，可能是 'app=' + /path/to/your/app/
     }
   }
 }
