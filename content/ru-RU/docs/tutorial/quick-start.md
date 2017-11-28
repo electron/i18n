@@ -127,11 +127,11 @@ Finally the `index.html` is the web page you want to show:
 
 ## Запустите Ваше приложение
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+После того как вы создали ваш первоначальный `main.js`, `index.html` и `package.json` файлы, вы, вероятно, хотите попробовать запустить ваше приложение локально, чтобы проверить его и убедится, что она работает как ожидалось.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) является модулем `npm`, который содержит предварительно скомпилированные версии Electron.
 
 If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 
@@ -196,4 +196,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+Дополнительные примеры приложений см. в разделе [список шаблонов](https://electron.atom.io/community/#boilerplates) созданный удивительным сообществом Electron.
