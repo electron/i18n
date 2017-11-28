@@ -8,7 +8,7 @@
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
-## 類別: Notification
+## Class: Notification
 
 > Create OS desktop notifications
 
