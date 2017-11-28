@@ -1,44 +1,32 @@
 # Electron FAQ (các câu hỏi thường gặp)
 
-## Why am I having trouble installing Electron?
+## Tại sao tôi lại gặp sự cố trong khi cài đặt Electron?
 
-Khi chạy ` npm install electron </ 0> , một số người dùng đôi khi gặp phải  
-lỗi cài đặt.</p>
+Khi chạy `npm install electron`, một số người dùng đôi khi gặp phải lỗi cài đặt.
 
-<p>Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là  
-vấn đề thực tế với gói điện tử < 0> electron </ 0>  npm . Errors like <code>ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. Độ phân giải tốt nhất là thử chuyển mạng, hoặc chỉ cần đợi một chút và thử cài đặt lại.
+Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là vấn đề thực tế với gói điện tử < 0> electron </ 0> npm . Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. Độ phân giải tốt nhất là thử chuyển mạng, hoặc chỉ cần đợi một chút và thử cài đặt lại.
 
-You can also try to download the electronic telephone from  electronic-electronics </ 0> if not install o ` npm </ 1> is not. </p>
+Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/releases](https://github.com/electron/electron/releases) nếu quá trình cài đặt `npm` bị lỗi.
 
-<h2>Khi nào Electron sẽ nâng cấp lên Chrome mới nhất ?</h2>
+## Khi nào Chrome được cập nhật phiên bản mới nhất vào Electron?
 
-<p>The Chrome version of Electron is usually bumped within one or two weeks after
-a new stable Chrome version gets released. Ước tính này không được bảo đảm và phụ thuộc vào số lượng công việc liên quan đến nâng cấp.</p>
+Phiên bản của Chrome trong Electron thường được cài đặt vào trong khoảng một hoặc hai tuần sau khi phiên bản ổn định mới nhất đó được phát hành. Ước tính này không được bảo đảm và phụ thuộc vào số lượng công việc liên quan đến nâng cấp.
 
-<p>Only the stable channel of Chrome is used. If an important fix is in beta or dev
-channel, we will back-port it.</p>
+Chỉ có các luồn phiên bản ổn định của Chrome mới được cập nhật. Nếu có một sửa lỗi quan trọng từ Chrome nằm ở phiên bản beta hoặc dev, chúng tôi sẽ sử dụng nó.
 
-<p>For more information, please see the <a href="tutorial/security.md">security introduction</a>.</p>
+Để biết thêm thông tin, vui lòng xem [thông tin bảo mật](tutorial/security.md).
 
-<h2>When will Electron upgrade to latest Node.js?</h2>
+## Khi nào thì Electron sử dụng phiên bản mới nhất của Node.js?
 
-<p>When a new version of Node.js gets released, we usually wait for about a month
-before upgrading the one in Electron. Vì vậy, chúng ta có thể tránh bị ảnh hưởng bởi lỗi được giới thiệu trong các phiên bản Node.js mới , điều này xảy ra rất thường xuyên.</p>
+Khi một phiên bản mới nhất của Node.js được phát hành, chúng tôi thường chờ khoảng một tháng rồi mới cập nhật nó vô Electron. Nhờ vậy chúng tôi có thể tránh bị ảnh hưởng bởi các lỗi trong phiên bản Node.js mới, điều này xảy ra thường xuyên.
 
-<p>New features of Node.js are usually brought by V8 upgrades, since Electron is
-using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a
-new Node.js version is usually already in Electron.</p>
+Các tính năng mới của Node.js thường được cung cấp bởi V8, kể từ khi Electron cũng sử dụng V8 từ trình duyệt Chrome, các tính năng mới của JavaScript trong các phiên bản mới nhất của Node.js thường đã sẳn sàng trong Electron.
 
-<h2>How to share data between web pages?</h2>
+## Làm thế nào để chia sẻ dữ liệu giữa các trang web?
 
-<p>To share data between web pages (the renderer processes) the simplest way is to
-use HTML5 APIs which are already available in browsers. Ứng viên tốt là
- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage"> Lưu trữ API </ 0> , <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"><code> lưu trữ cục bộ </ 1> ,
- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage"><code> sessionStorage </ 2> và <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API"> IndexedDB </ 3> .</p>
+Các đơn giản nhất để chia sẻ dữ liệu giữa các trang web (trong quá trình renderer) là sử dụng HTML5 API, đã có sẵn trong trình duyệt. Đề nghị tốt nhất cho bạn là [API Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) và [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-<p>Or you can use the IPC system, which is specific to Electron, to store objects
-in the main process as a global variable, and then to access them from the
-renderers through the <code>remote` property of `electron` module:</p> 
+Hoặc bạn có thể sử dụng hệ thống IPC của Electron, để lưu trữ các đối tượng trong main process như là một biến toàn cầu, và sau đó truy cập chúng từ các renderer thông qua các property `điều khiển (remote)` của module `electron`:
 
 ```javascript
 // Trong main process.
@@ -57,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Cửa sổ / khay của ứng dụng tôi biến mất sau vài phút.
+## Cửa sổ của ứng dụng hoặc icon dưới taskbar (tray) của tôi đột nhiên biến mất chỉ sau một vài phút xuất hiện.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Điều này xảy ra khi các biến được sử dụng để lưu trữ các cửa sổ/tray được bộ dọn rác dọn đi.
 
-If you encounter this problem, the following articles may prove helpful:
+Nếu bạn gặp vấn đề này, bài viết sau đây có thể hữu ích:
 
 * [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Nếu bạn chỉ muốn một sửa lỗi này nhanh chóng, bạn có thể tạo ra các biến toàn cầu bằng cách thay đổi code của bạn từ:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -87,13 +75,14 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Tại sao tôi không thể sử dụng jQuery/RequireJS/Meteor/AngularJS trong Electron.
 
-Do Node.js được tích hợp trong Electron, có một ký hiệu bổ sung được chèn vào DOM như module </ 0>, ` xuất khẩu </ 0>, <code> yêu cầu </ 0>. Điều này gây ra vấn đề cho một số thư viện khi họ muốn chèn các ký hiệu cùng với một tên.</p>
+Do Node.js được tích hợp trong Electron, do đó có một số symbol bổ sung được chèn vào DOM như `module`, `exports`, `require`. Điều này gây ra vấn đề cho một số thư viện khi họ muốn chèn các ký hiệu cùng với một tên.
 
-<p>To solve this, you can turn off node integration in Electron:</p>
+Để giải quyết vấn đề này, bạn có thể tắt tích hợp Node trong Electron:
 
-<pre><code class="javascript">// Trong main process.
+```javascript
+// Trong main process.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -101,9 +90,9 @@ let win = new BrowserWindow({
   }
 })
 win.show()
-`</pre> 
+```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Tuy nhiên, nếu bạn muốn giữ lại khả năng sử dụng Node.js và các Electron API, bạn phải đổi tên những symbol trong các trang trước khi cài các thư viện khác vào ứng dụng:
 
 ```html
 <head>
@@ -125,25 +114,24 @@ Khi sử dụng các mô đun được xây dựng sẵn trong Electron, bạn c
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This has been occurred because you have a different modules of ` electron </ 1> </ 0> <if> <input> installed in the current directory or on global, it was ghi đè vào các module built in built in Electron.</p>
+Điều này xảy ra bởi vì bạn có một phiên bản khác của [npm của module của `electron`](https://www.npmjs.com/package/electron) được cài đặt tại thư mục hiện tại hoặc trên global, nó đã ghi đè vào các module được xây dựng sẵn bên trong Electron.
 
-<p>To verify whether you are using the correct built-in module, you can print the
-path of the <code>electron` module:
+Để chắc chắn, cho dù bạn đang sử dụng chính xác module được xây dựng sẳn đó, hãy xem thử đường dẫn của module `electron` đó nằm, ở đâu:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+và sau đó kiểm tra nếu nó có kiểu giống dưới đây:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Nếu nó là một cái gì đó như `node_modules/electron/index.js`, thì bạn phải loại bỏ các module npm `electron`, hoặc đổi tên nó.
 
 ```bash
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Tuy nhiên nếu bạn đang sử dụng các module được xây dựng sẵn nhưng vẫn nhận được lỗi này, rất có thể bạn đang sử dụng module của process khác. Ví dụ `electron.app` chỉ có thể sử dụng trong main process, giống như `electron.webFrame` chỉ có thể sử dụng trong các renderer process.
