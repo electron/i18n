@@ -26,7 +26,7 @@ Input Method Editor. A program that allows users to enter characters and symbols
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC steht für Inter-Process-Communication. Electron verwendet IPC serialisierte JSON-Nachrichten zwischen den [main](#main-process) und [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -44,7 +44,7 @@ Siehe auch: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Abkürzung für Apples Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md).
 
 ### native modules
 
@@ -60,7 +60,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ## OSR
 
-Off-screen rendering.
+Offscreen Rendering.
 
 ### process
 
@@ -80,7 +80,7 @@ Siehe auch: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. Siehe dir die [autoUpdater](api/auto-updater.md) API an für mehr Informationen wie du mit Squirrel startest.
+Squirrel ist ein Open-Source Framework, welches Electron Apps ermöglicht sich automatisch zu aktualisieren, wenn neue Versionen veröffentlicht werden. Siehe dir die [autoUpdater](api/auto-updater.md) API an für mehr Informationen wie du mit Squirrel startest.
 
 ### userland
 
