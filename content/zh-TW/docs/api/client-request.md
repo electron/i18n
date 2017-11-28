@@ -1,4 +1,4 @@
-## 類別: ClientRequest
+## Class: ClientRequest
 
 > Make HTTP/HTTPS requests.
 
