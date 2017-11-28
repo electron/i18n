@@ -1,12 +1,12 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Виявляє клавіатурні події навіть якщо програма зараз не у фокусі.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Примітка:** Це сполучення клавіш глобальне; воно буде працювати навіть якщо програма зараз не активна. You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -59,8 +59,8 @@ When the accelerator is already taken by other applications, this call will stil
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Скасувати реєстрацію глобального сполучення клавіш `accelerator`.
+Скасовує реєстрацію глобального сполучення клавіш `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Скасовує реєстрацію всіх глобальних сполучень клавіш.
