@@ -178,9 +178,9 @@
 
 Опис аргументів для типу `Function` повинно бути чітко зазначено, як саме мають бути названі та перелік типів цих аргументів, що будут передані в функцію.
 
-### Events
+### Події (Events)
 
-The events chapter must be in following form:
+Розділи подій мають мати наступну форму:
 
 ```markdown
 ### Event: 'wake-up'
@@ -192,13 +192,13 @@ The events chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Назва повинна починатися с `###` або `####`-рівня в залежності від того, це подія модуля чи класу.
 
-The arguments of an event follow the same rules as methods.
+Аргументи події слідують тим же правилам що й методи.
 
 ### Properties
 
-The properties chapter must be in following form:
+Розділи властивостей мають мати наступну форму:
 
 ```markdown
 ### session.defaultSession
@@ -206,7 +206,7 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Назва повинна починатися с `###` або `####`-рівня в залежності від того, це властивість модуля чи класу.
 
 ## Documentation Translations
 
