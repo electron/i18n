@@ -1,122 +1,140 @@
-tagline: Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS
+tagline: 'Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS'
 nav:
-  docs: Документация
-  blog: Блог
-  community: Сообщество
-  apps: Приложения
-  userland: Пользовательское пространство
-  releases: Релизы
-  contact: Связаться
-  languages: Языки
+  docs: 'Документация'
+  blog: 'Блог'
+  community: 'Сообщество'
+  apps: 'Приложения'
+  userland: 'Пользовательское пространство'
+  releases: 'Релизы'
+  contact: 'Связаться'
+  languages: 'Языки'
+  code_of_conduct: Code of Conduct
 docs:
-  title: Документация Electron
-  description: Просмотрите всю <a href="/docs/all/">документацию на одной странице</a> или посетите <a href="/docs/faq/">FAQ</a>.
-  guides: Руководства
-  api_reference: Справочник по API
-  advanced: Расширенный
+  title: 'Документация Electron'
+  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  guides: 'Руководства'
+  api_reference: 'Справочник по API'
+  advanced: 'Расширенный'
 languages:
-  choose_language: Выберите язык сайта
-  translation_progress: Прогресс перевода
-  current: текущий выбор
+  choose_language: 'Выберите язык сайта'
+  translation_progress: 'Прогресс перевода'
+  current: 'текущий выбор'
 community:
-  title: Сообщество Electron
+  title: 'Сообщество Electron'
   description: 'Инструменты, шаблоны, видео и больше для Electron <a href="https://github.com/sindresorhus/awesome-electron"> удивительные</a> open-source вкладчики. Найти или добавить <a href="/community#meetups"> meetups</a> рядом с вами.'
-  tools: Инструменты
-  boilerplates: Шаблоны
-  components: Компоненты
-  videos: Видео
-  meetups: Собрания
+  tools: 'Инструменты'
+  boilerplates: 'Шаблоны'
+  components: 'Компоненты'
+  videos: 'Видео'
+  meetups: 'Собрания'
   awesome_notice: 'Этот список генерируется из <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''s Awesome Electron</a> репозитория. <br> Кое-что пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.'
-  meetup_notice: 'Чтобы добавить meetup, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml"> сделайте pull request</a>.'
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
 electron_is_easy:
-  title: Это проще, чем вы думаете
+  title: 'Это проще, чем вы думаете'
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
-  video_link: Смотреть видео
+  video_link: 'Смотреть видео'
 web_technologies:
-  title: Веб-технологии
+  title: 'Веб-технологии'
   description: Electron использует Chromium и Node.js, так что Вы можете создавать свои приложения на HTML, CSS и JavaScript.
 open_source:
   title: Open Source
-  desciption: Electron это проект с открытым исходным кодом который поддерживается GitHub и активным сообществом авторов.
+  description: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
-  title: Кросс-платформенный
-  description: Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.
+  title: 'Кросс-платформенный'
+  description: 'Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.'
 benefits:
-  hard_parts_made_easy: Сложные вещи стали проще
-  automatic_updates: Автоматическое обновление
-  native_menus_and_notifications: Собственные меню и уведомления
-  crash_reporting: Отчеты об ошибках
-  debugging_and_profiling: Отладка и профилирование
-  windows_installers: Установщики для Windows
+  hard_parts_made_easy: 'Сложные вещи стали проще'
+  automatic_updates: 'Автоматическое обновление'
+  native_menus_and_notifications: 'Собственные меню и уведомления'
+  crash_reporting: 'Отчеты об ошибках'
+  debugging_and_profiling: 'Отладка и профилирование'
+  windows_installers: 'Установщики для Windows'
 get_started:
-  title: Начать работу
-  description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
+  title: 'Начать работу'
+  description: 'Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.'
 explore:
-  title: Исследуйте Electron API
+  title: 'Исследуйте Electron API'
   description:
-    - '<a href="https://github.com/electron/electron-api-demos">Тестовое приложение Electron API</a>'
-    - интерактивно демонстрирует наиболее важные функции Electron API.
-    - Узнайте что возможно сделать с Electron при помощи простого кода и полезных советов для
-    - создания вашего приложения.
-download_from_github: Скачать с GitHub
-view_all_releases_on_github: '<a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub'
+    - <a href="https://github.com/electron/electron-api-demos">Тестовое приложение Electron API</a>
+    - 'интерактивно демонстрирует наиболее важные функции Electron API.'
+    - 'Узнайте что возможно сделать с Electron при помощи простого кода и полезных советов для'
+    - 'создания вашего приложения.'
+download_from_github: 'Скачать с GitHub'
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
 quick_start:
   title: "Подготовьте приложение <a href='https://github.com/electron/electron-quick-start' target='_blank'>быстрого старта</a> для просмотра Electron в действии:"
-  description: Минимальное приложение Electron с полезными нотациями.
-  clone: Клонируйте репозиторий быстрого старта
-  go_into_repo: Перейти в репозиторий
-  install_deps: Установите зависимости и запустите
-  dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
+  description: 'Минимальное приложение Electron с полезными нотациями.'
+  clone: 'Клонируйте репозиторий быстрого старта'
+  go_into_repo: 'Перейти в репозиторий'
+  install_deps: 'Установите зависимости и запустите'
+  dive_deeper: 'Или окунитесь глубже и ознакомьтесь с <a href=''/docs''>документацией</a>.'
 need_help:
-  title: Нужна помощь?
+  title: 'Нужна помощь?'
   description: 'Задайте вопроссы на канале <a href=''https://discuss.atom.io/c/electron''>Discuss</a> forum or our <a href=''http://atom-slack.herokuapp.com/''>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Нужно приватно связаться? Email <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
-  languages: Языки
+  languages: 'Языки'
 taglines:
-  languages: Локализованное содержимое от нашего удивительного сообщества разработчиков по всему миру.
+  languages: 'Локализованное содержимое от нашего удивительного сообщества разработчиков по всему миру.'
 help_translate: "Помочь перевести"
 footer:
-  see_something: Увидели, что нуждается в исправлении?
-  propose_change: Предлогаю изменить в исходном файле.
-  need_different_version: Нужна другая версия документации?
-  see_available_versions: Просмотреть доступные версии.
-  want_something_searchable: Желаете что-либо поискать?
-  view_all_docs: Смотрите все документы на одной странице
-  see_the_faq: Просмотреть часто задаваемые вопросы
+  see_something: 'Увидели, что нуждается в исправлении?'
+  propose_change: 'Предлогаю изменить в исходном файле.'
+  need_different_version: 'Нужна другая версия документации?'
+  see_available_versions: 'Просмотреть доступные версии.'
+  want_something_searchable: 'Желаете что-либо поискать?'
+  view_all_docs: 'Смотрите все документы на одной странице'
+  see_the_faq: 'Просмотреть часто задаваемые вопросы'
 apps:
-  title: Приложения, созданные на Electron
+  title: 'Приложения, созданные на Electron'
   description: 'С помощью Electron, создание настольного приложения для вашей компании или идеи легко. Первоначально разработанный для GitHub''s <a href=''https://atom.io'' target=''_blank''>Atom редактор</a>, Electron с тех пор используется для создания приложений такими компаниями, как Microsoft, Facebook, Slack и Docker.'
-  view_more: Просмотреть другие приложения
-  submit_your_own: или опубликовать своё
-  something_missing: Что-то отсутствует?
-  edit_this_app: Измените это приложение.
-or: или
+  view_more: 'Просмотреть другие приложения'
+  submit_your_own: 'или опубликовать своё'
+  something_missing: 'Что-то отсутствует?'
+  edit_this_app: 'Измените это приложение.'
+or: 'или'
 pages:
   '/':
     title: Electron | Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.
     description: 'Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.'
   '/apps':
-    title: Приложения Electron
-    description: Приложения, созданные на Electron
+    title: 'Приложения Electron'
+    description: 'Приложения, созданные на Electron'
   '/docs':
-    title: Документация
-    description: Руководства и API справочной документации для последнего релиза Electron
+    title: 'Документация'
+    description: 'Руководства и API справочной документации для последнего релиза Electron'
   '/docs/all':
-    title: Все документы Electron!
-    description: Все руководства Electron и API документация на единой, поисковой странице.
+    title: 'Все документы Electron!'
+    description: 'Все руководства Electron и API документация на единой, поисковой странице.'
+  '/docs/api':
+    title: API
+    description: API reference documentation for the latest Electron release
+  '/docs/development':
+    title: 'Разработка'
+    description: Developing with Electron
+  '/docs/tutorial':
+    title: Tutorial
+    description: Guides and tutorials for the latest Electron release
   '/blog':
-    title: Блог Electron
-    description: Все последние новости от команды Electron и сообщества.
+    title: 'Блог Electron'
+    description: 'Все последние новости от команды Electron и сообщества.'
   '/community':
-    title: Сообщество
+    title: 'Сообщество'
   '/releases':
-    title: Релизы
+    title: 'Релизы'
   '/contact':
-    title: Связаться
-    description: Свяжитесь с командой Electron через Twitter, Slack, GitHub или по электронной почте.
+    title: 'Связаться'
+    description: 'Свяжитесь с командой Electron через Twitter, Slack, GitHub или по электронной почте.'
   '/languages':
-    title: Языки
+    title: 'Языки'
+  '/userland':
+    title: 'Пользовательское пространство'
+  '/devtron':
+    title: Devtron
+    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+  '/spectron':
+    title: Spectron
+    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
-  page_not_found: Страница не найдена.
-  if_this_is_an_error: Если это ошибка,
-  please_file_an_issue: пожалуйста, сообщите о проблеме.
+  page_not_found: 'Страница не найдена.'
+  if_this_is_an_error: 'Если это ошибка,'
+  please_file_an_issue: 'пожалуйста, сообщите о проблеме.'
