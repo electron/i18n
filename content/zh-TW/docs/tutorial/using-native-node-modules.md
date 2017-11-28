@@ -20,11 +20,11 @@ export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Download headers for Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# 告訴 node-pre-gyp 我們正要跑 Electron 建置。
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# 告訴 node-pre-gyp 由原始碼開始建置模組。
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# 安裝所有相依的套件，並儲存一份在 ~/.electron-gyp 。
 HOME=~/.electron-gyp npm install
 ```
 
@@ -44,7 +44,7 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### 手動建置 Electron
 
 If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
 
