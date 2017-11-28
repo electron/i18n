@@ -1,6 +1,6 @@
 # 桌面環境整合
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+不同的作業系統提供不同的功能特性，將桌面應用程式整合進桌面環境中。 For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
@@ -34,13 +34,13 @@ const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Windows 注意事項
 
 In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
-### macOS Notes
+### macOS 注意事項
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
@@ -239,11 +239,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## 將檔案拖出視窗
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+在網頁中:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+在主處理序中:
 
 ```javascript
 const {ipcMain} = require('electron')
