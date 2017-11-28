@@ -148,7 +148,7 @@ client
   .end()
 ```
 
-## Workflow
+## 工作流程
 
 To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
