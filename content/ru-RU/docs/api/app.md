@@ -1,10 +1,10 @@
-# приложение
+# app
 
 > Контролируйте жизненный цикл Вашего приложения.
 
 Процесс: [Main](../glossary.md#main-process)
 
-Этот пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
+Это пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
 
 ```javascript
 const {app} = require('electron')
@@ -475,7 +475,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) или `null` - массив типа `JumpListCategory`, состоящий из объектов.
 
 Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
