@@ -28,6 +28,6 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 ![devtron 擷圖](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-上述兩組工具都是用 Google 為了 Chrome 打造的 [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) 程式庫。 You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+上述兩組工具都是用 Google 為了 Chrome 打造的 [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) 程式庫。 你可以在這個函式庫的[儲存庫 Wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 中找到易用性稽查規則的詳細資訊。
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electron.atom.io/docs/tutorial/accessibility) with a pull request.
+如果你還知道其他 Electron 可以用的易用性工具，加到[協助工具說明文件](https://electron.atom.io/docs/tutorial/accessibility)裡再發個 Pull Request 吧。
