@@ -50,13 +50,13 @@ Apple Mac App Store 的縮寫。如何將你的應用程式送上 MAS，可以�
 
 原生模組 (在 Node.js 裡也叫做 [附加元件 (Addon)](https://nodejs.org/api/addons.html)) 是用 C 或 C++ 開發的模組。可以在 Node.js 或 Electron 中透過 require() 方法載入，使用起來就像一般的 Node.js 模組一樣。 主要是提供 Node.js 中的 JavaScript 與 C/C++ 程式庫溝通的介面。
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Electron 支援 Node 原生模組，但是 Electron 很有可能會用跟你安裝的 Node 不同版本的 V8，因此建置原生模組時你要手動指定 Electron 標頭檔的位置。
 
-可再參考[使用原生 Node 模組](tutorial/using-native-node-modules.md)。
+可再參考[使用 Node 原生模組](tutorial/using-native-node-modules.md)。
 
 ### NSIS
 
-Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Microsoft Windows 上的一套腳本式安裝程式編寫工具。 It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Microsoft Windows 上的一套腳本式安裝程式編寫工具。 它是在多種自由軟體許可的組合下發佈，是 InstallShield 等商業產品外，廣泛被使用的解決方案。 [electron-builder](https://github.com/electron-userland/electron-builder) 支援 NSIS 建置。
 
 ## OSR
 
