@@ -141,7 +141,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
-### Instance Methods
+### 物件方法
 
 The following methods are available on instances of the `NativeImage` class:
 
