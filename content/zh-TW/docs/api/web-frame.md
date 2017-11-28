@@ -158,10 +158,10 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* 跟 "images" 相同 */ },
+  xslStyleSheets: { /* 跟 "images" 相同 */ },
+  fonts: { /* 跟 "images" 相同 */ },
+  other: { /* 跟 "images" 相同 */ }
 }
 ```
 
