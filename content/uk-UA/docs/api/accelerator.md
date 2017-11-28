@@ -4,7 +4,7 @@
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Examples:
+Приклади:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
@@ -30,22 +30,22 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Available modifiers
+## Доступні модифікатори
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (або скорочено `Cmd`)
+* `Control` (або скорочено `Ctrl`)
+* `CommandOrControl` (або скорочено `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Доступні коди клавіш
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
+* Від `` до `9`
+* Від `A` до `Z`
+* Від `F1` до `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
