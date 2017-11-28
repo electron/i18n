@@ -20,16 +20,16 @@ languages:
   current: lựa chọn hiện tại
 community:
   title: Cộng đồng Electron
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'Tools, boilerplates, videos, và nhiều hơn thế nữa từ các contributor của open-source repository: Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a>. Tìm kiếm hoặc thêm <a href="/community#meetups">meetups</a> gần bạn.'
   tools: Công cụ
   boilerplates: Boilerplates
   components: Components
   videos: Video
   meetups: Meetups
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">make a pull request</a>.
+  awesome_notice: 'Danh sách này được tạo ra từ repository: <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron của @sindresorhus</a>. <br>Thấy thiếu cái gì đó? Hãy <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">tạo một pull request để thêm vào</a>.'
+  meetup_notice: 'Để thêm một meetup, chỉnh sửa <code>data/meetups.json</code> và sau đó <a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">tạo một pull request</a>.'
 electron_is_easy:
-  title: Nó dễ dàng hơn bạn nghĩ
+  title: Nó dễ hơn bạn nghĩ
   description: Nếu bạn có thể xây dựng một website thì bạn có thể xây dựng ứng dụng trên desktop. Electron là một framework cho việc tạo ra các ứng dụng đó chỉ với công nghệ xây dựng web, giống như HTML, CSS và Javascript. Nó sẽ lo về các phần cứng dùm bạn, việc của bạn chỉ cần làm là tập trung tinh thành vào lập trình ứng dụng của bạn.
   video_link: Xem video
 web_technologies:
@@ -69,7 +69,7 @@ quick_start:
   dive_deeper: Hoặc xem xét kĩ hơn bằng cách đọc <a href='/docs'>tài liệu</a>.
 need_help:
   title: Cần trợ giúp?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
+  description: 'Đặt câu hỏi trong <a href=''https://discuss.atom.io/c/electron''>Diễn đàn</a> hoặc kênh <a href=''http://atom-slack.herokuapp.com/''>Slack</a> của chúng tôi. Follow <a href="https://twitter.com/electronjs">@ElectronJS</a> trên Twitter cho các thông báo quan trọng. Để liên hệ với người phụ trách, vui lòng gửi email về <a href="mailto:electron@github.com">electron@github.com</a>.'
 headings:
   languages: Ngôn ngữ
 taglines:
@@ -77,7 +77,7 @@ taglines:
 help_translate: "Tham gia dịch"
 footer:
   see_something: Thấy cái gì đó cần chỉnh sửa?
-  propose_change: Propose a change to the source file.
+  propose_change: 'Đề xuất một thay đổi đến source file.'
   need_different_version: Cần tài liệu cho từng phiên bản khác nhau?
   see_available_versions: Xem các phiên bản có sẵn.
   want_something_searchable: Muốn tìm kiếm một cái gì đó?
@@ -100,7 +100,7 @@ pages:
     description: Các ứng dụng được xây dựng từ Electron
   '/docs':
     title: Tài liệu
-    description: Guides and API reference documentation for the latest Electron release
+    description: Các hướng dẫn và tài liệu về API liên quan cho phiên bản phát hành mới nhất của Electron
   '/docs/all':
     title: Tất cả các tài liệu Electron!
     description: Tất cả hướng dẫn và tài liệu API của Electron chỉ trên một trang.
