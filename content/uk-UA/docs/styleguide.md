@@ -185,7 +185,7 @@ The events chapter must be in following form:
 ```markdown
 ### Event: 'wake-up'
 
-Returns:
+Повертає:
 
 * `time` String
 
