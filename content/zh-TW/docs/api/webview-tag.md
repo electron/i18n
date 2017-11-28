@@ -577,7 +577,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 * `httpResponseCode` Integer
 * `requestMethod` String
 * `referrer` String
-* `headers` 物件
+* `headers` Object
 * `resourceType` String
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
