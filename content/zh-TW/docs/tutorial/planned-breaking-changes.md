@@ -7,16 +7,16 @@ There is no timetable for when this release will occur but deprecation warnings 
 ## `app`
 
 ```js
-// Deprecated
+// 已被取代
 app.getAppMemoryInfo()
-// Replace with
+// 請寫成
 app.getAppMetrics()
 ```
 
 ## `BrowserWindow`
 
 ```js
-// 別再這樣寫
+// 已被取代
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 // 請寫成
@@ -25,10 +25,10 @@ let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// 已被取代
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 請寫成
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -36,24 +36,24 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// 已被取代
 clipboard.readRtf()
-// Replace with
+// 請寫成
 clipboard.readRTF()
 
-// Deprecated
+// 已被取代
 clipboard.writeRtf()
-// Replace with
+// 請寫成
 clipboard.writeRTF()
 
-// Deprecated
+// 已被取代
 clipboard.readHtml()
-// Replace with
+// 請寫成
 clipboard.readHTML()
 
-// Deprecated
+// 已被取代
 clipboard.writeHtml()
-// Replace with
+// 請寫成
 clipboard.writeHTML()
 ```
 
@@ -104,7 +104,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `處理序`
+## `process`
 
 ```js
 // Deprecated
@@ -202,6 +202,6 @@ The file *without the prefix* is still being published to avoid breaking any set
 
 For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## `FIXME` 註解
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
