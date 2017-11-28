@@ -1,4 +1,4 @@
-## 類別: IncomingMessage
+## Class: IncomingMessage
 
 > Handle responses to HTTP/HTTPS requests.
 
