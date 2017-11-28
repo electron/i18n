@@ -1,4 +1,4 @@
-## 類別: MenuItem
+## Class: MenuItem
 
 > Add items to native application menus and context menus.
 
