@@ -16,11 +16,11 @@ let win = new BrowserWindow({
 
 The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
 
-## Available APIs
+## 可用的 API
 
 All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
 
-## Native Node.js modules
+## 原生 Node.js 模組
 
 Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
 
@@ -30,7 +30,7 @@ The only way to load a native module safely for now, is to make sure the app loa
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  throw new Error('載入的原本模組不安全')
 }
 let worker = new Worker('script.js')
 ```
