@@ -10,12 +10,12 @@ nav:
   languages: Sprachen
 docs:
   title: Electron-Dokumentation
-  description: See all of the <a href="/docs/all/">docs on one page</a> or check out the <a href="/docs/faq/">FAQ</a>.
+  description: Alle <a href="/docs/all/">Dokumente auf einer Seite</a> anzeigen oder die <a href="/docs/faq/">FAQ</a> ansehen.
   guides: Anleitungen
   api_reference: API-Referenz
   advanced: Erweitert
 languages:
-  choose_language: Choose Your Site Language
+  choose_language: Wählen Sie Ihre Sprache
   translation_progress: 'Übersetzungsfortschritt'
   current: Aktuelle Auswahl
 community:
