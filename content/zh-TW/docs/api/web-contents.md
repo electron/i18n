@@ -39,7 +39,7 @@ Returns `WebContents` - The web contents that is focused in this application, ot
 
 Returns `WebContents` - A WebContents instance with the given ID.
 
-## 類別: WebContents
+## Class: WebContents
 
 > Render and control the contents of a BrowserWindow instance.
 
