@@ -1,10 +1,10 @@
 # 使用 Node 原生模組
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Electron 支援 Node 原生模組，但是 Electron 很有可能會用跟你安裝的 Node 不同版本的 V8，因此建置原生模組時你要手動指定 Electron 標頭檔的位置。
 
 ## 如何安裝原生模組
 
-Three ways to install native modules:
+有三種方式可以安裝原生模組:
 
 ### 使用 `npm`
 
@@ -18,7 +18,7 @@ export npm_config_target=1.2.3
 # Electron 硬體架構，可以是 ia32 或 x64。
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# 下載 Electron 標頭檔。
 export npm_config_disturl=https://atom.io/download/electron
 # 告訴 node-pre-gyp 我們正要跑 Electron 建置。
 export npm_config_runtime=electron
@@ -63,13 +63,13 @@ If you installed a native module and found it was not working, you need to check
 * After you upgraded Electron, you usually need to rebuild the modules.
 * When in doubt, run `electron-rebuild` first.
 
-## Modules that rely on `prebuild`
+## 相依 `prebuild` 的模組
 
 [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
 If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
-## Modules that rely on `node-pre-gyp`
+## 相依 `node-pre-gyp` 的模組
 
 The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
 
