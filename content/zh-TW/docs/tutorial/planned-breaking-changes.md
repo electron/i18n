@@ -190,9 +190,9 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Deprecated: https://atom.io/download/atom-shell
+已被取代: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+請改用: https://atom.io/download/electron
 
 ## Duplicate ARM Assets
 
