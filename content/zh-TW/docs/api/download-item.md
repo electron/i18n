@@ -1,4 +1,4 @@
-## 類別: DownloadItem
+## Class: DownloadItem
 
 > Control file downloads from remote sources.
 
