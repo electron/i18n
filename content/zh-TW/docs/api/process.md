@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## 屬性
 
 ### `process.defaultApp`
 
