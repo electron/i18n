@@ -10,7 +10,7 @@
 
 #### Event: 'data'
 
-Returns:
+반환:
 
 * `chunk` Buffer - A chunk of response body's data.
 
@@ -26,7 +26,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 #### Event: 'error'
 
-Returns:
+반환:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
