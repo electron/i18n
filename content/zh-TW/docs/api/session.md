@@ -42,7 +42,7 @@ The `session` module has the following properties:
 
 A `Session` object, the default session object of the app.
 
-## 類別: Session
+## Class: Session
 
 > Get and set properties of a session.
 
