@@ -48,7 +48,7 @@ $ python script\build.py -c D
 
 After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
 
-## 32bit Build
+## 32 位元建置
 
 To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
