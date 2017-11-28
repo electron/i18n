@@ -137,20 +137,20 @@ An example of using it to determine if you should create a transparent window or
 const {BrowserWindow, systemPreferences} = require('electron')
 let browserOptions = {width: 1000, height: 800}
 
-// Make the window transparent only if the platform supports it.
+// 只在支援的平臺上設定視窗透明度。
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// Create the window.
+// 建立視窗。
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+// 導頁。
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
+  // 不支援透明，所以退而求其次使用基本樣式。
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
