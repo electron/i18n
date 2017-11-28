@@ -34,7 +34,7 @@ If `partition` starts with `persist:`, the page will use a persistent session av
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Properties
+## 屬性
 
 The `session` module has the following properties:
 
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### 物件方法
 
 The following methods are available on instances of `Session`:
 
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### 物件屬性
 
 The following properties are available on instances of `Session`:
 
