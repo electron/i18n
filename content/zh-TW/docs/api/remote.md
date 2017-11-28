@@ -123,7 +123,7 @@ module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
+// 畫面轉譯處理序: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
@@ -141,7 +141,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
-## Properties
+## 屬性
 
 ### `remote.process`
 
