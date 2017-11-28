@@ -10,7 +10,7 @@ Das ASAR-Format wurde primär für Performance-Vorteile unter Windows entwickelt
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Sie wurde mittlerweile in die Codebasis von Electron eingepflegt.
 
 ### CRT
 
