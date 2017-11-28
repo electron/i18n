@@ -196,7 +196,7 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### 屬性
 
 The properties chapter must be in following form:
 
