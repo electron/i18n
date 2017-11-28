@@ -47,7 +47,7 @@ Objects created with `new Notification` emit the following events:
 
 #### Event: 'show'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -55,7 +55,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 #### Event: 'click'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -63,7 +63,7 @@ Emitted when the notification is clicked by the user.
 
 #### Event: 'close'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -73,7 +73,7 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `reply` String - The string the user entered into the inline reply field
@@ -82,7 +82,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 #### Event: 'action' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `index` Number - The index of the action that was activated
