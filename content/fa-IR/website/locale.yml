@@ -58,7 +58,7 @@ explore:
     - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
+    - 'برنامه خودتان را بسازید.'
 download_from_github: 'دانلود از گیت‌هاب'
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب
 quick_start:
@@ -107,13 +107,13 @@ pages:
     description: 'تمام راهنماهای فریم ورک الکترون و اسناد API در یک صفحه قابل جستجو.'
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: 'مستندات مرجع API آخرین نسخه الکترون'
   '/docs/development':
-    title: Development
-    description: Developing with Electron
+    title: 'توسعه'
+    description: 'توسعه و طراحی با فریم ورک الکترون'
   '/docs/tutorial':
-    title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    title: 'آموزش ها'
+    description: 'راهنمایی ها و آموزش های آخرین نسخه الکترون'
   '/blog':
     title: 'وبلاگ الکترون'
     description: All the latest news from the Electron team and community.
@@ -122,7 +122,7 @@ pages:
   '/releases':
     title: 'نسخه‌ها'
   '/contact':
-    title: 'تماس به ما'
+    title: 'تماس با ما'
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: 'زبان‌ها'
