@@ -85,7 +85,7 @@ Hay preguntas que se hacen a frecuentemente. Revisa esto antes de crear una cons
 
 ## Desarrollo
 
-* [Estilo de codigo](development/coding-style.md)
+* [Estilo de código](development/coding-style.md)
 * [Usar clang-format en código C++](development/clang-format.md)
 * [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
 * [Diferencias técnicas con NW.js (antes node-webkit)](development/atom-shell-vs-node-webkit.md)
