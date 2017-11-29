@@ -8,27 +8,27 @@ nav:
   releases: '版本发布'
   contact: '联络'
   languages: '语言'
-  code_of_conduct: Code of Conduct
+  code_of_conduct: '行为守则'
 docs:
   title: Electron 文档
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: '在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或检查 <a href="/docs/faq"> 常见问题（FAQ） </a>。'
   guides: '指南'
   api_reference: API 参考
-  advanced: Advanced
+  advanced: '高级选项'
 languages:
   choose_language: '请选择语言'
   translation_progress: '翻译进度'
   current: '当前所选'
 community:
   title: Electron 社区
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: '工具, boilerplates, 视频, 以及更多的Electron的 <a href="https://github.com/sindresorhus/awesome-electron">awesome </a> 开源贡献者。查找或添加离您近的 <a href="/community#meetups"> 聚会 </a>。'
   tools: '工具'
   boilerplates: '模板'
   components: '组件'
   videos: '视频'
   meetups: '线下交流会'
   awesome_notice: '此列表是从 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus 的 Awesome Electron </a> 仓库生成的。<br> 缺少了什么？<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> 请发Pull Request </a>。'
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
+  meetup_notice: '若要添加线下交流会，请编辑 <code>data/meetups.json</code> 和 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml"> 发pull request </a>。'
 electron_is_easy:
   title: '比你想象的更简单'
   description: '如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。'
@@ -38,7 +38,7 @@ web_technologies:
   description: Electron 基于 Chromium 和 Node.js, 使用 HTML, CSS 和 JavaScript 构建你的应用。
 open_source:
   title: '开源'
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Electron 是一个由 GitHub 和由贡献者组成的活跃社区维护的开源项目。
 cross_platform:
   title: '跨平台'
   description: Electron 兼容 Mac, Windows 和 Linux， 它构建的应用可在这三个操作系统上面运行。
@@ -70,18 +70,18 @@ quick_start:
   dive_deeper: '或潜得更深，并阅读 <a href=''/docs''> 文档</a>。'
 need_help:
   title: '需要帮助？'
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
+  description: '在 <a href=''https://discuss.atom.io/c/electron''> Discuss </a> 论坛或我们的 <a href=''http://atom-slack.herokuapp.com/''> Slack </a>上提问。关注Twitter<a href="https://twitter.com/electronjs"> @electronjs </a> 以接收重要的公告。想要联系我们？发送电子邮件到 <a href="mailto:electron@github.com"> electron@github.com electron@github. com </a>。'
 headings:
   languages: '语言'
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: '本地化的内容来自我们强大的全球开发者社区。'
 help_translate: "帮助我们翻译"
 footer:
   see_something: '看到需要修理的东西了吗？'
-  propose_change: Propose a change to the source file.
+  propose_change: '建议对源文件进行更改。'
   need_different_version: '需要不同版本的文档？'
   see_available_versions: '查看可用版本。'
-  want_something_searchable: Want something searchable?
+  want_something_searchable: '想要可搜索的东西？'
   view_all_docs: '在一页内查看所有文档'
   see_the_faq: '查看常见问题'
 apps:
@@ -89,8 +89,8 @@ apps:
   description: Electron 让你为你的公司或想法创建桌面端应用变得很简单。最初为 GitHub 的 <a href='https://atom.io' target='_blank'> Atom 编辑器</a> 开发，Electron 已被像微软、 Facebook、 Slack和Docker 这样的公司用于创建应用程序了。
   view_more: '查看更多应用'
   submit_your_own: '提交你的应用'
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  something_missing: '是否缺少什么？'
+  edit_this_app: '编辑此应用程序。'
 or: '或者'
 pages:
   '/':
@@ -106,13 +106,13 @@ pages:
     title: '所有的 Electron 的文档'
     description: '所有 Electron 的指南和 API 文档在一个单独的可搜索的页面。'
   '/docs/api':
-    title: API
-    description: API reference documentation for the latest Electron release
+    title: '应用开发接口（API）'
+    description: '最新的 Electron 的指南和 API 参考文档'
   '/docs/development':
     title: '开发'
-    description: Developing with Electron
+    description: '使用Electron进行开发'
   '/docs/tutorial':
-    title: Tutorial
+    title: '教程'
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron 博客
