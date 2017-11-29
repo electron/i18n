@@ -491,7 +491,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 **Примечание:** Пользователи могут удалять элементы из пользовательских категориях, а Windows не будет позволять добавлять удаленный элемент обратно в пользовательскую категорию до **after** следующего удачного вызова `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
-Here's a very simple example of creating a custom Jump List:
+Вот очень простой способ, как создать пользовательский Jump List:
 
 ```javascript
 const {app} = require('electron')
