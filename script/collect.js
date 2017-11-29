@@ -22,7 +22,8 @@ let release
 
 del(englishBasepath)
   .then(fetchRelease)
-  .then(fetchDocs)
+  .then(fetchAPIDocsFromLatestStableRelease)
+  .then(fetchTutorialsFromMasterBranch)
   .then(fetchApiData)
   .then(fetchWebsiteContent)
 
@@ -42,18 +43,33 @@ async function fetchRelease () {
   release = res.data
 }
 
-async function fetchDocs () {
-  console.log(`Fetching ${release.tag_name} docs from electron/electron repo`)
+function writeDoc (doc) {
+  const filename = path.join(englishBasepath, 'docs', doc.filename)
+  mkdir(path.dirname(filename))
+  fs.writeFileSync(filename, doc.markdown_content)
+  console.log('   ' + path.relative(englishBasepath, filename))
+}
+
+async function fetchAPIDocsFromLatestStableRelease () {
+  console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
   const docs = await electronDocs(release.tag_name)
-  console.log(`Writing ${docs.length} markdown docs`)
 
-  docs.forEach(doc => {
-    const filename = path.join(englishBasepath, 'docs', doc.filename)
-    mkdir(path.dirname(filename))
-    fs.writeFileSync(filename, doc.markdown_content)
-    console.log('   ' + path.relative(englishBasepath, filename))
-  })
+  docs
+    .filter(doc => doc.filename.startsWith('api/'))
+    .forEach(writeDoc)
+
+  return Promise.resolve()
+}
+
+async function fetchTutorialsFromMasterBranch () {
+  console.log(`Fetching tutorial docs from electron/electron#master`)
+
+  const docs = await electronDocs('master')
+
+  docs
+    .filter(doc => !doc.filename.startsWith('api/'))
+    .forEach(writeDoc)
 
   return Promise.resolve()
 }
