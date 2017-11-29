@@ -1,12 +1,12 @@
-# Objeto de la Pantalla
+# Objeto Display
 
-* `id` Número - El Identificador único associado con la pantalla.
-* `rotation` Número - Puede ser 0, 90, 180, 270, representa la rotación de la pantalla en grados de reloj.
-* `scaleFactor` Número - Factor de escala de píxeles del dispositivo de salida.
-* `touchSupport` Cuerda - Puede ser `available`, `unavailable`, `unknown`.
+* `id` Number - El identificador único asociado con la pantalla.
+* `rotation` Number - Puede ser 0, 90, 180 o 270. Representa la rotación de la pantalla en grados, en el sentido de las agujas del reloj.
+* `scaleFactor` Number - Factor de escalado de píxeles del dispositivo de salida.
+* `touchSupport` String - Puede tener los siguientes valores: `available`, `unavailable`, `unknown`.
 * `bounds` [Rectángulo](rectangle.md)
-* `size` [Tamaño](size.md)
-* `workArea` [Rectángulo](rectangle.md)
-* `workAreaSize` [Tamaño](size.md)
+* `size` [Size](size.md)
+* `workArea` [Rectangle](rectangle.md)
+* `workAreaSize` [Size](size.md)
 
-El `Display` objeto de visualización representa una pantalla física conectada al sistema. Un falso `Display` puede existir en un sistema sin conexión, o una `Display` puede corresponder a una pantalla virtual remota.
+El objeto de visualización `Display` representa una pantalla física conectada al sistema. Un falso `Display` puede existir en un sistema sin conexión, o un `Display` puede corresponder a una pantalla virtual remota.
