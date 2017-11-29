@@ -7,7 +7,7 @@ nav:
   userland: Entorno
   releases: Lanzamientos
   contact: Contacto
-  languages: Idioma
+  languages: Idiomas
   code_of_conduct: Código de conducta
 docs:
   title: Documentación de Electron
@@ -125,7 +125,7 @@ pages:
     title: Contacto
     description: Ponte en contacto con el equipo de Electron en Twitter, Slack, GitHub o vía email.
   '/languages':
-    title: Idioma
+    title: Idiomas
   '/userland':
     title: Entorno
   '/devtron':
