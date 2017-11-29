@@ -1,12 +1,12 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> 使用 PNG 或 JPG 文件创建托盘、坞站和应用程序图标。
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+在Electron中, 对于拍摄图像的 api, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将使用空图像。
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+例如, 创建托盘或设置窗口图标时, 可以将图像文件路径作为 ` String ` 传递:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+或者从剪贴板中读取返回 ` NativeImage ` 的图像:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -25,11 +25,11 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## 支持的格式
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+当前支持 ` PNG ` 和 ` JPEG ` 图像格式。建议使用 ` PNG `, 因为它支持透明和无损压缩。
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+在 Windows 上, 还可以从文件路径加载 ` ICO ` 图标。为了最佳的视觉质量, 建议在中至少包括以下大小:
 
 * Small icon 
  * 16x16 (100% DPI scale)
@@ -45,7 +45,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## High Resolution Image
+## 高分辨率
 
 On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
 
