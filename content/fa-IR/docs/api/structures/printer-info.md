@@ -1,8 +1,8 @@
 # شئ PrinterInfo
 
-* `name` رشته
-* `description` رشته
-* `status` عدد
+* `نام` رشته
+* `توضیحات` رشته
+* `وضعیت` عدد
 * `isDefault` بولین
 
 ## مثال
