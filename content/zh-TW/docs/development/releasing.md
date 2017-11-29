@@ -1,4 +1,4 @@
-# Releasing
+# 版本發佈
 
 This document describes the process for releasing a new version of Electron.
 
@@ -172,8 +172,8 @@ Note: Many distributions of Python still ship with old HTTPS certificates. You m
 
 ```sh
 git checkout master
-git branch -D release # delete local branch
-git push origin :release # delete remote branch
+git branch -D release # 刪除本機分支
+git push origin :release # 刪除遠端分支
 ```
 
 ## Promoting a release on npm
