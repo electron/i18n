@@ -15,7 +15,7 @@ app.on('ready', () => {
     const url = request.url.substr(7)
     callback({path: path.normalize(`${__dirname}/${url}`)})
   }, (error) => {
-    if (error) console.error('無法註冊傳輸協定')
+    if (error) console.error('無法註冊通訊協定')
   })
 })
 ```
@@ -111,7 +111,7 @@ const {protocol} = require('electron')
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
 }, (error) => {
-  if (error) console.error('註冊傳輸協定失敗')
+  if (error) console.error('無法註冊通訊協定')
 })
 ```
 
