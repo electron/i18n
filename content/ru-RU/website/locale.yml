@@ -8,7 +8,7 @@ nav:
   releases: 'Релизы'
   contact: 'Связаться'
   languages: 'Языки'
-  code_of_conduct: Code of Conduct
+  code_of_conduct: 'Нормы поведения'
 docs:
   title: 'Документация Electron'
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
@@ -110,7 +110,7 @@ pages:
     description: API reference documentation for the latest Electron release
   '/docs/development':
     title: 'Разработка'
-    description: Developing with Electron
+    description: 'Разрабатывание при помощи Electron'
   '/docs/tutorial':
     title: 'Руководство'
     description: Guides and tutorials for the latest Electron release
