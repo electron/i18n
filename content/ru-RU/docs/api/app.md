@@ -563,7 +563,7 @@ app.setJumpList([
 
 `callback` будет вызван первым экземпляром из `callback(argv, workingDirectory)` когда второй экземпляр выполнен. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+`callback` гарантированно выполняется после события `ready` получаемое из `app`.
 
 This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
