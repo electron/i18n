@@ -1,7 +1,7 @@
-# JumpListItem Object
+# JumpListItem 对象
 
 * `type` 字符串 (可选)-以下之一: 
-  * `task` - A task will launch an app with specific arguments.
+  * ` task `-任务将启动具有特定参数的应用程序。
   * `separator` - Can be used to separate items in the standard `Tasks` category.
   * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
 * `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
