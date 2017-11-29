@@ -1,11 +1,11 @@
-# JumpListItem Object
+# Об'єкт JumpListItem
 
 * `type` String (опціонально) - Один з наступних: 
-  * `task` - A task will launch an app with specific arguments.
-  * `separator` - Can be used to separate items in the standard `Tasks` category.
-  * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
+  * `task` - Завдання запустить додаток з конкретними параметрами.
+  * `separator` - Може використовуватися для відокремлення елементів в стандартній категорії `Tasks`.
+  * `file` - Посилання на файл відкриє файл через додаток, що створив список переходів, для цього додаток має бути зареєстрований як обробник для типу файлів (не обов'язково обробником за замовчуванням).
+* `path` String (опціонально) - Шлях до файлу, має бути встановлений тільки якщо `type` `file`.
+* `program` String (опціонально) - Шлях до програми, зазвичай потрібно вказати `process.execPath` який відкриває поточну програму. Має бути встановлений тільки якщо `type` `task`.
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
