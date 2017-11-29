@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-Об'єкт `Display` представляє фізичний дисплей, що підключений до системи. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Об'єкт `Display` представляє фізичний дисплей, що підключений до системи. Фейковий `Display` може існувати в систесі без графічного інтерфейсу або `Display` може відповідати віддаленому, віртуальному дисплею.
