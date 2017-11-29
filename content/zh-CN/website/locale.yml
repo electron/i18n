@@ -113,7 +113,7 @@ pages:
     description: '使用Electron进行开发'
   '/docs/tutorial':
     title: '教程'
-    description: Guides and tutorials for the latest Electron release
+    description: '最新Electron的指南和教程'
   '/blog':
     title: Electron 博客
     description: '所有来自Electron团队和社区的最新消息。'
@@ -130,10 +130,10 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron 是一个开源工具, 可以帮助您检查、监视和调试您的Electron应用程序. 建立在强大的 Chrome 开发工具之上。
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron 是一个开放源码的框架, 便于为您的Electron应用程序编写集成测试. 其建在 ChromeDriver 和 WebDriverIO 的顶部。
 _404:
   page_not_found: '页面找不到了。'
   if_this_is_an_error: '如果这是个错误'
