@@ -8,7 +8,7 @@ nav:
   releases: Lanzamientos
   contact: Contacto
   languages: Idioma
-  code_of_conduct: Code of Conduct
+  code_of_conduct: Código de conducta
 docs:
   title: Documentación de Electron
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
