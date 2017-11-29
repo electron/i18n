@@ -5,7 +5,7 @@
 處理序: [主處理序](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// 在主處理序裡。
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
