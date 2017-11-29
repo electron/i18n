@@ -26,7 +26,7 @@ The `session` module has the following methods:
 
 * `partition` String
 * `options` Object 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - 是否取用快取。
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
@@ -56,7 +56,7 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### 物件事件
 
 The following events are available on instances of `Session`:
 
