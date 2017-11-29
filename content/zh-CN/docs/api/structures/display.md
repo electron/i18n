@@ -9,4 +9,4 @@
 * ` bounds`[ 矩形 ](rectangle.md)
 * ` workAreaSize `[尺寸 ](size.md)
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+` Display ` 对象表示一个连接到系统的物理显示。 一个伪 ` Display ` 可能存在于无图形界面（Gui）系统上, 或者 一个` Display ` 可能与一个远程的虚拟显示相对应。
