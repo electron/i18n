@@ -3,22 +3,22 @@
 * `2d_canvas` String - Полотно
 * `flash_3d` String - Flash
 * `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
-* `gpu_compositing` String - Compositing
-* `multiple_raster_threads` String - Multiple Raster Threads
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
-* `rasterization` String - Rasterization
-* `video_decode` String - Video Decode
-* `video_encode` String - Video Encode
-* `vpx_decode` String - VPx Video Decode
+* `flash_stage3d_baseline` String - Профіль Flash Stage3D Baseline
+* `gpu_compositing` String - Компонування
+* `multiple_raster_threads` String - Растрова багатопоточність
+* `native_gpu_memory_buffers` String - Нативний GpuMemoryBuffers
+* `rasterization` String - Растеризація
+* `video_decode` String - Декодування Відео
+* `video_encode` String - Кодування відео
+* `vpx_decode` String - VPx дековання відео
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+Можливі значення:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
-* `disabled_off_ok` - Disabled (yellow)
+* `disabled_software` - Тільки програмна обробка. Апаратне прискорення вимкнене (жовтий)
+* `disabled_off` - Вимкнено (червоний)
+* `disabled_off_ok` - Вимкнено (жовтий)
 * `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
 * `unavailable_off` - Unavailable (red)
 * `unavailable_off_ok` - Unavailable (yellow)
