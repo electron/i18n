@@ -489,7 +489,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 **Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Примечание:** Пользователи могут удалять элементы из пользовательских категориях, а Windows не будет позволять добавлять удаленный элемент обратно в пользовательскую категорию до **after** следующего удачного вызова `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
 Here's a very simple example of creating a custom Jump List:
 
