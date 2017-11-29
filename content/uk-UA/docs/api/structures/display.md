@@ -2,11 +2,11 @@
 
 * `id` Number - Унікальний ідентифікатор, пов'язаний з дисплеєм.
 * `rotation` Number - Може бути 0, 90, 180, 270, повертає екран за годинниковою стрілкою на введену кількість градусів.
-* `scaleFactor` Number - Output device's pixel scale factor.
+* `scaleFactor` Number - Матричний коефіцієнт піксельного масштабування вихілного пристрою.
 * `touchSupport` String - Може бути `available`, `unavailable`, `unknown`.
-* `bounds` [Прямокутник](rectangle.md)
-* `size` [Розмір](size.md)
-* `workArea` [Прямокутник](rectangle.md)
-* `workAreaSize` [Розмір](size.md)
+* `bounds` [Rectangle](rectangle.md)
+* `size` [Size](size.md)
+* `workArea` [Rectangle](rectangle.md)
+* `workAreaSize` [Size](size.md)
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+Об'єкт `Display` представляє фізичний дисплей, що підключений до системи. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
