@@ -89,22 +89,22 @@ apps:
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
   view_more: 'مشاهده برنامه‌های بیشتر'
   submit_your_own: 'برنامه خودتان را ارسال کنید'
-  something_missing: Something missing?
+  something_missing: 'چیزی فراموش شده است؟'
   edit_this_app: 'ویرایش این برنامه.'
 or: 'یا'
 pages:
   '/':
     title: 'الکترون | طراحی برنامه های چند سکویی دسکتاپ با HTML، CSS، JavaScript.'
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    description: 'ساخت برنامه‌های چندسکویی دسکتاپ با JavaScript، HTML، و CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: 'برنامه های طراحی شده با الکترون'
+    description: 'برنامه های ساخته شده به وسیله الکترون'
   '/docs':
     title: 'مستندات'
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: 'تمام اسناد الکترون!'
+    description: 'تمام راهنماهای فریم ورک الکترون و اسناد API در یک صفحه قابل جستجو.'
   '/docs/api':
     title: API
     description: API reference documentation for the latest Electron release
