@@ -1,6 +1,6 @@
-# clipboard
+# 剪贴板
 
-> Perform copy and paste operations on the system clipboard.
+> 在系统剪贴板上执行复制和粘贴操作。
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -79,7 +79,7 @@ Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+返回 ` Object `:
 
 * `title` String
 * `url` String
@@ -117,7 +117,7 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (optional)
 
-Clears the clipboard content.
+清除剪贴板内容。
 
 ### `clipboard.availableFormats([type])`
 
@@ -172,4 +172,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+将 ` data ` 写入剪贴板。
