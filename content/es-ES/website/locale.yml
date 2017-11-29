@@ -16,7 +16,7 @@ docs:
   api_reference: Referencia de la API
   advanced: Avanzado
 languages:
-  choose_language: Elige el idioma del sitio
+  choose_language: Elija el idioma del sitio
   translation_progress: Progreso de la traducción
   current: selección actual
 community:
