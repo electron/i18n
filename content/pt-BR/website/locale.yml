@@ -28,7 +28,7 @@ community:
   videos: Vídeos
   meetups: Meetups
   awesome_notice: Esta é uma lista gerada a partir do <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repositório. <br>Falta alguma coisa?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
+  meetup_notice: Para adicionar um meetup, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">crie um pull requests</a>.
 electron_is_easy:
   title: 'É mais fácil do que você pensa'
   description: Se você pode construir um website, você pode construir um aplicativo desktop. Electron é um framework para criação de aplicações nativas utilizando tecnologias web como JavaScript, HTML, e CSS. Ele cuida das partes mais difíceis para que você possa se concentrar somente com o principal da aplicação.
@@ -38,7 +38,7 @@ web_technologies:
   description: Electron usa Chromium e Node.js, assim você pode construir seu aplicação com HTML, CSS e JavaScript.
 open_source:
   title: Código Aberto
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Electron é um projeto de código aberto mantido pelo o GitHub e com uma comunidade ativa de colaboradores.
 cross_platform:
   title: Multiplataforma
   description: Compatível com Mac, Windows, e Linux, Aplicativos Electron são construídos e executados nas três plataformas.
@@ -107,13 +107,13 @@ pages:
     description: Todos os guias e API do Electron em uma só local, com página pesquisável.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: Documentação de referência para as APIs da versão mais recente do Electron
   '/docs/development':
     title: Desenvolvimento
-    description: Developing with Electron
+    description: Desenvolvendo com Electron
   '/docs/tutorial':
     title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    description: Guias e tutoriais para a versão mais recente do Electron
   '/blog':
     title: Blog do Electron
     description: Todas as últimas notícias da equipe e comunidade do Electron.
@@ -130,7 +130,7 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron é uma ferramenta de código aberto, feita para ajudá-lo a inspecionar, monitorar e depurar seu aplicativo. Electron é construído em cima do incrível Chrome Developer Tools.
   '/spectron':
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
