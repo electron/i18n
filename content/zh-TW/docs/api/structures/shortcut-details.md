@@ -1,4 +1,4 @@
-# ShortcutDetails Object
+# ShortcutDetails 物件
 
 * `target` String - The target to launch from this shortcut.
 * `cwd` String (optional) - The working directory. Default is empty.
