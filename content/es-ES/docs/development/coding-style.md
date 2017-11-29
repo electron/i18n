@@ -2,7 +2,7 @@
 
 These are the style guidelines for coding in Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede ejecutar `npm run lint`.
 
 ## C++ y Python
 
@@ -26,7 +26,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 
 Las API de Electron utilizan el esquema de capitalización usado en Node.js:
 
-* Cuando el módulo en sí mismo es una clase como `BrowserWindow`, usar `CamelCase`.
+* Cuando el módulo en sí mismo es una clase como `BrowserWindow`, use `CamelCase`.
 * Cuando el módulo es un conjunto de APIs, como `globalShortcut`, use `mixedCase`.
 * When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
