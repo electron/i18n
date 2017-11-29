@@ -112,7 +112,7 @@ pages:
     title: 'Разработка'
     description: Developing with Electron
   '/docs/tutorial':
-    title: Tutorial
+    title: 'Руководство'
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: 'Блог Electron'
