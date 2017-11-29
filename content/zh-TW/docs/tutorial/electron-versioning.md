@@ -22,7 +22,7 @@ A simple mnemonic for remembering this scheme is as follows:
 
 ## Electron 版號規則
 
-Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **You should therefore always reference a specific version of Electron.**
+Due to its dependency on Node and Chromium, it is not possible for the Electron project to adhere to a SemVer policy. **因此，你應該每次都選好特定一版 Electron 來用。**
 
 Electron version numbers are bumped using the following rules:
 

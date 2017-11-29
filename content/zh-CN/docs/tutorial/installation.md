@@ -1,8 +1,8 @@
-# Installation
+# 安装
 
 > Tips for installing Electron
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+要安装预编译好的的二进制文件, 请使用 [` npm `](https://docs.npmjs.com/)。 首选的方法是在项目中作为development dependency安装。
 
 ```sh
 npm install electron --save-dev --save-exact
@@ -12,13 +12,13 @@ The `--save-exact` flag is recommended as Electron does not follow semantic vers
 
 ## Global Installation
 
-You can also install the `electron` command globally in your `$PATH`:
+您还可以在 `$PATH ` 中全局安装 ` electron ` 命令:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## 自定义
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 
@@ -32,30 +32,30 @@ In addition to changing the architecture, you can also specify the platform (e.g
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## 代理
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+如果需要使用 HTTP 代理, 则可以 [ 设置这些环境变量 ](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)。
 
 ## 故障排查
 
 在运行 `npm install electron` 时，有些用户会偶尔遇到安装问题。
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+在大多数情况下，这些错误都是由网络问题导致，而不是 `electron` npm 模块的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+如果通过 `npm` 安装失败，您可以尝试直接从 [electron/electron/releases](https://github.com/electron/electron/releases) 直接下载 Electron。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+如果安装失败并出现 ` EACCESS ` 错误, 则可能需要 [ 修复您的 npm 权限 ](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。（例如使用 sudo ）
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+如果上述错误仍然存在, 则可能需要将 [unsafe-perm ](https://docs.npmjs.com/misc/config#unsafe-perm) 标志设置为 true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+在较慢的网络上, 最好使用 `--verbose ` 标志以显示下载进度:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+如果需要强制重新下载文件, 并且 SHASUM 文件将 ` force_no_cache ` 环境变量设置为 ` true `。

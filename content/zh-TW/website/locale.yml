@@ -8,9 +8,10 @@ nav:
   releases: '版本發佈'
   contact: '聯絡'
   languages: '語言'
+  code_of_conduct: Code of Conduct
 docs:
   title: Electron 文件
-  description: '瀏覽<a href="/docs/all/">完整文件頁</a>，或是到<a href="/docs/faq/">常見問題集</a>中看看。'
+  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: '導引'
   api_reference: API 參考
   advanced: '進階'
@@ -27,17 +28,17 @@ community:
   videos: '影片'
   meetups: '聚會'
   awesome_notice: '這份清單是由 <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus 的 Awesome Electron</a>儲存庫自動產生的。<br> 發現少了什麼嗎? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">發個 Pull Request</a> 吧。'
-  meetup_notice: '如果要增加聚會，改好 <code>data/meetups.json</code> 後<a href="https://github.com/electron/electron.atom.io/tree/master/data/meetups.yml">發個 Pull Request</a>。'
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
 electron_is_easy:
   title: '比你想像的更容易'
-  description: '如果你有能力寫網站，就能寫得出桌用應用程式。 Electron 就是個用 JavaScrtip、HTML 及 CSS 等網頁技術開發原生應用程式的框架。鳥事它都包了，專注在你的核心功能吧。'
+  description: '如果你有能力寫網站，就寫得出桌用應用程式。 Electron 是個用 JavaScrtip、HTML 及 CSS 等網頁技術開發原生應用程式的框架。鳥事它都包了，專注在你的核心功能吧。'
   video_link: '觀看影片'
 web_technologies:
   title: '網頁技術'
   description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTM、CSS 和 JavaScript 打造自己的應用程式。
 open_source:
   title: '開放原始碼'
-  desciption: Electron 開放原始碼專案是由 GitHub 及活躍的貢獻者社群共用維護。
+  description: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: '跨平臺'
   description: '相容 Mac, Windows 及 Linux，Electron 應用程式可以在三大主流平臺上建置及執行。'
@@ -62,7 +63,7 @@ download_from_github: '從 GitHub 下載'
 view_all_releases_on_github: '查看 GitHub 上的<a href="https://github.com/electron/electron-api-demos/releases">所有發行版本</a>'
 quick_start:
   title: "玩玩 <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> 快速入門應用程式，實戰 Electron:"
-  description: '滿滿註解的微型 Electron 應用程式。'
+  description: '滿滿註解的 Electron 小應用程式。'
   clone: '複製 Quick Start 儲存庫'
   go_into_repo: '進到儲存庫裡'
   install_deps: '安裝相依的套件並執行'
@@ -104,6 +105,15 @@ pages:
   '/docs/all':
     title: Electron 文件大全!
     description: Electron 的使用導引及 API 說明文件大全，全部放在同一頁方便搜尋。
+  '/docs/api':
+    title: API
+    description: API reference documentation for the latest Electron release
+  '/docs/development':
+    title: '開發'
+    description: Developing with Electron
+  '/docs/tutorial':
+    title: Tutorial
+    description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron 部落格
     description: '來自 Electron 團隊及社群的最新消息。'
@@ -116,6 +126,14 @@ pages:
     description: '在 Twitter, Slack, GitHub 或 e-mail 與 Electron 團隊聯絡。'
   '/languages':
     title: '語言'
+  '/userland':
+    title: '使用者園地'
+  '/devtron':
+    title: Devtron
+    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+  '/spectron':
+    title: Spectron
+    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: '找不到頁面。'
   if_this_is_an_error: '如果這個情況不該發生'

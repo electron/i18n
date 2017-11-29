@@ -12,24 +12,24 @@ The `globalShortcut` module can register/unregister a global keyboard shortcut w
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // 註冊 'CommandOrControl+X' 快速鍵監聽器。
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X 被按了')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('註冊失敗')
   }
 
-  // Check whether a shortcut is registered.
+  // 檢查快速鍵是否註冊成功。
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // 取消註冊快速鍵。
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // 取消註冊所有快速鍵。
   globalShortcut.unregisterAll()
 })
 ```

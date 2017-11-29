@@ -426,7 +426,7 @@ app.exit(0)
 
 На Windows Вы можете предоставить дополнительные параметры: path - путь до Вашего исполняемого файла и args - массив аргументов, который будет передан Вашему исполняемому файлу при его запуске.
 
-**Замечание:** На macOS Вы можете регистрировать только те протоколы, которые были добавлены в `info.plist` Вашего приложения, которое не может быть модифицирована во время выполнения. Однако Вы можете изменить файл с помощью простого текстового редактора или скрипта во время сборки. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
+**Примечание:** На macOS Вы можете регистрировать только те протоколы, которые были добавлены в `info.plist` Вашего приложения, которое не может быть модифицирована во время выполнения. Однако Вы можете изменить файл с помощью простого текстового редактора или скрипта во время сборки. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
 
 API использует внутренний реестр Windows и LSSetDefaultHandlerForURLScheme.
 
@@ -470,8 +470,8 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 Возвращает `Object`:
 
-* `minItems` Integer - минимальное количество элементов, которые будут показаны в списке переходов (для более подробного описания этого значение см. [документация MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem []](structures/jump-list-item.md) - массив объектов `JumpListItem`, которые соответствуют элементам, которые пользователь явно удалил из пользовательских категорий в списке переходов. Эти элементы не должны быть снова добавлены в Jump List, при **следующем** вызове `app.setJumpList()`, Windows не будет отображать любую настраиваемую категорию, содержащую любой из удаленных пунктов.
+* `minItems` Integer - минимальное количество элементов, которые будут показаны в Jump List (для более подробного описания этого значение см. [документация MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem []](structures/jump-list-item.md) - массив объектов `JumpListItem`, которые соответствуют элементам, которые пользователь явно удалил из пользовательских категорий в Jump List. Эти элементы не должны быть снова добавлены в Jump List, при **следующем** вызове `app.setJumpList()`, Windows не будет отображать любую настраиваемую категорию, содержащую любой из удаленных пунктов.
 
 ### `app.setJumpList(categories)` *Windows*
 
@@ -485,13 +485,13 @@ API использует внутренний реестр Windows и LSCopyDefa
 * `fileTypeRegistrationError` - была сделана попытка добавить ссылку на файл в Jump List для типа файла, который в приложении не зарегистрирован для обработки.
 * `customCategoryAccessDeniedError` - пользовательские категории не могут быть добавлены в Jump List из-за ограничений конфиденциальности пользователей или групповой политики.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+Если `categories` - `null`, то ранее установленный пользовательский Jump List(если таковой имеется) будет заменён стандартным Jump List для приложения(управляется Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Примечание:** Пользователи могут удалять элементы из пользовательских категориях, а Windows не будет позволять добавлять удаленный элемент обратно в пользовательскую категорию до **after** следующего удачного вызова `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
-Here's a very simple example of creating a custom Jump List:
+Вот очень простой способ, как создать пользовательский Jump List:
 
 ```javascript
 const {app} = require('electron')
@@ -561,9 +561,9 @@ app.setJumpList([
 
 Этот метод делает ваше приложение одним экземпляром приложения, а не позволяя запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
-`callback` будет вызван первым экземпляром из `callback(argv, workingDirectory)` когда второй экземпляр выполнен. `argv` является массивом аргументов командной строки вторичных экземпляров, и `workingDirectory` является его текущим рабочим каталогом. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` будет вызван первым экземпляром из `callback(argv, workingDirectory)` когда второй экземпляр выполнен. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+`callback` гарантированно выполняется после события `ready` получаемое из `app`.
 
 This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 

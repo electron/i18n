@@ -85,10 +85,10 @@
 
 ## 開發
 
-* [編碼格式](development/coding-style.md)
+* [程式碼撰寫風格](development/coding-style.md)
 * [在 C++ 程式碼中使用 Clang-Format](development/clang-format.md)
-* [原碼目錄結構](development/source-code-directory-structure.md)
-* [與NW.js (原名 webkit) 的技術差異](development/atom-shell-vs-node-webkit.md)
+* [原始碼目錄結構](development/source-code-directory-structure.md)
+* [與 NW.js (原名 node-webkit) 的技術差異](development/atom-shell-vs-node-webkit.md)
 * [建置系統概述](development/build-system-overview.md)
 * [建置步驟 (macOS)](development/build-instructions-osx.md)
 * [建置步驟 (Windows)](development/build-instructions-windows.md)

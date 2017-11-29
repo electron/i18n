@@ -26,7 +26,7 @@ The `session` module has the following methods:
 
 * `partition` String
 * `options` Object 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - 是否取用快取。
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
@@ -56,7 +56,7 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### 物件事件
 
 The following events are available on instances of `Session`:
 
@@ -197,14 +197,14 @@ Sets download saving directory. By default, the download directory will be the `
 Emulates network with the given configuration for the `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// 模擬 GPRS 連線，頻寬限制為 50kbps 並有 500 ms 延遲。
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// 模擬網路中斷。
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
@@ -257,7 +257,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const {session} = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // 拒絕。
   }
 
   callback(true)
@@ -289,7 +289,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (選用)
 
 Overrides the `userAgent` and `acceptLanguages` for this session.
 
@@ -356,7 +356,7 @@ app.on('ready', function () {
     var url = request.url.substr(7)
     callback({path: path.normalize(`${__dirname}/${url}`)})
   }, function (error) {
-    if (error) console.error('Failed to register protocol')
+    if (error) console.error('無法註冊通訊協定')
   })
 })
 ```

@@ -1,11 +1,11 @@
 # JumpListCategory 对象
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
-* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+* `type` 字符串 (可选)-以下之一: 
+  * ` tasks `-此类别中的项目将放在标准 ` tasks ` 类别中。 只能有一个这样的类别, 它将始终显示在跳转列表的底部。
+  * ` frequent `-显示应用程序经常打开的文件列表, 该类别的名称及其项由 Windows 设置。
+  * ` recent `-显示应用程序最近打开的文件列表, 该类别的名称及其项由 Windows 设置。 可以使用 ` app. addRecentDocument (路径) ` 间接地将项目添加到此类别。
+  * ` custom `-显示任务或文件链接, ` 名称 ` 必须由应用程序设置。
+* ` name `字符串（可选的）--如果 `type` 是 `custom` 则必须设置, 否则应省略它。
+* ` items`JumpListItem [] (可选)-如果 ` type ` 是 ` tasks ` 或 ` custom `, 则 [` JumpListItem `](jump-list-item.md) 对象的数组, 否则应省略它。
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。

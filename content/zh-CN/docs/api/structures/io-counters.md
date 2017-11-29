@@ -1,8 +1,8 @@
-# IOCounters Object
+# IO计数器 对象
 
-* `readOperationCount` Number - The number of I/O read operations.
-* `writeOperationCount` Number - The number of I/O write operations.
-* `otherOperationCount` Number - Then number of I/O other operations.
-* `readTransferCount` Number - The number of I/O read transfers.
-* `writeTransferCount` Number - The number of I/O write transfers.
-* `otherTransferCount` Number - Then number of I/O other transfers.
+* `readOperationCount` Number - I/O读取操作的数量
+* `writeOperationCount` Number - I/O写入操作的数量.
+* `otherOperationCount` Number - 其他I/O操作的数量.
+* `readTransferCount` Number - I/O读取传送的数量.
+* `writeTransferCount` Number - I/O写入传送的数量.
+* `otherTransferCount` Number - 其他I/O传送的数量.

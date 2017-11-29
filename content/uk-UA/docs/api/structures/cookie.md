@@ -1,11 +1,11 @@
-# Cookie Object
+# Об'єкт cookie
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `name` String - Ім'я кукі.
+* `value` String - Значення куки.
+* `domain` String (optional) - Домен куки.
+* `hostOnly` Boolean (optional) - Чи кука буде host-only.
+* `path` String (optional) - Шлях до куки.
+* `secure` Boolean (optional) - Чи кука позначена як безпечна.
+* `httpOnly` Boolean (optional) - Чи кука позначена як HTTP-only.
+* `session` Boolean (optional) - Чи кука є сессійною кукою або постійною кукою з датою закінчення дії.
+* `expirationDate` Double (optional) - Дата закінчення терміну дії куки - як кількість секунд від епохи UNIX. Не додається до сессійної куки.

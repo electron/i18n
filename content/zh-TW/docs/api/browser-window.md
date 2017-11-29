@@ -5,7 +5,7 @@
 處理序: [主處理序](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// 在主處理序裡。
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -215,7 +215,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### 物件事件
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -242,12 +242,10 @@ Usually you would want to use the `beforeunload` handler to decide whether the w
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+  console.log('我還不想被關掉')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
+  // 跟一般瀏覽器不同，不會顯示訊息框給使用者，回傳非 void 值會直接取消掉關閉動作。
+  // 建議使用 dialog API 讓使用者確認是否要關閉應用程式。
   e.returnValue = false
 }
 ```
