@@ -8,5 +8,5 @@
 * `subjectName` String - 主题的通用名
 * `serialNumber` String - Hex值表示的字符串
 * `validStart` Number - 证书生效的开始日期，以秒表示
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `validExpiry` Number - 证书失效的结束日期，以秒表示
+* `fingerprint` String - 证书的指纹
