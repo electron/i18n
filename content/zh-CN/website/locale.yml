@@ -77,7 +77,7 @@ taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "帮助我们翻译"
 footer:
-  see_something: See something that needs fixing?
+  see_something: '看到需要修理的东西了吗？'
   propose_change: Propose a change to the source file.
   need_different_version: '需要不同版本的文档？'
   see_available_versions: '查看可用版本。'
