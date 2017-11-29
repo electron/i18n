@@ -22,10 +22,10 @@ languages:
 community:
   title: Electron Community
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: 'ابزارها'
   boilerplates: Boilerplates
   components: Components
-  videos: Videos
+  videos: 'فیلم ها'
   meetups: Meetups
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
@@ -90,11 +90,11 @@ apps:
   view_more: 'مشاهده برنامه‌های بیشتر'
   submit_your_own: 'برنامه خودتان را ارسال کنید'
   something_missing: Something missing?
-  edit_this_app: Edit this app.
+  edit_this_app: 'ویرایش این برنامه.'
 or: 'یا'
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    title: 'الکترون | طراحی برنامه های چند سکویی دسکتاپ با HTML، CSS، JavaScript.'
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron Apps
