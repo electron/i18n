@@ -107,13 +107,13 @@ pages:
     description: 'Всі посібники та API документація Electron на одній сторінці.'
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: API документація для останнього релізу Electron
   '/docs/development':
-    title: Development
-    description: Developing with Electron
+    title: 'Розробка'
+    description: 'Розроблюємо з Electron'
   '/docs/tutorial':
     title: 'Посібник'
-    description: 'Посібники та методичні рекомендації для останнього випуску Electron'
+    description: 'Посібники та методичні рекомендації для останнього релізу Electron'
   '/blog':
     title: 'Блог Electron'
     description: 'Всі останні новини від команди та спільноти Electron.'
