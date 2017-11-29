@@ -1,10 +1,10 @@
-Por favor, asegúrese de que utilizar los documentos que coinciden con su versión de Electron. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver las antiguas versiones de la documentación, puedes [navegar por las etiquetas](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable de "Switch branches/tags" y seleccionado la etiqueta que coincida con tu versión.
+Por favor, asegúrese de que utilizar los documentos que coinciden con su versión de Electron. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver las antiguas versiones de la documentación, puede [navegar por las etiquetas](https://github.com/electron/electron/tree/v1.4.0) en GitHub abriendo el menú desplegable de "Switch branches/tags" y seleccionado la etiqueta que coincida con su versión.
 
 ## Preguntas más frecuentes
 
-Hay preguntas que se hacen a frecuentemente. Revisa esto antes de crear una consulta:
+Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una consulta:
 
-* [Preguntas frecuentes sobre Electron](faq.md)
+* [Preguntas más frecuentes sobre Electron](faq.md)
 
 ## Guías
 
