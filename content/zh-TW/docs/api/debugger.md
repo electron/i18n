@@ -57,7 +57,7 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
-### Instance Events
+### 物件事件
 
 #### 事件: 'detach'
 
