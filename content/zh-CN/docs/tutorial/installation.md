@@ -1,4 +1,4 @@
-# Installation
+# 安装
 
 > Tips for installing Electron
 
@@ -18,7 +18,7 @@ The `--save-exact` flag is recommended as Electron does not follow semantic vers
 npm install electron -g
 ```
 
-## Customization
+## 自定义
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 
@@ -32,9 +32,9 @@ In addition to changing the architecture, you can also specify the platform (e.g
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## 代理
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+如果需要使用 HTTP 代理, 则可以 [ 设置这些环境变量 ](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)。
 
 ## 故障排查
 
@@ -58,4 +58,4 @@ sudo npm install electron --unsafe-perm=true
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+如果需要强制重新下载文件, 并且 SHASUM 文件将 ` force_no_cache ` 环境变量设置为 ` true `。
