@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# Об'єкт PrinterInfo
 
 * `name` String
 * `description` String
 * `status` Number
 * `isDefault` Boolean
 
-## Example
+## Приклад
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Нижче наведено приклад деяких додаткових параметрів, які можуть передаватися, вони можуть відрізнятися в залежності від платформи.
 
 ```javascript
 {
