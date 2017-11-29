@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## 我應用程式的視窗或工作列圖示幾分鐘後消失了。
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+當儲存視窗或工作列圖示的變數就垃圾回收後就會這樣。
 
-If you encounter this problem, the following articles may prove helpful:
+如果你遇到這個問題，以下文章應該能幫上忙:
 
 * [記憶體管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [變數範圍](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+如果你只想馬上修好，可以將變數設成全域的，假設原本是這樣寫:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-改為:
+請改為:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -77,9 +77,9 @@ app.on('ready', () => {
 
 ## 我不能在 Electron 裡用 jQuery/RequireJS/Meteor/AnguarJS。
 
-因為 Electron 與 Node.js 整合的需求，DOM 會被填入一些額外的符號，例如 `module`, `exports`, `require`。 This causes problems for some libraries since they want to insert the symbols with the same names.
+因為 Electron 與 Node.js 整合的需求，DOM 會被填入一些額外的符號，例如 `module`, `exports`, `require`。 這樣子可能會導致某些程式庫有問題，因為它們也想把自已的符號塞到相同的名稱裡。
 
-To solve this, you can turn off node integration in Electron:
+要解決這個問題，可以停用 Electron 的 Node 整合功能:
 
 ```javascript
 // 在主處理序裡。
