@@ -10,4 +10,4 @@
 * `title` String (опціонально) - Текст для відображення в елементі списку переходів. Має бути встановлений тільки якщо `type` `task`.
 * `description` String (опціонально) - Опис завдання (відображається в підказці). Має бути встановлений тільки якщо `type` `task`.
 * `iconPath` String (опціонально) - Абсолютний шлях до значка, що відображатиметься у списку переходів, може бути довільним ресурсом, що містить значок (наприклад, `.ico`, `.exe`, `.dll`). Зазвичай можна вказати `process.execPath`, щоб показати значок прогами.
-* `iconIndex` Number (опціонально) - Індекс значка в ресурсі. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
+* `iconIndex` Number (опціонально) - Індекс значка в ресурсі. Якщо ресурс містить декілька значків, це значення використовуватися для визначення індексу (починаючи з 0) значка для цього завдання. Якщо ресурс містить лише один значок, ця властивість має містити нуль.
