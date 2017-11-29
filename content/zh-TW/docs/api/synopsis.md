@@ -36,9 +36,9 @@ The renderer process is no different than a normal web page, except for the extr
 
 To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## 解構賦值
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+由 0.37 開始，你可以透過[解構賦值](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)更輕鬆的使用內建模組。
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
