@@ -1,7 +1,7 @@
 # شئ CertificatePrincipal
 
-* `commonName` String - Common Name
-* `organizations` String[] - Organization names
+* `نام مشترک` رشته - نام مشترک
+* `سازمان ها` رشته [] - نام سازمان
 * `organizationUnits` String[] - Organization Unit names
 * `locality` String - Locality
 * `state` String - State or province
