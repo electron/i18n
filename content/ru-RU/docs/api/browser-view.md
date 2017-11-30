@@ -29,10 +29,10 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *Экспериментально*
 
 * `options` Object (опиционально) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Объект (опционально) - см. [BrowserWindow](browser-window.md).
 
 ### Статические методы
 
@@ -40,25 +40,25 @@ view.webContents.loadURL('https://electron.atom.io')
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Возвращает `BrowserView` - вид с заданным `id`.
 
-### Instance Properties
+### Свойства экземпляра
 
-Объекты, созданные с помощью `new BrowserView` имеют следующие свойства:
+Объекты, созданные с помощью `new BrowserView`, имеют следующие свойства:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Экспериментально*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Объект [`WebContents`](web-contents.md), принадлежащий этому виду.
 
-#### `view.id` *Experimental*
+#### `view.id` *Экспериментально*
 
-A `Integer` representing the unique ID of the view.
+`Integer`, представляющий уникальный идентификатор вида.
 
-### Instance Methods
+### Методы экземпляра
 
-Objects created with `new BrowserView` have the following instance methods:
+Объекты, созданные с помощью `new BrowserView`, имеют следующие свойства:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Экспериментально*
 
 * `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
