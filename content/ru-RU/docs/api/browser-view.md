@@ -61,15 +61,15 @@ view.webContents.loadURL('https://electron.atom.io')
 #### `view.setAutoResize(options)` *Экспериментально*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - если `true`, то ширина будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
+  * `height` Boolean - если `true`, то высота будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Экспериментально*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Изменяет и перемещает вид в предоставленные границы относительно окна.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Экспериментально*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - цвет вида `#aarrggbb` или `#argb`. Альфа-канал является опциональным.
