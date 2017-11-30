@@ -567,9 +567,9 @@ app.setJumpList([
 
 Этот метод возвращает `false`, если Ваш процесс является основным экземпляром приложения и Вашему приложению следует продолжить загрузку. И возвращает `true`, если Ваш процесс направил свои параметры в другой экземпляр, и вы должны немедленно выйти.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+На macOS система обеспечивает один экземпляр автоматически, когда пользователи пытаются открыть второй экземпляр приложения в Finder, для этого будут выделяться события `open-file` и `open-url`. Однако при запуске Вашего приложения в командной строке, системный механизм одного экземпляра будет обойден, и Вы должны использовать этот метод для обеспечения одного экземпляра.
 
-An example of activating the window of primary instance when a second instance starts:
+Пример активации окна первичного экземпляра при запуске второго экземпляра:
 
 ```javascript
 const {app} = require('electron')
