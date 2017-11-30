@@ -1,4 +1,4 @@
-# Electron FAQ
+# FAQ Electron
 
 ## Чому виникають проблеми з інсталяцією Electron?
 
