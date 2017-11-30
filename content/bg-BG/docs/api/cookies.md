@@ -29,14 +29,14 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Instance Events
+### Събития
 
-The following events are available on instances of `Cookies`:
+Имате достъп до следните събития:
 
-#### Event: 'changed'
+#### Събитие: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
+* `cookie` [Cookie](structures/cookie.md) - кукито което е променено
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
