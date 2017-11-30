@@ -249,7 +249,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Emitted when the gpu process crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### 事件: "accessibility-support-changed" * macOS * * Windows *
 
 返回:
 
@@ -636,9 +636,9 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 This method can only be called before app is ready.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### ` app.getAppMemoryInfo() `* 已弃用 *
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. ** 注意: **此方法已被弃用, 请改用 ` app.getAppMetrics() `。
 
 ### `app.getAppMetrics()`
 
@@ -807,4 +807,4 @@ Sets the application's [dock menu](https://developer.apple.com/library/mac/docum
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+设置与此 dock 图标关联的 ` 图标 `。
