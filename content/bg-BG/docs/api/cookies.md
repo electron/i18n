@@ -1,12 +1,12 @@
-## Class: Cookies
+## Клас: Cookies
 
-> Query and modify a session's cookies.
+> Достъп и промяна на потребителска сесия.
 
 Process: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Можете да достъпите инстанция на класът `Cookies` с помощта на свойството `cookies` на класът `Session`.
 
-For example:
+Например:
 
 ```javascript
 const {session} = require('electron')
