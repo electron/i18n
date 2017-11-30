@@ -22,24 +22,24 @@
 * [Розширення DevTools](tutorial/devtools-extension.md)
 * [Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Використання Плагіну Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
+* [Гарячі Клавіші](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Уроки
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Швидкий Старт](tutorial/quick-start.md)
+* [Інтеграція з Середовищами Робочого Столу](tutorial/desktop-environment-integration.md)
+* [Виявлення Онлайн/Офлайн Подій](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Нативні Сповіщення](tutorial/notifications.md)
 
-## API References
+## Довідник API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Короткий Огляд](api/synopsis.md)
+* [Обробка Об'єктів](api/process.md)
+* [Підтримувані Параметри Командного Рядка Chrome](api/chrome-command-line-switches.md)
+* [Змінні Середовища](api/environment-variables.md)
 
 ### Custom DOM Elements:
 
