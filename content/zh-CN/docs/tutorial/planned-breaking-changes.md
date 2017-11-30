@@ -1,6 +1,6 @@
-# Planned Breaking API Changes
+# 计划中的 API 更改
 
-The following list includes the APIs that will be removed in Electron 2.0.
+以下列表包括将在Electron 2.0中删除的API
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
