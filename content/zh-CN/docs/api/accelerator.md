@@ -1,15 +1,15 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> 定义键盘快捷键。
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Accelerator 由字符串组成，可以包含多个修饰符和键码，由+字符组合，用于在整个应用程序中定义键盘快捷键。
 
-Examples:
+示例
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+快捷方式使用 [` register `](global-shortcut.md#globalshortcutregisteraccelerator-callback) 方法在 [` globalShortcut `](global-shortcut.md) 模块中注册, 即:
 
 ```javascript
 const {app, globalShortcut} = require('electron')
