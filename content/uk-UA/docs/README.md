@@ -41,7 +41,7 @@
 * [Підтримувані Параметри Командного Рядка Chrome](api/chrome-command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Користувацькі DOM Елементи:
 
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
