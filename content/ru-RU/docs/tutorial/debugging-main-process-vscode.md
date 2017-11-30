@@ -1,13 +1,13 @@
-# Debugging the Main Process in VSCode
+# Отладка главного процесса в VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Откройте проект Electron в VSCode.
 
 ```bash
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Создайте файл `.vscode/launch.json` со следующей конфигурацией:
 
 ```json
 {
@@ -28,9 +28,9 @@ $ code electron-quick-start
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Примечание:** Для Windows используйте `«${workspaceRoot}/node_modules/.bin/electron.cmd»` для `runtimeExecutable`.
 
-### 3. Debugging
+### 3. Отладка
 
 Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 

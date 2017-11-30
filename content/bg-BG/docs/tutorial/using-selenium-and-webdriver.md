@@ -1,4 +1,4 @@
-# Using Selenium and WebDriver
+# Работа със Selenium Web Driver
 
 From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 

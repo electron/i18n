@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Гарячі Клавіші
 
 > Configure local and global keyboard shortcuts
 

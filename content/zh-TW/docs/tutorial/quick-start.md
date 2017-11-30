@@ -148,7 +148,7 @@ $ ./node_modules/.bin/electron .
     $ .\node_modules\.bin\electron .
     
 
-### Manually Downloaded Electron Binary
+### 手動下載 Electron 二進位
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
@@ -171,11 +171,11 @@ $ ./electron/electron your-app/
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### 以發佈檔執行
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### 試試這個範例
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 

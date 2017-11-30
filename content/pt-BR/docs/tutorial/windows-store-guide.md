@@ -72,22 +72,22 @@ Para conseguir executar sua aplicação, seus usuários precisarão do Windows 1
 
 Ao contrário de aplicações UWP tradicionais, aplicações empacotadas deverão seguir um processo de verificação manual, em qual você pode se increver [aqui](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Entretanto, até a sua aprovação, todos os usuários serão capazes de instalar a aplicação apenas com um clique duplo, logo, o pedido de aprovação na loja pode não ser necessária se você está apenas à procura de um método mais simples de instalação. Em ambientes gerenciados (geralmente empresas) o `Add-AppxPackage`, que é um [Cmdlet do PowerShell, pode ser utilizado para instalá-lo de uma forma automatizada](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Outra limitação importante é que a aplicação AppX compilada contém um executável win32 - e, portanto, não pode ser executado no Xbox, Hololens ou smartphones.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Opcional: Adicionar recursos UWP utilizando uma BackgroundTask
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Você pode parear sua aplicação Electron com um processo UWP em segundo plano, esta, pode fazer pleno uso dos recursos do Windows 10 - como notificações em push, Cortana ou Live Tiles.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Para verificar como uma aplicação Electron utiliza um processo em segundo plano para enviar notificações e Live Tiles, [confira a amostra fornecida pela própria Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## Opcional: Converter utilizando virtualização de Container
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+Para gerar a aplicação AppX, o `electron-windows-store` CLI utiliza um template que deve funcionar para a maioria das aplicações Electron. De qualquer maneira, se você estiver utilizando um instalador customizado ou você tiver algum problema com o pacote gerado, você pode tentar criar um pacote utilizando compilação com um Container Windows. Neste modo, o CLI irá instalar e rodar sua aplicação em um Container Windows cru para determinar quais modificações sua aplicação sua aplicação esta fazendo no sistema operacional.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Antes de executar o CLI pela primeira vez, você deverá configurar o "Windows Desktop App Converter". Isso deverá levar alguns minutos, mas não se preocupe - você só terá de fazer isso uma vez. Faça o Download do Desktop App Converter [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Você receberá dois arquivos: `DesktopAppConverter.zip` e `BaseImage-14316.wim`.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. Descompacte `DesktopAppConverter.zip`. De um PowerShell com poderes administrativos (aberto com "executar como Administrador", certifique-se de que a política de execução do seu sistema nos permita executar tudo que temos a intenção chamando `Set-ExecutionPolicybypass`.
+2. Então, execute a instação do Desktop App Converter, passando a localização da Windows Base Image (baixada como `BaseImage-14316.wim`), chamando `.\DesktopAppConverter.ps1-Setup-BaseImage.\BaseImage-14316.wim`.
+3. Se, ao executar o comando acima, seja requisitado reiniciar o computador, reinicie e execute o comando novamente após o computador reiniciar.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Assim que instalação estiver bem sucedida, você pode seguir e compilar sua aplicação Electron.

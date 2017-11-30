@@ -28,4 +28,4 @@ Si eres un usuario experimentado de NW.js, debe estar familiarizado con el conce
 
 Mediante la función [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) del Node, Electron no introduce un nuevo contexto de JavaScript en páginas web.
 
-Nota: NW.js ha apoyado opcionalmente contexto multi-contexto desde 0.13.
+Nota: NW.js ha apoyado de manera opcional multi-contexto desde la versión 0.13.

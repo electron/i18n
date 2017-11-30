@@ -4,48 +4,48 @@ Electron 說明文件撰寫指導方針。
 
 ## 標題
 
-* 每一頁的最上方都要有單獨一行 `#`-級別 的標題。
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* 每一頁的最上方都要有單獨一個 `#` 級別的標題。
+* 同一頁中的各章必須有 `##` 級別的標題。
+* 子章節需要根據其深度來增加標題中的 `#` 數量。
+* 除了 “of” 和 “and” 等連詞外，頁面標題中的所有單詞都必須以大寫開頭。
+* 只有章節標題的第一個詞必須大寫開頭。
 
 以 `Quick Start` 快速入門應用程式為例:
 
 ```markdown
-# Quick Start
+# 快速入門
 
 ...
 
-## Main process
+## 主處理序
 
 ...
 
-## Renderer process
+## 畫面轉譯處理序
 
 ...
 
-## Run your app
+## 執行你的應用程式
 
 ...
 
-### Run as a distribution
+### 以發佈檔執行
 
 ...
 
-### Manually downloaded Electron binary
+### 手動下載 Electron 二進位
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+對於 API 參照，則有些例外。
 
 ## Markdown 規則
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* 在程式碼區塊中使用 `bash` 而不是 `cmd` (以便語法上色)。
+* 一行長度以 80 個半形字元為限，超過請換行。
+* 縮排以兩階為限 (受限於 Markdown 畫面轉譯器)。
+* 所有的 `js` 及 `javascript` 程式碼區塊都由 [standard-markdown](http://npm.im/standard-markdown) lint 過。
 
 ## 選字
 
@@ -67,7 +67,7 @@ Using `session` as example:
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> 管理瀏覽器 Session、Cookie、快取、代理伺服器設定等。
 ```
 
 ### 模組方法和事件
@@ -137,7 +137,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### 方法
 
-The methods chapter must be in the following form:
+「方法」小節必須遵照下列格式:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -180,7 +180,7 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### 事件
 
-The events chapter must be in following form:
+「事件」小節必須遵照下列格式:
 
 ```markdown
 ### 事件: 'wake-up'
@@ -198,7 +198,7 @@ The arguments of an event follow the same rules as methods.
 
 ### 屬性
 
-The properties chapter must be in following form:
+「屬性」小節必須遵照下列格式:
 
 ```markdown
 ### session.defaultSession
@@ -206,17 +206,17 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+標題可以是 `###` 或 `####` 級別，取決於它是模組還是類別的屬性。
 
 ## 文件翻譯
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Electron 文件的翻譯放在 `docs-translations` 目錄裡。
 
-To add another set (or partial set):
+如果要新增別種語言:
 
-* Create a subdirectory named by language abbreviation.
+* 建立名稱為語言縮寫的子目錄。
 * 翻譯檔案。
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* 更新語言目錄中的 `README.md`，連結到你翻譯好的檔案去。
+* 在 Electron 主 [README](https://github.com/electron/electron#documentation-translations) 中加入連結，指到你翻譯的目錄。
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+請注意，`docs-translations` 下請只放翻譯過的文件，不要將原文的檔案直接複製進去。

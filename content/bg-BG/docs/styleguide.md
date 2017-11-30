@@ -1,8 +1,8 @@
-# Electron Documentation Styleguide
+# Стилове за писане на Electron документация
 
-These are the guidelines for writing Electron documentation.
+В настоящият документ са описани основните стилове ползвани при дефиниране на документация за проект Electron.
 
-## Titles
+## Заглавия
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.

@@ -489,7 +489,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 **Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
-**Примечание:** Пользователи могут удалять элементы из пользовательских категориях, а Windows не будет позволять добавлять удаленный элемент обратно в пользовательскую категорию до **after** следующего удачного вызова `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
+**Примечание:** Пользователи могут удалять элементы из пользовательских категорий, а Windows не будет позволять добавлять удаленный элемент обратно в пользовательскую категорию **до** следующего удачного вызова `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
 Вот очень простой способ, как создать пользовательский Jump List:
 
@@ -559,17 +559,17 @@ app.setJumpList([
 
 Возвращает `Boolean`.
 
-Этот метод делает ваше приложение одним экземпляром приложения, а не позволяя запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
+Этот метод делает ваше приложение одним экземпляром приложения, и не позволяет запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
-`callback` будет вызван первым экземпляром из `callback(argv, workingDirectory)` когда второй экземпляр выполнен. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+`callback` будет вызван первым экземпляром из `callback(argv, workingDirectory)`, когда второй экземпляр выполнен. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
 `callback` гарантированно выполняется после события `ready` получаемое из `app`.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Этот метод возвращает `false`, если Ваш процесс является основным экземпляром приложения и Вашему приложению следует продолжить загрузку. И возвращает `true`, если Ваш процесс направил свои параметры в другой экземпляр, и вы должны немедленно выйти.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+На macOS система обеспечивает один экземпляр автоматически, когда пользователи пытаются открыть второй экземпляр приложения в Finder, для этого будут выделяться события `open-file` и `open-url`. Однако при запуске Вашего приложения в командной строке, системный механизм одного экземпляра будет обойден, и Вы должны использовать этот метод для обеспечения одного экземпляра.
 
-An example of activating the window of primary instance when a second instance starts:
+Пример активации окна первичного экземпляра при запуске второго экземпляра:
 
 ```javascript
 const {app} = require('electron')

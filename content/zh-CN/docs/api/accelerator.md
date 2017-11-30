@@ -1,15 +1,15 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> 定义键盘快捷键。
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Accelerator 由字符串组成，可以包含多个修饰符和键码，由+字符组合，用于在整个应用程序中定义键盘快捷键。
 
-Examples:
+示例
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+快捷方式使用 [` register `](global-shortcut.md#globalshortcutregisteraccelerator-callback) 方法在 [` globalShortcut `](global-shortcut.md) 模块中注册, 即:
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -22,9 +22,9 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## 跨平台提醒
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+在 Linux 和 Windows 上, ` Command ` 键没有任何效果, 所以使用 ` CommandOrControl `表述, macOS 是 ` Command ` ，在 Linux 和 Windows 上是` Control `。
 
 Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 

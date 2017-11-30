@@ -1,4 +1,4 @@
-# Electron FAQ
+# FAQ Electron
 
 ## Чому виникають проблеми з інсталяцією Electron?
 
@@ -29,19 +29,19 @@ To share data between web pages (the renderer processes) the simplest way is to 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
-// In the main process.
+// В головному процесі.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// На сторнці 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// На сторінці 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -75,14 +75,14 @@ app.on('ready', () => {
 })
 ```
 
-## Я не можу використовувати jQuery/RequireJS/Метеор/AngularJS в Electron.
+## Я не можу використати jQuery/RequireJS/Meteor/AngularJS в Electron.
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
+// В головному процесі.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {

@@ -1,4 +1,4 @@
-# DevTools Extension
+# Разширения за работа с инструменти за писане на програмен код
 
 Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
 

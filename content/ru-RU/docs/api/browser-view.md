@@ -1,17 +1,17 @@
-## Class: BrowserView
+## Класс: BrowserView
 
-> Create and control views.
+> Создание и Управление видами.
 
 **Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.
 
 Процесс: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` может использоваться для внедрения дополнительного веб-содержимого в `BrowserWindow`. Это как дочернее окно, за исключением того, что оно позиционируется относительно его владельца окна. Он предназначен для того, чтобы быть альтернативой тега `webview`.
 
 ## Пример
 
 ```javascript
-// In the main process.
+// В основном процессе.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,10 +29,10 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *Экспериментально*
 
 * `options` Object (опиционально) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Объект (опционально) - см. [BrowserWindow](browser-window.md).
 
 ### Статические методы
 
@@ -40,36 +40,36 @@ view.webContents.loadURL('https://electron.atom.io')
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Возвращает `BrowserView` - вид с заданным `id`.
 
-### Instance Properties
+### Свойства экземпляра
 
-Объекты, созданные с помощью `new BrowserView` имеют следующие свойства:
+Объекты, созданные с помощью `new BrowserView`, имеют следующие свойства:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Экспериментально*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Объект [`WebContents`](web-contents.md), принадлежащий этому виду.
 
-#### `view.id` *Experimental*
+#### `view.id` *Экспериментально*
 
-A `Integer` representing the unique ID of the view.
+`Integer`, представляющий уникальный идентификатор вида.
 
-### Instance Methods
+### Методы экземпляра
 
-Objects created with `new BrowserView` have the following instance methods:
+Объекты, созданные с помощью `new BrowserView`, имеют следующие свойства:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Экспериментально*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - если `true`, то ширина будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
+  * `height` Boolean - если `true`, то высота будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Экспериментально*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Изменяет и перемещает вид в предоставленные границы относительно окна.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Экспериментально*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - цвет вида `#aarrggbb` или `#argb`. Альфа-канал является опциональным.

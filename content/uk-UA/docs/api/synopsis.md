@@ -1,4 +1,4 @@
-# Synopsis
+# Короткий Огляд
 
 > How to use Node.js and Electron APIs.
 

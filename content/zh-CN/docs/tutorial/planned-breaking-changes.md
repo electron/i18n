@@ -1,34 +1,34 @@
-# Planned Breaking API Changes
+# 计划中的 API 更改
 
-The following list includes the APIs that will be removed in Electron 2.0.
+以下列表包括将在Electron 2.0中删除的API
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+对于这个版本的发布没有时间表，但是弃用警告将被至少预先90天添加
 
 ## `app`
 
 ```js
-// Deprecated
+// 过时的
 app.getAppMemoryInfo()
-// Replace with
+// 替换为
 app.getAppMetrics()
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+//过时的
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+//替换为
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// 过时的
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+//替换为
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -36,24 +36,24 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// 过时的
 clipboard.readRtf()
-// Replace with
+// 替换为
 clipboard.readRTF()
 
-// Deprecated
+// 过时的
 clipboard.writeRtf()
-// Replace with
+// 替换为
 clipboard.writeRTF()
 
-// Deprecated
+// 过时的
 clipboard.readHtml()
-// Replace with
+// 替换为
 clipboard.readHTML()
 
-// Deprecated
+// 过时的
 clipboard.writeHtml()
-// Replace with
+//替换为
 clipboard.writeHTML()
 ```
 
@@ -77,9 +77,9 @@ crashReporter.start({
 ## `menu`
 
 ```js
-// Deprecated
+// 过时的
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// 替换为
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
@@ -107,13 +107,13 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+//旧写法
 process.versions['atom-shell']
-// Replace with
+//新写法
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
 ## `session`
 

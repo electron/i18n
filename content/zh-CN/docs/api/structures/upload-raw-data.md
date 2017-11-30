@@ -1,4 +1,4 @@
-# UploadRawData Object
+# UploadRawData 对象
 
 * `type` String - `rawData`.
-* `bytes` Buffer - Data to be uploaded.
+* ` bytes ` Buffer - 要上传的数据。

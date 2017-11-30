@@ -1,6 +1,6 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> 管理瀏覽器 Session、Cookie、快取、代理伺服器設定等。
 
 處理序: [主處理序](../glossary.md#main-process)
 

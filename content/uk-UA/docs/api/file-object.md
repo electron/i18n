@@ -1,4 +1,4 @@
-# `File` Object
+# Об'єкт `File`
 
 > Use the HTML5 `File` API to work natively with files on the filesystem.
 

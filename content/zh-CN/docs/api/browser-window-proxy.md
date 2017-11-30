@@ -1,6 +1,6 @@
-## Class: BrowserWindowProxy
+## 类: BrowserWindowProxy
 
-> Manipulate the child browser window
+> 操纵子浏览器窗口
 
 Process: [Renderer](../glossary.md#renderer-process)
 
@@ -41,10 +41,10 @@ Sends a message to the child window with the specified origin or `*` for no orig
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instance Properties
+### 实例属性
 
-The `BrowserWindowProxy` object has the following instance properties:
+` BrowserWindowProxy ` 对象具有以下实例属性:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+在子窗口关闭后设置为 true 的 ` Boolean `。
