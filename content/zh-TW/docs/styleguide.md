@@ -6,34 +6,34 @@ Electron 說明文件撰寫指導方針。
 
 * 每一頁的最上方都要有單獨一個 `#` 級別的標題。
 * 同一頁中的各章必須有 `##` 級別的標題。
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* 子章節需要根據其深度來增加標題中的 `#` 數量。
+* 除了 “of” 和 “and” 等連詞外，頁面標題中的所有單詞都必須以大寫開頭。
+* 只有章節標題的第一個詞必須大寫開頭。
 
 以 `Quick Start` 快速入門應用程式為例:
 
 ```markdown
-# Quick Start
+# 快速入門
 
 ...
 
-## Main process
+## 主處理序
 
 ...
 
-## Renderer process
+## 畫面轉譯處理序
 
 ...
 
-## Run your app
+## 執行你的應用程式
 
 ...
 
-### Run as a distribution
+### 以發佈檔執行
 
 ...
 
-### Manually downloaded Electron binary
+### 手動下載 Electron 二進位
 
 ...
 ```
