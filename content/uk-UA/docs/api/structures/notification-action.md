@@ -1,13 +1,13 @@
-# NotificationAction Object
+# Об'єкт NotificationAction
 
-* `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* `type` String - Тип дії, може бути `button`.
+* `text` String - (опціонально) Назва для переданої дії.
 
-## Platform / Action Support
+## Платформа / Підтримка дії
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                         |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Тип дії  | Підтримка платформами | Вмкористання `text`                  | `text` за замовчуванням | Обмеження                                                                                                                                                           |
+| -------- | --------------------- | ------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS                 | Використовується як напис для кнопки | "Show"                  | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Button support on macOS
 
