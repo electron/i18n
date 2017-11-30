@@ -1,10 +1,10 @@
-Преди да продължите да четете, уверете се че версията на документа съвпада с версията на Electron от която се интересувате. Версията може да бъде намерена в URL адреса на страницата. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Преди да продължите да четете, уверете се че версията на документа съвпада с версията на Electron от която се интересувате. Версията може да бъде намерена в URL адреса на страницата. Ако не успявате да идентифицирате версията, то най-вероятно четете настоящият документ касаещ версия на продукта която се разработва в момента. Бъдете внимателни защото информацията, която получавате в момента може да не е съвместима с версията на Electron, с която работите в момента. Ако се интересувате от по-стара версия на продукта, ви съветваме да използвате функцията [browse by tag](https://github.com/electron/electron/tree/v1.4.0) в GitHub като отворите менюто "Switch branches/tags" и изберете версията, която ви интересува.
 
-## FAQ
+## Често задавани въпроси
 
-There are questions that are asked quite often. Check this out before creating an issue:
+При работата си с продукта често ще се натъквате на проблеми, които са тривиални и са представлявали пречка и за други потребители. Разгледайте секцията с често задавани въпроси и проверете дали проблема който ви тревожи не е получил вече, своето решение:
 
-* [Electron FAQ](faq.md)
+* [често задавани въпроси за Electron](faq.md)
 
 ## Guides
 
