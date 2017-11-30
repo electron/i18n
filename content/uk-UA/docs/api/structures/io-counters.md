@@ -1,8 +1,8 @@
-# IOCounters Object
+# Об'єкт IOCounters
 
-* `readOperationCount` Number - The number of I/O read operations.
-* `writeOperationCount` Number - The number of I/O write operations.
-* `otherOperationCount` Number - Then number of I/O other operations.
-* `readTransferCount` Number - The number of I/O read transfers.
-* `writeTransferCount` Number - The number of I/O write transfers.
-* `otherTransferCount` Number - Then number of I/O other transfers.
+* `readOperationCount` Number - Кількість операцій I/O читання.
+* `writeOperationCount` Number - Кількість операцій I/O запису.
+* `otherOperationCount` Number - Кількість інших I/O операцій.
+* `readTransferCount` Number - Кількість операцій I/O переданих на читання.
+* `writeTransferCount` Number - Кількість операцій I/O переданих на запис.
+* `otherTransferCount` Number - Кількість інших I/O передач.
