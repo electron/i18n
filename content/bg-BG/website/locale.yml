@@ -1,18 +1,18 @@
 tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
 nav:
-  docs: Docs
-  blog: Blog
+  docs: 'Документация'
+  blog: 'Блог'
   community: Community
-  apps: Apps
+  apps: 'Приложения'
   userland: Userland
   releases: Releases
-  contact: Contact
-  languages: Languages
+  contact: 'Контакти'
+  languages: 'Езици'
   code_of_conduct: Code of Conduct
 docs:
   title: Electron Documentation
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
-  guides: Guides
+  guides: 'Ръководства'
   api_reference: API Reference
   advanced: Advanced
 languages:
@@ -72,7 +72,7 @@ need_help:
   title: Need Help?
   description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
-  languages: Languages
+  languages: 'Езици'
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -109,7 +109,7 @@ pages:
     title: API
     description: API reference documentation for the latest Electron release
   '/docs/development':
-    title: Development
+    title: 'Разработка'
     description: Developing with Electron
   '/docs/tutorial':
     title: Tutorial
@@ -122,10 +122,10 @@ pages:
   '/releases':
     title: Releases
   '/contact':
-    title: Contact
+    title: 'Контакти'
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: 'Езици'
   '/userland':
     title: Userland
   '/devtron':
