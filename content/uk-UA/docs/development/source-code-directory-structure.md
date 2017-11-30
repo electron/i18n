@@ -1,4 +1,4 @@
-# Source Code Directory Structure
+# Структура Каталогу з Вихідним Кодом
 
 The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
 
