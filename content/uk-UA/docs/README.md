@@ -43,11 +43,11 @@
 
 ### Користувацькі DOM Елементи:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [Об'єкт `File`](api/file-object.md)
+* [Тег `<webview>`](api/webview-tag.md)
+* [Функція `window.open`](api/window-open.md)
 
-### Modules for the Main Process:
+### Модулі для Головного Процесу:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -68,14 +68,14 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Модулі для Процесу Рендерера (Web Page):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Модулі для Обох Процесів:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -83,11 +83,11 @@
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Розробка
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
+* [Стиль Коду](development/coding-style.md)
+* [Використання clang-format в C++ Коді](development/clang-format.md)
+* [Структура Каталогу з Вихідним Кодом](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Overview](development/build-system-overview.md)
 * [Build Instructions (macOS)](development/build-instructions-osx.md)
