@@ -86,8 +86,8 @@ Para gerar a aplicação AppX, o `electron-windows-store` CLI utiliza um templat
 
 Antes de executar o CLI pela primeira vez, você deverá configurar o "Windows Desktop App Converter". Isso deverá levar alguns minutos, mas não se preocupe - você só terá de fazer isso uma vez. Faça o Download do Desktop App Converter [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Você receberá dois arquivos: `DesktopAppConverter.zip` e `BaseImage-14316.wim`.
 
-1. Descompacte `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. Descompacte `DesktopAppConverter.zip`. De um PowerShell com poderes administrativos (aberto com "executar como Administrador", certifique-se de que a política de execução do seu sistema nos permita executar tudo que temos a intenção chamando `Set-ExecutionPolicybypass`.
+2. Então, execute a instação do Desktop App Converter, passando a localização da Windows Base Image (baixada como `BaseImage-14316.wim`), chamando `.\DesktopAppConverter.ps1-Setup-BaseImage.\BaseImage-14316.wim`.
+3. Se, ao executar o comando acima, seja requisitado reiniciar o computador, reinicie e execute o comando novamente após o computador reiniciar.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Assim que instalação estiver bem sucedida, você pode seguir e compilar sua aplicação Electron.
