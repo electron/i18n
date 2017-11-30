@@ -12,8 +12,8 @@
 * [Поддържани платформи](tutorial/supported-platforms.md)
 * [Сигурност](tutorial/security.md)
 * [Версии](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
+* [Разпространяване на разработените приложения](tutorial/application-distribution.md)
+* [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
 * [Употреба на Node модули](tutorial/using-native-node-modules.md)
@@ -24,19 +24,19 @@
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
 
-## Tutorials
+## Уроци
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
-* [REPL](tutorial/repl.md)
+* [Първи стъпки](tutorial/quick-start.md)
+* [Интеграция на настолна среда](tutorial/desktop-environment-integration.md)
+* [Засичане на събития](tutorial/online-offline-events.md)
+* [Интерактивна среда за разработка на приложения](tutorial/repl.md)
 * [Native Notifications](tutorial/notifications.md)
 
-## API References
+## Функционална документация
 
-* [Synopsis](api/synopsis.md)
+* [Обзор](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
@@ -47,7 +47,7 @@
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
-### Modules for the Main Process:
+### Основни процеси:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -68,7 +68,7 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Визуализиращи процеси (Web страници):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
