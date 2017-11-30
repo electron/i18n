@@ -6,7 +6,7 @@
 
 * [често задавани въпроси за Electron](faq.md)
 
-## Guides
+## Ръководства
 
 * [Glossary of Terms](glossary.md)
 * [Supported Platforms](tutorial/supported-platforms.md)
@@ -83,11 +83,11 @@
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Разработка
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
+* [Стандарти за писане на код](development/coding-style.md)
+* [Как да използваме clang форматиране при работа със C++ код](development/clang-format.md)
+* [Структура на проекта](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Overview](development/build-system-overview.md)
 * [Build Instructions (macOS)](development/build-instructions-osx.md)
@@ -99,4 +99,4 @@
 * [Documentation Styleguide](styleguide.md)
 * [Upgrading Chrome](development/upgrading-chrome.md)
 * [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Разработка на V8](development/v8-development.md)
