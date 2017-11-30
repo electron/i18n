@@ -67,7 +67,7 @@ Using `session` as example:
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> 管理瀏覽器 Session、Cookie、快取、代理伺服器設定等。
 ```
 
 ### 模組方法和事件
