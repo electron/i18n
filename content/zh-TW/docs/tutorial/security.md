@@ -29,7 +29,7 @@
 * 只顯示安全連線 (https) 的內容
 * 在所有會顯示遠端內容的畫面轉譯程式中停用 Node 整合功能 (將 `webPreferences` 中的 `nodeIntegration` 設為 `false`)
 * 在所有會顯示遠端內容的畫面轉譯器中啟用內容隔離功能 (將 `webPreferences` 中的 `contextIsolation` 設為 `true`)
-* 在所有會載入遠端內容的工作階段中使用 `ses.setPermissionRequestHandler()`
+* 在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`
 * 不要停用 `webSecurity`。否則同源政策也會同時被停用。
 * 定義 [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)，並使用限制性規則 (例如 `script-src 'self'`)
 * [覆寫並停用 `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8)，否則可以透過它將字串視為程式碼執行。
