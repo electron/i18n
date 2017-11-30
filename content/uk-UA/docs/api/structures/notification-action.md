@@ -5,15 +5,15 @@
 
 ## Платформа / Підтримка дії
 
-| Тип дії  | Підтримка платформами | Вмкористання `text`                  | `text` за замовчуванням | Обмеження                                                                                                                                                           |
-| -------- | --------------------- | ------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button` | macOS                 | Використовується як напис для кнопки | "Show"                  | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Тип дії  | Підтримка платформами | Вмкористання `text`                  | `text` за замовчуванням | Обмеження                                                                                                                                                       |
+| -------- | --------------------- | ------------------------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS                 | Використовується як напис для кнопки | "Show"                  | Максимум одна копка, якщо надано декілька, використовується тільки остання. Ця дія також не сумісев з `hasReply` і буде проігнорована якщо `hasReply` є `true`. |
 
-### Button support on macOS
+### Button підтримка на macOS
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+Щоб додаткові кнопки повідомлень працювали на macOS, ваш додаток має відповідати наступним вимогам.
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* Застосунок підписано
+* Застосунок має `NSUserNotificationAlertStyle` встановлений в `alert` в `info.plist`.
 
-If either of these requirements are not met the button simply won't appear.
+В іншому випадку кнопка просто не з'явиться.
