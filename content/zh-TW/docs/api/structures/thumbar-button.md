@@ -1,4 +1,4 @@
-# ThumbarButton Object
+# ThumbarButton 物件
 
 * `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
 * `click` Function
