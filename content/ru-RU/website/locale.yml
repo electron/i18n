@@ -6,7 +6,7 @@ nav:
   apps: 'Приложения'
   userland: 'Пользовательское пространство'
   releases: 'Релизы'
-  contact: 'Связаться'
+  contact: 'Контакты'
   languages: 'Языки'
   code_of_conduct: 'Нормы поведения'
 docs:
@@ -122,7 +122,7 @@ pages:
   '/releases':
     title: 'Релизы'
   '/contact':
-    title: 'Связаться'
+    title: 'Контакты'
     description: 'Свяжитесь с командой Electron через Twitter, Slack, GitHub или по электронной почте.'
   '/languages':
     title: 'Языки'
