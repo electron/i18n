@@ -1,4 +1,4 @@
-# Environment Variables
+# Змінні Середовища
 
 > Control application configuration and behavior without changing code.
 
