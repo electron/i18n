@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Клавишни комбинации
 
 > Configure local and global keyboard shortcuts
 
