@@ -1,6 +1,6 @@
 # About Electron
 
-[Electron](https://electron.atom.io) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+Проекта [Electron](https://electron.atom.io) е софтуерна библиотека с отворен код, разработена от GitHub с цел създаване на многоплатформени настолни приложения, с помощта на HTML, CSS и JavaScript. Проекта се осъществява с помощта на платформите [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org). Разработените приложения могат да бъдат активирани и ползвани върху операционните системи Mac, Windows и Linux.
 
 Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
 
