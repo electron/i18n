@@ -84,9 +84,9 @@ Para verificar como uma aplicação Electron utiliza um processo em segundo plan
 
 Para gerar a aplicação AppX, o `electron-windows-store` CLI utiliza um template que deve funcionar para a maioria das aplicações Electron. De qualquer maneira, se você estiver utilizando um instalador customizado ou você tiver algum problema com o pacote gerado, você pode tentar criar um pacote utilizando compilação com um Container Windows. Neste modo, o CLI irá instalar e rodar sua aplicação em um Container Windows cru para determinar quais modificações sua aplicação sua aplicação esta fazendo no sistema operacional.
 
-Antes de executar o CLI pela primeira vez, você deverá configurar o "Windows Desktop App Converter". Isso deverá levar alguns minutos, mas não se preocupe - você só terá de fazer isso uma vez. Faça o Download do Desktop App Converter [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Antes de executar o CLI pela primeira vez, você deverá configurar o "Windows Desktop App Converter". Isso deverá levar alguns minutos, mas não se preocupe - você só terá de fazer isso uma vez. Faça o Download do Desktop App Converter [aqui](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Você receberá dois arquivos: `DesktopAppConverter.zip` e `BaseImage-14316.wim`.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
+1. Descompacte `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
 3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
 
