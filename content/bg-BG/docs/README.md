@@ -8,18 +8,18 @@
 
 ## Ръководства
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
+* [Речник на термините](glossary.md)
+* [Поддържани платформи](tutorial/supported-platforms.md)
+* [Сигурност](tutorial/security.md)
+* [Версии](tutorial/electron-versioning.md)
 * [Application Distribution](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
+* [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
+* [Употреба на Node модули](tutorial/using-native-node-modules.md)
+* [Отстраняване на грешки](tutorial/debugging-main-process.md)
+* [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
+* [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -75,7 +75,7 @@
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Общи модули:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
