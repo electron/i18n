@@ -5,7 +5,7 @@
 Процесс: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// В основном процессе.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
