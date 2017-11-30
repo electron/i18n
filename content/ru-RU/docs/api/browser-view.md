@@ -6,12 +6,12 @@
 
 Процесс: [Main](../glossary.md#main-process)
 
-`BrowserView` может использоваться для внедрения дополнительного веб-содержимого в `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` может использоваться для внедрения дополнительного веб-содержимого в `BrowserWindow`. Это как дочернее окно, за исключением того, что оно позиционируется относительно его владельца окна. Он предназначен для того, чтобы быть альтернативой тега `webview`.
 
 ## Пример
 
 ```javascript
-// In the main process.
+// В основном процессе.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
