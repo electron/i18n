@@ -137,7 +137,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### 方法
 
-The methods chapter must be in the following form:
+「方法」小節必須遵照下列格式:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -180,7 +180,7 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### 事件
 
-The events chapter must be in following form:
+「事件」小節必須遵照下列格式:
 
 ```markdown
 ### 事件: 'wake-up'
@@ -198,7 +198,7 @@ The arguments of an event follow the same rules as methods.
 
 ### 屬性
 
-屬性章節必須遵照下列格式:
+「屬性」小節必須遵照下列格式:
 
 ```markdown
 ### session.defaultSession
@@ -206,17 +206,17 @@ The arguments of an event follow the same rules as methods.
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+標題可以是 `###` 或 `####` 級別，取決於它是模組還是類別的屬性。
 
 ## 文件翻譯
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Electron 文件的翻譯放在 `docs-translations` 目錄裡。
 
 To add another set (or partial set):
 
-* Create a subdirectory named by language abbreviation.
+* 建立名稱為語言縮寫的子目錄。
 * 翻譯檔案。
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* 更新語言目錄中的 `README.md`，連結到你翻譯好的檔案去。
+* 在 Electron 主 [README](https://github.com/electron/electron#documentation-translations) 中加入連結，指到你翻譯的目錄。
 
 Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
