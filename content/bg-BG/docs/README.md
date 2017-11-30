@@ -22,7 +22,7 @@
 * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
 
