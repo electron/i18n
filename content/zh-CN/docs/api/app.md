@@ -207,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### 事件: "login"
 
 返回:
 
