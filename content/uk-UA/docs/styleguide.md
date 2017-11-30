@@ -209,15 +209,15 @@
 
 Назва повинна починатися с `###` або `####`-рівня в залежності від того, це властивість модуля чи класу.
 
-## Documentation Translations
+## Переклади документації
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Переклади документів Electron знаходяться в директорії `docs-translations`.
 
-To add another set (or partial set):
+Щоб додати інший набір (або частковий набір):
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* Створіть піддиректорію з назвою абревіатури мови.
+* Перекладіть файли.
+* Обновіть `README.md` вашою мовною папкою, щоб вказати файли що ви перекладали.
+* Додайте посилання на директорію з перекладами в головному [README](https://github.com/electron/electron#documentation-translations) Electron.
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+Зауважте, що файли в `docs-translations` мають містити тільки переклади, оригінальні англійські файли не повинні копіюватися туди.
