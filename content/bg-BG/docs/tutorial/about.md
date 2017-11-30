@@ -2,15 +2,15 @@
 
 Проекта [Electron](https://electron.atom.io) е софтуерна библиотека с отворен код, разработена от GitHub с цел създаване на многоплатформени настолни приложения, с помощта на HTML, CSS и JavaScript. Проекта се осъществява с помощта на платформите [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org). Разработените приложения могат да бъдат активирани и ползвани върху операционните системи Mac, Windows и Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Разработката на продукта започва през 2013 година като работна рамка върху която е базиран друг проект на GitHub известен като [Atom](https://atom.io). Кода и на двата проекта е отворен през 2014 година.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electron.atom.io/apps/).
+От тогава на сетне инструмента се превръща в популярно решение, за създаване на приложения, ползвано от разработчици на продукти с отворен код, добре извести софтуерни компании и стартиращи такива. [Вижте списък на разработчиците ползващи Electron](https://electron.atom.io/apps/).
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 
 ## Core Team and Contributors
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Проекта се разработва и поддържа от екип в GitHub, с помощта на [активни сътрудници](https://github.com/electron/electron/graphs/contributors) част от мрежата на потребителите на продукта. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Releases
 
