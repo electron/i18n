@@ -38,13 +38,13 @@ Electron 說明文件撰寫指導方針。
 ...
 ```
 
-For API references, there are exceptions to this rule.
+對於 API 參照，則有些例外。
 
 ## Markdown 規則
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* 在程式碼區塊中使用 `bash` 而不是 `cmd` (以便語法上色)。
+* 一行長度以 80 個半形字元為限，超過請換行。
+* 縮排以兩階為限 (受限於 Markdown 畫面轉譯器)。
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
 ## 選字
@@ -212,11 +212,11 @@ The arguments of an event follow the same rules as methods.
 
 Electron 文件的翻譯放在 `docs-translations` 目錄裡。
 
-To add another set (or partial set):
+如果要新增別種語言:
 
 * 建立名稱為語言縮寫的子目錄。
 * 翻譯檔案。
 * 更新語言目錄中的 `README.md`，連結到你翻譯好的檔案去。
 * 在 Electron 主 [README](https://github.com/electron/electron#documentation-translations) 中加入連結，指到你翻譯的目錄。
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+請注意，`docs-translations` 下請只放翻譯過的文件，不要將原文的檔案直接複製進去。
