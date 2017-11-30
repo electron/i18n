@@ -4,8 +4,8 @@ Electron 說明文件撰寫指導方針。
 
 ## 標題
 
-* 每一頁的最上方都要有單獨一行 `#`-級別 的標題。
-* Chapters in the same page must have `##`-level titles.
+* 每一頁的最上方都要有單獨一個 `#` 級別的標題。
+* 同一頁中的各章必須有 `##` 級別的標題。
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
@@ -198,7 +198,7 @@ The arguments of an event follow the same rules as methods.
 
 ### 屬性
 
-The properties chapter must be in following form:
+屬性章節必須遵照下列格式:
 
 ```markdown
 ### session.defaultSession
