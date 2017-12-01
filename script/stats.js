@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-require('dotenv-safe').load()
-
 const got = require('got')
 const fs = require('fs')
 const path = require('path')
