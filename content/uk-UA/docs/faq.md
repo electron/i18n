@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Через інтеграцію Node.js з Electron, є деякі додаткові ключові слова, які всавляються в DOM, такі як: `module`, `exports`, `require`. Це спричиняє проблеми з деякими бібліотеками, так як вони хочуть вставити такі самі ключові слова.
 
-To solve this, you can turn off node integration in Electron:
+Для вирішення ви можете вимкнути інтеграцію node в Electron:
 
 ```javascript
 // В головному процесі.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Але якщо ви хочете зберегти можливість використання Node.js і API Electron, вам потрібно перейменувати змінні на сторінці перед підключенням інших бібліотек:
 
 ```html
 <head>
@@ -106,28 +106,28 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` is undefined (не визначено).
 
-When using Electron's built-in module you might encounter an error like this:
+При використанні вбудованих модулів Electron ви можете стикнутися з помилками типу:
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
     
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Це стається через те що [npm модуль `electron`](https://www.npmjs.com/package/electron) встановлений локально і глобально, що перезаписує вбудовані модулі Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Щоб перевірити правильність використання вбудованого модуля ви можете вивести шлях до модуля `electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+і перевірити чи він має наступний вигляд:
 
     "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
     
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Якщо він схожий на `node_modules/electron/index.js`, то ви маєте видалити модуль npm `electron`, чи перейменувати його.
 
 ```bash
 npm uninstall electron
