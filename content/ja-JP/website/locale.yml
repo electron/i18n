@@ -20,15 +20,15 @@ languages:
   translation_progress: '翻訳状態'
   current: '選択中'
 community:
-  title: Electronコミュニティー
+  title: 'コミュニティ'
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: 'ツール'
   boilerplates: Boilerplates
-  components: Components
+  components: 'コンポーネント'
   videos: '動画'
-  meetups: Meetups
+  meetups: 'ミートアップイベント'
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
+  meetup_notice: 'ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">プルリクエストを送信</a>してください。'
 electron_is_easy:
   title: '想像以上に簡単です'
   description: Webサイトを作成できる方なら、その調子でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分に集中し、面倒な部分はElectronにお任せください。
