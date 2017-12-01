@@ -8,10 +8,10 @@ nav:
   releases: 'リリース'
   contact: 'お問い合わせ'
   languages: '言語'
-  code_of_conduct: Code of Conduct
+  code_of_conduct: '行動規範'
 docs:
-  title: Electron Documentation
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  title: Electon のドキュメント
+  description: '全ドキュメントを <a href="/docs/all">1ページで表示する</a>ことも可能です。また、<a href="/docs/faq">FAQ</a>ページもご用意しております。'
   guides: 'ガイド'
   api_reference: API リファレンス
   advanced: Advanced
@@ -43,7 +43,7 @@ cross_platform:
   title: 'クロスプラットフォーム'
   description: Mac, Windows, Linuxに対応。Electronアプリは3つのプラットフォームでビルド・動作します。
 benefits:
-  hard_parts_made_easy: The hard parts made easy
+  hard_parts_made_easy: '面倒な処理はおまかせください'
   automatic_updates: '自動更新'
   native_menus_and_notifications: 'ネイティブなメニューと通知'
   crash_reporting: 'クラッシュレポート'
@@ -82,7 +82,7 @@ footer:
   need_different_version: Need a different version of the docs?
   see_available_versions: See available versions.
   want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
+  view_all_docs: 'すべてのドキュメントを1ページで表示'
   see_the_faq: 'よくある質問（FAQ）'
 apps:
   title: Electronで開発されたアプリ
