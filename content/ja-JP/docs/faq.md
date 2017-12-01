@@ -18,15 +18,15 @@ Electronに含まれるChromiumのバージョンは、通常、新しいChromiu
 
 ## Electronはいつ最新版のNode.jsにアップグレードされるのですか？
 
-Electronに含まれるNode.jsのバージョンは、通常、新しいNode.jsがリリースされた後、1ヶ月ほどで更新されます。 So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Electronに含まれるNode.jsのバージョンは、通常、新しいNode.jsがリリースされた後、1ヶ月ほどで更新されます。 そのため、Node.js の新しいリリースでよく発生するバグによる影響を避けることが可能です。
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+通常、Node.js の新しい機能は V8 のアップグレードによってもたらされますが、Electron は Chromiumに搭載されている V8 を使用しています。そのため、新しく Node.js に追加された JavaScript の機能は Electron ではたいてい既に導入されています。
 
-## How to share data between web pages?
+## ウェブページ間のデータを共有する方法は?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+ウェブページ（レンダラープロセス）間のデータを共有するために最も単純な方法は、ブラウザですでに提供されているHTML5 APIを使用することです。 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)などを活用すると便利でしょう。
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+もしくは、IPC(プロセス間通信) を使用することも出来ます。これはElectron特有の機能で、メインプロセスのグローバル変数としてオブジェクトを保存してレンダラプロセスから`electron`モジュールの`remote`プロパティを通じてアクセスすることが出来ます。
 
 ```javascript
 // メインプロセス内
@@ -45,11 +45,11 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## 何分か経つとアプリの Window/tray が消えてしまいます
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+これは、Window/trayを格納するのに使用している変数がガベージコレクトされたときに発生します。
 
-If you encounter this problem, the following articles may prove helpful:
+この問題に遭遇した時には、次のドキュメントを読むことをお勧めします。
 
 * [メモリ管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [変数スコープ](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
@@ -75,7 +75,7 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## jQuery/RequireJS/Meteor/AngularJSがElectronで使えません
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
@@ -107,9 +107,9 @@ delete window.module;
 
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx`が定義されていません。
 
-When using Electron's built-in module you might encounter an error like this:
+Electronの組み込みモジュールを使うとに、次のようなエラーに遭遇するかもしれません。
 
     > require('electron').webFrame.setZoomFactor(1.0)
     Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
