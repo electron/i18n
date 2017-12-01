@@ -47,14 +47,14 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Вікно/трей зникає через декілька хвилин.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Це стається коли змінна, що використовуєтсья для зберігання вікна/трею знищується колектором сміття.
 
-If you encounter this problem, the following articles may prove helpful:
+Якщо ви стикнулися з цією проблемою, наступні статті стануть вам у нагоді:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Керування Пам'яттю](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Область Видимості Змінних](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Якщо вам потрібне швидке рішення, ви можете зробити змінні глобальними, змінивши ваш код з такого:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+на такий:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -77,7 +77,7 @@ app.on('ready', () => {
 
 ## Я не можу використати jQuery/RequireJS/Meteor/AngularJS в Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Через інтеграцію Node.js з Electron, є деякі додаткові ключові слова, які всавляються в DOM, такі як: `module`, `exports`, `require`. Це спричиняє проблеми з деякими бібліотеками, так як вони хочуть вставити такі самі ключові слова.
 
 To solve this, you can turn off node integration in Electron:
 
