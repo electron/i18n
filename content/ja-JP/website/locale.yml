@@ -1,4 +1,4 @@
-tagline: 'クロスプラットフォームなデスクトップアプリをJavaScript, HTML, CSSを用いて構築'
+tagline: JavaScript, HTML, CSSを用いてクロスプラットフォームなデスクトップアプリを開発
 nav:
   docs: 'ドキュメント'
   blog: 'ブログ'
@@ -31,14 +31,14 @@ community:
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
 electron_is_easy:
   title: '想像以上に簡単です'
-  description: 'もしあなたがWebサイトを作成できるなら、その調子でデスクトップアプリを作成できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者がアプリの重要な部分に集中できるように、Electronが困難な部分を処理します。'
+  description: Webサイトを作成できる方なら、その調子でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分に集中し、面倒な部分はElectronにお任せください。
   video_link: '動画を見る'
 web_technologies:
   title: Web技術
   description: Electron は ChromiumとNode.jsを利用しているため、HTML, CSS, JavaScriptを利用してアプリを開発することができます。
 open_source:
   title: 'オープンソース'
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: ElectronはGitHub社と活発なコミュニティメンバーによってメンテナンスされているオープンソースプロジェクトです。
 cross_platform:
   title: 'クロスプラットフォーム'
   description: Mac, Windows, Linuxに対応。Electronアプリは3つのプラットフォームでビルド・動作します。
@@ -62,7 +62,7 @@ explore:
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Electronを<a href='https://github.com/electron/electron-quick-start' target='_blank'>クイックスタート</a>アプリで体験してみましょう"
   description: '最低限の機能と親切な解説コード'
   clone: Quick Start リポジトリを clone する
   go_into_repo: 'リポジトリに移動'
@@ -85,7 +85,7 @@ footer:
   view_all_docs: View all docs on one page
   see_the_faq: 'よくある質問（FAQ）'
 apps:
-  title: Electronで構築されたアプリ
+  title: Electronで開発されたアプリ
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
   view_more: 'もっとアプリを見る'
   submit_your_own: 'あなたのアプリを送信する'
@@ -98,7 +98,7 @@ pages:
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron アプリ
-    description: Apps Built on Electron
+    description: Electronで開発されたアプリ
   '/docs':
     title: 'ドキュメント'
     description: Guides and API reference documentation for the latest Electron release
@@ -112,7 +112,7 @@ pages:
     title: '開発'
     description: Developing with Electron
   '/docs/tutorial':
-    title: Tutorial
+    title: 'チュートリアル'
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron ブログ
