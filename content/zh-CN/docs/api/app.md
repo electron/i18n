@@ -327,7 +327,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+你可以通过该方法获取下列的各种工作路径
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -349,11 +349,11 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (可选) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 暂不支持该 size 值.
 * `callback` 函数 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
