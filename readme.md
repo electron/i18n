@@ -33,7 +33,7 @@ The following languages are currently being translated, but we can
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
-- [українська мова (Ukrainian)](https://crowdin.com/project/electron/uk)
+- [Українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
 
 
