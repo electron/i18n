@@ -26,7 +26,7 @@ In Electron, we have several ways to communicate between the main process and re
 
 ## اولین برنامه الکترون خود را بنویسید
 
-Generally, an Electron app is structured like this:
+به طور کلی، یک برنامه الکترون به این شکل است:
 
 ```text
 your-app/
@@ -125,11 +125,11 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## اجرای برنامه خود
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
-### `electron`
+### `الکترون`
 
 [`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
 
@@ -141,13 +141,13 @@ electron .
 
 If you've installed it locally, then run:
 
-#### macOS / Linux
+#### مک‌اواس / لینوکس
 
 ```bash
 $ ./node_modules/.bin/electron .
 ```
 
-#### Windows
+#### ویندوز
 
     $ .\node_modules\.bin\electron .
     
@@ -156,19 +156,19 @@ $ ./node_modules/.bin/electron .
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
-#### macOS
+#### مک‌اواس
 
 ```bash
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
-#### Linux
+#### لینوکس
 
 ```bash
 $ ./electron/electron your-app/
 ```
 
-#### Windows
+#### ویندوز
 
     $ .\electron\electron.exe your-app\
     
@@ -179,7 +179,7 @@ $ ./electron/electron your-app/
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### این مثال را امتحان کنید
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
