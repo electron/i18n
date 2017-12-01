@@ -10,7 +10,7 @@ ASAR 形式は、Windows でのパフォーマンスを向上させるために�
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+[Brightray](https://github.com/electron-archive/brightray)は、アプリケーション内で簡単に[libchromiumcontent](#libchromiumcontent)を使用する静的ライブラリでした。 現在は廃止されており、Electronのコードベースにマージされています。
 
 ### CRT
 
@@ -40,23 +40,23 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-See also: [process](#process), [renderer process](#renderer-process)
+[プロセス](#process)、[レンダラープロセス](#renderer-process)についても参照してください。
 
 ### MAS
 
 AppleのMac App Storeの略語です。MASへアプリを登録する際の詳細については、[Mac App Store 登録ガイド](tutorial/mac-app-store-submission-guide.md)をご参照ください。
 
-### native modules
+### ネイティブモジュール (native module)
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+ネイティブ モジュールはNode.js では[アドオン](https://nodejs.org/api/addons.html) とも呼ばれ、requireによってNode.jsやElectronへ読み込むことの出来る、C またはC++で書かれたモジュールです。通常のNode.jsモジュールと同様に使用することが出来ます。 主に、Node.jsで実行されているJavaScript と C/C++ のライブラリ間のインタフェースを提供するために使用されます。
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+[ネイティブNodeモジュールを使用する](tutorial/using-native-node-modules.md)についても参照してください.
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Script Install Systemは、Microsoft Windows向けのスクリプト駆動型インストーラー作成ツールです。(訳注: NullsoftはWinampの開発元の企業です) フリーソフトウェアライセンスの元でリリースされており、InstallShieldのようなプロプライエタリな商用製品の代替として広く使用されています。 [electron-builder](https://github.com/electron-userland/electron-builder)はNSISをビルドターゲットとしてサポートしています。
 
 ## OSR
 
@@ -86,7 +86,7 @@ Squirrelは、Electronアプリケーションの新しいバージョンに対�
 
 Unixコミュニティーに由来する言葉ですが、「ユーザーランド」や「ユーザースペース」は、OSカーネルの外側で動作するプログラムを意味します。 More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
-Node.jsのように、Electronはマルチプラットフォームなデスクトップアプリケーション開発に必要なすべての原始的機能を提供するスモールセットAPIを提供することに焦点を当てています。 This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Node.jsのように、Electronはマルチプラットフォームなデスクトップアプリケーション開発に必要なすべての原始的機能を提供するスモールセットAPIを提供することに焦点を当てています。 この設計思想により、Electronは過度にルールに則りすぎたものになることなく、柔軟性を持つツールであり続けることが可能になっています。 Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 
