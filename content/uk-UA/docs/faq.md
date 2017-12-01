@@ -12,13 +12,13 @@
 
 Chrome для Electron зазвичай випускається на протязі тижня чи двох після релізу стабільної версії Chrome. Цей термін не є гарантованим і залежить від кількості роботи спричиненої оновленням.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Використовуються тільки стабільні версії Chrome. Якщо важливе виправлення присутнє в beta чи dev версії, ми застосуємо їх.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Для більш детальної інформації, перегляньте [Політику безпеки](tutorial/security.md).
 
 ## Коли Electron оновлюється до останньої версії Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Коли виходить нова версія Node.js, см зазвичай чекаємо місяць перед тим як оновити її в Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
