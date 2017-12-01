@@ -18,11 +18,11 @@ docs:
 languages:
   choose_language: '言語選択'
   translation_progress: '翻訳状態'
-  current: current selection
+  current: '選択中'
 community:
   title: Electronコミュニティー
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: 'ツール'
   boilerplates: Boilerplates
   components: Components
   videos: '動画'
@@ -79,14 +79,14 @@ help_translate: "翻訳する"
 footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
+  need_different_version: '別のバージョンのドキュメントが必要ですか？'
   see_available_versions: See available versions.
   want_something_searchable: Want something searchable?
   view_all_docs: 'すべてのドキュメントを1ページで表示'
   see_the_faq: 'よくある質問（FAQ）'
 apps:
   title: Electronで開発されたアプリ
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
+  description: Electron を使えば、業務を改善したりアイデアを達成したりするためのデスクトップアプリを容易に開発できます。当初、 Electron は GitHub の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されました。現在は Microsoft や Facebook, Slack, Docker といった企業によるアプリ開発でも採用されています。
   view_more: 'もっとアプリを見る'
   submit_your_own: 'あなたのアプリを送信する'
   something_missing: '何か見つかりませんか？'
@@ -94,7 +94,7 @@ apps:
 or: 'または'
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    title: Electron | JavaScript, HTML, CSSによるクロスプラットフォームなデスクトップアプリ開発
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron アプリ
@@ -116,7 +116,7 @@ pages:
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron ブログ
-    description: All the latest news from the Electron team and community.
+    description: Electron チームとコミュニティからの最新情報
   '/community':
     title: 'コミュニティ'
   '/releases':
