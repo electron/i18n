@@ -8,17 +8,17 @@
 
 `npm`経由でのインストールが失敗する場合、Electronを[electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
-## When will Electron upgrade to latest Chrome?
+## Electronはいつ最新版のChromeにアップグレードされるのですか？
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Electronに含まれるChromiumのバージョンは、通常、新しいChromiumの安定バージョンがリリースされた後、1～2週間以内に更新されます。 ただし、この期間内に必ずアップデートされるとは保証されていませんし、要する期間はバージョンアップでの作業量に左右されます。
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+また、Chromiumのstableチャンネルのみを使用します。もし重要な修正がbetaまたはdevチャンネルにある場合、それをバックポートします。
 
-For more information, please see the [security introduction](tutorial/security.md).
+より詳しく知りたい場合は、[セキュリティについて](tutorial/security.md)をご参照ください。
 
-## When will Electron upgrade to latest Node.js?
+## Electronはいつ最新版のNode.jsにアップグレードされるのですか？
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Electronに含まれるNode.jsのバージョンは、通常、新しいNode.jsがリリースされた後、1ヶ月ほどで更新されます。 So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
