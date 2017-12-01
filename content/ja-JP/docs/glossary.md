@@ -18,15 +18,15 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式です。 DMGファイルはインストーラーアプリケーションを配布するために使用されます。 [electron-builder](https://github.com/electron-userland/electron-builder)は`dmg`形式をビルドターゲットとしてサポートしています。
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+いわゆる「かな漢字変換システム」のことで、英語名称はInput Method Editorの略です。 日本のユーザにとっては何を今更という説明になりますが、キーボード上に存在しない文字を入力するためのツールです。 日本語、中国語、韓国語に限らず、インドの言語などもIMEによりアルファベットから入力することができます。
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPCはプロセス間通信 (Inter-Process Communication) の略語です。Electron は シリアル化されたJSON メッセージを [メインプロセス](#main-process) と [レンダラプロセス](#renderer-process) 間で送信する際にIPCを使用します。
 
 ### libchromiumcontent
 
@@ -34,7 +34,7 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### メインプロセス (main process)
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
@@ -44,7 +44,7 @@ See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+AppleのMac App Storeの略語です。MASへアプリを登録する際の詳細については、[Mac App Store 登録ガイド](tutorial/mac-app-store-submission-guide.md)をご参照ください。
 
 ### native modules
 
@@ -60,7 +60,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ## OSR
 
-Off-screen rendering.
+オフスクリーンレンダリング.
 
 ### プロセス
 
@@ -70,17 +70,17 @@ In Node.js and Electron, each running process has a `process` object. This objec
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### レンダラプロセス (renderer process)
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+レンダラプロセスは、アプリ中のブラウザーウィンドウのことです。メインプロセスと異なり、複数存在することが可能で、それぞれが別のプロセスとして動作します。また、非表示にもできます。
 
 通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
 
-See also: [process](#process), [main process](#main-process)
+[プロセス](#process)、[レンダラプロセス](#main-process)についても参照してください。
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrelは、Electronアプリケーションの新しいバージョンに対する自動更新を可能にするオープンソースフレームワークです。 Squirrelについては [autoUpdater](api/auto-updater.md) APIを参照してください。
 
 ### userland
 
