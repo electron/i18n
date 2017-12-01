@@ -274,9 +274,9 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 * `exitCode` Integer (可选)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+立即退出该程序，并返回 `exitCode`。`exitCode` 的默认值是 0
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+所有窗口都将立即被关闭（不会弹出询问提示），而且 `before-quit` 和 `will-quit` 事件也不会被触发
 
 ### `app.relaunch([options])`
 
@@ -303,7 +303,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false`
 
 ### `app.focus()`
 
@@ -315,11 +315,11 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+显示所有被隐藏的应用窗口。需要注意的是，这些窗口不会自动获取焦点。
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+返回 `String` 类型 - 当前应用程序所在目录
 
 ### `app.getPath(name)`
 
