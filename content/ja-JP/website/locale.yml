@@ -21,9 +21,9 @@ languages:
   current: '選択中'
 community:
   title: 'コミュニティ'
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: '<a href="https://github.com/sindresorhus/awesome-electron">素晴らしい</a>オープンソース貢献者たちによるツール、ボイラープレートコード、動画などをご覧いただけます。<a href="/community#meetups">ミートアップイベント</a>を見つけたり、追加したりすることもできます。'
   tools: 'ツール'
-  boilerplates: Boilerplates
+  boilerplates: 'ボイラープレート'
   components: 'コンポーネント'
   videos: '動画'
   meetups: 'ミートアップイベント'
@@ -136,5 +136,5 @@ pages:
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: 'ページが見つかりません'
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  if_this_is_an_error: 'もしこれがエラーであれば、'
+  please_file_an_issue: Issue にてお知らせください。
