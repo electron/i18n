@@ -17,7 +17,7 @@ docs:
   advanced: Erweitert
 languages:
   choose_language: Wählen Sie Ihre Sprache
-  translation_progress: 'Übersetzungsfortschritt'
+  translation_progress: Übersetzungsfortschritt
   current: Aktuelle Auswahl
 community:
   title: Electron-Community
@@ -74,7 +74,7 @@ need_help:
 headings:
   languages: Sprachen
 taglines:
-  languages: 'Übersetzte Inhalte von unserer wunderbaren globalen Entwickler-Community.'
+  languages: Übersetzte Inhalte von unserer wunderbaren globalen Entwickler-Community.
 help_translate: "Hilf bei der Übersetzung"
 footer:
   see_something: Gibt es etwas zu beheben?
