@@ -362,7 +362,7 @@ Fetches a path's associated icon.
 
 在 *Windows* 上, 会有两种图标：
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+* 由文件的后缀名带来的图标，像是 `.mp3`, `.png` 等等
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
@@ -392,7 +392,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+设置当前应用程序的名字
 
 ### `app.getLocale()`
 
@@ -400,19 +400,19 @@ Returns `String` - The current application locale. Possible return values are do
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**注意：** 在 Windows 上，你必须得等 `ready` 事件触发之后，才能调用该方法
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+将此 `文件路径` 添加到最近打开的文件列表中
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+清空最近打开的文档列表
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
