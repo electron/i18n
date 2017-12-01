@@ -360,10 +360,10 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+在 *Windows* 上, 会有两种图标：
 
 * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
