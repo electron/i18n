@@ -69,6 +69,7 @@ async function fetchTutorialsFromMasterBranch () {
 
   docs
     .filter(doc => !doc.filename.startsWith('api/'))
+    .filter(doc => !doc.filename.includes('images/'))
     .forEach(writeDoc)
 
   return Promise.resolve()
