@@ -272,7 +272,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (可选)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
