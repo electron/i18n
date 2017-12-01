@@ -28,8 +28,8 @@ Electronは新しいバージョンのChromiumを出来るだけ早くサポー�
 
 * セキュリティで保護されたコンテンツ(https) のみ表示
 * リモートのコンテンツを表示するすべてのレンダラプロセスにおいて、Node integrationを無効にする(`webPreferences`において`nodeIntegration`を`false`にする)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
+* リモートのコンテンツを表示するすべてのレンダラプロセスにおいて context isolation を有効にする(`webPreferences`において`contextIsolation`を`true` にする)。
+* リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する。
 * `webSecurity`を無効にしないください。無効にすると、same-origin policyが無効になります。
 * [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)を定義して、スクリプトの読み込み元を制限してください。(例: `script-src 'self'`)
 * [`eval`を無効にしてください。](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) evalは文字列をコードとして実行してしまいます。
