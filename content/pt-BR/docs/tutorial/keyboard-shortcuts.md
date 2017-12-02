@@ -1,10 +1,10 @@
 # Atalhos do Teclado
 
-> Configure local and global keyboard shortcuts
+> Configure atalhos de teclado locais e globais
 
-## Local Shortcuts
+## Atalhos locais
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Você pode usar o módulo [Menu](../api/menu.md) para configurar os atalhos do teclado que serão acionados quando a aplicação estiver em foco. Para isso, especifique a propriedade [`accelerator`] quando criar um [MenuItem](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -25,7 +25,7 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## Atalhos globais
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
