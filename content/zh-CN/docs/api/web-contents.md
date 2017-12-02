@@ -336,7 +336,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+当 ` webContents ` 要进行基本身份验证时触发。
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
