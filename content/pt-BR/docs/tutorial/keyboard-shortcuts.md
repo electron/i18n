@@ -47,7 +47,7 @@ Se você quiser lidar com os atalhos de teclado para um [BrowserWindow](../api/b
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Observe o terceiro paramêtro `true`, significa que o "listener" irá receber o evento de pressionar teclas antes de outros "listeners", para que eles não tenham `stopPropagation()` chamado para eles.
 
 O evento [`before-input-event`](web-contents.md#event-before-input-event) é emitido antes enviar os eventos `keydown` e `keyup` na página. Ele pode ser usado para capturar e manipular atalhos personalizados que não estão visíveis no menu.
 
