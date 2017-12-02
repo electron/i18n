@@ -42,20 +42,20 @@ Ao executar `npm install electron`, alguns usuários ocasionalmente encontram er
 
 Em quase todos os casos, esses problemas são resultado de problemas de rede e não de problemas reais com o pacote npm `electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` e `ETIMEDOUT`, são todas indicações de tais problemas de rede. A melhor solução é tentar trocar de rede ou aguardar um pouco e tentar instalar novamente.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Você pode também baixar Electron diretamente [electron/electron/releases](https://github.com/electron/electron/releases) se a instalação via `npm` estiver falhando.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Se o erro acima persistir, você deve definir a opção [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) como "true":
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Em redes mais lentas, pode ser aconselhável usar opção `--verbose` para exibir o progresso do download:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+Se você precisar forçar um novo download do recurso e do arquivo SHANSUM, defina a variável de ambiente `force_no_cache` com o valor `true`.
