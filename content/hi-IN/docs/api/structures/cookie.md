@@ -1,8 +1,8 @@
-# Cookie Object
+# Cookie वस्तु
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
+* `नाम` String - Cookie का नाम ।
+* ` मान ` String - Cookie का मूल्य ।
+* ` डोमेन ` String (वैकल्पिक) - Cookie का डोमेन ।
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
 * `path` String (optional) - The path of the cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
