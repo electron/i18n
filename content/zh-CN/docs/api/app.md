@@ -215,7 +215,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
-  * `url` URL
+  * ` url `URL
   * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -227,7 +227,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+当 ` webContents ` 要进行基本身份验证时触发。
 
 The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
@@ -684,7 +684,7 @@ Returns `Object`:
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+** 注意: **这个 API 不会对 [ MAS 打包的程序 ](../tutorial/mac-app-store-submission-guide.md) 产生效果
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -713,7 +713,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+** 注意: **这个 API 不会对 [ MAS 打包的程序 ](../tutorial/mac-app-store-submission-guide.md) 产生效果
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
@@ -787,11 +787,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+隐藏 dock 图标。
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+显示 dock 图标
 
 ### `app.dock.isVisible()` *macOS*
 
@@ -801,7 +801,7 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+设置该应用程序的 [dock 菜单](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
 ### `app.dock.setIcon(image)` *macOS*
 
