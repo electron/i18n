@@ -114,7 +114,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `request.chunkedEncoding`
 
