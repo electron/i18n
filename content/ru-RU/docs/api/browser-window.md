@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Методы экземпляра
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
