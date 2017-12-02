@@ -25,5 +25,5 @@ Posibles valores:
 * `enabled_readback` - Hardware accelerated but at reduced performance (yellow)
 * `enabled_force` - Hardware accelerated on all pages (green)
 * `enabled` - Hardware accelerated (green)
-* `enabled_on` - Enabled (green)
+* `enabled_on` - Activado (verde)
 * `enabled_force_on` - Force enabled (green)
