@@ -1,16 +1,16 @@
 # Использование нативных модулей NodeJS
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Нативные модули Node поддерживаются в Electron, но учитывая что Electron предпочитает использовать другую версию V8 из Node установленного на вашем компьютере, вам придется самостоятельно указать расположение заголовков Electron во время сборки нативных модулей.
 
-## How to install native modules
+## Как установить нативные модули
 
-Three ways to install native modules:
+Три способа установки нативных модулей:
 
-### Using `npm`
+### При помощи `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Устанавливая несколько переменных среды, вы можете использовать `npm` для непосредственной установки модулей.
 
-An example of installing all dependencies for Electron:
+Пример установки всех зависимостей для Electron:
 
 ```bash
 # Electron's version.
@@ -55,7 +55,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
 
-## Troubleshooting
+## Устранение проблем
 
 If you installed a native module and found it was not working, you need to check following things:
 
