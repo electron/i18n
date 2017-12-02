@@ -20,13 +20,13 @@ npm install electron -g
 
 ## Personalização
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Se você quer alterar a arquitetura que é baixada (Ex: `ia32` em uma máquina `x64`), você pode usar a opção `--arch` com npm install ou definir a variável de ambiente `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Além de alterar a arquitetura, você pode também especificar a plataforma (ex: `win32`, `linux`, etc.) usando a opção `--platform`:
 
 ```shell
 npm install --platform=win32 electron
@@ -38,9 +38,9 @@ Se você precisar usar um proxy HTTP você pode [definir estas variáveis de amb
 
 ## Solução de Problemas
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Ao executar `npm install electron`, alguns usuários ocasionalmente encontram erros de instalação.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Em quase todos os casos, esses problemas são resultado de problemas de rede e não de problemas reais com o pacote npm `electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` e `ETIMEDOUT`, são todas indicações de tais problemas de rede. A melhor solução é tentar trocar de rede ou aguardar um pouco e tentar instalar novamente.
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
