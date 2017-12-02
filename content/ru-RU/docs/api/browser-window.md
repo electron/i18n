@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Свойства экземпляра
 
 Objects created with `new BrowserWindow` have the following properties:
 
