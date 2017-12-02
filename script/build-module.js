@@ -9,7 +9,6 @@ const cleanDeep = require('clean-deep')
 const hubdown = require('hubdown')
 const locales = require('../lib/locales')
 const hrefType = require('href-type')
-const defaultLocale = 'en-US'
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -109,13 +108,14 @@ parseDocs().then(docs => {
       return acc
     }, {})
 
-  const latestStableVersion = require(`../content/${defaultLocale}/electron-api.json`)[0].version
+  const pkg = require('../package.json')
 
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify({
-      electronLatestStableVersion: latestStableVersion,
-      electronLatestStableTag: `v` + latestStableVersion,
+      electronLatestStableVersion: pkg.electronLatestStableTag.replace(/^v/, ''),
+      electronLatestStableTag: pkg.electronLatestStableTag,
+      electronMasterBranchCommit: pkg.electronMasterBranchCommit,
       locales: locales,
       docs: docsByLocale,
       website: websiteStringsByLocale

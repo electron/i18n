@@ -201,6 +201,16 @@ describe('i18n.locales', () => {
   })
 })
 
+describe('i18n.electronMasterBranchCommit', () => {
+  it('exists', () => {
+    i18n.electronMasterBranchCommit.should.be.a('string')
+  })
+
+  it('is a SHA', () => {
+    i18n.electronMasterBranchCommit.length.should.eq(40)
+  })
+})
+
 describe('i18n.electronLatestStableVersion', () => {
   it('exists', () => {
     i18n.electronLatestStableVersion.should.be.a('string')
