@@ -2,13 +2,13 @@
 
 > Dicas para instalar o elétron
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Para instalar os binários do Electro, use o [`npm`](https://docs.npmjs.com/). O método preferido é instalar o Electron com uma dependência em seu projeto:
 
 ```sh
 npm install electron --save-dev --save-exact
 ```
 
-A opção `--save-exact` é recomendada uma vez que o Electron não segue semântica de versionamento. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+A opção `--save-exact` é recomendada uma vez que o Electron não segue semântica de versionamento. Veja a [documentação](https://electron.atom.io/docs/tutorial/electron-versioning/) para obter informações de como gerenciar as versões do Electron em suas aplicações.
 
 ## Instalação Global
 
