@@ -1,7 +1,7 @@
 # El objeto Certificate
 
 * `data` String - Datos cifrados en formato PEM
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Editor principal
+* `issuer` [CertificatePrincipal](certificate-principal.md) - Emisor principal
 * `issuerName` String - Nombre común del emisor
 * `issuerCert` Certificate - Certificado de emisor (si no esta autofimado)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Asunto principal
