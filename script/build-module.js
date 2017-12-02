@@ -118,7 +118,8 @@ parseDocs().then(docs => {
       electronMasterBranchCommit: pkg.electronMasterBranchCommit,
       locales: locales,
       docs: docsByLocale,
-      website: websiteStringsByLocale
+      website: websiteStringsByLocale,
+      date: new Date()
     }, null, 2)
   )
 })

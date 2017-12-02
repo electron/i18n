@@ -231,3 +231,13 @@ describe('i18n.electronLatestStableTag', () => {
     i18n.electronLatestStableTag.should.eq('v' + i18n.electronLatestStableVersion)
   })
 })
+
+describe('i18n.date', () => {
+  it('exists', () => {
+    i18n.date.should.be.a('string')
+  })
+
+  it('is a date', () => {
+    i18n.date.should.match(/^20/)
+  })
+})
