@@ -1,6 +1,6 @@
 # Об'єкт `File`
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+> Використовуйте HTML5 `File` API щоб працювати з файловою системою.
 
 The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
 

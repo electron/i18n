@@ -8,11 +8,11 @@ Electronで開発を行う時、「Electronはブラウザではない」とい�
 
 ## セキュリティ問題の報告
 
-For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Electronの脆弱性を報告する正しい方法については[SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md) を参照してください。
 
 ## Chromiumのセキュリティ問題とアップグレード
 
-Electronは新しいバージョンのChromiumを出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることを後理解ください。 たくさんのリソースと貢献を受けていますが、ElectronはChromium最新版に追いついてないこともあり、数日・数週間遅れることがあります。
+Electronは新しいバージョンのChromiumを出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることをご理解ください。 たくさんのリソースと貢献を受けていますが、ElectronはChromium最新版に追いついてないこともあり、数日・数週間遅れることがあります。
 
 現在のChromiumコンポーネントのアップデートシステムは、使用できるリソースとほとんどのアプリケーションの需要を満たす、適切なバランスの場所にあると思います。 我々は、Electronを使用する個々のケースに関する意見をいただきたいと思っています。 この件に関するPull requestと貢献をいつでも歓迎します。
 
@@ -28,8 +28,8 @@ Electronは新しいバージョンのChromiumを出来るだけ早くサポー�
 
 * セキュリティで保護されたコンテンツ(https) のみ表示
 * リモートのコンテンツを表示するすべてのレンダラプロセスにおいて、Node integrationを無効にする(`webPreferences`において`nodeIntegration`を`false`にする)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
+* リモートのコンテンツを表示するすべてのレンダラプロセスにおいて context isolation を有効にする(`webPreferences`において`contextIsolation`を`true` にする)。
+* リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する。
 * `webSecurity`を無効にしないください。無効にすると、same-origin policyが無効になります。
 * [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)を定義して、スクリプトの読み込み元を制限してください。(例: `script-src 'self'`)
 * [`eval`を無効にしてください。](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) evalは文字列をコードとして実行してしまいます。

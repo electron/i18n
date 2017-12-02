@@ -445,7 +445,7 @@ Retourne :
 * `callback` Function 
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Émis lorsque le périphérique bluetooth a besoin d'être selectionné lors de l'appel de `navigator.bluetooth.requestDevice`. Pour utiliser l'api `navigator.bluetooth`, `webBluethooth` doit être activé. Si `event.preventDefault` n'est pas appelé, le premier périphérique disponible sera sélectionné. `callback` doit être appelé avec `deviceId` à sélectionner, en passant une chaîne de caractère vide au `callback` annulera la requête.
 
 ```javascript
 const {app, webContents} = require('electron')
@@ -472,7 +472,7 @@ Retourne :
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 

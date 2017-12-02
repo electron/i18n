@@ -272,11 +272,11 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (可选)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+立即退出该程序，并返回 `exitCode`。`exitCode` 的默认值是 0
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+所有窗口都将立即被关闭（不会弹出询问提示），而且 `before-quit` 和 `will-quit` 事件也不会被触发
 
 ### `app.relaunch([options])`
 
@@ -303,7 +303,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false`
 
 ### `app.focus()`
 
@@ -315,11 +315,11 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+显示所有被隐藏的应用窗口。需要注意的是，这些窗口不会自动获取焦点。
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+返回 `String` 类型 - 当前应用程序所在目录
 
 ### `app.getPath(name)`
 
@@ -327,7 +327,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+你可以通过该方法获取下列的各种工作路径
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -349,21 +349,21 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (可选) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 暂不支持该 size 值.
 * `callback` 函数 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+在 *Windows* 上, 会有两种图标：
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* 由文件的后缀名带来的图标，像是 `.mp3`, `.png` 等等
+* 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
@@ -392,7 +392,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+设置当前应用程序的名字
 
 ### `app.getLocale()`
 
@@ -400,19 +400,19 @@ Returns `String` - The current application locale. Possible return values are do
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**注意：** 在 Windows 上，你必须得等 `ready` 事件触发之后，才能调用该方法
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+将此 `文件路径` 添加到最近打开的文件列表中
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+清空最近打开的文档列表
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 

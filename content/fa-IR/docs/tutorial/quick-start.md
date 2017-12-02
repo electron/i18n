@@ -1,20 +1,20 @@
-# Quick Start
+# شروع سریع
 
 Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
-### Main Process
+### پردازش اصلی
 
 In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
 
-### Renderer Process
+### پردازش رندرینگ
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-### Differences Between Main Process and Renderer Process
+### تفاوت پردازش اصلی و پردازش رندرینگ
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
@@ -24,9 +24,9 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## اولین برنامه الکترون خود را بنویسید
 
-Generally, an Electron app is structured like this:
+به طور کلی، یک برنامه الکترون به این شکل است:
 
 ```text
 your-app/
@@ -125,11 +125,11 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## اجرای برنامه خود
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
-### `electron`
+### `الکترون`
 
 [`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
 
@@ -141,13 +141,13 @@ electron .
 
 If you've installed it locally, then run:
 
-#### macOS / Linux
+#### مک‌اواس / لینوکس
 
 ```bash
 $ ./node_modules/.bin/electron .
 ```
 
-#### Windows
+#### ویندوز
 
     $ .\node_modules\.bin\electron .
     
@@ -156,19 +156,19 @@ $ ./node_modules/.bin/electron .
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
-#### macOS
+#### مک‌اواس
 
 ```bash
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
-#### Linux
+#### لینوکس
 
 ```bash
 $ ./electron/electron your-app/
 ```
 
-#### Windows
+#### ویندوز
 
     $ .\electron\electron.exe your-app\
     
@@ -179,7 +179,7 @@ $ ./electron/electron your-app/
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### این مثال را امتحان کنید
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
