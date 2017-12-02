@@ -247,7 +247,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+当 gpu 进程崩溃或被杀时触发。
 
 ### 事件: "accessibility-support-changed" * macOS * * Windows *
 
@@ -717,7 +717,7 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. 想知道更多细节，可以戳这里 https://www.chromium.org/developers/design-documents/accessibility
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -745,7 +745,7 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** This will not affect `process.argv`.
+** 注意: **这个不会对 ` process. argv ` 产生作用。
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
