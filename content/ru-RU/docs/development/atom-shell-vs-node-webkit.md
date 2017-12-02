@@ -16,7 +16,7 @@ Electron работает, скорее, как среда выполнения 
 
 **2. Система сборки**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` это отдельная библиотека, которая включает в себя модуль Chromium Content и все его зависимости. Пользователям не потребуются высокопроизводительные машины для сборки Electron.
+Чтобы избежать сложностей во время сборки Chromium, а также иметь доступ к API содержимого Chromium, в Electron используется [`libchromiumcontent`](https://github.com/electron/libchromiumcontent). `libchromiumcontent` это отдельная библиотека, которая включает в себя модуль Chromium Content и все его зависимости. Пользователям не потребуются высокопроизводительные машины для сборки Electron.
 
 **3. Интеграция Node**
 
