@@ -22,15 +22,15 @@
 
 * Строка `code`
 
-Evaluates the code in the child window.
+Позволяет запускать код в дочернем окне.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Производит фокусировку дочернего окна (переносит окно на передний план).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Вызывает диалог print в рамках дочернего окна.
 
 #### `win.postMessage(message, targetOrigin)`
 
