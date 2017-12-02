@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+É fácil configurar diferentes combinações baseada no sistema operacional do usuário.
 
 ```js
 {
@@ -27,7 +27,7 @@ It's easy to configure different key combinations based on the user's operating 
 
 ## Atalhos globais
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Você pode usar o módulo [globalShortcut](../api/global-shortcut.md) para detectar os eventos do teclado mesmo quando o aplicativo não possuir foco no teclado.
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Atalhos em uma janela do navegador
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
