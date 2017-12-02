@@ -5,9 +5,9 @@ const fs = require('fs')
 const path = require('path')
 const url = 'https://electronjs.org/language-stats.json'
 
-got(url).then(data => {
+got(url, {json: true}).then(data => {
   fs.writeFileSync(
     path.join(__dirname, '../stats.json'),
-    data.body
+    JSON.stringify(data.body, null, 2)
   )
 })
