@@ -751,7 +751,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.dock.bounce([type])` *macOS*
 
