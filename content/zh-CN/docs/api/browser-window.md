@@ -221,7 +221,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'page-title-updated'
+#### 事件： 'page-title-updated'
 
 返回:
 
@@ -230,7 +230,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### 事件：close
 
 返回:
 
