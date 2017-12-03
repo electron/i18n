@@ -303,17 +303,17 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### 事件: 'select-client-certificate'
 
 返回:
 
 * `event` Event
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
+* `certificateList` [证书[]](structures/certificate.md)
 * `callback` 函数 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+当一个客户证书被请求的时候发出。
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
