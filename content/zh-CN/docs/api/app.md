@@ -557,11 +557,11 @@ app.setJumpList([
   * `argv` String[] - 第二个实例的命令行参数数组
   * `workingDirectory` String - 第二个实例的工作目录
 
-Returns `Boolean`.
+返回 `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+此方法使应用程序成为单个实例应用程序, 而不是允许应用程序的多个实例运行, 这将确保只有一个应用程序的实例正在运行, 其余的实例全部会被终止并退出。
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+当执行第二个实例时, 第一个实例将使用 ` callback (argv, workingDirectory) ` 调用 ` callback`。 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
