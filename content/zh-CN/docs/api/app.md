@@ -656,17 +656,17 @@ app.on('ready', () => {
 
 设置当前应用程序的计数器标记. 将计数设置为 ` 0 ` 将隐藏该标记。
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Returns `Integer` - 获取计数器提醒(badge) 中显示的当前值
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
