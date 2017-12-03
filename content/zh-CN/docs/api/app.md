@@ -376,17 +376,17 @@ app.exit(0)
 
 `name` 参数只能使用 `app.getPath` 定义过的 name
 
-默认情况下, 网页的 cookie 和缓存将存储在 ` userData ` 目录下。 If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+默认情况下, 网页的 cookie 和缓存将存储在 ` userData ` 目录下。 如果要更改这个位置, 你需要在 ` app ` 模块中的 ` ready` 事件被触发之前重写 ` userData ` 的路径。
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+返回 ` String `-加载的应用程序的版本。 如果应用程序的 ` package. json ` 文件中找不到版本号, 则返回当前包或者可执行文件的版本。
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+返回 ` String `-当前应用程序的名称, 它是应用程序的 ` package. json ` 文件中的名称。
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+根据 npm 的命名规则, 通常 `package.json` 中的 `name` 字段是一个短的小写字符串。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.setName(name)`
 
@@ -396,7 +396,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+返回 ` String `-当前应用程序的语言。可能的返回值记录在 [ 这里 ](locales.md)。
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
