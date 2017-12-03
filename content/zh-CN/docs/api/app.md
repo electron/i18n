@@ -563,11 +563,11 @@ app.setJumpList([
 
 当执行第二个实例时, 第一个实例将使用 ` callback (argv, workingDirectory) ` 调用 ` callback`。 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+在 `app` 的 `ready` 事件后，`callback` 才会被调用。
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+如果进程是应用程序的第一个实例, 则此方法返回 ` false `，并且应用程序会继续加载。 如果您的进程已将其参数发送到另一个实例, 则会立即退出, 并返回 ` true `。
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+在 macOS 上, 当用户尝试在 Finder 中打开您的应用程序的第二个实例时, 系统会自动强制执行单个实例, 并且发出 ` open-file ` 和 ` open-url ` 事件。 但是当用户在命令行中启动应用程序时, 系统的单实例机制将被绕过, 您必须使用此方法来确保单实例。
 
 An example of activating the window of primary instance when a second instance starts:
 
