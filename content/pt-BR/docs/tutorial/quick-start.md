@@ -20,9 +20,9 @@ O processo principal cria páginas web pela criação de instâncias de `Browser
 
 O processo principal gerencia todas as páginas web e seus processos de renderização correspondentes. Cada processo de renderização é isolado e apenas se preocupa com a página web executando nele.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuário não é permitido, uma vez que o gerenciamento de recursos nativos em páginas web é muito perigoso e facilita a ocorrência de vazamento de recursos. Se você quiser executar operações de interface gráfica em uma página web, o processo de renderização da página deve estabelecer uma comunicação com o processo principal para requisitar que ele efetue essas operações.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+No Electron, nós temos diversas maneiras de estabelecer uma comunicação entre o processo principal e os processos de renderização. Como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) para o envio de mensagens, e o módulo [remote](../api/remote.md) para comunicação no estilo RPC. Também existe um tópico no FAQ sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
 ## Escreva seu primeiro aplicativo com Electron
 
@@ -127,7 +127,7 @@ Finalmente, o `index.html` é a pagina da web que você quer mostrar:
 
 ## Executar seu aplicativo
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Uma vez criados seus arquivos `main.js`, `index.html` e `package.json` iniciais, você provavelmente vai querer tentar rodar seu aplicativo localmente para testá-lo e garantir que ele está funcionando conforme o esperado.
 
 ### `electron`
 
