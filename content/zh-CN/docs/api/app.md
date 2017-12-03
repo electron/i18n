@@ -362,21 +362,21 @@ app.exit(0)
 
 在 *Windows* 上, 会有两种图标：
 
-* 由文件的后缀名带来的图标，像是 `.mp3`, `.png` 等等
+* 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+在 *Linux* 和 *macOS* 系统中，图标取决于应用程序相关文件的 mime 类型
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 如果路径指定的目录不存在, 则该目录将由此方法创建。 如果发生错误会抛出 `Error`
 
-You can only override paths of a `name` defined in `app.getPath`.
+`name` 参数只能使用 `app.getPath` 定义过的 name
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+默认情况下, 网页的 cookie 和缓存将存储在 ` userData ` 目录下。 If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
