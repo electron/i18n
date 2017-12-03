@@ -599,30 +599,30 @@ app.on('ready', () => {
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `userInfo` Object - 应用程序特定状态，供其他设备使用
+* `webpageURL` String (可选) - 如果在恢复设备上未安装合适的应用程序，则会在浏览器中加载网页。 该格式必须是 `http` 或 `https`。
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+创建一个 ` NSUserActivity ` 并将其设置为当前活动。 该活动之后可以[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)到另一个设备。
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+返回 `String` - 正在运行的 activity 的类型
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+改变当前应用的 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 为 `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `options` Object 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
-* `callback` 函数 
-  * `result` Integer - Result of import.
+  * `certificate` String - pkcs12 文件的路径
+  * `password` String - 证书的密码
+* `callback` Function 
+  * `result` Integer - 导入结果
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+将 pkcs12 格式的证书导入到平台证书库。 ` callback ` 使用导入操作的 ` result ` 调用, ` 0 ` 的表示成功, 其他值标识失败，参照 [ net_error_list ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) 。
 
 ### `app.disableHardwareAcceleration()`
 
