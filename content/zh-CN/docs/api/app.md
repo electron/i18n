@@ -626,15 +626,15 @@ Imports the certificate in pkcs12 format into the platform certificate store. `c
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+禁用当前应用程序的硬件加速。
 
-This method can only be called before app is ready.
+这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-This method can only be called before app is ready.
+这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### ` app.getAppMemoryInfo() `* 已弃用 *
 
@@ -722,11 +722,11 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
+  * `applicationName` String (可选) - 应用程序的名字
+  * `applicationVersion` String (可选) - 应用程序版本
+  * `copyright` String (可选) - 版权信息
   * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `version` String (可选) - 应用程序版本号
 
 Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
@@ -779,11 +779,11 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+设置需要显示在 dock 上图标的标记区域中的字符串。
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+返回 `String` - dock 图标上的数字或状态标记
 
 ### `app.dock.hide()` *macOS*
 
@@ -795,7 +795,7 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+返回 ` Boolean `-表示 dock 图标当前是否可见。需要注意的是，` app.dock.show () ` 是异步调用的，所以在调用该方法之后，立马再调用 app.dock.isVisible 的返回值可能不是 true。
 
 ### `app.dock.setMenu(menu)` *macOS*
 
