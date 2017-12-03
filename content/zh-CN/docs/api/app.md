@@ -167,7 +167,7 @@ app.on('window-all-closed', () => {
 * `callback` Function 
   * ` isTrusted `Boolean-是否将证书视为可信的
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+当对 `url` 的 `certificate` 证书验证失败的时候发出。如果需要信任这个证书，你需要阻止默认行为 `event.preventDefault()` 并且调用 `callback(true)`。
 
 ```javascript
 const {app} = require('electron')
@@ -183,18 +183,18 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### 事件: 'select-client-certificate'
 
 返回:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` 函数 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+* `certificateList` [证书[]](structures/certificate.md)
+* `callback` Function 
+  * `certificate` [证书](structures/certificate.md) (可选)
 
-Emitted when a client certificate is requested.
+当一个客户证书被请求的时候发出。
 
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
