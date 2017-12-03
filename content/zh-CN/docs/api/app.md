@@ -327,24 +327,24 @@ app.exit(0)
 
 返回 `String` -与 `name` 参数相关的特殊文件夹或文件路径。当失败时抛出 `Error` 。
 
-你可以通过该方法获取下列的各种工作路径
+你可以通过名称请求以下的路径:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `home` 用户的 home 文件夹（主目录）
+* `appData` 当前用户的应用数据文件夹，默认对应： 
+  * `%APPDATA%` Windows 中
+  * `$XDG_CONFIG_HOME` or `~/.config` Linux 中
+  * `~/Library/Application Support` macOS 中
+* `userData` 储存你应用程序设置文件的文件夹，默认是 `appData` 文件夹附加应用的名称
+* `temp` 临时文件夹
+* ` exe `当前的可执行文件
+* `module` The `libchromiumcontent` 库
+* `desktop` 当前用户的桌面文件夹
+* `documents` 用户文档目录的路径
+* `downloads` 用户下载目录的路径
+* `music` 用户音乐目录的路径
+* `pictures` 用户图片目录的路径
+* `videos` 用户视频目录的路径
+* `pepperFlashSystemPlugin` Pepper Flash插件所在目录
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -353,12 +353,12 @@ app.exit(0)
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 暂不支持该 size 值.
-* `callback` 函数 
+    * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 中无效
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+读取文件的关联图标。
 
 在 *Windows* 上, 会有两种图标：
 
