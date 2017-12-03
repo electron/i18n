@@ -632,21 +632,21 @@ app.on('ready', () => {
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+默认情况下, 如果 GPU 进程频繁崩溃, Chromium 会禁用 3D api (例如 WebGL) 直到每个域重新启动。此函数禁用该行为。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### ` app.getAppMemoryInfo() `* 已弃用 *
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. ** 注意: **此方法已被弃用, 请改用 ` app.getAppMetrics() `。
+返回 [`ProcessMetric[]`](structures/process-metric.md): `ProcessMetric` 对象的数组，它统计了应用内所有进程的内存和cpu的使用情况. ** 注意: **此方法已被弃用, 请改用 ` app.getAppMetrics() `。
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+返回 [`ProcessMetric[]`](structures/process-metric.md): `ProcessMetric` 对象的数组，它统计了应用内所有进程的内存和cpu的使用情况.
 
 ### `app.getGpuFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -654,7 +654,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 返回 ` Boolean `-是否成功调用。
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+设置当前应用程序的计数器标记. 将计数设置为 ` 0 ` 将隐藏该标记。
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
