@@ -131,15 +131,15 @@ Uma vez criados seus arquivos `main.js`, `index.html` e `package.json` iniciais,
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) é um módulo `npm` que contém versões pré-compiladas do Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Se você o instalou globalmente com o `npm`, então você vai precisar apenas executar o seguinte comando no diretório principal do seu aplicativo:
 
 ```bash
 electron .
 ```
 
-If you've installed it locally, then run:
+Se você o instalou localmente, então execute:
 
 #### macOS / Linux
 
@@ -152,30 +152,30 @@ $ ./node_modules/.bin/electron .
     $ .\node_modules\.bin\electron .
     
 
-### Manually Downloaded Electron Binary
+### Binário do Electron Baixado Manualmente
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Se você efetuou o download manual do Electron, você também pode utilizar o binário incluído para executar seu aplicativo diretamente.
 
 #### macOS
 
 ```bash
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron seu-app/
 ```
 
 #### Linux
 
 ```bash
-$ ./electron/electron your-app/
+$ ./electron/electron seu-app/
 ```
 
 #### Windows
 
-    $ .\electron\electron.exe your-app\
+    $ .\electron\electron.exe seu-app\
     
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+O `Electron.app` aqui é parte do pacote de liberação do Electron, você pode baixá-lo [aqui](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Executar como uma distribuição
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
