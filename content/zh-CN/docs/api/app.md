@@ -398,7 +398,7 @@ app.exit(0)
 
 返回 ` String `-当前应用程序的语言。可能的返回值记录在 [ 这里 ](locales.md)。
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+** 注意: **分发打包的应用程序时, 你必须指定 ` locales ` 文件夹。
 
 **注意：** 在 Windows 上，你必须得等 `ready` 事件触发之后，才能调用该方法
 
@@ -406,9 +406,9 @@ app.exit(0)
 
 * `path` String
 
-将此 `文件路径` 添加到最近打开的文件列表中
+将此 `path` 添加到最近打开的文件列表中
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+这个列表由操作系统进行管理。在 Windows 中从任务栏访问列表, 在 macOS 中通过 dock 菜单进行访问。
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -416,13 +416,13 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - 协议的名称, 不包含 `://`。 如果您希望应用程序处理 `electron://` 的链接, 请将 ` electron ` 作为该方法的参数.
+* ` path `String (可选) * Windows *-默认为 ` process.execPath `
+* `args` String[] (可选) *Windows* - 默认为空数组
 
-Returns `Boolean` - Whether the call succeeded.
+返回 ` Boolean `-是否成功调用。
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+此方法将当前可执行文件设置为协议(也称为URI方案) 的默认处理程序。 它允许您将应用程序更深入地集成到操作系统中。 Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
 On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
@@ -432,19 +432,19 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - 协议的名称, 不包含 `://`。
+* ` path `String (可选) * Windows *-默认为 ` process.execPath `
+* `args` String[] (可选) *Windows* - 默认为空数组
 
-Returns `Boolean` - Whether the call succeeded.
+返回 ` Boolean `-是否成功调用。
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - 协议的名称, 不包含 `://`。
+* ` path `String (可选) * Windows *-默认为 ` process.execPath `
+* `args` String[] (可选) *Windows* - 默认为空数组
 
 Returns `Boolean`
 
@@ -462,7 +462,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+返回 ` Boolean `-是否成功调用。
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
@@ -652,7 +652,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+返回 ` Boolean `-是否成功调用。
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
