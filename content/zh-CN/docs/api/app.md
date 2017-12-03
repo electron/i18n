@@ -555,7 +555,7 @@ app.setJumpList([
 
 * `callback` Function 
   * `argv` String[] - 第二个实例的命令行参数数组
-  * `workingDirectory` String - The second instance's working directory
+  * `workingDirectory` String - 第二个实例的工作目录
 
 Returns `Boolean`.
 
