@@ -14,7 +14,7 @@ Brightray [была](https://github.com/electron-archive/brightray) статич
 
 ### CRT
 
-Библиотека C времени выполнения (CRT) является частью стандартной библиотеки C ++, которая включает стандартную библиотеку ISO C99. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Библиотека C времени выполнения (CRT) является частью стандартной библиотеки C ++, которая включает стандартную библиотеку ISO C99. Библиотеки Visual C ++, которые реализуют CRT- поддержку разработки собственного кода, и смешанный собственный и управляемый код, и чистый управляемый код для разработки .NET.
 
 ### DMG
 
