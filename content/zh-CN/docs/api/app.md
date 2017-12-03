@@ -288,11 +288,11 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 默认情况下，新的实例会和当前实例使用相同的工作目录以及命令行参数。 当设置了 `args` 参数时， `args` 将作为命令行参数传递。 当设置了 `execPath` ，`execPath` 将被执行以重新启动，而不是当前的应用程序。
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+请注意, 此方法在执行时不会退出当前的应用程序, 你需要在调用 `app.relaunch` 方法后再执行 ` app. quit` 或者 ` app.exit ` 来让应用重启。
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+当 `app.relaunch` 被多次调用时,多个实例将在当前实例退出后启动。
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+立即重启当前实例并向新的实例添加新的命令行参数的示例：
 
 ```javascript
 const {app} = require('electron')
@@ -307,7 +307,7 @@ app.exit(0)
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+在 Linux 系统中, 使第一个可见窗口获取焦点。在 macOS 上, 让该应用成为活动应用程序。在 Windows 上, 使应用的第一个窗口获取焦点。
 
 ### `app.hide()` *macOS*
 
@@ -325,7 +325,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+返回 `String` -与 `name` 参数相关的特殊文件夹或文件路径。当失败时抛出 `Error` 。
 
 你可以通过该方法获取下列的各种工作路径
 
