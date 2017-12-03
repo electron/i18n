@@ -177,13 +177,13 @@ O `Electron.app` aqui é parte do pacote de liberação do Electron, você pode 
 
 ### Executar como uma distribuição
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Depois de terminar de escrever seu aplicativo, você pode criar uma distribuição seguinte o guia de [Distribuição de Aplicações](./application-distribution.md) e depois executar o aplicativo empacotado.
 
-### Try this Example
+### Experimente esse Exemplo
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clone e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Nota**: Para executar esse aplicativo, é necessário possuir o [Git](https://git-scm.com) e o [Node.js](https://nodejs.org/en/download/) (que também inclui o [npm](https://npmjs.org)) instalados no seu sistema.
 
 ```bash
 # Clone o repositório
@@ -192,8 +192,8 @@ $ git clone https://github.com/electron/electron-quick-start
 $ cd electron-quick-start
 # Instale as dependências
 $ npm install
-# Run the app
+# Execute o aplicativo
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+Para mais aplicativos de exemplo, veja a [lista de boilerplates](https://electron.atom.io/community/#boilerplates) criada pela fantástica comunicade do Electron.
