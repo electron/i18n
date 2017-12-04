@@ -20,42 +20,42 @@ npm install electron -g
 
 ## カスタマイズ
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+ダウンロードするアーキテクチャを変更したい場合(例えば`ia32`を、 `x64`マシン上にインストールする)、npm installに`--arch`フラグを指定するか、`npm_config_arch`環境変数を指定してください：
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+アーキテクチャに加えて`win32`, `linux`といったプラットフォームも変更する場合は、`--platform`フラグを指定します:
 
 ```shell
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## プロキシ環境下
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+HTTP プロキシを使用する必要がある場合は、[これらの環境変数を設定](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)してください。
 
 ## トラブルシューティング
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+`npm install electron`を実行するとき、ユーザーによっては時にインストール時エラーが発生する場合があります。
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+ほとんどの場合、これらのエラーはネットワークの問題の結果としてのものであり、`electron`のnpmパッケージには実際の問題はない場合が多いです。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, および `ETIMEDOUT` というエラーはすべてそういったネットワークの問題を示しています。 最も良い解決法はネットワークを切り替えること、あるいは少し待ってからもう一度インストールしてみることです。
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+`npm`経由でのインストールが失敗する場合、Electronを[electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+`EACCESS`エラーでインストールが失敗した場合は、おそらく[npmのパーミション](https://docs.npmjs.com/getting-started/fixing-npm-permissions)を修正する必要があります。
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+上記のエラーが継続する場合は、[unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm)フラグをtrueにする必要があるかもしれません。
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+速度の遅いネットワークでは、`--verbose`を指定してダウンロード進捗を表示することでなにか役に立つ情報が得られるかもしれません。
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+強制的に再ダウンロードする必要がある場合は、`force_no_cache`環境変数を`true`に設定してください。
