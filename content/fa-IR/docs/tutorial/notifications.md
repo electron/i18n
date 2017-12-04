@@ -1,8 +1,8 @@
-# اعلان ها (ویندوز، لینوکس، مک)
+# اعلان ها (ویندوز، لینوکس، مک‌اواس)
 
-در هر سه سیستم عامل قابلیت ارسال اعلان ها از برنامه به کاربر فراهم شده است. الکترون این امکان را به توسعه دهندگان میدهد که توسط [API اطلاعیه HTML5](https://notifications.spec.whatwg.org/) بتوانند اعلان های خود را در سیستم عامل در حال اجرا به واسطه API اعلان های سیستم عامل به نمایش بگذارند.
+در هر سه سیستم عامل قابلیت ارسال اعلان ها از برنامه به کاربر فراهم شده است. الکترون این امکان را به توسعه دهندگان میدهد که توسط [API اعلان ها HTML5](https://notifications.spec.whatwg.org/) بتوانند اعلان های خود را در سیستم عامل در حال اجرا به واسطه API اعلان های سیستم عامل به نمایش بگذارند.
 
-**توجه داشته باشید:** از آنجایی که این یک HTML5 API است، نقط در روند رندرینگ موجود است. اگر شما به دنبال نمایش اعلان ها در روند اصلی هستید، لطفا ماژول [اعلان ها](../api/notification.md) بررسی کنید.
+**توجه داشته باشید:** از آنجایی که این یک HTML5 API است، فقط در روند رندرینگ موجود می باشد. اگر شما به دنبال نمایش اعلان ها در روند اصلی هستید، لطفا ماژول [اعلان ها](../api/notification.md) بررسی کنید.
 
 ```javascript
 let myNotification = new Notification('عنوان', {
@@ -34,9 +34,9 @@ myNotification. => {
 
 برای تشخیص آنکه کی یا چه زمانی اجازه ارسال اعلان ها را ندارید، نیاز به استفاده از ماژول [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) خواهید داشت.
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+این به شما اجازه می دهد تا قبل از زمان تعیین ارسال، مشخص کنید که آیا ویندوز متوجه اطلاعیه شما خواهد شد یا خیر.
 
-## macOS
+## مک‌اواس
 
 Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
