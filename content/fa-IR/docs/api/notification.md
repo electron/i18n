@@ -14,13 +14,13 @@
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`اعلان` یک [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) می باشد.
 
-It creates a new `Notification` with native properties as set by the `options`.
+ایجاد یک `اعلان` جدید با ویژگی های محلی توسط `options` می باشد.
 
-### Static Methods
+### روش های ایستا
 
-The `Notification` class has the following static methods:
+کلاس `اعلان` همراه دارد روش های ایستای:
 
 #### `Notification.isSupported()`
 
