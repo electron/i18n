@@ -18,7 +18,7 @@ Brightray [была](https://github.com/electron-archive/brightray) статич
 
 ### DMG
 
-Hiиспользованием DMG файлы обычно используются для распространения приложения «установщика». [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Apple Disk Image (DMG) это пакетный формат, который используется в macOS. DMG файлы обычно используются для распространения приложения «установщика». [electron-builder](https://github.com/electron-userland/electron-builder) поддерживает `dmg` как целевой объект компиляции.
 
 ### IME
 
