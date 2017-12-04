@@ -2,7 +2,7 @@
 
 در هر سه سیستم عامل قابلیت ارسال اعلان ها از برنامه به کاربر فراهم شده است. الکترون این امکان را به توسعه دهندگان میدهد که توسط [API اطلاعیه HTML5](https://notifications.spec.whatwg.org/) بتوانند اعلان های خود را در سیستم عامل در حال اجرا به واسطه API اعلان های سیستم عامل به نمایش بگذارند.
 
-**توجه داشته باشید:** از آنجایی که این یک HTML5 API است، نقط در روند رندرینگ موجود است. اگر شما به دنبال نمایش اعلان ها در روند main هستید، لطفا ماژول [اعلان ها](../api/notification.md) بررسی کنید.
+**توجه داشته باشید:** از آنجایی که این یک HTML5 API است، نقط در روند رندرینگ موجود است. اگر شما به دنبال نمایش اعلان ها در روند اصلی هستید، لطفا ماژول [اعلان ها](../api/notification.md) بررسی کنید.
 
 ```javascript
 let myNotification = new Notification('عنوان', {
@@ -22,11 +22,11 @@ myNotification. => {
 * در ویندوز ۸.۱ و ویندوز ۸، نیاز است تا یک میانبر از برنامه شما توسط \[Application User Model ID\]\[app-user-model-id\], در صفحه شروع ایجاد شود. توجه داشته باشید، با این حال، برنامه شما نیاز نیست به صفحه شروع حتما دوخته شده باشد.
 * در ویندوز ۷، اعلان ها با یک شبیه سازی سفارشی مانند سیستم عامل های جدید کار می کند.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+در ویندوز ۸, حداکثر طول متن اعلان ها ۲۵۰ کاراکتر میباشد، با این حال تیم ویندوز توصیه می کند که طول متن شما بیش از ۲۰۰ کاراکتر نباشد. آنها گفته اند که این محدودیت به درخواست توسعه دهندگاند در ویندوز ۱۰ حذف گردیده است. به هر حال ارسال متن های عظیم (هزاران کاراکتر) توسط API میتواند باعث بی ثباتی در آن شود.
 
-### Advanced Notifications
+### اعلان های پیشرفته
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+نسخه های جدید ویندوز به شما اجازه میدهد که اعلان های پیشرفته در قالب های سفارشی، عکس و المنت های منعطف دیگر ارسال کنید. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
@@ -42,7 +42,7 @@ Notifications are straight-forward on macOS, but you should be aware of [Apple's
 
 Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
-### Advanced Notifications
+### اعلان های پیشرفته
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
