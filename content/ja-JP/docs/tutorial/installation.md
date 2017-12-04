@@ -2,23 +2,23 @@
 
 > ElectronのインストールのためのTips
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Electronのビルド済みバイナリを使用するためには、[`npm`](https://docs.npmjs.com/)を使用してください。 Electronをアプリでの開発用依存ファイルとして追加するのにおすすめの方法は：
 
 ```sh
 npm install electron --save-dev --save-exact
 ```
 
-The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+Electronはセマッティックバージョニングに従っていないため、`--save-exact`を指定することをおすすめします。 アプリケーション中のElectronバージョンの管理についてお知りになりたいときは、[バージョンに関するドキュメント](https://electron.atom.io/docs/tutorial/electron-versioning/)をご覧ください。
 
-## Global Installation
+## グローバルインストール
 
-You can also install the `electron` command globally in your `$PATH`:
+`$PATH`に`electron`コマンドをグローバルインストールするにはこう実行してください：
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## カスタマイズ
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 
