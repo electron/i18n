@@ -28,11 +28,11 @@ myNotification. => {
 
 نسخه های جدید ویندوز به شما اجازه میدهد که اعلان های پیشرفته، در قالب های سفارشی، عکس و المنت های منعطف دیگر ارسال کنید. برای ارسال اینگونه اعلان ها (از فرایند اصلی یا فرایند رندرینگ)، شما میتوانید از ماژول [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) استفاده نمیایید که از افزونه های بودی Node برای ارسال اشیاء `ToastNotification` و `TileNotification` استفاده میکند.
 
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+اعلان هایی که دارای دکمه می باشند، توسط `electron-windows-notifications` کار می کنند و برای پاسخ دادن به آن نیاز به استفاده از [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) می باشد که با ثبت کامپونیت های مورد نیاز COM و برنامه Electron شما داده های کاربر را وارد می کند.
 
-### Quiet Hours / Presentation Mode
+### ساعت آرام / حالت ارائه
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+برای تشخیص آنکه کی یا چه زمانی اجازه ارسال اعلان ها را ندارید، نیاز به استفاده از ماژول [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) خواهید داشت.
 
 This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
@@ -48,7 +48,7 @@ Later versions of macOS allow for notifications with an input field, allowing th
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+برای تشخیص آنکه کی یا چه زمانی اجازه ارسال اعلان ها را ندارید، نیاز به استفاده از ماژول [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) خواهید داشت.
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
