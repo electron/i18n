@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## ブートストラップ
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+ブートストラップスクリプトはビルドに必要な全ての依存関係をダウンロードし、ビルドプロジェクトファイルを作成します。 なお、Electron のビルドには `ninja` を用いるため、 Visual Studio のプロジェクトファイルが生成されないことにご留意ください。
 
 ```powershell
 $ cd electron
@@ -34,13 +34,13 @@ $ python script\bootstrap.py -v
 
 ## ビルド
 
-Build both Release and Debug targets:
+Release と Debug の両方をターゲットにしてビルドする場合、以下のコマンドを実行してください。
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+また、以下のように、Debug のみをターゲットにしてビルドすることもできます。
 
 ```powershell
 $ python script\build.py -c D
