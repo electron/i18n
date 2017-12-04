@@ -26,7 +26,7 @@ Input Method Editor. Це програма, яка дозволяє корист
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC (Inter-Process Communication) це набір засобів для комунікація або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
 
 ### libchromiumcontent
 
@@ -34,7 +34,7 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### основний процес
+### Головний (Main) процес
 
 Головний процес, зазвичай файл з назою `main.js`, є точкою входу для кожного застосунку Electron. Він контролює життя додатку, від відкриття до закриття. Він також керує такими елементами як Меню, Панель меню, Dock, Трей, тощо. Головний процес віповідальний за кожен новий процес рендерингу в застосунку. Node API є вбудованим.
 
