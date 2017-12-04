@@ -18,7 +18,7 @@ Brightray [була](https://github.com/electron-archive/brightray) статич
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Apple Disk Image (DMG) это пакетний формат, який використовується в macOS. DMG файли зазвичай використовуються для поширення програми «установника». [electron-builder](https://github.com/electron-userland/electron-builder) підтримує `dmg` формат як ціль побудови/компіляції.
 
 ### IME
 
