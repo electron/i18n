@@ -26,7 +26,7 @@ myNotification. => {
 
 ### اعلان های پیشرفته
 
-نسخه های جدید ویندوز به شما اجازه میدهد که اعلان های پیشرفته در قالب های سفارشی، عکس و المنت های منعطف دیگر ارسال کنید. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+نسخه های جدید ویندوز به شما اجازه میدهد که اعلان های پیشرفته، در قالب های سفارشی، عکس و المنت های منعطف دیگر ارسال کنید. برای ارسال اینگونه اعلان ها (از فرایند اصلی یا فرایند رندرینگ)، شما میتوانید از ماژول [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) استفاده نمیایید که از افزونه های بودی Node برای ارسال اشیاء `ToastNotification` و `TileNotification` استفاده میکند.
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
