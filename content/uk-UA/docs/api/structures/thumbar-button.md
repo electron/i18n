@@ -1,8 +1,8 @@
-# ThumbarButton Object
+# Об'єкт ThumbarButton
 
-* `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
+* `icon` [NativeImage](../native-image.md) - Піктограма для показу на палені мініатюр.
 * `click` Function
-* `tooltip` String (optional) - The text of the button's tooltip.
+* `tooltip` String (опціонально) - Текст для підказки кнопки.
 * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 The `flags` is an array that can include following `String`s:
