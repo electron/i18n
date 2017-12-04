@@ -1,10 +1,10 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
+Read-Eval-Print-Loop (REPL) - это простая интерактивная среда компьютерного программирования, которая принимает однопользовательские входы (т.е. отдельные выражения), оценивает их и возвращает результат пользователю.
 
-The `repl` module provides a REPL implementation that can be accessed using:
+Модуль `repl` предоставляет реализацию REPL, к которой можно получить доступ, используя:
 
-* Assuming you have `electron` or `electron-prebuilt` installed as a local project dependency:
+* Если у вас есть `electron` или `electron-prebuilt` установлен как локальный проект зависимость:
     
     ```sh
 ./node_modules/.bin/electron --interactive
