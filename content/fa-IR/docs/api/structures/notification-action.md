@@ -1,13 +1,13 @@
 # شئ NotificationAction
 
-* `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* `نوع` رشته - نوعی عمل، که می تواند `دکمه` باشد.
+* `متن` رشته - (اختیاری) برچسب برای عمل داده شده می باشد.
 
-## Platform / Action Support
+## پلت فرم / پشتیبانی عمل
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                         |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| نوع عمل | پشتیبانی پلت فرم | `متن` - مورد استفاده         | `متن` پیشفرض | محدودیت ها                                                                                                                                                          |
+| ------- | ---------------- | ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `دکمه`  | مک‌اواس          | برچسب مورد استفاده برای دکمه | "نمایش"      | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Button support on macOS
 
