@@ -54,4 +54,4 @@ myNotification. => {
 
 ## لینوکس
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows \[Desktop Notifications Specification\]\[notification-spec\], including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+اعلان ها با استفاده از `libnotify` می توانند در محیط های دسکتاپ به دنبال \[Desktop Notifications Specification\]\[notification-spec\]، شامل ساینامون، یونیتی، گنوم و KDE نمایش یابند.
