@@ -19,8 +19,8 @@ myNotification. => {
 ## ویندوز
 
 * در ویندوز ۱۰، اعلان ها (بدون دخالت) کار میکنند.
-* در ویندوز ۸.۱ و ویندوز ۸، نیاز است تا یک میانبر از برنامه شما توسط \[Application User Model ID\]\[app-user-model-id\], در صفحه شروع ایجاد شود. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* در ویندوز ۸.۱ و ویندوز ۸، نیاز است تا یک میانبر از برنامه شما توسط \[Application User Model ID\]\[app-user-model-id\], در صفحه شروع ایجاد شود. توجه داشته باشید، با این حال، برنامه شما نیاز نیست به صفحه شروع حتما دوخته شده باشد.
+* در ویندوز ۷، اعلان ها با یک شبیه سازی سفارشی مانند سیستم عامل های جدید کار می کند.
 
 Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
