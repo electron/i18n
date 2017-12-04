@@ -11,9 +11,9 @@
 
 ### پشتیبانی دکمه در مک‌اواس
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+به منظور استفاده از دکمه در مک‌اواس، برنامه شما باید شرایط زیر داشته باشد.
 
 * برنامه حضور داشته باشد
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* برنامه `NSUserNotificationAlertStyle` را به `alert` در `info.plist` تنظیم کرده است.
 
-If either of these requirements are not met the button simply won't appear.
+اگر هر یک از این نیاز ها برآورده نشده باشد، دکمه ظاهر نخواهد شد.
