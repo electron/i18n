@@ -18,7 +18,7 @@ Brightray [была](https://github.com/electron-archive/brightray) статич
 
 ### DMG
 
-Hiиспользованием распространенияиспользованием. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Hiиспользованием DMG файлы обычно используются для распространения приложения «установщика». [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
