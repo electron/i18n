@@ -38,19 +38,19 @@ myNotification. => {
 
 ## مک‌اواس
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+اعلان ها در مک‌اواس مستقیم اجرا می شود، با این حال مشا باید از [دستورالعمل رابط کاربری اپل در مورد اعلان ها](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) مطلع شوید.
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+توجه کنید که اندازه اعلان ها محدود به 256 بایت می باشد و اگر از این محدوده عبور کنید، خودکار متن شما کم می شود.
 
 ### اعلان های پیشرفته
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+نسخه های جدید مک‌اواس به شما اجازه می دهد تا اعلان هایی همراه با فیلد ورودی ایجاد کنید که توسط آن به کاربر اجازه دهید به اعلان شما پاسخ دهد. برای ارسال اعلان با قابلیت فیلد ورودی شما نیاز به ماژول [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) خواهید داشت.
 
-### Do not disturb / Session State
+### مزاحم نشوید / حالت جلسه
 
 برای تشخیص آنکه کی یا چه زمانی اجازه ارسال اعلان ها را ندارید، نیاز به استفاده از ماژول [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) خواهید داشت.
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+این به شما اجازه میدهد که قبل از ارسال اعلان متوجه شوید که اجازه ارسال اعلان ها را دارید یا خیر.
 
 ## لینوکس
 
