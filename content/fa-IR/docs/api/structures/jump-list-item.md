@@ -1,13 +1,13 @@
 # شئ JumpListItem
 
 * `type` رشته (اختیاری) - یکی از موارد زیر: 
-  * `task` - A task will launch an app with specific arguments.
-  * `separator` - Can be used to separate items in the standard `Tasks` category.
-  * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
-* `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
-* `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
-* `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
-* `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
+  * `وظیفه` - یک وظیفه اپ را با آرگومان های مشخص لانچ خواهد کرد.
+  * `جدا کننده` - می تواند برای جدا کردن آیتم ها در دسته بندیِ استانداردِ `وظایف` استفاده شود.
+  * `فایل` - یک لینک فایل، یک فایل را با استفاده از اپی که لیست پرشی را ساخته است باز می کند، برای اینکه این ویژگی کار کند، اپ باید به عنوان یک دستگیره برای باز کردن آن نوع فایل رجیستر شده باشد (لازم نیست دستگیره ی پیش فرض باشد).
+* `مسیر` رشته (اختیاری) - مسیر فایلی که باید باز شود، تنها در صورتی باید تنظیم شود که `نوع` `فایل` باشد.
+* `برنامه` رشته (اختیاری) - مسیر برنامه ای که باید اجرا شود، معمولا باید `process.execPath` را که برنامه فعلی را باز می کند، مشخص کنید. تنها در صورتی باید تنظیم شود که `نوع``وظیفه` باشد.
+* `آرگومان ها` رشته (اختیاری) - آرگومان های خط فرمان هنگامی که `برنامه` اجرا می شود. تنها در صورتی باید تنظیم شود که `نوع``وظیفه` باشد.
+* `عنوان` رشته (اختیاری) - متنی که باید برای آیتمِ درون لیست پرشی نمایش داده شود. تنها در صورتی باید تنظیم شود که `نوع``وظیفه`باشد.
+* `شرح` رشته (اختیاری) - شرح وظیفه (در یک tooltip نمایش داده می شود). تنها در صورتی باید تنظیم شود که `نوع``وظیفه` باشد.
+* `مسیرِ آیکون` رشته (اختیاری) - مسیرِ مطلق به آیکونی که باید در لیست پرشی نمایش داده شود، که می تواند یک منبع فایل دلخواه باشد که یک آیکون را شامل می شود (مثال: `.ico`, `.exe`, `.dll`). شما معمولا می توانید `process.execPath` را مشخص کنید تا آیکون برنامه را نشان دهد.
 * `iconIndex` Number (optional) - The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
