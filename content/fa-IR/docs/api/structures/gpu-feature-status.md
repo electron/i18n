@@ -14,10 +14,10 @@
 * `t `webgl - رشته - WebGL
 * `t `webgl2 - رشته - WebGL2
 
-Possible values:
+مقادیر ممکن:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
+* `t `disabled_software - فقط نرم افزار. افزایش سرعت نرم افزار غیرفعال (زرد)
+* `t `disabled_off - غیرفعال (قرمز)
 * `disabled_off_ok` - Disabled (yellow)
 * `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
 * `unavailable_off` - Unavailable (red)
