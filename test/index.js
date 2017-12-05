@@ -1,4 +1,6 @@
-require('chai').should()
+const chai = require('chai')
+chai.should()
+chai.use(require('chai-date-string'))
 const {describe, it} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
@@ -238,6 +240,6 @@ describe('i18n.date', () => {
   })
 
   it('is a date', () => {
-    i18n.date.should.match(/^20/)
+    i18n.date.should.be.a.dateString()
   })
 })
