@@ -8,9 +8,9 @@
 npm install electron --save-dev --save-exact
 ```
 
-推荐使用`--save-exact`标记，因为Electron不遵循 semantic versioning（语义化版本控制）。 See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+推荐使用`--save-exact`标记，因为Electron不遵循 semantic versioning（语义化版本控制）。 查看[versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/)获取如何在你的应用中管理Electron的相关信息。
 
-## Global Installation
+## 全局安装
 
 您还可以在 `$PATH ` 中全局安装 ` electron ` 命令:
 
