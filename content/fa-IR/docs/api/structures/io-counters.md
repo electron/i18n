@@ -1,8 +1,8 @@
 # شئ IOCounters
 
-* `readOperationCount` Number - The number of I/O read operations.
-* `writeOperationCount` Number - The number of I/O write operations.
-* `otherOperationCount` Number - Then number of I/O other operations.
-* `readTransferCount` Number - The number of I/O read transfers.
-* `writeTransferCount` Number - The number of I/O write transfers.
-* `otherTransferCount` شماره - سپس تعداد ورودی/خروجی دیگر انتقالات.
+* `خواندن میزان فعالیت` عدد - تعداد عملگرهای ورودی/خروجی خوانده شده.
+* `شمارش عملیات های نوشتنی` عدد - تعداد عملیات های ورودی/خروجی نوشتنی.
+* `شمارش سایر عملیات ها` عدد - تعداد سایر عملیات های ورودی/خروجی.
+* `شمارش انتقال های خواندنی` عدد - تعداد انتقال های ورودی/خروجی خواندنی.
+* `شمارش انتقال های نوشتنی` عدد - تعداد انتقال های ورودی/خروجی نوشتنی.
+* `شمارش سایر انتقال ها` عدد - تعداد سایر انتقال های ورودی/خروجی.
