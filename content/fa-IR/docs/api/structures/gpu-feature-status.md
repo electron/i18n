@@ -4,15 +4,15 @@
 * `فلش سه بعدی` رشته - فلش
 * ` stage3d فلش ` رشته - فلش stage3d
 * `t `flash_stage3d_baseline - رشته - مشخصات پایه فلش Stage3D
-* `gpu_compositing` String - Compositing
-* `multiple_raster_threads` String - Multiple Raster Threads
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
-* `rasterization` String - Rasterization
-* `video_decode` String - Video Decode
-* `video_encode` String - Video Encode
-* `vpx_decode` String - VPx Video Decode
-* `webgl` String - WebGL
-* `webgl2` String - WebGL2
+* `t `gpu_compositing - رشته - ترکیب
+* `t `multiple_raster_threads - رشته - رشته های متعدد شطرنجی
+* `t `native_gpu_memory_buffers - رشته - بافرهای بومیِ حافظه ی GPU
+* `t `rasterization - رشته - صفحه ای کردن
+* `t `video_decode - رشته - کدزایی ویدئو
+* `t `video_encode - کد کردنِ ویدئو
+* `t `vpx_decode - رشته - کدزایی ویدئوهای VPx
+* `t `webgl - رشته - WebGL
+* `t `webgl2 - رشته - WebGL2
 
 Possible values:
 
