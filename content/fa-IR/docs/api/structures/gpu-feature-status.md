@@ -1,4 +1,4 @@
-# شئ GPUFeatureStatus
+# شئِ وضعیت GPU
 
 * `2d_canvas` String - Canvas
 * `flash_3d` String - Flash
