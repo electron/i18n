@@ -25,5 +25,5 @@
 * `t `enabled_readback - سخت افزار شتابدهی شده ولی با کاهش عملکرد (زرد)
 * `t `enabled_force - سخت افزار در تمامی صفحات شتابدهی شده است (سبز)
 * `t `enabled - سخت افزار شتابدهی شده (سبز)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on` - Force enabled (green)
+* `t `enabled_on - فعال (سبز)
+* `t `enabled_force_on - فعالسازیِ اجباری (سبز)
