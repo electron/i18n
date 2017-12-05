@@ -1,4 +1,4 @@
-## Class: Cookies
+## Cookies
 
 > 查询和修改一个会话的cookies
 
