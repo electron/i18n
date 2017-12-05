@@ -1,8 +1,8 @@
 # شئ JumpListCategory
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
+* `type` رشته (اختیاری) - یکی از موارد زیر: 
+  * `وظایف` - آیتم های درون این دسته بندی، در دسته بندیِ استانداردِ `وظایف` قرار خواهند گرفت. تنها یک دسته بندی این چنینی می تواند وجود داشته باشد، و همیشه در پایین لیست پرشی نمایش داده خواهد شد.
+  * `غالب` - یک لیست از اپ هایی که اغلب باز شده اند نمایش می دهد، نام دسته بندی و آیتم های آن با ویندوز تنظیم می شوند.
   * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
   * `custom` - Displays tasks or file links, `name` must be set by the app.
 * `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
