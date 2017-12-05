@@ -57,7 +57,7 @@ explore:
   description:
     - <a href="https://github.com/electron/electron-api-demos">Демонстрационное приложение Electron API</a>
     - интерактивно демонстрирует наиболее важные функции Electron API.
-    - Узнайте что можно сделать с Electron при помощи простого кода и полезных советов для
+    - Узнайте что можно построить на базе Electron c помощью примера программы и полезных советов для
     - создания вашего приложения.
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
