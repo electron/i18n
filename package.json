@@ -44,5 +44,7 @@
     "prepush": "check-for-leaks",
     "pretest": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  }
+  },
+  "electronLatestStableTag": "v1.7.9",
+  "electronMasterBranchCommit": "f2da3e9a1417c568a44cc54cfd90d5939faf8578"
 }
