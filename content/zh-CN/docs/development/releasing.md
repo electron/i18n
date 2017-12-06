@@ -6,7 +6,7 @@
 
 从 `master`分支的基础上创建一个新分支，你可以将它命名为 `release` 或者其他你所喜欢的名字
 
-Note: If you are creating a backport release, you'll check out `1-6-x`, `1-7-x`, etc instead of `master`.
+注意: 如果您正在创建一个 backport 版本, 则您将签出 ` 1-6 x `、` 1-7 x ` 等, 而不是 ` master `。
 
 ```sh
 git checkout master
