@@ -689,14 +689,14 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `openAtLogin` Boolean (可选) - `true`在登录时启动应用，`false` 移除应用作为登录启动项 。默认为 `false`.
+  * `openAsHidden` Boolean (可选) - `true` 登录时隐藏启动程序。 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 ` app. getLoginItemStatus (). wasOpenedAsHidden ` 以了解当前值。 此设置仅在 macOS 上支持。
+  * `path` String (可选) *Windows* - 在登录时启动的可执行文件。默认为 `process.execPath`.
+  * `args` String[] (可选) *Windows* - 要传递给可执行文件的命令行参数。默认为空数组。注意用引号将路径换行。
 
-Set the app's login item settings.
+设置应用程序的登录项设置。
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 例如：
+如果需要在使用[Squirrel](https://github.com/Squirrel/Squirrel.Windows)的 Windows 上使用 Electron 的 `autoUpdater` ，你需要将启动路径设置为 Update.exe，并传递指定应用程序名称的参数。 例如：
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -717,9 +717,10 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. 想知道更多细节，可以戳这里 https://www.chromium.org/developers/design-documents/accessibility
+Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 想知道更多细节，可以戳这里
+https://www.chromium.org/developers/design-documents/accessibility</p>
 
-### `app.setAboutPanelOptions(options)` *macOS*
+<h3><code>app.setAboutPanelOptions(options)` *macOS*</h3> 
 
 * `options` Object 
   * `applicationName` String (可选) - 应用程序的名字
