@@ -5,10 +5,10 @@
 To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
-npm install electron --save-dev --save-exact
+npm install electron --save-dev
 ```
 
-建議使用 `--save-exact` 旗標，因為 Electron 並沒有遵守語意化版號規則。 請參考[版號規則文件](https://electron.atom.io/docs/tutorial/electron-versioning/)，了解如何管理你應用程式中的 Electron 版本。
+See the [Electron versioning doc](versioning.md) for info on how to manage Electron versions in your apps.
 
 ## 全域安裝
 
