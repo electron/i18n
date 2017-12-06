@@ -11,7 +11,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Glossario dei termini](glossary.md)
 * [Piattaforme supportate](tutorial/supported-platforms.md)
 * [Sicurezza](tutorial/security.md)
-* [Versionamento di Electron](tutorial/electron-versioning.md)
+* [Versioning](tutorial/versioning.md)
 * [Distribuzione delle applicazioni](tutorial/application-distribution.md)
 * [Guida alla pubblicazione su Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guida a Windows Store](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Test su sistemi Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Rendering Offscreen](tutorial/offscreen-rendering.md)
 * [Scorciatoie da tastiera](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Tutorial
 
