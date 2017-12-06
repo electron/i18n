@@ -6,7 +6,7 @@ Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)
 
 到现在，它已成为开源开发者、初创企业和老牌公司常用的工具。[ 看看谁在用Electron ](https://electron.atom.io/apps/)。
 
-接着读来看Electron的贡献者们和Electron的发行版本，或者在[快速开始指引](quick-start.md)里学习用Electron来构建应用。
+继续往后读可以了解一下Electron的贡献者们和已经发布的版本，或者直接在[快速开始指引](quick-start.md)里学习用Electron来构建应用。
 
 ## 核心团队和贡献者
 
