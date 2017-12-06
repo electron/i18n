@@ -8,7 +8,7 @@ nav:
   releases: 릴리즈
   contact: 연락처
   languages: 언어
-  code_of_conduct: Code of Conduct
+  code_of_conduct: 윤리 강령
 docs:
   title: Electron 문서
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
@@ -21,14 +21,14 @@ languages:
   current: 현재 선택된 단계
 community:
   title: Electron 커뮤니티
-  description: 'Electron의 <a href="https://github.com/sindresorhus/awesome-electron">멋진</a> 오픈소스 기여자들이 만든 도구들, 상용구, 비디오. 근처의 <a href="/community#meetups">모임</a>을 찾거나 만들어보세요.'
+  description: 'Electron의 <a href="https://github.com/sindresorhus/awesome-electron">멋진</a> 오픈소스 기여자들이 만든 도구들, 보일러플레이트, 비디오. 근처의 <a href="/community#meetups">모임</a>을 찾거나 만들어보세요.'
   tools: 도구
-  boilerplates: 상용구
+  boilerplates: 보일러플레이트
   components: 컴포넌트
   videos: 동영상
   meetups: 모임
   awesome_notice: 이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
+  meetup_notice: 모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">pull request를 만드세요</a>.
 electron_is_easy:
   title: 이것은 당신이 생각한 것보다 쉽습니다
   description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. 이것은 어려운 부분을 처리하므로 당신의 애플리케이션의 핵심 부분에 집중할 수 있습니다.
@@ -70,7 +70,7 @@ quick_start:
   dive_deeper: 혹은 <a href='/docs'>문서</a>를 더 깊이 읽어보세요.
 need_help:
   title: 도움이 필요하신가요?
-  description: '<a href=''https://discuss.atom.io/c/electron''>토론</a>포럼이나<a href = ''http: //atom-slack.herokuapp.com/'' > Slack </a> 채널에서 질문하실 수 있습니다. 중요한 알림을 들으시려면 트위터의 <a href="https://twitter.com/electronjs"> @electronjs </a>를 팔로우하세요. 개인적으로 연락을 원하시나요? <a href="mailto:electron@github.com"> electron@github.com</a>로 메일을 보내주세요.'
+  description: <a href='https://discuss.atom.io/c/electron'>토론</a>포럼이나<a href="http://atom-slack.herokuapp.com/"> Slack </a> 채널에서 질문하실 수 있습니다. 중요한 알림을 들으시려면 트위터의 <a href="https://twitter.com/electronjs"> @electronjs </a>를 팔로우하세요. 개인적으로 연락을 원하시나요? <a href="mailto:electron@github.com"> electron@github.com</a>로 메일을 보내주세요.
 headings:
   languages: 언어
 taglines:
