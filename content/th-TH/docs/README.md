@@ -11,7 +11,7 @@
 * [อภิธานศัพท์](glossary.md)
 * [แพลตฟอร์มที่รองรับ](tutorial/supported-platforms.md)
 * [ความปลอดภัย](tutorial/security.md)
-* [การกำหนดเวอร์ชั่นของ Electron](tutorial/electron-versioning.md)
+* [Versioning](tutorial/versioning.md)
 * [การเผยแพร่แอพพลิเคชั่น](tutorial/application-distribution.md)
 * [คู่มือการส่งแม็คแอพสโตร์ (Mac App Store)](tutorial/mac-app-store-submission-guide.md)
 * [คู่มือการส่งวินโดวส์สโตร์ (Windows Store)](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
 * [ปุ่มลัดแป้นพิมพ์](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## การใช้งานเบื้องต้น
 
