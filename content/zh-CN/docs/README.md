@@ -11,7 +11,7 @@
 * [术语表](glossary.md)
 * [支持的平台](tutorial/supported-platforms.md)
 * [安全](tutorial/security.md)
-* [版本](tutorial/versioning.md)
+* [版本](tutorial/electron-versioning.md)
 * [应用程序的分发](tutorial/application-distribution.md)
 * [Mac App Store 应用程序提交指南](tutorial/mac-app-store-submission-guide.md)
 * [Windows 商店指南](tutorial/windows-store-guide.md)
