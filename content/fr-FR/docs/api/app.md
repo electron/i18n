@@ -358,14 +358,14 @@ Vous pouvez demander les chemins suivants sous le nom :
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Récupère une icône associée à un chemin.
 
 Sous *Windows*, il y a 2 sortes d’icônes :
 
 * Icônes associées à certaines extensions de fichier, comme `.mp3`, `.png`, etc.
 * Icônes à l’intérieur du fichier lui-même, comme les `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+Sur *Linux* et *macOS*, les icônes dépendent de l'application associée au type MIME du fichier.
 
 ### `app.setPath(name, path)`
 
