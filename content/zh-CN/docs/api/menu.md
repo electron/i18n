@@ -218,7 +218,7 @@ macOS has a completely different style of application menu from Windows and Linu
 
 ### Standard Menus
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 为了使你的菜单看起来更像MacOs标准菜单，你需要在设置你的菜单`role`，Electron会自动认出并设置成标准菜单，如下面：
 
 * `window`
 * `help`
