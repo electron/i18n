@@ -25,7 +25,7 @@ Par défaut, `libchromiumcontent` est téléchargé depuis Amazon Web Services. 
 
 Si vous souhaitez compiler Electron rapidement pour des tests ou le développement, vous pouvez télécharger seulement les versions de bibliothèque partagée en passant le paramètre `--dev` :
 
-```bash
+```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
@@ -46,19 +46,19 @@ Cela affecte seulement les développeurs, si vous compiler Electron juste pour l
 
 Pour tester que vos changements soient conforme avec le code style du projet :
 
-```bash
+```sh
 $ npm run lint
 ```
 
 Pour tester les fonctionnalités :
 
-```bash
+```sh
 $ npm test
 ```
 
 Chaque fois que vous apportez des modifications au code source d'Electron, vous devez ré-exécuter la compilation avant les tests :
 
-```bash
+```sh
 $ npm run build && npm test
 ```
 
@@ -80,6 +80,6 @@ Les tests qui incluent des modules natifs (par exemple `runas`) ne peuvent être
 
 Pour exécuter les tests avec le build release :
 
-```bash
+```sh
 $ npm test -- -R
 ```
