@@ -43,7 +43,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 ## 마크다운 규칙
 
-* 코드 블럭에서 `cmd` 대신 `bash` 를 사용하세요 (문법 강조기 때문입니다.)
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * 한줄은 영문 80 자 길이로 맞춰야 합니다.
 * 2단계를 넘는 중첩 목록은 사용하면 안됩니다. (마크다운 렌더러 때문입니다.)
 * 모든 `js` 와 `javascript` 코드 블럭들은 [표준-마크다운](http://npm.im/standard-markdown)에 의해 분석됩니다.
@@ -61,7 +61,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 각 페이지는 `BrowserWindow`, `autoUpdater`, `session` 와 같은 `require('electron')` 에 의해 반환되는 실 객체의 이름을 제목으로 사용해야 합니다.
 
-페이지 제목 아래에는 `>` 로 시작하는 한 줄 짜리 설명이 있어야 합니다.
+Under the page title must be a one-line description starting with `>`.
 
 `session` 사용 예시:
 
@@ -158,8 +158,9 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 선택적인 인수는 각각을 컴마로 구분하여 대괄호 `[]` 로 감쌉니다:
 
-    required[, optional]
-    
+```sh
+required[, optional]
+```
 
 아래 메소드에 각 인수에 대한 더 자세한 내용이 있습니다. 인수의 유형은 기본 유형 중 하나로 표시합니다.
 
@@ -212,13 +213,4 @@ Returns:
 
 ## 문서 번역
 
-Electron 문서의 번역본은 `docs-translations` 아래에 위치합니다.
-
-아직 번역되지 않은 언어를 추가하려면 (일부분 포함):
-
-* 언어의 약어로 서브 디렉토리를 만듭니다.
-* 파일을 번역합니다.
-* 언어 디렉토리의 `README.md` 의 링크를 번역된 문서로 변경합니다.
-* 언어 디렉토리의 링크를 Electron 의 [README](https://github.com/electron/electron#documentation-translations)에 추가합니다.
-
-참고로 `docs-translations` 아래의 파일들은 번역된 것만 있어야 합니다. 영어 원문 파일을 복사하면 안됩니다.
+See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
