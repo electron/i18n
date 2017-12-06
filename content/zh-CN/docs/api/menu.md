@@ -242,11 +242,11 @@ macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide 
 
 `MenuItem`中的`[placement]=[id]`属性，其中` placement`值可以是` before`、`after`、和 `endof`之一，`id`值则是现有菜单项的唯一ID
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* ` before `-在匹配的菜单项id 之前插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
+* ` after `-在匹配菜单项id 之后插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
+* ` endof `-在匹配的菜单项id 的逻辑组的末尾插入此项 (由分隔符项创建组)。 如果匹配的项不存在, 则使用给定 id 创建新的分隔符组, 并在该分隔符之后插入此项。
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+在菜单项已确定位置, 其后面将插入所有未定位的项, 直到新的菜单项的位置确定。 因此, 如果要在同一位置放置一组菜单项, 则只需指定第一项的位置。
 
 ### 实例
 
