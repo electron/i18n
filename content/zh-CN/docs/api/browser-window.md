@@ -27,11 +27,11 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 若你想要創建一個 無邊框或是任意型狀的視窗 可以使用 [Frameless Window](frameless-window.md) API
 
-## Showing window gracefully
+## 優雅地顯示視窗
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+頁面在載入時，使用者會看到未完成的畫面，這不是一件好事。為了讓畫面準備好在顯示，我們有兩種接決方式
 
-### Using `ready-to-show` event
+### 使用`ready-to-show`事件
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
