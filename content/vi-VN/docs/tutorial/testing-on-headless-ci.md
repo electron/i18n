@@ -8,11 +8,12 @@ Being based on Chromium, Electron requires a display driver to function. If Chro
 
 Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. Trên Windows hay macOS, nó chỉ sẽ đơn giản là không cần phải làm gì.
 
-    ## On Windows or macOS, this just invokes electron-mocha
-    ## On Linux, if we are in a headless environment, this will be equivalent
-    ## to xvfb-run electron-mocha ./test/*.js
-    xvfb-maybe electron-mocha ./test/*.js
-    
+```sh
+## On Windows or macOS, this just invokes electron-mocha
+## On Linux, if we are in a headless environment, this will be equivalent
+## to xvfb-run electron-mocha ./test/*.js
+xvfb-maybe electron-mocha ./test/*.js
+```
 
 ### Travis CI
 
