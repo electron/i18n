@@ -9,6 +9,8 @@ const cleanDeep = require('clean-deep')
 const hubdown = require('hubdown')
 const locales = require('../lib/locales')
 const hrefType = require('href-type')
+const URL = require('url')
+const packageJSON = require('../package.json')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -81,6 +83,27 @@ async function parseFile (file) {
     $(el).attr('href', newHref)
   })
 
+  // fix SRC for relative images
+  $('img').each((i, el) => {
+    const baseUrl = 'https://cdn.rawgit.com/electron/electron'
+    const dirname = path.dirname(file.href)
+    let src = $(el).attr('src')
+    const type = hrefType(src)
+    if (type !== 'relative' && type !== 'rooted') return
+
+    // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
+    src = path.resolve(dirname, src)
+
+    const newSrc = file.isApiDoc
+      ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
+      : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
+
+    const parsed = URL.parse(newSrc)
+    parsed.path = path.normalize(parsed.path)
+
+    $(el).attr('src', URL.format(parsed))
+  })
+
   file.html = $.html()
 
   // remove leftover file props from walk-sync
@@ -114,14 +137,12 @@ parseDocs().then(docs => {
       return acc
     }, {})
 
-  const pkg = require('../package.json')
-
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify({
-      electronLatestStableVersion: pkg.electronLatestStableTag.replace(/^v/, ''),
-      electronLatestStableTag: pkg.electronLatestStableTag,
-      electronMasterBranchCommit: pkg.electronMasterBranchCommit,
+      electronLatestStableVersion: packageJSON.electronLatestStableTag.replace(/^v/, ''),
+      electronLatestStableTag: packageJSON.electronLatestStableTag,
+      electronMasterBranchCommit: packageJSON.electronMasterBranchCommit,
       locales: locales,
       docs: docsByLocale,
       website: websiteStringsByLocale,
