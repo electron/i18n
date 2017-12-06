@@ -1,6 +1,6 @@
-# NotificationAction Object
+# NotificationAction 对象
 
-* `type` String - The type of action, can be `button`.
+* `type` 类型：String - 此类操作可以作为 `按钮`.
 * `text` String - (optional) The label for the given action.
 
 ## Platform / Action Support
