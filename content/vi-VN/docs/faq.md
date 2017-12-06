@@ -2,11 +2,11 @@
 
 ## Tại sao tôi lại gặp sự cố trong khi cài đặt Electron?
 
-Khi chạy `npm install electron`, một số người dùng đôi khi gặp phải lỗi cài đặt.
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là vấn đề thực tế với gói điện tử < 0> electron </ 0> npm . Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. Độ phân giải tốt nhất là thử chuyển mạng, hoặc chỉ cần đợi một chút và thử cài đặt lại.
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/releases](https://github.com/electron/electron/releases) nếu quá trình cài đặt `npm` bị lỗi.
+You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
 ## Khi nào Chrome được cập nhật phiên bản mới nhất vào Electron?
 
@@ -110,9 +110,10 @@ delete window.module;
 
 Khi sử dụng các mô đun được xây dựng sẵn trong Electron, bạn có thể gặp lỗi như sau:
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-    
+```sh
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+```
 
 Điều này xảy ra bởi vì bạn có một phiên bản khác của [npm của module của `electron`](https://www.npmjs.com/package/electron) được cài đặt tại thư mục hiện tại hoặc trên global, nó đã ghi đè vào các module được xây dựng sẵn bên trong Electron.
 
@@ -124,12 +125,13 @@ console.log(require.resolve('electron'))
 
 và sau đó kiểm tra nếu nó có kiểu giống dưới đây:
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-    
+```sh
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+```
 
 Nếu nó là một cái gì đó như `node_modules/electron/index.js`, thì bạn phải loại bỏ các module npm `electron`, hoặc đổi tên nó.
 
-```bash
+```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
