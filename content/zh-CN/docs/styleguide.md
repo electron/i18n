@@ -42,7 +42,7 @@
 
 ## Markdown 规则
 
-* 在代码块中使用`bash`而不是`cmd`（由于语法高亮问题）.
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * 行长度应该控制在80列内.
 * 列表嵌套不超出2级 (由于 Markdown 渲染问题).
 * 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@
 
 每个页面必须使用由 `require（'electron'）` 返回的实际对象名称作为标题，例如` BrowserWindow`，`autoUpdater` 和 `session`。
 
-在页面标题下必须是以`>`开头的单行描述。
+Under the page title must be a one-line description starting with `>`.
 
 举一个 `session` 的例子:
 
@@ -156,8 +156,9 @@
 
 可选参数由围绕可选参数的方括号 `[]` 表示，并且如果此可选参数跟随另一个参数，则需要逗号：
 
-    required[, optional]
-    
+```sh
+required[, optional]
+```
 
 下面的方法是每个参数更加详细的信息。 参数的类型由常见类型表示:
 
@@ -210,13 +211,4 @@ Returns:
 
 ## 文档翻译
 
-Electron 文档的翻译文件位于 `docs-translations` 目录中.
-
-如要添加另一个设定集(或部分设定集):
-
-* 创建以语言缩写命名的子目录。
-* 翻译文件。
-* 更新你的语言目录中的 `README.md` 文件以链接到已翻译的文件。
-* 在 Electron 的主 [README](https://github.com/electron/electron#documentation-translations)上添加到翻译目录的链接。
-
-请注意，`docs-translations` 下的文件只能包含已被翻译的文件，不应将原始英语文件复制到那里。
+See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
