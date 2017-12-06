@@ -90,13 +90,13 @@ Returns `Menu`
 
 每个 ` 菜单 ` 由多个 [` MenuItem `](menu-item.md) 组成, 每个 ` MenuItem `可以有子菜单。
 
-## 实例
+## 示例
 
-` Menu ` 仅在主进程中可用, 但您也可以通过 [` remote `](remote.md) 模块在渲染进程（render process）中使用它。
+` Menu ` 仅在主进程（ main process）中可用, 但您也可以在渲染进程（render process）中通过 [` remote `](remote.md) 模块使用它。
 
 ### Main process
 
-使用简单模板 API 在主进程中创建应用程序菜单的示例:
+在主进程中创建程序菜单的简单API模版示例:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -218,7 +218,7 @@ MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式
 
 ### 标准菜单
 
-在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 让你的菜单更像MacOS标准菜单，只需设置菜单`role`为如下示之一，Electron便会自动认出并设置成标准菜单，：
+在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 让你的菜单更像MacOS标准菜单，只需设置菜单`role`值为如下示之一，Electron便会自动认出并设置成标准菜单，：
 
 * `window`
 * `help`
@@ -246,9 +246,9 @@ macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide 
 * ` after `-在匹配菜单项id 之后插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
 * ` endof `-在匹配的菜单项id 的逻辑组的末尾插入此项 (由分隔符项创建组)。 如果匹配的项不存在, 则使用给定 id 创建新的分隔符组, 并在该分隔符之后插入此项。
 
-当在菜单项中有一项有位置信息, 其后面所有未定位的项将紧跟其后, 直到后面出现新的菜单项有的位置。 因此, 如果要在同一位置放置一组菜单项, 则只需指定第一项的定位信息。
+当在菜单项中有一项有位置信息, 其后面所有未定位的项将紧跟其后, 直到后面出现新的菜单项有的位置。 因此, 如果要在同一位置放置一组菜单项, 则只需指定第一项的位置信息。
 
-### 实例
+### 示例
 
 Template:
 
