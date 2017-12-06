@@ -92,11 +92,11 @@ Returns `Menu`
 
 ## 实例
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+` Menu ` 仅在主进程中可用, 但您也可以通过 [` remote `](remote.md) 模块在渲染进程（render process）中使用它。
 
 ### Main process
 
-An example of creating the application menu in the main process with the simple template API:
+使用简单模板 API 在主进程中创建应用程序菜单的示例:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -192,7 +192,7 @@ Menu.setApplicationMenu(menu)
 
 ### Render process
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+下面是通过 [` remote `](remote.md) 模块在网页（render process）中动态创建右击菜单的示例:
 
 ```html
 <!-- index.html -->
@@ -212,9 +212,9 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## MacOS中应用菜单注意事项
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+MacOS中的应用程序有和windows，linux完全不同的菜单样式。这里有一些提示可以让你的程序菜单看起来更贴合原生系统；
 
 ### Standard Menus
 
