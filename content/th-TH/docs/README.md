@@ -11,7 +11,7 @@
 * [อภิธานศัพท์](glossary.md)
 * [แพลตฟอร์มที่รองรับ](tutorial/supported-platforms.md)
 * [ความปลอดภัย](tutorial/security.md)
-* [Versioning](tutorial/versioning.md)
+* [Versioning](tutorial/electron-versioning.md)
 * [การเผยแพร่แอพพลิเคชั่น](tutorial/application-distribution.md)
 * [คู่มือการส่งแม็คแอพสโตร์ (Mac App Store)](tutorial/mac-app-store-submission-guide.md)
 * [คู่มือการส่งวินโดวส์สโตร์ (Windows Store)](tutorial/windows-store-guide.md)
