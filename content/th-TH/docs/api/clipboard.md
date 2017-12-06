@@ -1,6 +1,6 @@
-# clipboard
+# คลิปบอร์ด
 
-> Perform copy and paste operations on the system clipboard.
+> จัดการกับการก๊อบปี้และการวางบนคลิปบอร์ดของระบบ
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 

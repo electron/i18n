@@ -1,17 +1,17 @@
-# dialog
+# 对话框
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> 显示用于打开和保存文件、警报等的本机系统对话框。
 
 线程：[主线程](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+显示用于选择多个文件和目录的对话框的示例:
 
 ```javascript
 const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+这个对话框是从Electron的主线程上打开的。如果要使用渲染器进程中的对话框对象, 可以使用remote来获得:
 
 ```javascript
 const {dialog} = require('electron').remote
@@ -20,7 +20,7 @@ console.log(dialog)
 
 ## 方法
 
-The `dialog` module has the following methods:
+` dialog ` 对象具有以下方法:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
@@ -140,7 +140,7 @@ On Windows the options are more limited, due to the Win32 APIs used:
 * The `message` argument is not used, as the OS provides its own confirmation dialog.
 * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
 
-## Sheets
+## 工作表
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
 

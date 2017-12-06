@@ -2,11 +2,11 @@
 
 ## ฉันมีปัญหาในการติดตั้ง Electron
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+เมื่อเรียกคำสั่ง `npm install electron` ผู้ใช้บางคนพบปัญหาการติดตั้งเป็นบางครั้ง
 
 In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+คุณยังสามารถลองดาวน์โหลด Electron ได้โดยตรงจาก [electron/electron/releases](https://github.com/electron/electron/releases) ถ้าการติดตั้งด้วย `npm` มีความผิดพลาด
 
 ## When will Electron upgrade to latest Chrome?
 
@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
-To solve this, you can turn off node integration in Electron:
+ในการแก้ไขปัญหานี้ คุณสามารถปิดการทำงานร่วมกันของ node ใน Electron
 
 ```javascript
 const {BrowserWindow} = require('electron')

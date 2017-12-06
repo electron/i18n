@@ -1,4 +1,4 @@
-# MemoryUsageDetails Object
+# MemoryUsageDetails 对象
 
 * `count` Number
 * `size` Number

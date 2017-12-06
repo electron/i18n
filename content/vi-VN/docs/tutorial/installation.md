@@ -1,24 +1,24 @@
-# Installation
+# Cài đặt tại thư mục ứng dụng
 
-> Tips for installing Electron
+> Mẹo cài đặt Electron
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Để cài đặt các tệp thực thi Electron buid sẵn, hãy sử dụng [`npm`](https://docs.npmjs.com/). Phương pháp cài đặt Electron khuyên dùng là cài các tệp tạo sẵn dành cho phát triển ứng dụng. Ứng dụng của bạn sẽ phụ thuộc vào các tệp này, để cài hãy sử dụng câu lệnh sau tại thư mục chứa ứng dụng:
 
 ```sh
 npm install electron --save-dev --save-exact
 ```
 
-The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+`--save-exact` được khuyên dùng vì Electron không tuân theo việc quản lý phiên bản theo định danh. Xem [tài liệu về quản lý phiên bản](https://electron.atom.io/docs/tutorial/electron-versioning/) để biết thêm thông tin về cách quản lý phiên bản cho ứng dụng Electron của bạn.
 
-## Global Installation
+## Cặt đặt trên toàn hệ thống
 
-You can also install the `electron` command globally in your `$PATH`:
+Bạn cũng có thể cài `electron` vào `$PATH` để sử dụng trên toàn hệ thống:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Tùy biến cài đặt
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 

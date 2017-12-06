@@ -1,19 +1,19 @@
 # شئ NotificationAction
 
-* `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* `نوع` رشته - نوعی عمل، که می تواند `دکمه` باشد.
+* `متن` رشته - (اختیاری) برچسب برای عمل داده شده می باشد.
 
-## Platform / Action Support
+## پلت فرم / پشتیبانی عمل
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                         |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| نوع عمل | پشتیبانی پلت فرم | `متن` - مورد استفاده         | `متن` پیشفرض | محدودیت ها                                                                                                                                                                                           |
+| ------- | ---------------- | ---------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `دکمه`  | مک‌اواس          | برچسب مورد استفاده برای دکمه | "نمایش"      | حداکثر برای یک دکمه می باشد. اگر از چند مورد استفاد شده باشد، تنها آخری در نظر گرفته می شود. این عمل نیز برای `hasReply` غیر فعال است و زمانی نادیده گرفته می شود، اگر `hasReply` مقدار `true` باشد. |
 
-### Button support on macOS
+### پشتیبانی دکمه در مک‌اواس
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+به منظور استفاده از دکمه در مک‌اواس، برنامه شما باید شرایط زیر داشته باشد.
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* برنامه حضور داشته باشد
+* برنامه `NSUserNotificationAlertStyle` را به `alert` در `info.plist` تنظیم کرده است.
 
-If either of these requirements are not met the button simply won't appear.
+اگر هر یک از این نیاز ها برآورده نشده باشد، دکمه ظاهر نخواهد شد.

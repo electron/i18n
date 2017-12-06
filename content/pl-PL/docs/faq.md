@@ -8,15 +8,15 @@ W większości przypadków, błędy te są wynikiem problemów z połączeniem i
 
 Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/releases](https://github.com/electron/electron/releases), jeśli instalacja poprzez `npm` zawodzi.
 
-## When will Electron upgrade to latest Chrome?
+## Kiedy Electron zostanie zaktualizowany do najnowszej wersji Chrome?
 
 The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Aby uzyskać więcej informacji zobacz [wprowadzenie do zabezpieczeń](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Kiedy Electron zostanie zaktualizowany do najnowszej wersji Node.js?
 
 When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
@@ -75,7 +75,7 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Nie mogę użyć jQuery/RequireJS/Meteor/AngularJS w Electron-ie.
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 

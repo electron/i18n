@@ -1,24 +1,24 @@
 tagline: Maak cross-platform desktop apps met JavaScript, HTML en CSS
 nav:
-  docs: Documenten
+  docs: Documentatie
   blog: Blog
   community: Gemeenschap
   apps: Apps
   userland: Userland
   releases: Releases
   contact: Contact
-  languages: Taal
+  languages: Talen
   code_of_conduct: Code of Conduct
 docs:
   title: Electron documentatie
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: Gidsen
   api_reference: API Reference
-  advanced: Advanced
+  advanced: Geavanceerd
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: Kies de taal van de site
+  translation_progress: Vooruitgang vertaling
+  current: huidige selectie
 community:
   title: Electron Gemeenschap
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
@@ -80,27 +80,27 @@ footer:
   see_something: See something that needs fixing?
   propose_change: Propose a change to the source file.
   need_different_version: Need a different version of the docs?
-  see_available_versions: See available versions.
+  see_available_versions: Bekijk beschikbare versies.
   want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  view_all_docs: Bekijk alle documenten op één pagina
+  see_the_faq: Bekijk de veelgestelde vragen
 apps:
   title: Apps gebouwd op Electron
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
   view_more: Meer apps weergeven
   submit_your_own: dien je eigen in
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  something_missing: Ontbreekt er iets?
+  edit_this_app: Bewerk deze app.
 or: of
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    title: Electron | Bouw cross-platform desktop apps met JavaScript, HTML, en CSS.
     description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron Apps
     description: Apps Built on Electron
   '/docs':
-    title: Documentation
+    title: Documentatie
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!
@@ -125,7 +125,7 @@ pages:
     title: Contact
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Taal
+    title: Talen
   '/userland':
     title: Userland
   '/devtron':

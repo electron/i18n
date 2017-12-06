@@ -8,9 +8,9 @@
 npm install electron --save-dev --save-exact
 ```
 
-The `--save-exact` flag is recommended as Electron does not follow semantic versioning. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+推荐使用`--save-exact`标记，因为Electron不遵循 semantic versioning（语义化版本控制）。 查看[versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/)获取如何在你的应用中管理Electron的相关信息。
 
-## Global Installation
+## 全局安装
 
 您还可以在 `$PATH ` 中全局安装 ` electron ` 命令:
 
@@ -58,4 +58,5 @@ sudo npm install electron --unsafe-perm=true
 npm install --verbose electron
 ```
 
-如果需要强制重新下载文件, 并且 SHASUM 文件将 ` force_no_cache ` 环境变量设置为 ` true `。
+如果需要强制重新下载文件, 并且 SHASUM 文件将 ` force_no_cache ` 环境变量设置为 ` true `。  
+(译者追加: 国内可使用淘宝镜像或者cnpm安装)

@@ -1,10 +1,10 @@
-# Certificate Object
+# Certificate वस्तु
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
-* `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
+* ` डाटा ` String - PEM एंकोडेड डेटा
+* ` जारीकर्ता ` [ CertificatePrincipal ](certificate-principal.md) जारीकर्ता प्राचार्य
+* ` issuerName ` String - जारीकर्ता का समान्य नाम
+* ` issuerCert ` प्रमाणपत्र - जारीकर्ता का प्रमाणपत्र (यदि स्व-हस्ताक्षरित नहीं है)
+* ` विषय ` [ CertificatePrincipal ](certificate-principal.md) - विषय मुख्याध्यापक
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
 * `validStart` Number - Start date of the certificate being valid in seconds

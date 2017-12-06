@@ -1,57 +1,57 @@
-# Notifications (Windows, Linux, macOS)
+# اعلان ها (ویندوز، لینوکس، مک‌اواس)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+در هر سه سیستم عامل قابلیت ارسال اعلان ها از برنامه به کاربر فراهم شده است. الکترون این امکان را به توسعه دهندگان میدهد که توسط [API اعلان ها HTML5](https://notifications.spec.whatwg.org/) بتوانند اعلان های خود را در سیستم عامل در حال اجرا به واسطه API اعلان های سیستم عامل به نمایش بگذارند.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**توجه داشته باشید:** از آنجایی که این یک HTML5 API است، فقط در فرآیند رندرینگ موجود می باشد. اگر شما به دنبال نمایش اعلان ها در فرآیند اصلی هستید، لطفا ماژول [اعلان ها](../api/notification.md) بررسی کنید.
 
 ```javascript
-let myNotification = new Notification('Title', {
-  body: 'Lorem Ipsum Dolor Sit Amet'
+let myNotification = new Notification('عنوان', {
+  body: 'لورم اپسام'
 })
 
-myNotification.onclick = () => {
-  console.log('Notification clicked')
+myNotification. => {
+  console.log('اعلان کلیک خورد')
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+در حالی که کد و تجربه کاربر در تمامی سیستم عامل ها مشابه، تفاوت های ظریفی در آن ها وجود دارد.
 
 ## ویندوز
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an \[Application User Model ID\]\[app-user-model-id\], must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* در ویندوز ۱۰، اعلان ها (بدون دخالت) کار میکنند.
+* در ویندوز ۸.۱ و ویندوز ۸، نیاز است تا یک میانبر از برنامه شما توسط \[Application User Model ID\]\[app-user-model-id\], در صفحه شروع ایجاد شود. توجه داشته باشید، با این حال، برنامه شما نیاز نیست به صفحه شروع حتما دوخته شده باشد.
+* در ویندوز ۷، اعلان ها با یک شبیه سازی سفارشی مانند سیستم عامل های جدید کار می کند.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+در ویندوز ۸, حداکثر طول متن اعلان ها ۲۵۰ کاراکتر میباشد، با این حال تیم ویندوز توصیه می کند که طول متن شما بیش از ۲۰۰ کاراکتر نباشد. آنها گفته اند که این محدودیت به درخواست توسعه دهندگاند در ویندوز ۱۰ حذف گردیده است. به هر حال ارسال متن های عظیم (هزاران کاراکتر) توسط API میتواند باعث بی ثباتی در آن شود.
 
-### Advanced Notifications
+### اعلان های پیشرفته
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+نسخه های جدید ویندوز به شما اجازه میدهد که اعلان های پیشرفته، در قالب های سفارشی، عکس و المنت های منعطف دیگر ارسال کنید. برای ارسال اینگونه اعلان ها (از فرایند اصلی یا فرایند رندرینگ)، شما میتوانید از ماژول [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) استفاده نمیایید که از افزونه های بودی Node برای ارسال اشیاء `ToastNotification` و `TileNotification` استفاده میکند.
 
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+اعلان هایی که دارای دکمه می باشند، توسط `electron-windows-notifications` کار می کنند و برای پاسخ دادن به آن نیاز به استفاده از [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) می باشد که با ثبت کامپونیت های مورد نیاز COM و برنامه الکترون شما داده های کاربر را وارد می کند.
 
-### Quiet Hours / Presentation Mode
+### ساعت آرام / حالت ارائه
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+برای تشخیص آنکه کی یا چه زمانی اجازه ارسال اعلان ها را ندارید، نیاز به استفاده از ماژول [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) خواهید داشت.
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+این به شما اجازه می دهد تا قبل از زمان تعیین ارسال، مشخص کنید که آیا ویندوز متوجه اطلاعیه شما خواهد شد یا خیر.
 
-## macOS
+## مک‌اواس
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+اعلان ها در مک‌اواس مستقیم اجرا می شود، با این حال مشا باید از [دستورالعمل رابط کاربری اپل در مورد اعلان ها](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) مطلع شوید.
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+توجه کنید که اندازه اعلان ها محدود به 256 بایت می باشد و اگر از این محدوده عبور کنید، خودکار متن شما کم می شود.
 
-### Advanced Notifications
+### اعلان های پیشرفته
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+نسخه های جدید مک‌اواس به شما اجازه می دهد تا اعلان هایی همراه با فیلد ورودی ایجاد کنید که توسط آن به کاربر اجازه دهید به اعلان شما پاسخ دهد. برای ارسال اعلان با قابلیت فیلد ورودی شما نیاز به ماژول [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) خواهید داشت.
 
-### Do not disturb / Session State
+### مزاحم نشوید / حالت جلسه
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+برای تشخیص آنکه کی یا چه زمانی اجازه ارسال اعلان ها را ندارید، نیاز به استفاده از ماژول [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) خواهید داشت.
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+این به شما اجازه میدهد که قبل از ارسال اعلان متوجه شوید که اجازه ارسال اعلان ها را دارید یا خیر.
 
 ## لینوکس
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows \[Desktop Notifications Specification\]\[notification-spec\], including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+اعلان ها با استفاده از `libnotify` می توانند در محیط های دسکتاپ به دنبال \[Desktop Notifications Specification\]\[notification-spec\]، شامل ساینامون، یونیتی، گنوم و KDE نمایش یابند.

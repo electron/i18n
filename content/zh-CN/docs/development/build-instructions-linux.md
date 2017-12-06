@@ -6,8 +6,8 @@
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
-* Node.js. 有多种方法安装 Node.js。 You can download source code from [nodejs.org](http://nodejs.org) and compile it. 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
+* Node.js. 有多种方法安装 Node.js。 您可以从 [ Nodejs.org ](http://nodejs.org) 下载源代码并进行编译。 也可以作为一个标准的用户在 home 目录下安装 node. 或者尝试使用 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) 仓库
+* [ clang ](https://clang.llvm.org/get_started.html) 3.4 或更高版本。
 * GTK+ 开发头文件和 libnotify.
 
 在 Ubuntu, 安装下面的库:
@@ -160,7 +160,7 @@ $ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### 使用 `clang` 之外的其它编译器
 
 要使用其他编译器 如: `g++` 编译 Electron, 首先需要使用参数 `--disable_clang` 禁用 `clang`, 然后设置 `CC` 及 `CXX` 环境变量.
 

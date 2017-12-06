@@ -77,7 +77,7 @@
 
 ### โมดูลสำหรับกระบวนการทั้งสอง:
 
-* [clipboard](api/clipboard.md)
+* [คลิปบอร์ด](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [หน้าจอ](api/screen.md)

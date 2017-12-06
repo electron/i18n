@@ -1,26 +1,26 @@
-# Notification
+# اعلان
 
-> Create OS desktop notifications
+> ایجاد اعلان سیستم عامل دسکتاپ
 
-Process: [Main](../glossary.md#main-process)
+فرآیند: [اصلی](../glossary.md#main-process)
 
-## Using in the renderer process
+## استفاده در فرآیند رندرینگ
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+اگر شما می خواهید اعلان ها را در فرآیند رندرینگ نمایش دهید، باید از [API اعلان HTML5](../tutorial/notifications.md) استفاده کنید
 
-## Class: Notification
+## کلاس: اعلان
 
-> Create OS desktop notifications
+> ایجاد اعلان سیستم عامل دسکتاپ
 
-Process: [Main](../glossary.md#main-process)
+فرآیند: [اصلی](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`اعلان` یک [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) می باشد.
 
-It creates a new `Notification` with native properties as set by the `options`.
+ایجاد یک `اعلان` جدید با ویژگی های محلی توسط `options` می باشد.
 
-### Static Methods
+### روش های ایستا
 
-The `Notification` class has the following static methods:
+کلاس `اعلان` همراه دارد روش های ایستای:
 
 #### `Notification.isSupported()`
 

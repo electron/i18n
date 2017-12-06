@@ -1,10 +1,10 @@
-## Class: Cookies
+## Cookies
 
-> Query and modify a session's cookies.
+> 查询和修改一个会话的cookies
 
 线程：[主线程](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+通过`Session`的`cookies`属性来访问`Cookies`的实例
 
 例如：
 
@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Instance Events
+### 事件
 
 The following events are available on instances of `Cookies`:
 

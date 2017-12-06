@@ -1,50 +1,50 @@
-## Class: BrowserWindowProxy
+## Класс: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Манипулирование дочерним окном браузера
 
-Process: [Renderer](../glossary.md#renderer-process)
+Процесс: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+`window.open` возвращает `BrowserWindowProxy` и предоставляет ограниченное управление дочерним окном.
 
-### Instance Methods
+### Методы экземпляра
 
-The `BrowserWindowProxy` object has the following instance methods:
+Экземпляр объекта `BrowserWindowProxy` содержит следующие методы:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Дефокусирует дочернее окно.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Принудительно закрывает дочернее окно без вызова события отгрузки.
 
 #### `win.eval(code)`
 
-* `code` String
+* Строка `code`
 
-Evaluates the code in the child window.
+Позволяет запускать код в дочернем окне.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Производит фокусировку дочернего окна (переносит окно на передний план).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Вызывает диалог print в рамках дочернего окна.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* Строка `message`
+* Строка `targetOrigin`
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instance Properties
+### Свойства экземпляра
 
-The `BrowserWindowProxy` object has the following instance properties:
+Экземпляр объекта `BrowserWindowProxy` содержит следующие свойства:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+`Булево значение`, которое возвращает true после того как дочернее окно закрывается.

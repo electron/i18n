@@ -1,12 +1,12 @@
-# Certificate Object
+# شئِ گواهینامه
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
-* `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
-* `subjectName` String - Subject's Common Name
-* `serialNumber` String - Hex value represented string
-* `validStart` Number - Start date of the certificate being valid in seconds
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `اطلاعات` رشته - اطلاعاتِ کدگذاری شده به شکل PEM
+* `صادر کننده`[گواهینامهِ اصلی ](certificate-principal.md) - صادر کننده اصلی
+* `نامِ صادر کننده` رشته - نامِ مشترک صادرکننده ها
+* `گواهینامه ی صادر کننده` گواهینامه - گواهینامه ی صادرکننده (در صورتی که خود-امضا نباشد)
+* `موضوع`[گواهینامه اصلی](certificate-principal.md) - موضوعِ اصلی
+* `نام موضوع` رشته - نامِ رایج موضوع
+* `شماره سریال` رشته - مقدار hex نمایش داده شده با صورت رشته
+* `شروع اعتبار` عدد - تاریخ شروع اعتبار بر حسب ثانیه
+* `انقضای اعتبار` عدد - تاریخ انقاضی گواهینامه بر حسب ثانیه
+* `اثر انگشت` رشته - اثرانگشت گواهینامه

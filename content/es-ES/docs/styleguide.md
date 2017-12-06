@@ -2,7 +2,7 @@
 
 These are the guidelines for writing Electron documentation.
 
-## Titles
+## Títulos
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
@@ -40,9 +40,9 @@ Using `Quick Start` as example:
 
 For API references, there are exceptions to this rule.
 
-## Markdown rules
+## Reglas de Markdown
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Use `bash` en lugar de `cmd` en los bloques de código (debido al resaltado de sintaxis).
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
@@ -56,25 +56,25 @@ For API references, there are exceptions to this rule.
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### Título de Página
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
 Under the page tile must be a one-line description starting with `>`.
 
-Using `session` as example:
+Usando `session` como ejemplo:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Administra sesiones de navegador, cookies, caché, configuración del proxy, etc.
 ```
 
 ### Module methods and events
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+Usando `autoUpdater` como ejemplo:
 
 ```markdown
 # autoUpdater
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Clases
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
@@ -166,7 +166,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* O un tipo personalizado como [`WebContent`](api/web-contents.md) de Electron
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
@@ -196,7 +196,7 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### Propiedades
 
 The properties chapter must be in following form:
 
@@ -208,15 +208,15 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## Traducciones de la documentación
 
-Translations of the Electron docs are located within the `docs-translations` directory.
+Las traducciones de la documentación de Electron se encuentran en el directorio `docs-translations`.
 
 To add another set (or partial set):
 
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
+* Cree un subdirectorio denominado por la abreviatura del idioma.
+* Traduzca los archivos.
+* Actualize el archivo `README.md` dentro de su directorio de idioma para vincular los archivos que se han traducido.
+* Agregue un enlace al directorio de su traducción en el [README](https://github.com/electron/electron#documentation-translations) principal de Electron.
 
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+Tenga en cuenta que los archivos en `docs-translations` deben incluir solamente los archivos traducidos, los archivos originales en inglés no se deben copiar allí.

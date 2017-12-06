@@ -1,16 +1,16 @@
 # 关于 Electron
 
-[Electron](https://electron.atom.io)是一个由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的开源库。 Electron通过结合[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org)到一个运行时环境中，并将其打包为Mac，Windows和Linux应用来实现这一目的。
+[Electron](https://electron.atom.io)是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org)合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux应用来实现这一目的。
 
 Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)文本编译器的框架。这两个项目在2014春季开源。
 
-到现在，它已成为开源开发者、初创企业和老牌公司常用的工具。[ 看看谁在用Electron ](https://electron.atom.io/apps/)。
+目前它已成为开源开发者、初创企业和老牌公司常用的开发工具。[ 看看谁在使用Electron ](https://electron.atom.io/apps/)。
 
-接着读来看Electron的贡献者们和Electron的发行版本，或者在[快速开始指引](quick-start.md)里学习用Electron来构建应用。
+继续往下读可以了解一下Electron的贡献者们和已经发布的版本，或者开始在[快速开始指引](quick-start.md)里用Electron来构建应用。
 
 ## 核心团队和贡献者
 
-Electron由Github上的一支团队和一群[活跃的贡献者](https://github.com/electron/electron/graphs/contributors)维护。 有些贡献者是独立开发者，有些则在用Electron构建应用的大型公司里工作。 我们很乐意把贡献频繁的人作为维护者列入到项目中。 了解更多[为Electron作贡献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
+Electron由Github上的一支团队和一群[活跃的贡献者](https://github.com/electron/electron/graphs/contributors)维护。 有些贡献者是独立开发者，有些则在用Electron构建应用的大型公司里工作。 我们很乐意把贡献频繁的人加入到项目维护者队伍中。 了解更多[为Electron作贡献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)。
 
 ## 版本发布
 
@@ -18,9 +18,9 @@ Electron[发行版本](https://github.com/electron/electron/releases)相当频�
 
 ### 更新依赖
 
-Electron中Chromium的版本通常在Chromium发行新的稳定版后的一到两周之内更新，具体要根据更新里涉及到的东西。
+Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一到两周之内更新，具体时间根据升级所需的工作量而定。
 
-当Node.js发行新版本的时候，为了一个更稳定的版本，Electron通常会在更新前等一个月。
+为了版本的稳定，Electron通常会在Node.js发布了新版本的一个月后在更新。
 
 在Electron里，Node.js和Chromium共享同一个V8实例--通常是Chromium在用的版本。大多数情况下这能*正常工作*但有时候需要修补Node.js。
 

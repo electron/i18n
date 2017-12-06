@@ -2,13 +2,13 @@
 
 > Dicas para instalar o elétron
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Para instalar os binários do Electro, use o [`npm`](https://docs.npmjs.com/). O método preferido é instalar o Electron com uma dependência em seu projeto:
 
 ```sh
 npm install electron --save-dev --save-exact
 ```
 
-A opção `--save-exact` é recomendada uma vez que o Electron não segue semântica de versionamento. See the [versioning doc](https://electron.atom.io/docs/tutorial/electron-versioning/) for info on how to manage Electron versions in your apps.
+A opção `--save-exact` é recomendada uma vez que o Electron não segue semântica de versionamento. Veja a [documentação](https://electron.atom.io/docs/tutorial/electron-versioning/) para obter informações de como gerenciar as versões do Electron em suas aplicações.
 
 ## Instalação Global
 
@@ -20,13 +20,13 @@ npm install electron -g
 
 ## Personalização
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Se você quer alterar a arquitetura que é baixada (Ex: `ia32` em uma máquina `x64`), você pode usar a opção `--arch` com npm install ou definir a variável de ambiente `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Além de alterar a arquitetura, você pode também especificar a plataforma (ex: `win32`, `linux`, etc.) usando a opção `--platform`:
 
 ```shell
 npm install --platform=win32 electron
@@ -38,24 +38,24 @@ Se você precisar usar um proxy HTTP você pode [definir estas variáveis de amb
 
 ## Solução de Problemas
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Ao executar `npm install electron`, alguns usuários ocasionalmente encontram erros de instalação.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Em quase todos os casos, esses problemas são resultado de problemas de rede e não de problemas reais com o pacote npm `electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` e `ETIMEDOUT`, são todas indicações de tais problemas de rede. A melhor solução é tentar trocar de rede ou aguardar um pouco e tentar instalar novamente.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Você pode também baixar Electron diretamente [electron/electron/releases](https://github.com/electron/electron/releases) se a instalação via `npm` estiver falhando.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Se o erro acima persistir, você deve definir a opção [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) como "true":
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Em redes mais lentas, pode ser aconselhável usar opção `--verbose` para exibir o progresso do download:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+Se você precisar forçar um novo download do recurso e do arquivo SHANSUM, defina a variável de ambiente `force_no_cache` com o valor `true`.

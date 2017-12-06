@@ -1,5 +1,5 @@
-# شئ DesktopCapturerSource
+# شئِ دریافت کننده‌ی منبعِ دسکتاپ
 
-* `id` String - The identifier of a window or screen that can be used as a `chromeMediaSourceId` constraint when calling [`navigator.webkitGetUserMedia`]. The format of the identifier will be `window:XX` or `screen:XX`, where `XX` is a random generated number.
-* `name` String - A screen source will be named either `Entire Screen` or `Screen <index>`, while the name of a window source will match the window title.
-* `thumbnail` [NativeImage](../native-image.md) - A thumbnail image. **Note:** There is no guarantee that the size of the thumbnail is the same as the `thumbnailSize` specified in the `options` passed to `desktopCapturer.getSources`. The actual size depends on the scale of the screen or window.
+* `شناسه` رشته - مشخص کننده ی یک صفحه که می تواند به عنوان یک `منبع رسانه ای کروم` در هنگام فراخوانی استفاده شود. [`navigator.webkitGetUserMedia`]. فرمت شناسایی کننده `سایز صفحه` یا `سایز صفحه نمایش` خواهد بود در حالی که `سایز` یک عدد اتفاقی است.
+* `نام` رشته - یک منبع نمایش یا `صفحه نمایش کامل` یا `صفحه نمایش<index>` نامگذاری خواهد شد، ممکن است منبع پنجره و نام پنجره یکی باشند.
+* `بندانگشتی`[عکس اصلی](../native-image.md) - یک عکس بندانگشتی. **توجه:** هیچ تضمینی وجود ندارد که سایز تصویر بندانگشتی با `سایز بندانگشتی` که در `امکانات` که به `دریافت کننده‌ی دسکتاپ` فرستاده شده، یکی باشند. سایز واقعی به اندازه ی صفحه نمایش بستگی دارد.

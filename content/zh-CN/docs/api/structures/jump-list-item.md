@@ -5,7 +5,7 @@
   * ` separator`-可用于分隔标准 ` Tasks ` 类别中的项目。
   * ` file `-一个文件的链接将使用创建跳转列表的应用程序打开文件, 为此, 应用程序必须注册为该文件类型的默认程序 (尽管它并不需要成为默认程序)。
 * ` path `String (可选)-要打开的文件的路径, 只应在 ` type ` 为 ` file ` 时设置。
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
+* ` program `String (可选)-要执行的程序的路径, 通常应该指定打开当前程序的 ` process.execPath `。 只应在 ` type ` 是 ` task ` 时设置。
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
 * ` title `String (可选)-要为跳转列表中的项显示的文本。只应在 ` type ` 为 ` task ` 时设置。
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.

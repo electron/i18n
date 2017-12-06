@@ -25,11 +25,11 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Frameless window
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Для создания окна без Хрома, а так-же прозрачное окно произвольной формы, можно использовать [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Изящный показ окон
 
-Когда загружается страница в окно напрямую, пользователи могут видеть ступенчатую прогрузку страницы, что является дурным тоном для нативного приложения. Для создания окна без ступенчатой загрузки существует два решения, которые можно использовать в различных ситуациях.
+Когда страница загружается в окно напрямую, пользователи могут видеть ступенчатую загрузку страницы, что является дурным тоном для нативного приложения. Для создания окна без ступенчатой загрузки существует два решения, которые можно использовать в различных ситуациях.
 
 ### Использование `ready-to-show` события
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Свойства экземпляра
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Методы экземпляра
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
