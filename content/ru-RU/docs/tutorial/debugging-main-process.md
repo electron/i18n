@@ -16,7 +16,7 @@ electron --inspect=5858 ваше/приложение
 
 ### `--inspect-brk=[port]`
 
-Like `--inspector` but pauses execution on the first line of JavaScript.
+Like `--inspect` but pauses execution on the first line of JavaScript.
 
 ## Внешние отладчики
 
