@@ -4,7 +4,7 @@
 
 Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)文本编译器的框架。这两个项目在2014春季开源。
 
-目前它已成为开源开发者、初创企业和老牌公司常用的开发工具。[ 看看谁在用Electron ](https://electron.atom.io/apps/)。
+目前它已成为开源开发者、初创企业和老牌公司常用的开发工具。[ 看看谁在使用Electron ](https://electron.atom.io/apps/)。
 
 继续往下读可以了解一下Electron的贡献者们和已经发布的版本，或者开始在[快速开始指引](quick-start.md)里用Electron来构建应用。
 
