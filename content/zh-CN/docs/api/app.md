@@ -717,7 +717,7 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 想知道更多细节，可以戳这里
+Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
 <h3><code>app.setAboutPanelOptions(options)` *macOS*</h3> 
@@ -726,43 +726,43 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
-  * `credits` String (optional) - Credit information.
+  * `credits` String (可选) - 信用信息.
   * `version` String (可选) - 应用程序版本号
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+设置 "关于" 面板选项。 这将覆盖应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - 命令行开关
+* `value` String (optional) - 给开关设置的值
 
-Append a switch (with optional `value`) to Chromium's command line.
+通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+** 注意: **该方法不会影响 ` process. argv `, 我们通常用这个方法控制一些底层的 Chromium 行为。
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* ` value `String - 要追加到命令行的参数
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+给 Chromium 中直接添加一个命令行参数，该参数的引号和格式必须正确。
 
-** 注意: **这个不会对 ` process. argv ` 产生作用。
+** 注意: **该方法不会影响 ` process. argv `
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+在应用程序上启用混合沙盒模式。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (可选) - 可以为`critical` 或 `informational`. 默认值为 `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+当传入的是 `critical` 时, dock 中的应用将会开始弹跳, 直到这个应用被激活或者这个请求被取消。
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+当传入的是 `informational` 时, dock 中的图标只会弹跳一秒钟。但是, 这个请求仍然会激活, 直到应用被激活或者请求被取消。
 
-Returns `Integer` an ID representing the request.
+返回 `Integer` 这个请求的 ID
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
