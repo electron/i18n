@@ -214,11 +214,11 @@ window.addEventListener('contextmenu', (e) => {
 
 ## MacOS中应用菜单注意事项
 
-MacOS中的应用程序有和windows，linux完全不同的菜单样式。这里有一些提示可以让你的程序菜单看起来更贴合原生系统；
+MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式。这里有一些说明，可以让你的程序菜单看起来更贴合原生系统。
 
 ### Standard Menus
 
-在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 为了使你的菜单看起来更像MacOs标准菜单，你需要在设置你的菜单`role`，Electron会自动认出并设置成标准菜单，如下面：
+在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 让你的菜单更像MacOS标准菜单，只需设置菜单`role`为如下示之一，Electron便会自动认出并设置成标准菜单，：
 
 * `window`
 * `help`
@@ -226,7 +226,7 @@ MacOS中的应用程序有和windows，linux完全不同的菜单样式。这里
 
 ### Standard Menu Item Actions
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide xxx ` 和 ` Hide Others `。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 `  role` 属性。
 
 ### Main Menu's Name
 
