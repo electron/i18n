@@ -135,7 +135,7 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 
-```bash
+```sh
 electron .
 ```
 
@@ -143,35 +143,43 @@ If you've installed it locally, then run:
 
 #### مک‌اواس / لینوکس
 
-```bash
+```sh
 $ ./node_modules/.bin/electron .
 ```
 
 #### ویندوز
 
-    $ .\node_modules\.bin\electron .
-    
+```sh
+$ .\node_modules\.bin\electron .
+```
+
+#### Node v8.2.0 and later
+
+```sh
+$ npx electron .
+```
 
 ### Manually Downloaded Electron Binary
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
-#### مک‌اواس
+#### macOS
 
-```bash
+```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
-#### لینوکس
+#### Linux
 
-```bash
+```sh
 $ ./electron/electron your-app/
 ```
 
-#### ویندوز
+#### Windows
 
-    $ .\electron\electron.exe your-app\
-    
+```sh
+$ .\electron\electron.exe your-app\
+```
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
@@ -185,7 +193,7 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
-```bash
+```sh
 # Clone the repository
 $ git clone https://github.com/electron/electron-quick-start
 # Go into the repository
@@ -196,4 +204,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
