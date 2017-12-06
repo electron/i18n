@@ -127,7 +127,7 @@ Finally the `index.html` is the web page you want to show:
 
 ## 앱 실행하기
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+일단 `main.js`, `index.html`, `package.json` 초기 파일들을 만들었다면, 아마도 여러분은 로컬에서 앱을 실행해보고 기대한대로 동작하는지 확인해보고 싶으실 겁니다.
 
 ### `electron`
 
@@ -152,9 +152,9 @@ $ ./node_modules/.bin/electron .
     .\node_modules\.bin\electron .
     
 
-### Manually Downloaded Electron Binary
+### 일렉트론 바이너리를 수동으로 다운로드하기
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+일렉트론을 수동으로 다운로드했다면, 포함된 바이너리를 사용해 앱을 직접 실행해야 합니다.
 
 #### macOS
 
@@ -173,7 +173,7 @@ $ ./electron/electron your-app/
     $ .\electron\electron.exe your-app\
     
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+여기에 있는 `Electron.app` 은 일렉트론의 릴리즈 패키지의 부분으로서, [여기](https://github.com/electron/electron/releases)에서 다운로드할 수 있습니다.
 
 ### Run as a distribution
 
