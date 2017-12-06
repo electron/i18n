@@ -2,11 +2,11 @@
 
 ## Чому виникають проблеми з інсталяцією Electron?
 
-Під час роботи `npm install electron`, деякі користувачі іноді стикаються з помилками установки.
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-В майже всіх випадках, ці помилки є результатом проблем з мережею, а не з npm пакетом `electron`. Такі помилки як `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` і `ETIMEDOUT` є показниками проблем з мережею. Найкраще рішення спробувати перемкнути мережі чи просто зачекати та спробувати встановити ще раз.
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-Ви також можете спробувати завантажити Electron прямо з [electron/electron/releases](https://github.com/electron/electron/releases) якщо не вдасться встановити через `npm`.
+You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
 ## Коли Electron оновлюється до останньої версії Chrome?
 
@@ -110,9 +110,10 @@ delete window.module;
 
 При використанні вбудованих модулів Electron ви можете стикнутися з помилками типу:
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-    
+```sh
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+```
 
 Це стається через те що [npm модуль `electron`](https://www.npmjs.com/package/electron) встановлений локально і глобально, що перезаписує вбудовані модулі Electron.
 
@@ -124,12 +125,13 @@ console.log(require.resolve('electron'))
 
 і перевірити чи він має наступний вигляд:
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-    
+```sh
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+```
 
 Якщо він схожий на `node_modules/electron/index.js`, то ви маєте видалити модуль npm `electron`, чи перейменувати його.
 
-```bash
+```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
