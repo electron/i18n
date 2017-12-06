@@ -11,7 +11,7 @@
 * [Речник на термините](glossary.md)
 * [Поддържани платформи](tutorial/supported-platforms.md)
 * [Сигурност](tutorial/security.md)
-* [Versioning](tutorial/versioning.md)
+* [Versioning](tutorial/electron-versioning.md)
 * [Разпространяване на разработените приложения](tutorial/application-distribution.md)
 * [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
