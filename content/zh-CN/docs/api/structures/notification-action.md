@@ -1,7 +1,7 @@
 # NotificationAction 对象
 
 * `type` 类型：String - 此类操作可以作为 `按钮`.
-* `text` String - (optional) The label for the given action.
+* `text` 类型 String - 给定操作的标签（可选）。
 
 ## Platform / Action Support
 
