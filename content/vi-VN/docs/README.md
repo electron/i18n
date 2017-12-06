@@ -11,7 +11,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Từ điển thuật ngữ](glossary.md)
 * [Nền tảng hỗ trợ](tutorial/supported-platforms.md)
 * [Bảo mật](tutorial/security.md)
-* [Phiên bản](tutorial/versioning.md)
+* [Phiên bản](tutorial/electron-versioning.md)
 * [Phân phối ứng dụng](tutorial/application-distribution.md)
 * [Bộ hướng dẫn cho Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Bộ hướng dẫn cho Windows Store](tutorial/windows-store-guide.md)
