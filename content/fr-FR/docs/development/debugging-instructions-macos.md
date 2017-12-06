@@ -12,7 +12,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 Pour démarrer une session de débogage, ouvrez terminal et lancez `lldb`, passez une version debug d'Electron en tant que paramètre.
 
-```bash
+```sh
 $ lldb ./out/D/Electron.app
 (lldb) target create "./out/D/Electron.app"
 Current executable set to './out/D/Electron.app' (x86_64).
@@ -26,20 +26,20 @@ Les fichiers de code appropriés peuvent se trouver dans `./atom/`, comme pour B
 
 Supposons que vous souhaitez déboguer `app.setName()`, qui est définie dans `browser.cc` comme `Browser::SetName()`. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et la ligne à couper :
 
-```bash
+```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
 Ensuite, démarrez Electron :
 
-```bash
+```sh
 (lldb) run
 ```
 
 L’app sera immédiatement suspendu, puisque l’électron définit le nom de l’application au lancement :
 
-```bash
+```sh
 (lldb) run
 Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64) Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
@@ -56,7 +56,7 @@ Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/Mac
 
 Pour afficher les arguments et les variables locales pour le frame en cours, exécutez `frame variable` (ou `fr v`), qui vous montrera que l'app est en train de mettre le nom à "Electron".
 
-```bash
+```sh
 (lldb) frame variable 
 (atom::Browser *) this = 0x0000000108b14f20 
 (const string &) name = "Electron": {
@@ -66,7 +66,7 @@ Pour afficher les arguments et les variables locales pour le frame en cours, ex�
 
 Pour faire une étape au niveau source dans le thread actuellement sélectionné, exécutez `step` (ou `s`). Cela vous amènerait dans `name_override_.empty()`. Pour continuer et refaire une étape, exécutez `next` (ou `n`).
 
-```bash
+```sh
 (lldb) step
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
