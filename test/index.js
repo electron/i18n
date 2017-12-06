@@ -4,8 +4,6 @@ chai.use(require('chai-date-string'))
 const {describe, it} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
-const fs = require('fs')
-const path = require('path')
 
 describe('i18n.docs', () => {
   it('is an object with locales as keys', () => {
