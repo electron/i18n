@@ -1,6 +1,6 @@
 ## Class: Menu
 
-> 创建原生菜单和环境菜单。
+> 创建原生应用菜单和上下文菜单。
 
 线程：[主线程](../glossary.md#main-process)
 
