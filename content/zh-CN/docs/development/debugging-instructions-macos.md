@@ -12,7 +12,7 @@
 
 要启动调试会话，打开命令行并启动 `lldb` ，并传递一个调试版本的 Electron 作为参数。
 
-```bash
+```sh
 $ lldb ./out/D/Electron.app
 (lldb) target create "./out/D/Electron.app"
 Current executable set to './out/D/Electron.app' (x86_64).
@@ -26,20 +26,20 @@ LLDB是一个强大的工具，支持进行多种策略的代码检查。 在这
 
 让我们假设你想调试 `app.setName()`, 在 `browser.cc` 中定义为 `Browser::SetName()`. 使用 `breakpoint` 命令进行断点，指定文件和断点位置:
 
-```bash
+```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
 然后, 启动 Electron:
 
-```bash
+```sh
 (lldb) run
 ```
 
 应用程式会立即暂停，因为 Electron 会在启动时设定应用程序名称:
 
-```bash
+```sh
 (lldb) run
 Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
@@ -57,7 +57,7 @@ Process 25244 stopped
 
 显示当前帧的参数和局部变量, 运行 `frame variable` (或 `fr v`), 这将显示你的应用程序当前设置名称为 “Electron”.
 
-```bash
+```sh
 (lldb) frame variable
 (atom::Browser *) this = 0x0000000108b14f20
 (const string &) name = "Electron": {
@@ -67,7 +67,7 @@ Process 25244 stopped
 
 在当前选择的线程中执行源级单步执行, 执行 `step` (或 `s`). 这将带你进入 `name_override_.empty()`。 继续前进，步过，运行 `next` (或 `n`).
 
-```bash
+```sh
 (lldb) step
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
