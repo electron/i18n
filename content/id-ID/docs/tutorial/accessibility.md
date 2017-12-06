@@ -6,9 +6,9 @@ Membuat aplikasi dapat diakses penting dan kami senang untuk memperkenalkan fung
 
 Masalah Aksesibilitas dalam aplikasi elektron mirip dengan situs web karena mereka berdua merupakan HTML. Dengan aplikasi elektron, akan tetapi, Anda tidak dapat menggunakan sumber daya online untuk aksesibilitas audit karena app tidak memiliki URL untuk menunjuk ke auditor.
 
-Fitur baru ini membawa alat audit tersebut ke aplikasi elektron anda. Anda dapat memilih untuk menambahkan Audit ke tes anda dengan Spectron atau menggunakannya dalam DevTools dengan Devtron. Baca terus untuk ringkasan tools atau kunjungi kami [aksesibilitas dokumentasi](https://electron.atom.io/docs/tutorial/accessibility) untuk informasi lebih lanjut.
+Fitur baru ini membawa alat audit tersebut ke aplikasi elektron anda. Anda dapat memilih untuk menambahkan Audit ke tes anda dengan Spectron atau menggunakannya dalam DevTools dengan Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
 
-### Spectron
+## Spectron
 
 Dalam framework pengujian Spectron, Anda sekarang dapat melakukan audit setiap jendela dan `<webview>`tag dalam aplikasi Anda. Sebagai contoh:
 
@@ -22,7 +22,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 Anda dapat membaca lebih lanjut tentang fitur ini dalam [Dokumentasi Spectron](https://github.com/electron/spectron#accessibility-testing).
 
-### Devtron
+## Devtron
 
 Dalam Devtron, ada tab aksesibilitas baru yang memungkinkan anda untuk melakukan audit halaman dalam aplikasi Anda, mengurutkan dan menyaring hasil.
 
@@ -30,4 +30,33 @@ Dalam Devtron, ada tab aksesibilitas baru yang memungkinkan anda untuk melakukan
 
 Kedua alat-alat ini menggunakan perpustakaan [ Alat Aksesibilitas pengembang](https://github.com/GoogleChrome/accessibility-developer-tools) yang dibangun oleh Google untuk Chrome. Anda dapat mempelajari lebih lanjut tentang aturan audit aksesibilitas yang menggunakan perpustakaan ini pada bahwa [repositori wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-Jika Anda tahu perangkat akses lainnya untuk electron, menambahkannya ke [dokumentasi aksesibilitas](https://electron.atom.io/docs/tutorial/accessibility) dengan permintaan tarik.
+If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+
+## Enabling Accessibility
+
+Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+
+### Inside Application
+
+By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+
+### Assistive Technology
+
+Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+
+On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+
+```objc
+CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
+
++ (void)enableAccessibility:(BOOL)enable inElectronApplication:(NSRunningApplication *)app
+{
+    AXUIElementRef appRef = AXUIElementCreateApplication(app.processIdentifier);
+    if (appRef == nil)
+        return;
+
+    CFBooleanRef value = enable ? kCFBooleanTrue : kCFBooleanFalse;
+    AXUIElementSetAttributeValue(appRef, kAXManualAccessibility, value);
+    CFRelease(appRef);
+}
+```
