@@ -40,7 +40,7 @@ menu类有以下静态方法：
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+返回 ` Menu `
 
 通常, ` template ` 只是 ` option ` 的一选项, 用于构造 [ MenuItem ](menu-item.md)。可以在上面引用该用法。
 
