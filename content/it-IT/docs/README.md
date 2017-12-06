@@ -11,7 +11,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Glossario dei termini](glossary.md)
 * [Piattaforme supportate](tutorial/supported-platforms.md)
 * [Sicurezza](tutorial/security.md)
-* [Versioning](tutorial/versioning.md)
+* [Versioning](tutorial/electron-versioning.md)
 * [Distribuzione delle applicazioni](tutorial/application-distribution.md)
 * [Guida alla pubblicazione su Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guida a Windows Store](tutorial/windows-store-guide.md)
