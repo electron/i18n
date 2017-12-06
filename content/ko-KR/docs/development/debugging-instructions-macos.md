@@ -12,7 +12,7 @@
 
 디버깅 작업을 시작하려면, Terminal 을 열고 디버그 빌드 상태의 Electron 을 전달하여 `lldb` 를 시작합니다.
 
-```bash
+```sh
 $ lldb ./out/D/Electron.app
 (lldb) target create "./out/D/Electron.app"
 Current executable set to './out/D/Electron.app' (x86_64).
@@ -26,20 +26,20 @@ LLDB 는 강력한 도구이며 코드 검사를 위한 다양한 전략을 제�
 
 `app.setName()` 을 디버깅한다고 가정합시다, 이것은 `browser.cc` 에 `Browser::SetName()` 으로 정의되어있습니다. `breakpoint` 명령으로 멀추려는 파일과 줄을 명시하여 중단점을 설정합시다:
 
-```bash
+```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework``atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
 그리고 Electron 을 시작하세요:
 
-```bash
+```sh
 (lldb) run
 ```
 
 Electron 이 시작시에 앱의 이름을 설정하기때문에, 앱은 즉시 중지됩니다:
 
-```bash
+```sh
 (lldb) run
 Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
@@ -57,7 +57,7 @@ Process 25244 stopped
 
 현재 매개변수와 지역 변수를 보기위해, `frame variable` (또는 `fr v`) 를 실행하면, 현재 앱 이름이 "Electron" 인 것을 불 수 있습니다.
 
-```bash
+```sh
 (lldb) frame variable
 (atom::Browser *) this = 0x0000000108b14f20
 (const string &) name = "Electron": {
@@ -67,7 +67,7 @@ Process 25244 stopped
 
 현재 선택된 쓰레드에서 소스 수준 한단계를 실행하기위해, `step` (또는 `s`) 를 실행하세요. `name_override_.empty()` 로 들어가게 됩니다. 스텝 오버 실행은, `next` (또는 `n`) 을 실행하세요.
 
-```bash
+```sh
 (lldb) step
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
