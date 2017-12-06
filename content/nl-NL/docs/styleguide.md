@@ -42,7 +42,7 @@ Voor de API-referenties zijn er uitzonderingen op deze regel.
 
 ## Markdown regels
 
-* Gebruik de `bash` in plaats van `cmd` in codeblokken (vanwege de syntaxis markeerstift).
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lijnen moeten worden verpakt in 80 kolommen.
 * Geen geneste lijsten meer dan 2 verdiepingen (vanwege de markdown renderer).
 * Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@ De volgende regels gelden alleen voor de documentatie van de API's.
 
 Elke pagina moet met de naam van het werkelijke object geretourneerd worden door `require('electron')` als de titel, zoals `BrowserWindow`, `autoUpdater`en `sessie`.
 
-Onder de paginategel moet een beschrijving zijn van één regel die begint met `>`.
+Under the page title must be a one-line description starting with `>`.
 
 Met `sessie` als voorbeeld:
 
@@ -156,8 +156,9 @@ For example, the methods of the `Session` class under the `session` module must 
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-    required[, optional]
-    
+```sh
+required[, optional]
+```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
@@ -210,13 +211,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## Documentation Translations
 
-Translations of the Electron docs are located within the `docs-translations` directory.
-
-To add another set (or partial set):
-
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
-
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
