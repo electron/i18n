@@ -8,11 +8,12 @@ Electron 基于 Chromium，所以需要一个显示驱动使其运转。 如果 
 
 然后创建一个虚拟的xvfb屏幕并且导出一个指向他的名为 DISPLAY 的环境变量。 Electron 中的 Chromium 会自动的去寻找 `$DISPLAY`，所以你的应用不需要再去进行配置 这一步可以通过 Paul Betts 的 [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) 实现自动化：如果系统需要，在`xvfb-maybe`前加上你的测试命令 然后这个小工具会自动的设置 xvfb。 在 Windows 或者 macOS 系统下，它不会执行任何东西。
 
-    ## 在 Windows 或者 macOS，这只是调用 electron-mocha
-    ## 在 Linux， 如果我们在 headless 环境，这将是等同于
-    ## 去 xvfb-run electron-mocha ./test/*.js
-    xvfb-maybe electron-mocha ./test/*.js
-    
+```sh
+## 在 Windows 或者 macOS，这只是调用 electron-mocha
+## 在 Linux， 如果我们在 headless 环境，这将是等同于
+## 去 xvfb-run electron-mocha ./test/*.js
+xvfb-maybe electron-mocha ./test/*.js
+```
 
 ### Travis CI
 
