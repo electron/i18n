@@ -135,7 +135,7 @@ app.on('activate', () => {
 
 如果你已经用 `npm` 全局安装了它，你只需要按照如下方式直接运行你的应用：
 
-```bash
+```sh
 electron .
 ```
 
@@ -143,14 +143,21 @@ electron .
 
 #### macOS / Linux
 
-```bash
+```sh
 $ ./node_modules/.bin/electron .
 ```
 
 #### Windows
 
-    $ .\node_modules\.bin\electron .
-    
+```sh
+$ .\node_modules\.bin\electron .
+```
+
+#### Node v8.2.0 and later
+
+```sh
+$ npx electron .
+```
 
 ### 手工下载二进制格式的 Electron
 
@@ -158,20 +165,21 @@ $ ./node_modules/.bin/electron .
 
 #### macOS
 
-```bash
+```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 #### Linux
 
-```bash
+```sh
 $ ./electron/electron your-app/
 ```
 
 #### Windows
 
-    $ .\electron\electron.exe your-app\
-    
+```sh
+$ .\electron\electron.exe your-app\
+```
 
 `Electron.app` 里面是 Electron 发布包，你可以在[这里](https://github.com/electron/electron/releases)下载到。
 
@@ -185,15 +193,15 @@ $ ./electron/electron your-app/
 
 **注意**：运行时需要你的系统已经安装了 [Git](https://git-scm.com) 和 [Node.js](https://nodejs.org/en/download/)(包含 [npm](https://npmjs.org))。
 
-```bash
-# 克隆这仓库
+```sh
+# Clone the repository
 $ git clone https://github.com/electron/electron-quick-start
-# 进入仓库
+# Go into the repository
 $ cd electron-quick-start
-# 安装依赖库
+# Install dependencies
 $ npm install
-# 运行应用
+# Run the app
 $ npm start
 ```
 
-更多 apps 例子，查看 electron 社区创建的[list of boilerplates](https://electron.atom.io/community/#boilerplates).
+For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
