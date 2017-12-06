@@ -59,7 +59,7 @@ Returns `Menu`
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * ` positioningItem `数字 (可选) * macOS *-要在指定坐标下的鼠标光标下定位的菜单项的索引。默认值为-1。
 
-Pops up this menu as a context menu in the `browserWindow`.
+将此菜单作为 ` browserWindow ` 中的上下文菜单弹出。
 
 #### `menu.closePopup([browserWindow])`
 
