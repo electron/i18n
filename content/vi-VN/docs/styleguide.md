@@ -42,7 +42,7 @@ Cũng được dùng cho các tài liệu của API, không có ngoại lệ.
 
 ## Quy tắc sử dụng Markdown
 
-* Sử dụng `bash` thay thế cho `cmd` trong code (cú pháp của markdown).
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Một dòng nên chứa tối đa 80 kí tự kể cả khoảng cách.
 * Phân cấp tiêu đề không được quá 2 cấp (vì markdown sẽ không render quá 2 cấp).
 * Tất cả code `js` và `javascript` nên được linted với [tiêu chuẩn của markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@ Các quy định sau đây chỉ áp dụng cho các tài liệu API.
 
 Mỗi trang phải dùng tên đối tượng thực tế được trả về bởi `require('electron')` như tiêu đề, chẳng hạn như `BrowserWindow`, `autoUpdater`, và `session`.
 
-Mô tả của tiêu đề trang phải được viết trong một dòng và bắt đầu bằng `>`.
+Under the page title must be a one-line description starting with `>`.
 
 Sử dụng một đoạn văn trên đầu của trang `session` làm ví dụ:
 
@@ -156,8 +156,9 @@ For example, the methods of the `Session` class under the `session` module must 
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-    required[, optional]
-    
+```sh
+required[, optional]
+```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
@@ -210,13 +211,4 @@ Tiêu đề có thể ở các mức độ `###` hoặc `####`. Cho dù nó là 
 
 ## Các bản dịch của tài liệu
 
-Các bản dịch của tài liệu Electron nằm trong thư mục `docs-translations`.
-
-Để thêm một thiết lập (hoặc một phần):
-
-* Tạo một thư mục con đặt tên theo tên viết tắt của ngôn ngữ.
-* Dịch các tập tin.
-* Cập nhật các link tới các tập tin mà bạn đã dịch vào `README.md` nằm trong thư mục ngôn ngữ của bạn.
-* Thêm liên kết của thư mục ngôn ngữ đó của bạn vào trang [README](https://github.com/electron/electron#documentation-translations) chính của Electron.
-
-Lưu ý rằng các file trong `docs-translations` chỉ bao gồm những bản dịch, những bản gốc tiếng Anh không xuất phát từ đó.
+See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
