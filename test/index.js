@@ -4,6 +4,8 @@ chai.use(require('chai-date-string'))
 const {describe, it} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
+const fs = require('fs')
+const path = require('path')
 
 describe('i18n.docs', () => {
   it('is an object with locales as keys', () => {
@@ -23,7 +25,15 @@ describe('i18n.docs', () => {
     const base = 'https://github.com/electron/electron/tree/master'
     const docs = i18n.docs['en-US']
     docs['/docs/api/accelerator'].githubUrl.should.equal(`${base}/docs/api/accelerator.md`)
-    docs['/docs/tutorial/electron-versioning'].githubUrl.should.equal(`${base}/docs/tutorial/electron-versioning.md`)
+    docs['/docs/tutorial/versioning'].githubUrl.should.equal(`${base}/docs/tutorial/versioning.md`)
+  })
+
+  it('ignores files that have a special <!-- i18n-ignore --> HTML comment', () => {
+    fs.existsSync(path.join(__dirname, '../content/en-US/docs/tutorial/electron-versioning.md')).should.eq(true)
+
+    const filenames = Object.keys(i18n.docs['en-US'])
+    filenames.should.include('/docs/tutorial/versioning')
+    filenames.should.not.include('/docs/tutorial/electron-versioning')
   })
 })
 
@@ -103,6 +113,18 @@ describe('API Docs', () => {
     const $ = cheerio.load(api.html)
     const link = $('a[href*="glossary"]').first()
     link.attr('href').should.equal('/docs/glossary#main-process')
+  })
+
+  it('fixes relative images in docs', () => {
+    const doc = i18n.docs['en-US']['/docs/tutorial/versioning']
+    const $ = cheerio.load(doc.html)
+    const sources = $('img')
+      .map((i, el) => $(el).attr('src'))
+      .get()
+    console.log(sources)
+
+    sources.length.should.be.above(3)
+    sources.every(src => src.startsWith('https://cdn.rawgit.com/electron/electron/')).should.eq(true)
   })
 })
 
