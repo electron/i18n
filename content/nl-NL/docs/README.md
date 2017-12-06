@@ -11,7 +11,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [Verklarende woordenlijst van termen](glossary.md)
 * [Ondersteunde platformen](tutorial/supported-platforms.md)
 * [Beveiliging](tutorial/security.md)
-* [Electron versiebeheer](tutorial/electron-versioning.md)
+* [Versies](tutorial/versioning.md)
 * [Applicatie distributie](tutorial/application-distribution.md)
 * [Mac App Store indiening gids](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store gids](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Toetsencombinaties](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Tutorials
 
