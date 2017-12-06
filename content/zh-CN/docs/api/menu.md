@@ -18,9 +18,9 @@ The `menu` class has the following static methods:
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+在windows和Linux系统中，使用null参数传递给menu将会移除菜单栏, 但在MacOS系统中则不会；
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+注意：这个**API**调用要在程序的`ready`事件模块之后；
 
 #### `Menu.getApplicationMenu()`
 
