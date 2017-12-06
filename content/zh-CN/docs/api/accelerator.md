@@ -28,36 +28,36 @@ app.on('ready', () => {
 
 使用 `Alt` 代替`Option`. `Option` 键只在 macOS 系统上存在, 而 `Alt` 键在任何系统上都有效.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super`键是指 Windows 和 Linux 系统上的 `Windows` 键，但在 macOS 里为 `Cmd` 键.
 
-## Available modifiers
+## 可用的功能键
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (缩写为`Cmd`)
+* `Control` (缩写为`Ctrl`)
+* `CommandOrControl` (缩写为 `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## 可用的普通按键
 
 * `` to `9`
 * `A` to `Z`
 * `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* 类似`~`, `!`, `@`, `#`, `$`的标点符号
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
+* `Return` (等同于 `Enter`)
 * `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Home` 和 `End`
+* `PageUp` 和 `PageDown`
+* `Escape` (缩写为 `Esc`)
+* `VolumeUp`, `VolumeDown` 和 `VolumeMute`
+* ` MediaNextTrack `、` MediaPreviousTrack `、` MediaStop ` 和 ` MediaPlayPause `
 * `PrintScreen`
