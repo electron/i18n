@@ -11,7 +11,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [Verklarende woordenlijst van termen](glossary.md)
 * [Ondersteunde platformen](tutorial/supported-platforms.md)
 * [Beveiliging](tutorial/security.md)
-* [Versies](tutorial/versioning.md)
+* [Versies](tutorial/electron-versioning.md)
 * [Applicatie distributie](tutorial/application-distribution.md)
 * [Mac App Store indiening gids](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store gids](tutorial/windows-store-guide.md)
