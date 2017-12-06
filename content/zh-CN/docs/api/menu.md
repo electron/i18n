@@ -1,6 +1,6 @@
 ## Class: Menu
 
-> Create native application menus and context menus.
+> 创建原生菜单和环境菜单。
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -16,9 +16,9 @@ menu类有以下静态方法：
 
 * `menu` Menu
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+当在MacOS、Windows、Linux中使用`menu`设置程序菜单时，会设置在各个程序窗体的顶层。
 
-在windows和Linux系统中，使用null参数传递给menu将会移除菜单栏, 但在MacOS系统中则不会；
+在windows和Linux系统中，使用`null`参数将会移除菜单栏, 但在MacOS系统中则不会有任何效果；
 
 注意：这个**API**调用要在程序的`ready`事件模块之后；
 
@@ -26,7 +26,7 @@ Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` w
 
 Returns `Menu` - The application menu, if set, or `null`, if not set.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+** 注意: **返回的 ` menu ` 实例不支持动态添加或删除菜单项。 [Instance properties](#instance-properties) can still be dynamically modified.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
