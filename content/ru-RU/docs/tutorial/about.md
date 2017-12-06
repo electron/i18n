@@ -1,10 +1,10 @@
 # О Electron
 
-[Electron](https://electron.atom.io) - это библиотека с открытым исходным кодом, разработанная GitHub, для создания кросс-платформенных приложений с помощью HTML, CSS и JavaScript. Electron выполняет это путем объединения [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org) в единую среду выполнения, а приложения могут быть упакованы для Mac, Windows и Linux.
+[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron выполняет это путем объединения [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org) в единую среду выполнения, а приложения могут быть упакованы для Mac, Windows и Linux.
 
 Electron был создан в 2013 году в качестве фреймворка как платформа для [Atom](https://atom.io), GitHub's хакнул текстовый редактор будущего. Оба были открыты весной 2014 года.
 
-С тех пор он стал популярным инструментом, используемым разработчиками с открытым исходным кодом, стартапами и стабильными компаниями. [Посмотрите, кто создает на Electron](https://electron.atom.io/apps/).
+It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
 Читайте дальше, чтобы узнать больше о вкладчиках и выпусках Electron или начать работу с Electron в [Кратком начальном руководстве](quick-start.md).
 
@@ -26,31 +26,33 @@ Electron версия обычно обновляется в течение од
 
 ### Версионность
 
-Из-за жесткой зависимости от Node.js и Chromium, Electron находится в затруднительном положении версионности и [не соответствует`semver`](http://semver.org). Поэтому вы всегда должны ссылаться на конкретную версию Electron. [Подробнее о версионности Electron](https://electron.atom.io/docs/tutorial/electron-versioning/) или смотрите [текущая используемая версия](https://electron.atom.io/#electron-versions).
+As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+
+The version update process is detailed explicitly in our [Versioning Doc](versioning.md).
 
 ### LTS
 
-Долгосрочная поддержка более старых версий Electron в настоящее время не существует. Если ваша текущая версия Electron работает у вас, вы можете оставаться на ней столько, сколько захотите. Если вы хотите использовать новые функции по мере их поступления, вы должны перейти на более новую версию.
+Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
-Основные обновления появились с версией `v1.0.0`. Если вы еще не используете эту версию, вы должны  узнать больше об изменениях ` v1.0.0 ` </ 0>.</p> 
+A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
 ## Основная философия
 
-Для того, чтобы сохранить Electron маленьким (размер файла) и устойчивым (распространение зависимостей и API) проект ограничивает рамки основного проекта.
+In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
-Например, Electron использует только библиотеку рендеринга от Chromium, а не всего Chromium. Это упрощает обновление Chromium, но также означает, что некоторые функции браузера, найденные в Google Chrome, не существуют в Electron.
+For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
 
-Новые функции, добавленные в Electron, должны в первую очередь быть нативными к API. Если функция может быть собственным модулем Node.js, то она, вероятнее всего, должна присутствовать. Смотрите [Electron инструменты, созданные сообществом](https://electron.atom.io/community).
+New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
 ## История
 
-Ниже приведены вехи в истории Electron.
+Below are milestones in Electron's history.
 
-| :calendar:      | :tada:                                                                                                                   |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **Апрель 2013** | [Atom Shell стартовал](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).            |
-| **Май 2014**    | [Atom Shell открыты исходники](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                             |
-| **Апрель 2015** | [Atom Shell переименован в Electron](https://github.com/electron/electron/pull/1389).                                    |
-| **Май 2016**    | [Electron релиз `v1.0.0`](https://electron.atom.io/blog/2016/05/11/electron-1-0).                                        |
-| **Май 2016**    | [Electron приложения совместимы с Mac App Store](https://electron.atom.io/docs/tutorial/mac-app-store-submission-guide). |
-| **Август 2016** | [Windows Store поддерживает приложения Electron](https://electron.atom.io/docs/tutorial/windows-store-guide).            |
+| :calendar:      | :tada:                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Апрель 2013** | [Atom Shell стартовал](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).       |
+| **Май 2014**    | [Atom Shell открыты исходники](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                        |
+| **Апрель 2015** | [Atom Shell переименован в Electron](https://github.com/electron/electron/pull/1389).                               |
+| **Май 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
+| **Май 2016**    | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
+| **Август 2016** | [Windows Store support for Electron apps](https://electronjs.org/docs/tutorial/windows-store-guide).                |
