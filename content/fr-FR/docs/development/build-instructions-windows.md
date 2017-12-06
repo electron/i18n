@@ -5,7 +5,7 @@ Suivez les indications ci-dessous pour compiler Electron sur Windows.
 ## Prérequis
 
 * Windows 7 / Server 2008 R2 ou supérieur
-* Visual Studio 2015 mise à jour 3 - [Télécharger VS 2015 Community Edition gratuitement](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -76,7 +76,7 @@ $ npm run clean
 
 Pour nettoyer uniquement les répertoires `out` et `dist` :
 
-```bash
+```sh
 $ npm run clean-build
 ```
 
@@ -100,19 +100,20 @@ Assurez-vous d'avoir la dernière mise à jour de Visual Studio installé.
 
 Si vous compiler via Cygwin, vous pouvez voir `bootstrap.py` échouer avec l'erreur suivante :
 
-    Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-    
-    Traceback (most recent call last):
-      File "script/bootstrap.py", line 87, in <module>
-        sys.exit(main())
-      File "script/bootstrap.py", line 22, in main
-        update_node_modules('.')
-      File "script/bootstrap.py", line 56, in update_node_modules
-        execute([NPM, 'install'])
-      File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-        raise e
-    subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-    
+```sh
+Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
+
+Traceback (most recent call last):
+  File "script/bootstrap.py", line 87, in <module>
+    sys.exit(main())
+  File "script/bootstrap.py", line 22, in main
+    update_node_modules('.')
+  File "script/bootstrap.py", line 56, in update_node_modules
+    execute([NPM, 'install'])
+  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
+    raise e
+subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
+```
 
 Ceci est causé par un bug lors de l’utilisation de Cygwin Python et Node Win32 ensemble. La solution est d’utiliser Python Win32 pour exécuter le script bootstrap (en supposant que vous avez installé Python dans `C:\Python27`) :
 
