@@ -768,27 +768,27 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+取消这个 ` id ` 对应的请求。
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+如果 filePath 位于 Downloads 文件夹中，则弹出下载队列。
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-设置需要显示在 dock 上图标的标记区域中的字符串。
+设置应用在 dock 中显示的字符串。
 
 ### `app.dock.getBadge()` *macOS*
 
-返回 `String` - dock 图标上的数字或状态标记
+返回 `String` - 应用在 dock 中显示的字符串。
 
 ### `app.dock.hide()` *macOS*
 
-隐藏 dock 图标。
+隐藏 dock 中的图标。
 
 ### `app.dock.show()` *macOS*
 
@@ -796,7 +796,7 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.isVisible()` *macOS*
 
-返回 ` Boolean `-表示 dock 图标当前是否可见。需要注意的是，` app.dock.show () ` 是异步调用的，所以在调用该方法之后，立马再调用 app.dock.isVisible 的返回值可能不是 true。
+返回 ` Boolean `-表示 dock 图标当前是否可见。` app.dock.show () ` 是异步调用的，因此此方法可能无法在调用之后立即返回true.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -808,4 +808,4 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 * `image` ([NativeImage](native-image.md) | String)
 
-设置与此 dock 图标关联的 ` 图标 `。
+设置`image`作为应用在 dock 中显示的图标
