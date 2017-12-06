@@ -40,7 +40,9 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-Xem thêm: [process](#process), [renderer process](#renderer-process)
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+
+See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
@@ -52,15 +54,15 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-modules.md).
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
-## OSR
+### OSR
 
-Off-screen rendering.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### process
 
