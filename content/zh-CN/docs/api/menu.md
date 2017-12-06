@@ -6,11 +6,11 @@
 
 ### `new Menu()`
 
-Creates a new menu.
+创建新一个菜单
 
-### Static Methods
+### 静态方法
 
-The `menu` class has the following static methods:
+menu类有以下静态方法：
 
 #### `Menu.setApplicationMenu(menu)`
 
