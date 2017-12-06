@@ -11,7 +11,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Glossaire des termes](glossary.md)
 * [Plateformes supportées](tutorial/supported-platforms.md)
 * [Sécurité](tutorial/security.md)
-* [Versioning](tutorial/versioning.md)
+* [Versioning](tutorial/electron-versioning.md)
 * [Distribution de l'Application](tutorial/application-distribution.md)
 * [Guide de Soumission Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guide Windows Store](tutorial/windows-store-guide.md)
