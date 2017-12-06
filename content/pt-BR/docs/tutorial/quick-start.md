@@ -135,7 +135,7 @@ Uma vez criados seus arquivos `main.js`, `index.html` e `package.json` iniciais,
 
 Se você o instalou globalmente com o `npm`, então você vai precisar apenas executar o seguinte comando no diretório principal do seu aplicativo:
 
-```bash
+```sh
 electron .
 ```
 
@@ -143,14 +143,21 @@ Se você o instalou localmente, então execute:
 
 #### macOS / Linux
 
-```bash
+```sh
 $ ./node_modules/.bin/electron .
 ```
 
 #### Windows
 
-    $ .\node_modules\.bin\electron .
-    
+```sh
+$ .\node_modules\.bin\electron .
+```
+
+#### Node v8.2.0 and later
+
+```sh
+$ npx electron .
+```
 
 ### Binário do Electron Baixado Manualmente
 
@@ -158,20 +165,21 @@ Se você efetuou o download manual do Electron, você também pode utilizar o bi
 
 #### macOS
 
-```bash
-$ ./Electron.app/Contents/MacOS/Electron seu-app/
+```sh
+$ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 #### Linux
 
-```bash
-$ ./electron/electron seu-app/
+```sh
+$ ./electron/electron your-app/
 ```
 
 #### Windows
 
-    $ .\electron\electron.exe seu-app\
-    
+```sh
+$ .\electron\electron.exe your-app\
+```
 
 O `Electron.app` aqui é parte do pacote de liberação do Electron, você pode baixá-lo [aqui](https://github.com/electron/electron/releases).
 
@@ -185,15 +193,15 @@ Clone e execute o código nesse tutorial utilizando o repositório [`electron/el
 
 **Nota**: Para executar esse aplicativo, é necessário possuir o [Git](https://git-scm.com) e o [Node.js](https://nodejs.org/en/download/) (que também inclui o [npm](https://npmjs.org)) instalados no seu sistema.
 
-```bash
-# Clone o repositório
+```sh
+# Clone the repository
 $ git clone https://github.com/electron/electron-quick-start
-# Vá para o repositório
+# Go into the repository
 $ cd electron-quick-start
-# Instale as dependências
+# Install dependencies
 $ npm install
-# Execute o aplicativo
+# Run the app
 $ npm start
 ```
 
-Para mais aplicativos de exemplo, veja a [lista de boilerplates](https://electron.atom.io/community/#boilerplates) criada pela fantástica comunicade do Electron.
+For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
