@@ -11,7 +11,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Glossar](glossary.md)
 * [Unterstützte Plattformen](tutorial/supported-platforms.md)
 * [Sicherheit](tutorial/security.md)
-* [Versionierung](tutorial/versioning.md)
+* [Versionierung](tutorial/electron-versioning.md)
 * [Veröffentlichung der Anwendung](tutorial/application-distribution.md)
 * [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md)
 * [Anleitung: Windows Store](tutorial/windows-store-guide.md)
