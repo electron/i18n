@@ -42,7 +42,7 @@ Pour les références de l'API, ce sont des exceptions à cette règle.
 
 ## Règles pour le markdown
 
-* Utilisez `bash` au lieu de `cmd` dans les blocs de code (en raison du surligneur de syntaxe).
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * La longueur des lignes ne devrait pas dépasser 80 caractères.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@ Les règles suivantes s'appliquent uniquement à la documentation des APIs.
 
 Chaque page doivent utiliser le nom de l'objet retourné par `require('electron')` comme titre, par exemple `BrowserWindow`, `autoUpdater` et `session`.
 
-Il doit y avoir une ligne de description commençant par `>` en dessous du titre de la page.
+Under the page title must be a one-line description starting with `>`.
 
 Si l'on utilise `session` par exemple, cela donne :
 
@@ -156,8 +156,9 @@ Par exemple, les méthodes de la classe `Session` sous le module `session` doive
 
 Les arguments optionnels sont notées par les crochets `[]` entourant l'argument facultatif ainsi que la virgule nécessaire si cet argument facultatif suit un autre argument :
 
-    required[, optional]
-    
+```sh
+required[, optional]
+```
 
 En-dessous de la méthode, chaque argument est détaillé avec son type. Celui-ci peut être un type générique :
 
@@ -210,13 +211,4 @@ Ce titre peut être au niveau `###` ou `####` si c'est une propriété d'une cla
 
 ## Traductions de la documentation
 
-Les traductions de la documentation d'Electron se situent dans le répertoire `docs-translations`.
-
-Pour ajouter une autre langue (ou partiellement) :
-
-* Créez un sous-répertoire nommé par l'abréviation de la langue.
-* Traduisez les fichiers.
-* Mettez à jour le `README.md` avec votre langue pour ajouter un lien redirigeant vers le répertoire contenant les traductions.
-* Ajouter un lien vers votre répertoire de traduction sur le [README](https://github.com/electron/electron#documentation-translations) principal d'Electron.
-
-Notez que les fichiers dans le répertoire `docs-translations` doivent inclure uniquement les fichiers traduits, les fichiers d'origine ne doivent pas être copiées là.
+See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
