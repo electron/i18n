@@ -20,11 +20,17 @@ const categoryNames = {
 }
 
 async function parseDocs () {
+  const IGNORE_PATTERN = '<!-- i18n-ignore -->'
+
   console.time('parsed docs in')
   const markdownFiles = walk.entries(contentDir)
     .filter(file => file.relativePath.endsWith('.md'))
   console.log(`processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`)
-  const docs = await Promise.all(markdownFiles.map(parseFile))
+  let docs = await Promise.all(markdownFiles.map(parseFile))
+
+  // ignore some docs
+  docs = docs.filter(doc => !doc.markdown.includes(IGNORE_PATTERN))
+
   console.timeEnd('parsed docs in')
   return docs
 }

@@ -4,6 +4,8 @@ chai.use(require('chai-date-string'))
 const {describe, it} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
+const fs = require('fs')
+const path = require('path')
 
 describe('i18n.docs', () => {
   it('is an object with locales as keys', () => {
@@ -24,6 +26,14 @@ describe('i18n.docs', () => {
     const docs = i18n.docs['en-US']
     docs['/docs/api/accelerator'].githubUrl.should.equal(`${base}/docs/api/accelerator.md`)
     docs['/docs/tutorial/electron-versioning'].githubUrl.should.equal(`${base}/docs/tutorial/electron-versioning.md`)
+  })
+
+  it('ignores files that have a special <!-- i18n-ignore --> HTML comment', () => {
+    fs.existsSync(path.join(__dirname, '../content/en-US/docs/tutorial/electron-versioning.md')).should.eq(true)
+
+    const filenames = Object.keys(i18n.docs['en-US'])
+    filenames.should.include('/docs/tutorial/versioning')
+    filenames.should.not.include('/docs/tutorial/electron-versioning')
   })
 })
 
