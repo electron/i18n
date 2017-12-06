@@ -2,7 +2,7 @@
 
 > 定义键盘快捷键。
 
-Accelerator 由字符串组成，可以包含多个修饰符和键码，由+字符组合，用于在整个应用程序中定义键盘快捷键。
+Accelerator 由字符串组成，可以包含多个修饰符和键码，由 `+` 字符组合，用于在整个应用程序中定义键盘快捷键。
 
 示例
 
@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 在 Linux 和 Windows 上, ` Command ` 键没有任何效果, 所以使用 ` CommandOrControl `表述, macOS 是 ` Command ` ，在 Linux 和 Windows 上是` Control `。
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+使用 `Alt` 代替`Option`. `Option` 键只在 macOS 系统上存在, 而 `Alt` 键在任何系统上都有效.
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
