@@ -11,7 +11,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Glossary of Terms](glossary.md)
 * [Supported Platforms](tutorial/supported-platforms.md)
 * [Security](tutorial/security.md)
-* [Electron Versioning](tutorial/electron-versioning.md)
+* [Versioning](tutorial/versioning.md)
 * [Application Distribution](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store Guide](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Tutorials
 
