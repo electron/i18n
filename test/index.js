@@ -1,4 +1,6 @@
-require('chai').should()
+const chai = require('chai')
+chai.should()
+chai.use(require('chai-date-string'))
 const {describe, it} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
@@ -201,6 +203,16 @@ describe('i18n.locales', () => {
   })
 })
 
+describe('i18n.electronMasterBranchCommit', () => {
+  it('exists', () => {
+    i18n.electronMasterBranchCommit.should.be.a('string')
+  })
+
+  it('is a SHA', () => {
+    i18n.electronMasterBranchCommit.length.should.eq(40)
+  })
+})
+
 describe('i18n.electronLatestStableVersion', () => {
   it('exists', () => {
     i18n.electronLatestStableVersion.should.be.a('string')
@@ -219,5 +231,15 @@ describe('i18n.electronLatestStableTag', () => {
   it('is a tag name', () => {
     i18n.electronLatestStableTag.should.match(/^v\d+\.\d+\.\d+$/)
     i18n.electronLatestStableTag.should.eq('v' + i18n.electronLatestStableVersion)
+  })
+})
+
+describe('i18n.date', () => {
+  it('exists', () => {
+    i18n.date.should.be.a('string')
+  })
+
+  it('is a date', () => {
+    i18n.date.should.be.a.dateString()
   })
 })

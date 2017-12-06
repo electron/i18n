@@ -66,9 +66,11 @@ const i18n = require('electron-i18n')
 
 - `electronLatestStableVersion` is a string like `1.7.8`
 - `electronLatestStableTag` is a string like `v1.7.8`
+- `electronMasterBranchCommit` is a git commit SHA string.
 - `docs` - see [#docs](#docs)
 - `locales` - see [#locales](#locales)
 - `website` - see [#website](#website)
+- `date` is a timestamp
 
 ### Docs
 

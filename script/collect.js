@@ -22,12 +22,14 @@ let release
 
 del(englishBasepath)
   .then(fetchRelease)
-  .then(fetchDocs)
+  .then(fetchAPIDocsFromLatestStableRelease)
   .then(fetchApiData)
+  .then(getMasterBranchCommit)
+  .then(fetchTutorialsFromMasterBranch)
   .then(fetchWebsiteContent)
 
 async function fetchRelease () {
-  console.log(`Fetching 'latest' version string from npm`)
+  console.log(`Determining 'latest' version dist-tag on npm`)
   const version = execSync('npm show electron version').toString().trim()
 
   console.log(`Fetching release data from GitHub`)
@@ -42,24 +44,21 @@ async function fetchRelease () {
   release = res.data
 }
 
-async function fetchDocs () {
-  console.log(`Fetching ${release.tag_name} docs from electron/electron repo`)
+async function fetchAPIDocsFromLatestStableRelease () {
+  console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
+  writeToPackageJSON('electronLatestStableTag', release.tag_name)
   const docs = await electronDocs(release.tag_name)
-  console.log(`Writing ${docs.length} markdown docs`)
 
-  docs.forEach(doc => {
-    const filename = path.join(englishBasepath, 'docs', doc.filename)
-    mkdir(path.dirname(filename))
-    fs.writeFileSync(filename, doc.markdown_content)
-    console.log('   ' + path.relative(englishBasepath, filename))
-  })
+  docs
+    .filter(doc => doc.filename.startsWith('api/'))
+    .forEach(writeDoc)
 
   return Promise.resolve()
 }
 
 async function fetchApiData () {
-  console.log(`Fetching API definitions`)
+  console.log(`Fetching API definitions from electron/electron#${release.tag_name}`)
 
   const asset = release.assets.find(asset => asset.name === 'electron-api.json')
 
@@ -76,6 +75,30 @@ async function fetchApiData () {
   return Promise.resolve(apis)
 }
 
+async function getMasterBranchCommit () {
+  console.log(`Fetching Electron master branch commit SHA`)
+  const master = await github.repos.getBranch({
+    owner: 'electron',
+    repo: 'electron',
+    branch: 'master'
+  })
+
+  writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
+}
+
+async function fetchTutorialsFromMasterBranch () {
+  console.log(`Fetching tutorial docs from electron/electron#master`)
+
+  const docs = await electronDocs('master')
+
+  docs
+    .filter(doc => !doc.filename.startsWith('api/'))
+    .filter(doc => !doc.filename.includes('images/'))
+    .forEach(writeDoc)
+
+  return Promise.resolve()
+}
+
 async function fetchWebsiteContent () {
   console.log(`Fetching locale.yml from electron/electronjs.org#master`)
 
@@ -87,4 +110,22 @@ async function fetchWebsiteContent () {
   console.log(`Writing ${path.relative(englishBasepath, websiteFile)}`)
   fs.writeFileSync(websiteFile, content)
   return Promise.resolve()
+}
+
+// Utility functions
+
+function writeDoc (doc) {
+  const filename = path.join(englishBasepath, 'docs', doc.filename)
+  mkdir(path.dirname(filename))
+  fs.writeFileSync(filename, doc.markdown_content)
+  // console.log('   ' + path.relative(englishBasepath, filename))
+}
+
+function writeToPackageJSON (key, value) {
+  const pkg = require('../package.json')
+  pkg[key] = value
+  fs.writeFileSync(
+    require.resolve('../package.json'),
+    JSON.stringify(pkg, null, 2)
+  )
 }
