@@ -11,7 +11,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Glosario de términos](glossary.md)
 * [Plataformas soportadas](tutorial/supported-platforms.md)
 * [Seguridad](tutorial/security.md)
-* [Versioning](tutorial/versioning.md)
+* [Versioning](tutorial/electron-versioning.md)
 * [Distribución de la aplicación](tutorial/application-distribution.md)
 * [Guía de publicación en la Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guía de Windows Store](tutorial/windows-store-guide.md)
