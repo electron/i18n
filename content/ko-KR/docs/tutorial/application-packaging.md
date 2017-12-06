@@ -10,13 +10,13 @@ Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.c
 
 ### 1. asar 유틸리티 설치
 
-```bash
+```sh
 $ npm install -g asar
 ```
 
 ### 2. `asar pack` 커맨드로 앱 패키징
 
-```bash
+```sh
 $ asar pack your-app app.asar
 ```
 
@@ -30,7 +30,7 @@ Electron에선 `fs.readFile`과 `require` 같은 Node API들을 지원하기 위
 
 예를 들어 `/path/to`라는 경로에 `example.asar`라는 아카이브가 있다고 가정하면:
 
-```bash
+```sh
 $ asar list /path/to/example.asar
 /app.js
 /file.txt
@@ -141,7 +141,7 @@ Node API에는 `child_process.exec`, `child_process.spawn` 그리고 `child_proc
 
 이 문제를 해결하려면 `--unpack` 옵션을 통해 파일을 압축이 풀려진 상태로 유지해야 합니다. 다음의 예시는 node 네이티브 모듈의 공유 라이브러리를 압축이 풀려진 상태로 유지합니다:
 
-```bash
+```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
