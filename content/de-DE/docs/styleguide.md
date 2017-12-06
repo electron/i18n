@@ -42,7 +42,7 @@ For API references, there are exceptions to this rule.
 
 ## Regeln für Markdown
 
-* Use `bash` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Under the page title must be a one-line description starting with `>`.
 
 Using `session` as example:
 
@@ -156,8 +156,9 @@ For example, the methods of the `Session` class under the `session` module must 
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-    required[, optional]
-    
+```sh
+required[, optional]
+```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
@@ -210,13 +211,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## Übersetzungen der Dokumentationen
 
-Übersetzungen der Electron-Docs befinden sich in dem Verzeichnis `Docs-Übersetzungen`.
-
-To add another set (or partial set):
-
-* Create a subdirectory named by language abbreviation.
-* Translate the files.
-* Update the `README.md` within your language directory to link to the files you have translated.
-* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
-
-Note that the files under `docs-translations` must only include the translated ones, the original English files should not be copied there.
+See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
