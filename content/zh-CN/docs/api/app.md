@@ -671,14 +671,14 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (可选) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  * ` path `String (可选) * Windows *-要比较的可执行文件路径。默认为 ` process. execPath `。
+  * ` 参数 `String [] (可选) * Windows *-要比较的命令行参数。默认为空数组。
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置正确的参数。
 
 返回 `Object`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
+* `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
 * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
