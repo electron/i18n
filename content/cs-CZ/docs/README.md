@@ -11,7 +11,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Slovníček pojmů](glossary.md)
 * [Podporované platformy](tutorial/supported-platforms.md)
 * [Bezpečnost](tutorial/security.md)
-* [Verzování elektronu](tutorial/electron-versioning.md)
+* [Versioning](tutorial/versioning.md)
 * [Distribuce aplikací](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Aplikace Windows Obchodu](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
 * [Klávesové zkratky](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Návody
 
