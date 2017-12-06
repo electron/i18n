@@ -11,7 +11,7 @@
 * [詞彙表](glossary.md)
 * [支援平臺](tutorial/supported-platforms.md)
 * [安全性](tutorial/security.md)
-* [Electron 版號規則](tutorial/electron-versioning.md)
+* [版號規則](tutorial/versioning.md)
 * [應用程式發佈](tutorial/application-distribution.md)
 * [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store 上架導引](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
 * [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## 教學
 
