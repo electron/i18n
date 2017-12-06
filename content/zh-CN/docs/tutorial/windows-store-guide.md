@@ -18,8 +18,9 @@ Windows 10 的 "周年更新" 能够运行 win32 `.exe` 程序并且它们的虚
 
 然后, 安装 `electron-windows-store` CLI:
 
-    npm install -g electron-windows-store
-    
+```sh
+npm install -g electron-windows-store
+```
 
 ## 步骤 1: 打包你的 Electron 应用程序
 
@@ -27,40 +28,42 @@ Windows 10 的 "周年更新" 能够运行 win32 `.exe` 程序并且它们的虚
 
 结构输出应该看起来大致像这样:
 
-    ├── Ghost.exe
-    ├── LICENSE
-    ├── content_resources_200_percent.pak
-    ├── content_shell.pak
-    ├── d3dcompiler_47.dll
-    ├── ffmpeg.dll
-    ├── icudtl.dat
-    ├── libEGL.dll
-    ├── libGLESv2.dll
-    ├── locales
-    │   ├── am.pak
-    │   ├── ar.pak
-    │   ├── [...]
-    ├── natives_blob.bin
-    ├── node.dll
-    ├── resources
-    │   ├── app
-    │   └── atom.asar
-    ├── snapshot_blob.bin
-    ├── squirrel.exe
-    └── ui_resources_200_percent.pak
-    
+```text
+├── Ghost.exe
+├── LICENSE
+├── content_resources_200_percent.pak
+├── content_shell.pak
+├── d3dcompiler_47.dll
+├── ffmpeg.dll
+├── icudtl.dat
+├── libEGL.dll
+├── libGLESv2.dll
+├── locales
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
+├── natives_blob.bin
+├── node.dll
+├── resources
+│   ├── app
+│   └── atom.asar
+├── snapshot_blob.bin
+├── squirrel.exe
+└── ui_resources_200_percent.pak
+```
 
 ## 步骤 2: 运行 electron-windows-store
 
 从提权的 PowerShell(用管理员身份运行它) 中, 以所需的参数运行 `electron-windows-store`，传递输入和输出目录，应用程序的名称和版本，以及确认 `node_modules` 应该是扁平的。
 
-    electron-windows-store `
-        --input-directory C:\myelectronapp `
-        --output-directory C:\output\myelectronapp `
-        --flatten true `
-        --package-version 1.0.0.0 `
-        --package-name myelectronapp
-    
+```powershell
+electron-windows-store `
+    --input-directory C:\myelectronapp `
+    --output-directory C:\output\myelectronapp `
+    --flatten true `
+    --package-version 1.0.0.0 `
+    --package-name myelectronapp
+```
 
 一旦执行，工具就开始工作：它接受您的 Electron 应用程序作为输入，展平 `node_modules`。 然后，它将应用程序归档为 `app.zip`。 使用安装程序和 Windows 容器，该工具创建一个“扩展的” AppX 包 - 包括 Windows 应用程序清单 (`AppXManifest.xml`)以及虚拟文件系统和输出文件夹中的虚拟注册表。
 
