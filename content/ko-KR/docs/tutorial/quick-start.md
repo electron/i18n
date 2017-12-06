@@ -133,13 +133,13 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 [`electron`](https://github.com/electron-userland/electron-prebuilt)은 Electron의 미리 컴파일된 버전을 포함하는 `npm` 모듈입니다.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+`npm`을 통해 전역으로 일렉트론을 설치했다면, 앱의 소스가 있는 디렉토리에서 다음 명령을 실행하기만 하면 됩니다.
 
 ```bash
 electron .
 ```
 
-If you've installed it locally, then run:
+만약 일렉트론을 로컬하게 설치했다면, 다음을 실행하세요.
 
 #### macOS / Linux
 
@@ -149,7 +149,7 @@ $ ./node_modules/.bin/electron .
 
 #### Windows
 
-    $ .\node_modules\.bin\electron .
+    .\node_modules\.bin\electron .
     
 
 ### Manually Downloaded Electron Binary
