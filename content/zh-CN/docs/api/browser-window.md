@@ -23,9 +23,9 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## 無邊框視窗
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+若你想要創建一個 無邊框或是任意型狀的視窗 可以使用 [Frameless Window](frameless-window.md) API
 
 ## Showing window gracefully
 
