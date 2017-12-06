@@ -9,7 +9,7 @@ Ce document décrit le processus pour créer une nouvelle version d’Electron.
 
 ## Find out what version change is needed
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/versioning.md#semver) for more information.
+Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
 ## Run the prepare-release script
 
