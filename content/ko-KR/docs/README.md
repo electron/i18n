@@ -11,7 +11,7 @@
 * [용어집](glossary.md)
 * [지원되는 플랫폼](tutorial/supported-platforms.md)
 * [보안](tutorial/security.md)
-* [버전 관리](tutorial/versioning.md)
+* [버전 관리](tutorial/electron-versioning.md)
 * [응용 프로그램 배포](tutorial/application-distribution.md)
 * [맥 앱스토어 제출 안내서](tutorial/mac-app-store-submission-guide.md)
 * [윈도우 스토어 안내서](tutorial/windows-store-guide.md)
