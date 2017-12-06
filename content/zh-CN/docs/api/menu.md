@@ -6,7 +6,7 @@
 
 ### `new Menu()`
 
-创建新一个菜单
+创建新菜单。
 
 ### 静态方法
 
@@ -216,7 +216,7 @@ window.addEventListener('contextmenu', (e) => {
 
 MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式。这里有一些说明，可以让你的程序菜单看起来更贴合原生系统。
 
-### Standard Menus
+### 标准菜单
 
 在MacOS有一些系统自定的标准菜单，像`Services`和`Windows`。 让你的菜单更像MacOS标准菜单，只需设置菜单`role`为如下示之一，Electron便会自动认出并设置成标准菜单，：
 
@@ -224,21 +224,21 @@ MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式
 * `help`
 * `services`
 
-### Standard Menu Item Actions
+### 标准菜单项操作
 
 macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide xxx ` 和 ` Hide Others `。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 `  role` 属性。
 
-### Main Menu's Name
+### 主菜单的名称
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 ` Info. plist ` 文件。 有关详细信息, 请参阅 [ About Information Property List Files ](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)。
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## 设置特定浏览器窗口的菜单 (* Linux * * Windows *)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+浏览器窗口的 [ ` setMenu ` 方法 ](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) 可以设置特定浏览器窗口的菜单。
 
-## Menu Item Position
+## 菜单项位置
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+您在使用`Menu.buildFromTemplate  `生成菜单时，可以用` position ` 和 ` id ` 来控制定位菜单项的位置。
 
 The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 
