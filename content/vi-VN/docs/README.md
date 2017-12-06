@@ -11,7 +11,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Từ điển thuật ngữ](glossary.md)
 * [Nền tảng hỗ trợ](tutorial/supported-platforms.md)
 * [Bảo mật](tutorial/security.md)
-* [Phiên bản Electron](tutorial/electron-versioning.md)
+* [Phiên bản](tutorial/versioning.md)
 * [Phân phối ứng dụng](tutorial/application-distribution.md)
 * [Bộ hướng dẫn cho Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Bộ hướng dẫn cho Windows Store](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Các phím tắt](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Các Tut
 
