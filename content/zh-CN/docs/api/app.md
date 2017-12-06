@@ -679,12 +679,12 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 返回 `Object`:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* ` openAsHidden ` Boolean - 如果应用程序在登录时设置为隐藏, 则为 ` true `。此设置仅在 macOS 上支持。
+* ` wasOpenedAtLogin `Boolean -如果应用程序在登录时自动打开, 则该值为 ` true `。此设置仅在 macOS 上支持。
+* ` wasOpenedAsHidden `Boolean -如果该程序在登录时已经隐藏启动, 则为 ` true `。 这表示应用程序在启动时不应打开任何窗口。 此设置仅在 macOS 上支持。
+* `restoreState` Boolean - 如果该程序作为登录启动项并且需要回复之前的会话状态，则为 `true`。 这表示程序应该还原上次关闭时打开的窗口。 此设置仅在 macOS 上支持。
 
-** 注意: **这个 API 不会对 [ MAS 打包的程序 ](../tutorial/mac-app-store-submission-guide.md) 产生效果
+** 注意: **该 API 不影响 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -713,7 +713,7 @@ app.setLoginItemSettings({
 })
 ```
 
-** 注意: **这个 API 不会对 [ MAS 打包的程序 ](../tutorial/mac-app-store-submission-guide.md) 产生效果
+** 注意: **该 API 不影响 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
