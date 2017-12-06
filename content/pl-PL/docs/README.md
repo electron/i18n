@@ -11,7 +11,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Słownik Terminów](glossary.md)
 * [Wspierane Platformy](tutorial/supported-platforms.md)
 * [Bezpieczeństwo](tutorial/security.md)
-* [Wersjonowanie Electrona](tutorial/electron-versioning.md)
+* [Versioning](tutorial/versioning.md)
 * [Dystrybuowanie Aplikacji](tutorial/application-distribution.md)
 * [Dodawanie aplikacji do Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Dodawanie aplikacji do Windows Store](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
 * [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Poradniki
 
