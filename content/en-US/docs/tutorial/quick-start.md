@@ -169,7 +169,7 @@ an `npm` module that contains pre-compiled versions of Electron.
 If you've installed it globally with `npm`, then you will only need to run the
 following in your app's source directory:
 
-```bash
+```sh
 electron .
 ```
 
@@ -177,14 +177,20 @@ If you've installed it locally, then run:
 
 #### macOS / Linux
 
-```bash
+```sh
 $ ./node_modules/.bin/electron .
 ```
 
 #### Windows
 
-```
+```sh
 $ .\node_modules\.bin\electron .
+```
+
+#### Node v8.2.0 and later
+
+```sh
+$ npx electron .
 ```
 
 ### Manually Downloaded Electron Binary
@@ -194,19 +200,19 @@ binary to execute your app directly.
 
 #### macOS
 
-```bash
+```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 #### Linux
 
-```bash
+```sh
 $ ./electron/electron your-app/
 ```
 
 #### Windows
 
-```
+```sh
 $ .\electron\electron.exe your-app\
 ```
 
@@ -226,7 +232,7 @@ repository.
 
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
-```bash
+```sh
 # Clone the repository
 $ git clone https://github.com/electron/electron-quick-start
 # Go into the repository
@@ -238,7 +244,7 @@ $ npm start
 ```
 
 For more example apps, see the
-[list of boilerplates](https://electron.atom.io/community/#boilerplates)
+[list of boilerplates](https://electronjs.org/community#boilerplates)
 created by the awesome electron community.
 
 [share-data]: ../faq.md#how-to-share-data-between-web-pages
