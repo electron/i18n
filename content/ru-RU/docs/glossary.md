@@ -10,11 +10,11 @@ ASAR был создан для повышения производительн�
 
 ### Brightray
 
-Brightray [была](https://github.com/electron-archive/brightray) статическая библиотека, которая сделала [libchromiumcontent](#libchromiumcontent) облегчив использование в приложениях. Она является теперь устаревшей и была объединена с Electron кодовой базой.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
 
 ### CRT
 
-Библиотека C времени выполнения (CRT) является частью стандартной библиотеки C ++, которая включает стандартную библиотеку ISO C99. Библиотеки Visual C ++, которые реализуют CRT- поддержку разработки собственного кода, и смешанный собственный и управляемый код, и чистый управляемый код для разработки .NET.
+The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -22,7 +22,7 @@ Apple Disk Image (DMG) это пакетный формат, который ис
 
 ### IME
 
-Input Method Editor. Это программа, которая позволяет пользователям вводить символы, которые отсутствуют на клавиатуре. Например, пользователи с Латинской клавиатурой могут вводить Китайские, Японские, Корейские и Индийские символы.
+Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IPC
 
@@ -40,15 +40,17 @@ IPC стенды для взаимодействия между процесса
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+
 See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Акроним к Apple's Mac App Store. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### собственные модули
 
-Собственные модули (также называемые [addons](https://nodejs.org/api/addons.html) в Node.js) являются модули, написанные на C или C++, которые могут быть загружены в Node.js или Electron с помощью функции require() и используется, как обычные модули Node.js. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
@@ -58,9 +60,9 @@ See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
-## OSR
+### OSR
 
-Фоновый рендеринг.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### process
 
