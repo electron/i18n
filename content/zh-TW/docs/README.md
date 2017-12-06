@@ -11,7 +11,7 @@
 * [詞彙表](glossary.md)
 * [支援平臺](tutorial/supported-platforms.md)
 * [安全性](tutorial/security.md)
-* [版號規則](tutorial/versioning.md)
+* [版號規則](tutorial/electron-versioning.md)
 * [應用程式發佈](tutorial/application-distribution.md)
 * [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store 上架導引](tutorial/windows-store-guide.md)
