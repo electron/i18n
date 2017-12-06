@@ -28,7 +28,7 @@ Electron 中的 Node.js 跟 Chromium 共用同一份 V8，通常是 Chromium 用
 
 As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
-The version update process is detailed explicitly in our [Versioning Doc](versioning.md).
+The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
 ### 長期支援
 
