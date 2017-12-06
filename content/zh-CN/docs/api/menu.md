@@ -24,17 +24,17 @@ menu类有以下静态方法：
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+如果有设置, 则返回 ` Menu `-设置的应用程序菜单， 反之，则返回 ` null `。
 
-** 注意: **返回的 ` menu ` 实例不支持动态添加或删除菜单项。 [Instance properties](#instance-properties) can still be dynamically modified.
+** 注意: **返回的 ` menu ` 实例不支持动态添加或删除菜单项。 但仍然可以动态修改 [ 实例属性 ](#instance-properties)。
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+将 ` action ` 发送到应用程序的第一个响应方。 这用于模拟默认的 macOS 菜单行为。 通常, 您只用到 [` MenuItem `](menu-item.md) 的 [` role `](menu-item.md#roles) 属性。
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+有关 macOS 的本地操作的详细信息, 请参阅 [ macOS Cocoa Event Handling Guide ](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)。
 
 #### `Menu.buildFromTemplate(template)`
 
@@ -42,13 +42,13 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 Returns `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+通常, ` template ` 只是 ` option ` 的一选项, 用于构造 [ MenuItem ](menu-item.md)。可以在上面引用该用法。
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+还可以将其他字段附加到 ` template ` 的元素中, 它们将成为构造的菜单项的属性。
 
-### Instance Methods
+### 实例方法
 
-The `menu` object has the following instance methods:
+` menu ` 对象具有以下实例方法:
 
 #### `menu.popup([browserWindow, options])`
 
