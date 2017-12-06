@@ -65,32 +65,32 @@ Returns `Menu`
 
 * ` browserWindow `BrowserWindow (可选)-默认为焦点窗口。
 
-Closes the context menu in the `browserWindow`.
+关闭 ` browserWindow ` 中的上下文菜单。
 
 #### `menu.append(menuItem)`
 
 * `menuItem` MenuItem
 
-Appends the `menuItem` to the menu.
+将 ` menuItem ` 追加到菜单。
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` MenuItem
 
-Inserts the `menuItem` to the `pos` position of the menu.
+将 ` menuItem ` 插入菜单的 ` pos ` 位置。
 
-### Instance Properties
+### 实例属性
 
-`menu` objects also have the following properties:
+` menu ` 对象还具有以下属性:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+包含菜单项的 ` MenuItem [] ` 数组。
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+每个 ` 菜单 ` 由多个 [` MenuItem `](menu-item.md) 组成, 每个 ` MenuItem `可以有子菜单。
 
-## Examples
+## 实例
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
@@ -248,7 +248,7 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
-### Examples
+### 实例
 
 Template:
 
