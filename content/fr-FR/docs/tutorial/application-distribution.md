@@ -63,26 +63,27 @@ Vous pouvez aussi renommer l'application d'aide pour éviter d'afficher `Electro
 
 La structure d'une application renommée serait comme :
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
-     
-    Context | Request Context
-    
+```text
+MyApp.app/Contents
+├── Info.plist
+├── MacOS/
+│   └── MyApp
+└── Frameworks/
+    ├── MyApp Helper EH.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper EH
+    ├── MyApp Helper NP.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper NP
+    └── MyApp Helper.app
+        ├── Info.plist
+        └── MacOS/
+            └── MyApp Helper
+ 
+Context | Request Context
+```
 
 ### Linux
 
@@ -112,10 +113,11 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
 
 2. Créez un nouveau bucket S3 et créez la structure de répertoire vide suivante :
     
-        - atom-shell/
-          - symbols/
-          - dist/
-        
+    ```sh
+- atom-shell/
+  - symbols/
+  - dist/
+```
 
 3. Définir les Variables d’environnement suivantes :
 
@@ -125,7 +127,7 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
 * `CI` - définir à `true` sinon il ne fonctionnera pas
 * `GITHUB_TOKEN` - mettre la même chose que `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - définir `C:\Temp` sur Windows pour empêcher les problèmes de chemin d’accès trop long
-* `TARGET_ARCH` - définir en `ia32` ou `x64` 
+* `TARGET_ARCH` - définir en `ia32` ou `x64`
 
 1. Dans `script/upload.py`, vous *devez* définir `ELECTRON_REPO` à votre fork (`MYORG/electron`), surtout si vous êtes un contributeur d'Electron approprié.
 
