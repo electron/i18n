@@ -8,7 +8,7 @@
 
 [Spectron](https://electron.atom.io/spectron) 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](http://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
 
-```bash
+```sh
 $ npm install --save-dev spectron
 ```
 
@@ -50,7 +50,7 @@ app.start().then(function () {
 
 首先，你要下载 `chromedriver`，然后运行以下命令：
 
-```bash
+```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
 Starting ChromeDriver (v2.10.291558) on port 9515
@@ -61,7 +61,7 @@ Only local connections are allowed.
 
 ### 2. 安装 WebDriverJS
 
-```bash
+```sh
 $ npm install selenium-webdriver
 ```
 
@@ -104,7 +104,7 @@ driver.quit()
 
 首先，你要下载 `chromedriver`，然后运行以下命令：
 
-```bash
+```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
 Starting ChromeDriver (v2.10.291558) on port 9515
@@ -115,7 +115,7 @@ Only local connections are allowed.
 
 ### 2. 安装 WebdriverIO
 
-```bash
+```sh
 $ npm install webdriverio
 ```
 
