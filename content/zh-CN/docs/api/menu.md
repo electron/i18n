@@ -52,10 +52,10 @@ Returns `Menu`
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* ` browserWindow `BrowserWindow (可选)-默认为焦点窗口。
 * `options` Object (可选) 
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * ` x ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` y `, 则必须声明。
+  * ` y ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` x `, 则必须声明。
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 
@@ -63,7 +63,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* ` browserWindow `BrowserWindow (可选)-默认为焦点窗口。
 
 Closes the context menu in the `browserWindow`.
 
