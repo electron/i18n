@@ -8,7 +8,7 @@ W celu zainstalowania prekompilowanych plików Electrona, użyj [`npm`](https://
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](versioning.md) for info on how to manage Electron versions in your apps.
+See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Instalacja globalna
 
