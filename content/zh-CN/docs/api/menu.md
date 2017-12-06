@@ -240,7 +240,7 @@ macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide 
 
 您在使用`Menu.buildFromTemplate  `生成菜单时，可以用` position ` 和 ` id ` 来控制定位菜单项的位置。
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+`MenuItem`中的`[placement]=[id]`属性，其中` placement`值可以是` before`、`after`、和 `endof`之一，`id`值则是现有菜单项的唯一ID
 
 * `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
 * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
