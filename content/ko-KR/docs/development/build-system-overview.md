@@ -25,7 +25,7 @@ Prebuilt된 모든 Chromium 바이너리(`libchromiumcontent`) 들은 부트스�
 
 만약 빠르게 Electron의 개발 또는 테스트만 하고 싶다면 `--dev` 플래그를 추가하여 공유 라이브러리만 다운로드할 수 있습니다:
 
-```bash
+```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
@@ -46,19 +46,19 @@ Electron은 `Release`와 `Debug` 빌드가 서로 다른 라이브러리 링크 
 
 변경사항이 프로젝트 코딩 스타일을 준수하는지 테스트하려면 다음 명령을 사용하세요:
 
-```bash
+```sh
 $ npm run lint
 ```
 
 기능을 테스트하려면 다음 명령을 사용하세요:
 
-```bash
+```sh
 $ npm test
 ```
 
 Electron 소스 코드를 변경할 때 마다, 테스트 전에 빌드를 다시 실행해야 합니다:
 
-```bash
+```sh
 $ npm run build && npm test
 ```
 
@@ -80,5 +80,5 @@ $ npm test -- --grep child_process
 
 <p>릴리즈 빌드로 테스트를 실행하려면 다음 명령을 사용하세요:</p>
 
-<pre><code class="bash">$ npm test -- -R
+<pre><code class="sh">$ npm test -- -R
 `</pre>
