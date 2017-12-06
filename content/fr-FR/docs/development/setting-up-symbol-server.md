@@ -10,13 +10,15 @@ L’URL du serveur symbole officiel pour Electron est https://electron-symbols.g
 
 Le chemin de symbole Windbg est configuré avec un string délimité par des : *. Pour utiliser uniquement le serveur de symboles d’Electron, ajoutez l’entrée suivante à votre chemin de symbole (**Remarque :** vous pouvez remplacer `c:\code\symbols` par n’importe quel répertoire accessible en écriture sur votre ordinateur, si vous préférez un emplacement différent pour les symboles téléchargés) :
 
-    SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-    
+```powershell
+SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+```
 
 Définissez le string à `_NT_SYMBOL_PATH` dans l’environnement, en utilisant les menus de Windbg, ou en tapant la commande `.sympath`. Si vous souhaitez obtenir les symboles du serveur de symboles Microsoft, vous devez indiquer cela :
 
-    SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-    
+```powershell
+SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+```
 
 ## À l’aide du serveur de symboles dans Visual Studio
 
@@ -26,5 +28,7 @@ Définissez le string à `_NT_SYMBOL_PATH` dans l’environnement, en utilisant 
 
 Tapez les commandes suivantes dans Windbg pour savoir pourquoi les symboles ne se chargent pas:
 
-    > !sym noisy
-    > .reload /f electron.exe
+```powershell
+> !sym noisy
+> .reload /f electron.exe
+```
