@@ -10,11 +10,11 @@ ASAR був створений для збільшення продуктивн�
 
 ### Brightray
 
-Brightray [була](https://github.com/electron-archive/brightray) статичною бібліотекою, яка робила легшим використання [libchromiumcontent](#libchromiumcontent) в додатках. Зараз вона є застарілою та об'єжнаною з Electron.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
 
 ### CRT
 
-Бібліотека C Run-time (CRT) є частиною стандартної бібліотеки C++ яка включає стандартну бібліотеку ISO C99. Бібліотеки Visual C++, які реалізують CRT підтримку нативної розробки коду, нативний змішаний та керований код, а також чистий керований код для розробки .NET.
+The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -22,7 +22,7 @@ Apple Disk Image (DMG) это пакетний формат, який викор
 
 ### IME
 
-Input Method Editor. Це програма, яка дозволяє користувачам вводити букви та символи, які відсутні на клавіатурі. Наприклад, користувачі з Латинською клавіатурою можуть вводити Китайські, Японські, Корейські або Індійські символи.
+Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IPC
 
@@ -39,6 +39,8 @@ IPC (Inter-Process Communication) це набір засобів для кому
 Головний процес, зазвичай файл з назвою `main.js`, є точкою входу для кожної програми Electron. Він контролює життя додатку, від відкриття до закриття. Він також керує такими елементами як Меню, Панель меню, Dock, Трей, тощо. Головний процес відповідальний за кожен новий процес рендерінгу (render process) в програмі. Node API є вбудованим.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
 See also: [process](#process), [renderer process](#renderer-process)
 
@@ -58,9 +60,9 @@ See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
-## OSR
+### OSR
 
-Закадровий рендеринг.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### процес
 
@@ -70,7 +72,7 @@ In Node.js and Electron, each running process has a `process` object. This objec
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### процес рендерингу
+### renderer process
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
