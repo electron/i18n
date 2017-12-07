@@ -2,11 +2,11 @@
 
 ## Electronがインストールできません。
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+`npm install electron` を実行するとき、インストール時エラーが発生する場合があります。
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 最も良い解決策はネットワークを切り替えること、あるいは少し時間を置いてからもう一度インストールしてみることです。
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+`npm` 経由でのインストールに失敗する場合、Electronを [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
 ## Electronはいつ最新版のChromeにアップグレードされるのですか？
 
