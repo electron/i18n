@@ -51,7 +51,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `<code>Space` (空白鍵)</code>
 * `Tab`
 * `<code>Backspace` (倒退)</code>
-* `Delete (刪除)`
+* `Delete`
 * `Insert (插入)`
 * `Return` (也可寫成 `Enter`)
 * `Up` (上), `Down` (下), `Left` (左) 及 `Right` (右)
