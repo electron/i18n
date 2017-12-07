@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
@@ -53,7 +53,7 @@ The following methods are available on instances of `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Об'єкт 
+* `filter` Object 
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
@@ -68,7 +68,7 @@ Sends a request to get all cookies matching `details`, `callback` will be called
 
 #### `cookies.set(details, callback)`
 
-* `details` Об'єкт 
+* `details` Object 
   * `url` String - The url to associate the cookie with.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
@@ -86,12 +86,12 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 * `url` String - The URL associated with the cookie.
 * `name` String - The name of cookie to remove.
-* `callback` Function
+* `callback` Функція
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Function
+* `callback` Функція
 
 Writes any unwritten cookies data to disk.
