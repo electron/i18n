@@ -38,7 +38,7 @@ web_technologies:
   description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTM、CSS 和 JavaScript 打造自己的應用程式。
 open_source:
   title: 開放原始碼
-  description: Electron 是由 GitHub 及活躍的貢獻者社群共用維護的開放原始碼專案。
+  description: Electron 開放原始碼專案是由 GitHub 及活躍的貢獻者社群共用維護。
 cross_platform:
   title: 跨平臺
   description: 相容 Mac, Windows 及 Linux，Electron 應用程式可以在三大主流平臺上建置及執行。
@@ -92,14 +92,14 @@ apps:
   something_missing: 少了什麼嗎?
   edit_this_app: 編輯這個應用程式。
 clipboard:
-  copy: 複製
+  copy: Copy
   copy_to_clipboard: 複製到剪貼簿
   copied: 複製成功
-or: 或
+or: or
 pages:
   '/':
     title: Electron | 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式。
-    description: '使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式。'
+    description: '使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式.'
   '/apps':
     title: Electron 應用程式
     description: 用 Electron 打造的應用程式
