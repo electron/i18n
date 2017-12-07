@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,9 +43,9 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-### Instance Events
+### События экземпляра
 
 #### Event: 'did-finish-load'
 
@@ -143,7 +143,7 @@ Emitted when the page requests to open a new window for a `url`. It could be req
 
 By default a new `BrowserWindow` will be created for the `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Например:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -509,7 +509,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -643,16 +643,16 @@ Injects CSS into the current web page.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* Строка `code`
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (опционально) - вызывается после выполнения сценария. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Evaluates `code` in page.
+Вычисляет `code` на странице.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Setting `userGesture` to `true` will remove this limitation.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -663,7 +663,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Экспериментально*
 
 * `ignore` Boolean
 
@@ -681,9 +681,9 @@ Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - фактор увилечения.
+* `factor` Number - маштаб.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Изменяет указанный масштаб. Коэффициент масштабирования является процент масштабирования, делится на 100, поэтому 300% = 3.0.
 
 #### `contents.getZoomFactor(callback)`
 
@@ -696,7 +696,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 * `level` Number - уровень увеличения
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
 #### `contents.getZoomLevel(callback)`
 
@@ -710,21 +710,21 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Устарело:** Вызовите `setVisualZoomLevelLimits` вместо этого предельного уровня визуального масштабирования. Этот метод будет удален в Electron 2.0.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Устанавливает максимальный и минимальный на основе слоя (т.е. невизуальный) уровень масштаба.
 
 #### `contents.undo()`
 
@@ -785,12 +785,12 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Inserts `text` to the focused element.
+Вставляет `text` в элемент с фокусом.
 
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -848,7 +848,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -933,7 +933,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Свойства экземпляра
+### Instance Properties
 
 #### `contents.id`
 
