@@ -26,13 +26,13 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 ### 版本
 
-从版本2.0开始Electron会 [ 遵循 ` semver ` 标准](http://semver.org)。 For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+从版本2.0开始Electron会 [ 遵循 ` semver ` 标准](http://semver.org)。 对于大多数应用来说, 在使用新近版本的npm情况下, 运行 ` $ npm install electron ` 都将会正常工作 。
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+版本更新过程已经明确详细地描述在我们的 [ 版本控制文档 ](electron-versioning.md) 中。
 
 ### 长期支持
 
-目前没有对Electron旧版本进行长期支持的打算。 If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+目前并没有对Electron旧版本的长期支持。 If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
