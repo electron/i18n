@@ -2,7 +2,7 @@
 
 > Альтернативный транспорт для удаленной отладки протокола Chrome.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Инструменты разработчика Chrome имеют [специальную привязку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и инструментарием.
 
