@@ -59,9 +59,9 @@ electron/resources/
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-你也可以重命名帮助应用程序以避免在应用程序监视器中显示 `Electron Helper`， 但是请确保你已经修改了帮助应用的可执行文件的名字。
+你也可以重命名帮助程序以避免它在系统活动监视器中显示为`Electron Helper`， 但是请确保你已经修改了帮助应用的可执行文件的名字。
 
-一个改过名字的应用程序的构造可能是这样的：
+一个重命名后的应用程序的结构可能是这样的
 
 ```text
 MyApp.app/Contents
@@ -85,7 +85,7 @@ MyApp.app/Contents
 
 ### Linux
 
-你可以将 `electron` 改成任意你喜欢的名字。
+你可以将 `electron` 重命名为任意你喜欢的名字。
 
 ## 打包工具
 
