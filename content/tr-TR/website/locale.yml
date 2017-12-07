@@ -11,7 +11,7 @@ nav:
   code_of_conduct: Code of Conduct
 docs:
   title: Electron Dokümanları
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: Dokümanları <a href="/docs/all">tek bir sayfada</a> görün veya <a href="/docs/faq"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
   guides: Kılavuzlar
   api_reference: API Referansı
   advanced: Gelişmiş
