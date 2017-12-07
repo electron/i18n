@@ -79,27 +79,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## 构建
 
-If you would like to build both `Release` and `Debug` targets:
+如果你想要创建 `Release` 、 `Debug` 目标:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+这个脚本也许会在目录 `out/R` 下创建一个巨大的可执行的 Electron. 文件大小或许会超过 1.3 G. 原因是释放的目标二进制文件包含了调试标识. 运行 `create-dist.py` 脚本来减小文件的大小:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+这会在 `dist` 目录下创建一个有大量小文件的工作空间. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-You can also build the `Debug` target only:
+你可以只创建 `Debug` 目标:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+创建完毕, 可以在 `out/D`下面找到 `electron`.
 
 ## 清理
 
@@ -121,7 +121,7 @@ $ npm run clean-build
 
 ### 加载共享库时出现错误： libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+预构建的 `clang` 会尝试链接到 `libtinfo.so.5`. 取决于 host 架构, 适当的使用 `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -129,7 +129,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 测试
 
-查看[构建系统概览: 测试](build-system-overview.md#tests)
+查看 [构建系统概述: 测试](build-system-overview.md#tests)
 
 ## 高级提示
 
