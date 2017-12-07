@@ -1,6 +1,6 @@
 # app
 
-> Control your application's event lifecycle.
+> Kontrol siklus hidup acara aplikasi Anda.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Menyembunyikan semua jendela aplikasi tanpa meminimalkannya.
 
 ### `app.show()` *macOS*
 
@@ -327,7 +327,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+Anda dapat meminta jalur berikut dengan nama:
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -392,7 +392,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+Mengabaikan nama aplikasi saat ini.
 
 ### `app.getLocale()`
 
@@ -412,7 +412,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Bersihkan daftar dokumen terakhir.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -787,11 +787,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Sembunyikan ikon dok.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Tampilkan ikon dok.
 
 ### `app.dock.isVisible()` *macOS*
 
