@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
 
@@ -44,10 +44,10 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Об'єкт 
+* `options` Object 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Function
+* `callback` Функція
 
 Start recording on all processes.
 
@@ -89,10 +89,10 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Об'єкт 
+* `options` Object 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Function
+* `callback` Функція
 
 Start monitoring on all processes.
 
@@ -102,7 +102,7 @@ Once all child processes have acknowledged the `startMonitoring` request the `ca
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Function
+* `callback` Функція
 
 Stop monitoring on all processes.
 
