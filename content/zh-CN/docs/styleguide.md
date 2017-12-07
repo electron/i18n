@@ -98,7 +98,7 @@ Under the page title must be a one-line description starting with `>`.
 * 所有具有返回值的方法必须用"Returns `[TYPE]` - Return description" 的形式描述. 
   * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
 * 实例事件必须在 `### Instance Events` 章节中列出.
-* 实例属性必须在 `### Instance Properties` 章节中列出. 
+* 实例属性必须在 `### 实例属性` 章节中列出. 
   * 实例属性必须以 "A [Property Type] ..." 开始描述.
 
 这里用 `Session` 和 `Cookies` 类作为例子:
