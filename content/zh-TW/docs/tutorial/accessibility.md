@@ -6,7 +6,7 @@
 
 Electron 應用程式中的易用性考量與網站類似，畢竟兩者都是 HTML。 然而，你不能用線上的資源來稽查 Electron 應用程式的易用性，畢竟應用程式根本沒有網址可以給稽查程式用。
 
-這些新功能讓你能稽查 Electron 應用程式。你可以用 Spectron 將稽查項目放進測試案例裡，或是透過 Devtron 直接在 DevTools 中使用。 Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+這些新功能讓你能稽查 Electron 應用程式。你可以用 Spectron 將稽查項目放進測試案例裡，或是透過 Devtron 直接在 DevTools 中使用。 接下來將會簡述這些工具，你也可以在[協助工具說明文件](https://electronjs.org/docs/tutorial/accessibility)中看到更多細節。
 
 ## Spectron
 
@@ -30,7 +30,7 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 上述兩組工具都是用 Google 為了 Chrome 打造的 [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) 程式庫。 你可以在這個函式庫的[儲存庫 Wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 中找到易用性稽查規則的詳細資訊。
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+如果你還知道其他 Electron 可以用的易用性工具，加到[協助工具說明文件](https://electronjs.org/docs/tutorial/accessibility)裡再發個 Pull Request 吧。
 
 ## Enabling Accessibility
 
