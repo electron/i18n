@@ -38,7 +38,7 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 ## 核心理念
 
-为了保持Electron的小巧 (文件体积) 和可持续性 (依赖和API的) ，Electron限制了所使用的核心项目的数量。
+为了保持Electron的小巧 (文件体积) 和可持续性 (依赖库和API的展开) ，Electron限制了所使用的核心项目的数量。
 
 比如Electron只用了Chromium的渲染库而不是全部。 这使得升级Chromium更加容易，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
 
