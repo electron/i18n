@@ -92,9 +92,9 @@ apps:
   something_missing: Czegoś brakuje?
   edit_this_app: Edytuj tę aplikację.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Kopiuj
+  copy_to_clipboard: Kopiuj do Schowka
+  copied: Skopiowane
 or: lub
 pages:
   '/':
@@ -139,6 +139,6 @@ pages:
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
-  page_not_found: Page not found.
+  page_not_found: Nie znaleziono strony.
   if_this_is_an_error: If this is an error
   please_file_an_issue: please file an issue.
