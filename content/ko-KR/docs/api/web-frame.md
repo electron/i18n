@@ -12,7 +12,7 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## 메소드
+## 메서드
 
 The `webFrame` module has the following methods:
 
