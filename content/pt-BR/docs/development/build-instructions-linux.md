@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Inicialização
 
-O script de inicialização irá baixar todas as dependências necessárias e criar os arquivos de configuração do projeto. Você deve ter o Python 2.7.x para que o script tenha sucesso. Pode levar algum tempo para baixar certos arquivos. Observe que estamos utilizando `ninja` para configurar o Electron, não existe nenhum `Makefile` gerado.
+O script de inicialização irá baixar todas as dependências necessárias e criar a compilação do projeto. Você deve ter o Python 2.7.x para que o script tenha sucesso. Pode levar algum tempo para baixar certos arquivos. Observe que estamos utilizando `ninja` para configurar o Electron, não existe nenhum `Makefile` gerado.
 
 ```sh
 $ cd electron
@@ -79,27 +79,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Compilando
 
-If you would like to build both `Release` and `Debug` targets:
+Se você deseja de compilar tanto para `Release` e `Debug`:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+O script irá gerar um executável do Electron muito grande para ser gravado no diretório `out/R`. O tamanho do arquivo é superior a 1.3 gigabytes. Isso acontece porque o binário contém sinais de depuração. Para reduzir o tamanho do arquivo, execute o script `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Com isso será gerado uma distribuição muito menor no diretório `dist`. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-You can also build the `Debug` target only:
+Você também pode compilar somente o `Debug`:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Após a finalização, você pode encontrar o `electron` debug no diretório `out/D`.
 
 ## Excluindo
 
@@ -121,7 +121,7 @@ $ npm run clean-build
 
 ### Erro ao carregar bibliotecas compartilhadas: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Prebuilt `clang` irá atentar vincular a `libtinfo.so.5`. Dependendo da arquitetura utilizada, um link é criado para `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -153,7 +153,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Observe que por padrão a configuração de `shared_library` não é compilada, você pode compilar somente a versão de `Release` do Electron se você utilizar o modo:
 
 ```sh
 $ ./script/build.py -c R
@@ -163,7 +163,7 @@ $ ./script/build.py -c R
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Por exemplo, se você instalou `clang` em `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
@@ -172,9 +172,9 @@ $ ./script/build.py -c R
 
 ### Using compilers other than `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Para compilar o Electron com compiladores parecidos com o `g++`, você primeiro precisa desativar o `clang` com o parâmetro `--disable_clang`, depois configurar o 0>CC</code> e `CXX` nas variáveis de ambiente.
 
-For example building with GCC toolchain:
+Por exemplo, compilando com GCC toolchain:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Variáveis de ambiente
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+Além de `CC` e `CXX`, você também pode personalizar a configuração de compilação após a configuração das variáveis de ambiente:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +199,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+A variável de ambiente precisa ser definidas ao executar o script `bootstrap.py`, isso não vai funcionar no script `build.py`.
