@@ -46,7 +46,7 @@ app.start().then(function () {
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) fournit un ensemble de package Node pour tester avec des pilotes web, nous l’utiliserons comme exemple.
 
-### 1. Lancer ChromeDriver
+### 1. Lancez ChromeDriver
 
 Tout d’abord, téléchargez `chromedriver`, puis exécutez-le :
 
@@ -100,7 +100,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) fournit un package Node pour tester avec le pilote web.
 
-### 1. Lancez ChromeDriver
+### 1. Lancer ChromeDriver
 
 Tout d’abord, téléchargez `chromedriver`, puis exécutez-le :
 
@@ -111,7 +111,7 @@ Demarre ChromeDriver (v2.10.291558) sur le port 9515
 Seulement les connexions locales sont autorisées.
 ```
 
-N’oubliez pas le numéro du port `9515`, qui servira plus tard
+N'oubliez pas le numéro du port `9515`, qui servira plus tard
 
 ### 2. Installer WebdriverIO
 
