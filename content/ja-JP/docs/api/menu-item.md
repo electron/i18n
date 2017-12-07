@@ -8,7 +8,7 @@ See [`Menu`](menu.md) for examples.
 
 ### `new MenuItem(options)`
 
-* `options` Object 
+* `options` オブジェクト 
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
@@ -39,7 +39,7 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `copy`
+* `コピー`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
