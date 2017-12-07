@@ -2,7 +2,7 @@
 
 > Create a scrubber (a scrollable selector)
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proces: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
@@ -18,7 +18,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Właściwości instancji
 
 The following properties are available on instances of `TouchBarScrubber`:
 
