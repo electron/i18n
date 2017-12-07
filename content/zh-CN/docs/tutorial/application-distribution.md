@@ -44,9 +44,9 @@ electron/resources/
 
 更多的细节参阅 [Application packaging](application-packaging.md).
 
-## 使用下载的二进制文件重塑
+## 使用下载好的二进制文件进行重新定制
 
-将您的应用程序捆绑到Electron后，您将需要将Electron重新分发给用户。
+将您的应用程序捆绑到Electron后，您可能需要在把应用分发给用户前将Electron进行重新定制
 
 ### Windows
 
