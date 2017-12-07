@@ -13,7 +13,7 @@ app.getAppMemoryInfo()
 app.getAppMetrics()
 ```
 
-## `BrowserWindow`
+## `Browserfenster`
 
 ```js
 // Deprecated
@@ -74,7 +74,7 @@ crashReporter.start({
 })
 ```
 
-## `menu`
+## `menü`
 
 ```js
 // Deprecated
@@ -128,7 +128,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Tray`
+## `Fach`
 
 ```js
 // Deprecated
