@@ -35,7 +35,7 @@ Returns `WebContents` - The web contents that is focused in this application, ot
 
 ### `webContents.fromId(id)`
 
-* `id` Integer
+* `id` Inteiro
 
 Returns `WebContents` - A WebContents instance with the given ID.
 
@@ -296,7 +296,7 @@ Retorna:
 * `url` String
 * `error` String - O código do erro
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Função 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -310,7 +310,7 @@ Retorna:
 * `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Função 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
 Emitido quando um certificado de cliente é solicitado.
@@ -332,7 +332,7 @@ Retorna:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Função 
   * `username` String
   * `password` String
 
@@ -442,7 +442,7 @@ Retorna:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Função 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -504,12 +504,12 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Métodos de Instância
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `opções` Objeto (opcional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -687,7 +687,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Função 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -700,7 +700,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Função 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -790,7 +790,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `opções` Objeto (opcional) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -821,21 +821,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` Função 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Função 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Função 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -848,7 +848,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `opções` Objeto (opcional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -861,13 +861,13 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `opções` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Função 
   * `error` Error
   * `data` Buffer
 
@@ -933,7 +933,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `opções` Objeto (opcional) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1060,7 +1060,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
-* `callback` Function 
+* `callback` Função 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1089,7 +1089,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Função - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1115,7 +1115,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `opções` Object 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Propriedades da Instância
 
 #### `contents.id`
 
