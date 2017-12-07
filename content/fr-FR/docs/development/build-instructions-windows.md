@@ -1,4 +1,4 @@
-# Instructions de compilation (Windows)
+# Instructions de Build (Windows)
 
 Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
@@ -34,7 +34,7 @@ $ python script\bootstrap.py -v
 
 ## Compilation
 
-Compiler une cible Release et Debug :
+Compiler une version Release et une version Debug :
 
 ```powershell
 $ python script\build.py
