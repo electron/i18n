@@ -97,7 +97,7 @@ When this attribute is present the guest page in `webview` will have node integr
 
 When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
-### `preload`
+### `prechargement`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -338,10 +338,10 @@ Injects CSS into the guest page.
 
 * `code` String
 * `userGesture` Boolean - `false` par défaut.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (facultatif) - Appelé après l'exécution du script. 
   * `result` Any
 
-Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Évalue le `code` dans la page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
@@ -432,7 +432,7 @@ Executes editing command `replaceMisspelling` in page.
 
 * `text` String
 
-Inserts `text` to the focused element.
+Insère le `text` à l'élément ciblé.
 
 ### `<webview>.findInPage(text[, options])`
 
@@ -507,13 +507,13 @@ See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent)
 
 * `factor` Number - Facteur de zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le pourcentage divisé par 100, donc 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
 * `level` Number - Niveau de zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 Retourne :
 
-* `result` Object 
+* `result` Objet 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
@@ -772,7 +772,7 @@ Fired when the renderer process is crashed.
 
 ### Événement : 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Déclenché lorsque le processus du gpu crash.
 
 ### Événement : 'plugin-crashed'
 
@@ -781,11 +781,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+Déclenché lorsqu’un processus de plugin crash.
 
 ### Événement : 'destroyed'
 
-Fired when the WebContents is destroyed.
+Déclenché lorsque le WebContents est détruit.
 
 ### Événement : 'media-started-playing'
 
@@ -801,7 +801,7 @@ Retourne :
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
