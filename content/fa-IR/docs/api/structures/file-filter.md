@@ -1,4 +1,4 @@
 # شئ FileFilter
 
-* `name` رشته
+* `نام` رشته
 * `extensions` رشته[]
