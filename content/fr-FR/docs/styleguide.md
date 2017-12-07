@@ -42,14 +42,14 @@ Pour les références de l'API, ce sont des exceptions à cette règle.
 
 ## Règles pour le markdown
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Utilisez `sh` au lieu de `cmd` dans les blocs de code (en raison du surligneur de syntaxe).
 * La longueur des lignes ne devrait pas dépasser 80 caractères.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](http://npm.im/standard-markdown).
 
 ## Orthographie
 
-* Utilisez « sera » au lieu de « devrait » pour décrire des résultats.
+* Utilisez "sera" au lieu de "devrait" pour décrire des résultats.
 * Préférez « dans le processus de ___ » au lieu de « sur ».
 
 ## Références de l'API
@@ -60,7 +60,7 @@ Les règles suivantes s'appliquent uniquement à la documentation des APIs.
 
 Chaque page doivent utiliser le nom de l'objet retourné par `require('electron')` comme titre, par exemple `BrowserWindow`, `autoUpdater` et `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Il doit y avoir une ligne de description commençant par `>` en dessous du titre de la page.
 
 Si l'on utilise `session` par exemple, cela donne :
 
@@ -211,4 +211,4 @@ Ce titre peut être au niveau `###` ou `####` si c'est une propriété d'une cla
 
 ## Traductions de la documentation
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Voir [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
