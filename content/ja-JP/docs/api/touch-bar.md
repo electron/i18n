@@ -12,9 +12,9 @@
 
 Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Note:** TouchBar API は現在実験的な機能です。そのため、将来的には変更されたり削除されたりする可能性があります。
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Tip:** Touch Bar 付きの MacBook をお持ちでない場合は、Touch Bar を使用するアプリの検証に [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) をご利用になれます。
 
 ### Instance Properties
 
@@ -35,15 +35,15 @@ const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// Reel labels
+// スロットのリールの役目を果たす label
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
+// スロットの結果を表示する label
 const result = new TouchBarLabel()
 
-// Spin button
+// スロットを回すボタン
 const spin = new TouchBarButton({
   label: '
 ```
@@ -56,4 +56,4 @@ const spin = new TouchBarButton({
 2. `npm install electron` と入力し、 Electron をインストールします
 3. `./node_modules/.bin/electron touchbar.js` と入力し、Electron でサンプルを実行する
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+すると、 Electron のウィンドウと、 Touch Bar 上（あるいは Touch Bar エミュレータ上）で動作するサンプルアプリをご覧になる事ができるはずです。
