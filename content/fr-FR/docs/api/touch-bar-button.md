@@ -2,11 +2,11 @@
 
 > Créer un bouton dans la touch bar pour les applications native macOS
 
-Processus : [Main](../tutorial/quick-start.md#main-process)
+Processus : [Principal](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `options` Object 
+* `options` Objet 
   * `label` String (facultatif) - Texte du bouton.
   * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton.
