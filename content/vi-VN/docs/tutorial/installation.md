@@ -8,7 +8,7 @@
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Xem [tài liệu về quản lý phiên bản Electron](electron-versioning.md) để biết thêm thông tin về cách quản lý phiên bản cho ứng dụng của bạn.
 
 ## Cặt đặt trên toàn hệ thống
 
@@ -20,7 +20,7 @@ npm install electron -g
 
 ## Tùy biến cài đặt
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Nếu bạn muốn thay đổi bản kiến trúc hệ thống đc tải về (ví dụ `ia32` trên hệ `x64`), bạn có thể sử dụng `--arch` trong lệnh npm hoặc đặt biến `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
