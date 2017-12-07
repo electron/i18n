@@ -80,7 +80,7 @@ Appends the `menuItem` to the menu.
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Propriétés d'instance
+### Instance Properties
 
 `menu` objects also have the following properties:
 
@@ -94,7 +94,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### Main process (processus principal)
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -262,7 +262,7 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
     <br />- 1
     - 2
@@ -284,7 +284,7 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
     <br />- ---
     - a
