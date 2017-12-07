@@ -129,14 +129,14 @@ Finally the `index.html` is the web page you want to show:
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
-### `الکترون`
+### `electron`
 
 [`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
 
 If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 
 ```sh
-electron .
+الکترون .
 ```
 
 If you've installed it locally, then run:
@@ -163,19 +163,19 @@ $ npx electron .
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
-#### macOS
+#### مک‌اواس
 
 ```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
-#### Linux
+#### لینوکس
 
 ```sh
 $ ./electron/electron your-app/
 ```
 
-#### Windows
+#### ویندوز
 
 ```sh
 $ .\electron\electron.exe your-app\
