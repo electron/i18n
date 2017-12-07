@@ -63,24 +63,25 @@ You can also rename the helper app to avoid showing `Electron Helper` in the Act
 
 The structure of a renamed app would be like:
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
-    
+```text
+MyApp.app/Contents
+├── Info.plist
+├── MacOS/
+│   └── MyApp
+└── Frameworks/
+    ├── MyApp Helper EH.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper EH
+    ├── MyApp Helper NP.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper NP
+    └── MyApp Helper.app
+        ├── Info.plist
+        └── MacOS/
+            └── MyApp Helper
+```
 
 ### Linux
 
@@ -110,10 +111,11 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 2. Create a new S3 bucket and create the following empty directory structure:
     
-        - atom-shell/
-          - symbols/
-          - dist/
-        
+    ```sh
+- atom-shell/
+  - symbols/
+  - dist/
+```
 
 3. Set the following Environment Variables:
 
@@ -123,7 +125,7 @@ You need to fork Electron when you have custom C++ code that you have patched di
 * `CI` - Set to `true` or else it will fail
 * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64` 
+* `TARGET_ARCH` - set to `ia32` or `x64`
 
 1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 

@@ -11,7 +11,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Glossário de Termos](glossary.md)
 * [Plataformas Suportadas](tutorial/supported-platforms.md)
 * [Segurança](tutorial/security.md)
-* [Versionamento do Electron](tutorial/electron-versioning.md)
+* [Controle de Versão](tutorial/electron-versioning.md)
 * [Distribuição de Aplicativos](tutorial/application-distribution.md)
 * [Guia para Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guia para Windows Store](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Renderização fora da tela](tutorial/offscreen-rendering.md)
 * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Tutoriais
 

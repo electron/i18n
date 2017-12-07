@@ -12,7 +12,7 @@ Electron 支援 Node 原生模組，但是 Electron 很有可能會用跟你安�
 
 An example of installing all dependencies for Electron:
 
-```bash
+```sh
 # Electron 版本。
 export npm_config_target=1.2.3
 # Electron 硬體架構，可以是 ia32 或 x64。
@@ -34,7 +34,7 @@ You can also choose to install modules like other Node projects, and then rebuil
 
 An example of installing `electron-rebuild` and then rebuild modules with it:
 
-```bash
+```sh
 npm install --save-dev electron-rebuild
 
 # 每次執行完 "npm install" 後，記得再跑:
@@ -48,7 +48,7 @@ npm install --save-dev electron-rebuild
 
 If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
 
-```bash
+```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
@@ -59,8 +59,8 @@ The `HOME=~/.electron-gyp` changes where to find development headers. The `--tar
 
 If you installed a native module and found it was not working, you need to check following things:
 
-* The architecture of module has to match Electron's architecture (ia32 or x64).
-* After you upgraded Electron, you usually need to rebuild the modules.
+* The architecture of the module has to match Electron's architecture (ia32 or x64).
+* After you upgrade Electron, you usually need to rebuild the modules.
 * When in doubt, run `electron-rebuild` first.
 
 ## 相依 `prebuild` 的模組

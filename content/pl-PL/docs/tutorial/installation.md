@@ -5,10 +5,10 @@
 W celu zainstalowania prekompilowanych plików Electrona, użyj [`npm`](https://docs.npmjs.com/). Preferowaną metodą instalacji Electrona jest zainstalowanie go jako zależność deweloperską twojej aplikacji:
 
 ```sh
-npm install electron --save-dev --save-exact
+npm install electron --save-dev
 ```
 
-Flaga `--save-exact` jest zalecana, jako iż Electron nie wspiera semantycznego systemu kontroli wersji. Zobacz [dokumentację systemu kontroli wersji](https://electron.atom.io/docs/tutorial/electron-versioning/), aby dowiedzieć się więcej o zarządzaniu wersjami Electrona w twoich aplikacjach.
+See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Instalacja globalna
 

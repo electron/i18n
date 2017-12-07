@@ -16,7 +16,7 @@ electron --debug=5858 your/app
 
 ### `<0>--debug-brk=[port]</0>`
 
-`--debug`와 비슷하지만 스크립트의 첫번째 라인에서 일시정지합니다
+Like `--inspect` but pauses execution on the first line of JavaScript.
 
 ## 외부 디버거
 

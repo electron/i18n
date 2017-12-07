@@ -19,7 +19,7 @@ Code và cả trải nghiệm của người dùng là như nhau trong cả ba h
 ## Windows
 
 * Trên Windows 10, thông báo luôn làm việc.
-* Trên Windows 8.1 và Windows 8, một phím tắt cho ứng dụng của bạn, với một \[Application User Model ID\]\[app-user-model-id\], phải được cài đặt vào màn hình của Start. Lưu ý, Tuy nhiên, nó không cần phải được ghim vào màn hình Start.
+* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Lưu ý, Tuy nhiên, nó không cần phải được ghim vào màn hình Start.
 * Trên Windows 7, thông báo làm việc thông qua thực hiện một tùy chỉnh trực quan tương tự như trên các hệ thống mới hơn.
 
 Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
@@ -54,4 +54,4 @@ This will allow you to detect ahead of time whether or not the notification will
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows \[Desktop Notifications Specification\]\[notification-spec\], including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.

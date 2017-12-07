@@ -2,11 +2,11 @@
 
 ## 为什么我在安装 Electron 的时候遇到了问题？
 
-在运行 `npm install electron` 时，有些用户会偶尔遇到安装问题。
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-在大多数情况下，这些错误都是由网络问题导致，而不是 `electron` npm 模块的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-如果通过 `npm` 安装失败，您可以尝试直接从 [electron/electron/releases](https://github.com/electron/electron/releases) 直接下载 Electron。
+You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
 ## Electron 会在什么时候升级到最新版本的 Chrome？
 
@@ -110,9 +110,10 @@ delete window.module;
 
 在使用 Electron 的提供的模块时，你可能会遇到和以下类似的错误：
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-    
+```sh
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+```
 
 这是因为你在项目中或者在全局中安装了[npm 上获取的 `electron` 模块](https://www.npmjs.com/package/electron)，它把 Electron 的内置模块覆写了。
 
@@ -124,12 +125,13 @@ console.log(require.resolve('electron'))
 
 确认一下它是不是像下面这样的：
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-    
+```sh
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+```
 
 假如输出的路径类似于 `node_modules/electron/index.js`，那么你需要移除或者重命名 npm 上的 `electron` 模块。
 
-```bash
+```sh
 npm uninstall electron
 npm uninstall -g electron
 ```

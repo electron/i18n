@@ -11,7 +11,7 @@
 * [용어집](glossary.md)
 * [지원되는 플랫폼](tutorial/supported-platforms.md)
 * [보안](tutorial/security.md)
-* [Electron 버전 관리](tutorial/electron-versioning.md)
+* [버전 관리](tutorial/electron-versioning.md)
 * [응용 프로그램 배포](tutorial/application-distribution.md)
 * [맥 앱스토어 제출 안내서](tutorial/mac-app-store-submission-guide.md)
 * [윈도우 스토어 안내서](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
 * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
 * [키보드 단축기](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## 따라하기
 

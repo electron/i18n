@@ -12,7 +12,7 @@ Electronは、ネイティブのNodeモジュールをサポートしていま�
 
 Electronにすべての依存モジュールをインストールする例
 
-```bash
+```sh
 # Electron's version.
 export npm_config_target=1.2.3
 # The architecture of Electron, can be ia32 or x64.
@@ -34,7 +34,7 @@ HOME=~/.electron-gyp npm install
 
 `electron-rebuild`をインストールして、モジュールをリビルドする手順の例です：
 
-```bash
+```sh
 npm install --save-dev electron-rebuild
 
 # Every time you run "npm install", run this:
@@ -48,7 +48,7 @@ npm install --save-dev electron-rebuild
 
 もしあなたがネイティブモジュールの開発者でElectronでの動作を検証したいのであれば、Electron用にモジュールを手動で再構築したいことと思います。 `node-gyp`を使用することで、モジュールをElectron用にビルドできます。
 
-```bash
+```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
@@ -59,8 +59,8 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 もしネイティブモジュールがインストールされているがうまく動いていないことが分かった場合は、下記のことを確認してみてください：
 
-* モジュールのアーキテクチャがElectronのアーキテクチャと一致する(ia32 または x64)
-* Electronのアップグレード後は、モジュールをリビルドする必要があります。
+* The architecture of the module has to match Electron's architecture (ia32 or x64).
+* After you upgrade Electron, you usually need to rebuild the modules.
 * 何かおかしいと思ったら、まず`electron-rebuild`を走らせてみてください。
 
 ## `prebuild`を使用したモジュール

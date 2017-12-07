@@ -22,7 +22,7 @@
 
 然后, 假设 Xcode 6.4 DMG 已经挂载在 `/Volumes/Xcode` 并且您的 Xcode 8.2.1 安装在 `/Applications/Xcode.app`, 运行:
 
-```bash
+```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
@@ -34,7 +34,7 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 
 ## 获取代码
 
-```bash
+```sh
 $ git clone https://github.com/electron/electron
 ```
 
@@ -42,7 +42,7 @@ $ git clone https://github.com/electron/electron
 
 Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 注意我们使用的是 [ninja](https://ninja-build.org/) 来构建 Electron，所以没有生成 Xcode 项目.
 
-```bash
+```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
@@ -51,13 +51,13 @@ $ ./script/bootstrap.py -v
 
 构建 `Release` 和 `Debug` 目标:
 
-```bash
+```sh
 $ ./script/build.py
 ```
 
 你也可以只构建 `Debug` 目标:
 
-```bash
+```sh
 $ ./script/build.py -c D
 ```
 
@@ -71,13 +71,13 @@ Electron 只能为 MacOS 上的 64 位目标构建，并且将来没有计划支
 
 清理构建文件:
 
-```bash
+```sh
 $ npm run clean
 ```
 
 清理 `out` 和 `dist` 目录:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 

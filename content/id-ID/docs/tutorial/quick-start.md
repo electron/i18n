@@ -135,7 +135,7 @@ Setelah Anda telah membuat file `main.js`, `index.html` dan file `package.json`,
 
 Jika Anda telah menginstall secara global dengan `npm`, maka Anda hanya akan perlu untuk menjalankan berikut dalam direktori source aplikasi Anda:
 
-```bash
+```sh
 electron .
 ```
 
@@ -143,14 +143,21 @@ Jika Anda telah menginstal secara lokal, kemudian jalankan:
 
 #### macOS / Linux
 
-```bash
+```sh
 $ ./node_modules/.bin/electron .
 ```
 
 #### Windows
 
-    $ .\node_modules\.bin\electron .
-    
+```sh
+$ .\node_modules\.bin\electron .
+```
+
+#### Node v8.2.0 and later
+
+```sh
+$ npx electron .
+```
 
 ### Mengunduh Binari Electron secara Manual
 
@@ -158,20 +165,21 @@ Jika Anda download elektron secara manual, Anda juga dapat menggunakan binari ko
 
 #### macOS
 
-```bash
+```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 #### Linux
 
-```bash
+```sh
 $ ./electron/electron your-app/
 ```
 
 #### Windows
 
-    $ .\electron\electron.exe your-app\
-    
+```sh
+$ .\electron\electron.exe your-app\
+```
 
 `Electron.app` di sini adalah bagian dari elektron paket rilis, Anda dapat men-download dari [sini](https://github.com/electron/electron/releases).
 
@@ -185,7 +193,7 @@ Clone dan jalankan kode dalam tutorial ini menggunakan repositori [`electron/ele
 
 **Catatan**: ini memerlukan [Git](https://git-scm.com) dan [Node.js](https://nodejs.org/en/download/) (termasuk [npm](https://npmjs.org)) pada sistem Anda.
 
-```bash
+```sh
 # Clone the repository
 $ git clone https://github.com/electron/electron-quick-start
 # Go into the repository
@@ -196,4 +204,4 @@ $ npm install
 $ npm start
 ```
 
-Untuk contoh aplikasi lain, lihat [Daftar boilerplates](https://electron.atom.io/community/#boilerplates) yang diciptakan oleh masyarakat elektron yang mengagumkan.
+For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.

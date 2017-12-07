@@ -5,10 +5,10 @@
 Pour installer les binaires précompilés d'Electron, utilisez [`npm`](https://docs.npmjs.com/). Il est préférable d'installer Electron comme une dépendance de développement dans votre application :
 
 ```sh
-npm install electron --save-dev --save-exact
+npm install electron --save-dev
 ```
 
-Le paramètre `--save-exact` est recommandé tant qu'Electron ne suit pas le versionnage sémantique. Voir la [documentation du versionnage](https://electron.atom.io/docs/tutorial/electron-versioning/) pour plus d'informations sur la façon de gérer les versions d'Electron dans vos applications.
+See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## Installation global
 

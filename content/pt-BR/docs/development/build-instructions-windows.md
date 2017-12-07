@@ -5,7 +5,7 @@ Siga as instruções abaixo para compilar o Electron no Windows.
 ## Pré-requisitos
 
 * Windows 7 / Server 2008 R2 ou maior
-* Visual Studio 2015 Update 3 - [Baixe o VS 2015 Community grátis](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -76,7 +76,7 @@ $ npm run clean
 
 Para excluir somente os diretórios `out` e `dist`:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 
@@ -100,19 +100,20 @@ Verifique se você tem a atualização mais recente do Visual Studio instalada.
 
 Se estiver fazendo build pelo Cygwin, você poderá ter uma falha no `bootstrap.py` com a seguinte mensagem de erro:
 
-    Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-    
-    Traceback (most recent call last):
-      File "script/bootstrap.py", line 87, in <module>
-        sys.exit(main())
-      File "script/bootstrap.py", line 22, in main
-        update_node_modules('.')
-      File "script/bootstrap.py", line 56, in update_node_modules
-        execute([NPM, 'install'])
-      File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-        raise e
-    subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-    
+```sh
+Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
+
+Traceback (most recent call last):
+  File "script/bootstrap.py", line 87, in <module>
+    sys.exit(main())
+  File "script/bootstrap.py", line 22, in main
+    update_node_modules('.')
+  File "script/bootstrap.py", line 56, in update_node_modules
+    execute([NPM, 'install'])
+  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
+    raise e
+subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
+```
 
 Isso é causado por um bug ao usar o Cygwin Python e Win32 juntos. A solução ao usar o Python Win32 para executar o script de inicialização (supondo que você tenha instalado o Python em `C:\Python27`):
 

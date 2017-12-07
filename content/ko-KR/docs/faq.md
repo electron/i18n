@@ -2,11 +2,11 @@
 
 ## 왜 Electron을 설치하는데에 문제가 생길까요?
 
-`npm install electron`을 실행할 때, 사용자들은 가끔 설치 에러를 마주치게 됩니다.
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-대부분의 경우, 이 에러는 네트워크 문제일 뿐 `electron` npm 패키지의 문제는 거의 아닙니다. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` 위 같은 에러들은 모두 네트워크 문제라고 볼 수 있습니다. 가장 좋은 해결책은 네트워크를 바꾸거나, 기다려 보거나, 설치를 다시 하는 것입니다.
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-또한 `npm` 을 이용한 설치가 실패한다면 Electron을 [electron/electron/releases](https://github.com/electron/electron/releases) 에서 직접 설치할 수 있습니다.
+You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
 ## 언제 Electron이 최신 버전의 Chrome으로 업그레이드 되나요?
 
@@ -110,9 +110,10 @@ delete window.module;
 
 Electron의 빌트인 모듈을 사용할 때, 다음과 같은 오류가 발생할 수 있습니다:
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-    
+```sh
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+```
 
 이러한 문제가 발생하는 이유는 [npm`의 electron` 모듈](https://www.npmjs.com/package/electron)이 로컬 또는 전역 중 한 곳에 설치되어, Electron의 빌트인 모듈을 덮어씌우는 바람에 빌트인 모듈을 사용할 수 없기 때문입니다.
 
@@ -124,12 +125,13 @@ console.log(require.resolve('electron'))
 
 그리고 다음과 같은 경로를 가지는지 점검하면 됩니다:
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-    
+```sh
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+```
 
 하지만 `node_modules/electron/index.js`와 같은 경로로 되어있을 경우, `electron `모듈을 지우거나 이름을 바꿔야만 합니다.
 
-```bash
+```sh
 npm uninstall electron
 npm uninstall -g electron
 ```

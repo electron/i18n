@@ -11,7 +11,7 @@
 * [Глоссарий](glossary.md)
 * [Поддерживаемые платформы](tutorial/supported-platforms.md)
 * [Безопасность](tutorial/security.md)
-* [Нумерация версий Electron](tutorial/electron-versioning.md)
+* [Версионность](tutorial/electron-versioning.md)
 * [Распространение приложений](tutorial/application-distribution.md)
 * [Руководство по распространению с помощью Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Руководство по распространению с помощью Windows Store](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
 * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Инструкции
 

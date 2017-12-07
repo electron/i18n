@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare two entitlements files.
+Then, you need to prepare three entitlements files.
 
 `child.plist`:
 
@@ -64,25 +64,39 @@ Then, you need to prepare two entitlements files.
 </plist>
 ```
 
+`loginhelper.plist`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+  </dict>
+</plist>
+```
+
 You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
 
 And then sign your app with the following script:
 
-```bash
+```sh
 #!/bin/bash
 
-# 你應用程式的名稱。
+# Name of your app.
 APP="YourApp"
-# 你要簽章的應用程式路徑。
+# The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
-# 存放你簽章過的套件的路徑。
+# The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# 請求用的憑證名稱。
+# The name of certificates you requested.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# 你的 plist 檔案路徑。
+# The path of your plist files.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
+LOGINHELPER_PLIST="/path/to/loginhelper.plist"
 
 FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
 
@@ -96,6 +110,8 @@ codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP H
 codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper EH.app/"
 codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper NP.app/Contents/MacOS/$APP Helper NP"
 codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper NP.app/"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
 codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
 codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 
@@ -110,7 +126,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
-```bash
+```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
@@ -136,7 +152,6 @@ and the following behaviors have been changed:
 * Video capture may not work for some machines.
 * Certain accessibility features may not work.
 * Apps will not be aware of DNS changes.
-* APIs for launching apps at login are disabled. See https://github.com/electron/electron/issues/7312#issuecomment-249479237
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
 

@@ -41,6 +41,7 @@ Electron은 아주 제한적인 `chrome.*` API만을 지원하므로 확장 기�
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 * [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
 ### 개발자 도구가 작동하지 않을 때 어떻게 해야 하나요?
 

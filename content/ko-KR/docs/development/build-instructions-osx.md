@@ -22,7 +22,7 @@
 
 Xcode 6.4 DMG 가 `/Volumes/Xcode` 에 마운트 되었다 가정하고, Xcode 8.2.1 설치가 `/Applications/Xcode.app`에 되었다 가정하고 실행합니다.
 
-```bash
+```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
@@ -34,7 +34,7 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 
 ## 코드 가져오기
 
-```bash
+```sh
 $ git clone https://github.com/electron/electron
 ```
 
@@ -42,7 +42,7 @@ $ git clone https://github.com/electron/electron
 
 부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. Electron은 [ninja](https://ninja-build.org/) 를 빌드 툴체인으로 사용하므로 Xcode 프로젝트는 생성되지 않습니다.
 
-```bash
+```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
@@ -51,13 +51,13 @@ $ ./script/bootstrap.py -v
 
 `Release` 와 `Debug` 두 타겟 모두 빌드 합니다:
 
-```bash
+```sh
 $ ./script/build.py
 ```
 
 또는 `Debug` 타겟만 빌드 할 수 있습니다:
 
-```bash
+```sh
 $ ./script/build.py -c D
 ```
 
@@ -71,13 +71,13 @@ Electron은 현재 macOS 64비트만 지원하고 있습니다. 그리고 앞으
 
 빌드 파일들을 정리하려면:
 
-```bash
+```sh
 $ npm run clean
 ```
 
 `out`과 `dist` 폴더만 정리하려면:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 

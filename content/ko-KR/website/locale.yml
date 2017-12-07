@@ -28,7 +28,7 @@ community:
   videos: 동영상
   meetups: 모임
   awesome_notice: 이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>
-  meetup_notice: 모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">pull request를 만드세요</a>.
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
   title: 이것은 당신이 생각한 것보다 쉽습니다
   description: 만약 당신이 웹 사이트를 구축할 수 있다면, 데스크톱 앱도 만드실 수 있습니다. Electron은 네이티브 애플리케이션이며 자바스크립트, HTML, CSS로 이루어진 프레임워크입니다. 이것은 어려운 부분을 처리하므로 당신의 애플리케이션의 핵심 부분에 집중할 수 있습니다.
@@ -91,6 +91,10 @@ apps:
   submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
   edit_this_app: 이 앱을 수정하세요.
+clipboard:
+  copy: Copy
+  copy_to_clipboard: Copy to Clipboard
+  copied: Copied
 or: 또는
 pages:
   '/':

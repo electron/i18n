@@ -10,13 +10,13 @@
 
 ### 1. 安装 asar 实用程序
 
-```bash
+```sh
 $ npm install -g asar
 ```
 
 ### 2. 使用 `asar pack` 打包
 
-```bash
+```sh
 $ asar pack your-app app.asar
 ```
 
@@ -30,7 +30,7 @@ $ asar pack your-app app.asar
 
 例如，假设我们在 `/path/to` 文件夹下有个 `example.asar` 包：
 
-```bash
+```sh
 $ asar list /path/to/example.asar
 /app.js
 /file.txt
@@ -140,7 +140,7 @@ Node 中有一些可以执行程序的 API，如 `child_process.exec`，`child_p
 
 为解决这个问题，你可以在生成 asar 档案时使用 `--unpack` 选项来排除一些文件，使其不打包到 asar 包中， 下面是如何排除一些用作共享用途的 native 模块的方法：
 
-```bash
+```sh
 $ asar pack app app.asar --unpack *.node
 ```
 

@@ -2,9 +2,9 @@
 
 ## Защо наблюдавам проблеми при инсталацията на Electron?
 
-Получихме информация, че при опит за инстарация с помоща на командата `npm install electron`, често се наблядават серия от грешки в конзолата.
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-В голяма част от случаите, тези грешки са резултат от проблеми в мрежовата инфраструктура на потребителите и нямат отношение към кода на `electron` пакетите. Ако наблюдавате грешки съдържащи кодовете : `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` както и `ETIMEDOUT` са индикатор за мрежови проблеми. Най-добрият подход за решаването на тези трудностти е свързан със смяната на мрежата чрез който дистрибутирате пакетите или да изчакате неопределен период от време и да повторите опита си за инсталация.
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
@@ -110,9 +110,10 @@ delete window.module;
 
 When using Electron's built-in module you might encounter an error like this:
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-    
+```sh
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+```
 
 This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
 
@@ -124,12 +125,13 @@ console.log(require.resolve('electron'))
 
 and then check if it is in the following form:
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-    
+```sh
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+```
 
 If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
 
-```bash
+```sh
 npm uninstall electron
 npm uninstall -g electron
 ```

@@ -22,7 +22,7 @@ Les builds officielles d'Electron sont compilés avec [Xcode 8.2.1](http://adcdo
 
 Puis, en supposant que le DMG Xcode 6.4 a été monté dans `/Volumes/Xcode` et que votre installation Xcode 8.2.1 est dans `/Applications/Xcode.app`, exécutez :
 
-```bash
+```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
@@ -34,7 +34,7 @@ Vous devrez aussi activer Xcode pour compiler avec le SDK 10.10 :
 
 ## Obtenir le code
 
-```bash
+```sh
 $ git clone https://github.com/electron/electron
 ```
 
@@ -42,7 +42,7 @@ $ git clone https://github.com/electron/electron
 
 Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Nous utilisons [ninja](https://ninja-build.org/) pour compiler Electron, donc il n'y a aucun projet Xcode généré.
 
-```bash
+```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
@@ -51,13 +51,13 @@ $ ./script/bootstrap.py -v
 
 Compiler une version `Release` et une version `Debug` :
 
-```bash
+```sh
 $ ./script/build.py
 ```
 
 Vous pouvez également compiler seulement une version `Debug` :
 
-```bash
+```sh
 $ ./script/build.py -c D
 ```
 
@@ -71,13 +71,13 @@ Electron ne peut être compiler qu'en 64 bit sur macOS et il n'est pas prévu d'
 
 Pour nettoyer les fichiers de build :
 
-```bash
+```sh
 $ npm run clean
 ```
 
 Pour nettoyer uniquement les répertoires `out` et `dist` :
 
-```bash
+```sh
 $ npm run clean-build
 ```
 

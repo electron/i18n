@@ -64,24 +64,25 @@ electron/resources/
 
 애플리케이션 이름을 원하는 이름으로 변경한 예시:
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
-    
+```text
+MyApp.app/Contents
+├── Info.plist
+├── MacOS/
+│   └── MyApp
+└── Frameworks/
+    ├── MyApp Helper EH.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper EH
+    ├── MyApp Helper NP.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper NP
+    └── MyApp Helper.app
+        ├── Info.plist
+        └── MacOS/
+            └── MyApp Helper
+```
 
 ### Linux
 
@@ -111,10 +112,11 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
 
 2. 새로운 S3 bucket을 만들고 다음과 같은 빈 디렉토리 구조를 만듭니다:
     
-        - atom-shell/
-          - symbols/
-          - dist/
-        
+    ```sh
+- atom-shell/
+  - symbols/
+  - dist/
+```
 
 3. 다음의 환경 변수들을 설정합니다:
 
@@ -124,7 +126,7 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
 * `CI` -`true`또는 다른 것을 지정하면 실패합니다.
 * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN`과 같게 설정
 * `SURF_TEMP` - Windows에서는 `C:\Temp`로 설정하면 긴 경로 문제를 해결할 수 있습니다.
-* `TARGET_ARCH` - `ia32` 또는 `x64`를 지정. 
+* `TARGET_ARCH` - `ia32` 또는 `x64`를 지정.
 
 1. Electron에 기여를 하는 기여자라면, *반드시* `script/upload.py`에서 포크를 위해 `ELECTRON_REPO`를 설정해야 합니다. (`MYORG/electron`)
 

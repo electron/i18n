@@ -22,7 +22,7 @@
 
 Затем предполагая, что Xcode 6.4 DMG был смонтирован в `/Volumes/Xcode` и установленый Xcode 8.2.1 находится в `/Applications/Xcode.app`, запустите:
 
-```bash
+```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
@@ -34,7 +34,7 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 
 ## Получение кода
 
-```bash
+```sh
 $ git clone https://github.com/electron/electron
 ```
 
@@ -42,7 +42,7 @@ $ git clone https://github.com/electron/electron
 
 Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Обратите внимание, что мы используем [ninja](https://ninja-build.org/) для сборки Electron, пока не создан проект Xcode.
 
-```bash
+```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
@@ -51,13 +51,13 @@ $ ./script/bootstrap.py -v
 
 Построить обе `Release` и `Debug` цели:
 
-```bash
+```sh
 $ ./script/build.py
 ```
 
 Вы можете построить только `Debug`:
 
-```bash
+```sh
 $ ./script/build.py -c D
 ```
 
@@ -71,13 +71,13 @@ $ ./script/build.py -c D
 
 Очистить файлы построения:
 
-```bash
+```sh
 $ npm run clean
 ```
 
 Для очистки только `out` и `dist` каталогов:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 

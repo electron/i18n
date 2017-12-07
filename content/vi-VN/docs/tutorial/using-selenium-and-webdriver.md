@@ -8,7 +8,7 @@ Từ [ChromeDriver - WebDriver dành cho Chrome](https://sites.google.com/a/chro
 
 [Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
-```bash
+```sh
 $ npm install --save-dev spectron
 ```
 
@@ -50,7 +50,7 @@ app.start().then(function () {
 
 First you need to download the `chromedriver` binary, and run it:
 
-```bash
+```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
 Starting ChromeDriver (v2.10.291558) on port 9515
@@ -61,7 +61,7 @@ Remember the port number `9515`, which will be used later
 
 ### 2. Install WebDriverJS
 
-```bash
+```sh
 $ npm install selenium-webdriver
 ```
 
@@ -104,7 +104,7 @@ driver.quit()
 
 First you need to download the `chromedriver` binary, and run it:
 
-```bash
+```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
 Starting ChromeDriver (v2.10.291558) on port 9515
@@ -115,7 +115,7 @@ Remember the port number `9515`, which will be used later
 
 ### 2. Install WebdriverIO
 
-```bash
+```sh
 $ npm install webdriverio
 ```
 

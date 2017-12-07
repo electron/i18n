@@ -5,10 +5,10 @@
 Electronのビルド済みバイナリを使用するためには、[`npm`](https://docs.npmjs.com/)を使用してください。 Electronをアプリでの開発用依存ファイルとして追加するのにおすすめの方法は：
 
 ```sh
-npm install electron --save-dev --save-exact
+npm install electron --save-dev
 ```
 
-Electronはセマッティックバージョニングに従っていないため、`--save-exact`を指定することをおすすめします。 アプリケーション中のElectronバージョンの管理についてお知りになりたいときは、[バージョンに関するドキュメント](https://electron.atom.io/docs/tutorial/electron-versioning/)をご覧ください。
+See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## グローバルインストール
 

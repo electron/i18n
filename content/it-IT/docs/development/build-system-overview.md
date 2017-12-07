@@ -25,7 +25,7 @@ By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the 
 
 If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
 
-```bash
+```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
@@ -46,19 +46,19 @@ This only affects developers, if you are just building Electron for rebranding y
 
 Test your changes conform to the project coding style using:
 
-```bash
+```sh
 $ npm run lint
 ```
 
 Test functionality using:
 
-```bash
+```sh
 $ npm test
 ```
 
 Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
 
-```bash
+```sh
 $ npm run build && npm test
 ```
 
@@ -80,6 +80,6 @@ Tests that include native modules (e.g. `runas`) can't be executed with the debu
 
 To run the tests with the release build use:
 
-```bash
+```sh
 $ npm test -- -R
 ```

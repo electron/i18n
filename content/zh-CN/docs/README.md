@@ -11,7 +11,7 @@
 * [术语表](glossary.md)
 * [支持的平台](tutorial/supported-platforms.md)
 * [安全](tutorial/security.md)
-* [Electron 版本管理](tutorial/electron-versioning.md)
+* [版本](tutorial/electron-versioning.md)
 * [应用程序的分发](tutorial/application-distribution.md)
 * [Mac App Store 应用程序提交指南](tutorial/mac-app-store-submission-guide.md)
 * [Windows 商店指南](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [离屏渲染](tutorial/offscreen-rendering.md)
 * [键盘快捷键](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## 教程
 

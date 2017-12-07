@@ -2,11 +2,11 @@
 
 ## Pourquoi ai-je des difficultés à installer Electron ?
 
-Lorsque vous exécutez `npm install electron`, certains utilisateurs rencontrent parfois des erreurs d'installation.
+When running `npm install electron`, some users occasionally encounter installation errors.
 
-Dans la plupart des cas, ces erreurs sont le résultat d'un problème de réseau et non un soucis avec le packet npm `electron`. Les erreurs comme `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` et `ETIMEDOUT` sont toutes des indications d'un problème de réseau. La meilleure solution est d'essayer de changer de réseau ou juste d'attendre un peu et de réessayer l'installation.
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
-Vous pouvez également essayer de télécharger Electron directement depuis [electron/electron/releases](https://github.com/electron/electron/releases) si l'installation via `npm` ne marche pas.
+You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
 ## Quand est-ce qu'Electron aura la dernière mise à jour de Chrome ?
 
@@ -110,9 +110,10 @@ delete window.module;
 
 Lorsque vous utilisez le module intégré d'Electron, vous pouvez obtenir une erreur comme celle-ci :
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-    
+```sh
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+```
 
 C'est parce que vous avez le [module npm`Electron`](https://www.npmjs.com/package/electron) installé localement ou en global, qui remplace le module intégré d'Electron.
 
@@ -124,12 +125,13 @@ console.log(require.resolve('electron'))
 
 et ensuite vérifier si elle est sous la forme suivante :
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-    
+```sh
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+```
 
 Si c'est quelque chose comme `node_modules/electron/index.js`, vous devrez retirer le module npm `Electron` ou le renommer.
 
-```bash
+```sh
 npm uninstall electron
 npm uninstall -g electron
 ```

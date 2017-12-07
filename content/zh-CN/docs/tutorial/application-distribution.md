@@ -63,24 +63,25 @@ electron/resources/
 
 一个改过名字的应用程序的构造可能是这样的：
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
-    
+```text
+MyApp.app/Contents
+├── Info.plist
+├── MacOS/
+│   └── MyApp
+└── Frameworks/
+    ├── MyApp Helper EH.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper EH
+    ├── MyApp Helper NP.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper NP
+    └── MyApp Helper.app
+        ├── Info.plist
+        └── MacOS/
+            └── MyApp Helper
+```
 
 ### Linux
 
@@ -110,10 +111,11 @@ electron/resources/
 
 2. 创建一个新的 S3 bucket 并按照以下结构创建文件夹：
     
-        - atom-shell/
-          - symbols/
-          - dist/
-        
+    ```sh
+- atom-shell/
+  - symbols/
+  - dist/
+```
 
 3. 设置以下环境变量：
 
@@ -123,7 +125,7 @@ electron/resources/
 * `CI` - 设置为 `true` ，否则无效
 * `GITHUB_TOKEN` - 设置为与 `ELECTRON_GITHUB_TOKEN` 相同
 * `SURF_TEMP` - 在 Windows 下设置为 `C:\Temp` 来防止路径太长的问题
-* `TARGET_ARCH` - 设置为 `ia32` 或 `x64` 
+* `TARGET_ARCH` - 设置为 `ia32` 或 `x64`
 
 1. 在 `script/upload.py`，你 *必须* 为你的分支(`MYORG/electron`)设置 `ELECTRON_REPO`， 尤其如果你本身是一个 Electron 贡献者。
 

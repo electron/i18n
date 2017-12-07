@@ -10,13 +10,13 @@ Steps to package your app into an `asar` archive:
 
 ### Cài đặt bộ Utility asar
 
-```bash
+```sh
 $ npm install -g asar
 ```
 
 ### 2. Đóng gói lại với `asar pack`
 
-```bash
+```sh
 $ asar pack your-app app.asar
 ```
 
@@ -30,7 +30,7 @@ With special patches in Electron, Node APIs like `fs.readFile` and `require` tre
 
 For example, suppose we have an `example.asar` archive under `/path/to`:
 
-```bash
+```sh
 $ asar list /path/to/example.asar
 /app.js
 /file.txt
@@ -140,7 +140,7 @@ As stated above, some Node APIs will unpack the file to filesystem when calling,
 
 To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
 
-```bash
+```sh
 $ asar pack app app.asar --unpack *.node
 ```
 

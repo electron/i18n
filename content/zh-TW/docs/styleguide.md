@@ -42,7 +42,7 @@ Electron 說明文件撰寫指導方針。
 
 ## Markdown 規則
 
-* 在程式碼區塊中使用 `bash` 而不是 `cmd` (以便語法上色)。
+* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * 一行長度以 80 個半形字元為限，超過請換行。
 * 縮排以兩階為限 (受限於 Markdown 畫面轉譯器)。
 * 所有的 `js` 及 `javascript` 程式碼區塊都由 [standard-markdown](http://npm.im/standard-markdown) lint 過。
@@ -60,7 +60,7 @@ The following rules only apply to the documentation of APIs.
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
-Under the page tile must be a one-line description starting with `>`.
+Under the page title must be a one-line description starting with `>`.
 
 Using `session` as example:
 
@@ -156,8 +156,9 @@ For example, the methods of the `Session` class under the `session` module must 
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-    required[, optional]
-    
+```sh
+required[, optional]
+```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
@@ -210,13 +211,4 @@ The arguments of an event follow the same rules as methods.
 
 ## 文件翻譯
 
-Electron 文件的翻譯放在 `docs-translations` 目錄裡。
-
-如果要新增別種語言:
-
-* 建立名稱為語言縮寫的子目錄。
-* 翻譯檔案。
-* 更新語言目錄中的 `README.md`，連結到你翻譯好的檔案去。
-* 在 Electron 主 [README](https://github.com/electron/electron#documentation-translations) 中加入連結，指到你翻譯的目錄。
-
-請注意，`docs-translations` 下請只放翻譯過的文件，不要將原文的檔案直接複製進去。
+See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)

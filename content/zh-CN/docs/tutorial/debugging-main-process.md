@@ -16,7 +16,7 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-就像 `--inspector` 一样，但是会在第一行暂停 JavaScript 脚本运行。
+Like `--inspect` but pauses execution on the first line of JavaScript.
 
 ## 外部调试器
 

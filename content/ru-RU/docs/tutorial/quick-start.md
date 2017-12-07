@@ -135,7 +135,7 @@ app.on('activate', () => {
 
 Если вы установили его глобально из `npm`, то вам лишь нужно запустить следующее в исходном каталоге вашего приложения:
 
-```bash
+```sh
 electron .
 ```
 
@@ -143,14 +143,21 @@ electron .
 
 #### macOS / Linux
 
-```bash
+```sh
 $ ./node_modules/.bin/electron .
 ```
 
 #### Windows
 
-    $ .\node_modules\.bin\electron .
-    
+```sh
+$ .\node_modules\.bin\electron .
+```
+
+#### Node v8.2.0 and later
+
+```sh
+$ npx electron .
+```
 
 ### Руководство скачивания Electron бинарников
 
@@ -158,20 +165,21 @@ $ ./node_modules/.bin/electron .
 
 #### macOS
 
-```bash
+```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 #### Linux
 
-```bash
+```sh
 $ ./electron/electron your-app/
 ```
 
 #### Windows
 
-    $ .\electron\electron.exe your-app\
-    
+```sh
+$ .\electron\electron.exe your-app\
+```
 
 `Electron.app` здесь является частью релиз пакета Electron, вы можете скачать его [тут](https://github.com/electron/electron/releases).
 
@@ -185,7 +193,7 @@ $ ./electron/electron your-app/
 
 **Примечание**: запуск этого требует [Git](https://git-scm.com) и [Node.js](https://nodejs.org/en/download/) (которая включает [npm](https://npmjs.org)) на вашей системе.
 
-```bash
+```sh
 # Clone the repository
 $ git clone https://github.com/electron/electron-quick-start
 # Go into the repository
@@ -196,4 +204,4 @@ $ npm install
 $ npm start
 ```
 
-Дополнительные примеры приложений см. в разделе [список шаблонов](https://electron.atom.io/community/#boilerplates) созданный удивительным сообществом Electron.
+For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.

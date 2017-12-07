@@ -135,7 +135,7 @@ Finally the `index.html` is the web page you want to show:
 
 `npm`을 통해 전역으로 일렉트론을 설치했다면, 앱의 소스가 있는 디렉토리에서 다음 명령을 실행하기만 하면 됩니다.
 
-```bash
+```sh
 electron .
 ```
 
@@ -143,14 +143,21 @@ electron .
 
 #### macOS / Linux
 
-```bash
+```sh
 $ ./node_modules/.bin/electron .
 ```
 
 #### Windows
 
-    .\node_modules\.bin\electron .
-    
+```sh
+.\node_modules\.bin\electron .
+```
+
+#### Node v8.2.0 and later
+
+```sh
+$ npx electron .
+```
 
 ### 일렉트론 바이너리를 수동으로 다운로드하기
 
@@ -158,20 +165,21 @@ $ ./node_modules/.bin/electron .
 
 #### macOS
 
-```bash
+```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
 #### Linux
 
-```bash
+```sh
 $ ./electron/electron your-app/
 ```
 
 #### Windows
 
-    $ .\electron\electron.exe your-app\
-    
+```sh
+$ .\electron\electron.exe your-app\
+```
 
 여기에 있는 `Electron.app` 은 일렉트론의 릴리즈 패키지의 부분으로서, [여기](https://github.com/electron/electron/releases)에서 다운로드할 수 있습니다.
 
@@ -185,7 +193,7 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
-```bash
+```sh
 # Clone the repository
 $ git clone https://github.com/electron/electron-quick-start
 # Go into the repository
@@ -196,4 +204,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.

@@ -63,24 +63,25 @@ Anda juga dapat mengubah nama helper app untuk menyembunyikan `Electron helper` 
 
 Struktur aplikasi yang diganti namanya akan jadi seperti:
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
-    
+```text
+MyApp.app/Contents
+├── Info.plist
+├── MacOS/
+│   └── MyApp
+└── Frameworks/
+    ├── MyApp Helper EH.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper EH
+    ├── MyApp Helper NP.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper NP
+    └── MyApp Helper.app
+        ├── Info.plist
+        └── MacOS/
+            └── MyApp Helper
+```
 
 ### Linux
 
@@ -110,10 +111,11 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 2. Buat bucket S3 baru dan buat struktur direktori kosong berikut:
     
-        - atom-shell/
-          - symbols/
-          - dist/
-        
+    ```sh
+- atom-shell/
+  - symbols/
+  - dist/
+```
 
 3. Tetapkan variabel lingkungan berikut:
 
@@ -123,7 +125,7 @@ You need to fork Electron when you have custom C++ code that you have patched di
 * `CI` - Atur ke `true` atau lainnya akan gagal
 * `GITHUB_TOKEN` - atur sama seperti `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - atur ke `C:\Temp` pada Windows untuk mencegah masalah terlalu panjang jalan
-* `TARGET_ARCH` - atur ke `ia32` atau `x64` 
+* `TARGET_ARCH` - atur ke `ia32` atau `x64`
 
 1. Di `script/upload.py`, anda *harus* mengatur `ELECTRON_REPO` ke Fork anda (`MYORG/electron`), terutama jika anda adalah seorang kontributor ke elektron yang tepat.
 

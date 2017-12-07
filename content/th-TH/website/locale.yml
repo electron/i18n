@@ -1,18 +1,18 @@
-tagline: 'สร้างแอปที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS'
+tagline: สร้างแอปที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS
 nav:
-  docs: 'เอกสาร'
-  blog: 'บล็อก'
-  community: 'ชุมชน'
-  apps: 'แอป'
+  docs: เอกสาร
+  blog: บล็อก
+  community: ชุมชน
+  apps: แอป
   userland: Userland
-  releases: 'การเผยแพร่'
-  contact: 'ติดต่อ'
+  releases: การเผยแพร่
+  contact: ติดต่อ
   languages: Languages
   code_of_conduct: Code of Conduct
 docs:
   title: Electron Documentation
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
-  guides: 'คู่มือ'
+  guides: คู่มือ
   api_reference: API Reference
   advanced: Advanced
 languages:
@@ -28,48 +28,48 @@ community:
   videos: Videos
   meetups: Meetups
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">make a pull request</a>.
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
-  title: 'ง่ายกว่าที่คุณคิด'
-  description: 'ถ้าคุณสร้างเว็บไซต์ได้ คุณก็สร้างเดสท็อปแอปได้ ซึ่ง Electron คือเฟรมเวิร์คสำหรับสร้างแอปด้วยเทคโนโลยีของเว็บไซต์ เช่น JavaScript, HTML และ CSS โดยที่เราจะจัดการส่วนที่ยากให้เอง คุณก็เพียงแต่เน้นไปที่ส่วนสำคัญของแอปของคุณเท่านั้น'
-  video_link: 'ชมวิดีโอ'
+  title: ง่ายกว่าที่คุณคิด
+  description: ถ้าคุณสร้างเว็บไซต์ได้ คุณก็สร้างเดสท็อปแอปได้ ซึ่ง Electron คือเฟรมเวิร์คสำหรับสร้างแอปด้วยเทคโนโลยีของเว็บไซต์ เช่น JavaScript, HTML และ CSS โดยที่เราจะจัดการส่วนที่ยากให้เอง คุณก็เพียงแต่เน้นไปที่ส่วนสำคัญของแอปของคุณเท่านั้น
+  video_link: ชมวิดีโอ
 web_technologies:
-  title: 'เทคโนโลยีเว็บ'
+  title: เทคโนโลยีเว็บ
   description: Electron ใช้ Chromium และ Node.js ดังนั้นคุณจึงสามารถสร้างแอปของคุณด้วย HTML, CSS และ JavaScript
 open_source:
-  title: 'โอเพ่นซอร์ส'
+  title: โอเพ่นซอร์ส
   description: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
-  title: 'ข้ามแพลตฟอร์ม'
-  description: 'เข้าได้กับ Mac, Windows และ Linux ซึ่ง ​Electron นี้สร้างและเรียกใช้งานผ่านสามแพลตฟอร์ม'
+  title: ข้ามแพลตฟอร์ม
+  description: เข้าได้กับ Mac, Windows และ Linux ซึ่ง ​Electron นี้สร้างและเรียกใช้งานผ่านสามแพลตฟอร์ม
 benefits:
-  hard_parts_made_easy: 'ทำให้ส่วนที่ยากง่ายขึ้น'
-  automatic_updates: 'อัพเดตอัตโนมัติ'
-  native_menus_and_notifications: 'เมนูและการแจ้งเตือนของระบบ'
-  crash_reporting: 'รายงานข้อผิดพลาด'
-  debugging_and_profiling: 'ตรวจแก้จุดบกพร่องและสร้างโพรไฟล์'
-  windows_installers: 'ตัวติดตั้ง Windows'
+  hard_parts_made_easy: ทำให้ส่วนที่ยากง่ายขึ้น
+  automatic_updates: อัพเดตอัตโนมัติ
+  native_menus_and_notifications: เมนูและการแจ้งเตือนของระบบ
+  crash_reporting: รายงานข้อผิดพลาด
+  debugging_and_profiling: ตรวจแก้จุดบกพร่องและสร้างโพรไฟล์
+  windows_installers: ตัวติดตั้ง Windows
 get_started:
-  title: 'เริ่มต้น'
-  description: 'เริ่มต้นกับ Electron ลองดูทรัพยากรด้านล่าง เรียนรู้วิธีหุ้มเว็บแอปด้วย Electron เข้าถึง API ทั้งหมด และสร้างตัวติดตั้ง'
+  title: เริ่มต้น
+  description: เริ่มต้นกับ Electron ลองดูทรัพยากรด้านล่าง เรียนรู้วิธีหุ้มเว็บแอปด้วย Electron เข้าถึง API ทั้งหมด และสร้างตัวติดตั้ง
 explore:
-  title: 'สำรวจ API ของ Electron'
+  title: สำรวจ API ของ Electron
   description:
     - <a href="https://github.com/electron/electron-api-demos">สาธิตการใช้งาน API ของ Electron</a>
-    - 'การสาธิตมีการโต้ตอบกับคุณสมบัติสำคัญๆ ของ Electron API'
-    - 'ลองดูความเป็นไปด้วยด้วย Electron ด้วยตัวอย่างโค้ดและเคล็ดลับที่เป็นประโยชน์สำหรับ'
-    - 'สร้างแอปของคุณ'
-download_from_github: 'ดาวน์โหลดจาก GitHub'
+    - การสาธิตมีการโต้ตอบกับคุณสมบัติสำคัญๆ ของ Electron API
+    - ลองดูความเป็นไปด้วยด้วย Electron ด้วยตัวอย่างโค้ดและเคล็ดลับที่เป็นประโยชน์สำหรับ
+    - สร้างแอปของคุณ
+download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: 'แอป Electron เล็กๆ น้อยๆ พร้อมความช่วยเหลือ'
-  clone: 'ดึงข้อมูลและแหล่งเก็บข้อมูลการใช้งานอย่างรวดเร็ว'
-  go_into_repo: 'ไปยังที่เก็บข้อมูล'
-  install_deps: 'ติดตั้งส่วนที่ต้องการและเรียกใช้'
+  description: แอป Electron เล็กๆ น้อยๆ พร้อมความช่วยเหลือ
+  clone: ดึงข้อมูลและแหล่งเก็บข้อมูลการใช้งานอย่างรวดเร็ว
+  go_into_repo: ไปยังที่เก็บข้อมูล
+  install_deps: ติดตั้งส่วนที่ต้องการและเรียกใช้
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
-  title: 'ต้องการความช่วยเหลือ'
+  title: ต้องการความช่วยเหลือ
   description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
   languages: Languages
@@ -85,13 +85,17 @@ footer:
   view_all_docs: View all docs on one page
   see_the_faq: See the frequently asked questions
 apps:
-  title: 'แอปที่สร้างขึ้นจาก Electron'
+  title: แอปที่สร้างขึ้นจาก Electron
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
-  view_more: 'ดูแอปเพิ่ม'
-  submit_your_own: 'ส่งของคุณเอง'
+  view_more: ดูแอปเพิ่ม
+  submit_your_own: ส่งของคุณเอง
   something_missing: Something missing?
   edit_this_app: Edit this app.
-or: 'หรือ'
+clipboard:
+  copy: Copy
+  copy_to_clipboard: Copy to Clipboard
+  copied: Copied
+or: หรือ
 pages:
   '/':
     title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
@@ -109,7 +113,7 @@ pages:
     title: API
     description: API reference documentation for the latest Electron release
   '/docs/development':
-    title: 'การพัฒนา'
+    title: การพัฒนา
     description: Developing with Electron
   '/docs/tutorial':
     title: Tutorial
@@ -118,11 +122,11 @@ pages:
     title: Electron Blog
     description: All the latest news from the Electron team and community.
   '/community':
-    title: 'ชุมชน'
+    title: ชุมชน
   '/releases':
     title: Releases
   '/contact':
-    title: 'ติดต่อ'
+    title: ติดต่อ
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: Languages

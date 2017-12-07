@@ -11,7 +11,7 @@
 * [用語集](glossary.md)
 * [サポートされているプラットフォーム](tutorial/supported-platforms.md)
 * [セキュリティ](tutorial/security.md)
-* [Electronのバージョン管理](tutorial/electron-versioning.md)
+* [バージョン管理](tutorial/electron-versioning.md)
 * [アプリケーションの配布](tutorial/application-distribution.md)
 * [Mac App Storeへの公開ガイド](tutorial/mac-app-store-submission-guide.md)
 * [Windowsストア ガイド](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
 * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## チュートリアル
 

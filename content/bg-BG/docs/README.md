@@ -11,7 +11,7 @@
 * [Речник на термините](glossary.md)
 * [Поддържани платформи](tutorial/supported-platforms.md)
 * [Сигурност](tutorial/security.md)
-* [Версии](tutorial/electron-versioning.md)
+* [Versioning](tutorial/electron-versioning.md)
 * [Разпространяване на разработените приложения](tutorial/application-distribution.md)
 * [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Уроци
 

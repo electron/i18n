@@ -40,6 +40,8 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+
 See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
@@ -58,9 +60,9 @@ See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
-## OSR
+### OSR
 
-오프-스크린 렌더링
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### process
 
@@ -80,7 +82,7 @@ See also: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel은 Electron 앱에 새로운 버전이 적용되면 자동으로 업데이트할 수 있도록 하는 오픈 소스 프레임워크입니다. Squirrel로 시작하기 위해 [autoUpdater](api/auto-updater.md) API 에서 정보를 살펴보세요.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
 ### userland
 
@@ -90,7 +92,7 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8은 Google의 오픈소스 자바스크립트 엔진입니다. 이것은 C++로 작성되었으며 구글 크롬에서 사용되고 있습니다. V8은 독립형으로 실행할 수 있으며 모든 C++ 응용프로그램에 임베디드 될 수 있습니다.
+V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 

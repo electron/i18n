@@ -5,7 +5,7 @@
 ## 빌드전 요구사양
 
 * Windows 7 / Server 2008 R2 또는 최신 버전
-* Visual Studio 2015 Update 3 - [VS 2015 커뮤니티 에디션 무료 다운로드](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -76,7 +76,7 @@ $ npm run clean
 
 `out`과 `dist` 폴더만 정리하려면:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 
@@ -100,19 +100,20 @@ Visual Studio가 업데이트까지 완벽하게 설치된 최신버전인지 �
 
 Cygwin에서 빌드 할 경우 `bootstrap.py` 스크립트가 다음의 에러와 함께 빌드에 실패할 수 있습니다:
 
-    Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-    
-    Traceback (most recent call last):
-      File "script/bootstrap.py", line 87, in <module>
-        sys.exit(main())
-      File "script/bootstrap.py", line 22, in main
-        update_node_modules('.')
-      File "script/bootstrap.py", line 56, in update_node_modules
-        execute([NPM, 'install'])
-      File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-        raise e
-    subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-    
+```sh
+Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
+
+Traceback (most recent call last):
+  File "script/bootstrap.py", line 87, in <module>
+    sys.exit(main())
+  File "script/bootstrap.py", line 22, in main
+    update_node_modules('.')
+  File "script/bootstrap.py", line 56, in update_node_modules
+    execute([NPM, 'install'])
+  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
+    raise e
+subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
+```
 
 이 버그는 Cygwin Python과 Win32 Node를 같이 사용할 때 발생합니다. 부트스트랩 스크립트에서 Win32 Python을 사용함으로써 이 문제를 해결할 수 있습니다. `C:\Python27` 디렉터리에 Python이 설치되었다는 가정하에 다음 명령을 실행하면 됩니다:
 

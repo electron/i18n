@@ -12,7 +12,7 @@ En définissant quelques variables d’environnement, vous pouvez utiliser `npm`
 
 Un exemple d'installation de toutes les dépendances pour Electron:
 
-```bash
+```sh
 # Version d'Electron.
 export npm_config_target=1.2.3
 # L'architecture d'Electron, peut être ia32 ou x64.
@@ -34,7 +34,7 @@ Vous pouvez également choisir d'installer des modules comme les autres projets 
 
 Un exemple d'installation d'`electron-rebuild` et de la recompilation des modules avec :
 
-```bash
+```sh
 npm install --save-dev electron-rebuild
 
 # À chaque fois que vous exécutez "npm install", exécutez :
@@ -48,7 +48,7 @@ npm install --save-dev electron-rebuild
 
 Si vous êtes un développeur développant un module natif et que vous voulez le tester avec Electron, vous pouvez recompiler le module pour Electron manuellement. Vous pouvez utiliser `node-gyp` directement pour compiler pour Electron:
 
-```bash
+```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
@@ -59,8 +59,8 @@ Le `HOME=~/.electron-gyp` indique où trouver les en-têtes pour le développeme
 
 Si vous avez installé un module natif et trouvé que cela ne fonctionnait pas, vous devez vérifier ces éléments suivants :
 
-* L'architecture du module doit correspondre à l'architecture d'Electron (ia32 ou x64).
-* Après avoir mise à jour Electron, vous devez habituellement recompiler les modules.
+* The architecture of the module has to match Electron's architecture (ia32 or x64).
+* After you upgrade Electron, you usually need to rebuild the modules.
 * En cas de doute, exécutez d'abord `electron-rebuild`.
 
 ## Les modules s'appuyant sur `prebuild`

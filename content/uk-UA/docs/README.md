@@ -11,7 +11,7 @@
 * [Словник Термінів](glossary.md)
 * [Підтримувані Платформи](tutorial/supported-platforms.md)
 * [Безпека](tutorial/security.md)
-* [Версії Electron](tutorial/electron-versioning.md)
+* [Versioning](tutorial/electron-versioning.md)
 * [Розповсюдження Програм](tutorial/application-distribution.md)
 * [Інструкція Додання в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Інструкція Додання в Windows Store](tutorial/windows-store-guide.md)
@@ -25,6 +25,7 @@
 * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
 * [Гарячі Клавіші](tutorial/keyboard-shortcuts.md)
+* [Updating Applications](tutorial/updates.md)
 
 ## Уроки
 

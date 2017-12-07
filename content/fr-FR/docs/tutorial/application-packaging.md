@@ -10,13 +10,13 @@ Une archive [asar](https://github.com/electron/asar) est un simple format d'arch
 
 ### 1. Installez l'utilitaire asar
 
-```bash
+```sh
 $ npm install -g asar
 ```
 
 ### Empaquetez avec `asar pack`
 
-```bash
+```sh
 $ asar pack votre-application app.asar
 ```
 
@@ -30,7 +30,7 @@ Avec les patchs spéciaux d'Electron, `fs.readFile` et `require` traite les arch
 
 Par exemple, supposons que nous ayons une archive `exemple.asar` dans `/chemin/vers` :
 
-```bash
+```sh
 $ asar list /chemin/vers/exemple.asar
 /app.js
 /file.txt
@@ -140,7 +140,7 @@ Comme indiqué ci-dessus, certaines APIs Node vont dépaqueter le fichier du sys
 
 Pour contourner ce problème, vous pouvez dépaqueter certains fichiers en créant des archives en utilisant l'option `--unpack`, un exemple d'exclusion des librairies partagées des modules natifs est :
 
-```bash
+```sh
 $ asar pack app app.asar --unpack *.node
 ```
 

@@ -63,24 +63,25 @@ electron/resources/
 
 Структура переименования app будет такая:
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
-    
+```text
+MyApp.app/Contents
+├── Info.plist
+├── MacOS/
+│   └── MyApp
+└── Frameworks/
+    ├── MyApp Helper EH.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper EH
+    ├── MyApp Helper NP.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper NP
+    └── MyApp Helper.app
+        ├── Info.plist
+        └── MacOS/
+            └── MyApp Helper
+```
 
 ### Linux
 
@@ -110,10 +111,11 @@ electron/resources/
 
 2. Создайте новый S3 bucket и создайте следующую структуру пустых каталогов:
     
-        - atom-shell/
-          - symbols/
-          - dist/
-        
+    ```sh
+- atom-shell/
+  - symbols/
+  - dist/
+```
 
 3. Установите следующие переменные среды:
 
@@ -123,7 +125,7 @@ electron/resources/
 * `CI` - установите в `true` или иначе произойдет сбой
 * `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - установите в `C:\Temp` на Windows для предотвращения проблем слишком длинного пути
-* `TARGET_ARCH` - установить в `ia32` или `x64` 
+* `TARGET_ARCH` - установить в `ia32` или `x64`
 
 1. В `script/upload.py`, вы *должны* установить `ELECTRON_REPO` к вашему форку (`MYORG/electron`), особенно если вы участник сопровождающий Electron.
 

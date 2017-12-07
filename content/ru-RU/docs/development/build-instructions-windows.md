@@ -5,7 +5,7 @@ Follow the guidelines below for building Electron on Windows.
 ## Prerequisites
 
 * Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -68,23 +68,23 @@ $ python script\bootstrap.py --msvs
 
 ## Cleaning
 
-To clean the build files:
+Очистить файлы построения:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Для очистки только `out` и `dist` каталогов:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
 
 ## Tests
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Смотрите [Build System Overview: Tests](build-system-overview.md#tests)
 
 ## Troubleshooting
 
@@ -100,19 +100,20 @@ Make sure you have the latest Visual Studio update installed.
 
 If building under Cygwin, you may see `bootstrap.py` failed with following error:
 
-    Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-    
-    Traceback (most recent call last):
-      File "script/bootstrap.py", line 87, in <module>
-        sys.exit(main())
-      File "script/bootstrap.py", line 22, in main
-        update_node_modules('.')
-      File "script/bootstrap.py", line 56, in update_node_modules
-        execute([NPM, 'install'])
-      File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-        raise e
-    subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-    
+```sh
+Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
+
+Traceback (most recent call last):
+  File "script/bootstrap.py", line 87, in <module>
+    sys.exit(main())
+  File "script/bootstrap.py", line 22, in main
+    update_node_modules('.')
+  File "script/bootstrap.py", line 56, in update_node_modules
+    execute([NPM, 'install'])
+  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
+    raise e
+subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
+```
 
 This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
 

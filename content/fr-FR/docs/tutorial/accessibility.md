@@ -6,9 +6,9 @@ La réalisation d'applications accessibles est importante et nous sommes heureux
 
 Les problèmes d’accessibilité dans les app Electron sont similaires à ceux des sites Web parce qu’ils sont tous deux en HTML. Avec les app Electron, toutefois, vous ne pouvez pas utilisez les ressources en ligne pour les vérifications de l'accessibilité parce que votre application n'est pas une URL.
 
-Ces nouvelles fonctionnalités apportent ces outils d’audit à votre application Electron. Vous pouvez choisir d’ajouter des vérifications à vos tests avec Spectron ou utilisez-les dans DevTools avec Devtron. Lire la suite pour un résumé des outils ou regardez notre [documentation sur l'accessibilité](https://electron.atom.io/docs/tutorial/accessibility) pour plus d’informations.
+Ces nouvelles fonctionnalités apportent ces outils d’audit à votre application Electron. Vous pouvez choisir d’ajouter des vérifications à vos tests avec Spectron ou utilisez-les dans DevTools avec Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
 
-### Spectron
+## Spectron
 
 Dans l’infrastructure de test Spectron, vous pouvez auditer maintenant chaque fenêtre et `<webview>`balise dans votre application. Par exemple :
 
@@ -22,7 +22,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 Vous pouvez en savoir plus sur cette fonctionnalité dans la [documentation de Spectron](https://github.com/electron/spectron#accessibility-testing).
 
-### Devtron
+## Devtron
 
 Dans Devtron, il y a un nouvel onglet accessibilité qui permet à une page dans votre application de vérification, de trier et de filtrer les résultats.
 
@@ -30,4 +30,33 @@ Dans Devtron, il y a un nouvel onglet accessibilité qui permet à une page dans
 
 Ces deux outils utilisent la bibliothèque [Outils d'accessibilité pour les développeurs](https://github.com/GoogleChrome/accessibility-developer-tools) faite par Google pour Chrome. Vous pouvez en apprendre davantage sur les règles d’audit accessibilité que cette bibliothèque utilise sur ce [wiki du référentiel](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-Si vous connaissez d’autres bons outils d'accessibilité pour Electrons, ajoutez-les à la [documentation de l’accessibilité](https://electron.atom.io/docs/tutorial/accessibility) avec une pull request.
+If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+
+## Enabling Accessibility
+
+Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+
+### Inside Application
+
+By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+
+### Assistive Technology
+
+Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+
+On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+
+```objc
+CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
+
++ (void)enableAccessibility:(BOOL)enable inElectronApplication:(NSRunningApplication *)app
+{
+    AXUIElementRef appRef = AXUIElementCreateApplication(app.processIdentifier);
+    if (appRef == nil)
+        return;
+
+    CFBooleanRef value = enable ? kCFBooleanTrue : kCFBooleanFalse;
+    AXUIElementSetAttributeValue(appRef, kAXManualAccessibility, value);
+    CFRelease(appRef);
+}
+```

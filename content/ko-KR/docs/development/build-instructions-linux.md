@@ -12,7 +12,7 @@
 
 Ubuntu를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
 
-```bash
+```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
@@ -22,7 +22,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
 
 RHEL / CentOS를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
 
-```bash
+```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
@@ -31,7 +31,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
 
 Fedora를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
 
-```bash
+```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
@@ -42,7 +42,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 ## 코드 가져오기
 
-```bash
+```sh
 $ git clone https://github.com/electron/electron
 ```
 
@@ -50,7 +50,7 @@ $ git clone https://github.com/electron/electron
 
 부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. 스크립트가 정상적으로 작동하기 위해선 Python 2.7.x 버전이 필요합니다. 다운로드 작업이 상당히 많은 시간을 소요할 것입니다. 참고로 Electron은 `ninja`를 빌드 툴체인으로 사용하므로 `Makefile`은 생성되지 않습니다.
 
-```bash
+```sh
 $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
@@ -59,52 +59,59 @@ $ ./script/bootstrap.py --verbose
 
 `arm` 아키텍쳐로 빌드 하려면 다음 의존성 라이브러리를 설치해야 합니다:
 
-```bash
+```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-그리고 `arm` 또는 `ia32`를 크로스 컴파일로 지정하여 `bootstrap.py` 스크립트의 `--target_arch` 파라미터로 넣을 수 있다.
+Similarly for `arm64`, install the following:
 
-```bash
+```sh
+$ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
+                       g++-aarch64-linux-gnu
+```
+
+And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+
+```sh
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
 ## 빌드하기
 
-`Release`와 `Debug` 두 타겟 모두 빌드 합니다:
+If you would like to build both `Release` and `Debug` targets:
 
-```bash
+```sh
 $ ./script/build.py
 ```
 
-이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. 이러한 문제가 발생하는 이유는 Release 타겟 바이너리가 디버그 심볼을 포함하기 때문입니다. 파일 크기를 줄이려면 `create-dist.py` 스크립트를 실행하세요:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
-```bash
+```sh
 $ ./script/create-dist.py
 ```
 
-이 스크립트는 매우 작은 배포판을 `dist` 디렉터리에 생성합니다. `create-dist.py` 스크립트를 실행한 이후부턴 1.3GB에 육박하는 공간을 차지하는 `out/R` 폴더의 바이너리는 삭제해도 됩니다.
+This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-또는 `Debug` 타겟만 빌드 할 수 있습니다:
+You can also build the `Debug` target only:
 
-```bash
+```sh
 $ ./script/build.py -c D
 ```
 
-빌드가 모두 끝나면 `out/D` 디렉터리에서 `electron` 디버그 바이너리를 찾을 수 있습니다.
+After building is done, you can find the `electron` debug binary under `out/D`.
 
 ## 정리하기
 
 빌드 파일들을 정리하려면:
 
-```bash
+```sh
 $ npm run clean
 ```
 
 `out`과 `dist` 폴더만 정리하려면:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 
@@ -114,9 +121,9 @@ $ npm run clean-build
 
 ### Libtinfo.so.5 동적 링크 라이브러리를 로드하는 도중 에러가 발생할 경우
 
-미리 빌드된 `clang`은 `libtinfo.so.5`로 링크를 시도합니다. 따라서 플랫폼에 따라 적당한 `libncurses` symlink를 추가하세요:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
-```bash
+```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
@@ -126,54 +133,57 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 고급 주제
 
-기본적인 빌드 구성은 가장 주력인 Linux 배포판에 초점이 맞춰져있으며, 특정 배포판이나 기기에 빌드할 계획이라면 다음 정보들이 도움이 될 것입니다.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### 로컬에서 `libchromiumcontent` 빌드하기
 
-미리 빌드된 `libchromiumcontent`를 사용하는 것을 피하기 위해, 로컬에 `libchromiumcontent`를 빌드할 수 있습니다. 그렇게 하기 위해선, 다음의 단계를 거쳐야 합니다. 1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)을 설치합니다. 2. [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)을 설치합니다. 3. 자식 서브 모듈을 가져옵니다.
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
-    bash
-      $ git submodule update --init --recursive 4. .gclient 구성 파일을 복사합니다.
+1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+3. Fetch the git submodules:
 
-    bash
-      $ cp vendor/libchromiumcontent/.gclient . 5. 
+```sh
+$ git submodule update --init --recursive
+```
 
-`--build_libchromiumcontent` 스위치를 `bootstrap.py` 스크립트에 추가합니다.
+1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
 
-    bash
-      $ ./script/bootstrap.py -v --build_libchromiumcontent
+```sh
+$ ./script/bootstrap.py -v --build_release_libcc
+```
 
-참고로 `shared_library` 구성은 기본적으로 빌드되어있지 않으며, 다음 모드를 사용하면 `Release` 버전의 Electron만 빌드할 수 있습니다:
+Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
 
-```bash
+```sh
 $ ./script/build.py -c R
 ```
 
 ### 다운로드된 `clang` 바이너리 대신 시스템의 `clang` 사용하기
 
-기본적으로 Electron은 Chromium 프로젝트에서 제공하는 미리 빌드된 [`clang`](https://clang.llvm.org/get_started.html) 바이너리를 통해 빌드됩니다. 만약 어떤 이유로 시스템에 설치된 `clang`을 사용하여 빌드하고 싶다면, `bootstrap.py`를 `--clang_dir=<path><path>` 스위치와 함께 실행함으로써 해결할 수 있습니다. 빌드 스크립트를 이 스위치와 함께 실행할 때 스크립트는 `<path><path>/bin/`와 같은 경로로 `clang` 바이너리를 찾습니다.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-예를 들어 `clang`을 `/user/local/bin/clang`에 설치했다면 다음과 같습니다:
+For example if you installed `clang` under `/user/local/bin/clang`:
 
-```bash
-$ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
+```sh
+$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
 ### `clang` 대신 다른 컴파일러 사용하기
 
-Electron을 `g++`과 같은 다른 컴파일러로 빌드하려면, 먼저 `--disable_clang` 스위치를 통해 `clang`을 비활성화 시켜야 하고, 필요하다면 `CC`와 `CXX` 환경 변수도 설정합니다.
+To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
-예를 들어 GCC 툴체인을 사용하여 빌드한다면 다음과 같습니다:
+For example building with GCC toolchain:
 
-```bash
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disable_clang
+```sh
+$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
 $ ./script/build.py -c R
 ```
 
 ### 환경 변수
 
-`CC`와 `CXX`와는 별개로, 빌드 구성을 변경하기 위해 다음 환경 변수들을 사용할 수 있습니다:
+Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -189,4 +199,4 @@ $ ./script/build.py -c R
 * `CXX_host`
 * `LDFLAGS`
 
-이 환경 변수는 `bootstrap.py` 스크립트를 실행할 때 설정되어야 하며, `build.py` 스크립트에선 작동하지 않습니다.
+The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.

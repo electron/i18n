@@ -8,7 +8,7 @@ Pero también hay diferencias fundamentales entre los dos proyectos que Electron
 
 **1. Entrada de Aplicación**
 
-En NW.js el punto de entrada principal de una aplicación es una página web. Especificar una dirección URL de la Página principal en `package.json` y se abre en una ventana de navegador como ventana principal de la aplicación.
+In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
 
 En Electron, el punto de entrada es un script de JavaScript. En lugar de proporcionar directamente una URL, manualmente se crea una ventana del navegador y se carga un archivo HTML utilizando la API. También necesita escuchar los eventos de ventana para decidir cuando salir de la aplicación.
 
@@ -26,6 +26,6 @@ En NW.js, la integración de Node en las páginas web requiere parches de Chromi
 
 Si es un usuario experimentado de NW.js, debe estar familiarizado con el concepto de contexto en Node y contexto de la web. Estos conceptos fueron inventados por cómo fue implementado NW.js.
 
-Mediante la función [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) de Node, Electron no introduce un nuevo contexto de JavaScript en páginas web.
+By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
 
 Nota: NW.js ha apoyado de manera opcional multi-contexto desde la versión 0.13.

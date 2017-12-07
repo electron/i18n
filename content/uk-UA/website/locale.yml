@@ -28,7 +28,7 @@ community:
   videos: Відео
   meetups: Зустрічі
   awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Чогось не вистачає? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
-  meetup_notice: Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml"> зробіть пул реквест</a>.
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
   title: Все простіше, ніж здається
   description: Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.
@@ -91,6 +91,10 @@ apps:
   submit_your_own: надішліть власний
   something_missing: Чогось не вистачає?
   edit_this_app: Відредагувати цю программу.
+clipboard:
+  copy: Copy
+  copy_to_clipboard: Copy to Clipboard
+  copied: Copied
 or: чи
 pages:
   '/':

@@ -38,6 +38,7 @@ Electron supporte uniquement un ensemble limité d'APIs `chrome.*`, donc certain
 * [Devtools Vue.js](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 * [Débogueur Cerebral](http://www.cerebraljs.com/documentation/the_debugger)
 * [Extension DevTools Redux](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
 ### Que dois-je faire si une extension DevTools ne fonctionne pas ?
 

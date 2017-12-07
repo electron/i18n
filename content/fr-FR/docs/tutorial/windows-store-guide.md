@@ -18,8 +18,9 @@ Pour compiler n’importe quelle app Electron existante, assurez-vous que vous a
 
 Ensuite, installez `electron-windows-store` CLI:
 
-    npm install -g electron-windows-store
-    
+```sh
+npm install -g electron-windows-store
+```
 
 ## Étape 1 : Empaqueter votre Application Electron
 
@@ -27,40 +28,42 @@ Empaquetez l’application à l’aide de [electron-packager](https://github.com
 
 La sortie devrait ressembler à peu près à ceci :
 
-    ├── Ghost.exe
-    ├── LICENSE 
-    ├── content_resources_200_percent.pak 
-    ├── content_shell.pak 
-    ├── d3dcompiler_47.dll 
-    ├── ffmpeg.dll 
-    ├── icudtl.dat 
-    ├── libEGL.dll 
-    ├── libGLESv2.dll
-    ├── locales
-    │   ├── am.pak
-    │   ├── ar.pak 
-    │   ├── [...] 
-    ├── natives_blob.bin 
-    ├── node.dll 
-    ├── resources 
-    │   ├── app 
-    │   └── atom.asar 
-    ├── snapshot_blob.bin 
-    ├── squirrel.exe 
-    └── ui_resources_200_percent.pak
-    
+```text
+├── Ghost.exe
+├── LICENSE 
+├── content_resources_200_percent.pak 
+├── content_shell.pak 
+├── d3dcompiler_47.dll 
+├── ffmpeg.dll 
+├── icudtl.dat 
+├── libEGL.dll 
+├── libGLESv2.dll
+├── locales
+│   ├── am.pak
+│   ├── ar.pak 
+│   ├── [...] 
+├── natives_blob.bin 
+├── node.dll 
+├── resources 
+│   ├── app 
+│   └── atom.asar 
+├── snapshot_blob.bin 
+├── squirrel.exe 
+└── ui_resources_200_percent.pak
+```
 
 ## Étape 2: Exécuter electron-windows-store
 
 Depuis un PowerShell élevé (exécuter le "en tant Administrateur"), exécutez `electron-windows-store` avec les paramètres requis, en mettant le dossier d'entrée, le dossier de sortie, le nom et la version de l'application, et confirmer que `node_modules` doit être aplati :
 
-    electron-windows-store `
-       --input-directory C:\myelectronapp `
-       --output-directory C:\output\myelectronapp `
-       --flatten true `
-       --package-version 1.0.0.0 `
-       --package-name myelectronapp
-    
+```powershell
+electron-windows-store `
+   --input-directory C:\myelectronapp `
+   --output-directory C:\output\myelectronapp `
+   --flatten true `
+   --package-version 1.0.0.0 `
+   --package-name myelectronapp
+```
 
 Une fois exécuté, l’outil se met au travail : il accepte votre app Electron comme entrée, et aplatit les `node_modules`. Ensuite, il archive votre application comme `app.zip`. En utilisant un installateur et un conteneur de Windows, l’outil crée un paquet AppX « élargi » - contenant le manifeste d’Application Windows (`AppXManifest.xml`) ainsi que le système de fichiers virtuel et le registre virtuel à l’intérieur de votre dossier de sortie.
 

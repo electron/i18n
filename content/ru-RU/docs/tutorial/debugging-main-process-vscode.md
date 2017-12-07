@@ -2,7 +2,7 @@
 
 ### 1. Откройте проект Electron в VSCode.
 
-```bash
+```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```

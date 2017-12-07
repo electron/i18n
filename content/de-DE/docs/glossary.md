@@ -10,7 +10,7 @@ Das ASAR-Format wurde primär für Performance-Vorteile unter Windows entwickelt
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Sie wurde mittlerweile in die Codebasis von Electron eingepflegt.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
 
 ### CRT
 
@@ -40,11 +40,13 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-Siehe auch: [process](#process), [renderer process](#renderer-process)
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+
+See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Abkürzung für Apples Mac App Store. Für Infromationen zum Einreichen deiner App zum MAS siehe [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### native modules
 
@@ -52,15 +54,15 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-Siehe auch: [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md).
+See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
-## OSR
+### OSR
 
-Offscreen Rendering.
+OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
 ### process
 
@@ -68,7 +70,7 @@ A process is an instance of a computer program that is being executed. Electron 
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
+See also: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
@@ -76,11 +78,11 @@ The renderer process is a browser window in your app. Unlike the main process, t
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-Siehe auch: [process](#process), [main process](#main-process)
+See also: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel ist ein Open-Source Framework, welches Electron Apps ermöglicht sich automatisch zu aktualisieren, wenn neue Versionen veröffentlicht werden. Siehe dir die [autoUpdater](api/auto-updater.md) API an für mehr Informationen wie du mit Squirrel startest.
+Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
 ### userland
 

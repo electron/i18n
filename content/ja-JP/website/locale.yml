@@ -28,7 +28,7 @@ community:
   videos: 動画
   meetups: ミートアップイベント
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.yml">プルリクエストを送信</a>してください。
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
   title: 想像以上に簡単です
   description: Webサイトを作成できる方なら、その調子でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分に集中し、面倒な部分はElectronにお任せください。
@@ -91,6 +91,10 @@ apps:
   submit_your_own: あなたのアプリを送信する
   something_missing: 何か見つかりませんか？
   edit_this_app: アプリを編集する
+clipboard:
+  copy: Copy
+  copy_to_clipboard: Copy to Clipboard
+  copied: Copied
 or: または
 pages:
   '/':

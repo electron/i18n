@@ -19,7 +19,7 @@ myNotification. => {
 ## ویندوز
 
 * در ویندوز ۱۰، اعلان ها (بدون دخالت) کار میکنند.
-* در ویندوز ۸.۱ و ویندوز ۸، نیاز است تا یک میانبر از برنامه شما توسط \[Application User Model ID\]\[app-user-model-id\], در صفحه شروع ایجاد شود. توجه داشته باشید، با این حال، برنامه شما نیاز نیست به صفحه شروع حتما دوخته شده باشد.
+* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. توجه داشته باشید، با این حال، برنامه شما نیاز نیست به صفحه شروع حتما دوخته شده باشد.
 * در ویندوز ۷، اعلان ها با یک شبیه سازی سفارشی مانند سیستم عامل های جدید کار می کند.
 
 در ویندوز ۸, حداکثر طول متن اعلان ها ۲۵۰ کاراکتر میباشد، با این حال تیم ویندوز توصیه می کند که طول متن شما بیش از ۲۰۰ کاراکتر نباشد. آنها گفته اند که این محدودیت به درخواست توسعه دهندگاند در ویندوز ۱۰ حذف گردیده است. به هر حال ارسال متن های عظیم (هزاران کاراکتر) توسط API میتواند باعث بی ثباتی در آن شود.
@@ -54,4 +54,4 @@ myNotification. => {
 
 ## لینوکس
 
-اعلان ها با استفاده از `libnotify` می توانند در محیط های دسکتاپ به دنبال \[Desktop Notifications Specification\]\[notification-spec\]، شامل ساینامون، یونیتی، گنوم و KDE نمایش یابند.
+Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.

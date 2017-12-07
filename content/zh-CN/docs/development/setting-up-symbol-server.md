@@ -10,13 +10,15 @@ Electron 使用的官方 symbol 服务器地址为 https://electron-symbols.gith
 
 Windbg symbol 路径被配制为一个限制带星号字符的字符串. 要只使用 Electron 的 symbol 服务器, 将下列记录添加到你的 symbol 路径 (**注意:** 如果你愿意使用一个不同的地点来下载 symbols，你可以在你的电脑中使用任何可写的目录来代替 `c:\code\symbols`):
 
-    SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-    
+```powershell
+SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+```
 
 使用 Windbg 菜单或通过输入 `.sympath` 命令，在环境中设置一个 `_NT_SYMBOL_PATH` 字符串. 如果你也想从微软的 symbol 服务器获得 symbols ，你应当首先将它们先列出来:
 
-    SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-    
+```powershell
+SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+```
 
 ## 在 Visual Studio 中使用 symbol 服务器
 
@@ -26,5 +28,7 @@ Windbg symbol 路径被配制为一个限制带星号字符的字符串. 要只�
 
 在 Windbg 中输入下列命令，来打印出为什么 symbols 没有加载:
 
-    > !sym noisy
-    > .reload /f electron.exe
+```powershell
+> !sym noisy
+> .reload /f electron.exe
+```

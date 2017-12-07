@@ -22,7 +22,7 @@ Oficialmente a compilação do Electron é feita pelo [Xcode 8.2.1](http://adcdo
 
 Então, supondo que o Xcode 6.4 MG tenha sido executado no caminho `/Volumes/Xcode` e que o Xcode 8.2.1 esteja instalado no `/Applications/Xcode.app`, execute:
 
-```bash
+```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
@@ -34,7 +34,7 @@ Você também precisará habilitar o Xcode para compilar junto com 10.10 SDK:
 
 ## Obtendo o código fonte
 
-```bash
+```sh
 $ git clone https://github.com/electron/electron
 ```
 
@@ -42,7 +42,7 @@ $ git clone https://github.com/electron/electron
 
 O script de inicialização irá baixar todas as dependências necessárias e criar a compilação do projeto. Observe que nós usamos o [ninja](https://ninja-build.org/) para compilar o Electron, mas não existe nenhum projeto Xcode gerado.
 
-```bash
+```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
@@ -51,13 +51,13 @@ $ ./script/bootstrap.py -v
 
 Compilar `Release` e `Debug`:
 
-```bash
+```sh
 $ ./script/build.py
 ```
 
 Você pode também compilar somente o `Debug`:
 
-```bash
+```sh
 $ ./script/build.py -c D
 ```
 
@@ -71,13 +71,13 @@ Electron pode somente compilar para 64bit no macOS, não existe nenhum plano par
 
 Para excluir os arquivos de compilação:
 
-```bash
+```sh
 $ npm run clean
 ```
 
 Para excluir somente os diretórios `out` e `dist`:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 

@@ -5,7 +5,7 @@
 ## 基本要求
 
 * Windows 7 / Server 2008 R2 或更高
-* Visual Studio 2015 Update 3 - [下载免费的 VS 2015 Community Edition ](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
+* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -76,7 +76,7 @@ $ npm run clean
 
 清理 `out` 和 `dist` 目录:
 
-```bash
+```sh
 $ npm run clean-build
 ```
 
@@ -100,19 +100,20 @@ $ npm run clean-build
 
 如果在 Cygwin 下构建的，你可能会看到 `bootstrap.py` 失败并且附带下面错误:
 
-    Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-    
-    Traceback (most recent call last):
-      File "script/bootstrap.py", line 87, in <module>
-        sys.exit(main())
-      File "script/bootstrap.py", line 22, in main
-        update_node_modules('.')
-      File "script/bootstrap.py", line 56, in update_node_modules
-        execute([NPM, 'install'])
-      File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-        raise e
-    subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-    
+```sh
+Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
+
+Traceback (most recent call last):
+  File "script/bootstrap.py", line 87, in <module>
+    sys.exit(main())
+  File "script/bootstrap.py", line 22, in main
+    update_node_modules('.')
+  File "script/bootstrap.py", line 56, in update_node_modules
+    execute([NPM, 'install'])
+  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
+    raise e
+subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
+```
 
 这是由同时使用 Cygwin Python 和 Win32 Node 造成的 bug. 解决办法就是使用 Win32 Python 执行 bootstrap 脚本 (假定你已经在目录 `C:\Python27` 下安装了 Python):
 

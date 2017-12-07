@@ -1,10 +1,10 @@
 # 关于 Electron
 
-[Electron](https://electron.atom.io)是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org)合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux应用来实现这一目的。
+[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron通过将[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org)合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux应用来实现这一目的。
 
 Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)文本编译器的框架。这两个项目在2014春季开源。
 
-目前它已成为开源开发者、初创企业和老牌公司常用的开发工具。[ 看看谁在使用Electron ](https://electron.atom.io/apps/)。
+It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
 继续往下读可以了解一下Electron的贡献者们和已经发布的版本，或者开始在[快速开始指引](quick-start.md)里用Electron来构建应用。
 
@@ -26,31 +26,33 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 ### 版本
 
-因为对Node.js和Chromium有很强的依赖性，Electron所发行的版本[不遵循`semver`](http://semver.org) 因此你需要经常参考Electron的特定版本。 [了解更多关于Electron版本](https://electron.atom.io/docs/tutorial/electron-versioning/)或者看看[当前所用版本](https://electron.atom.io/#electron-versions)。
+As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+
+The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
 ### 长期支持
 
-当前并不存在对Electron旧版本的长期支持。 如果你当前的Electron版本跑的不错，你可以停留在这版本上任意时长。 如果你想用发布的新特性，那就升级到更新的版本。
+Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
-版本`v1.0.0`发布了重大的更新。 如果你现在没有在用这个版本，你应该[了解更多关于`v1.0.0`的改变](https://electron.atom.io/blog/2016/05/11/electron-1-0)。
+A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
 ## 核心理念
 
-为了保持Electron的小 (文件体积) 和可持续性 (依赖和API的扩展) ，Electron限制了使用的核心项目的范围。
+In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
-比如Electron只用了Chromium的渲染库而不是全部。 这使得容易升级Chromium，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
+For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
 
-Electron所添加的的新特性应主要用于原生API。 如果一个特性能够成为一个Node.js模块，那它就应该成为。 参见[社区构建的Electron工具](https://electron.atom.io/community)。
+New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
 ## 历史
 
-下面是 Electron 发展历程中的里程碑。
+Below are milestones in Electron's history.
 
-| :calendar:  | :tada:                                                                                                      |
-| ----------- | ----------------------------------------------------------------------------------------------------------- |
-| **2013年4月** | [Atom Shell 项目启动](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45)。    |
-| **2014年5月** | [Atom Shell 被开源](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)。                              |
-| **2015年4月** | [Atom Shell 被重命名为 Electron](https://github.com/electron/electron/pull/1389)。                                |
-| **2016年5月** | [Electron 发布了 `v1.0.0` 版本](https://electron.atom.io/blog/2016/05/11/electron-1-0)。                          |
-| **2016年5月** | [Electron 构建的应用程序可上架 Mac App Store](https://electron.atom.io/docs/tutorial/mac-app-store-submission-guide)。 |
-| **2016年8月** | [Windows Store 支持 Electron 构建的应用程序](https://electron.atom.io/docs/tutorial/windows-store-guide)。            |
+| :calendar:  | :tada:                                                                                                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| **2013年4月** | [Atom Shell 项目启动](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45)。            |
+| **2014年5月** | [Atom Shell 被开源](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)。                                      |
+| **2015年4月** | [Atom Shell 被重命名为 Electron](https://github.com/electron/electron/pull/1389)。                                        |
+| **2016年5月** | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
+| **2016年5月** | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
+| **2016年8月** | [Windows Store support for Electron apps](https://electronjs.org/docs/tutorial/windows-store-guide).                |

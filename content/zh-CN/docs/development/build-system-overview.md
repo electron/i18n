@@ -25,7 +25,7 @@ Electron 使用 [gyp](https://gyp.gsrc.io/) 来生成项目, 使用 [ninja](http
 
 如果只是想快速搭建一个 Electron 的测试或开发环境，可以通过 `--dev` 参数只下载共享版本的库:
 
-```bash
+```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
@@ -46,19 +46,19 @@ $ ./script/build.py -c D
 
 使用以下方式测试你的修改符合项目编码风格：
 
-```bash
+```sh
 $ npm run lint
 ```
 
 测试功能使用：
 
-```bash
+```sh
 $ npm test
 ```
 
 每当您更改Electron源代码时，都需要在测试之前重新运行构建：
 
-```bash
+```sh
 $ npm run build && npm test
 ```
 
@@ -80,6 +80,6 @@ $ npm test -- --grep child_process
 
 要使用发行构建来运行测试：
 
-```bash
+```sh
 $ npm test -- -R
 ```
