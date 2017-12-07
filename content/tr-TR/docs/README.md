@@ -1,21 +1,21 @@
 Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
-## FAQ
+## SSS
 
 There are questions that are asked quite often. Check this out before creating an issue:
 
-* [Electron FAQ](faq.md)
+* [Electron SSS](faq.md)
 
-## Guides
+## Kılavuzlar
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
+* [Terimler Sözlüğü](glossary.md)
+* [Desteklenen Platformlar](tutorial/supported-platforms.md)
+* [Güvenlik](tutorial/security.md)
+* [Sürüm](tutorial/electron-versioning.md)
+* [Uygulama Dağıtımı](tutorial/application-distribution.md)
+* [Mac App Store'a Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md)
+* [Windows Uygulama Mağazası'na Gönderme Kılavuzu](tutorial/windows-store-guide.md)
+* [Uygulama Paketleme](tutorial/application-packaging.md)
 * [Using Native Node Modules](tutorial/using-native-node-modules.md)
 * [Debugging Main Process](tutorial/debugging-main-process.md)
 * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
