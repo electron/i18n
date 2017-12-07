@@ -50,7 +50,7 @@
 
 ### โมดูลสำหรับกระบวนการหลัก:
 
-* [แอพ](api/app.md)
+* [app](api/app.md)
 * [ตัวอัพเดทอัตโนมัติ](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
