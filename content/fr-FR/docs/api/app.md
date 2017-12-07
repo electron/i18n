@@ -384,7 +384,7 @@ Returns `String` - The version of the loaded application. If no version is found
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Retourne `String` - Le nom de l'application, qui est écrit dans le fichier `package.json` .
 
 Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
@@ -741,7 +741,7 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* `value` String - L'argument à ajouter à la ligne de commande
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
