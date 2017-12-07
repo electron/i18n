@@ -153,7 +153,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+注意默认情况下不会以 `shared_library` 方式编译, 所以你如果使用以下模式的话, 只能编译 Electron的 `Release` 版本:
 
 ```sh
 $ ./script/build.py -c R
@@ -163,7 +163,7 @@ $ ./script/build.py -c R
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+假设你的 `clang` 安装路径为 `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
@@ -172,9 +172,9 @@ $ ./script/build.py -c R
 
 ### 使用 `clang` 之外的其它编译器
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+要使用其他编译器 如: `g++` 编译 Electron, 首先需要使用参数 `--disable_clang` 禁用 `clang`, 然后设置 `CC` 及 `CXX` 环境变量.
 
-For example building with GCC toolchain:
+假设使用 GCC 工具链:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### 环境变量
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+除了 `CC` 及 `CXX`, 你还可以设置以下环境变量来自定义编译配置:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +199,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+以上环境变量需要在执行 `bootstrap.py` 前设置, 在执行 `build.py` 的时候再设置将无效.
