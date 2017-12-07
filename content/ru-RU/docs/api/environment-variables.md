@@ -40,23 +40,23 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+Начинает процесс как Node.js процесс.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+Не присоединяться к текущей сессии терминала.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
 Не использовать глобальное меню в Linux.
 
-## Development Variables
+## Переменные разработки (development)
 
-The following environment variables are intended primarily for development and debugging purposes.
+Следующие переменные окружения предназначены для использования в среде выполнения приложения Electron во время разработки и отладки.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Выводит внутренние логи Chrome в консоль.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
