@@ -1,6 +1,6 @@
 # webContents
 
-> Render and control web pages.
+> Render và control các trang web.
 
 Quá trình: [Main](../glossary.md#main-process)
 
@@ -936,11 +936,11 @@ Removes the specified path from DevTools workspace.
 * `options` Object (optional) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Mở devtools.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Đóng devtools.
 
 #### `contents.isDevToolsOpened()`
 
@@ -977,7 +977,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// In the main process.
+// Trong main process.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
