@@ -9,12 +9,12 @@ The `shell` module provides functions related to desktop integration.
 An example of opening a URL in the user's default browser:
 
 ```javascript
-const {shell} = require('electron')
+onst {shell} = require('electron')
 
 shell.openExternal('https://github.com')
 ```
 
-## 메소드
+## 메서드
 
 The `shell` module has the following methods:
 
