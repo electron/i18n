@@ -6,7 +6,7 @@
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
-## Events
+## 이벤트
 
 ### Event: 'loaded'
 
@@ -97,8 +97,8 @@ Returns `Object`:
 
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `privateBytes` Integer - JS힙 또는 HTML컨텐츠와 같은 다른 프로세스에서 공유되지 않는 메모리 양입니다.
+* `sharedBytes` Integer - 프로세스 간에 공유되는 메모리 프로세스, 일반적으로 일렉트론 Electron 자체에 의해 소비되는 메모리.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
