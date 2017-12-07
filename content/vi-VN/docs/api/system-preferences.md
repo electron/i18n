@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> Lấy thông tin tùy chọn của hệ thống.
 
 Quá trình: [Main](../glossary.md#main-process)
 
