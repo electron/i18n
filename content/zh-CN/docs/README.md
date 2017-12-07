@@ -78,7 +78,7 @@
 
 ### 在两种进程中都可用的模块:
 
-* [clipboard](api/clipboard.md)
+* [剪贴板](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [screen](api/screen.md)
