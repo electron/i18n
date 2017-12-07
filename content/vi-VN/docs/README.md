@@ -4,7 +4,7 @@ Hãy chắc chắn rằng bạn sử dụng các tài liệu phù hợp với ph
 
 Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dưới trước khi tạo một issue:
 
-* [Danh sách các câu hỏi hay gặp của Electron](faq.md)
+* [Electron FAQ (các câu hỏi thường gặp)](faq.md)
 
 ## Các hướng dẫn
 
@@ -15,13 +15,13 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Phân phối ứng dụng](tutorial/application-distribution.md)
 * [Bộ hướng dẫn cho Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Bộ hướng dẫn cho Windows Store](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
+* [Đóng góp ứng dụng](tutorial/application-packaging.md)
 * [Sử dụng các Module Native của Node](tutorial/using-native-node-modules.md)
 * [Debug cho Main Process](tutorial/debugging-main-process.md)
 * [Sử dụng Selenium và WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [Phần mở rộng DevTools](tutorial/devtools-extension.md)
 * [Việc sử dụng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Việc sử dụng Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Sử dụng Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Các phím tắt](tutorial/keyboard-shortcuts.md)
