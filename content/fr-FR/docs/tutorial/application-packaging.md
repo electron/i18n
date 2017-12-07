@@ -65,7 +65,7 @@ Vous pouvez également afficher une page web se trouvant dans une archive `asar`
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('file:///chemin/vers/exemple.asar/static/index.html')
+win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
 ### Web API
