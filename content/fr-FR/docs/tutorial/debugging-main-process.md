@@ -16,7 +16,7 @@ electron --inspect=5858 votre/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Comme `--inspect` mais interrompt l'exécution sur la première ligne de Javascript.
 
 ## Déboggueurs externes
 
