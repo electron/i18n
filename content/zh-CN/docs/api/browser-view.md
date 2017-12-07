@@ -8,7 +8,7 @@
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-## Example
+## 例子
 
 ```javascript
 // 在主进程.
@@ -34,7 +34,7 @@ view.webContents.loadURL('https://electron.atom.io')
 * `options` Object (可选) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
-### Static Methods
+### 静态方法
 
 #### `BrowserView.fromId(id)`
 
@@ -54,7 +54,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### 实例方法
 
 Objects created with `new BrowserView` have the following instance methods:
 
@@ -66,7 +66,7 @@ Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setBounds(bounds)` *Experimental*
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* ` bounds`[ 矩形 ](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
