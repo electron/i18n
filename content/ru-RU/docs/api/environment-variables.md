@@ -2,7 +2,7 @@
 
 > Управляй настройкой приложения и его поведением без изменения кода.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Некоторые поведения Electron управляются переменными окружения, потому что они инициализируются раньше, чем флаги командной строки и код приложения.
 
 Пример терминала POSIX:
 
@@ -56,20 +56,20 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Выводит внутренние логи Chrome в консоль.
+Выводит логи Chrome в консоль.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Когда Electron читает ASAR файл, логирует путь к файлу и смещение чтения (read offset) в системную временную папку `tmpdir`. Результирующий файл может быть предоставлен модулю ASAR, чтобы оптимизировать порядок файлов.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Выводит содержимое стэка в консоль при сбое Electron приложения.
 
-This environment variable will not work if the `crashReporter` is started.
+Данная переменная окружения не будет работать, если `crashReporter` запущен.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Показывает диалог сбоя Windows при сбое Electron приложения.
 
-This environment variable will not work if the `crashReporter` is started.
+Данная переменная окружения не будет работать, если `crashReporter` запущен.
