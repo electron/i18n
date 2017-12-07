@@ -6,7 +6,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 
 * [Electron FAQ](faq.md)
 
-## Návody
+## Průvodce
 
 * [Slovníček pojmů](glossary.md)
 * [Podporované platformy](tutorial/supported-platforms.md)
