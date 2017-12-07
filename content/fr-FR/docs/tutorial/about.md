@@ -1,6 +1,6 @@
 # A propos d'Electron
 
-[Electron](https://electronjs.org) est une librairie open source développé par GitHub pour créer des applications desktop multi-plateformes avec HTML, CSS et JavaScript. C'est en combinant [Chromium](https://www.chromium.org/Home) et [Node.js](https://nodejs.org) en un seul runtime qu'Electron accomplit cette tâche. Ainsi les applications peuvent être empaquetées pour Mac, Windows et Linux.
+[Electron](https://electronjs.org) est une librairie open source développé par GitHub pour créer des applications desktop cross-platform avec HTML, CSS et JavaScript. C'est en combinant [Chromium](https://www.chromium.org/Home) et [Node.js](https://nodejs.org) en un seul runtime qu'Electron accomplit cette tâche. Ainsi les applications peuvent être empaquetées pour Mac, Windows et Linux.
 
 Electron débute en 2013 en tant que framework sur lequel [Atom](https://atom.io), l'éditeur de texte de GitHub, se base. Depuis, les deux ont été mis en open source au Printemps 2014.
 
@@ -12,7 +12,7 @@ Lire la suite pour en savoir plus sur les contributeurs et les releases d'Electr
 
 Électrons est maintenu par une équipe à GitHub ainsi qu’un groupe de [contributeurs actifs](https://github.com/electron/electron/graphs/contributors) de la communauté. Certains des contributeurs sont individuels et d'autres travaillent dans de grandes entreprises qui développe sur Electron. Nous sommes heureux d'ajouter des contributeurs actifs au projet comme mainteneurs. En savoir plus pour [contribuer à Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## Mise à jour
+## Versions
 
 [Electron est mis à jour](https://github.com/electron/electron/releases) régulièrement. Nous mettons à jour lors d'importantes corrections de bugs, de nouvelles APIs ou lors d'une mise à jour de Chromium ou Node.js.
 
@@ -34,11 +34,11 @@ Le processus de mise à jour de version est explicitement détaillé dans notre 
 
 Le support à long terme pour les anciennes versions d'Electron n'existe pas actuellement. Si votre version d'Electron fonctionne pour vous, vous pouvez y rester dessus aussi longtemps que vous le désirez. Si vous voulez utiliser de nouvelles fonctionnalités, vous devrez alors mettre à jour votre projet vers une version plus récente.
 
-Une mise à jour majeure est venu avec la version `v1.0.0`. Si vous n’utilisez pas encore cette version, vous devriez [lire plus en détails sur les modifications de la `v1.0.0`](https://electronjs.org/blog/electron-1-0).
+Une mise à jour majeure est venu avec la version `v1.0.0`. Si vous n’utilisez pas encore cette version, vous devriez [en savoir plus sur les modifications de la `v1.0.0`](https://electronjs.org/blog/electron-1-0).
 
 ## Notre Philosophie
 
-Afin de garder Electron léger (taille des fichiers) et durable (la propagation des dépendances et APIs), le projet se limite au scope du projet core.
+Afin de garder Electron léger (taille des fichiers) et durable (la propagation des dépendances et APIs), le projet se limite au scope du projet mère.
 
 Par exemple, Electron utilise seulement la bibliothèque de rendu de Chromium plutôt qu'utiliser l'ensemble de Chromium. Cela permet de mettre à jour Chromium plus facilement, mais cela veut aussi dire que certaines fonctionnalités de Google Chrome n'existe pas dans Electron.
 
