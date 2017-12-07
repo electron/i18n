@@ -28,7 +28,7 @@ community:
   videos: Video
   meetups: Meetups
   awesome_notice: 'Danh sách này được tạo ra từ repository: <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron của @sindresorhus</a>. <br>Thấy thiếu cái gì đó? Hãy <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">tạo một pull request để thêm vào</a>.'
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: Để thêm một meetup, chỉnh sửa <code>data/meetups.json</code> và sau đó <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">tạo một pull request</a>.
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
   description: Nếu bạn có thể xây dựng một website thì bạn có thể xây dựng ứng dụng trên desktop. Electron là một framework cho việc tạo ra các ứng dụng đó chỉ với công nghệ xây dựng web, giống như HTML, CSS và Javascript. Nó sẽ lo về các phần cứng dùm bạn, việc của bạn chỉ cần làm là tập trung tinh thành vào lập trình ứng dụng của bạn.
@@ -62,7 +62,7 @@ explore:
 download_from_github: Tải về từ Github
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
 quick_start:
-  title: "Trở về ứng dụng <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> để xem cách Electron hoạt động:"
+  title: "Trở về ứng dụng <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> để xem các Electron hoạt động:"
   description: Một ứng dụng Electron nhỏ hữu ích.
   clone: Clone lại source của Quick Start
   go_into_repo: Đi tới kho source code
@@ -86,7 +86,7 @@ footer:
   see_the_faq: Xem các câu hỏi thường gặp
 apps:
   title: Các ứng dụng được xây dựng từ Electron
-  description: Với Electron, tạo ra một ứng dụng desktop cho công ty hoặc các ý tưởng của bạn thật đơn giản. Ban đầu, Electron được phát triển cho trình soạn thảo <a href='https://atom.io' target='_blank'>Atom</a> của Github, sau đó, Electron đã được sử dụng rộng rãi để tạo ra các ứng dụng của các công ty như Microsoft, Facebook, Slack và Docker.
+  description: Với Electron, tạo ra một ứng dụng desktop cho công ty hoặc các ý tưởng của bạn thật đơn giản. Ban đầu, Electron được phát triển cho ứng dụng <a href='https://atom.io' target='_blank'>Atom (trình soạn thảo)</a> của Github, sau đó, Electron đã được sử dụng rộng rãi để tạo ra các ứng dụng của các công ty như Microsoft, Facebook, Slack và Docker.
   view_more: Xem thêm các ứng dụng khác
   submit_your_own: gửi lên ứng dụng của bạn
   something_missing: Một cái gì đó thiếu?
