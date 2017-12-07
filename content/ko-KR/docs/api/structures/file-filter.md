@@ -1,4 +1,4 @@
 # 파일 필터 개체
 
-* `name` String
+* PrinterInfo Object
 * `extensions` String[]
