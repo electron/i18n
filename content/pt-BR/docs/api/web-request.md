@@ -28,7 +28,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Instance Methods
+### Métodos de Instância
 
 The following methods are available on instances of `WebRequest`:
 
@@ -36,15 +36,15 @@ The following methods are available on instances of `WebRequest`:
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Função 
   * `details` Object 
-    * `id` Integer
+    * `id` Inteiro
     * `url` String
     * `method` String
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Função 
     * `response` Object 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -64,13 +64,13 @@ The `callback` has to be called with an `response` object.
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Object 
-  * `id` Integer
+  * `id` Inteiro
   * `url` String
   * `method` String
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
-* `callback` Function 
+* `callback` Função 
   * `response` Object 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
@@ -81,9 +81,9 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Função 
   * `details` Object 
-    * `id` Integer
+    * `id` Inteiro
     * `url` String
     * `method` String
     * `resourceType` String
@@ -109,7 +109,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
-* `callback` Function 
+* `callback` Função 
   * `response` Object 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
@@ -121,9 +121,9 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Função 
   * `details` Object 
-    * `id` Integer
+    * `id` Inteiro
     * `url` String
     * `method` String
     * `resourceType` String
@@ -139,7 +139,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Função 
   * `details` Object 
     * `id` String
     * `url` String
@@ -158,9 +158,9 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Função 
   * `details` Object 
-    * `id` Integer
+    * `id` Inteiro
     * `url` String
     * `method` String
     * `resourceType` String
@@ -176,9 +176,9 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Função 
   * `details` Object 
-    * `id` Integer
+    * `id` Inteiro
     * `url` String
     * `method` String
     * `resourceType` String
