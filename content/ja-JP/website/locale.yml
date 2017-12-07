@@ -4,7 +4,7 @@ nav:
   blog: ブログ
   community: コミュニティ
   apps: アプリ
-  userland: Userland
+  userland: ユーザーランド (userland)
   releases: リリース
   contact: お問い合わせ
   languages: 言語
@@ -27,8 +27,8 @@ community:
   components: コンポーネント
   videos: 動画
   meetups: ミートアップイベント
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: ミートアップイベントの情報をこのページに追加するには、<code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
+  awesome_notice: このリストは <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus による Awesome Electron リポジトリ </a> から生成されています。<br>もし不足しているものがあれば、<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">プルリクエストにてお知らせください</a>。
+  meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
 electron_is_easy:
   title: 想像以上に簡単です
   description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
@@ -38,7 +38,7 @@ web_technologies:
   description: Electron は ChromiumとNode.jsを利用しているため、HTML, CSS, JavaScriptを利用してアプリを開発することができます。
 open_source:
   title: オープンソース
-  description: ElectronはGitHub社と活発なコミュニティメンバーによってメンテナンスされているオープンソースプロジェクトです。
+  description: Electron は GitHubおよび活発なボランティアのコミュニティによってメンテナンスされるオープンソースプロジェクトです。
 cross_platform:
   title: クロスプラットフォーム
   description: Mac, Windows, Linuxに対応。Electronアプリは3つのプラットフォームでビルド・動作します。
@@ -62,7 +62,7 @@ explore:
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
-  title: "Electronを<a href='https://github.com/electron/electron-quick-start' target='_blank'>クイックスタート</a>アプリで体験してみましょう"
+  title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> アプリで実際に動く Electron を見てみましょう\n \nContext | Request Context\n"
   description: 最低限の機能と親切な解説コード
   clone: Quick Start リポジトリを clone する
   go_into_repo: リポジトリに移動
@@ -86,7 +86,7 @@ footer:
   see_the_faq: よくある質問（FAQ）
 apps:
   title: Electronで開発されたアプリ
-  description: Electron を使えば、業務を改善したりアイデアを達成したりするためのデスクトップアプリを容易に開発できます。当初、 Electron は GitHub の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されました。現在は Microsoft や Facebook, Slack, Docker といった企業によるアプリ開発でも採用されています。
+  description: Electron を使えば、業務やアイデアを達成するためにデスクトップアプリを開発することは容易になります。当初、 Electron は GitHub の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されました。現在は Microsoft や Facebook, Slack, Docker といった企業のアプリ開発にも使用されています。
   view_more: もっとアプリを見る
   submit_your_own: あなたのアプリを送信する
   something_missing: 何か見つかりませんか？
@@ -131,7 +131,7 @@ pages:
   '/languages':
     title: 言語
   '/userland':
-    title: Userland
+    title: ユーザーランド (userland)
   '/devtron':
     title: Devtron
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
