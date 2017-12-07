@@ -16,7 +16,7 @@ let contents = win.webContents
 console.log(contents)
 ```
 
-## Methods
+## Metody
 
 These methods can be accessed from the `webContents` module:
 
