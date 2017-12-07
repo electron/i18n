@@ -6,7 +6,7 @@ Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)
 
 It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
-继续往下读可以了解一下Electron的贡献者们和已经发布的版本，或者开始在[快速开始指引](quick-start.md)里用Electron来构建应用。
+继续往下读可以了解Electron的贡献者们和已经发布的版本，或者直接阅读[快速开始指引](quick-start.md)来着手用Electron来构建应用。
 
 ## 核心团队和贡献者
 
@@ -14,19 +14,19 @@ Electron由Github上的一支团队和一群[活跃的贡献者](https://github.
 
 ## 版本发布
 
-Electron[发行版本](https://github.com/electron/electron/releases)相当频繁。每当有重要的bug修复，新API或是有Chromium、Node.js的更新时我们就会发行。
+Electron的[版本发布](https://github.com/electron/electron/releases)相当频繁。每当Chromium、Node.js有重要的bug修复，新API或是版本更新时我们就会发布新版本。
 
 ### 更新依赖
 
 Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一到两周之内更新，具体时间根据升级所需的工作量而定。
 
-为了版本的稳定，Electron通常会在Node.js发布了新版本的一个月后在更新。
+为了使版本更加稳定，Electron通常会在Node.js发布了新版本的一个月之后在更新。
 
 在Electron里，Node.js和Chromium共享同一个V8实例--通常是Chromium在用的版本。大多数情况下这能*正常工作*但有时候需要修补Node.js。
 
 ### 版本
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+从版本2.0开始Electron会 [ 遵循 ` semver ` 标准](http://semver.org)。 For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
