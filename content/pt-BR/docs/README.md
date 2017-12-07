@@ -14,7 +14,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Controle de Versão](tutorial/electron-versioning.md)
 * [Distribuição de Aplicativos](tutorial/application-distribution.md)
 * [Guia para Mac App Store](tutorial/mac-app-store-submission-guide.md)
-* [Guia para Windows Store](tutorial/windows-store-guide.md)
+* [Guia para a Windows Store](tutorial/windows-store-guide.md)
 * [Empacotamento de Aplicativos](tutorial/application-packaging.md)
 * [Usando Módulos Nativos do Node](tutorial/using-native-node-modules.md)
 * [Processo Principal de Depuração](tutorial/debugging-main-process.md)
@@ -44,13 +44,13 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 ### Elementos de DOM Personalizado:
 
-* [`File` Object](api/file-object.md)
+* [Objeto `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Função](api/window-open.md)
+* [Função `window.open`](api/window-open.md)
 
 ### Módulos para o Processo Principal:
 
-* [aplicativo](api/app.md)
+* [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -87,7 +87,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 ## Desenvolvimento
 
 * [Estilo de Codificação](development/coding-style.md)
-* [Usando clang-format em Código C++](development/clang-format.md)
+* [Usando clang-format em código C++](development/clang-format.md)
 * [Estrutura de Diretório do Código Fonte](development/source-code-directory-structure.md)
 * [Diferentes Técnicas para o NW.js (formalmente node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Construir Resumo do Sistema](development/build-system-overview.md)
