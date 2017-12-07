@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Linux.
 
-## Prerequisites
+## Vorrausetzungen
 
 * At least 25GB disk space and 8GB RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
@@ -88,7 +88,7 @@ $./script/build.py
 This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
-$ ./script/create-dist.py
+$./script/create-dist.py
 ```
 
 This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
