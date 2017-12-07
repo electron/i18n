@@ -18,7 +18,7 @@
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### 实例属性
 
 The following properties are available on instances of `TouchBarScrubber`:
 
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. 可选值
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
