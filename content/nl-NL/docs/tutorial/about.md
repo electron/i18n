@@ -1,10 +1,10 @@
 # Over Electron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron bereikt dit door [Chromium](https://www.chromium.org/Home) te combineren met [Node.js](https://nodejs.org) tot een enkele runtime en apps kunnen verpakt worden voor Mac, Windows en Linux.
+[Electron](https://electronjs.org) is een open source bibliotheek ontwikkeld door GitHub voor het bouwen van cross-platform bureaublad applicaties met HTML, CSS en JavaScript. Electron bereikt dit door [Chromium](https://www.chromium.org/Home) te combineren met [Node.js](https://nodejs.org) tot een enkele runtime en apps kunnen verpakt worden voor Mac, Windows en Linux.
 
 Electron is in 2013 begonnen als het kader waarop [Atom](https://atom.io), GitHub's hackbare teksteditor, gebouwd zou worden. De twee waren open sourced in het voorjaar van 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Sindsdien is het een populaire tool geworden dat gebruikt wordt door open source ontwikkelaars, starters, en gevestigde bedrijven. [Bekijk wie er op Electron bouwt](https://electronjs.org/apps).
 
 Lees verder voor meer informatie over de bijdragers en releases van Electron of start het bouwen met Electron in de [Quick Start Guide](quick-start.md).
 
@@ -32,21 +32,21 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Lange termijn support van oudere versies van Electron bestaat momenteel niet. Als je huidige versie van Electron voor jou werkt, kun je er op blijven zolang je wilt. Als je gebruik wilt maken van nieuwe features wanneer deze beschikbaar zijn, moet je upgraden naar een nieuwere versie.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Er kwam een grote update met versie `v1.0.0`. Als je deze versie nog niet gebruikt, moet je [meer lezen over de `v1.0.0` wijzigingen](https://electronjs.org/blog/electron-1-0).
 
 ## Kern filosofie
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Om Electron klein te houden (bestandsgrootte) en onderhoudbaar (de spreiding van afhankelijkheden en API's) houdt het project het werkterrein van de het kernproject gelimiteerd.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Bijvoorbeeld, Electron gebruikt alleen de rendering bibliotheek van Chromium in plaats van alles van Chromium. Dit zorgt ervoor dat het makkelijker is Chromium te upgraden, maar betekent ook dat sommige browser features van Google Chrome niet bestaan in Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Nieuwe features toegevoegd door Electron moeten voornamelijk systeemeigen API's zijn. Als een feature zijn eigen Node.js module kan zijn, moet dit waarschijnlijk ook zo zijn. Bekijk de [Electron tools gebouwd door de gemeenschap](https://electronjs.org/community).
 
 ## Geschiedenis
 
-Below are milestones in Electron's history.
+Hieronder zijn mijlpalen in de geschiedenis van Electron.
 
 | :calendar:      | :tada:                                                                                                              |
 | --------------- | ------------------------------------------------------------------------------------------------------------------- |
