@@ -40,14 +40,14 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## Edificio
 
 Build both `Release` and `Debug` targets:
 
@@ -67,7 +67,7 @@ After building is done, you can find `Electron.app` under `out/D`.
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
-## Cleaning
+## Limpieza
 
 To clean the build files:
 
@@ -85,4 +85,4 @@ $ npm run clean-build
 
 ## Tests
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
