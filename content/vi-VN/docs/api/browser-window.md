@@ -5,7 +5,7 @@
 Quá trình: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// Trong main process.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -509,11 +509,11 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Focus lên cửa sổ.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Ngừng focus cửa sổ đó.
 
 #### `win.isFocused()`
 
@@ -533,7 +533,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Ẩn cửa sổ.
 
 #### `win.isVisible()`
 
@@ -549,7 +549,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Unmaximizes cửa sổ.
 
 #### `win.isMaximized()`
 
@@ -1012,7 +1012,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Thay đổi biểu tượng cửa sổ.
 
 #### `win.setAutoHideMenuBar(hide)`
 
