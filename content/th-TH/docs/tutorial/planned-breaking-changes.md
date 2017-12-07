@@ -74,7 +74,7 @@ crashReporter.start({
 })
 ```
 
-## `menu`
+## `เมนู`
 
 ```js
 // Deprecated
