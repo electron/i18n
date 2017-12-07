@@ -49,23 +49,23 @@ npm run prepare-release -- --stable
 
 ## Attendre pendant la compilation :hourglass_flowing_sand:
 
-The presence of the word [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) in the commit message created by the `bump-version` script will [trigger the release process](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
+La présence du mot [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) dans le message du commit est réalisée par le script `bump-version` qui va [déclencher le processus de versionnage](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
 
-To monitor the build progress, see the following pages:
+Pour surveiller la progression de la compilation, allez voir les pages suivantes :
 
 - [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) for Mac
-- [circleci.com/gh/electron](https://circleci.com/gh/electron) for Linux
+- [circleci.com/gh/electron](https://circleci.com/gh/electron) pour Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
 
-## Notes de publication
+## Compiler les notes de publication
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Écrire une note de publication est un bon moyen de vous tenir occupé pendant que la compilation se fasse. Pour avoir un modèle, vous pouvez voir les publications existantes sur [la page des publications](https://github.com/electron/electron/releases).
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - Pour voir la version de Chromium, V8 et Node dans chaque version d'Electron, voir [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Versions patch
 
-For a `patch` release, use the following format:
+Pour une version `patch`, utilisez le format suivant :
 
 ```sh
 ## Bug Fixes
@@ -85,7 +85,7 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### Versions mineures
 
 For a `minor` release, e.g. `1.8.0`, use this format:
 
@@ -152,12 +152,12 @@ Please file new issues for any bugs you find in it.
 This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
-## Modifier la version draft
+## Modifier le projet de communiqué
 
 1. Visitez [la page de parutions](https://github.com/electron/electron/releases) et vous verrez un nouveau projet de version avec les notes de publication.
 2. Modifiez la version et ajouter des notes de publication.
 3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Cliquez sur 'Save draft'. **Ne cliquez pas sur 'Publish release' !**
+4. Cliquez sur 'Save draft'. **Ne pas cliquer sur 'Publish release'!**
 5. Attendez que toutes les compilations sont passées avant de continuer.
 6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
 
@@ -177,7 +177,7 @@ npm run merge-release -- master
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## Publier la release
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
