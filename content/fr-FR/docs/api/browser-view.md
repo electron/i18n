@@ -11,7 +11,7 @@ Un `BrowserView` peut être utilisé pour intégrer des contenus web supplément
 ## Exemple
 
 ```javascript
-// Dans le processus principal.
+// Dans le processus main.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -48,7 +48,7 @@ Les objets créés avec `new BrowserView` ont les propriétés suivantes :
 
 #### `view.webContents` *Experimental*
 
-Un objet [`WebContents`](web-contents.md) appartenant à cette vue.
+Un objet [`WebContents`](web-contents.md) appartient à cette vue.
 
 #### `view.id` *Experimental*
 
@@ -61,8 +61,8 @@ Les objets créés avec `new BrowserView` ont les méthodes d’instance suivant
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - Si `true`, la largeur de la vue augmentera et rétrécira avec la fenêtre. `false` par défaut.
-  * `height` Boolean - Si `true`, la hauteur de la vue augmentera et rétrécira avec la fenêtre. `false` par défaut.
+  * `width` Boolean - Si `true`, la largeur de la vue va se redimensionner pour être de la même largeur que la fenêtre. `false` par défaut.
+  * `height` Boolean - Si `true`, la hauteur de la vue va se redimensionner pour être de la même hauteur que la fenêtre. `false` par défaut.
 
 #### `view.setBounds(bounds)` *Experimental*
 
