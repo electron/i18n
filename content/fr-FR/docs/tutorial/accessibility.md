@@ -30,7 +30,7 @@ Dans Devtron, il y a un nouvel onglet accessibilité qui permet à une page dans
 
 Ces deux outils utilisent la bibliothèque [Outils d'accessibilité pour les développeurs](https://github.com/GoogleChrome/accessibility-developer-tools) faite par Google pour Chrome. Vous pouvez en apprendre davantage sur les règles d’audit accessibilité que cette bibliothèque utilise sur ce [wiki du référentiel](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+Si vous connaissez d’autres bons outils d'accessibilité pour Electrons, ajoutez-les à la [documentation de l’accessibilité](https://electronjs.org/docs/tutorial/accessibility) avec une pull request.
 
 ## Enabling Accessibility
 
