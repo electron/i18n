@@ -8,7 +8,7 @@ Pour installer les binaires précompilés d'Electron, utilisez [`npm`](https://d
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Voir la [documentation de versionnement d'Electron](electron-versioning.md) pour plus d'informations sur la façon de gérer les versions d'Electron dans vos applications.
 
 ## Installation global
 
