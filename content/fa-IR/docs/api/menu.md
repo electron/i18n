@@ -2,13 +2,13 @@
 
 > Create native application menus and context menus.
 
-Process: [Main](../glossary.md#main-process)
+فرآیند: [اصلی](../glossary.md#main-process)
 
 ### `new Menu()`
 
 Creates a new menu.
 
-### Static Methods
+### روش های ایستا
 
 The `menu` class has the following static methods:
 
