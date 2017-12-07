@@ -134,11 +134,11 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron เป็นเครื่องมือโอเพนซอร์ซ ที่จะช่วยคุณตรวจสอบ, มอนิเตอร์ และ ดิบัค แอปอิเล็กตรอนของคุณ สร้างขึ้นด้วยเครื่องมือสุดยอดเครื่องมือ Chrome Developer Tools
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron เป็นโอเพนซอร์ซเฟรมเวิร์ก ที่ใช้งานในการเขียนทดสอบแอป อิเล็กตรอนของคุณ สร้างขึ้นโดยบน ChromeDriver และ WebDriverIO
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
+  page_not_found: ไม่พบหน้าที่ต้องการ
+  if_this_is_an_error: หากนี้เป็นข้อผิดพลาด
   please_file_an_issue: please file an issue.
