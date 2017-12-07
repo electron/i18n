@@ -60,7 +60,7 @@ const constraints = {
 }
 ```
 
-## Methods
+## Métodos
 
 The `desktopCapturer` module has the following methods:
 
