@@ -6,13 +6,13 @@ Electron hỗ trợ [Chrome DevTools Extension](https://developer.chrome.com/ext
 
 Tài liệu này mô tả quá trình nạp một phần mở rộng (extension) một cách thủ công. Bạn cũng có thể thử [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), một công cụ của bên thứ 3 giúp tải các phần mở rộng trực tiếp từ Chrome WebStore.
 
-Để nạp một phần mở rộng vào Electron, bạn cần tải nó bằng Chrome, xác định đường dẫn file, và sau đó nạp bằng cách gọi API `BrowserWindow.addDevToolsExtension(extension)`.
+Để nạp một phần mở rộng trong Electron, bạn cần tải nó bằng Chrome, xác định đường dẫn file, và sau đó nạp bằng cách gọi API `BrowserWindow.addDevToolsExtension(extension)`.
 
 Ví dụ như [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
 
 1. Cài đặt nó trên trình duyệt Chrome.
 2. Điều hướng đến `chrome://extensions`, và tìm thấy ID của phần mở rộng đó, là một chuỗi băm giống như `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
+3. Tìm đường dẫn file được Chrome sử dụng để lưu các phần mở rộng: 
     * trên Windows nó là `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * trên Linux nó sẽ là: 
         * `~/.config/google-chrome/Default/Extensions/`
