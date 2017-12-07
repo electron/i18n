@@ -10,23 +10,23 @@ You can also attempt to download Electron directly from [electron/electron/relea
 
 ## Electronはいつ最新版のChromeにアップグレードされるのですか？
 
-Electronに含まれるChromiumのバージョンは、通常、新しいChromiumの安定バージョンがリリースされた後、1～2週間以内に更新されます。 ただし、この期間内に必ずアップデートされるとは保証されていませんし、要する期間はバージョンアップでの作業量に左右されます。
+Electronに含まれるChromiumのバージョンは、通常、新しいChromiumの安定バージョンがリリースされた後、1～2週間以内に上げられます。 ただし、この期間というのは保障されてはおらず、またバージョンアップでの作業量に左右されます。
 
-また、Chromiumのstableチャンネルのみを使用します。もし重要な修正がbetaまたはdevチャンネルにある場合、それをバックポートします。
+また、Chromiumのstableチャンネルのみを使用し、もし、重要な修正がbetaまたはdevチャンネルにある場合、それをバックポートします。
 
 より詳しく知りたい場合は、[セキュリティについて](tutorial/security.md)をご参照ください。
 
 ## Electronはいつ最新版のNode.jsにアップグレードされるのですか？
 
-Electronに含まれるNode.jsのバージョンは、通常、新しいNode.jsがリリースされた後、1ヶ月ほどで更新されます。 そのため、Node.js の新しいリリースでよく発生するバグによる影響を避けることが可能です。
+Node.js の新しいバージョンがリリースされたあと、Electron の Node.js を更新するのを通常約1か月待ちます。 それにより、とても頻繁に発生している、新しい Node.js バージョンによるバグによる影響を避けることができます。
 
-通常、Node.js の新しい機能は V8 のアップグレードによってもたらされますが、Electron は Chromiumに搭載されている V8 を使用しています。そのため、新しく Node.js に追加された JavaScript の機能は Electron ではたいてい既に導入されています。
+通常、Node.js の新しい機能は V8 のアップグレードによってもたらされますが、Electron は Chromiumに搭載されている V8 を使用しているので、新しい Node.js に入ったばかりのピカピカに新しい JavaScript 機能は Electron ではたいてい既に導入されています。
 
 ## ウェブページ間のデータを共有する方法は?
 
-ウェブページ（レンダラープロセス）間のデータを共有するために最も単純な方法は、ブラウザですでに提供されているHTML5 APIを使用することです。 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)などを活用すると便利でしょう。
+ウェブページ（レンダラープロセス）間のデータを共有するために最も単純な方法は、ブラウザですでに提供されているHTML5 APIを使用することです。 良い候補として、[Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)があります。
 
-もしくは、IPC(プロセス間通信) を使用することも出来ます。これはElectron特有の機能で、メインプロセスのグローバル変数としてオブジェクトを保存してレンダラプロセスから`electron`モジュールの`remote`プロパティを通じてアクセスすることが出来ます。
+もしくは、IPC(プロセス間通信) を使用することも出来ます。これはElectron特有の機能で、メインプロセスの広域変数としてオブジェクトを保存してレンダラプロセスから`electron`モジュールの`remote`プロパティを通じてアクセスすることが出来ます。
 
 ```javascript
 // メインプロセス内
@@ -54,7 +54,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 * [メモリ管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [変数スコープ](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-もし簡単に修正したい場合は、コード内の
+もし簡単に修正したい場合は、コードを以下のように修正して変数をグローバルにすると良いでしょう：
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-という部分を以下のように修正して、変数をグローバルに宣言すると良いでしょう。
+を、こう変更します：
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -77,9 +77,9 @@ app.on('ready', () => {
 
 ## jQuery/RequireJS/Meteor/AngularJSがElectronで使えません
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Electronに組み込まれているNode.jsの影響で、`module`, `exports`, `require`のようなシンボルがDOMに追加されています。 このため、いくつかのライブラリでは同名のシンボルを追加しようとして問題が発生することがあります。
 
-To solve this, you can turn off node integration in Electron:
+これを解決するために、Electronなnode integrationを無効にすることができます。
 
 ```javascript
 // メインプロセス内
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+しかし、Node.jsとElectron APIを使用した機能を維持したい場合は、ほかのライブラリを読み込む前に、ページのシンボルをリネームする必要があります。
 
 ```html
 <head>
@@ -116,15 +116,15 @@ Electronの組み込みモジュールを使うとに、次のようなエラー
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+これは、ローカルまたはグローバルのどちらかで[npm `electron` module](https://www.npmjs.com/package/electron)をインストールしたことが原因で、Electronの組み込みモジュールを上書きしてしまいます。
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+正しい組み込みモジュールを使用しているかを確認するために、`electron`モジュールのパスを出力します。
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+そして、次のような形式になっているかどうかを確認します。
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
@@ -137,4 +137,4 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. たとえば、 `electron.app`はメインプロセスでのみ利用でき、また `electron.webFrame`はレンダラプロセスでのみ利用できます。
+しかし、組み込みモジュールを使用しているのに、まだこのエラーが出る場合、不適切なプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、 `electron.app`はメインプロセスでのみ利用でき、また `electron.webFrame`はレンダラプロセスでのみ利用できます。
