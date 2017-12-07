@@ -50,11 +50,11 @@ electron/resources/
 
 ### Windows
 
-你可以将 `electron.exe` 改成任意你喜欢的名字，然后可以使用像 [rcedit](https://github.com/atom/rcedit) 编辑它的 icon 和其他信息。
+你可以将 `electron.exe` 重命名为任何你喜欢的名字，然后可以使用像 [rcedit](https://github.com/atom/rcedit) 那样的工具编辑它的 icon 和其他信息。
 
 ### macOS
 
-你可以将 `Electron.app` 改成任意你喜欢的名字，然后你也需要修改这些文件中的 `CFBundleDisplayName`， `CFBundleIdentifier` 以及 `CFBundleName` 字段。 这些文件如下：
+你可以将 `Electron.app` 重命名为任意你喜欢的名字，然后你也需要将一些文件中的 `CFBundleDisplayName`， `CFBundleIdentifier` 以及 `CFBundleName` 字段一并修改掉。 这些文件如下：
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
