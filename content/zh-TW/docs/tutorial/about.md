@@ -26,23 +26,23 @@ Electron 中的 Node.js 跟 Chromium 共用同一份 V8，通常是 Chromium 用
 
 ### 版號規則
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Electron 2.0 版開始[遵照 `semver` 規範](http://semver.org)。 對大多數使用 npm 的應用程式而言，執行 `$ npm install electron` 就可以了。
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+詳細的版本升級流程請參考[版號規則文件](electron-versioning.md)。
 
 ### 長期支援
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+目前並沒有舊版 Electron 的長期支援方案。 如果你目前這一版 Electron 用起來沒什麼問題，你可以一路繼續用下去。 如果你想要用新版提供的功能，你應該升到新一點的版本。
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+`1.0.0` 版帶來了幾項重大更新。 如果你還沒使用到這一版，應該先[瞭解 `1.0.0` 版變更事項](https://electronjs.org/blog/electron-1-0)。
 
 ## 核心理念
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+為了保持 Electron 的精巧 (檔案大小) 及永續性 (相依套件及 API 擴展)，我們限縮了核心專案的範圍。
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+例如，Electron 只用了 Chromium 中的畫面轉譯程式庫，而不是將整個 Chromium 整進來。 這使得升級 Chromium 更容易，但相對的也代表 Electron 可能會少了某些 Google Chrome 中有的功能。
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+新增進 Electron 中的功能主要都是原生 API。 如果一個功能可以獨立成為 Node.js 模組，就該這樣做。 請參閱[由社群打造的 Electron 工具](https://electronjs.org/community)。
 
 ## 歷史
 
