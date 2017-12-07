@@ -1,4 +1,4 @@
-# Instructions de Build (Linux)
+# Instructions de compilation (Linux)
 
 Suivez les indications ci-dessous pour compiler Electron sur Linux.
 
@@ -64,7 +64,7 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                         g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+De même pour `arm64`, installez ce qui suit :
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
@@ -137,7 +137,7 @@ La configuration par défaut de compilation cible la majorité des distributions
 
 ### Compiler `libchromiumcontent` localement
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Pour éviter d’utiliser les binaires précompilés de `libchromiumcontent`, vous pouvez compiler `libchromiumcontent` localement. Pour ce faire, procédez comme suit :
 
 1. Installez [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Installez [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -147,7 +147,7 @@ To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `lib
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. Passez le paramètre `--build_release_libcc` au script `bootstrap.py` :
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
