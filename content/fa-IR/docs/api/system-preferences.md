@@ -2,7 +2,7 @@
 
 > Get system preferences.
 
-Process: [Main](../glossary.md#main-process)
+فرآیند: [اصلی](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
