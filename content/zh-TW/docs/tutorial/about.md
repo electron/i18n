@@ -51,7 +51,7 @@ Electron 2.0 版開始[遵照 `semver` 規範](http://semver.org)。 對大多�
 | :calendar:     | :tada:                                                                                                 |
 | -------------- | ------------------------------------------------------------------------------------------------------ |
 | **2013 年 4 月** | [Atom Shell 啟動](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45)。 |
-| **2013 年 5 月** | [Atom Shell 原始碼公開](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)。                       |
+| **2014 年 5 月** | [Atom Shell 原始碼公開](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)。                       |
 | **2015 年 4 月** | [Atom Shell 改名為 Electron](https://github.com/electron/electron/pull/1389)。                             |
 | **2016 年 5 月** | [Electron 發佈 `1.0.0` 版](https://electronjs.org/blog/electron-1-0)。                                     |
 | **2016 年 5 月** | [Electron 應用程式相容 Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide)。  |
