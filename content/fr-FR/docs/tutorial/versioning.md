@@ -1,4 +1,4 @@
-# Versionnement d'Electron
+# Versioning d'Electron
 
 > A detailed look at our versioning policy and implementation.
 
