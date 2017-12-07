@@ -18,7 +18,7 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Apple Disk Image là một định dạng đóng gói được sử dụng bởi macOS. Tập tin DMG thường được sử dụng để phân phối ứng dụng "installers". [electron-builder](https://github.com/electron-userland/electron-builder) hỗ trợ `dmg` như một build target.
 
 ### IME
 
@@ -42,11 +42,11 @@ Every app's main process file is specified in the `main` property in `package.js
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Xem thêm: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Viết tắt của Apple's Mac App Store Để biết thêm chi tiết về cách gửi ứng dụng của bạn tới MAS, xem tại: [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### các module native
 
@@ -54,7 +54,7 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -70,21 +70,21 @@ A process is an instance of a computer program that is being executed. Electron 
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Xem thêm: [process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Renderer process là một cửa sổ trình duyệt trong ứng dụng của bạn. Không giống như main process, chúng ta có thể tạo ra nhiều renderer process và chạy chúng trong những process riêng biệt. Hoặc cũng có thể ẩn chúng đi.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-See also: [process](#process), [main process](#main-process)
+Xem thêm: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
 Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
-### userland
+### không gian người dùng
 
 This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
