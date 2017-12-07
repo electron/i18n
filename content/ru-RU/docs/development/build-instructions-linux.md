@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Linux.
 
-## Prerequisites
+## Требования
 
 * At least 25GB disk space and 8GB RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
@@ -40,15 +40,15 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-## Getting the Code
+## Получение кода
 
 ```sh
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Самонастройка
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
 ```sh
 $ cd electron
@@ -77,7 +77,7 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## Сборка
 
 If you would like to build both `Release` and `Debug` targets:
 
@@ -101,7 +101,7 @@ $ ./script/build.py -c D
 
 After building is done, you can find the `electron` debug binary under `out/D`.
 
-## Cleaning
+## Очистка
 
 Очистить файлы построения:
 
@@ -117,7 +117,7 @@ $ npm run clean-build
 
 **Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
 
-## Troubleshooting
+## Устранение проблем
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -127,7 +127,7 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## Тестирование
 
 Смотрите [Build System Overview: Tests](build-system-overview.md#tests)
 
