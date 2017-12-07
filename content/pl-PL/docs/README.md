@@ -25,7 +25,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
 * [Skróty klawiszowe](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Aktualizowanie aplikacji](tutorial/updates.md)
 
 ## Poradniki
 
