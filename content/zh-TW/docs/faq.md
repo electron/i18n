@@ -8,17 +8,17 @@ In almost all cases, these errors are the result of network problems and not act
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
-## Electron 什麼時候會升級到最新的 Chrome?
+## Electron 何時會升級用 Chrome 的最新版本？
 
-通常在新 Chrome 穩定版發佈後一到兩週內，Electron 會更新 Chrome 的版本。 但這個時間只是概估值，沒有人可以給你掛保證，全看升級時需花多少工來決定。
+通常在 Chrome 穩定版本發佈後一至兩周內會升級， 但實際需時取決於升級 Chrome 所涉及的工作量。
 
-我們只會用穩定版的 Chrome。如果測試版或開發版中有重大的修正，我們會移植回來。
+我們只會用 Chrome 的穩定版本，但如果 dev 或 beta 管道有重要的修復程式，我們會 backport。
 
-詳情請參閱[安全性簡介](tutorial/security.md)。
+詳情請參閱[安全簡介](tutorial/security.md)。
 
-## Electron 什麼時候會升級到最新的 Node.js?
+## Electron 何時會升級用 Node.js 的最新版本？
 
-通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本。 如此一來我們可以避開新版 Node.js 帶來的 bug，這種事很常發生。
+通常 Node.js 新版本發佈後，我們會等大概一個月才升級 Electron 用的 Node 版本， 以免受 Node.js 新版本中引入的 bug，這情況經常發生。
 
 通常 Node.js 的新功能是來自於 V8 升版，而 Electron 是使用 Chrome 瀏覽器的 V8，通常新版 Node.js 裡的 JavaScript 新功能，在 Electron 裡早就有了。
 
