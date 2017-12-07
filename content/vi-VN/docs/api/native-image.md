@@ -1,6 +1,6 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Tạo ra tray, dock, và các biểu tượng của ứng dụng bằng cách sử dụng tập tin PNG hoặc JPG.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
