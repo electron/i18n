@@ -99,11 +99,11 @@ Selain Kemasan aplikasi anda secara manual, Anda juga dapat memilih untuk menggu
 
 Anda juga dapat mengubah citra electron dengan mengubah nama produk dan membangunnya dari sumber. Untuk melakukan ini anda perlu memodifikasi file `atom.gyp` dan telah membangun kembali dari awal.
 
-### Creating a Custom Electron Fork
+### Membuat Custom Fork Electron
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Menciptakan sebuah kustom fork Electron ini hampir bukan sesuatu yang anda perlu lakukan untuk membangun aplikasi anda, bahkan untuk "Tingkat produksi" aplikasi. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda patch langsung ke Electron, yang tidak dapat upstreamed atau ditolak dari versi resmi. Sebagai pengelola Electron, kita sangat ingin membuat skenario pekerjaan, silakan coba sesulit yang anda bisa untuk mendapatkan perubahan ke versi resmi Electron, itu akan semakin mudah untuk anda, dan kami menghargai bantuan anda.
 
 #### Membuat sebuah Custom Release dengan surf-build
 
