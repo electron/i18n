@@ -30,7 +30,7 @@ Devtronでは新機能のアクセシビリティタブが利用できます。�
 
 いずれのツールも Google が Chrome 向けに開発した [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) ライブラリを利用しています。 このライブラリが使用しているアクセシビリティ監視のルールに関する詳細は、[リポジトリのwiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) に記載されています。
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+これ以外の Electron 向けに使用可能な素晴らしいアクセシビリティツールをご存じの方は、 ぜひ[アクセシビリティに関するドキュメント](https://electronjs.org/docs/tutorial/accessibility) に追加してプルリクエストをお送りください。
 
 ## Enabling Accessibility
 
