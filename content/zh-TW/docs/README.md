@@ -25,7 +25,7 @@
 * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
 * [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [更新應用程式](tutorial/updates.md)
 
 ## 教學
 
