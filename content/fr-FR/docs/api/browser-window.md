@@ -5,7 +5,7 @@
 Processus : [Main](../glossary.md#main-process)
 
 ```javascript
-// Dans le processus principal.
+// Dans le processus main.
 const {BrowserWindow} = require('electron')
 
 // Ou utilisez `remote` depuis le renderer process.
@@ -261,27 +261,27 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### Événement : 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Émis lorsque la page web cesse de répondre.
 
 #### Événement : 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Émis lorsque la page web répond à nouveau.
 
 #### Événement : 'blur'
 
-Emitted when the window loses focus.
+Émis lorsque la fenêtre perd le focus.
 
 #### Événement : 'focus'
 
-Emitted when the window gains focus.
+Émis lorsque la fenêtre obtient le focus.
 
 #### Événement : 'show'
 
-Emitted when the window is shown.
+Émis lorsque la fenêtre est affichée.
 
 #### Événement : 'hide'
 
-Emitted when the window is hidden.
+Émis lorsque la fenêtre est masquée.
 
 #### Événement : 'ready-to-show'
 
@@ -289,23 +289,23 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 #### Événement : 'maximize'
 
-Emitted when window is maximized.
+Émis lorsque la fenêtre est agrandie.
 
 #### Événement : 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Émis lorsque la fenêtre quitte un état maximisé.
 
 #### Événement : 'minimize'
 
-Emitted when the window is minimized.
+Émis lorsque la fenêtre est réduite.
 
 #### Événement : 'restore'
 
-Emitted when the window is restored from a minimized state.
+Émis lorsque la fenêtre est restaurée à partir d’un état réduit.
 
 #### Événement : 'resize'
 
-Emitted when the window is being resized.
+Émis lorsque la fenêtre est redimensionnée.
 
 #### Événement : 'move'
 
@@ -315,29 +315,29 @@ Emitted when the window is being moved to a new position.
 
 #### Événement : 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
 #### Événement : 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Émis lorsque la fenêtre passe à un état de plein écran.
 
 #### Événement : 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Émis lorsque la fenêtre revient d'un état de plein écran.
 
 #### Événement : 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre entre dans un état de plein écran déclenchée par l’API HTML.
 
 #### Événement : 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 
 #### Événement : 'app-command' *Windows*
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -357,15 +357,15 @@ win.on('app-command', (e, cmd) => {
 
 #### Événement : 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Émis lorsque l’événement scroll de la souris a commencé.
 
 #### Événement : 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Émis lorsque l’événement scroll de la souris est terminée.
 
 #### Événement : 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
 
 #### Événement : 'swipe' *macOS*
 
@@ -378,11 +378,11 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### Événement : 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Émis lorsque la fenêtre ouvre une feuille.
 
 #### Événement : 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Émis lorsque la fenêtre a fermé une feuille.
 
 #### Événement : 'new-window-for-tab' *macOS*
 
@@ -508,11 +508,11 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Ramène la fenêtre au premier plan.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Supprime le focus de la fenêtre.
 
 #### `win.isFocused()`
 
@@ -524,15 +524,15 @@ Returns `Boolean` - Whether the window is destroyed.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Affiche la fenêtre et la ramène au premier plan.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Affiche la fenêtre, mais ne la ramène pas au premier plan.
 
 #### `win.hide()`
 
-Hides the window.
+Masque la fenêtre.
 
 #### `win.isVisible()`
 
@@ -548,7 +548,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Réduit la fenêtre à sa taille initiale.
 
 #### `win.isMaximized()`
 
@@ -560,7 +560,7 @@ Minimizes the window. On some platforms the minimized window will be shown in th
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Restaure la fenêtre depuis l'état réduit à son état précédent.
 
 #### `win.isMinimized()`
 
@@ -570,7 +570,7 @@ Returns `Boolean` - Whether the window is minimized.
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Définit si la fenêtre doit être en mode plein écran.
 
 #### `win.isFullScreen()`
 
@@ -601,7 +601,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (facultatif) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Redimensionne et déplace la fenêtre vers les limites fournies
 
 #### `win.getBounds()`
 
@@ -668,7 +668,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Définit si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
 
 #### `win.isResizable()`
 
@@ -678,7 +678,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -724,7 +724,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -746,7 +746,7 @@ Returns `Boolean` - Whether the window is always on top of other windows.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Déplace la fenêtre vers le centre de l’écran.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -802,7 +802,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Entre ou quitte le mode kiosk.
 
 #### `win.isKiosk()`
 
@@ -962,7 +962,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Object 
+* `Button` Objet 
   * `icon` [NativeImage](native-image.md) - L'icône s'affichant dans la miniature dans la barre d'outils.
   * `click` Function
   * `tooltip` String (facultatif) - Le texte dans l'info-bulle du bouton.
@@ -991,7 +991,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Object 
+* `options` Objet 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
@@ -1088,7 +1088,7 @@ Returns `BrowserWindow[]` - All child windows.
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Contrôle s'il faut masquer le curseur lors de la saisie.
 
 #### `win.setVibrancy(type)` *macOS*
 
