@@ -7,7 +7,7 @@ Processus : [Main](../glossary.md#main-process)
 `DownloadItem` est un `EventEmitter` qui représente un élément en cours de téléchargement dans Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
 
 ```javascript
-// Dans le processus main.
+// Dans le processus principal.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -124,7 +124,7 @@ Retourne `String` - le nom du fichier du téléchargement.
 
 Retourne `Integer` - La taille totale en octets du téléchargement.
 
-Si la taille est inconnue, cela retournera 0.
+Si la taille est inconnue, retourne 0.
 
 #### `downloadItem.getReceivedBytes()`
 
