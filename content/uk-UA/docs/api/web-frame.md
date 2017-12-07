@@ -61,7 +61,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Об'єкт 
+* `provider` Object 
   * `spellCheck` Function - Returns `Boolean` 
     * `text` String
 
