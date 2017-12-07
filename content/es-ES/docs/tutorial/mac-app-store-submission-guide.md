@@ -124,10 +124,10 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 
 #### Sign Native Modules
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Módulos nativos utilizados en su aplicación también necesitan la firma. Si usa el Electron-osx-signo, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos:
 
 ```sh
-electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
@@ -157,7 +157,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 
 ### Additional Entitlements
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Dependiendo de que APIs de Electron usos de su aplicación, puede que necesite agregar derechos adicionales para el archivo `parent.plist` para poder utilizar estas API de compilación de Mac App Store de su aplicación.
 
 #### Network Access
 
@@ -205,7 +205,7 @@ This will fail when the app is signed for distribution in the Mac App Store. Sub
 
 `shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
-## Cryptographic Algorithms Used by Electron
+## Algoritmos criptográficos utilizados por Electron
 
 Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
 
