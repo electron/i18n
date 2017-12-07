@@ -1,6 +1,6 @@
 # PrinterInfo 对象
 
-* `name` String
+* `硬件名称` 字符串
 * `description` String
 * `status` Number
 * `isDefault` Boolean
