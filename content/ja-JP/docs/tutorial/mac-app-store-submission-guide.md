@@ -77,9 +77,9 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+`TEAM_ID`をあなたのチーム IDに入れ替えて、`your.bundle.id` をアプリのバンドル ID に置き換えてください。
 
-And then sign your app with the following script:
+そして、次のスクリプトでアプリを署名します。
 
 ```sh
 #!/bin/bash
@@ -118,9 +118,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+macOSでのアプリのサンドボックス化を行うことが初めてなら、Appleの[Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html)を通読し、基本的な考え方を確認してから、権利ファイル(entitlement file) にアプリに必要なパーミッションキーを追加します。
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+署名を手動で行う代わりに、[electron-osx-sign](https://github.com/electron-userland/electron-osx-sign)モジュールを使用することも出来ます。
 
 #### ネイティブ モジュールに署名
 
@@ -134,26 +134,26 @@ Also note that native modules may have intermediate files produced which should 
 
 ### Appをアップロードする。
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+アプリに署名後、iTunes ConnectにアップロードするためにApplication Loaderを使用できます。アップロードする前に[レコードを作成していること](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)を確認してください。
 
 ### アプリケーションを審査に提出
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+これらのステップを終えた後、[レビュー用にアプリを登録](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html)できます。
 
 ## MAS Buildの制限
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+アプリのサンドボックスですべての要件を満たすために、MASビルドで次のモジュールを無効にしてください。
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+次の挙動を変更してください。
 
 * ビデオキャプチャーはいくつかのマシンで動作しないかもしれません。
 * 一部のアクセシビリティ機能が動作しないことがあります。
 * アプリはDNSの変更を認識しません。
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は、 [App Sandboxing](https://developer.apple.com/app-sandboxing/) を参照してください。
 
 ### Additional Entitlements
 
@@ -205,11 +205,11 @@ This will fail when the app is signed for distribution in the Mac App Store. Sub
 
 `shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
-## Cryptographic Algorithms Used by Electron
+## Electronが使用する暗号化アルゴリズム
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+あなたが住んでいる国や地域に依存して、Mac App Store がアプリで使用する暗号化アルゴリズムを文章化することを要求することがあり、暗号登録番号（U.S. Encryption Registration (ERN)）の同意のコピーの提出を求められることもあります。
 
-Electron uses following cryptographic algorithms:
+Electron は次の暗号アルゴリズムを使用しています:
 
 * AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
@@ -235,4 +235,4 @@ Electron uses following cryptographic algorithms:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](http://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+ERNの同意を取得するには、[How to legally submit an app to Apple's App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/)を参照してください。
