@@ -37,7 +37,7 @@ app.on('ready', () => {
 </html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Usando utilidades de comunicación entre procesos del Electron, los acontecimientos pueden remitió al proceso principal y manejados según sea necesario, como se muestra en el ejemplo siguiente.
 
 *main.js*
 
