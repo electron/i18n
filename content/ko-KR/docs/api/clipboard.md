@@ -2,7 +2,7 @@
 
 > 시스템 클립보드에 복사와 붙여넣기를 수행합니다.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 다음 예시는 클립보드에 문자열을 쓰는 방법을 보여줍니다:
 
@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## 메소드
+## 메서드
 
 `clipboard` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
