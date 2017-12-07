@@ -38,11 +38,11 @@ Se você precisar usar um proxy HTTP você pode [definir estas variáveis de amb
 
 ## Solução de Problemas
 
-Ao executar `npm install electron`, alguns usuários ocasionalmente encontram erros de instalação.
+Ao executar o `npm install electron`, alguns usuários encontram erros de instalação.
 
-Em quase todos os casos, esses problemas são resultado de problemas de rede e não de problemas reais com o pacote npm `electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` e `ETIMEDOUT`, são todas indicações de tais problemas de rede. A melhor solução é tentar trocar de rede ou aguardar um pouco e tentar instalar novamente.
+Geralmente esses erros são resultados de problemas com a falta de conexão de internet e não é relacionado ao pacote npm do `Electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, e `ETIMEDOUT` são resultados da falta de internet. A melhor solução é tenta troca de rede, ou esperar um pouco e tenta instalar novamente o pacote.
 
-Você pode também baixar Electron diretamente [electron/electron/releases](https://github.com/electron/electron/releases) se a instalação via `npm` estiver falhando.
+Você também pode tentar baixa o Electron diretamente do [electron/electron/releases](https://github.com/electron/electron/releases). se a instalação via `npm` falha.
 
 Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
