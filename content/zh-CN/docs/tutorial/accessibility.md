@@ -1,10 +1,10 @@
 # 无障碍辅助功能
 
-创建可用的应用程序是很重要的，我们很乐意介绍能让开发者有机会让它们的应用程序让每个人都可用的[Devtron](https://electron.atom.io/devtron)和[Spectron](https://electron.atom.io/spectron)的新功能。
+创建无障碍访问的应用程序是很重要的，我们很乐意介绍[Devtron](https://electron.atom.io/devtron)和[Spectron](https://electron.atom.io/spectron)，这两个新功能能让开发者们有机会让它们的应用程序对每个人都更加可用。
 
 * * *
 
-Electron 应用的可访问性问题和网站是相似的因为两者最终都是HTML. 然而, 对于Electron应用, 你不能把在线资源用于可访问性审查, 因为你的应用没有一个URL指向审查者.
+Electron 应用的无障碍使用问题和网站是相似的因为两者最终都是HTML. 然而, 对于Electron应用, 你不能使用在线资源用于无障碍访问性审查, 因为你的应用没有一个URL可指向审查者.
 
 These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
 
