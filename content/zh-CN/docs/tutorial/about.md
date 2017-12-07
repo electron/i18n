@@ -38,11 +38,11 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 ## 核心理念
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+为了保持Electron的小巧 (文件体积) 和可持续性 (依赖和API的) ，Electron限制了所使用的核心项目的数量。
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+比如Electron只用了Chromium的渲染库而不是全部。 这使得升级Chromium更加容易，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Electron所添加的的新特性应主要是原生API。 If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
 ## 历史
 
