@@ -1,4 +1,4 @@
-# Skróty klawiszowe
+# Skróty Klawiszowe
 
 > Skonfiguruj lokalne oraz globalne skróty klawiszowe
 
