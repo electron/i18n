@@ -2,7 +2,7 @@
 
 > Включает в приложении автоматическое самообновление.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `autoUpdater` модуль предоставляющий интерфейс для [Squirrel](https://github.com/Squirrel) фреймворка.
 
