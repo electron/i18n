@@ -61,7 +61,7 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
+* `provider` Objet 
   * `spellCheck` Function - Retourne `Boolean` 
     * `text` String
 
