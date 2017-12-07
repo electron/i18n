@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -46,7 +46,7 @@ Returns:
 
 Returns:
 
-* `authInfo` Об'єкт 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
