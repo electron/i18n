@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Process: [Main](../glossary.md#main-process)
+فرآیند: [اصلی](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Process: [Main](../glossary.md#main-process)
+فرآیند: [اصلی](../glossary.md#main-process)
 
 ### Instance Events
 
@@ -236,7 +236,7 @@ Emitted when the renderer process crashes or is killed.
 Returns:
 
 * `event` Event
-* `name` String
+* `نام` رشته
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -443,7 +443,7 @@ Returns:
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
-  * `deviceId` String
+  * `شناسه وسیله` رشته
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
