@@ -2,9 +2,9 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-For example:
+Например:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
