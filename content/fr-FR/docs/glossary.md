@@ -18,7 +18,7 @@ La bibliothèque de Runtime C (CRT) est la partie de la bibliothèque Standard C
 
 ### DMG
 
-Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un  "installateur" d'une application. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge le `dmg` comme format de compilation.
+Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un « installateur » d'une application. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge le `dmg` comme format de build.
 
 ### IME
 
@@ -34,7 +34,7 @@ Une bibliothèque partagée qui inclut le [module Chromium Content](https://www.
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process (processus principal)
+### Main process (processus principal)
 
 Le processus principal (main process en Anglais), généralement un fichier nommé `main.js`, est le point d'entrée pour chaque application Electron. Il contrôle l'état de l'application, de son ouverture à sa fermeture. Il gère également les éléments natifs tels que le Menu, Menu Bar, Dock, Tray, etc. Le processus principal est responsable de la création de chaque nouveau processus de rendu dans l'application. L'API Node y est complètement intégrée.
 
@@ -48,7 +48,7 @@ Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
 Acronyme pour Mac App Store d'Apple. Pour plus d'informations sur la soumission de votre application pour le MAS, consultez le [Guide de soumission sur le Mac App Store](tutorial/mac-app-store-submission-guide.md).
 
-### modules natifs
+### Modules natifs
 
 Les modules natifs (également appelés [addons](https://nodejs.org/api/addons.html) dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l'aide de la fonction require() et sont utilisés comme si ils étaient des modules de Node.js ordinaire. Ils sont utilisés principalement pour fournir une interface entre JavaScript s'exécutant dans les librairies Node.js et C/C++.
 
@@ -58,7 +58,7 @@ Voir aussi [Utilisation des modules natifs de Node](tutorial/using-native-node-m
 
 ### NSIS
 
-Nullsoft Scriptable Install System est un programme d'installation d'outil pilotée par script pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée par des produits propriétaire commerciales comme InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge NSIS comme format de compilation.
+Nullsoft Scriptable Install System est un programme d'installation d'outil pilotée par script pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée par des produits propriétaire commerciales comme InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge NSIS comme format de build.
 
 ### OSR
 
@@ -66,7 +66,7 @@ OSR (OFF-screen rendering - Rendu hors de l'écran) peut être utilisé pour cha
 
 ### processus (process)
 
-Un processus est une instance d'un programme d'ordinateur en execution. Les applications Electron qui utilisent le processus [principal](#main-process) et un ou plusieurs processus [de rendu](#renderer-process) font tourner plusieurs programmes en même temps.
+Un processus est une instance d'un programme d'ordinateur en execution. Les apps Electron qui utilisent le processus [principal](#main-process) et un ou plusieurs processus [de rendu](#renderer-process) font tourner plusieurs programmes en même temps.
 
 Dans Node.js et Electron, chaque processus en execution ont un objet `processus`. Cet objet global donne des informations et permet de contrôler le processus current. Comme une variable global, cet objet est disponible dans l'application sans utiliser require().
 
