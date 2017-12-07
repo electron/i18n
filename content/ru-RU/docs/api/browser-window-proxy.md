@@ -20,7 +20,7 @@
 
 #### `win.eval(code)`
 
-* Строка `code`
+* `code` String
 
 Позволяет запускать код в дочернем окне.
 
@@ -34,14 +34,14 @@
 
 #### `win.postMessage(message, targetOrigin)`
 
-* Строка `message`
-* Строка `targetOrigin`
+* `message` String
+* `targetOrigin` String
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Свойства экземпляра
+### Instance Properties
 
 Экземпляр объекта `BrowserWindowProxy` содержит следующие свойства:
 
