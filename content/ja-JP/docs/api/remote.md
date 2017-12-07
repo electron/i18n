@@ -90,7 +90,7 @@ const app = require('electron').remote.app
 console.log(app)
 ```
 
-## Methods
+## メソッド
 
 The `remote` module has the following methods:
 
