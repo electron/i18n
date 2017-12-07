@@ -11,7 +11,7 @@ nav:
   code_of_conduct: 行動規範
 docs:
   title: Electon のドキュメント
-  description: 全ドキュメントを <a href="/docs/all">1ページで表示する</a>ことも可能です。また、<a href="/docs/faq">FAQ</a>ページもご用意しております。
+  description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
   guides: ガイド
   api_reference: API リファレンス
   advanced: 発展的なドキュメント
@@ -28,10 +28,10 @@ community:
   videos: 動画
   meetups: ミートアップイベント
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: ミートアップイベントの情報をこのページに追加するには、<code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
 electron_is_easy:
   title: 想像以上に簡単です
-  description: Webサイトを作成できる方なら、その調子でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分に集中し、面倒な部分はElectronにお任せください。
+  description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
   video_link: 動画を見る
 web_technologies:
   title: Web技術
@@ -77,12 +77,12 @@ taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "翻訳する"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: 別のバージョンのドキュメントが必要ですか？
-  see_available_versions: See available versions.
-  want_something_searchable: Want something searchable?
-  view_all_docs: すべてのドキュメントを1ページで表示
+  see_something: このドキュメントに誤りが含まれていますか？
+  propose_change: こちらからデータの修正を提案できます。
+  need_different_version: 別のバージョンの Electron に関するドキュメントが必要ですか？
+  see_available_versions: 利用可能な他のバージョンのものを見る。
+  want_something_searchable: 複数のドキュメントを横断して検索したいことがありますか？
+  view_all_docs: すべてのドキュメントをまとめて表示
   see_the_faq: よくある質問（FAQ）
 apps:
   title: Electronで開発されたアプリ
@@ -92,9 +92,9 @@ apps:
   something_missing: 何か見つかりませんか？
   edit_this_app: アプリを編集する
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: コピー
+  copy_to_clipboard: クリップボードにコピー
+  copied: コピーしました
 or: または
 pages:
   '/':
@@ -105,9 +105,9 @@ pages:
     description: Electronで開発されたアプリ
   '/docs':
     title: ドキュメント
-    description: Guides and API reference documentation for the latest Electron release
+    description: 最新の Electron に関するガイドと API リファレンス
   '/docs/all':
-    title: All the Electron Docs!
+    title: Electronに関する全てのドキュメント
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
@@ -137,7 +137,7 @@ pages:
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
 _404:
   page_not_found: ページが見つかりません
   if_this_is_an_error: もしこれがエラーであれば、
