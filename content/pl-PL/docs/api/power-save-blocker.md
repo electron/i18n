@@ -4,7 +4,7 @@
 
 Proces: [Main](../glossary.md#main-process)
 
-For example:
+Na przykład:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
