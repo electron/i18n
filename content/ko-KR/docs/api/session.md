@@ -18,7 +18,7 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## 메소드
+## 메서드
 
 The `session` module has the following methods:
 
@@ -86,7 +86,7 @@ The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
+* `callback` 함수 
   * `size` Integer - Cache size used in bytes.
 
 Callback is invoked with the session's current cache size.
@@ -132,7 +132,7 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-For example:
+예시:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -175,7 +175,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Function 
+* `callback` 함수 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
@@ -214,12 +214,12 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` 함수 
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Verification result from chromium.
-  * `callback` Function 
+  * `callback` 함수 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
@@ -245,10 +245,10 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function 
+* `handler` 함수 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `callback` 함수 
     * `permissionGranted` Boolean - Allow or deny the permission
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
@@ -304,7 +304,7 @@ Returns `String` - The user agent for this session.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `callback` 함수 
   * `result` Buffer - Blob data.
 
 Returns `Blob` - The blob data associated with the `identifier`.
