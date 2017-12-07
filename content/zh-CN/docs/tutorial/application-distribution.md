@@ -101,7 +101,7 @@ MyApp.app/Contents
 
 ### 创建一个自定义 Electron 分支
 
-如果只是为了构建你的 app，你不需要创建一个自定义的 Electron 分支， 即使是“生产级”的应用程序。 可以使用工具，如 `electron-packager` 或 `electron-builder` 来 “重塑” 你的 Electron app。
+如果只是为了构建你的 app，你不需要创建一个自定义的 Electron 分支， 即使是“生产级”的应用程序。 可以使用工具，如 `electron-packager` 或 `electron-builder` 来 “重新定制” 你的 Electron app。
 
 当你想直接进入 Electron 来修改 C++ 代码，你需要 fork Electron ，不能使用 upstreamed 或者 rejected 官方版本。 作为 Electron 的维护者，我们非常希望 你的方案能够工作，并尽最大的努力让你的修改 进入 Electron 的官方版本，创建自定义分支对你来说更简单，最后， 我们感谢你的帮助。
 
