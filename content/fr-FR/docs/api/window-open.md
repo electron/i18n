@@ -10,7 +10,7 @@ Le nouveau `BrowserWindow` héritera des options de la fenêtre parent par défa
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` String
+* `url` Chaîne de caractères
 * `frameName` String (facultatif)
 * `features` String (facultatif)
 
@@ -27,8 +27,8 @@ La chaîne de caractère `features` suit le format du standard navigateur, mais 
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `message` Chaîne de caractères
+* `targetOrigin` Chaîne de caractères
 
 Envoie un message à la fenêtre parent avec l'origine spécifié ou `*` pour aucune préférence d'origine.
 
