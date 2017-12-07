@@ -4,7 +4,7 @@
 
 Les accelerators sont des chaînes de caractères pouvant contenir plusieurs modificateurs et touches, combinés avec le caractère `+`. Ils sont utilisés pour définir des raccourcies clavier dans votre application.
 
-Exemples :
+Exemples:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
