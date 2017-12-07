@@ -2,13 +2,13 @@
 
 > Create native application menus and context menus.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
 Creates a new menu.
 
-### Static Methods
+### Статические методы
 
 The `menu` class has the following static methods:
 
@@ -53,7 +53,7 @@ The `menu` object has the following instance methods:
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
@@ -80,7 +80,7 @@ Appends the `menuItem` to the menu.
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Свойства экземпляра
+### Instance Properties
 
 `menu` objects also have the following properties:
 
@@ -90,11 +90,11 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-## Examples
+## Примеры
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### Главный (Main) процесс
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -248,7 +248,7 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
-### Examples
+### Примеры
 
 Template:
 
