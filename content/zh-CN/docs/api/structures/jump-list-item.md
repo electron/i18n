@@ -8,6 +8,6 @@
 * ` program `String (可选)-要执行的程序的路径, 通常应该指定打开当前程序的 ` process.execPath `。 只应在 ` type ` 是 ` task ` 时设置。
 * `args` 字符串 (可选) - 程序执行时的命令行参数。只应在 ` type ` 为 ` task ` 时设置。
 * ` title `String (可选)-要为跳转列表中的项显示的文本。只应在 ` type ` 为 ` task ` 时设置。
-* `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
+* `description` String (optional) - 任务描述 (会以浮动提示的方式显示). 只应在`type` 为 `task`时设置.
 * `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
 * `iconIndex` Number (optional) - The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
