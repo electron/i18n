@@ -117,7 +117,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## Rozwiązywanie problemów
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
