@@ -161,7 +161,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Métodos de Instância
 
 The `Tray` class has the following methods:
 
@@ -223,7 +223,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `opções` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)
