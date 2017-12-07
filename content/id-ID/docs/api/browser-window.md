@@ -533,7 +533,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Sembunyikan jendela.
 
 #### `win.isVisible()`
 
@@ -804,7 +804,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Masuk atau keluar dari mode kiosk.
 
 #### `win.isKiosk()`
 
@@ -1012,7 +1012,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Ubah ikon jendela.
 
 #### `win.setAutoHideMenuBar(hide)`
 
