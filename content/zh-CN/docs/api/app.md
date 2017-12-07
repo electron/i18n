@@ -151,7 +151,7 @@ app.on('window-all-closed', () => {
 返回:
 
 * `event` Event
-* ` webContents `WebContents
+* `webContents` WebContents
 
 在创建新的 [ webContents ](web-contents.md) 时发出。
 
@@ -189,7 +189,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `url` URL
+* ` url `URL
 * `certificateList` [证书[]](structures/certificate.md)
 * `callback` Function 
   * `certificate` [证书](structures/certificate.md) (可选)
@@ -215,7 +215,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
-  * ` url `URL
+  * `url` URL
   * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -468,7 +468,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 `Object`:
+返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -487,7 +487,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-**注意:** 如果 `JumpListCategory` 对象没有设置 `type` 和 `name` 属性， name `type`默认为 `tasks`。 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+** 注意: **如果 ` JumpListCategory ` 对象既没有 ` type `, 也没有 ` name ` 属性设置, 则其 ` type ` 被假定为 ` tasks `。 如果设置了 ` name ` 属性, 但省略了 ` type ` 属性, 则假定 ` type ` 为 ` custom`。
 
 **注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
