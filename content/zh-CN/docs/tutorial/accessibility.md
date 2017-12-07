@@ -42,9 +42,9 @@ app.client.auditAccessibility().then(function (audit) {
 
 ### 辅助功能技术
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Electron应用在检测到辅助功能技术(Windows)或VoiceOver(macOS)时会自动启用辅助功能 有关详细信息, 请参阅 Chrome 的 [ 辅助功能文档 ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+在 macOS 上, 第三方的辅助技术可以通过以编程的方式设置属性 ` AXManualAccessibility `, 在Electron应用中切换所使用的辅助功能技术：
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
