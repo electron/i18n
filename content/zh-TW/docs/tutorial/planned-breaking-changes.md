@@ -104,7 +104,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `處理序`
 
 ```js
 // 已被取代
