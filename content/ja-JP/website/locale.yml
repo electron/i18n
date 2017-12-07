@@ -57,8 +57,8 @@ explore:
   description:
     - <a href="https://github.com/electron/electron-api-demos">Electron APIのデモアプリ</a>
     - はElectron APIの中でも特に重要な機能をインタラクティブに紹介します。
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
+    - サンプルコードや親切な Tips とともに、Electron を使うと何ができるのかをご確認ください。
+    - あなたのアプリ開発にきっと役立つはずです。
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
