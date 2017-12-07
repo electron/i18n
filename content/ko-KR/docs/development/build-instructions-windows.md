@@ -1,11 +1,11 @@
-# 빌드 설명서 (Windows)
+# 빌드 명령 (윈도)
 
 이 가이드는 Windows 운영체제에서 Electron을 빌드하는 방법을 설명합니다.
 
-## 빌드전 요구사양
+## 빌드전 요구 사양
 
 * Windows 7 / Server 2008 R2 또는 최신 버전
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
+* Visual Studio 2015 Update 3 - [VS 2015 커뮤니티 에디션 무료 다운로드](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -80,7 +80,7 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-**참고:** 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
+참고: 두 정리 명령어는 빌드하기 전에 `bootstrap`을 재실행 해야 한다.
 
 ## 테스트
 
