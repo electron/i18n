@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Ẩn tất cả các cửa sổ ứng dụng xuống mà không có minimize chúng.
 
 ### `app.show()` *macOS*
 
@@ -392,7 +392,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+Ghi đè lên tên ứng dụng hiện tại.
 
 ### `app.getLocale()`
 
@@ -412,7 +412,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Xóa danh sách tài liệu gần đây.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -787,11 +787,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Ẩn biểu tượng thanh dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Hiển thị biểu tượng dock.
 
 ### `app.dock.isVisible()` *macOS*
 
