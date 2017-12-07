@@ -2,7 +2,7 @@
 
 > Контролируйте жизненный цикл Вашего приложения.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Это пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
 
@@ -327,7 +327,7 @@ app.exit(0)
 
 Возвращает `String` - путь в специальный каталог или файл, связанный с `name`. В случае неудачи возникает `Error`.
 
-Вы можете запросить следующие пути по имени:
+Вы можете запросить следующие пути по их имени:
 
 * `home` домашний каталог пользователя.
 * `appData` каталог данных приложений для каждого пользователя, который по умолчанию указывает на: 
@@ -349,7 +349,7 @@ app.exit(0)
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -420,7 +420,7 @@ app.exit(0)
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
 * `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
-Возвращает `Boolean` - был ли вызов успешным.
+Возвращает `Boolean` - успешный ли вызов.
 
 Этот метод устанавливает текущий исполняемый файл в качестве обработчика по умолчанию для протокола (так называемая схема URI). Это позволяет Вам интегрировать приложение глубже в операционную систему. После регистрации, все ссылки с `ваш_протокол://` будут открываться текущим исполняемым файлом. Вся ссылка, включая протокол, будет передаваться в Ваше приложение в качестве параметра.
 
@@ -436,7 +436,7 @@ API использует внутренний реестр Windows и LSSetDefau
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
 * `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
-Возвращает `Boolean` - был ли вызов успешным.
+Возвращает `Boolean` - успешный ли вызов.
 
 Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то убирает приложение, как обработчик по умолчанию.
 
@@ -462,7 +462,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 `tasks` массив объектов [`Task`](structures/task.md).
 
-Возвращает `Boolean` - успешный ли вызов.
+Возвращает `Boolean` - был ли вызов успешным.
 
 **Примечание:** Если вы хотите настроить Jump List еще больше используйте `app.setJumpList(categories)`.
 
@@ -487,7 +487,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 Если `categories` - `null`, то ранее установленный пользовательский Jump List(если таковой имеется) будет заменён стандартным Jump List для приложения(управляется Windows).
 
-**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет свойства `type` или `name` то его `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, то `type` считается `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
@@ -652,7 +652,7 @@ app.on('ready', () => {
 
 * `count` Integer
 
-Возвращает `Boolean` - был ли вызов успешным.
+Возвращает `Boolean` - успешный ли вызов.
 
 Задает счетчик-значок для текущего приложения. При значении счетчика `` будет скрыть значок.
 
@@ -670,7 +670,7 @@ app.on('ready', () => {
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `path` String (опиционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
   * `args` String [] (опционально) *Windows* - аргументы командной строки для сравнения. По умолчанию пустой массив.
 
