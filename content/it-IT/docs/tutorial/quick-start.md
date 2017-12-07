@@ -1,4 +1,4 @@
-# Avvio rapido
+# Inizio rapido
 
 Electron consente di creare applicazioni desktop in JavaScript fornendo un eseguibile inclusivo di numerose API native (sistema operativo). Puoi immaginarlo come una variante di Node.js che si focalizza su applicazioni desktop invece dei web server.
 
@@ -194,14 +194,14 @@ Clona ed esegui questo tutorial usando la repository:[`electron/electron-quick-s
 **Nota**: Per essere eseguita richiede [Git](https://git-scm.com) e [Node.js](https://nodejs.org/en/download/) (che include [npm](https://npmjs.org)) sul tuo sistema.
 
 ```sh
-# Clone the repository
+# Clona la repository
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Vai nella repository
 $ cd electron-quick-start
-# Install dependencies
+# Installa le dependencies
 $ npm install
-# Run the app
+# Avvia l'app
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Per altre app di esempio guarda la [lista di boilerplates](https://electronjs.org/community#boilerplates) creata dalla fantastica community di Electron.
