@@ -2,11 +2,11 @@
 
 > Create a segmented control (a button group) where one button has a selected state
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Object 
+* `opções` Object 
   * `segmentStyle` String - (optional) Style of the segments: 
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
     * `rounded` - The control is displayed using the rounded style.
@@ -26,7 +26,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 
-### Instance Properties
+### Propriedades da Instância
 
 The following properties are available on instances of `TouchBarSegmentedControl`:
 
