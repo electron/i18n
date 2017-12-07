@@ -9,7 +9,7 @@ const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## 이벤트
+## Events
 
 The `systemPreferences` object emits the following events:
 
