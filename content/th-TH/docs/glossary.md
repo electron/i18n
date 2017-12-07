@@ -14,7 +14,7 @@ Brightray [was](https://github.com/electron-archive/brightray) a static library 
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C Run-time Library (CRT) เป็นส่วนหนึ่งของไลบรารี่มาตรฐาน C++ ที่รวมอยู่ใน ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
