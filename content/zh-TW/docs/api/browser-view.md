@@ -11,7 +11,7 @@ A `BrowserView` can be used to embed additional web content into a `BrowserWindo
 ## 範例
 
 ```javascript
-// 在主處理序裡。
+// 在主處理序中.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -46,11 +46,11 @@ Returns `BrowserView` - The view with the given `id`.
 
 Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *實驗性質*
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Experimental*
+#### `view.id` *實驗性質*
 
 A `Integer` representing the unique ID of the view.
 
@@ -58,18 +58,18 @@ A `Integer` representing the unique ID of the view.
 
 Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *實驗性質*
 
 * `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *實驗性質*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *實驗性質*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
