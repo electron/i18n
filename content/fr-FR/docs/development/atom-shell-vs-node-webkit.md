@@ -8,7 +8,7 @@ Mais il y a aussi des différences fondamentales entre les deux projets qui rend
 
 **1. Point d'entrée**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+Dans NW.js, le point d'entrée principal d'une application est une page web ou un script JS. Vous pouvez spécifier un fichier html ou js dans le `package.json` et sera ouvert dans une fenêtre navigateur comme fenêtre principale de l'application (dans le cas où c'est un fichier html) ou le script sera exécuté.
 
 Avec Electron, le point d’entrée est un script JavaScript. Au lieu de fournir une URL directement, vous créez une fenêtre de navigateur manuellement et chargez un fichier HTML à l’aide de l’API. Vous devez aussi écouter les événements de fenêtre pour décider quand quitter l’application.
 
@@ -26,6 +26,6 @@ Avec NW.js, l’intégration de Node dans les pages web nécessite de patcher Ch
 
 Si vous êtes un utilisateur expérimenté de NW.js, vous devez être familiarisé avec le concept de contexte Node et contexte web. Ces concepts ont été inventés lors de l'implémentation de NW.js.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+En utilisant la fonctionnalité [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) de Node, Electron n’introduit pas de nouveau contexte JavaScript dans les pages web.
 
 Remarque : NW.js supporte éventuellement le multi-contexte depuis la v0.13.
