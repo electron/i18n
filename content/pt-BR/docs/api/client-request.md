@@ -8,7 +8,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `opções` (Object | String) - If `opções` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
@@ -52,7 +52,7 @@ Retorna:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Função 
   * `username` String
   * `password` String
 
@@ -114,7 +114,7 @@ Retorna:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Propriedades da Instância
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### Métodos de Instância
 
 #### `request.setHeader(name, value)`
 
