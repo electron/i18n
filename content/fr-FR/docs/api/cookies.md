@@ -53,7 +53,7 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
+* `filter` Objet 
   * `url` String (facultatif) - Récupère les cookies qui sont associés à des `url`. S'il est vide, cela va récupérer les cookies avec toutes les urls.
   * `name` String (facultatif) - Filtre les cookies par nom.
   * `domain` String (facultatif) - Récupère les cookies dont les domaines correspondent ou sont des sous-domaines de `domains`
@@ -68,7 +68,7 @@ Envoie une demande pour obtenir tous les cookies correspondants à `details`, `c
 
 #### `cookies.set(details, callback)`
 
-* `details` Object 
+* `details` Objet 
   * `url` String - L'url à associer au cookie.
   * `name` String (facultatif) - Le nom du cookie. Vide par défaut si omis.
   * `value` String (facultatif) - Le contenu du cookie. Vide par défaut si omis.
