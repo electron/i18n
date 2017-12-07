@@ -1,4 +1,4 @@
-# dialog
+# กล่องโต้ตอบ
 
 > Display native system dialogs for opening and saving files, alerting, etc.
 
