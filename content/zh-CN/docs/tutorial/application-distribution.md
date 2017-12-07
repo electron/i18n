@@ -95,7 +95,7 @@ MyApp.app/Contents
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## 通过重编译源代码来重塑
+## 通过重编译源代码来进行重新定制
 
 通过修改产品名称并重编译源代码来更换 Electron 的名称也是可行的。 你需要修改 `atom.gyp` 文件并彻底重编译一次。
 
