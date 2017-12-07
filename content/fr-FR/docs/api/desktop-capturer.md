@@ -66,7 +66,7 @@ Le module `desktopCapturer` dispose des méthodes suivantes :
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `options` Object 
+* `options` Objet 
   * `types` String[] - un tableau de Chaîne de caractères qui répertorie les types de sources bureau à être capturé, les types disponibles sont `screen` et `window`.
   * `thumbnailSize` [Size](structures/size.md) (facultatif) - La taille que la miniature de la source média doit être ajustée. La taille par défaut est de `150` x `150`.
 * `callback` Function 
