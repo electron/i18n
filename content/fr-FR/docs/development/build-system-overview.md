@@ -1,4 +1,4 @@
-# Aperçu du Système de compilation
+# Aperçu du Système de Build
 
 Electron utilise [gyp](https://gyp.gsrc.io/) pour la génération de projet et [ninja](https://ninja-build.org/) pour la compilation. Les configurations de projet se trouvent dans les fichiers `.gyp` et `.gypi`.
 
