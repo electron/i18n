@@ -2,11 +2,11 @@
 
 > Create a scrubber (a scrollable selector)
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
-* `options` Object 
+* `opções` Object 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
   * `select` Function - Called when the user taps an item that was not the last tapped item 
     * `selectedIndex` Integer - The index of the item the user selected
@@ -18,7 +18,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Propriedades da Instância
 
 The following properties are available on instances of `TouchBarScrubber`:
 
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Valores possíveis:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
