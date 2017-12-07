@@ -25,7 +25,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Rendu Offscreen](tutorial/offscreen-rendering.md)
 * [Raccourcis clavier](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Mettre à jour des applications](tutorial/updates.md)
 
 ## Tutoriels
 
