@@ -25,7 +25,7 @@
 * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
 * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [アプリケーションを更新する](tutorial/updates.md)
 
 ## チュートリアル
 
