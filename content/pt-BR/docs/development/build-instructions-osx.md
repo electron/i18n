@@ -32,7 +32,7 @@ Você também precisará habilitar o Xcode para compilar junto com 10.10 SDK:
 - Definir o `MinimumSDKVersion` para `10.10`
 - Salve o arquivo
 
-## Obtendo o código fonte
+## Obtendo o Código Fonte
 
 ```sh
 $ git clone https://github.com/electron/electron
