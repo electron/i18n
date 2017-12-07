@@ -40,7 +40,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 通过使用 [` app.setAccessibilitySupportEnabled(enabled) `](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), 可以在应用程序首选项中向用户开放辅助功能的开关。 用户的系统的辅助实用程序优先于此设置, 并将覆盖它。
 
-### Assistive Technology
+### 辅助功能技术
 
 Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
 
