@@ -1,8 +1,8 @@
 # autoUpdater
 
-> Permet aux application de se mettre à jour automatiquement d'elles-mêmes.
+> Permet aux apps de se mettre automatiquement à jour d'elles mêmes.
 
-Processus : [Main](../glossary.md#main-process)
+Processus : [Principal](../glossary.md#main-process)
 
 Le module `autoUpdater` fournit une interface pour le framework [Squirrel](https://github.com/Squirrel).
 
@@ -45,7 +45,7 @@ L'objet `autoUpdater` émet les événements suivants :
 
 Retourne :
 
-* `error` Error
+* `error` Erreur
 
 Émis lorsqu’il y a une erreur pendant la mise à jour.
 
