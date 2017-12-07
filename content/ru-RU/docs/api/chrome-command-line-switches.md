@@ -94,7 +94,7 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-For example:
+Например:
 
     --auth-server-whitelist='*example.com, *foobar.com, *baz'
     
