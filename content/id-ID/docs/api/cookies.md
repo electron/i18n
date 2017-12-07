@@ -94,4 +94,4 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Tulis data cookie yang tidak tertulis ke disk.
