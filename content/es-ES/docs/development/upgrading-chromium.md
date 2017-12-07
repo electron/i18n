@@ -98,34 +98,13 @@ See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/devel
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por la carga de la página siguiente. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
 
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
-  </head>
-  <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
-    <p id="outcome"></p>
-    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
-    <script>
-      const video = document.querySelector('video')
-      video.addEventListener('error', ({target}) => {
-        if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
-        } else {
-          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
-        }
-      })
-      video.addEventListener('playing', () => {
-        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
-      })
-    </script>
-  </body>
-</html>
+¡<! DOCTYPE html><html> <head> <meta charset="utf-8"> <title>Proprietary Codec Check</title> </head> <body> <p>Checking si Electron utiliza codecs propietarios cargando video de http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p> <p id="outcome"></p> <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video> <script> const video = document.querySelector('video')
+      video.addEventListener ('error', ({target}) = > {si (target.error.code == target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {document.querySelector('#outcome').textContent = 'no usa codecs propietarios, fuente de vídeo emitida no admite el evento de error.'
+        } else {document.querySelector('#outcome').textContent = ' error inesperado: ${target.error.code}'}}) video.addEventListener ('jugar', () = > {document.querySelector('#outcome').textContent = 'Utilizando codecs propietarios, video comenzó a jugar.'
+     </html> de </body> de </script>})
 ```
 
 ## Useful links
