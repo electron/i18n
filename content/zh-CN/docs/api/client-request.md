@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### 事件
 
 #### Event: 'response'
 
@@ -52,7 +52,7 @@ const request = net.request({
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` 函数 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -114,7 +114,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### 实例属性
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### 实例方法
 
 #### `request.setHeader(name, value)`
 
