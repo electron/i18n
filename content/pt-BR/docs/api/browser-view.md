@@ -42,7 +42,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Retorna `BrowserView` - A view com o `id` passado.
 
-### Propriedades da Instância
+### Propriedades de Instância
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -54,13 +54,13 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### Métodos de Instância
 
 Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `options` Object 
+* `opções` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
