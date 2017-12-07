@@ -51,7 +51,7 @@ Lưu ý, biến số thứ ba `true` có nghĩa là listener sẽ luôn nhận �
 
 Sự kiện [`before-input-event`](web-contents.md#event-before-input-event) diễn ra trước khi các sự kiện `keydown` và `keyup` trên trang. Nó có thể được sử dụng để nắm bắt và xử lý các tùy chỉnh phím tắt không được hiển thị trong trình đơn.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Nếu bạn không muốn tự bắt các phím tắt, bạn có thể sử dụng các thư viện nâng cao hỗ trợ việc phát hiện phím như [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
