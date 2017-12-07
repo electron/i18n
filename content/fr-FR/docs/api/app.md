@@ -376,7 +376,7 @@ Overrides the `path` to a special directory or file associated with `name`. If t
 
 You can only override paths of a `name` defined in `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Par défaut, les cookies et la cache des pages web seront stockés dans le répertoire `userData`. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
@@ -406,7 +406,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Ajoute le `path` à la liste des documents récents.
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
@@ -460,7 +460,7 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks` est un tableau d’objets [`Task`](structures/task.md).
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -745,13 +745,13 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ceci n'affecte pas `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.dock.bounce([type])` *macOS*
 
@@ -761,7 +761,7 @@ When `critical` is passed, the dock icon will bounce until either the applicatio
 
 When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Returns `Integer` an ID representing the request.
+Retourne `Integer` un ID représentant la requête.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
