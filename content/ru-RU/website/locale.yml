@@ -92,9 +92,9 @@ apps:
   something_missing: Что-то отсутствует?
   edit_this_app: Измените это приложение.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Копировать
+  copy_to_clipboard: Копировать в буфер обмена
+  copied: Скопировано
 or: или
 pages:
   '/':
