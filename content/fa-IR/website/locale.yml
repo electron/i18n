@@ -6,12 +6,12 @@ nav:
   apps: برنامه‌ها
   userland: فضای کاربری
   releases: نسخه‌ها
-  contact: تماس به ما
+  contact: تماس با ما
   languages: زبان‌ها
   code_of_conduct: Code of Conduct
 docs:
   title: مستندات الکترون
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
   guides: راهنماها
   api_reference: مرجع API
   advanced: پیشرفته
@@ -95,7 +95,7 @@ clipboard:
   copy: Copy
   copy_to_clipboard: Copy to Clipboard
   copied: Copied
-or: یا
+or: or
 pages:
   '/':
     title: الکترون | طراحی برنامه های چند سکویی دسکتاپ با HTML، CSS، JavaScript.
@@ -126,7 +126,7 @@ pages:
   '/releases':
     title: نسخه‌ها
   '/contact':
-    title: تماس با ما
+    title: تماس به ما
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
     title: زبان‌ها
