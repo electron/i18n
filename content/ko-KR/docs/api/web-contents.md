@@ -16,7 +16,7 @@ let contents = win.webContents
 console.log(contents)
 ```
 
-## 메소드
+## 메서드
 
 These methods can be accessed from the `webContents` module:
 
@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-반환:
+Returns:
 
 * `event` Event
 * `errorCode` Integer
@@ -65,7 +65,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-반환:
+Returns:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -82,7 +82,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-반환:
+Returns:
 
 * `event` Event
 * `status` Boolean
@@ -98,7 +98,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-반환:
+Returns:
 
 * `event` Event
 * `oldURL` String
@@ -113,7 +113,7 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-반환:
+Returns:
 
 * `event` Event
 * `favicons` String[] - Array of URLs
@@ -130,7 +130,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -143,7 +143,7 @@ Emitted when the page requests to open a new window for a `url`. It could be req
 
 By default a new `BrowserWindow` will be created for the `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 예시:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -157,7 +157,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -172,7 +172,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -183,7 +183,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -195,7 +195,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -224,7 +224,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -233,10 +233,10 @@ Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * `event` Event
-* `name` String
+* PrinterInfo Object
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -247,7 +247,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-반환:
+Returns:
 
 * `event` Event
 * `input` Object - Input properties 
@@ -290,13 +290,13 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` 함수 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -305,12 +305,12 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` 함수 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
 Emitted when a client certificate is requested.
@@ -319,7 +319,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-반환:
+Returns:
 
 * `event` Event
 * `request` Object 
@@ -332,7 +332,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` 함수 
   * `username` String
   * `password` String
 
@@ -342,7 +342,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `result` Object 
@@ -372,7 +372,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -381,7 +381,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String
@@ -396,7 +396,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-반환:
+Returns:
 
 * `event` Event
 * `params` Object 
@@ -438,11 +438,11 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-반환:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` 함수 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -468,7 +468,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-반환:
+Returns:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -492,7 +492,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -687,7 +687,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` 함수 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -700,7 +700,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` 함수 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -821,21 +821,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` 함수 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` 함수 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` 함수 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -867,7 +867,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` 함수 
   * `error` Error
   * `data` Buffer
 
@@ -977,7 +977,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// In the main process.
+// 메인 프로세스에서.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
@@ -1060,7 +1060,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
-* `callback` Function 
+* `callback` 함수 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1089,7 +1089,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` 함수 - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 #### `contents.id`
 
