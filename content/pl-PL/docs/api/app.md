@@ -1,6 +1,6 @@
 # app
 
-> Kontroluj cykl życia swojej aplikacji.
+> Kontrola cyklu życia zdarzeń aplikacji.
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -25,7 +25,7 @@ In most cases, you should just do everything in the `ready` event handler.
 
 ### Event: 'ready'
 
-Returns:
+Zwraca:
 
 * `launchInfo` Object *macOS*
 
@@ -39,7 +39,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 ### Event: 'before-quit'
 
-Returns:
+Zwraca:
 
 * `event` Event
 
@@ -49,7 +49,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+Zwraca:
 
 * `event` Event
 
@@ -59,7 +59,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `exitCode` Integer
@@ -68,7 +68,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `path` String
@@ -81,7 +81,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `url` String
@@ -92,7 +92,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -101,7 +101,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -113,7 +113,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Zwraca:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `window` BrowserWindow
@@ -130,7 +130,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `window` BrowserWindow
@@ -139,7 +139,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `window` BrowserWindow
@@ -148,7 +148,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `webContents` WebContents
@@ -157,7 +157,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -185,7 +185,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -209,7 +209,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -242,7 +242,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `killed` Boolean
@@ -251,7 +251,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -696,7 +696,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Na przykład:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
