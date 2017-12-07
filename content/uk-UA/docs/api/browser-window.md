@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -110,7 +110,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -819,7 +819,7 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
-* `callback` Function
+* `callback` Функція
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
@@ -964,8 +964,8 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Об'єкт 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+* `Button` Object 
+  * `icon` [NativeImage](native-image.md) - Піктограма для показу на палені мініатюр.
   * `click` Function
   * `tooltip` String (опціонально) - Текст для підказки кнопки.
   * `flags` String[] (опціонально) - Контроль станів та поведінки кнопки. За замовчуванням `['enabled']`.
@@ -993,7 +993,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Об'єкт 
+* `options` Object 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
