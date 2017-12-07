@@ -1,4 +1,4 @@
-## Class: Cookies
+## クラス: Cookies
 
 > Query and modify a session's cookies.
 
