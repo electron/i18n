@@ -4,13 +4,13 @@
 
 * * *
 
-Electron 应用中的辅助功能和网站是相似的因为两者最终都是HTML. 然而, 对于Electron应用, 你不能使用在线资源用于辅助功能性审查, 因为你的应用没有一个URL可指向审查者.
+Electron 应用中有关辅助功能的开发和网站是相似的因为两者最终都是HTML. 然而, 对于Electron应用, 你不能使用在线资源用于辅助功能性审查, 因为你的应用没有一个URL可指向审查者.
 
-然而这些新功能能将这些工具带到您的Electron应用中。您可以选择使用 Spectron 将审核添加到您的测试中, 或者在 DevTools 中用 Devtron。 继续阅读有关这两个工具的概要或阅读[ 辅助功能文档 ](https://electronjs.org/docs/tutorial/accessibility)获取更加详细的信息。
+然而这些新功能能将这些审计工具带到您的Electron应用中。您可以选择使用 Spectron 将审核添加到您的测试中, 或者在 DevTools 中用 Devtron。 继续阅读有关这两个工具的概要或阅读[ 辅助功能文档 ](https://electronjs.org/docs/tutorial/accessibility)获取更加详细的信息。
 
 ## Spectron
 
-在Spectron测试框架中，现在你可以测试应用程序中的每个window和webview标签。例如：
+在Spectron测试框架中，你现在可以测试应用程序中的每个window和`<webview>`标签。例如：
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,15 +20,15 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-你可以从这里获取更多信息。[Spectron的文档](https://github.com/electron/spectron#accessibility-testing)
+你可以从这里获取更多关于这个功能的信息[Spectron文档](https://github.com/electron/spectron#accessibility-testing)。
 
 ## Devtron
 
-在 Devtron 中, 有一个新的无障碍访问性的选项卡, 允许您审核应用程序中的某个页面, 并对审核结果进行排序和筛选。
+在 Devtron 中, 有一个新的辅助功能选项卡, 允许您对应用程序中的某一个页面进行审核, 并对审核结果进行排序和筛选。
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. 您可以在该 [ repository's wiki ](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 上了解更多此库所使用的辅助功能审核规则的详细信息。
 
 If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
 
