@@ -72,7 +72,7 @@ In Node.js and Electron, each running process has a `process` object. This objec
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### процес рендерингу
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
@@ -84,7 +84,7 @@ See also: [process](#process), [main process](#main-process)
 
 Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
-### userland
+### користувацький простір
 
 This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
