@@ -37,7 +37,7 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 
 Linux는 따로 autoUpdater를 지원하지 않습니다. 각 배포판의 패키지 관리자를 통해 애플리케이션 업데이트를 제공하는 것을 권장합니다.
 
-## Events
+## 이벤트
 
 `autoUpdater` 객체는 다음과 같은 이벤트를 발생시킵니다:
 
