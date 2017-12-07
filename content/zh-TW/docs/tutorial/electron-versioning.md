@@ -1,6 +1,6 @@
 # Electron 版號規則
 
-> A detailed look at our versioning policy and implementation.
+> 我們的版號訂定策略和實作細節。
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
@@ -28,8 +28,8 @@ An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either abs
 
 There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
+1. 嚴格使用 semver
+2. 使用 semver 相容的 `-beta` 標籤
 3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
 4. Clearly defined stabilization branches
 5. The `master` branch is versionless; only stability branches contain version information
