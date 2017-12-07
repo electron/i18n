@@ -6,7 +6,7 @@ Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)
 
 目前它已成为开源开发者、初创企业和老牌公司常用的开发工具。[ 看看谁在使用Electron ](https://electronjs.org/apps)。
 
-继续往下读可以了解Electron的贡献者们和已经发布的版本，或者直接阅读[快速开始指引](quick-start.md)来着手用Electron来构建应用。
+继续往下阅读可以了解Electron的贡献者们和已经发布的版本，或者直接阅读[快速开始指引](quick-start.md)来着手用Electron来构建应用。
 
 ## 核心团队和贡献者
 
@@ -22,23 +22,23 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 为了使版本更加稳定，Electron通常会在Node.js发布了新版本的一个月之后在更新。
 
-在Electron里，Node.js和Chromium共享同一个V8实例--通常是Chromium在用的版本。大多数情况下这能*正常工作*但有时候需要修补Node.js。
+在Electron里，Node.js和Chromium共享同一个V8实例--通常是Chromium在用的版本。大多数情况下这能*正常工作*但有时候还是需要为Node.js打补丁。
 
 ### 版本
 
-从版本2.0开始Electron会 [ 遵循 ` semver ` 标准](http://semver.org)。 对于大多数应用来说, 在使用新近版本的npm情况下, 运行 ` $ npm install electron ` 都将会正常工作 。
+从版本2.0开始Electron会 [ 遵循 ` semver ` 标准](http://semver.org)。 对于大多数应用来说, 在使用最新版本的npm情况下, 运行 ` $ npm install electron ` 都将会正常工作 。
 
-版本更新过程已经明确详细地描述在我们的 [ 版本控制文档 ](electron-versioning.md) 中。
+版本更新过程已明确并详细地描述在我们的 [ 版本控制文档 ](electron-versioning.md) 中。
 
 ### 长期支持
 
-目前并没有对Electron旧版本的长期支持。 如果你当前的Electron版本可以工作，你可以使用这版本上多久都可以。 如果你想使用发布的新特性，那你就需要升级到更新的版本。
+目前并不会对Electron的旧版本进行长期支持。 如果你当前的Electron版本对你来说还是可以工作的，你就可以一直使用这个版本。 如果你想使用发布的新特性，那你就需要升级到更新的版本。
 
 版本`v1.0.0`发布了重大的更新。 如果你现在还没有在用这个版本，你应该[了解更多关于`v1.0.0`的改变](https://electronjs.org/blog/electron-1-0)。
 
 ## 核心理念
 
-为了保持Electron的小巧 (文件体积) 和可持续性 (依赖库和API的展开) ，Electron限制了所使用的核心项目的数量。
+为了保持Electron的小巧 (文件体积) 和可持续性开发 (以防依赖库和API的泛滥) ，Electron限制了所使用的核心项目的数量。
 
 比如Electron只用了Chromium的渲染库而不是全部。 这使得升级Chromium更加容易，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
 
