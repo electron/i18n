@@ -1,10 +1,10 @@
 # clipboard 
 
-> Perform copy and paste operations on the system clipboard.
+> システムのクリップボードを用いてコピーアンドペーストを実行できます。
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+以下のようにすると、クリップボードに文字列を書き込むことができます。
 
 ```javascript
 const {clipboard} = require('electron')
@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## メソッド
 
 The `clipboard` module has the following methods:
 
@@ -125,7 +125,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` (*実験的*)
 
 * `format` String
 * `type` String (optional)
@@ -137,19 +137,19 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` (*実験的*)
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` (*実験的*)
 
 * `format` String
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` (*実験的*)
 
 * `format` String
 * `buffer` Buffer
@@ -159,7 +159,7 @@ Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` オブジェクト 
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
