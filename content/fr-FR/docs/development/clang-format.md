@@ -1,4 +1,4 @@
-# Utilisation du clang-format sur du code C++
+# Utilisation du clang-format pour du code C++
 
 [`Clang-format`](http://clang.llvm.org/docs/ClangFormat.html) est un outil pour formater le code C/C++/Objective-C, afin que les développeurs n’aient pas à se soucier des problèmes de style au cours de la révision du code.
 
