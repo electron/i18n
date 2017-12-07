@@ -2,7 +2,7 @@
 
 > Create a button in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proces: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
@@ -13,7 +13,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `iconPosition` String - Can be `left`, `right` or `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
 
-### Instance Properties
+### Właściwości instancji
 
 The following properties are available on instances of `TouchBarButton`:
 
