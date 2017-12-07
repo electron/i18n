@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Eventos
 
 The `screen` module emits the following events:
 
@@ -81,7 +81,7 @@ Retorna:
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Methods
+## Métodos
 
 The `screen` module has the following methods:
 
