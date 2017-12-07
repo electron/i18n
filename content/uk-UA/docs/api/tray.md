@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -223,7 +223,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Об'єкт 
+* `options` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)
