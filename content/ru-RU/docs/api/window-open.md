@@ -27,8 +27,8 @@ The `features` string follows the format of standard browser, but each feature h
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* Строка `message`
+* Строка `targetOrigin`
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
