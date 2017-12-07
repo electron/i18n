@@ -1,4 +1,4 @@
-# Utiliser des Modules Natifs de Node
+# Utiliser Modules Natifs de Node
 
 Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est susceptible d’utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l’emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
