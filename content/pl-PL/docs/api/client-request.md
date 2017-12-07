@@ -38,13 +38,13 @@ const request = net.request({
 
 #### Event: 'response'
 
-Returns:
+Zwraca:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
 #### Event: 'login'
 
-Returns:
+Zwraca:
 
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Event: 'error'
 
-Returns:
+Zwraca:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Returns:
+Zwraca:
 
 * `statusCode` Integer
 * `method` String
@@ -114,7 +114,7 @@ Returns:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Właściwości instancji
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### Metody instancji
 
 #### `request.setHeader(name, value)`
 
