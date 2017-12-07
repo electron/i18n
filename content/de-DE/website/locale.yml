@@ -5,13 +5,13 @@ nav:
   community: Community
   apps: Apps
   userland: Userland
-  releases: Versionen
+  releases: Veröffentlichungen
   contact: Kontakt
   languages: Sprachen
   code_of_conduct: Code of Conduct
 docs:
   title: Electron-Dokumentation
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: Alle <a href="/docs/all">Dokumente auf einer Seite</a> anzeigen oder die <a href="/docs/faq">FAQ</a> ansehen.
   guides: Anleitungen
   api_reference: API-Referenz
   advanced: Erweitert
@@ -38,7 +38,7 @@ web_technologies:
   description: Electron verwendet Chromium und Node.js, so dass Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
 open_source:
   title: Open Source
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Electron ist von ein GitHub und einer aktiver Community von Mitwirkenden gepflegtes, quelloffenes Projekt.
 cross_platform:
   title: Plattformübergreifend
   description: Kompatibel mit Mac, Windows und Linux, Elektron-Apps kompilieren und laufen auf drei Plattformen.
@@ -124,7 +124,7 @@ pages:
   '/community':
     title: Community
   '/releases':
-    title: Versionen
+    title: Veröffentlichungen
   '/contact':
     title: Kontakt
     description: Das Electron-Team auf Twitter, Slack, GitHub oder per E-Mail kontaktieren.
