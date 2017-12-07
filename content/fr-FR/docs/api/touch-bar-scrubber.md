@@ -6,7 +6,7 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
-* `options` Object 
+* `options` Objet 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Un tableau d'éléments à placer dans ce scrubber
   * `select` Function - Appelée lorsque l'utilisateur clique sur un élément qui n'était par le dernier élément cliqué 
     * `selectedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné
