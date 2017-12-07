@@ -2,15 +2,15 @@
 
 ## Warum habe ich Probleme bei der Installation von Elektron?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Beim Ausführen von `npm install electron` können bei einigen Nutzern gelegentlich Installationsfehler auftreten.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+In fast allen Fällen sind entstehen diese Fehler wegen Netzwerkproblemen und sind nicht mit dem `electron` npm package verbunden. Fehler wie `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` weisen alle auf ein Problem mit dem Netzwerk hin. Das Problem kann am besten gelöst werden, wenn man das Netzwerk wechselt oder man eine Weile wartet und die Installation erneut versucht.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Man kann auch versuchen, Electron direkt unter [electron/electron/releases](https://github.com/electron/electron/releases) herunterzuladen, falls die Installation über `npm` weiterhin fehlschlägt.
 
 ## Wann wird Electron auf die neueste Chrome Version aktualisieren?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Die Chrome Version von Electron wird in der Regel innerhalb von ein oder zwei Wochen inkrementiert nachdem eine neue stabile Version für Chrome veröffentlicht wird. Diese Schätzung kann nicht garantiert werden und hängt vom Arbeitsaufwand während der Aktualisierung ab.
 
 Nur der stabile Channel von Chrome wird verwendet. Wenn ein wichtiger Fix im Beta- oder Dev-Channel ist, werden wir es zurückporten.
 
