@@ -599,7 +599,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md) 
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds
@@ -610,7 +610,7 @@ Returns [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md) 
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
@@ -1104,7 +1104,7 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Note:** TouchBar API は現在実験的な機能です。そのため、将来的には変更されたり削除されたりする可能性があります。
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
