@@ -24,7 +24,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Używanie Pluginu Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
-* [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
+* [Skróty klawiszowe](tutorial/keyboard-shortcuts.md)
 * [Updating Applications](tutorial/updates.md)
 
 ## Poradniki
