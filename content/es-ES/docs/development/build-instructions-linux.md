@@ -79,13 +79,13 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Building
 
-If you would like to build both `Release` and `Debug` targets:
+Si desea compilar metas `Release` y `Debug`:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Este script hará que un Electron muy grande ejecutable en el directorio `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
 $ ./script/create-dist.py
@@ -129,7 +129,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tests
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
 
 ## Advanced topics
 
@@ -153,7 +153,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Tenga en cuenta que por defecto no se construye la configuración de `shared_library`, por lo que sólo se puede compilar `Release` versión del Electron Si utilizas este modo:
 
 ```sh
 $ ./script/build.py -c R
@@ -172,7 +172,7 @@ $ ./script/build.py -c R
 
 ### Using compilers other than `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Compilar Electron con compiladores como `g ++`, primera necesidad para desactivar el `clang` con ` - disable_clang` interruptor primero y luego establecer variables de entorno `CC` y `CXX` a los que desee.
 
 For example building with GCC toolchain:
 
