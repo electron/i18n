@@ -2,11 +2,11 @@
 
 > Query and modify a session's cookies.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+Например:
 
 ```javascript
 const {session} = require('electron')
@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Instance Events
+### События экземпляра
 
 The following events are available on instances of `Cookies`:
 
