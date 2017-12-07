@@ -5,7 +5,7 @@
 프로세스:[Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// 메인 프로세스에서.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -54,6 +54,7 @@ const {BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
+
 ```
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
@@ -223,7 +224,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-반환:
+Returns:
 
 * `event` Event
 * `title` String
@@ -232,13 +233,13 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-반환:
+Returns:
 
 * `event` Event
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 예시:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -336,7 +337,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-반환:
+Returns:
 
 * `event` Event
 * `command` String
@@ -370,7 +371,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `direction` String
@@ -425,7 +426,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* PrinterInfo Object
 
 Remove a Chrome extension by name.
 
@@ -451,7 +452,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* PrinterInfo Object
 
 Remove a DevTools extension by name.
 
@@ -866,7 +867,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `callback` 함수 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
@@ -965,7 +966,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - 썸네일 도구 모음에 표시되는 아이콘입니다.
   * `click` Function
   * `tooltip` String (optional) - 버튼의 툴팁 텍스트
   * `flags` String[] (optional) - 버튼의 특정 상태 및 동작을 제어합니다. 디폴트면, `['enabled']`입니다.
