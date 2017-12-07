@@ -29,7 +29,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 
 ## Tutorial
 
-* [Inizio rapido](tutorial/quick-start.md)
+* [Avvio rapido](tutorial/quick-start.md)
 * [Integrazione con ambiente Desktop](tutorial/desktop-environment-integration.md)
 * [Rilevamento di eventi online/offline](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
