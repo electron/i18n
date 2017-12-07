@@ -4,7 +4,7 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una consulta:
 
-* [Preguntas más frecuentes sobre Electron](faq.md)
+* [Preguntas Frecuentes sobre Electron](faq.md)
 
 ## Guías
 
@@ -12,7 +12,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Plataformas soportadas](tutorial/supported-platforms.md)
 * [Seguridad](tutorial/security.md)
 * [Versioning](tutorial/electron-versioning.md)
-* [Distribución de la aplicación](tutorial/application-distribution.md)
+* [Distribución de aplicaciones](tutorial/application-distribution.md)
 * [Guía de publicación en la Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guía de Windows Store](tutorial/windows-store-guide.md)
 * [Empaquetado de la aplicación](tutorial/application-packaging.md)
@@ -46,7 +46,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [`Archivo` Objeto](api/file-object.md)
 * [`<webview>` Etiqueta](api/webview-tag.md)
-* [`window.open` Función](api/window-open.md)
+* [Función `window.open`](api/window-open.md)
 
 ### Módulos para el proceso principal:
 
@@ -87,13 +87,13 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 ## Desarrollo
 
 * [Estilo de código](development/coding-style.md)
-* [Usar clang-format en código C++](development/clang-format.md)
+* [Clang-formato en código C++](development/clang-format.md)
 * [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
 * [Diferencias técnicas con NW.js (antes node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Resumen de compilación de sistemas](development/build-system-overview.md)
-* [Instrucciones de compilación (macOS)](development/build-instructions-osx.md)
-* [Instrucciones de compilación (Windows)](development/build-instructions-windows.md)
-* [Instrucciones de compilación (Linux)](development/build-instructions-linux.md)
+* [Compilación de sistemas](development/build-system-overview.md)
+* [Instrucciones para compilación (macOS)](development/build-instructions-osx.md)
+* [Instrucciones para compilación (Windows)](development/build-instructions-windows.md)
+* [Instrucciones para compilación (Linux)](development/build-instructions-linux.md)
 * [Instrucciones de depuración (macOS)](development/debugging-instructions-macos.md)
 * [Instrucciones de depuración (Windows)](development/debug-instructions-windows.md)
 * [Configurando el Symbol Server en el depurador](development/setting-up-symbol-server.md)
