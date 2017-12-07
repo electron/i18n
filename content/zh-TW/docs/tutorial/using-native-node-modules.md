@@ -1,4 +1,4 @@
-# 使用 Node 原生模組
+# 使用原生 Node 模組
 
 Electron 支援 Node 原生模組，但是 Electron 很有可能會用跟你安裝的 Node 不同版本的 V8，因此建置原生模組時你要手動指定 Electron 標頭檔的位置。
 
