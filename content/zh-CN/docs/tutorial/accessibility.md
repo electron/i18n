@@ -1,4 +1,4 @@
-# 可用性
+# 无障碍辅助功能
 
 创建可用的应用程序是很重要的，我们很乐意介绍能让开发者有机会让它们的应用程序让每个人都可用的[Devtron](https://electron.atom.io/devtron)和[Spectron](https://electron.atom.io/spectron)的新功能。
 
