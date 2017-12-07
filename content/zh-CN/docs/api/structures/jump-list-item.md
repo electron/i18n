@@ -6,7 +6,7 @@
   * ` file `-一个文件的链接将使用创建跳转列表的应用程序打开文件, 为此, 应用程序必须注册为该文件类型的默认程序 (尽管它并不需要成为默认程序)。
 * ` path `String (可选)-要打开的文件的路径, 只应在 ` type ` 为 ` file ` 时设置。
 * ` program `String (可选)-要执行的程序的路径, 通常应该指定打开当前程序的 ` process.execPath `。 只应在 ` type ` 是 ` task ` 时设置。
-* `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
+* `args` 字符串 (可选) - 程序执行时的命令行参数。只应在 ` type ` 为 ` task ` 时设置。
 * ` title `String (可选)-要为跳转列表中的项显示的文本。只应在 ` type ` 为 ` task ` 时设置。
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
 * `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
