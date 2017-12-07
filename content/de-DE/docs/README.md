@@ -96,7 +96,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Build Anweisungen (Linux)](development/build-instructions-linux.md)
 * [Debug Anweisungen (macOS)](development/debugging-instructions-macos.md)
 * [Debug Anweisungen (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
+* [Einen Symbol-Server im Debugger einrichten](development/setting-up-symbol-server.md)
 * [Dokumentations-Gestaltungsrichtlinie](styleguide.md)
 * [Chrome aktualisieren](development/upgrading-chrome.md)
 * [Chromium-Entwicklung](development/chromium-development.md)
