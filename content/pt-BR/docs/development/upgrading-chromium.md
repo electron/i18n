@@ -11,8 +11,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 ## Upgrade `libcc` to a new Chromium version
 
 1. Get the code and initialize the project: 
-  -     sh
-        $ git clone git@github.com:electron/libchromiumcontent.git
+  -     $ git clone git@github.com:electron/libchromiumcontent.git
         $ cd libchromiumcontent
         $ ./script/bootstrap -v
 
@@ -38,16 +37,14 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 ## Update Electron's code
 
 1. Get the code: 
-  -     sh
-        $ git clone git@github.com:electron/electron.git
+  -     $ git clone git@github.com:electron/electron.git
         $ cd electron
 
 2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
-  -     sh
-        $ ./script/bootstrap.py -v \
-        --libcc_source_path <libcc_folder>/src \
-        --libcc_shared_library_path <libcc_folder>/shared_library \
-        --libcc_static_library_path <libcc_folder>/static_library
+  -     $ ./script/bootstrap.py -v \
+          --libcc_source_path <libcc_folder>/src \
+          --libcc_shared_library_path <libcc_folder>/shared_library \
+          --libcc_static_library_path <libcc_folder>/static_library
 
 3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
   
