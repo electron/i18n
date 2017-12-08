@@ -85,14 +85,14 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### 把 `asar` 档案当作一个普通的文件
 
-某些情况下，如：对 `asar` 档案文件的进行校验，我们需要像读取 “文件” 那样读取 `asar` 档案文件的内容。 你可以使用内置的 `original-fs` 提供和 `fs` 一样的 API模块来读取 `asar` 包的真实信息。
+某些情况下，如：对 `asar` 档案文件进行校验，我们需要像读取 “文件” 那样读取 `asar` 档案文件。 为此你可以使用内置的没有`asar`功能的和原始`fs`模块一模一样的`original-fs`模块。
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-您也可以将 `process.noAsar` 设置为 `true` 以禁用 `fs` 模块中 `asar` 的支持：
+您也可以将 `process.noAsar` 设置为 `true` 以禁用 `fs` 模块中对 `asar` 的支持：
 
 ```javascript
 const fs = require('fs')
@@ -104,17 +104,17 @@ fs.readFileSync('/path/to/example.asar')
 
 尽管我们已经尽了最大努力使得 `asar` 包在 Node API 下的应用尽可能的趋向于真实的目录结构，但仍有一些底层 Node API 我们无法保证其正常工作。
 
-### 档案是只读的
+### 档案文件是只读的
 
-档案中的内容不可更改，所以 Node APIs 里那些可以用来修改文件的方法在对待 `asar` 包时都无法正常工作.
+档案文件中的内容不可更改，所以 Node APIs 里那些会修改文件的方法在使用`asar` 归档文件时都无法正常工作.
 
-### 工作目录不能设置为档案里的目录
+### 工作目录不能设置为档案文件里的目录
 
 尽管 `asar` 档案是虚拟文件夹，但其实并没有真实的目录架构对应在文件系统里，所以你不可能将 working Directory 设置成 `asar` 包里的一个文件夹。 将 asar 中的文件夹以 `cwd` 形式作为参数传入一些 API 中也会报错。
 
-### 某些 API 上的额外解包
+### 某些 API 需要额外解压档案包
 
-大部分 `fs` API 可以无需解压即从 `asar` 档案中读取文件或者文件的信息，但是在处理一些依赖真实文件路径的底层系统方法时，Electron 会将所需文件解压到临时目录下，然后将临时目录下的真实文件路径传给底层系统方法使其正常工作。 对于这类API，耗费会略多一些。
+大部分 `fs` API 可以无需解压即从 `asar` 档案中读取文件或者文件的信息，但是在处理一些依赖真实文件路径的底层系统方法时，Electron 会将所需文件解压到临时目录下，然后将临时目录下的真实文件路径传给底层系统方法使其正常工作。 对于这类API，会增加一些开销。
 
 以下是一些需要额外解压的 API：
 
