@@ -70,7 +70,7 @@ A process is an instance of a computer program that is being executed. Electron 
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Consulte também: [processo principal](#main-process), [processo de processador](#renderer-process)
 
 ### renderer process
 
