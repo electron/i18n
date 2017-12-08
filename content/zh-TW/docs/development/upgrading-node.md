@@ -22,7 +22,7 @@ So in short, the primary steps are:
   - Update submodules
   - Update Node.js build configuration
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## 更新 Electron 的 Node [分支](https://github.com/electron/node)
 
 1. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` 
   - `vX.X.X` Must use a version of node compatible with our current version of chromium
