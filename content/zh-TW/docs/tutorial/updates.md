@@ -2,7 +2,7 @@
 
 There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
-## Deploying an update server
+## 佈署更新伺服器
 
 To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
 
@@ -15,7 +15,7 @@ Depending on your needs, you can choose from one of these:
 
 If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
 
-## Implementing updates in your app
+## 在應用程式中實作更新功能
 
 Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
@@ -44,7 +44,7 @@ setInterval(() => {
 
 Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
 
-## Applying updates
+## 套用更新
 
 Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
 
@@ -53,9 +53,9 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
     type: 'info',
     buttons: ['Restart', 'Later'],
-    title: 'Application Update',
+    title: '應用程式更新',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: '新版已經下載完成。 重新啟動應用程式即可更新。'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -68,7 +68,7 @@ Also make sure that errors are [being handled](../api/auto-updater.md#event-erro
 
 ```js
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('更新本應用程式時出錯了')
   console.error(message)
 })
 ```
