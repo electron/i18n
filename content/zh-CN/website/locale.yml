@@ -92,9 +92,9 @@ apps:
   something_missing: 是否缺少什么？
   edit_this_app: 编辑此应用程序。
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: 复制
+  copy_to_clipboard: 复制到剪贴板
+  copied: 已复制
 or: 或者
 pages:
   '/':
