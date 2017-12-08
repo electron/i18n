@@ -1,10 +1,10 @@
-# 剪切板
+# clipboard
 
-> 使用系统剪切板执行复制和粘贴操作。
+> 透過系統剪貼簿複製和貼上。
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
-下面的例子演示了如何将一串字符写入剪切板。
+下列範例展示如何將字串寫進剪貼簿:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -15,7 +15,7 @@ On X Window systems, there is also a selection clipboard. To manipulate it you n
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('範例字串', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
@@ -99,7 +99,7 @@ Writes the `title` and `url` into the clipboard as a bookmark.
 ```js
 clipboard.write({
   text: 'https://electron.atom.io',
-  bookmark: 'Electron Homepage'
+  bookmark: 'Electron 首頁'
 })
 ```
 
@@ -125,7 +125,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *實驗性質*
 
 * `format` String
 * `type` String (optional)
@@ -149,7 +149,7 @@ Returns `String` - Reads `format` type from the clipboard.
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` *實驗性質*
 
 * `format` String
 * `buffer` Buffer
