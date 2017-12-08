@@ -60,15 +60,16 @@ Note that even for apps that use `ready-to-show` event, it is still recommended 
 
 ## Fenêtres parent et enfant
 
-En utilisant l'option `parent<0>, vous pouvez créer une fenêtre enfant:</p>
+En utilisant l'option `parent`, vous pouvez créer une fenêtre enfant:
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
+```javascript
+const {BrowserWindow} = require('electron')
 
 let top = new BrowserWindow()
 let child = new BrowserWindow({parent: top})
 child.show()
 top.show()
-`</pre> 
+```
 
 The `child` window will always show on top of the `top` window.
 
