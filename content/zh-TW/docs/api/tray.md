@@ -1,10 +1,10 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> 在系统的通知区域添加一个具有上下文菜单的图标。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
-`Tray` 是個 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。
+`Tray` 是个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-**平臺限制:**
+**平台限制:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
