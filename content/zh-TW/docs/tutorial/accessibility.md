@@ -32,15 +32,15 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 如果你還知道其他 Electron 可以用的易用性工具，加到[協助工具說明文件](https://electronjs.org/docs/tutorial/accessibility)裡再發個 Pull Request 吧。
 
-## Enabling Accessibility
+## 啟用協助工具
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
-### Inside Application
+### 在應用程式中
 
 By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
-### Assistive Technology
+### 輔助技術
 
 Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
 
