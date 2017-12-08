@@ -2,11 +2,11 @@
 
 为缓解 Windows 下路径名过长的 [问题](https://github.com/joyent/node/issues/6960)， 略微加快一下 `require`的速度以及隐藏你的源代码，你可以选择把你的应用打包成 [asar](https://github.com/electron/asar)档案文件，这只需要对你的源代码做一些很小的改动。
 
-## 生成 `asar` 包
+## 生成 `asar` 档案文件
 
-[asar](https://github.com/electron/asar) 是一种将多个文件合并成一个文件的类 tar 风格的归档格式。 Electron 可以无需解压，即从其中读取任意文件内容。
+[asar](https://github.com/electron/asar) 是一种将多个文件合并成一个文件的类 tar 风格的归档格式。 Electron 可以无需解压整个文件，即可从其中读取任意文件内容。
 
-参照如下步骤将你的应用打包成 `asar`
+参照如下步骤将你的应用打包成 `asar`归档文件。
 
 ### 1. 安装 asar 实用程序
 
@@ -20,7 +20,7 @@ $ npm install -g asar
 $ asar pack your-app app.asar
 ```
 
-## 使用 `asar` 档案
+## 使用 `asar` 档案文件
 
 在 Electron 中有两类 APIs：Node.js 提供的 Node API 和 Chromium 提供的 Web API。 这两种 API 都支持从 `asar` 档案中读取文件。
 
@@ -85,7 +85,7 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### 把 `asar` 档案当作一个普通的文件
 
-某些情况下，如：核查 `asar` 档案的校验，我们需要像读取 “文件” 那样读取 `asar` 包的内容。 你可以使用内置的 `original-fs` 提供和 `fs` 一样的 API模块来读取 `asar` 包的真实信息。
+某些情况下，如：对 `asar` 档案文件的进行校验，我们需要像读取 “文件” 那样读取 `asar` 档案文件的内容。 你可以使用内置的 `original-fs` 提供和 `fs` 一样的 API模块来读取 `asar` 包的真实信息。
 
 ```javascript
 const originalFs = require('original-fs')
