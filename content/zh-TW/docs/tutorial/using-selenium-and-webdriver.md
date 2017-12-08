@@ -96,7 +96,7 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## 設定 WebdriverIO
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
