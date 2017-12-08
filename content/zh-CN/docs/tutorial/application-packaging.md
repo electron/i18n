@@ -1,6 +1,6 @@
 # 应用程序打包
 
-为缓解 Windows 下路径名过长的 [问题](https://github.com/joyent/node/issues/6960)， 也顺便加速 `require` 以及简单隐匿你的源代码，你可以通过极小的源代码改动将你的应用打包成 [asar](https://github.com/electron/asar)。
+为缓解 Windows 下路径名过长的 [问题](https://github.com/joyent/node/issues/6960)， 略微加快一下 `require`的速度以及隐藏你的源代码，你可以选择把你的应用打包成 [asar](https://github.com/electron/asar)档案文件，这只需要对你的源代码做一些很小的改动。
 
 ## 生成 `asar` 包
 
