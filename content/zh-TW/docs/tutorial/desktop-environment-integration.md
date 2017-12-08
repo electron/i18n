@@ -70,7 +70,7 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## 使用者工作 (Windows)
 
 On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
 
@@ -78,7 +78,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Tasks of Internet Explorer:**
+**Internet Explorer 的工作:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
@@ -109,7 +109,7 @@ app.setUserTasks([])
 
 The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
 
-## Thumbnail Toolbars
+## 縮圖工具列
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
 
@@ -119,7 +119,7 @@ From MSDN, it's illustrated:
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Windows Media Player 的縮圖工具列:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -165,7 +165,7 @@ In Unity, you can add custom entries to its launcher via modifying the `.desktop
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## 工作列進度顯示 (Windows, macOS, Unity)
 
 On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
@@ -173,7 +173,7 @@ On macOS the progress bar will be displayed as a part of the dock icon.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
-**Progress bar in taskbar button:**
+**工作列按鈕的進度列:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
@@ -185,13 +185,13 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## 工作列圖示重疊 (Windows)
 
 On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**Overlay on taskbar button:**
+**工作列按鈕重疊:**
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
