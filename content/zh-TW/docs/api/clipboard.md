@@ -27,53 +27,53 @@ The `clipboard` module has the following methods:
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (選用)
 
 Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (選用)
 
 Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` String (選用)
 
 Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (選用)
 
 Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` String (選用)
 
 Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (選用)
 
 Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (選用)
 
 Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (選用)
 
 Writes the `text` into the clipboard in RTF.
 
@@ -90,7 +90,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` String
-* `type` String (optional)
+* `type` String (選用)
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (選用)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (選用)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *試驗中*
 
 * `format` String
-* `type` String (optional)
+* `type` String (選用)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -161,11 +161,11 @@ Writes the `buffer` into the clipboard as `format`.
 
 * `data` Object 
   * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
+  * `html` String (選用)
+  * `image` [NativeImage](native-image.md) (選用)
+  * `rtf` String (選用)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (選用)
 
 ```javascript
 const {clipboard} = require('electron')
