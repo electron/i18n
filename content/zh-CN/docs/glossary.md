@@ -94,9 +94,9 @@ Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新�
 
 V8 是谷歌公司的开源 JavaScript 引擎。它使用 C++ 编写并被使用在谷歌公司的开源浏览器 Chrome 上。V8 能够单独运行或者集成在任何一个 C++ 应用内。
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron将 V8 作为Chromium的一个部分进行构建，然后在构建Node时也指向那个 V8
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8 的版本号总是和谷歌 Chrome的版本号对应。Chrome 59包括 V8 5.9，Chrome 58包括 V8 5.8，等等。
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -104,4 +104,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview `标签用于集成 'guest（访客）' 内容（比如外部的网页）在你的 Electron 应用内。它们类似于 `iframe`，但是不同的是每个 webview 运行在独立的进程中。 作为页面它拥有不一样的权限并且所有的嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。
+`webview `标签用于将 'guest（访客）' 内容（比如外部的网页）集成在你的 Electron 应用内。它们类似于 `iframe`，但是不同的是每个 webview 运行在独立的进程中。 它拥有和你的页面不一样的权限并且所嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。
