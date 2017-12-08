@@ -50,7 +50,7 @@ IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来�
 
 ### native modules
 
-原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中加载或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要用于桥接在 JavaScript 上运行 Node.js 和 C/C++ 的库。
+原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中加载或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要用于桥接在 Node.js 上运行的 JavaScript 和 C/C++ 的库。
 
 Electron 支持了原生的 Node 模块，但是 Electron 非常可能安装一个不一样的 V8 引擎通过 Node 二进制编码，所以在打包原生模块的时候你需要在 指定具体的 Electron 本地头文件。
 
