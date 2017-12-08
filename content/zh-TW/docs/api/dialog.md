@@ -54,8 +54,8 @@ The `filters` specifies an array of file types that can be displayed or selected
   filters: [
     {name: 'Images', extensions: ['jpg', 'png', 'gif']},
     {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', extensions: ['as']},
-    {name: 'All Files', extensions: ['*']}
+    {name: '自訂檔案類型', extensions: ['as']},
+    {name: '所有檔案', extensions: ['*']}
   ]
 }
 ```
