@@ -25,7 +25,7 @@ Electron
 |   └── common/ - 主處理序及畫面轉譯處理序期用的程式碼。包含一些工具函式，
 |       以及將 Node 訊息迴圈整合進 Chromium 訊息迴圈的程式碼。
 |       └── api/ - 共用 API 實作、Electron 內建模組的基礎架構。
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - 由 Chromium 複製過來的原始碼。 參考下方說明。
 ├── default_app/ - Electron 沒有指定 app 啟動時使用的預設頁面。
 ├── docs/ - 文件。
 ├── lib/ - JavaScript 原始碼。
