@@ -29,7 +29,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *試驗中*
 
 * `options` Object (選用) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
@@ -46,11 +46,11 @@ Returns `BrowserView` - The view with the given `id`.
 
 Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *實驗性質*
+#### `view.webContents` *試驗中*
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *實驗性質*
+#### `view.id` *試驗中*
 
 A `Integer` representing the unique ID of the view.
 
@@ -58,18 +58,18 @@ A `Integer` representing the unique ID of the view.
 
 Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *實驗性質*
+#### `view.setAutoResize(options)` *試驗中*
 
 * `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *實驗性質*
+#### `view.setBounds(bounds)` *試驗中*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *實驗性質*
+#### `view.setBackgroundColor(color)` *試驗中*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
