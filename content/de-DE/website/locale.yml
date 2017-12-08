@@ -57,33 +57,33 @@ explore:
   description:
     - Die <a href="https://github.com/electron/electron-api-demos">Electron API Demo App</a>
     - zeigt interaktiv die wichtigsten Funktionalitäten der Electron API.
-    - Siehe was Electron kann mit Code-Beispielen und hilfreichen Tipps
-    - bauen deiner App.
+    - Schau was mit Electron alles möglich ist anhand von Code-Beispielen und hilfreichen Tipps für
+    - die Erstellung deiner App.
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen anzeigen</a> auf GitHub
 quick_start:
-  title: "Starte mit der <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start-App</a>, um Electron in Aktion zu sehen:"
+  title: "Starte die <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start-App</a>, um Electron in Aktion zu sehen:"
   description: Eine minimale Electron App mit hilfreichen Anmerkungen.
   clone: Das Quick-Start Repository klonen
-  go_into_repo: Gehen Sie in das Repository
-  install_deps: Die Abhängigkeiten installieren und ausführen
+  go_into_repo: Gehe in das Repository
+  install_deps: Installiere die Abhängigkeiten und starte die App
   dive_deeper: Oder tauchen Sie tiefer ein und lesen Sie die <a href='/docs'>Dokumentation</a>.
 need_help:
-  title: Benötigen Sie Hilfe?
+  title: Hilfe benötigt?
   description: "Stelle Fragen im <a href='https://discuss.atom.io/c/electron'>Diskussionsforum</a> oder in unserem <a href='http://atom-slack.herokuapp.com/'>Slack</a> Kanal.\nFolge <a href=\"https://twitter.com/electronjs\">@electronjs</a> auf Twitter für wichtige Ankündigungen.\n Möchtest du uns persönlich erreichen? Dann schreib eine Email an <a href=\"mailto:electron@github.com\">electron@github.com</a>."
 headings:
   languages: Sprachen
 taglines:
-  languages: Übersetzte Inhalte von unserer wunderbaren globalen Entwickler-Community.
+  languages: Übersetzte Inhalte von unserer tollen weltweiten Entwickler-Community.
 help_translate: "Hilf bei der Übersetzung"
 footer:
   see_something: Gibt es etwas zu beheben?
   propose_change: Schlage eine Änderung einer Source-Datei vor.
-  need_different_version: Benötigen Sie eine andere Version der Dokumentation?
+  need_different_version: Benötigst du eine andere Version der Dokumentation?
   see_available_versions: Alle verfügbaren Versionen.
-  want_something_searchable: Möchten Sie die Dokumentation durchsuchen?
+  want_something_searchable: Möchtest du eine suchbare Dokumentation?
   view_all_docs: Komplette Dokumentation auf einer Seite ansehen
-  see_the_faq: Häufig gestellte Fragen
+  see_the_faq: Sieh dir häufig gestellte Fragen an
 apps:
   title: Mit Electron entwickelte Apps
   description: Mit Electron ist das Erstellen einer Desktop-Anwendung für Ihre Firma oder Idee einfach. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom Editor</a> von GitHub entwickelt, wurde Electron bereits von Firmen wie Microsoft, Facebook, Slack und Docker verwendet.
