@@ -7,7 +7,7 @@
 
 ## Exemplo
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Abaixo está um exemplo de algumas das opções adicionais que podem ser definidas e podem ser diferentes em cada plataforma.
 
 ```javascript
 {
