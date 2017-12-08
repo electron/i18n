@@ -6,11 +6,11 @@
 
 Electron 应用中有关辅助功能的开发和网站是相似的因为两者最终使用的都是HTML. 然而, 对于Electron应用, 你不能使用在线的辅助功能审查者, 因为你的应用没有一个URL可以提供给审查者.
 
-然而这些新功能将这些审查工具带到您的Electron应用中。您可以选择使用 Spectron 将审核添加到您的测试中, 或者在 DevTools 中使用 Devtron。 继续阅读有关这两个工具的概要或阅读[ 辅助功能文档 ](https://electronjs.org/docs/tutorial/accessibility)获取更加详细的信息。
+然而这些新功能将这些审查工具带到您的Electron应用中。您可以选择使用 Spectron 将审核添加到您的测试中, 或者在 DevTools 中使用 Devtron。 继续阅读可简要了解这两个工具或阅读[ 辅助功能文档 ](https://electronjs.org/docs/tutorial/accessibility)以获取更加详细的信息。
 
 ## Spectron
 
-在Spectron测试框架中，你现在可以测试应用程序中的每个window和`<webview>`标签。例如：
+目前在Spectron测试框架中，你可以测试应用程序中的每个window和`<webview>`标签。例如：
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,7 +20,7 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-你可以从这里获取更多关于这个功能的信息[Spectron文档](https://github.com/electron/spectron#accessibility-testing)。
+你可以从这里[Spectron文档](https://github.com/electron/spectron#accessibility-testing)阅读到更多有关于这个功能的信息。
 
 ## Devtron
 
