@@ -2,7 +2,7 @@
 
 > Configure atalhos de teclado locais e globais
 
-## Atalhos locais
+## Atalhos Locais
 
 Você pode usar o módulo [Menu](../api/menu.md) para configurar os atalhos do teclado que serão acionados quando a aplicação estiver em foco. Para isso, especifique a propriedade [`accelerator`] quando criar um [MenuItem](../api/menu-item.md).
 
