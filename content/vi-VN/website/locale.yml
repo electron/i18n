@@ -92,9 +92,9 @@ apps:
   something_missing: Một cái gì đó thiếu?
   edit_this_app: Chỉnh sửa ứng dụng này.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Sao chép
+  copy_to_clipboard: Chép vào clipboard
+  copied: Đã sao chép
 or: hoặc
 pages:
   '/':
