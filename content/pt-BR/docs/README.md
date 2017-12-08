@@ -14,7 +14,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Controle de Versão](tutorial/electron-versioning.md)
 * [Distribuição de Aplicativos](tutorial/application-distribution.md)
 * [Guia para Mac App Store](tutorial/mac-app-store-submission-guide.md)
-* [Guia para a Windows Store](tutorial/windows-store-guide.md)
+* [Guia para o Windows Store](tutorial/windows-store-guide.md)
 * [Empacotamento de Aplicativos](tutorial/application-packaging.md)
 * [Usando Módulos Nativos do Node](tutorial/using-native-node-modules.md)
 * [Processo Principal de Depuração](tutorial/debugging-main-process.md)
@@ -46,7 +46,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 * [Objeto `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [Função `window.open`](api/window-open.md)
+* [`window.open` Função](api/window-open.md)
 
 ### Módulos para o Processo Principal:
 
