@@ -25,7 +25,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Renderização fora da tela](tutorial/offscreen-rendering.md)
 * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Atualizando Aplicativos](tutorial/updates.md)
 
 ## Tutoriais
 
