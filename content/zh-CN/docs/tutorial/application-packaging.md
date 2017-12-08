@@ -124,7 +124,7 @@ fs.readFileSync('/path/to/example.asar')
 * `fs.openSync`
 * `process.dlopen` - 用在 `require` 原生模块时
 
-### `fs.stat` 的虚假统计信息
+### `fs.stat` 的不真实统计信息
 
 对 `asar` 档案中的文件取 `fs.stat`，返回的 `Stats` 对象不是精确值，因为这些文件不是真实存在于文件系统里。 所以除了文件大小和文件类型以外，你不应该依赖 `Stats` 对象的值。
 
