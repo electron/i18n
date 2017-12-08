@@ -125,7 +125,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` *實驗性質*
+### `clipboard.has(format[, type])` *試驗中*
 
 * `format` String
 * `type` String (optional)
@@ -137,19 +137,19 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *實驗性質*
+### `clipboard.read(format)` *試驗中*
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *實驗性質*
+### `clipboard.readBuffer(format)` *試驗中*
 
 * `format` String
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *實驗性質*
+### `clipboard.writeBuffer(format, buffer[, type])` *試驗中*
 
 * `format` String
 * `buffer` Buffer
