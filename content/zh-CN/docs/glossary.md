@@ -88,11 +88,11 @@ Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新�
 
 "userland" 或者 "userspace" 术语起源于 Unix 社区，是指程序运行在操作系统内核之外的位置。 最近这个术语被推广到 Node 和 npm 社区，用于区分 "Node 内核"功能与在 npm 上注册的"用户" 们所发布的包的功能。
 
-就像 Node ，Electron 致力于使用较小的API集来支持开发跨平台应用所必需的原语。 这个设计理念让 Electron 能够保持灵活而不被过多的规定有关于如何应该被使用。 Userland 让用户能够创造和分享一些工具来提额外的功能在这个能够使用的 "core（核心）"之上。
+就像 Node ，Electron 致力于使用较小的API集来支持开发跨平台应用所必需的原语。 这个设计理念让 Electron 能够保持灵活性而不是被过分的规定为一个应该如何被使用的工具。 Userland 让用户能够在这个 "core（核心）"功能之上创造和分享一些工具来增加新的功能。
 
 ### V8
 
-V8 是谷歌公司的开源的 JavaScript 引擎。它使用 C++ 编写并使用在谷歌公司开源的的浏览器 Chrome 上。V8 能够单独运行或者集成在任何一个 C++ 应用内。
+V8 是谷歌公司的开源 JavaScript 引擎。它使用 C++ 编写并被使用在谷歌公司的开源浏览器 Chrome 上。V8 能够单独运行或者集成在任何一个 C++ 应用内。
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
