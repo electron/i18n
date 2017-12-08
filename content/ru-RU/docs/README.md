@@ -25,7 +25,7 @@
 * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
 * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Обновление приложений](tutorial/updates.md)
 
 ## Инструкции
 
