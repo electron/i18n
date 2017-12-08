@@ -1,10 +1,10 @@
-# clipboard
+# 剪切板
 
-> Perform copy and paste operations on the system clipboard.
+> 使用系统剪切板执行复制和粘贴操作。
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+下面的例子演示了如何将一串字符写入剪切板。
 
 ```javascript
 const {clipboard} = require('electron')
