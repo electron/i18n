@@ -1,6 +1,6 @@
 # Node 升版
 
-## Discussion
+## 討論
 
 One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. This is important because upstream Node and [libchromiumcontent](upgrading-chrome.md) both use their own versions of V8.
 
@@ -96,7 +96,7 @@ We need to generate a patch file from each patch applied to V8.
          electron$ script/bootstrap.py -d
          electron$ script/build.py -c -D
 
-## Notes
+## 備註
 
 - libcc and V8 are treated as a single unit
 - Node maintains its own fork of V8 
