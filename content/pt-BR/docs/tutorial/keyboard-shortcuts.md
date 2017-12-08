@@ -25,7 +25,7 @@ menu.append(new MenuItem({
 }
 ```
 
-## Atalhos globais
+## Atalhos Globais
 
 Você pode usar o módulo [globalShortcut](../api/global-shortcut.md) para detectar os eventos do teclado mesmo quando o aplicativo não possuir foco no teclado.
 
