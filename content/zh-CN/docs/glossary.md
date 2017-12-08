@@ -58,13 +58,13 @@ Electron 支持原生的 Node 模块，但是 Electron 非常可能使用了和�
 
 ### NSIS
 
-Nullsoft Scriptable Install System 是一个微软 Windows 平台上的脚本驱动的安装制作工具。 它发布在免费软件许可证书下，是一个被广泛使用的替代商业专利产品类似于 InstallShield。 [electron-builder](https://github.com/electron-userland/electron-builder) 支持使用 NSIS 作为编译目标。
+Nullsoft Scriptable Install System 是一个微软 Windows 平台上的脚本驱动的安装制作工具。 它发布在一些免费软件许可证书的组合下，是一个被广泛使用的可以替代商业专利产品例如 InstallShield的工具。 [electron-builder](https://github.com/electron-userland/electron-builder) 支持使用 NSIS 作为编译目标。
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR(离屏渲染) 可以让你不必渲染页面到屏幕上。 可被用于先在后台加载超大页面之后再显示(这样做速度会更快)。
 
-### process
+### process进程
 
 一个进程是计算机程序执行中的一个实例。 Electron 应用同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行多个程序。
 
