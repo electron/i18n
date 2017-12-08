@@ -103,7 +103,7 @@ MyApp.app/Contents
 
 如果只是为了构建你的 app，你不需要创建一个自定义的 Electron 分支， 即使是“生产级”的应用程序。 可以使用工具，如 `electron-packager` 或 `electron-builder` 来 “重新定制” 你的 Electron app。
 
-当你想直接进入 Electron 来修改 C++ 代码，你需要 fork Electron ，不能使用 upstreamed 或者 rejected 官方版本。 作为 Electron 的维护者，我们非常希望 你的方案能够工作，并尽最大的努力让你的修改 进入 Electron 的官方版本，创建自定义分支对你来说更简单，最后， 我们感谢你的帮助。
+如果你有个人定制的C++代码必须打补丁到Electron，而这些代码不能提交给上游或者已被官方版本拒绝，你就需要fork 你自己的Electron。 作为Electron的维护者，我们非常希望你的使用场景能够工作，所以请尽最大的努力让你的修改进入 Electron 的官方版本，这对你来说会更加方便并且我们衷心感谢你的帮助。
 
 #### 通过 surf-build 创建一个自定义版本
 
