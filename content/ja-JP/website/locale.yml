@@ -30,7 +30,7 @@ community:
   awesome_notice: このリストは <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus による Awesome Electron リポジトリ </a> から生成されています。<br>もし不足しているものがあれば、<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">プルリクエストにてお知らせください</a>。
   meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
 electron_is_easy:
-  title: 想像以上に簡単です
+  title: 簡単に開発できます
   description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
   video_link: 動画を見る
 web_technologies:
@@ -70,7 +70,7 @@ quick_start:
   dive_deeper: さらに詳細な情報が必要であれば<a href='/docs'>ドキュメント</a>を参照することもできます。
 need_help:
   title: お困りですか？
-  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムや、私たちの<a href='http://atom-slack.herokuapp.com/'>Slack</a>チャンネルにて質問をお待ちしております。また、Twitterにて<a href="https://twitter.com/electronjs">@electronjs</a>をフォローいただくと、重要な発表を入手できます。また、フォーラムやSNSといった公開の場でのお問い合わせを避けたい場合は <a href="mailto:electron@github.com">electron@github.com</a> 宛にメールをお送りください。
+  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムや、私たちの <a href='http://atom-slack.herokuapp.com/'>Slack</a> にて質問をお待ちしております。また、Twitterにて<a href="https://twitter.com/electronjs">@electronjs</a>をフォローいただくと、重要な発表を入手できます。フォーラムやSNSといった公開の場でのお問い合わせを避けたい場合は <a href="mailto:electron@github.com">electron@github.com</a> 宛にメールをお送りください。
 headings:
   languages: 言語
 taglines:
