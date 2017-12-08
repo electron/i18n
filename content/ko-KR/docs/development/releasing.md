@@ -15,7 +15,7 @@ Run `npm run prepare-release -- --notesOnly` to view auto generated release note
 
 The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes 5. Push the release branch so that the release builds get built. Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
-For example:
+예시:
 
 ### Major version change
 
@@ -49,9 +49,9 @@ npm run prepare-release -- --stable
 
 ## 빌드를 기다리십시오 : hourglass_flowing_sand :
 
-The presence of the word [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) in the commit message created by the `bump-version` script will [trigger the release process](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
+`bump-version` 스크립트로 작성된 커밋 메시지에 [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6)라는 단어가 있으면 [릴리스 프로세스가 시작됩니다](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
 
-To monitor the build progress, see the following pages:
+빌드 진행 상황을 모니터링하려면 다음 페이지를 참조하십시오.
 
 - [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) for Mac
 - [circleci.com/gh/electron](https://circleci.com/gh/electron) for Linux
@@ -59,13 +59,13 @@ To monitor the build progress, see the following pages:
 
 ## 릴리즈 노트 컴파일
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+릴리스 노트 작성은 빌드가 실행되는 동안 작업을 계속해서 유지하는 좋은 방법입니다. 또는 선행 기술의 경우, [릴리스 페이지](https://github.com/electron/electron/releases)의 기존 릴리스를 참조하십시오.
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - Electron의 모든 버전에서 Chromium, V8 및 Node의 버전을 보려면 [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json)을 방문하십시오.
 
-### Patch releases
+### 패치 릴리즈
 
-For a `patch` release, use the following format:
+`패치` 릴리스의 경우 다음 형식을 사용하십시오.
 
 ```sh
 ## Bug Fixes
@@ -85,7 +85,7 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### 마이너 릴리즈
 
 For a `minor` release, e.g. `1.8.0`, use this format:
 
@@ -116,8 +116,8 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 ```sh
 ## Upgrades
 
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Upgraded from Chromium `oldVersion` to `newVersion`. # 123
+- 노드`oldVersion`에서`newVersion`으로 업그레이드되었습니다. #123
 
 ## Breaking API changes
 
@@ -133,11 +133,11 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Changed a Windows thing. # 123
 
-## Other Changes
+## 기타 변경 사항
 
-- Some other change. #123
+- 다른 변화. #123
 ```
 
 ### Beta releases
@@ -147,9 +147,9 @@ Use the same formats as the ones suggested above, but add the following note at 
 ```sh
 **Note:** This is a beta release and most likely will have have some instability and/or regressions.
 
-Please file new issues for any bugs you find in it.
+버그가 발견되면 새로운 문제를 제출하십시오.
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+이 릴리즈는`beta '태그 아래 [npm] (https://www.npmjs.com/package/electron)에 게시되며`npm install electron @ beta`를 통해 설치할 수 있습니다.
 ```
 
 ## 릴리즈 초안 편집
@@ -177,7 +177,7 @@ npm run merge-release -- master
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## 릴리즈 게시
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 

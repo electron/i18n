@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -38,7 +38,8 @@ To create a `Session` with `options`, you have to ensure the `Session` with the 
 
 The `session` module has the following properties:
 
-### `session.defaultSession`
+### `session.defaultSession
+`
 
 A `Session` object, the default session object of the app.
 
@@ -46,7 +47,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 

@@ -94,7 +94,7 @@ Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet évén
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `hasVisibleWindows` Boolean
 
 Émis lorsque l'application est activée. Différentes actions peuvent déclencher cet événement, comme le lancement de l’application pour la première fois, essayer de relancer l’application lorsqu’elle est déjà en cours d’exécution, ou en cliquant sur l'icône du dock de l’application ou de l’icône de la barre des tâches.
@@ -217,7 +217,7 @@ Retourne :
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Objet 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -311,7 +311,7 @@ Sur Linux, met le focus sur la première fenêtre visible. Sur MacOS, rend l'app
 
 ### `app.hide()` *macOS*
 
-Masque toutes les fenêtres de l'application sans les minimiser.
+Masque toutes les fenêtres d’application sans les minimiser.
 
 ### `app.show()` *macOS*
 
@@ -376,7 +376,7 @@ Overrides the `path` to a special directory or file associated with `name`. If t
 
 You can only override paths of a `name` defined in `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Par défaut, les cookies et la cache des pages web seront stockés dans le répertoire `userData`. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
@@ -384,7 +384,7 @@ Returns `String` - The version of the loaded application. If no version is found
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Retourne `String` - Le nom de l'application, qui est écrit dans le fichier `package.json` .
 
 Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
@@ -406,7 +406,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Ajoute le `path` à la liste des documents récents.
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
@@ -460,7 +460,7 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks` est un tableau d’objets [`Task`](structures/task.md).
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -487,7 +487,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` de défini, alors le `type` est assumé être `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -616,7 +616,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `options` Objet 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
@@ -688,7 +688,7 @@ Retourne `Object`:
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Object 
+* `settings` Objet 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
@@ -721,7 +721,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `options` Objet 
   * `applicationName` String (optional) - Nom de l'application.
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
@@ -741,17 +741,17 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* `value` String - L'argument à ajouter à la ligne de commande
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ceci n'affecte pas `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.dock.bounce([type])` *macOS*
 
@@ -761,7 +761,7 @@ When `critical` is passed, the dock icon will bounce until either the applicatio
 
 When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Returns `Integer` an ID representing the request.
+Retourne `Integer` un ID représentant la requête.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 

@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### События экземпляра
 
 #### Event: 'response'
 
@@ -114,7 +114,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Свойства экземпляра
+### Instance Properties
 
 #### `request.chunkedEncoding`
 

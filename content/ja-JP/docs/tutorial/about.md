@@ -1,10 +1,10 @@
 # Electron について
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electronは、[Chromium](https://www.chromium.org/Home)と[Node.js](https://nodejs.org)を一つのランタイムとして組み合わせることで、この目的を達成しており、Mac, Windows, Linux用にアプリをパッケージ化することが出来ます。
+[Electron](https://electronjs.org)は、HTML, CSS, JavaScriptで作られたクロスプラットフォーム デスクトップ アプリケーションを作成するために、GitHubによって開発されたオープンソースライブラリです。 Electronは、[Chromium](https://www.chromium.org/Home)と[Node.js](https://nodejs.org)を一つのランタイムとして組み合わせることで、この目的を達成しており、Mac, Windows, Linux用にアプリをパッケージ化することが出来ます。
 
 Electronは、GitHubのカスタマイズ可能なテキストエディタである[Atom](https://atom.io)用のフレームワークとして2013年に開発が始まりました。ElectronとAtomは2014年の春にオープンソースになっています。
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+そのときから、オープンソース開発者、ベンチャー企業、古参の企業で使われる人気のツールになっています。Electronによって[どんなアプリケーションが作られているか](https://electronjs.org/apps)も見てみてください。
 
 Electronの開発者やリリースについてもっと詳しく知りたいか、Electronでアプリケーションの開発を進めたい場合は、[クイックスタートガイド](quick-start.md)をお読みください。
 
@@ -32,27 +32,27 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 
 ### LTS（長期サポート版）
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+現在のところ、長期的にサポートを行うElectronの古いバージョンは存在しません。 Electronの現在のバージョンでうまく動作しているなら、そのバージョンを使い続けることが出来ます。 もし新しく入ってきた機能を使っていきたいなら、新しいバージョンにアップグレードしていかなければなりません。
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+大きな更新が`v.1.0.0`でありました。 もしこのバージョンを使用していない場合は、[`v1.0.0`での変更について](https://electronjs.org/blog/electron-1-0)をお読みください。
 
 ## 基本理念
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Electronのファイルサイズを小さく、そして依存とAPIを維持可能なものとするために、本プロジェクトの扱う領域は制限されます。
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+例えば、ElectronはChromiumのすべてを使用するわけではなく、Chromiumのレンダリングライブラリのみを使用します。 これにより、使用しているChromiumのアップデートをしやすくしますが、Google Chromeにある機能のうちいくつかがElectronにはふくまれないことになります。
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Electronに追加される新しい機能はネイティブAPIであるべきです。 独立したNode.jsモジュールとして機能可能なものはモジュールのままで問題ありません。 [コミュニティによって作成されたツール](https://electronjs.org/community) を参照してください。
 
 ## 履歴
 
-Below are milestones in Electron's history.
+Electronのマイルストーンは以下の通りです。
 
-| :calendar:     | :tada:                                                                                                              |
-| -------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **2013 年 4 月** | [Atom Shell プロジェクトが開始される](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45)     |
-| **2014 年 5 月** | [Atom Shell がオープンソース化される](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)                              |
-| **2015 年 4 月** | [Atom Shell の名称が Electron に変更される](https://github.com/electron/electron/pull/1389)                                   |
-| **2016 年 5 月** | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
-| **2016 年 5 月** | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **2016 年 8 月** | [Windows Store support for Electron apps](https://electronjs.org/docs/tutorial/windows-store-guide).                |
+| :calendar:     | :tada:                                                                                                          |
+| -------------- | --------------------------------------------------------------------------------------------------------------- |
+| **2013 年 4 月** | [Atom Shell プロジェクトが開始される](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45) |
+| **2014 年 5 月** | [Atom Shell がオープンソース化される](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)                          |
+| **2015 年 4 月** | [Atom Shell の名称が Electron に変更される](https://github.com/electron/electron/pull/1389)                               |
+| **2016 年 5 月** | [Electron `v1.0.0`](https://electronjs.org/blog/electron-1-0) がリリースされる                                          |
+| **2016 年 5 月** | [Electron アプリケーションが Mac App Store に対応](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide)     |
+| **2016 年 8 月** | [Windows Store が Electron アプリケーションをサポート](https://electronjs.org/docs/tutorial/windows-store-guide)              |

@@ -1,4 +1,4 @@
-# Déboguer le processus principal dans VSCode
+# Débogguer le main process dans VSCode
 
 ### 1. Ouvrez un projet Electron dans VSCode.
 

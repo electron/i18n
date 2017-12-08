@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+No processo main:
 
 ```javascript
 const {ipcMain} = require('electron')

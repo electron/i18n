@@ -16,16 +16,16 @@
 * [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store 上架導引](tutorial/windows-store-guide.md)
 * [應用程式打包](tutorial/application-packaging.md)
-* [使用原生 Node 模組](tutorial/using-native-node-modules.md)
+* [使用 Node 原生模組](tutorial/using-native-node-modules.md)
 * [Debug 主處理序](tutorial/debugging-main-process.md)
 * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools 擴充](tutorial/devtools-extension.md)
+* [DevTools 擴充功能](tutorial/devtools-extension.md)
 * [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
 * [使用 Widevine CDM 外掛程式](tutorial/using-widevine-cdm-plugin.md)
 * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
 * [鍵盤快速鍵](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [更新應用程式](tutorial/updates.md)
 
 ## 教學
 

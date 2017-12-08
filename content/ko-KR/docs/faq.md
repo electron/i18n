@@ -8,25 +8,25 @@ In almost all cases, these errors are the result of network problems and not act
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
-## 언제 Electron이 최신 버전의 Chrome으로 업그레이드 되나요?
+## Electron 은 언제 최신 Chrome 으로 업그레이드 합니까?
 
-Electron의 Chrome 버전은 보통 새로운 Chrome 안정 버전이 릴리즈 된 이후 1주 내지 2주 내로 업데이트됩니다. 하지만 이러한 업데이트 주기는 보장되지 않으며 업그레이드에 필요한 작업의 양에 따라 달라집니다.
+Electron 의 Chrome 버전은 대게 새로운 안정적인 Chrome 버전이 출시 된 후 1 ~ 2 주 이내에 반영됩니다. 이 예상치는 보장되지 않으며 업그레이드와 관련 작업량에 따라 다릅니다.
 
-Electron은 크롬이 사용하는 안정된 채널만을 이용합니다, 만약 중요한 수정이 베타 또는 개발 채널에 패치된 경우, 이전 버전의 채널로 롤백합니다.
+Chrome 의 안정적인 채널만 사용됩니다. 베타 또는 개발 채널에 중요한 수정 사항이 있다면, 소급 적용 할 것 입니다.
 
-자세한 내용은 [보안 설명](tutorial/security.md)을 참고하세요.
+자세한 내용은, [보안 소개](tutorial/security.md)를 참조하세요.
 
-## Electron은 언제 최신 버전의 Node.js로 업그레이드 하나요?
+## Electron 은 언제 최신 Node.js 로 업그레이드 합니까?
 
-새로운 버전의 Node.js가 릴리즈 되면, 보통 Electron을 업그레이드 하기 전에 한 달 정도 대기합니다. 이렇게 하면 새로운 Node.js 버전을 업데이트 함으로써 발생하는 버그들을 피할 수 있기 때문입니다. 이러한 상황은 자주 발생합니다.
+Node.js 의 새 버전이 출시되면, Electron 에서 업그레이드 하기 전에 보통 한 달 정도 기다립니다. 그래서 새 Node.js 버전에 발생한 버그의 영향을 받지 않을 수 있습니다. 이것은 매우 자주 발생합니다.
 
-Node.js의 새로운 기능은 보통 V8 업그레이드에서 가져옵니다. Electron은 Chrome 브라우저에 탑재된 V8을 사용하고 있습니다. 눈부신 새로운 Node.js 버전의 자바스크립트 기능은 보통 이미 Electron에 있습니다.
+일반적으로 Node.js 의 새 기능은 V8 업그레이드로 가져옵니다. Electron 이 Chrome 브라우저에 탑재된 V8 을 사용하기 때문에, 대게 새 Node.js 버전의 빛나는 새JavaScript 기능은 이미 Electron 에 있습니다.
 
-## 어떻게 웹 페이지 간에 데이터를 공유할 수 있나요?
+## 웹 페이지 간 데이터는 어떻게 공유합니까?
 
-두 웹페이지 간에 (렌더러 프로세스) 데이터를 공유하려면 간단히 이미 모든 브라우저에서 사용할 수 있는 HTML5 API들을 사용하면 됩니다. 가장 좋은 후보는 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage),[`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 그리고 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 가 있습니다.
+웹 페이지 (렌더러 프로세스 들) 간 데이터를 공유하기 위한 가장 쉬운 방법은 브라우저에 이미 사용가능 한 HTML5 API 들을 사용하는 것 입니다. 좋은 후보는 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 입니다.
 
-또는 Electron에서만 사용할 수 있는 IPC 시스템을 사용하여 메인 프로세스의 global 변수에 데이터를 저장한 후 다음과 같이 렌더러 프로세스에서 `electron` 모듈의 `remote` 속성을 통하여 접근할 수 있습니다:
+또는 Electron 에 한정되는 IPC 시스템을 사용할 수 있습니다. `electron` 모듈의 `remote` 속성을 통하여 주 프로세스의 객체를 전역 변수로 저장하고, 렌더러에서 그것들에 접근합니다:
 
 ```javascript
 // 메인 프로세스에서.
@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## 제작한 애플리케이션의 윈도우/트레이가 몇 분 후에나 나타납니다.
+## 몇 분 후 내 앱이 윈도우 트레이에서 사라집니다.
 
-이러한 문제가 발생하는 이유는 보통 윈도우/트레이를 담은 변수에 가비지 컬렉션이 작동해서 그럴 가능성이 높습니다.
+이 현상은 window/tray 를 저장하기 위해 사용 된 변수가 가비지 수집 될 때 발생합니다.
 
-이러한 문제를 맞닥뜨린 경우 다음 문서를 읽어보는 것이 좋습니다:
+이 문제가 발생했다면, 다음 글이 도움이 될 것 입니다:
 
 * [메모리 관리](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [변수 스코프](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-만약 빠르게 고치고 싶다면, 다음과 같이 변수를 전역 변수로 만드는 방법이 있습니다:
+빨리 해결하고 싶다면, 코드를 변경 해 변수를 전역으로 만듭니다. 다음 코드에서:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-를 이렇게:
+다음으로:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,11 +75,11 @@ app.on('ready', () => {
 })
 ```
 
-## Electron에서 jQuery/RequireJS/Meteor/AngularJS를 사용할 수 없습니다.
+## Electron 에서 jQuery/RequireJS/Meteor/AngularJS 를 사용할 수 없습니다.
 
-Node.js가 Electron에 합쳐졌기 때문에, DOM에 `module`, `exports,` `require` 같은 몇 가지 심볼들이 추가됬습니다. 따라서 같은 이름의 심볼을 사용하는 몇몇 라이브러리들과 충돌이 발생할 수 있습니다.
+Electron 의 Node.js 통합으로 인해, DOM 에 `module`, `exports`, `require` 같은 몇 가지 추가 기호가 삽입됐습니다. 이것은 같은 이름의 심볼을 삽입하려는 몇몇 라이브러리에서 문제를 일으킵니다.
 
-이러한 문제를 해결하려면, Electron에서 node 포함을 비활성화시켜야 합니다:
+이것을 해결하기 위해, Electron 에서 노드 통합을 해제 할 수 있습니다:
 
 ```javascript
 //메인 프로세스에서.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-하지만 Node.js의 기능과 Electron API를 유지하고 싶다면 페이지에 다른 라이브러리를 추가하기 전에 심볼들의 이름을 변경해야 합니다:
+그러나 Node.js 와 Electron API 들의 기능을 유지하려면, 다른 라이브러리를 포함하기 전에 페이지의 심볼 이름을 변경해야 합니다:
 
 ```html
 <head>
@@ -106,34 +106,34 @@ delete window.module;
 </head>
 ```
 
-## require('electron').xxx가 undefined를 반환합니다.
+## `require('electron').xxx` 가 정의되지 않았습니다.
 
-Electron의 빌트인 모듈을 사용할 때, 다음과 같은 오류가 발생할 수 있습니다:
+Electron 의 내장 모듈을 사용하다가 다음과 같은 에러를 만날 수 있습니다:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-이러한 문제가 발생하는 이유는 [npm`의 electron` 모듈](https://www.npmjs.com/package/electron)이 로컬 또는 전역 중 한 곳에 설치되어, Electron의 빌트인 모듈을 덮어씌우는 바람에 빌트인 모듈을 사용할 수 없기 때문입니다.
+이것은 지역 또는 전역에 [npm `electron` 모듈](https://www.npmjs.com/package/electron)이 설치되어 있기 때문입니다. 이것은 Electron 의 내장 모듈을 덮어씁니다.
 
-올바른 빌트인 모듈을 사용하고 있는지 확인하고 싶다면, `electron` 모듈의 경로를 출력하는 방법이 있습니다:
+올바른 내장 모듈을 사용하고 있는지 확인하기 위해, `electron` 모듈의 경로를 출력 할 수 있습니다:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-그리고 다음과 같은 경로를 가지는지 점검하면 됩니다:
+그리고 다음과 같은 형식인지 확인하세요:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-하지만 `node_modules/electron/index.js`와 같은 경로로 되어있을 경우, `electron `모듈을 지우거나 이름을 바꿔야만 합니다.
+`node_modules/electron/index.js` 와 같으면, npm `electron` 모듈을 지우거나, 이름을 바꿔야 합니다.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-그런데 여전히 빌트인 모듈이 계속해서 문제를 발생시키는 경우, 아마 모듈을 잘못 사용하고 있을 가능성이 큽니다. 예를 들면 `electron.app`은 메인 프로세스에서만 사용할 수 있는 모듈이며, 반면 `electron.webFrame` 모듈은 렌더러 프로세스에서만 사용할 수 있는 모듈입니다.
+그러나 내장 모듈을 사용하고 있지만 여전히 이 오류가 발생하면, 모듈을 잘못 된 프로세스에서 사용하고 있을 가능성이 큽니다. 예를 들어 `electron.app` 는 주 프로세스에서만 사용할 수 있고, `electron.webFrame` 은 렌더러 프로세스에서만 사용 가능합니다.

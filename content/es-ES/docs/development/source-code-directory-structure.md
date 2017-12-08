@@ -28,8 +28,7 @@ Electron
 |       └── api/ - The implementation of common APIs, and foundations of
 |           Electron's built-in modules.
 ├── chromium_src/ - Source code copied from Chromium. See below.
-├── default_app/ - The default page to show when Electron is started without
-|   providing an app.
+Default_app ├── / - página de predeterminada para mostrar cuando el Electron se inicia sin |   proporciona una aplicación.
 ├── docs/ - Documentations.
 ├── lib/ - JavaScript source code.
 |   ├── browser/ - Javascript main process initialization code.
@@ -39,7 +38,7 @@ Electron
 |   └── renderer/ - Javascript renderer process initialization code.
 |       └── api/ - Javascript API implementation.
 ├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
+├── electron.gyp - normas de construcción del Electron.
 └── common.gypi - Compiler specific settings and building rules for other
     components like `node` and `breakpad`.
 ```
@@ -60,7 +59,7 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 
 ## Keeping Git Submodules Up to Date
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Occasionally you might see a message like this when running `git status`:
 
 ```sh
 $ git status

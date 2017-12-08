@@ -1,10 +1,10 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> 透過系統剪貼簿複製和貼上。
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+下列範例展示如何將字串寫進剪貼簿:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -15,7 +15,7 @@ On X Window systems, there is also a selection clipboard. To manipulate it you n
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('範例字串', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
@@ -79,7 +79,7 @@ Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+回傳 `Object`:
 
 * `title` String
 * `url` String
@@ -99,7 +99,7 @@ Writes the `title` and `url` into the clipboard as a bookmark.
 ```js
 clipboard.write({
   text: 'https://electron.atom.io',
-  bookmark: 'Electron Homepage'
+  bookmark: 'Electron 首頁'
 })
 ```
 
@@ -125,7 +125,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *試驗中*
 
 * `format` String
 * `type` String (optional)
@@ -137,19 +137,19 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` *試驗中*
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` *試驗中*
 
 * `format` String
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` *試驗中*
 
 * `format` String
 * `buffer` Buffer

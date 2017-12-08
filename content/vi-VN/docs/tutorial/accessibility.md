@@ -30,7 +30,7 @@ Trong Devtron, đó là khả năng truy cập tab mới mà sẽ cho phép bạ
 
 Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+Nếu bạn biết về các công cụ accessibility tuyệt vời khác cho Electron, thêm chúng vào [tài liệu này](https://electronjs.org/docs/tutorial/accessibility) với một pull request.
 
 ## Enabling Accessibility
 

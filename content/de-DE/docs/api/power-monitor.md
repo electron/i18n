@@ -2,7 +2,7 @@
 
 > Monitor power state changes.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Ereignisse
 
 The `powerMonitor` module emits the following events:
 

@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `new TouchBarGroup(options)` *試驗中*
 
 * `options` Object 
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.

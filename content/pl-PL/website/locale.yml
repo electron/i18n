@@ -12,7 +12,7 @@ nav:
 docs:
   title: Dokumentacja Electron'a
   description: Zobacz całą <a href="/docs/all">dokumentację na jednej stronie</a> lub sprawdź <a href="/docs/faq">FAQ</a>.
-  guides: Poradniki
+  guides: Przewodniki
   api_reference: API
   advanced: Zaawansowane
 languages:
@@ -28,7 +28,7 @@ community:
   videos: Wideo
   meetups: Spotkania
   awesome_notice: Ta lista została wygenerowana z repozytorium <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Czegoś brakuje? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Wyślij zapytanie</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: Aby dodać spotkanie, edytuj <code>data/meetups.json</code> i <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">wyślij zapytanie</a>.
 electron_is_easy:
   title: To łatwiejsze, niż myślisz
   description: Jeśli potrafisz stworzyć stronę internetową, potrafisz też napisać aplikację desktopową. Electron to framework, służący tworzeniu natywnych aplikacji, z użyciem takich technologii jak JavaScript, HTML, czy CSS. Sam zadba o trudniejsze tematy, tak, abyś mógł się skupić na najważniejszych elementach swojej aplikacji.
@@ -92,9 +92,9 @@ apps:
   something_missing: Czegoś brakuje?
   edit_this_app: Edytuj tę aplikację.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Kopiuj
+  copy_to_clipboard: Kopiuj do Schowka
+  copied: Skopiowane
 or: lub
 pages:
   '/':
@@ -139,6 +139,6 @@ pages:
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
-  page_not_found: Page not found.
+  page_not_found: Nie znaleziono strony.
   if_this_is_an_error: If this is an error
   please_file_an_issue: please file an issue.

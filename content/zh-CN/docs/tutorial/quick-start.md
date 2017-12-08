@@ -194,14 +194,14 @@ $ .\electron\electron.exe your-app\
 **注意**：运行时需要你的系统已经安装了 [Git](https://git-scm.com) 和 [Node.js](https://nodejs.org/en/download/)(包含 [npm](https://npmjs.org))。
 
 ```sh
-# Clone the repository
+# 克隆这仓库
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# 进入仓库
 $ cd electron-quick-start
-# Install dependencies
+# 安装依赖库
 $ npm install
-# Run the app
+# 运行应用
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+更多 apps 例子，查看 electron 社区创建的[list of boilerplates](https://electronjs.org/community#boilerplates).

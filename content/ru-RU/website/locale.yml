@@ -11,7 +11,7 @@ nav:
   code_of_conduct: Нормы поведения
 docs:
   title: Документация Electron
-  description: Посмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">FAQ</a>.
+  description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">FAQ</a>.
   guides: Руководства
   api_reference: Справочник по API
   advanced: Расширенный
@@ -28,7 +28,7 @@ community:
   videos: Видео
   meetups: Собрания
   awesome_notice: Этот список генерируется из <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> репозитория. <br> Кое-что пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: Чтобы добавить meetup, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> сделайте pull request</a>.
 electron_is_easy:
   title: Это проще, чем вы думаете
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
@@ -38,7 +38,7 @@ web_technologies:
   description: Electron использует Chromium и Node.js, так что Вы можете создавать свои приложения на HTML, CSS и JavaScript.
 open_source:
   title: Open Source
-  description: Electron это проект с открытым исходным кодом, который поддерживается GitHub и активным сообществом участников.
+  description: Electron это проект с открытым исходным кодом который поддерживается GitHub и активным сообществом авторов.
 cross_platform:
   title: Кросс-платформенный
   description: Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.
@@ -95,7 +95,7 @@ clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
   copied: Скопировано
-or: или
+or: or
 pages:
   '/':
     title: Electron | Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS.

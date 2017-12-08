@@ -38,7 +38,7 @@ const request = net.request({
 
 #### Event: 'response'
 
-반환:
+Returns:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
@@ -52,7 +52,7 @@ const request = net.request({
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` 함수 
   * `username` String
   * `password` String
 
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Event: 'error'
 
-반환:
+Returns:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-반환:
+Returns:
 
 * `statusCode` Integer
 * `method` String
@@ -114,7 +114,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 #### `request.chunkedEncoding`
 

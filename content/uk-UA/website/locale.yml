@@ -1,4 +1,4 @@
-tagline: Будуйте прикладні програми за допомогою JavaScript, HTML та CSS незалежно від платформи
+tagline: Створюйте прикладні програми з JavaScript, HTML та CSS для будь-якої платформи
 nav:
   docs: Документація
   blog: Блог
@@ -28,7 +28,7 @@ community:
   videos: Відео
   meetups: Зустрічі
   awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Чогось не вистачає? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> зробіть пул реквест</a>.
 electron_is_easy:
   title: Все простіше, ніж здається
   description: Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.
@@ -38,7 +38,7 @@ web_technologies:
   description: Electron використовує Chromium та Node.js, тому ви можете створювати додатки за допомогою HTML, CSS та JavaScript.
 open_source:
   title: Відкрите ПЗ
-  description: Electron - це проект з відкритим кодом який підтримується завдяки GitHub та активною спільнотою розробників.
+  description: Electron це відкритий проект, який підтримується GitHub та активною спільнотою розробників.
 cross_platform:
   title: Крос-платформний
   description: Сумісний з Mac, Windows та Linux, застосунки Electron збираються та запускаються на трьох платформах.
@@ -99,7 +99,7 @@ or: чи
 pages:
   '/':
     title: Electron | Створюйте прикладні програми з JavaScript, HTML та CSS для будь-якої платформи.
-    description: 'Створюйте прикладні програми з JavaScript, HTML та CSS для будь-якої платформи.'
+    description: 'Будуйте прикладні програми за допомогою JavaScript, HTML та CSS незалежно від платформи.'
   '/apps':
     title: Програми Electron
     description: Програми, побудовані на Electron

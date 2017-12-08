@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## イベント
 
 The `screen` module emits the following events:
 
@@ -81,7 +81,7 @@ Emitted when `oldDisplay` has been removed.
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Methods
+## メソッド
 
 The `screen` module has the following methods:
 

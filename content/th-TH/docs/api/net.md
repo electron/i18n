@@ -1,4 +1,4 @@
-# net
+# เน็ต
 
 > Issue HTTP/HTTPS requests using Chromium's native networking library
 

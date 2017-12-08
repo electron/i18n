@@ -6,13 +6,13 @@ Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarPopover(options)` *Experimental*
 
-* `options` Object 
+* `options` Objet 
   * `label` String (facultatif) - Texte du bouton popover.
   * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton popover.
   * `items` [TouchBar](touch-bar.md) (facultatif) - Elements à afficher dans le popover.
   * `showCloseButton` Boolean (facultatif) - `true` pour afficher un bouton fermer sur la gauche du popover, `false` pour ne pas l'afficher. Par defaut `true`.
 
-### Propriétés d'instance
+### Instance Properties
 
 Les propriétés suivantes sont disponibles pour les instances de `TouchBarPopover` :
 

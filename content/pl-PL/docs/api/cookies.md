@@ -6,7 +6,7 @@ Proces: [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+Na przykład:
 
 ```javascript
 const {session} = require('electron')
@@ -47,7 +47,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### Metody instancji
 
 The following methods are available on instances of `Cookies`:
 

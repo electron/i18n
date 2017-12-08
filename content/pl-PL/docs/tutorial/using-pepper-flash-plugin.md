@@ -10,7 +10,7 @@ On macOS and Linux, the details of the Pepper Flash plugin can be found by navig
 
 You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
 
-For example:
+Na przykład:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -57,7 +57,7 @@ Add `plugins` attribute to `<webview>` tag.
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Troubleshooting
+## Rozwiązywanie problemów
 
 You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
 

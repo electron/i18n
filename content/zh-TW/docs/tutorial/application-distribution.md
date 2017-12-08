@@ -44,7 +44,7 @@ electron/resources/
 
 細節可以參考[應用程式打包](application-packaging.md)。
 
-## Rebranding with Downloaded Binaries
+## 針對下載的二位進檔品牌客製
 
 After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
 
@@ -95,17 +95,17 @@ Apart from packaging your app manually, you can also choose to use third party p
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## 由原始碼開始客製品牌
 
 It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
 
-### Creating a Custom Electron Fork
+### 建立客製化的 Electron 分支
 
 Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
-#### Creating a Custom Release with surf-build
+#### 以 surf-build 建立客製化發行版
 
 1. 透過 npm 安裝 [Surf](https://github.com/surf-build/surf): `npm install -g surf-build@latest`
 

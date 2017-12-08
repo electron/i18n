@@ -57,7 +57,7 @@ Le module `screen` émet les événements suivants :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `newDisplay` [Display](structures/display.md)
 
 Émis lorsque `newDisplay` a été ajouté.

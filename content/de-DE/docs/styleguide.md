@@ -179,7 +179,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### Ereignisse
 
 The events chapter must be in following form:
 

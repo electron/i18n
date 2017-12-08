@@ -1,6 +1,6 @@
 ## Class: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Membuat permintaan HTTP/HTTPS.
 
 Process: [Main](../glossary.md#main-process)
 

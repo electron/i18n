@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -94,7 +94,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### Main-Prozess
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -262,7 +262,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- 1
     - 2
@@ -284,7 +284,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- ---
     - a

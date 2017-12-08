@@ -9,31 +9,31 @@ const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Zdarzenia
 
 The `systemPreferences` object emits the following events:
 
 ### Event: 'accent-color-changed' *Windows*
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
-Returns:
+Zwraca:
 
 * `event` Event
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
-## Methods
+## Metody
 
 ### `systemPreferences.isDarkMode()` *macOS*
 

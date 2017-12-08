@@ -4,14 +4,14 @@ nav:
   blog: ブログ
   community: コミュニティ
   apps: アプリ
-  userland: Userland
+  userland: ユーザーランド (userland)
   releases: リリース
   contact: お問い合わせ
   languages: 言語
   code_of_conduct: 行動規範
 docs:
   title: Electon のドキュメント
-  description: 全ドキュメントを <a href="/docs/all">1ページで表示する</a>ことも可能です。また、<a href="/docs/faq">FAQ</a>ページもご用意しております。
+  description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
   guides: ガイド
   api_reference: API リファレンス
   advanced: 発展的なドキュメント
@@ -27,18 +27,18 @@ community:
   components: コンポーネント
   videos: 動画
   meetups: ミートアップイベント
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  awesome_notice: このリストは <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus による Awesome Electron リポジトリ </a> から生成されています。<br>もし不足しているものがあれば、<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">プルリクエストにてお知らせください</a>。
+  meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
 electron_is_easy:
-  title: 想像以上に簡単です
-  description: Webサイトを作成できる方なら、その調子でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSSといったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分に集中し、面倒な部分はElectronにお任せください。
+  title: 簡単に開発できます
+  description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
   video_link: 動画を見る
 web_technologies:
   title: Web技術
   description: Electron は ChromiumとNode.jsを利用しているため、HTML, CSS, JavaScriptを利用してアプリを開発することができます。
 open_source:
   title: オープンソース
-  description: ElectronはGitHub社と活発なコミュニティメンバーによってメンテナンスされているオープンソースプロジェクトです。
+  description: Electron は GitHubおよび活発なボランティアのコミュニティによってメンテナンスされるオープンソースプロジェクトです。
 cross_platform:
   title: クロスプラットフォーム
   description: Mac, Windows, Linuxに対応。Electronアプリは3つのプラットフォームでビルド・動作します。
@@ -57,12 +57,12 @@ explore:
   description:
     - <a href="https://github.com/electron/electron-api-demos">Electron APIのデモアプリ</a>
     - はElectron APIの中でも特に重要な機能をインタラクティブに紹介します。
-    - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
+    - サンプルコードや親切な Tips とともに、Electron を使うと何ができるのかをご確認ください。
+    - あなたのアプリ開発にきっと役立つはずです。
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
-  title: "Electronを<a href='https://github.com/electron/electron-quick-start' target='_blank'>クイックスタート</a>アプリで体験してみましょう"
+  title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> アプリで実際に動く Electron を見てみましょう\n \nContext | Request Context\n"
   description: 最低限の機能と親切な解説コード
   clone: Quick Start リポジトリを clone する
   go_into_repo: リポジトリに移動
@@ -70,31 +70,31 @@ quick_start:
   dive_deeper: さらに詳細な情報が必要であれば<a href='/docs'>ドキュメント</a>を参照することもできます。
 need_help:
   title: お困りですか？
-  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムや、私たちの<a href='http://atom-slack.herokuapp.com/'>Slack</a>チャンネルにて質問をお待ちしております。また、Twitterにて<a href="https://twitter.com/electronjs">@electronjs</a>をフォローいただくと、重要な発表を入手できます。また、フォーラムやSNSといった公開の場でのお問い合わせを避けたい場合は <a href="mailto:electron@github.com">electron@github.com</a> 宛にメールをお送りください。
+  description: <a href='https://discuss.atom.io/c/electron'>ディスカッション</a>フォーラムや、私たちの <a href='http://atom-slack.herokuapp.com/'>Slack</a> にて質問をお待ちしております。また、Twitterにて<a href="https://twitter.com/electronjs">@electronjs</a>をフォローいただくと、重要な発表を入手できます。フォーラムやSNSといった公開の場でのお問い合わせを避けたい場合は <a href="mailto:electron@github.com">electron@github.com</a> 宛にメールをお送りください。
 headings:
   languages: 言語
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "翻訳する"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: 別のバージョンのドキュメントが必要ですか？
-  see_available_versions: See available versions.
-  want_something_searchable: Want something searchable?
-  view_all_docs: すべてのドキュメントを1ページで表示
+  see_something: このドキュメントに誤りが含まれていますか？
+  propose_change: こちらからデータの修正を提案できます。
+  need_different_version: 別のバージョンの Electron に関するドキュメントが必要ですか？
+  see_available_versions: 利用可能な他のバージョンのものを見る。
+  want_something_searchable: 複数のドキュメントを横断して検索したいことがありますか？
+  view_all_docs: すべてのドキュメントをまとめて表示
   see_the_faq: よくある質問（FAQ）
 apps:
   title: Electronで開発されたアプリ
-  description: Electron を使えば、業務を改善したりアイデアを達成したりするためのデスクトップアプリを容易に開発できます。当初、 Electron は GitHub の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されました。現在は Microsoft や Facebook, Slack, Docker といった企業によるアプリ開発でも採用されています。
+  description: Electron を使えば、業務やアイデアを達成するためにデスクトップアプリを開発することは容易になります。当初、 Electron は GitHub の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されました。現在は Microsoft や Facebook, Slack, Docker といった企業のアプリ開発にも使用されています。
   view_more: もっとアプリを見る
   submit_your_own: あなたのアプリを送信する
   something_missing: 何か見つかりませんか？
   edit_this_app: アプリを編集する
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: コピー
+  copy_to_clipboard: クリップボードにコピー
+  copied: コピーしました
 or: または
 pages:
   '/':
@@ -105,9 +105,9 @@ pages:
     description: Electronで開発されたアプリ
   '/docs':
     title: ドキュメント
-    description: Guides and API reference documentation for the latest Electron release
+    description: 最新の Electron に関するガイドと API リファレンス
   '/docs/all':
-    title: All the Electron Docs!
+    title: Electronに関する全てのドキュメント
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
@@ -131,13 +131,13 @@ pages:
   '/languages':
     title: 言語
   '/userland':
-    title: Userland
+    title: ユーザーランド (userland)
   '/devtron':
     title: Devtron
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
 _404:
   page_not_found: ページが見つかりません
   if_this_is_an_error: もしこれがエラーであれば、

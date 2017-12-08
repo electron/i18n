@@ -2,7 +2,7 @@
 
 > Добавляет иконки и контекстное меню в область уведомлений ОС.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -60,7 +60,7 @@ app.on('ready', () => {
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### События экземпляра
 
 The `Tray` module emits the following events:
 

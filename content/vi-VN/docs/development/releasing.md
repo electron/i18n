@@ -57,7 +57,7 @@ To monitor the build progress, see the following pages:
 - [circleci.com/gh/electron](https://circleci.com/gh/electron) for Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
 
-## Compile release notes
+## Biên dịch các ghi chú của việc phát hành phiên bản
 
 Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
@@ -152,16 +152,16 @@ Please file new issues for any bugs you find in it.
 This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## Chỉnh sửa dự thảo phát hành phiên bản
 
 1. Ghé thăm [trang của các bản phát hành](https://github.com/electron/electron/releases) và bạn sẽ thấy một dự thảo phát hành mới với một giữ chỗ cho các ghi chú phát hành.
 2. Chỉnh sửa bản phát hành và thêm ghi chú phát hành.
 3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Click 'Save draft'. **Do not click 'Publish release'!**
+4. Nhấn vào 'Save draft'. **Lòng không nhấn vào 'Publish'!**
 5. Wait for all builds to pass before proceeding.
 6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
 
-## Merge temporary branch
+## Gộp nhánh tạm thời
 
 Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
 
@@ -177,7 +177,7 @@ npm run merge-release -- master
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## Công bố việc phát hành
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 

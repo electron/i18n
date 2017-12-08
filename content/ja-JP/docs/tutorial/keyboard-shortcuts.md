@@ -51,7 +51,7 @@ window.addEventListener('keyup', doSomething, true)
 
 The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+実行したくない場合は[mousetrap](https://github.com/ccampbell/mousetrap)などキーを検出高度なマニュアル ショートカット解析を行うライブラリがあります。
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

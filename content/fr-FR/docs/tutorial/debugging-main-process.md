@@ -16,11 +16,11 @@ electron --inspect=5858 votre/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Comme `--inspect` mais interrompt l'exécution sur la première ligne de Javascript.
 
 ## Déboggueurs externes
 
 Vous devrez utiliser un débogueur supportant le protocole de l'inspecteur V8.
 
 - Connectez Chrome en visitant `chrome://inspect` et sélectionnez inspecter l'application Electron lancé présente ici.
-- [Débogguer le main process dans VSCode](debugging-main-process-vscode.md)
+- [Débogguer le processus principal dans VSCode](debugging-main-process-vscode.md)

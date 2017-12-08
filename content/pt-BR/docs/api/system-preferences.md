@@ -9,7 +9,7 @@ const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Eventos
 
 The `systemPreferences` object emits the following events:
 
@@ -33,7 +33,7 @@ Retorna:
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
-## Methods
+## Métodos
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Função 
   * `event` String
   * `userInfo` Object
 
@@ -77,14 +77,14 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
-* `id` Integer
+* `id` Inteiro
 
 Removes the subscriber with `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Função 
   * `event` String
   * `userInfo` Object
 
@@ -92,7 +92,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Integer
+* `id` Inteiro
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 

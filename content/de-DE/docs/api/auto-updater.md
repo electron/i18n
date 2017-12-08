@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
 
@@ -37,7 +37,7 @@ Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file hos
 
 There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Events
+## Ereignisse
 
 The `autoUpdater` object emits the following events:
 

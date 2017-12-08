@@ -1,6 +1,6 @@
 # Sobre Electron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron foi feito com uma combinação entre [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) em uma única runtime e os applicativos podem ser empacotados para Mac, Windows e Linux.
+[Electron](https://electronjs.org) é uma biblioteca open soruce desenvolvida pelo o GitHub para o desenvolvimento de aplicações desktop multi-plataforma com HTML, CSS e JavaScript. Electron foi feito com uma combinação entre [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) em uma única runtime e os applicativos podem ser empacotados para Mac, Windows e Linux.
 
 Electron começou em 2013, como uma framewok que seria utilizado no [Atom](https://atom.io), editor de texto hackable do GitHub, que seria construído. Os dois foram disponibilizados na primavera de 2014, com seu código fonte aberto.
 
@@ -32,7 +32,7 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Não existe atualmente suporte a versões antigas do Electron para longo prazo (LTS). If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
@@ -48,11 +48,11 @@ New features added to Electron should primarily be native APIs. If a feature can
 
 Below are milestones in Electron's history.
 
-| :calendar:         | :tada:                                                                                                              |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| **Abril de 2013**  | [Atom Shell é iniciado](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
-| **Maio de 2014**   | [Atom Shell tem código fonte aberto](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                  |
-| **Abril 2015**     | [Atom Shell é renomeado para Electron](https://github.com/electron/electron/pull/1389).                             |
-| **Maio de 2016**   | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
-| **Maio de 2016**   | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **Agosto de 2016** | [Windows Store support for Electron apps](https://electronjs.org/docs/tutorial/windows-store-guide).                |
+| :calendar:         | :tada:                                                                                                                  |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| **Abril 2013**     | [Atom Shell é iniciado](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).          |
+| **Maio de 2014**   | [Atom Shell tem código fonte aberto](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                      |
+| **Abril de 2015**  | [Atom Shell é renomeado para Electron](https://github.com/electron/electron/pull/1389).                                 |
+| **Maio de 2016**   | [Electron versão `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                   |
+| **Maio de 2016**   | [Electron apps são compatíveis com Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
+| **Agosto de 2016** | [Electron apps são compatíveis com Windows Store](https://electronjs.org/docs/tutorial/windows-store-guide).            |

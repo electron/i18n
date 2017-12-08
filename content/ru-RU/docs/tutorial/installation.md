@@ -36,13 +36,13 @@ npm install --platform=win32 electron
 
 If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Troubleshooting
+## Устранение проблем
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+При запуске `npm install electron`, некоторые пользователи встречаются с некоторыми ошибками.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Почти всегда данные ошибки являются результатом проблем сети и не связаны с работой Electron. Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`,`ECONNRESET` и `ETIMEDOUT` возникают в результате проблем с сетью. Лучшим решением в данном случае будет попытка подключения к другой сети или просто немного подождите, возможно это временное явление.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Вы также можете попробовать скачать Electron напрямую из [electron/electron/releases](https://github.com/electron/electron/releases), если не удается установить через `npm`.
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 

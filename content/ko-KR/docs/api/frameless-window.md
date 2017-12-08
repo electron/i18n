@@ -12,6 +12,7 @@ A frameless window is a window that has no [chrome](https://developer.mozilla.or
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
+
 ```
 
 ### Alternatives on macOS
@@ -26,6 +27,7 @@ Results in a hidden title bar and a full size content window, yet the title bar 
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({titleBarStyle: 'hidden'})
 win.show()
+
 ```
 
 #### `hiddenInset`
@@ -36,6 +38,7 @@ Results in a hidden title bar with an alternative look where the traffic light b
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
 win.show()
+
 ```
 
 #### `customButtonsOnHover`
@@ -46,6 +49,7 @@ Uses custom drawn close, miniaturize, and fullscreen buttons that display when h
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
 win.show()
+
 ```
 
 ## 투명한 윈도우
@@ -56,6 +60,7 @@ By setting the `transparent` option to `true`, you can also make the frameless w
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({transparent: true, frame: false})
 win.show()
+
 ```
 
 ### Limitations

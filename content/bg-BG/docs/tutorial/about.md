@@ -1,10 +1,10 @@
 # About Electron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Проекта се осъществява с помощта на платформите [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org). Разработените приложения могат да бъдат активирани и ползвани върху операционните системи Mac, Windows и Linux.
+Проекта [Electron](https://electronjs.org) е софтуерна библиотека с отворен код, разработена от GitHub с цел създаване на многоплатформени настолни приложения, с помощта на HTML, CSS и JavaScript. Проекта се осъществява с помощта на платформите [Chromium](https://www.chromium.org/Home) и [Node.js](https://nodejs.org). Разработените приложения могат да бъдат активирани и ползвани върху операционните системи Mac, Windows и Linux.
 
 Разработката на продукта започва през 2013 година като работна рамка върху която е базиран друг проект на GitHub известен като [Atom](https://atom.io). Кода и на двата проекта е отворен през 2014 година.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+От тогава на сетне инструмента се превръща в популярно решение, за създаване на приложения, ползвано от разработчици на продукти с отворен код, добре извести софтуерни компании и стартиращи такива. [Вижте списък на разработчиците ползващи Electron](https://electronjs.org/apps).
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 

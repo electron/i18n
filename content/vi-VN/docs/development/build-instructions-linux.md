@@ -79,7 +79,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Xây dựng
 
-If you would like to build both `Release` and `Debug` targets:
+Nếu bạn nhắm tới mong muốn xây dựng cả hai phiên bản là `Bản phát hành chính thức` và `Bản debug`:
 
 ```sh
 $ ./script/build.py
@@ -127,7 +127,7 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Thử nghiệm
+## Các thử nghiệm
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 

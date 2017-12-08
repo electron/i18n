@@ -1,10 +1,10 @@
-## Class: Tray
+## クラス: tray
 
-> Add icons and context menus to the system's notification area.
+> システムの通知領域にアイコンやコンテキスト メニューを追加します。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**プラットフォームによる制限:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
@@ -223,7 +223,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `options` オブジェクト 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)

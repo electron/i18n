@@ -2,7 +2,7 @@
 
 > Perform copy and paste operations on the system clipboard.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The following example shows how to write a string to the clipboard:
 
@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## Metody
 
 The `clipboard` module has the following methods:
 

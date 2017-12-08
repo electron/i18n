@@ -54,7 +54,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 `categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-Exemples :
+Exemples:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
@@ -88,7 +88,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Object 
+* `options` Objet 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function

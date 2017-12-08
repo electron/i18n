@@ -1,6 +1,6 @@
 ## Classe : ClientRequest
 
-> Permet de faire des requêtes HTTP/HTTPS.
+> Faire des requêtes HTTP/HTTPS.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -114,7 +114,7 @@ Retourne :
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Propriétés d'instance
+### Instance Properties
 
 #### `request.chunkedEncoding`
 

@@ -37,13 +37,13 @@ Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file hos
 
 There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Events
+## Zdarzenia
 
 The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Zwraca:
 
 * `error` Error
 
@@ -63,7 +63,7 @@ Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
-Returns:
+Zwraca:
 
 * `event` Event
 * `releaseNotes` String
@@ -75,7 +75,7 @@ Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
-## Methods
+## Metody
 
 The `autoUpdater` object has the following methods:
 

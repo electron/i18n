@@ -66,7 +66,7 @@ Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setBounds(bounds)` *Experimental*
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Rectángulo](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 

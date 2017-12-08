@@ -44,11 +44,11 @@ When a user clicks a file from the JumpList, a new instance of your application 
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
-## Custom Dock Menu (macOS)
+## 自訂 Dock 選單 (macOS)
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
-**Dock menu of Terminal.app:**
+**Terminal.app 的 Dock 選單:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 

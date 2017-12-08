@@ -1,4 +1,4 @@
-# Upgrading Crashpad
+# Crashpad 升版
 
 1. Get the version of crashpad that we're going to use.
     

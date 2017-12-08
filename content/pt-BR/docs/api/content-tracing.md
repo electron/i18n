@@ -29,13 +29,13 @@ app.on('ready', () => {
 })
 ```
 
-## Methods
+## Métodos
 
 The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `callback` Função 
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
@@ -44,7 +44,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
+* `opções` Object 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -76,7 +76,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Função 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -89,7 +89,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Object 
+* `opções` Object 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -111,7 +111,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Função 
   * `resultFilePath` String
 
 Get the current monitoring traced data.
@@ -122,7 +122,7 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `callback` Função 
   * `value` Number
   * `percentage` Number
 

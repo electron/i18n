@@ -1,20 +1,20 @@
-## Class: TouchBar
+## クラス: TouchBar
 
-> Create TouchBar layouts for native macOS applications
+> ネイティブ macOS アプリ向けに、TouchBar レイアウトを作成します
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBar(options)` *Experimental*
+### `new TouchBar(options)` *（実験的）*
 
-* `options` Object 
+* `options` オブジェクト 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
 Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Note:** TouchBar API は現在実験的な機能です。そのため、将来的には変更されたり削除されたりする可能性があります。
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Tip:** Touch Bar 付きの MacBook をお持ちでない場合は、Touch Bar を使用するアプリの検証に [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) をご利用になれます。
 
 ### Instance Properties
 
@@ -24,9 +24,9 @@ The following properties are available on instances of `TouchBar`:
 
 The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
-## Examples
+## サンプル
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+ボタンといくつかのラベルで構成される、シンプルな TouchBar 向けスロットゲームのコード例を示します。
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -35,25 +35,25 @@ const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// Reel labels
+// スロットのリールの役目を果たす label
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
+// スロットの結果を表示する label
 const result = new TouchBarLabel()
 
-// Spin button
+// スロットを回すボタン
 const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### 上記のサンプルを実行する
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+上記のサンプルを実行するには、（予めターミナルで適当なディレクトリを開いた上で）以下の操作を行ってください。
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. 上記のコードを `touchbar.js` として保存する
+2. `npm install electron` と入力し、 Electron をインストールします
+3. `./node_modules/.bin/electron touchbar.js` と入力し、Electron でサンプルを実行する
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+すると、 Electron のウィンドウと、 Touch Bar 上（あるいは Touch Bar エミュレータ上）で動作するサンプルアプリをご覧になる事ができるはずです。

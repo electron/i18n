@@ -2,7 +2,7 @@
 
 > Make HTTP/HTTPS requests.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -52,7 +52,7 @@ Rückgabewert:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Funktion 
   * `username` String
   * `password` String
 

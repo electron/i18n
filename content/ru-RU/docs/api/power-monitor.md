@@ -2,11 +2,11 @@
 
 > Monitor power state changes.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
-For example:
+Например:
 
 ```javascript
 const electron = require('electron')

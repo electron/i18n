@@ -1,4 +1,4 @@
-# Upgrading Chromium
+# Chromium 升版
 
 This is an overview of the steps needed to upgrade Chromium in Electron.
 
@@ -37,7 +37,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 
 ## Update Electron's code
 
-1. Get the code: 
+1. 取得程式碼: 
   -     sh
         $ git clone git@github.com:electron/electron.git
         $ cd electron
@@ -94,7 +94,7 @@ Upgrade `vendor/node` to the Node release that corresponds to the v8 version use
 
 See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
 
-## Verify ffmpeg support
+## 驗證 ffmpeg 支援
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
@@ -128,7 +128,7 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Useful links
+## 相關連結
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)

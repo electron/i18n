@@ -117,7 +117,7 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (optional)
 
-Clears the clipboard content.
+Xóa bộ nhớ copy paste.
 
 ### `clipboard.availableFormats([type])`
 

@@ -8,7 +8,7 @@ Voir [`Menu`](menu.md) pour des exemples.
 
 ### `new MenuItem(options)`
 
-* `options` Object 
+* `options` Objet 
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` lorsque l'élément du menu est cliqué. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
@@ -39,7 +39,7 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `copy`
+* `copier`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
@@ -73,7 +73,7 @@ The following additional roles are available on macOS:
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
 
-### Propriétés d'instance
+### Instance Properties
 
 The following properties are available on instances of `MenuItem`:
 

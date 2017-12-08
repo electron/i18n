@@ -6,7 +6,7 @@
 
 Electron 애플리케이션의 접근성에 대한 관심은 두 웹사이트가 유사하며 궁극적으로 HTML 입니다. 그러나 검사를 위한 URL 이 없기 때문에 Electron 앱에서 접근성 검사에 온라인 자원을 사용할 수 없습니다.
 
-이 새 기능들은 Electron 앱에 검사 도구를 제공합니다. Spectron 으로 테스트 하기 위한 검사를 추가 하거나 Devtron 으로 개발자 도구의 것을 사용할 수 있습니다. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+이 새 기능들은 Electron 앱에 검사 도구를 제공합니다. Spectron 으로 테스트 하기 위한 검사를 추가 하거나 Devtron 으로 개발자 도구의 것을 사용할 수 있습니다. 자 도구의 것을 사용할 수 있습니다. 자세한 정보는 도구의 요약이나 [접근성 문서](https://electronjs.org/docs/tutorial/accessibility) 를 읽어보세요.
 
 ## Spectron
 
@@ -30,7 +30,7 @@ Devtron 에서 앱의 페이지를 검사할 수 있는 접근성 탭이 생겼�
 
 이 두 도구들은 구글이 크롬을 위해 개발한 [접근성 개발자](https://github.com/GoogleChrome/accessibility-developer-tools) 도구 라이브러리를 사용합니다. 이 라이브러리에서 사용한 접근성 검사 규칙은 [위키의 저장소](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 를 통해 더 알아볼 수 있습니다.
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+Electron 을 위한 다른 훌륭한 접근성 도구를 알고계시다면, [접근성 문서](https://electronjs.org/docs/tutorial/accessibility) 에 풀 요청과 함께 추가해 주세요.
 
 ## Enabling Accessibility
 

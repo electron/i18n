@@ -1,6 +1,6 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> 在系統通知區中加入圖示及內容功能表。
 
 處理序: [主處理序](../glossary.md#main-process)
 

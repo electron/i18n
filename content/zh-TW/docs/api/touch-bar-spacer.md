@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSpacer(options)` *Experimental*
+### `new TouchBarSpacer(options)` *試驗中*
 
 * `options` Object 
   * `size` String (optional) - Size of spacer, possible values are: 

@@ -35,7 +35,7 @@ The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` 函数 
+* `callback` Function 
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
@@ -55,7 +55,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 `categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-示例
+示例:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
@@ -76,7 +76,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` 函数 
+* `callback` Function 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -111,7 +111,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` 函数 
+* `callback` Function 
   * `resultFilePath` String
 
 Get the current monitoring traced data.
@@ -122,7 +122,7 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` 函数 
+* `callback` Function 
   * `value` Number
   * `percentage` Number
 

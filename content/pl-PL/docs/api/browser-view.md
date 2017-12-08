@@ -8,7 +8,7 @@ Proces: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-## Example
+## Przykład
 
 ```javascript
 // In the main process.
@@ -34,7 +34,7 @@ view.webContents.loadURL('https://electron.atom.io')
 * `options` Object (optional) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Metody statyczne
 
 #### `BrowserView.fromId(id)`
 
@@ -42,7 +42,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Instance Properties
+### Właściwości instancji
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -54,7 +54,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### Metody instancji
 
 Objects created with `new BrowserView` have the following instance methods:
 

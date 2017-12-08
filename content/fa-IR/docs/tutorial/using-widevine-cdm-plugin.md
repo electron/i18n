@@ -16,7 +16,7 @@ Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure 
 
 On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
 
-### Linux
+### لینوکس
 
 On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
 

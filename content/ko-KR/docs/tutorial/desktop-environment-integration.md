@@ -1,4 +1,4 @@
-# 데스크톱 환경 통합
+# 데스크탑 환경 통합
 
 애플리케이션 배포의 대상이 되는 서로 다른 운영체제 시스템의 환경에 맞춰 애플리케이션의 기능을 통합할 수 있습니다. 예를 들어 Windows에선 태스크바의 JumpList에 바로가기를 추가할 수 있고 Mac(macOS)에선 dock 메뉴에 커스텀 메뉴를 추가할 수 있습니다.
 
@@ -23,14 +23,14 @@ Windows와 macOS는 JumpList 또는 dock 메뉴를 통해 최근 문서 리스�
 파일을 최근 문서에 추가하려면 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API를 사용할 수 있습니다:
 
 ```javascript
-const {app} = require('electron')
+onst {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
 그리고 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API로 최근 문서 리스트를 비울 수 있습니다:
 
 ```javascript
-onst {app} = require('electron')
+const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
@@ -103,7 +103,7 @@ app.setUserTasks([
 작업 리스트를 비우려면 간단히 `app.setUserTasks` 메서드의 첫번째 인수에 빈 배열을 넣어 호출하면 됩니다:
 
 ```javascript
-const {app} = require('electron')
+onst {app} = require('electron')
 app.setUserTasks([])
 ```
 
@@ -192,9 +192,9 @@ Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시�
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**작업 표시줄 버튼 위의 오버레이:**
+**Overlay on taskbar button:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![작업 표시줄 버튼 위의 오버레이](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 윈도우에 오버레이 아이콘을 설정하려면 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API를 사용할 수 있습니다:
 

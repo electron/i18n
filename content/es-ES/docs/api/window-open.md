@@ -1,4 +1,4 @@
-# Función `window.open`
+# `window.open` Función
 
 > Abre una nueva ventana y carga una dirección URL.
 

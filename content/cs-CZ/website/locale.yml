@@ -1,18 +1,18 @@
-tagline: Tvořte multiplatformní desktopové aplikace pomoci JavaScriptu, HTML a CSS
+tagline: Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS
 nav:
   docs: Dokumentace
   blog: Blog
   community: Komunita
   apps: Aplikace
   userland: Userland
-  releases: Releases
+  releases: Vydání
   contact: Kontakt
   languages: Jazyky
   code_of_conduct: Code of Conduct
 docs:
   title: Dokumentace Electronu
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
-  guides: Průvodce
+  guides: Návody
   api_reference: API Reference
   advanced: Pokročilé
 languages:
@@ -28,7 +28,7 @@ community:
   videos: Videa
   meetups: Setkání
   awesome_notice: Tento seznam je generován z repozitáře <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron od @sindresorhus</a>. <br>Něco chybí? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> upravte to.</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: Chcete-li přidat setkání, upravte <code>data/meetups.json</code> a <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> a pošlete pull request</a>.
 electron_is_easy:
   title: Je to snazší, než si myslíte
   description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Elektron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.
@@ -38,7 +38,7 @@ web_technologies:
   description: Elektronové používá Chromium a Node.js, takže můžete vytvářet aplikace s HTML, CSS a JavaScript.
 open_source:
   title: Open Source
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Elektron je open source projekt udržovaný GitHubem a aktivní komunitou přispěvatelů.
 cross_platform:
   title: Multiplatformní
   description: Kompatibilní s Mac, Windows a Linuxem, Electron aplikace sestavíte a spustíte na třech platformách.
@@ -99,7 +99,7 @@ or: nebo
 pages:
   '/':
     title: Electron | Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.
-    description: 'Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.'
+    description: 'Tvořte multiplatformní desktopové aplikace pomoci JavaScriptu, HTML a CSS.'
   '/apps':
     title: Electron aplikace
     description: Aplikace běžicí na Electronu
@@ -124,7 +124,7 @@ pages:
   '/community':
     title: Komunita
   '/releases':
-    title: Vydání
+    title: Releases
   '/contact':
     title: Kontakt
     description: Obraťte se na tým elektronů na Twitteru, Slacku, GitHubu nebo prostřednictvím e-mailu.

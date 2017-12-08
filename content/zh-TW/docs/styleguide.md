@@ -98,7 +98,7 @@ Using `autoUpdater` as an example:
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
+* Instance Properties must be listed under an `### 物件屬性` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -211,4 +211,4 @@ The arguments of an event follow the same rules as methods.
 
 ## 文件翻譯
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+參考 [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)

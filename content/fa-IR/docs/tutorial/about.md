@@ -12,7 +12,7 @@ Read on to learn more about the contributors and releases of Electron or get sta
 
 Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## Releases
+## نسخه‌ها
 
 [Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
 
@@ -46,13 +46,13 @@ New features added to Electron should primarily be native APIs. If a feature can
 
 ## تاریخچه
 
-Below are milestones in Electron's history.
+در زیر نقطه عطفی در تاریخچه الکترون را مشاهده می‌کنید.
 
-| :calendar:           | :tada:                                                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **۲۲ فروردین ۱۳۹۲**  | [اتم شل آغاز شده است](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).        |
-| **۱۶ اردیبهشت ۱۳۹۳** | [اتم شل متن باز شد](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                   |
-| **۲۸ فروردین ۱۳۹۴**  | [اتم شل به الکترون تغییر نام داد](https://github.com/electron/electron/pull/1389).                                  |
-| **۲۲ اردیبهشت ۱۳۹۵** | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
-| **اردیبهشت ۱۳۹۵**    | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **مرداد ۱۳۹۵**       | [Windows Store support for Electron apps](https://electronjs.org/docs/tutorial/windows-store-guide).                |
+| :calendar:           | :tada:                                                                                                            |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **۲۲ فروردین ۱۳۹۲**  | [اتم شل آغاز شده است](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
+| **۱۶ اردیبهشت ۱۳۹۳** | [اتم شل متن باز شد](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                 |
+| **۲۸ فروردین ۱۳۹۴**  | [اتم شل به الکترون تغییر نام داد](https://github.com/electron/electron/pull/1389).                                |
+| **اردیبهشت ۱۳۹۵**    | [الکترون نسخه `1.0.0` را منتشر کرد](https://electronjs.org/blog/electron-1-0).                                    |
+| **۲۲ اردیبهشت ۱۳۹۵** | [برنامه‌های الکترون سازگار با مک اپ استور](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide).  |
+| **مرداد ۱۳۹۵**       | [فروشگاه ویندوز از برنامه‌های الکترون پشتیبانی می‌کند](https://electronjs.org/docs/tutorial/windows-store-guide). |

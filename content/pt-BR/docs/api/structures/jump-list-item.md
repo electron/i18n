@@ -1,6 +1,6 @@
 # JumpListItem Object
 
-* `type` String (opcional) - Um dos seguintes: 
+* `tipo` String (opcional) - Um dos seguintes: 
   * `task` - Uma tarefa iniciará um aplicativo com argumentos específicos.
   * `separador` - pode ser usado para separar itens na categoria de `tarefas` padrão.
   * `arquivo` - um arquivo link será aberto um arquivo usando o app que criou a lista de atalhos, para isso funcionar o app deve ser registrado como um manipulador para o tipo de arquivo (embora não precisa ser o manipulador padrão).

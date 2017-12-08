@@ -18,7 +18,7 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - маштаб.
+* `factor` Number - фактор увилечения.
 
 Изменяет указанный масштаб. Коэффициент масштабирования является процент масштабирования, делится на 100, поэтому 300% = 3.0.
 
@@ -97,7 +97,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (опционально) 
+* `options` Object (опиционально) 
   * `secure` Boolean - (опционально) по умолчанию true.
   * `bypassCSP` Boolean - (опционально) по умолчанию true.
   * `allowServiceWorkers` Boolean - (опционально) по умолчанию true.
@@ -121,7 +121,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* Строка `code`
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function (опционально) - вызывается после выполнения сценария. 
   * `result` Any

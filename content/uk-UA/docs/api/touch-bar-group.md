@@ -6,5 +6,5 @@
 
 ### `new TouchBarGroup(options)` *Експериментальний*
 
-* `options` Об'єкт 
+* `options` Object 
   * `items` [TouchBar](touch-bar.md) - Елементи, які будуть відображатися як група.

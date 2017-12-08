@@ -12,7 +12,7 @@ In Electron, the process that runs `package.json`'s `main` script is called **th
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
 ### Differences Between Main Process and Renderer Process
 
@@ -136,7 +136,7 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
 
 ```sh
-electron .
+Electron .
 ```
 
 If you've installed it locally, then run:
@@ -194,14 +194,7 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
-$ npm install
-# Run the app
-$ npm start
+# Clonar el repositorio $ git clone https://github.com/electron/electron-quick-start # ir en el repositorio $ cd Electron-quick-start # instalar dependencias $ MNP instalar # ejecute el app $ MNP start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Para más aplicaciones de ejemplo, vea la[list de boilerplates](https://electronjs.org/community#boilerplates) creado por la comunidad Electron impresionante.

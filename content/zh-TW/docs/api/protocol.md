@@ -103,7 +103,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+範例:
 
 ```javascript
 const {protocol} = require('electron')
@@ -147,7 +147,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` String
       * `method` String
       * `session` Object (選用)
-      * `uploadData` Object (選用) 
+      * `uploadData` 物件 (選用) 
         * `contentType` String - 內容的 MIME 類型。
         * `data` String - 要傳送的內容。
 * `completion` Function (選用) 

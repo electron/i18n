@@ -25,7 +25,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+另一个在外部显示器中创建窗口的例子
 
 ```javascript
 const electron = require('electron')

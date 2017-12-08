@@ -10,17 +10,17 @@ You can also attempt to download Electron directly from [electron/electron/relea
 
 ## ¿Cuando se actualizará Electron a la más reciente versión de Chrome?
 
-La versión de Chrome de Electron es usualmente actualizada con una o dos semanas después de que una nueva versión estable de Chrome es publicada. Esta estimación no se garantiza y depende de la carga de trabajo que implica la actualización.
+La versión del cromo del Electron se golpea generalmente dentro de una o dos semanas después llega una nueva versión estable de Chrome. Esta estimación no se garantiza y depende de la carga de trabajo que implica la actualización.
 
 Solamente el canal estable de Chrome es utilizado. Si una corrección importante se encuentra en los canales beta o dev, actualizaremos a la versión.
 
 Para mas información, por favor lea la [introducción de seguridad](tutorial/security.md).
 
-## ¿Cuándo se actualizará Electron a la última versión de Node.js?
+## ¿Cuando se actualiza el Electron a Node.js última?
 
-Cuando una nueva versión de Node.js es publicada, usualmente esperamos aproximadamente un mes antes de actualizar la versión de Electron. Con esto evitamos afectarnos por bugs introducidos en la nueva versión de Node.js, lo cual sucede frecuentemente.
+Cuando obtiene una nueva versión de Node.js, generalmente Esperamos alrededor de un mes antes de actualizar de Electron. Con esto evitamos afectarnos por bugs introducidos en la nueva versión de Node.js, lo cual sucede frecuentemente.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Novedades de Node.js están generalmente presentadas por mejoras V8, puesto que el Electron está utilizando el V8 enviados por el navegador Chrome, JavaScript nuevo brillante característica de una nueva versión de Node.js es generalmente ya en Electron.
 
 ## How to share data between web pages?
 
@@ -77,9 +77,9 @@ app.on('ready', () => {
 
 ## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Debido a la integración de Node.js de Electron, hay algunos símbolos extras insertados en la DOM como `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
-To solve this, you can turn off node integration in Electron:
+Para solucionar esto, puede desactivar la integración del nodo en Electron:
 
 ```javascript
 // In the main process.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Pero si desea mantener la capacidad de utilizar Node.js y APIs de Electron, tienes que cambiar el nombre de los símbolos en la página antes de incluir otras bibliotecas:
 
 ```html
 <head>
@@ -108,14 +108,14 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Cuando se utiliza el módulo de Electron puede encontrar un error como este:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Esto es porque tienes la module</a> de `electron` de npm instalada localmente o globalmente, que reemplaza el módulo incorporado del Electron.</p> 
 
 To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
 

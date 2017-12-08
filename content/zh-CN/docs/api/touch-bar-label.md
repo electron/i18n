@@ -10,7 +10,7 @@
   * `label` String (optional) - Text to display.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
-### Instance Properties
+### 实例属性
 
 The following properties are available on instances of `TouchBarLabel`:
 

@@ -4,7 +4,7 @@
 
 ## Các phím tắt tại local
 
-Bạn có thể sử dụng module [Menu](../api/menu.md) để cài đặt các phím tắt, điều đó sẽ kích hoạt các phím tắt khi cửa sổ của app được focus vào. Để là điều này, chỉ cần cài thêm vô một [`accelerator`] khi tạo [MenuItem](../api/menu-item.md).
+Bạn có thể sử dụng module [Menu](../api/menu.md) để cài đặt các phím tắt, điều đó sẽ kích hoạt các phím tắt khi cửa sổ của app được focus vào. Để làm điều này, chỉ cần cài thêm vô một [`accelerator`] khi tạo [MenuItem](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -49,9 +49,9 @@ window.addEventListener('keyup', doSomething, true)
 
 Lưu ý, biến số thứ ba `true` có nghĩa là listener sẽ luôn nhận được giá trị của nút đã nhấn trước khi các listener khác `stopPropagation()` nó.
 
-The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+Sự kiện [`before-input-event`](web-contents.md#event-before-input-event) diễn ra trước khi các sự kiện `keydown` và `keyup` trên trang. Nó có thể được sử dụng để nắm bắt và xử lý các tùy chỉnh phím tắt không được hiển thị trong trình đơn.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Nếu bạn không muốn làm ra một hướng dẫn sử dụng phím tắt mà không có sẳn trong thư viện thì bạn phải làm các phát hiện sự kiện chủ chốt như một [bẫy chuột](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

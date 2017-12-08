@@ -42,7 +42,7 @@
 
 ## Markdown 规则
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* 在代码块中使用`bash`而不是`cmd`（由于语法高亮问题）.
 * 行长度应该控制在80列内.
 * 列表嵌套不超出2级 (由于 Markdown 渲染问题).
 * 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@
 
 每个页面必须使用由 `require（'electron'）` 返回的实际对象名称作为标题，例如` BrowserWindow`，`autoUpdater` 和 `session`。
 
-Under the page title must be a one-line description starting with `>`.
+在页面下方标题必须是以`>`开头的单行描述。
 
 举一个 `session` 的例子:
 
@@ -98,7 +98,7 @@ Under the page title must be a one-line description starting with `>`.
 * 所有具有返回值的方法必须用"Returns `[TYPE]` - Return description" 的形式描述. 
   * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
 * 实例事件必须在 `### Instance Events` 章节中列出.
-* 实例属性必须在 `### Instance Properties` 章节中列出. 
+* 实例属性必须在 `### 实例属性` 章节中列出. 
   * 实例属性必须以 "A [Property Type] ..." 开始描述.
 
 这里用 `Session` 和 `Cookies` 类作为例子:
@@ -211,4 +211,4 @@ Returns:
 
 ## 文档翻译
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+参见 [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)

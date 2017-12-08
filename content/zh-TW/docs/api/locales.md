@@ -93,7 +93,7 @@ Electron 使用 Chromium 的 `l10n_util` 程式庫來取得語系。可能的值
 | no     | Norwegian               |
 | oc     | Occitan                 |
 | om     | Oromo                   |
-| or     | Oriya                   |
+| 或      | Oriya                   |
 | pa     | Punjabi                 |
 | pl     | Polish                  |
 | ps     | Pashto                  |

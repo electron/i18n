@@ -12,7 +12,7 @@ In Electron, the process that runs `package.json`'s `main` script is called **th
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
 ### Differences Between Main Process and Renderer Process
 
@@ -190,13 +190,13 @@ Clone and run the code in this tutorial by using the [`electron/electron-quick-s
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
 ```sh
-# Clone the repository
+# 複製儲存庫
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# 進到儲存庫裡
 $ cd electron-quick-start
-# Install dependencies
+# 安裝相依的套件
 $ npm install
-# Run the app
+# 執行應用程式
 $ npm start
 ```
 

@@ -6,7 +6,7 @@
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
-例如:
+For example:
 
 ```javascript
 const electron = require('electron')

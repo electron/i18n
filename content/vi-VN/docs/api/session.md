@@ -95,7 +95,7 @@ Callback is invoked with the session's current cache size.
 
 * `callback` Function - Called when operation is done
 
-Clears the session’s HTTP cache.
+Xóa bộ nhớ cache HTTP của session.
 
 #### `ses.clearStorageData([options, callback])`
 
@@ -105,7 +105,7 @@ Clears the session’s HTTP cache.
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
 
-Clears the data of web storages.
+Xóa dữ liệu của web storages.
 
 #### `ses.flushStorageData()`
 

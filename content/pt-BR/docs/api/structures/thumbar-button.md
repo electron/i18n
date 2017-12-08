@@ -1,6 +1,6 @@
 # ThumbarButton Object
 
-* `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
+* `icon` [NativeImage](../native-image.md) - O icone exibido na barra de ferramentas de miniaturas.
 * `click` Function
 * `tooltip` String (optional) - The text of the button's tooltip.
 * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.

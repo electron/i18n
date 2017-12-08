@@ -1,4 +1,4 @@
-# Instructions de compilation (macOS)
+# Instructions de Build (macOS)
 
 Suivez les indications ci-dessous pour compiler Electron sur macOS.
 
@@ -32,7 +32,7 @@ Vous devrez aussi activer Xcode pour compiler avec le SDK 10.10 :
 - Mettre la valeur `MinimumSDKVersion` à `10.10`
 - Sauvegarder le fichier
 
-## Obtenir le code
+## Obtenir le Code
 
 ```sh
 $ git clone https://github.com/electron/electron

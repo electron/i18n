@@ -25,7 +25,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Anwendungen aktualisieren](tutorial/updates.md)
 
 ## Anleitungen
 
@@ -58,7 +58,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [Menü](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
@@ -96,7 +96,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Build Anweisungen (Linux)](development/build-instructions-linux.md)
 * [Debug Anweisungen (macOS)](development/debugging-instructions-macos.md)
 * [Debug Anweisungen (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
+* [Einen Symbol-Server im Debugger einrichten](development/setting-up-symbol-server.md)
 * [Dokumentations-Gestaltungsrichtlinie](styleguide.md)
 * [Chrome aktualisieren](development/upgrading-chrome.md)
 * [Chromium-Entwicklung](development/chromium-development.md)

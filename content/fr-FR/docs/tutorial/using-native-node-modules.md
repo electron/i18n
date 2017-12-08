@@ -1,4 +1,4 @@
-# Utiliser des Modules Natifs de Node
+# Utiliser Modules Natifs de Node
 
 Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est susceptible d’utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l’emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
@@ -59,8 +59,8 @@ Le `HOME=~/.electron-gyp` indique où trouver les en-têtes pour le développeme
 
 Si vous avez installé un module natif et trouvé que cela ne fonctionnait pas, vous devez vérifier ces éléments suivants :
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
+* L'architecture du module doit correspondre à l'architecture d'Electron (ia32 ou x64).
+* Après avoir mise à jour Electron, vous devez habituellement recompiler les modules.
 * En cas de doute, exécutez d'abord `electron-rebuild`.
 
 ## Les modules s'appuyant sur `prebuild`

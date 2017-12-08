@@ -12,14 +12,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [Supported Platforms](tutorial/supported-platforms.md)
 * [Security](tutorial/security.md)
 * [Versi](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
+* [Distribusi Aplikasi](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store Guide](tutorial/windows-store-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
 * [Using Native Node Modules](tutorial/using-native-node-modules.md)
 * [Debugging Main Process](tutorial/debugging-main-process.md)
 * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
+* [Ekstensi DevTools](tutorial/devtools-extension.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
@@ -29,7 +29,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Tutorials
 
-* [Quick Start](tutorial/quick-start.md)
+* [Mulai Cepat](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
 * [Online/Offline Event Detection](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)

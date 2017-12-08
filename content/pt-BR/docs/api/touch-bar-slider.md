@@ -2,11 +2,11 @@
 
 > Create a slider in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 
-* `options` Object 
+* `opções` Object 
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
@@ -14,7 +14,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `change` Function (optional) - Function to call when the slider is changed. 
     * `newValue` Number - The value that the user selected on the Slider
 
-### Instance Properties
+### Propriedades da Instância
 
 The following properties are available on instances of `TouchBarSlider`:
 

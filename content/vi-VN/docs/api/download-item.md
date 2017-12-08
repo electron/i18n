@@ -1,13 +1,13 @@
 ## Class: DownloadItem
 
-> Control file downloads from remote sources.
+> Kiểm soát các tập tin tải về từ một nguồn từ xa.
 
 Quá trình: [Main](../glossary.md#main-process)
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// In the main process.
+// Trong main process.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -82,7 +82,7 @@ Returns `String` - The save path of the download item. This will be either the p
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Tạm dừng việc tải xuống.
 
 #### `downloadItem.isPaused()`
 
@@ -100,7 +100,7 @@ Resumes `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Hủy bỏ thao tác tải về.
 
 #### `downloadItem.getURL()`
 
@@ -124,7 +124,7 @@ Returns `String` - The file name of the download item.
 
 Returns `Integer` - The total size in bytes of the download item.
 
-If the size is unknown, it returns 0.
+Nếu kích thước là unknown, nó trả về 0.
 
 #### `downloadItem.getReceivedBytes()`
 

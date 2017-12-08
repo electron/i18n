@@ -10,11 +10,11 @@ ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [之前是](https://github.com/electron-archive/brightray)一个可以让 [libchromiumcontent](#libchromiumcontent)在应用中更加易用的静态库。 现在它已并入 Electron 的代码库，所以不再推荐使用。
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部分。 实现了 CRT 的 Visual c++ 库支持本机代码开发, 以及混合的本机和托管代码, 以及用于. NET 开发的纯托管代码。
 
 ### DMG
 
@@ -22,81 +22,81 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### IME
 
-输入法编辑器. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+输入法编辑器. 是一个允许用户输入在键盘上找不到的字符和符号的程序。 例如，使用户可以用拉丁语键盘输入中文，日文，韩文和印度文字。
 
 ### IPC
 
-IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在[main(主进程)](#main-process)和[renderer(渲染进程)](#renderer-process)之间传递 JSON 信息。
+IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来在[main主进程](#main-process)和[renderer渲染进程](#renderer-process)之间传递 JSON 信息。
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). 也称为 “libcc”。
+包含 [ Chromium Content module ](https://www.chromium.org/developers/content-module) 及其所有依赖项 (例如, Blink、[ V8 ](#v8) 等) 的共享链接库。 也称为 “libcc”。
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### main process
 
-主进程，通常是值` main.js` 文件，是每个 Electron 应用的入口文件。它控制着整个 APP 的生命周期，从打开到关闭。 它也管理着原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
+主进程，通常是名为` main.js ` 的文件，是每个 Electron 应用的入口文件。它控制着整个 App 的生命周期，从打开到关闭。 它也管理着系统原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
 
 每个 app 的主进程文件都定义在 `package.json` 中的 `main` 属性当中。这也是为什么 `electron.` 能够知道应该使用哪个文件来启动。
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+在Chromium中, 这个进程被称为 "浏览器进程"。它在Electron被重新命名, 以避免与渲染器进程混淆。
 
-See also: [process](#process), [renderer process](#renderer-process)
+参见: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+是指苹果系统上的 Mac App Store 的缩略词。有关于如何提交你的 app 至 MAS ，详见 [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)。
 
-### native modules
+### native modules原生模块
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中加载或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要使在Node.js 上运行的 JavaScript 能调用 C/C++ 的库。
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Electron 支持原生的 Node 模块，但是 Electron 非常可能使用了和你系统中安装的Node所不一样的 V8 版本，所以在构建原生模块的时候你需要手动指定 Electron 所使用的头文件的位置。
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+参见 [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System 是一个微软 Windows 平台上脚本驱动的制作安装包的工具。 它被发布在一些免费软件许可证书的组合下，是一个被广泛使用的可以替代商业专利产品例如 InstallShield的工具。 [electron-builder](https://github.com/electron-userland/electron-builder) 支持使用 NSIS 作为编译目标。
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 这个技术可被用于在后台加载超大页面然后再显示(这样做速度会更快)。
 
-### process
+### 进程
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+一个进程是计算机程序正在执行中的一个实例。 Electron 应用同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行多个程序。
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+在 Node.js 和 Electron 里面，每个运行的进程包含一个 `process` 对象。 这个对象作为一个全局的提供当前进程的相关信息，操作方法。 作为一个全局变量，它在应用内部能够不用 require() 就能随时可用的。
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+参见: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+渲染进程是你的应用内的一个浏览器窗口。与主进程不同的是，它能够同时存在多个而且运行于不同的进程中。而且它们也能够被隐藏。
 
-在通常的浏览器内，网页通常运行在一个沙盒的环境挡住并且不能够使用原生的资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些低级别的交互。
+在标准的浏览器内，网页通常运行在一个沙盒环境中并且被禁止使用本地资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些低级别的交互。
 
-See also: [process](#process), [main process](#main-process)
+参见: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新到发布的新的版本. 详见 [autoUpdater](api/auto-updater.md) API 了解如何开始使用 Squirrel。
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+"userland" 或者 "userspace" 术语起源于 Unix 社区，是指程序运行在操作系统内核之外的位置。 最近这个术语被推广到 Node 和 npm 社区，用于区分 "Node 内核"功能与在 npm 上注册的"用户" 们所发布的包的功能。
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+就像 Node ，Electron 致力于使用较小的API集来支持开发跨平台应用所必需的原语。 这个设计理念让 Electron 能够保持灵活性而不是被过分的规定为一个应该如何被使用的工具。 Userland 让用户能够在这个 "core（核心）"功能之上创造和分享一些工具来增加新的功能。
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 是谷歌公司的开源 JavaScript 引擎。它使用 C++ 编写并被使用在谷歌公司的开源浏览器 Chrome 上。V8 能够单独运行或者集成在任何一个 C++ 应用内。
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron将 V8 作为Chromium的一个部分进行构建，然后在构建Node时也指向那个 V8
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8 的版本号总是和谷歌 Chrome的版本号对应。Chrome 59包括 V8 5.9，Chrome 58包括 V8 5.8，等等。
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -104,4 +104,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview `标签用于将 'guest（访客）' 内容（比如外部的网页）集成在你的 Electron 应用内。它们类似于 `iframe`，但是不同的是每个 webview 运行在独立的进程中。 它拥有和你的页面不一样的权限并且所嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。

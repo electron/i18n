@@ -1,11 +1,11 @@
-# Instructions de compilation (Windows)
+# Instructions de Build (Windows)
 
 Suivez les indications ci-dessous pour compiler Electron sur Windows.
 
 ## Prérequis
 
 * Windows 7 / Server 2008 R2 ou supérieur
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
+* Visual Studio 2015 mise à jour 3 - [Télécharger VS 2015 Community Edition gratuitement](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -34,7 +34,7 @@ $ python script\bootstrap.py -v
 
 ## Compilation
 
-Compiler une cible Release et Debug :
+Compiler une version Release et une version Debug :
 
 ```powershell
 $ python script\build.py

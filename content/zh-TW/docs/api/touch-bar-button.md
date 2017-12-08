@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarButton(options)` *Experimental*
+### `new TouchBarButton(options)` *試驗中*
 
 * `options` Object 
   * `label` String (optional) - Button text.

@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-For example:
+예시:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
@@ -15,7 +15,7 @@ console.log(powerSaveBlocker.isStarted(id))
 powerSaveBlocker.stop(id)
 ```
 
-## 메소드
+## 메서드
 
 The `powerSaveBlocker` module has the following methods:
 

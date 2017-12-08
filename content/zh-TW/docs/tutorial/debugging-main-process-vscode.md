@@ -7,7 +7,7 @@ $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. 新增 `.vscode/launch.json` 檔，貼上以下設定:
 
 ```json
 {

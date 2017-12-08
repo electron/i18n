@@ -1,6 +1,6 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
+Eine Read-Eval-Print-Loop (REPL) ist eine einfache, interaktive Computer Programmier Umgebung, die einzelne Nutzereingaben entgegennimmt (sprich einzelne Ausdrücke), diese auswertet und anschließend dem Nutzer das Ergebnis anzeigt.
 
 The `repl` module provides a REPL implementation that can be accessed using:
 

@@ -1,8 +1,8 @@
-# 빌드 설명서 (macOS)
+# 빌드 명령 (macOS)
 
 이 가이드는 macOS 운영체제에서 Electron을 빌드하는 방법을 설명합니다.
 
-## 빌드전 요구 사양
+## 빌드전 요구사양
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1

@@ -29,7 +29,7 @@ There are questions that are asked quite often. Check this out before creating a
 
 ## Tutorials
 
-* [Quick Start](tutorial/quick-start.md)
+* [شروع سریع](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
 * [Online/Offline Event Detection](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
@@ -84,7 +84,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## توسعه
 
 * [Coding Style](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)

@@ -1,6 +1,6 @@
 # แอพ
 
-> Control your application's event lifecycle.
+> ควบคุมวงรอบชีวิตของแอป
 
 Process: [Main](../glossary.md#main-process)
 

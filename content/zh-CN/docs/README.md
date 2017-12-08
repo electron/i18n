@@ -1,4 +1,4 @@
-请确认你的使用的文档匹配你的 Electron 版本。 你可以在页面的 URL 中找到版本号。 如果不是，你可能在使用开发分支版本的文档，其中包括了一些与你的 Electron 版本不兼容的 API。 如果想要访问老版本的文档，你可以通过 GitHub 的[切换分支功能](https://github.com/electron/electron/tree/v1.4.0)，在下拉菜单中选择与你的版本匹配的分支。
+请确认你的使用的文档匹配你的 Electron 版本。 你可以在页面的 URL 中找到版本号。 如果没有，你可能在使用开发版本分支里的文档，这个分支可能包含了一些与你的 Electron 版本不兼容的 API。 如果想要访问旧版本的文档，你可以[browse by tag](https://github.com/electron/electron/tree/v1.4.0)： 通过在GitHub 中打开下拉菜单“Switch branches/tags”中选择与你的版本匹配的分支。
 
 ## 常见问题
 
@@ -25,7 +25,7 @@
 * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [离屏渲染](tutorial/offscreen-rendering.md)
 * [键盘快捷键](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [更新应用程序](tutorial/updates.md)
 
 ## 教程
 
@@ -33,7 +33,7 @@
 * [桌面环境集成](tutorial/desktop-environment-integration.md)
 * [在线/离线事件探测](tutorial/online-offline-events.md)
 * [交互式解释器 (REPL)](tutorial/repl.md)
-* [系统原生通知](tutorial/notifications.md)
+* [使用原生通知](tutorial/notifications.md)
 
 ## API 参考
 

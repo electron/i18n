@@ -4,7 +4,7 @@
 
 **Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.
 
-Процесс: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `BrowserView` может использоваться для внедрения дополнительного веб-содержимого в `BrowserWindow`. Это как дочернее окно, за исключением того, что оно позиционируется относительно его владельца окна. Он предназначен для того, чтобы быть альтернативой тега `webview`.
 
@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### `new BrowserView([options])` *Экспериментально*
 
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `webPreferences` Объект (опционально) - см. [BrowserWindow](browser-window.md).
 
 ### Статические методы
@@ -42,7 +42,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Возвращает `BrowserView` - вид с заданным `id`.
 
-### Свойства экземпляра
+### Instance Properties
 
 Объекты, созданные с помощью `new BrowserView`, имеют следующие свойства:
 

@@ -4,7 +4,7 @@ Veuillez vous assurer d'utiliser la documentation qui correspond à votre versio
 
 Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa réponse dans la FAQ:
 
-* [Electron FAQ](faq.md)
+* [FAQ Electron](faq.md)
 
 ## Guides
 
@@ -16,21 +16,21 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Guide de Soumission Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guide Windows Store](tutorial/windows-store-guide.md)
 * [Créer une archive](tutorial/application-packaging.md)
-* [Utiliser Modules Natifs de Node](tutorial/using-native-node-modules.md)
+* [Utiliser des Modules Natifs de Node](tutorial/using-native-node-modules.md)
 * [Debugger Processus Principal](tutorial/debugging-main-process.md)
 * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [Extension DevTools](tutorial/devtools-extension.md)
 * [Utilisation du plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Utilisation du plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Rendu Offscreen](tutorial/offscreen-rendering.md)
+* [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
 * [Raccourcis clavier](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Mettre à jour des applications](tutorial/updates.md)
 
 ## Tutoriels
 
 * [Démarrage Rapide](tutorial/quick-start.md)
-* [Intégration de l'environnement de bureau](tutorial/desktop-environment-integration.md)
+* [Intégration de l’environnement de bureau](tutorial/desktop-environment-integration.md)
 * [Détection des événements en ligne/hors ligne](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
 * [Notifications natives](tutorial/notifications.md)
@@ -44,7 +44,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 
 ### Éléments DOM Personnalisé :
 
-* [`File` Object](api/file-object.md)
+* [Objet `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
@@ -88,12 +88,12 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 
 * [Style de Codage](development/coding-style.md)
 * [Utilisation du clang-format sur du code C++](development/clang-format.md)
-* [Hiérarchie du Code Source](development/source-code-directory-structure.md)
+* [Structure du répertoire du Code Source](development/source-code-directory-structure.md)
 * [Différences Techniques de NW.js (anciennement node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Aperçu du Système de Build](development/build-system-overview.md)
-* [Instructions de Build (macOS)](development/build-instructions-osx.md)
-* [Instructions de Build (Windows)](development/build-instructions-windows.md)
-* [Instructions de Build (Linux)](development/build-instructions-linux.md)
+* [Aperçu du Système de compilation](development/build-system-overview.md)
+* [Instructions de compilation (macOS)](development/build-instructions-osx.md)
+* [Instructions de compilation (Windows)](development/build-instructions-windows.md)
+* [Instructions de compilation (Linux)](development/build-instructions-linux.md)
 * [Instructions de Debug (macOS)](development/debugging-instructions-macos.md)
 * [Instructions de Debug (Windows)](development/debug-instructions-windows.md)
 * [Installer un Serveur de Symbol dans le debugger](development/setting-up-symbol-server.md)

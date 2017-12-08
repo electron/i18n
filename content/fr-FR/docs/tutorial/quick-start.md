@@ -152,7 +152,7 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 et supérieur
 
 ```sh
 $ npx electron .
@@ -165,19 +165,19 @@ Si vous avez téléchargé Electron manuellement, vous pouvez également utilise
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron votre-app/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron votre-app/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe votre-app\
 ```
 
 `Electron.app` ici, fait partie des versions empaquetées d’Electron, vous pouvez le télécharger [ici](https://github.com/electron/electron/releases).
@@ -193,14 +193,14 @@ Clonez et exécutez le code dans ce tutoriel en utilisant le repository [`electr
 **Remarque** : l’exécution nécessite [Git](https://git-scm.com) et [Node.js](https://nodejs.org/en/download/) (qui comprend [npm](https://npmjs.org)) sur votre système.
 
 ```sh
-# Clone the repository
+# Cloner the repository
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Aller dans le dossier
 $ cd electron-quick-start
-# Install dependencies
+# Installer les dépendances
 $ npm install
-# Run the app
+# Lancer l'application
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Pour plus d'exemples, voir la [liste de boilerplates](https://electronjs.org/community#boilerplates) créée par la superbe communauté Electron.

@@ -96,7 +96,7 @@ We need to generate a patch file from each patch applied to V8.
          electron$ script/bootstrap.py -d
          electron$ script/build.py -c -D
 
-## Notes
+## Uwagi
 
 - libcc and V8 are treated as a single unit
 - Node maintains its own fork of V8 

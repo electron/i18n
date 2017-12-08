@@ -4,7 +4,7 @@
 
 Accelerator 由字符串组成，可以包含多个修饰符和键码，由 `+` 字符组合，用于在整个应用程序中定义键盘快捷键。
 
-示例
+示例:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`

@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
@@ -86,12 +86,12 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 * `url` String - The URL associated with the cookie.
 * `name` String - The name of cookie to remove.
-* `callback` Function
+* `callback` Функція
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Function
+* `callback` Функція
 
 Writes any unwritten cookies data to disk.

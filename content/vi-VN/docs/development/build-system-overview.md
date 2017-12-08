@@ -42,7 +42,7 @@ Unlike most projects that use `Release` and `Debug` as target names, Electron us
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
-## Các thử nghiệm
+## Thử nghiệm
 
 Test your changes conform to the project coding style using:
 

@@ -1,6 +1,6 @@
 # webContents
 
-> Fait le rendu et contrôle des pages web.
+> Contrôle et rendu des pages web.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -123,7 +123,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `favicons` String[] - Tableau d'URLs
 
 Émis lorsque la page reçoit l’url du favicon.
@@ -326,7 +326,7 @@ Retourne :
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Objet 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -345,7 +345,7 @@ L'utilisation est pareil que [l'événement `login` de `app`](app.md#event-login
 Retourne :
 
 * `event` Event
-* `result` Object 
+* `result` Objet 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
@@ -399,7 +399,7 @@ Si le paramètre `type` est `custom`, le paramètre `image` aura l'image du curs
 Retourne :
 
 * `event` Event
-* `params` Object 
+* `params` Objet 
   * `x` Integer - coordonnée x
   * `y` Integer - coordonée y
   * `linkURL` String - L'URL du lien qui englobe le nœud du menu contextuel.
@@ -639,20 +639,20 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injects CSS into the current web page.
+Injecte du CSS dans la page web actuelle.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (facultatif) - `false` par défaut.
+* `callback` Function (facultatif) - Appelé après l'exécution du script. 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Retourne `Promise` - Une promesse qui se résout avec le résultat du code exécuté ou se rejette si le résultat du code est une promesse rejetée.
 
-Evaluates `code` in page.
+Évalue le `code` dans la page.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -683,7 +683,7 @@ Returns `Boolean` - Whether this page has been muted.
 
 * `factor` Number - Facteur de zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le pourcentage divisé par 100, donc 300% = 3.0.
 
 #### `contents.getZoomFactor(callback)`
 
@@ -696,7 +696,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 * `level` Number - Niveau de zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement.
 
 #### `contents.getZoomLevel(callback)`
 
@@ -710,21 +710,21 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Déprécié :** Utilisez `setVisualZoomLevelLimits` à la placepour définir les limites de niveau du zoom visuel. Cette méthode sera supprimée dans Electron 2.0.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
 
 #### `contents.undo()`
 
@@ -785,7 +785,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Inserts `text` to the focused element.
+Insère le `text` à l'élément ciblé.
 
 #### `contents.findInPage(text[, options])`
 
@@ -861,7 +861,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Objet 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -1005,7 +1005,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parameters` Objet 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
@@ -1025,7 +1025,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `event` Objet 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1115,7 +1115,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `options` Objet 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer

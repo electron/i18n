@@ -84,16 +84,16 @@ And then sign your app with the following script:
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# Tên ứng dụng của bạn.
 APP="YourApp"
-# The path of your app to sign.
+# Đường dẫn tới sign của ứng dụng của bạn.
 APP_PATH="/path/to/YourApp.app"
 # The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# Tên của các chứng chỉ mà bạn đã yêu cầu.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Đường dẫn của các file plist.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"

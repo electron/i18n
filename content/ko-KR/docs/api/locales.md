@@ -93,7 +93,7 @@ Electron은 크로미움의 `l10n_util` 라이브러리를 사용하여 locale�
 | no     | Norwegian               |
 | oc     | Occitan                 |
 | om     | Oromo                   |
-| or     | Oriya                   |
+| 또는     | Oriya                   |
 | pa     | Punjabi                 |
 | pl     | Polish                  |
 | ps     | Pashto                  |

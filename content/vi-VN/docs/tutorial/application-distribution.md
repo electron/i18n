@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-Trên Windows và Linux:
+On Windows and Linux:
 
 ```text
 electron/resources/app

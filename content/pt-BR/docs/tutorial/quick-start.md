@@ -166,19 +166,19 @@ Se você efetuou o download manual do Electron, você também pode utilizar o bi
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron seu-app/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron seu-app/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe seu-app\
 ```
 
 O `Electron.app` aqui é parte do pacote de liberação do Electron, você pode baixá-lo [aqui](https://github.com/electron/electron/releases).
@@ -194,14 +194,14 @@ Clone e execute o código nesse tutorial utilizando o repositório [`electron/el
 **Nota**: Para executar esse aplicativo, é necessário possuir o [Git](https://git-scm.com) e o [Node.js](https://nodejs.org/en/download/) (que também inclui o [npm](https://npmjs.org)) instalados no seu sistema.
 
 ```sh
-# Clone the repository
+# Clone o repositório
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Vá para o repositório
 $ cd electron-quick-start
-# Install dependencies
+# Instale as dependências
 $ npm install
-# Run the app
+# Execute o aplicativo
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Para mais aplicativos de exemplo, veja a [lista de boilerplates](https://electronjs.org/community#boilerplates) criada pela fantástica comunicade do Electron.

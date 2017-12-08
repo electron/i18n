@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `new TouchBarSlider(options)` *試驗中*
 
 * `options` Object 
   * `label` String (optional) - Label text.
