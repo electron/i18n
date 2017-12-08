@@ -62,19 +62,19 @@ Nullsoft Scriptable Install System 是一个微软 Windows 平台上脚本驱动
 
 ### OSR
 
-OSR(离屏渲染) 可以让你不必渲染页面到屏幕上。 可被用于先在后台加载超大页面之后再显示(这样做速度会更快)。
+OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 这个技术可被用于在后台加载超大页面然后再显示(这样做速度会更快)。
 
-### process进程
+### 进程
 
-一个进程是计算机程序执行中的一个实例。 Electron 应用同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行多个程序。
+一个进程是计算机程序正在执行中的一个实例。 Electron 应用同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行多个程序。
 
-在 Node.js 和 Electron 里面，每个运行的进程包含一个 `process` 对象。 这个对象作为一个全局的提供当前进程的相关信息，操作方法。 作为一个全局变量，它在应用内能够不用 require() 来随时取到。
+在 Node.js 和 Electron 里面，每个运行的进程包含一个 `process` 对象。 这个对象作为一个全局的提供当前进程的相关信息，操作方法。 作为一个全局变量，它在应用内部能够不用 require() 就能随时可用的。
 
 参见: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-渲染进程是你的应用内的一个浏览器窗口。与主进程不同的是，它能够同时存在多个而且运行在不一样的进程。而且它们也能够被隐藏。
+渲染进程是你的应用内的一个浏览器窗口。与主进程不同的是，它能够同时存在多个而且运行于不同的进程中。而且它们也能够被隐藏。
 
 在通常的浏览器内，网页通常运行在一个沙盒的环境挡住并且不能够使用原生的资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些低级别的交互。
 
