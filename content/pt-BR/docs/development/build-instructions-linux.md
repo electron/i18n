@@ -6,7 +6,7 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 
 * Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
 * Python 2.7x. Para algumas distribuições como o CentOS 6.x continue usando o Python 2.6.x, então você precisa verificar a versão do Python com o comando `python -V`.
-* Node.js. Existem várias maneiras para instalar o Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Existem várias maneiras para instalar o Node. Você pode baixar o código fonte do [nodejs.org](http://nodejs.org) e compilar. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
 * Cabeçalho do GTK+ e libnotify.
 
@@ -139,15 +139,15 @@ The default building configuration is targeted for major desktop Linux distribut
 
 To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+1. Instale o [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+2. Instale as [dependências de compilação adicionais](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+3. Busque por novos git submodules:
 
 ```sh
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. Use o `--build_release_libcc` para mudar o script `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
