@@ -211,4 +211,4 @@ The arguments of an event follow the same rules as methods.
 
 ## 文件翻譯
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+參考 [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
