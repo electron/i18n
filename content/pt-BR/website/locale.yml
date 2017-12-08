@@ -92,9 +92,9 @@ apps:
   something_missing: Faltando alguma coisa?
   edit_this_app: Editar esse aplicativo.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Copiar
+  copy_to_clipboard: Copiar para Área de Transferência
+  copied: Copiado
 or: ou
 pages:
   '/':
