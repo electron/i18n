@@ -1,4 +1,4 @@
-请确认你的使用的文档匹配你的 Electron 版本。 你可以在页面的 URL 中找到版本号。 如果不是，你可能在使用开发分支版本的文档，其中包括了一些与你的 Electron 版本不兼容的 API。 如果想要访问老版本的文档，你可以通过 GitHub 的[切换分支功能](https://github.com/electron/electron/tree/v1.4.0)，在下拉菜单中选择与你的版本匹配的分支。
+请确认你的使用的文档匹配你的 Electron 版本。 你可以在页面的 URL 中找到版本号。 如果没有，你可能在使用开发版本分支里的文档，这个分支可能包含了一些与你的 Electron 版本不兼容的 API。 如果想要访问老版本的文档，你可以通过 GitHub 的[切换分支功能](https://github.com/electron/electron/tree/v1.4.0)，在下拉菜单中选择与你的版本匹配的分支。
 
 ## 常见问题
 
