@@ -396,11 +396,11 @@ Overrides the current application's name.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+現在のアプリケーションのロケール `文字列` を返します。可能な戻り値が記載されている [ここで](locales.md)。
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Note:**Windows の `準備ができて` のイベントが出力される後を呼び出すことがあります。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
