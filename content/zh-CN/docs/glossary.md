@@ -10,11 +10,11 @@ ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [之前是](https://github.com/electron-archive/brightray)一个可以让 [libchromiumcontent](#libchromiumcontent)在应用中更加易用的静态库。 现在它已并入 Electron 的代码库，所以不再推荐使用。
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部分。 实现了 CRT 的 Visual c++ 库支持本机代码开发, 以及混合的本机和托管代码, 以及用于. NET 开发的纯托管代码。
 
 ### DMG
 
@@ -22,7 +22,7 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### IME
 
-输入法编辑器. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+输入法编辑器. 是一个允许用户输入在键盘上找不到的字符和符号的程序。 例如，使用户可以用拉丁语键盘输入中文，日文，韩文和印度文字。
 
 ### IPC
 
