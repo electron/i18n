@@ -2,11 +2,11 @@
 
 [Electron](https://electronjs.org)是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org)合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。
 
-Electron始于2013年，一开始作为构建Github上的[Atom](https://atom.io)文本编译器的框架。这两个项目在2014春季开源。
+Electron于2013年作为构建Github上可编程的文本编辑器[Atom](https://atom.io)的框架而被开发出来。这两个项目在2014春季开源。
 
 目前它已成为开源开发者、初创企业和老牌公司常用的开发工具。[ 看看谁在使用Electron ](https://electronjs.org/apps)。
 
-继续往下阅读可以了解Electron的贡献者们和已经发布的版本，或者直接阅读[快速开始指引](quick-start.md)来着手用Electron来构建应用。
+继续往下阅读可以了解Electron的贡献者们和已经发布的版本，或者直接阅读[快速开始指引](quick-start.md)来开始用Electron来构建应用。
 
 ## 核心团队和贡献者
 
