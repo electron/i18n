@@ -60,7 +60,7 @@
 
 每个页面必须使用由 `require（'electron'）` 返回的实际对象名称作为标题，例如` BrowserWindow`，`autoUpdater` 和 `session`。
 
-Under the page title must be a one-line description starting with `>`.
+在页面下方标题必须是以`>`开头的单行描述。
 
 举一个 `session` 的例子:
 
@@ -211,4 +211,4 @@ Returns:
 
 ## 文档翻译
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+参见 [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
