@@ -8,7 +8,7 @@
 // 在主處理序裡。
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// 或由畫面轉譯處理序裡使用 `remote`。
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,10 +16,10 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// 載入遠端 URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// 或載入本機 HTML 檔案
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -31,7 +31,7 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
-### Using `ready-to-show` event
+### 使用 `ready-to-show` 事件
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
 
-### Setting `backgroundColor`
+### 設定 `backgroundColor`
 
 For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### 強制回應視窗
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -112,7 +112,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 處理序: [主處理序](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` 是個 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)。
 
 It creates a new `BrowserWindow` with native properties as set by the `options`.
 
