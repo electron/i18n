@@ -40,7 +40,7 @@ IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来�
 
 每个 app 的主进程文件都定义在 `package.json` 中的 `main` 属性当中。这也是为什么 `electron.` 能够知道应该使用哪个文件来启动。
 
-在Chromium中, 这个进程被称为 "浏览器进程"。它在Electron被重命名, 以避免与渲染器进程混淆。
+在Chromium中, 这个进程被称为 "浏览器进程"。它在Electron被重新命名, 以避免与渲染器进程混淆。
 
 参见: [process](#process), [renderer process](#renderer-process)
 
@@ -48,9 +48,9 @@ IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来�
 
 是指苹果系统上的 Mac App Store 的缩略词。有关于如何提交你的 app 至 MAS ，详见 [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)。
 
-### native modules
+### native modules原生模块
 
-原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中加载或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要用于桥接在 Node.js 上运行的 JavaScript 和 C/C++ 的库。
+原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中加载或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要使在Node.js 上运行的 JavaScript 能调用 C/C++ 的库。
 
 Electron 支持原生的 Node 模块，但是 Electron 非常可能使用了和你系统中安装的Node所不一样的 V8 版本，所以在构建原生模块的时候你需要手动指定 Electron 所使用的头文件的位置。
 
@@ -58,7 +58,7 @@ Electron 支持原生的 Node 模块，但是 Electron 非常可能使用了和�
 
 ### NSIS
 
-Nullsoft Scriptable Install System 是一个微软 Windows 平台上的脚本驱动的安装制作工具。 它发布在一些免费软件许可证书的组合下，是一个被广泛使用的可以替代商业专利产品例如 InstallShield的工具。 [electron-builder](https://github.com/electron-userland/electron-builder) 支持使用 NSIS 作为编译目标。
+Nullsoft Scriptable Install System 是一个微软 Windows 平台上脚本驱动的制作安装包的工具。 它被发布在一些免费软件许可证书的组合下，是一个被广泛使用的可以替代商业专利产品例如 InstallShield的工具。 [electron-builder](https://github.com/electron-userland/electron-builder) 支持使用 NSIS 作为编译目标。
 
 ### OSR
 
