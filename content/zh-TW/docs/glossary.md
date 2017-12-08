@@ -40,7 +40,7 @@ IPC 全名是跨處理序通訊 (Inter-Process Communication)。Electron 使用 
 
 每個應用程式的主處理序檔是 `package.json` 的 `main` 值指定。`electron` 才知道啟動時要執行哪隻程式。
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+這個處理序在 Chromium 中叫做「瀏覽器處理序」。Electron 改叫主處理序是為了避免與畫面轉譯處理序搞混。
 
 可再參考: [處理序](#process), [畫面轉譯處理序](#renderer-process)
 
