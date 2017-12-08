@@ -1,4 +1,4 @@
-tagline: Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln
+tagline: Entwickle plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS
 nav:
   docs: Dokumentation
   blog: Blog
@@ -11,7 +11,7 @@ nav:
   code_of_conduct: Code of Conduct
 docs:
   title: Electron-Dokumentation
-  description: Alle <a href="/docs/all">Dokumente auf einer Seite</a> anzeigen oder die <a href="/docs/faq">FAQ</a> ansehen.
+  description: Sieh dir die komplette <a href="/docs/all">Dokumentation auf einer Seite</a> an oder schau dir die <a href="/docs/faq">FAQ</a> an.
   guides: Anleitungen
   api_reference: API-Referenz
   advanced: Erweitert
@@ -23,16 +23,16 @@ community:
   title: Electron-Community
   description: "Tools, Boilerplates, Videos und mehr von Electron's <a href=\"https://github.com/sindresorhus/awesome-electron\">'awesome'</a> Open-Source-Mitwirkenden.\nFinde oder organisiere <a href=\"/community#meetups\">Meetups</a> in deiner Nähe."
   tools: Werkzeuge
-  boilerplates: Textbausteine
+  boilerplates: Boilerplates
   components: Komponenten
   videos: Videos
   meetups: Treffen
   awesome_notice: "Diese Liste wurde von <a href=\"https://github.com/sindresorhus/awesome-electron\">@sindresorhus's Awesome Electron</a> Repository genieriert.\n<br>Fehlt etwas? Dann <a href=\"https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md\">erstelle einen Pull-Request</a>."
-  meetup_notice: Um einen Meetup hinzuzufügen, bearbeite die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstelle einen Pull-Request</a>.
+  meetup_notice: Um ein Treffen hinzuzufügen, bearbeite die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstelle einen Pull-Request</a>.
 electron_is_easy:
-  title: Es ist einfacher als Sie denken
-  description: Wenn Sie eine Website entwickeln können, können Sie auch eine Desktop-Anwendung entwickeln. Electron ist ein Framework, um native Desktop-Anwendungen mit Web-Technologien wie JavaScript, HTML und CSS zu erstellen. Wir kümmern sich um die kniffligen Dinge der App, damit Sie sich auf den Kern Ihrer Anwendung konzentrieren können.
-  video_link: Das Video anschauen
+  title: Es ist einfacher als du denkst
+  description: Wenn du eine Website entwickeln kannst, kannst du auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework, um native Desktop-Anwendungen mit Web-Technologien wie JavaScript, HTML und CSS zu erstellen. Wir kümmern uns um die kniffligen Dinge der App, damit Sie sich auf den Kern Ihrer Anwendung konzentrieren können.
+  video_link: Schaue das Video an
 web_technologies:
   title: Web-Technologien
   description: Electron verwendet Chromium und Node.js, so dass Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
@@ -51,7 +51,7 @@ benefits:
   windows_installers: Windows Installer
 get_started:
   title: Erste Schritte
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Schau dir die unten aufgelisteten Ressourcen für einen Einstieg mit Electron an. Lerne, wie du deine Web-App mit Electron wrapst, alle APIs ansprechen kannst und letztlich Installer für deine Anwendung generieren kannst.
 explore:
   title: Erkunden Sie die Electron-APIs
   description:
