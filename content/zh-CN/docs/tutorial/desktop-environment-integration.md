@@ -1,8 +1,8 @@
 # 桌面环境集成
 
-不同的操作系统为桌面应用集成到各自的桌面环境中提供了不同的特性。 例如，在 windows 系统下，应用程序可以将一些快捷方式放置在任务栏的跳转列表上，而在 Mac 上，应用程序可以把自定义菜单放在dock的菜单上。
+不同的操作系统为桌面应用集成到各自的桌面环境中提供了不同的特性支持。 例如，在 windows 系统下，应用程序可以将一些快捷方式放置在任务栏的跳转列表上，而在 Mac 上，应用程序可以把自定义菜单放在dock的菜单上。
 
-本章将会说明怎样使用 Electron APIs 把你的应用和桌面环境集成到一块。
+本章将会说明怎样使用 Electron APIs 把你的应用集成到桌面环境中。
 
 ## 通知
 
@@ -10,7 +10,7 @@
 
 ## 最近文档 (Windows & macOS)
 
-Windows 和 macOS 提供获取最近文档列表的便捷方式，那就是打开跳转列表或者dock菜单。
+Windows 和 macOS 通过打开跳转列表或者dock菜单使各自的应用能够快速的访问最近打开的文档列表。
 
 **跳转列表**
 
@@ -20,14 +20,14 @@ Windows 和 macOS 提供获取最近文档列表的便捷方式，那就是打�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-为了增加一个文件到最近文件列表，你可以使用[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+若要增加一个文件到最近文件列表，你可以使用[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-或者你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API 来清空最近文件列表。
+你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API 来清空最近文件列表。
 
 ```javascript
 const {app} = require('electron')
