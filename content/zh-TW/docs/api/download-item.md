@@ -11,25 +11,25 @@
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // 設定儲存路徑，不讓 Electron 跳出視窗詢問。
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
     if (state === 'interrupted') {
-      console.log('Download is interrupted but can be resumed')
+      console.log('下載中斷，無法續傳')
     } else if (state === 'progressing') {
       if (item.isPaused()) {
-        console.log('Download is paused')
+        console.log('暫停下載')
       } else {
-        console.log(`Received bytes: ${item.getReceivedBytes()}`)
+        console.log(`收到的位元組: ${item.getReceivedBytes()}`)
       }
     }
   })
   item.once('done', (event, state) => {
     if (state === 'completed') {
-      console.log('Download successfully')
+      console.log('下載完成')
     } else {
-      console.log(`Download failed: ${state}`)
+      console.log(`下載失敗: ${state}`)
     }
   })
 })
