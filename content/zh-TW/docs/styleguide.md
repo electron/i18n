@@ -42,7 +42,7 @@ Electron 說明文件撰寫指導方針。
 
 ## Markdown 規則
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* 在程式碼區塊中使用 `sh` 而不是 `cmd` (以便語法上色)。
 * 一行長度以 80 個半形字元為限，超過請換行。
 * 縮排以兩階為限 (受限於 Markdown 畫面轉譯器)。
 * 所有的 `js` 及 `javascript` 程式碼區塊都由 [standard-markdown](http://npm.im/standard-markdown) lint 過。
@@ -62,7 +62,7 @@ Each page must use the actual object name returned by `require('electron')` as t
 
 Under the page title must be a one-line description starting with `>`.
 
-Using `session` as example:
+以 `session` 為例:
 
 ```markdown
 # session
@@ -74,7 +74,7 @@ Using `session` as example:
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+以 `autoUpdater` 為例:
 
 ```markdown
 # autoUpdater
