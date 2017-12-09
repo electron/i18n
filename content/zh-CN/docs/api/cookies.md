@@ -60,11 +60,11 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * ` path `String (可选) - 检索路径与 ` path ` 匹配的 cookie。
   * ` secure `Boolean (可选) - 通过其Secure 属性筛选 cookie。
   * ` session `Boolean (可选) - 筛选出session 内可用或持久性 cookie。
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - 返回的cookie 对象数组.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+调用此函数获取所有匹配` filter `对象条件的cookie，回调函数将会在获取到结果后以` callback( error, cookies) `形式被调用。
 
 #### `cookies.set(details, callback)`
 
