@@ -31,25 +31,25 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### 事件
 
-以下事件都可以在` Cookies `实例访问
+以下事件会在` Cookies `实例触发。
 
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - 变动的cookie 值。
+* `cookie` [Cookie](structures/cookie.md) - 该事件触发后的cookie 值。
 * `cause` String - coodie 值变动的原因，该变量可能的值为： 
   * ` explicit ` - cookie 是由消费者的操作直接更改的。
   * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
   * ` expired ` - cookie 在过期时自动删除。
   * ` evicted ` - 在GC（垃圾回收机制）过程中被回收。
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+  * `expired-overwrite` - 一个已过期的时间覆写了原cookie 的过期时间。
+* `removed` Boolean - `true `表示cookie 已被删掉, 否则为` false`.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+该事件在cookie 被添加、修改、删除或过期时触发。
 
 ### 实例方法
 
-The following methods are available on instances of `Cookies`:
+以下方法可以在` Cookies `实例调用。
 
 #### `cookies.get(filter, callback)`
 
