@@ -31,15 +31,15 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### 事件
 
-The following events are available on instances of `Cookies`:
+以下事件都可以在` Cookies `实例访问
 
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
+* `cookie` [Cookie](structures/cookie.md) - 变动的cookie 值。
+* `cause` String - coodie 值变动的原因，该变量可能的值为： 
+  * ` explicit ` - cookie 是由消费者的操作直接更改的。
+  * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
   * `expired` - The cookie was automatically removed as it expired.
   * `evicted` - The cookie was automatically evicted during garbage collection.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
