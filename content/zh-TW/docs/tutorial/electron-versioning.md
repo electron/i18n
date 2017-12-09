@@ -2,13 +2,13 @@
 
 > 我們的版號訂定策略和實作細節。
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Electron 從 2.0.0 版開始遵照 [semver](#semver)。以下指令將安裝 Electron 最新的穩定版:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+將現有專案更新成最新的穩定版:
 
 ```sh
 npm install --save-dev electron@latest
@@ -142,7 +142,7 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
 
-# Versionless `master`
+# 無關版號的 `master`
 
 * The `master` branch will always contain `0.0.0-dev` in its `package.json`
 * Release branches are never merged back to master
