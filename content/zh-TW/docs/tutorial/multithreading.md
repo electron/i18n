@@ -1,10 +1,10 @@
 # 多執行緒
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+有了 [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers)，就可以在作業系統層的執行緒裡執行 JavaScript。
 
 ## 多執行緒 Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+可以在 Electron 的 Web Workers 中使用 Node.js 功能，只要在 `webPreferences` 中將 `nodeIntegrationInWorker` 選項設為 `true` 即可。
 
 ```javascript
 let win = new BrowserWindow({
@@ -30,7 +30,7 @@ The only way to load a native module safely for now, is to make sure the app loa
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('載入的原本模組不安全')
+  throw new Error('載入原生模組並不安全')
 }
 let worker = new Worker('script.js')
 ```
