@@ -69,11 +69,11 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### `cookies.set(details, callback)`
 
 * `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+  * ` url `String - 与 cookie 关联的 url。
+  * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
+  * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
+  * ` domain `String (可选) - cookie 的域名。如果省略, 则默认为空。
+  * ` path `String (可选) - cookie 的路径。如果省略, 则默认为空。
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
