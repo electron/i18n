@@ -34,11 +34,11 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 ## 啟用協助工具
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+基於效能考量，Electron 預設是停用協助工具的，但提供了多種方式來啟用。
 
 ### 在應用程式中
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+透過 [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows)，你可以把協助工具的開關放在應用程式喜好設定中，讓使用者自行決定。 使用者系統上的輔助工具優先權更高，會蓋過這項設定值。
 
 ### 輔助技術
 
