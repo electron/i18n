@@ -74,17 +74,17 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
   * ` domain `String (可选) - cookie 的域名。如果省略, 则默认为空。
   * ` path `String (可选) - cookie 的路径。如果省略, 则默认为空。
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * ` secure `Boolean (可选) - 是否将 cookie 标记为Secure。默认为 false。
+  * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
+  * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 * `callback` Function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+设置一个以` details `对象为模型的cookie，回调函数将在设置执行后以` callback(error) `形式被调用。
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
+* ` url `String - 与 cookie 关联的 URL。
 * `name` String - The name of cookie to remove.
 * `callback` Function
 
