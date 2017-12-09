@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Windows 注意事项
 
-为了这个特性在 Windows 上表现正常，你的应用需要被注册成为一种文件类型的句柄，否则，在你注册之前，文件不会出现在跳转列表。 你可以在 [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx) 里找到所有关于注册事宜的说明。
+为了在 Windows 上使用这个特性，你的应用需要被注册为这类文件的处理程序，否则，在你注册之前，文件是不会出现在跳转列表里的。 你可以在 [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx) 里找到所有关于注册事宜的说明。
 
 当用户点击“跳转列表”上的一个文件时，将会启动程序的一个新的实例 文件的路径将作为这个实例的命令行的一个参数。
 
