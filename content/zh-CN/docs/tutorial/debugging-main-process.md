@@ -20,7 +20,7 @@ electron --inspect=5858 your/app
 
 ## 外部调试器
 
-你将需要使用一个支持 V8 调试器的调试协议， 下面的指南将会帮助你开始：
+你需要使用一个支持 V8 调试协议的调试器
 
 - 通过访问 `chrome://inspect` 连接 Chrome 并选择检查在那里的 Electron 应用程序。
 - [使用 VSCode 进行主进程调试](debugging-main-process-vscode.md)
