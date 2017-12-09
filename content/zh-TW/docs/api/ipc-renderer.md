@@ -35,7 +35,7 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` String (選用)
 
 Removes all listeners, or those of the specified `channel`.
 
