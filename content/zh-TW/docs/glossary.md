@@ -62,7 +62,7 @@ Nullsoft 腳本式安裝系統 (Nullsoft Scriptable Install System)，是 Micros
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+螢幕外畫面轉譯功能 (Off-Screen Rendering，縮寫 OSR) 能用來在背景載入負載較重的頁面，之後再一次顯示 (速度會快很多)。允許你轉譯頁面內容，而不用在畫面上顯示。
 
 ### 處理序
 
