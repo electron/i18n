@@ -53,13 +53,13 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+* `filter` Object - 过滤器对象，包含过滤参数 
+  * ` url `String (可选) - 检索与 ` url ` 关联的 cookie。空意味着检索所有 url 的 cookie。
+  * ` name `String (可选) - 按名称筛选 cookie。
+  * ` domain` String (可选) - 检索其域名匹配或为 ` domain ` 子域名的 cookie。
+  * ` path `String (可选) - 检索路径与 ` path ` 匹配的 cookie。
+  * ` secure `Boolean (可选) - 通过其Secure 属性筛选 cookie。
+  * ` session `Boolean (可选) - 筛选出session 内可用或持久性 cookie。
 * `callback` Function 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
