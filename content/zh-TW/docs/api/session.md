@@ -132,7 +132,7 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-For example:
+例如:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -278,11 +278,10 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
 
 ```javascript
 const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// 整合驗證結尾是 `example.com`, `foobar.com`, `baz` 的 url。
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// 整合驗證所有 url。
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
