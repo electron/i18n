@@ -40,8 +40,8 @@ session.defaultSession.cookies.set(cookie, (error) => {
 * `cause` String - coodie 值变动的原因，该变量可能的值为： 
   * ` explicit ` - cookie 是由消费者的操作直接更改的。
   * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
+  * ` expired ` - cookie 在过期时自动删除。
+  * ` evicted ` - 在GC（垃圾回收机制）过程中被回收。
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
 * `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
 
