@@ -85,13 +85,13 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### `cookies.remove(url, name, callback)`
 
 * ` url `String - 与 cookie 关联的 URL。
-* `name` String - The name of cookie to remove.
+* ` name `String - cookie 名称。
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+删除与 ` url ` 和 ` name ` 相匹配的 cookie, 回调函数将在执行完成时被调用。
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+写入所有未写入磁盘的 cookie。
