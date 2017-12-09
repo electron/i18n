@@ -38,7 +38,7 @@ We will cover in detail how git branching works, how npm tagging works, what dev
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Electron 從 2.0 版開始遵照 semver。
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
