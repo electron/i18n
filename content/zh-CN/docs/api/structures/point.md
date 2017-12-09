@@ -1,4 +1,4 @@
-# Point Object
+# Point 对象
 
-* `x` Number
-* `y` Number
+* ` x ` Number 类型
+* ` y ` Number 类型
