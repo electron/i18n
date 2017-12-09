@@ -141,7 +141,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
   * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
+  * `icon` ([NativeImage](native-image.md) | String) (選用) - 視窗圖示。 On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
   * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
@@ -189,16 +189,16 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
     * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to ``.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
+      * `standard` String (選用) - 預設值為 `Times New Roman`。
+      * `serif` String (選用) - 預設值為 `Times New Roman`。
+      * `sansSerif` String (選用) - 預設值為 `Arial`。
+      * `monospace` String (選用) - 預設值為 `Courier New`。
+      * `cursive` String (選用) - 預設值為 `Script`。
+      * `fantasy` String (選用) - 預設值為 `Impact`。
+    * `defaultFontSize` Integer (選用) - 預設值為 `16`。
+    * `defaultMonospaceFontSize` Integer (選用) - 預設值為 `13`。
+    * `minimumFontSize` Integer (選用) - 預設值為 ``。
+    * `defaultEncoding` String (選用) - 預設值為 `ISO-8859-1`。
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the \[Page Visibility API\]\[#page-visibility\]. Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **注意:** 這個選項目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
@@ -876,7 +876,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (選用)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Same as `webContents.loadURL(url[, options])`.
