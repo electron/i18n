@@ -87,7 +87,7 @@ The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+回傳 [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 
