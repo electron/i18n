@@ -47,14 +47,14 @@ Electron 說明文件撰寫指導方針。
 * 縮排以兩階為限 (受限於 Markdown 畫面轉譯器)。
 * 所有的 `js` 及 `javascript` 程式碼區塊都由 [standard-markdown](http://npm.im/standard-markdown) lint 過。
 
-## 選字
+## 用詞
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* 描述結果時使用 “will”，而不是 “would”。
+* 用 “in the ___ process”，不要用 “on”。
 
 ## API 參考
 
-The following rules only apply to the documentation of APIs.
+下列規則只適用於 API 文件。
 
 ### 頁面標題
 
@@ -101,7 +101,7 @@ For modules that are not classes, their methods and events must be listed under 
 * Instance Properties must be listed under an `### 物件屬性` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+以 `Session` 及 `Cookies` 類別為例:
 
 ```markdown
 # session
@@ -169,7 +169,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * 或自訂類別，例如 Electron 的 [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. 可用的值有 `macOS`, `Windows` 及 `Linux`。
 
 ```markdown
 * `animate` Boolean (選用) _macOS_ _Windows_ - 使用動畫。
