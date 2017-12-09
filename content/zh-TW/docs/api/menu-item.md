@@ -39,11 +39,11 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `複製`
+* `copy`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
-* `delete (刪除)`
+* `delete`
 * `minimize` - Minimize current window
 * `close` - Close current window
 * `quit`- Quit the application
