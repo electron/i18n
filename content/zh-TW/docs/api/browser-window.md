@@ -419,7 +419,7 @@ Adds Chrome extension located at `path`, and returns extension's name.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -427,13 +427,13 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a Chrome extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -445,7 +445,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -453,7 +453,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -468,7 +468,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 ### 物件屬性
 
