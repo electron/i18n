@@ -52,7 +52,7 @@ macOS 可以让开发者定制自己的菜单，通常包含一些常用功能�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-使用 `app.dock.setMenu` API 来设置你的dock菜单，这仅在 macOS 上适用：
+若要设置自定义的dock菜单, 可以使用 ` app.dock.setMenu ` API, 它仅在 macOS 上可用:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -111,13 +111,13 @@ app.setUserTasks([])
 
 ## 缩略图工具栏
 
-在 Windows，你可以在任务栏上添加一个按钮来当作应用的缩略图工具栏。 它将提供用户一种用户访问常用窗口的方式，并且不需要恢复或者激活窗口。
+在 Windows，你可以在任务栏上添加一个按钮来当作应用的缩略图工具栏。 它为用户提供了一种访问特定窗口命令的方式, 而无需还原或激活该窗口。
 
-在 MSDN，它被如是说：
+在 MSDN，它的说明如下：
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> 此工具栏只是常见的标准工具栏控件。 它最多拥有七个按钮。 每个按钮的 ID、图像、工具提示和状态都定义在结构中, 然后传递给任务栏。 应用程序可以根据其当前状态的要求, 显示、启用、禁用或隐藏缩略图工具栏中的按钮。
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> 例如, Windows 媒体播放机可能提供标准的媒体传输控制, 如播放、暂停、静音和停止。
 
 **Windows Media Player 的缩略图工具栏:**
 
@@ -159,7 +159,7 @@ win.setThumbarButtons([])
 
 ## Unity 启动器快捷方式 (Linux)
 
-在 Unity,你可以通过改变 `.desktop` 文件来增加自定义运行器的快捷方式，详情看 [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher)。
+在 Unity中,你可以通过改变 `.desktop` 文件来增加自定义运行器的快捷方式，详情看 [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher)。
 
 **Audacious 的启动器快捷方式:**
 
@@ -173,11 +173,11 @@ win.setThumbarButtons([])
 
 Unity DE 也具有同样的特性，在运行器上显示进度条。
 
-**按钮上的任务进度条:**
+**任务栏按钮中的进度栏:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-给一个窗口设置进度条，你可以调用 [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API：
+若要设置窗口的进度栏, 可以使用 [ BrowserWindow. setProgressBar ](../api/browser-window.md#winsetprogressbarprogress) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,7 +185,7 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## 任务栏中的叠加层图标 (Windows)
+## 任务栏 (窗口) 中的图标层叠
 
 在 Windows，任务栏按钮可以使用小型叠加层显示应用程序 状态，引用 MSDN 的文档：
 
