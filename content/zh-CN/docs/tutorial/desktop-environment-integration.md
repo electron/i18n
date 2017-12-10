@@ -74,9 +74,9 @@ app.dock.setMenu(dockMenu)
 
 在 Windows 下，你可以在跳转列表中 `Tasks` 目录下指定自定义行为，引用 MSDN 的文档：
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. 任务应当是上下文无关的，因为它不需要程序运行就可以工作 而且他们应该是统计上用户在这个应用上最多的行为例如: 撰写一封邮件或者在邮件程序里打开日历，word处理程序新建一个文档，以某一种模式启动应用程序，或者是启动应用程序的某些子命令。 一个应用程序不应当把菜单用一些用户不需要的高级功能的或者只会使用一次的动作例如注册给弄得乱七八糟。 Do not use tasks for promotional items such as upgrades or special offers.
+> 应用程序的tasks应该是基于程序的功能和用户能用它做一些的关键性事情来制定的。 任务应当是上下文无关的，因为它不需要程序运行就可以工作 而且他们应该是统计上用户在这个应用上最多的行为例如: 撰写一封邮件或者在邮件程序里打开日历，word处理程序新建一个文档，以某一种模式启动应用程序，或者是启动应用程序的某些子命令。 一个应用程序不应当把菜单用一些用户不需要的高级功能的或者只会使用一次的动作例如注册给弄得杂乱无章。 不要将tasks功能用于广告项目例如升级或者特价产品之类。
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> 强烈推荐task列表内容是静态的。 不管应用程序是什么状态或情形，它都应该是保持不变的。 While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
 **Internet Explorer 的 任务:**
 
