@@ -46,7 +46,7 @@ app.clearRecentDocuments()
 
 ## 自定义 Dock 菜单 (macOS)
 
-macOS 可以让开发者定制自己的菜单，通常会包含一些常用特性的快捷方式。
+macOS 可以让开发者定制自己的菜单，通常包含一些常用功能的快捷方式。
 
 **Terminal.app 的 Dock 菜单:**
 
