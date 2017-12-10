@@ -42,7 +42,7 @@ app.clearRecentDocuments()
 
 ### macOS 注意事项
 
-当一个文件被最近文件列表请求时，`app` 模块里的 `open-file` 事件将会被发出。
+从 "最近文档" 菜单中请求文件时, 将为其发出 ` app ` 模块的 ` open-file ` 事件。
 
 ## 自定义 Dock 菜单 (macOS)
 
@@ -52,7 +52,7 @@ macOS 可以让开发者定制自己的菜单，通常包含一些常用功能�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-使用 `app.dock.setMenu` API 来设置你的菜单，这仅在 macOS 上可行：
+使用 `app.dock.setMenu` API 来设置你的dock菜单，这仅在 macOS 上适用：
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -72,7 +72,7 @@ app.dock.setMenu(dockMenu)
 
 ## 用户任务 (Windows)
 
-在 Windows，你可以特别定义跳转列表的 `Tasks` 目录的行为，引用 MSDN 的文档：
+在 Windows 下，你可以在跳转列表中 `Tasks` 目录下指定自定义行为，引用 MSDN 的文档：
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
