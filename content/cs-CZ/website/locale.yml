@@ -1,4 +1,4 @@
-tagline: Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS
+tagline: Tvořte multiplatformní desktopové aplikace pomocí jazyku Javascript, HTML a CSS
 nav:
   docs: Dokumentace
   blog: Blog
@@ -8,7 +8,7 @@ nav:
   releases: Vydání
   contact: Kontakt
   languages: Jazyky
-  code_of_conduct: Code of Conduct
+  code_of_conduct: Kodex chování
 docs:
   title: Dokumentace Electronu
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
@@ -99,7 +99,7 @@ or: nebo
 pages:
   '/':
     title: Electron | Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.
-    description: 'Tvořte multiplatformní desktopové aplikace pomoci JavaScriptu, HTML a CSS.'
+    description: 'Tvořte multiplatformní desktopové aplikace pomocí jazyku Javascript, HTML a CSS.'
   '/apps':
     title: Electron aplikace
     description: Aplikace běžicí na Electronu
