@@ -1,4 +1,4 @@
-# Locales
+# Lokalizace
 
 > Locale values returned by `app.getLocale()`.
 
@@ -60,61 +60,61 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | hu         | Maďarština                     |
 | hy         | Arménština                     |
 | ia         | Interlingua                    |
-| id         | Indonesian                     |
-| is         | Icelandic                      |
-| it         | Italian                        |
-| it-CH      | Italian (Switzerland)          |
-| it-IT      | Italian (Italy)                |
-| ja         | Japanese                       |
-| jw         | Javanese                       |
-| ka         | Georgian                       |
-| kk         | Kazakh                         |
-| km         | Cambodian                      |
-| kn         | Kannada                        |
-| ko         | Korean                         |
-| ku         | Kurdish                        |
-| ky         | Kyrgyz                         |
-| la         | Latin                          |
-| ln         | Lingala                        |
-| lo         | Laothian                       |
-| lt         | Lithuanian                     |
-| lv         | Latvian                        |
-| mk         | Macedonian                     |
-| ml         | Malayalam                      |
-| mn         | Mongolian                      |
-| mo         | Moldavian                      |
-| mr         | Marathi                        |
-| ms         | Malay                          |
-| mt         | Maltese                        |
-| nb         | Norwegian (Bokmal)             |
-| ne         | Nepali                         |
-| nl         | Dutch                          |
-| nn         | Norwegian (Nynorsk)            |
-| no         | Norwegian                      |
-| oc         | Occitan                        |
-| om         | Oromo                          |
-| or         | Oriya                          |
-| pa         | Punjabi                        |
-| pl         | Polish                         |
-| ps         | Pashto                         |
-| pt         | Portuguese                     |
-| pt-BR      | Portuguese (Brazil)            |
-| pt-PT      | Portuguese (Portugal)          |
-| qu         | Quechua                        |
-| rm         | Romansh                        |
-| ro         | Romanian                       |
-| ru         | Russian                        |
-| sd         | Sindhi                         |
-| sh         | Serbo-Croatian                 |
-| si         | Sinhalese                      |
-| sk         | Slovak                         |
-| sl         | Slovenian                      |
-| sn         | Shona                          |
-| so         | Somali                         |
-| sq         | Albanian                       |
-| sr         | Serbian                        |
-| st         | Sesotho                        |
-| su         | Sundanese                      |
+| id         | Indonéština                    |
+| is         | Islandština                    |
+| it         | Italština                      |
+| it-CH      | Italština (Švýcarsko)          |
+| it-IT      | Italština (Itálie)             |
+| ja         | Japonština                     |
+| jw         | Javánština                     |
+| ka         | Gruzínština                    |
+| kk         | Kazaština                      |
+| km         | Khmerština                     |
+| kn         | Kannadština                    |
+| ko         | Korejština                     |
+| ku         | Kurdština                      |
+| ky         | Kyrgyzština                    |
+| la         | Latina                         |
+| ln         | Lingalština                    |
+| lo         | Laoština                       |
+| lt         | Litevština                     |
+| lv         | Lotyština                      |
+| mk         | Makedonština                   |
+| ml         | Malajálamština                 |
+| mn         | Mongolština                    |
+| mo         | Moldavština                    |
+| mr         | Maráthština                    |
+| ms         | Malajština                     |
+| mt         | Maltština                      |
+| nb         | Norština (Bokmål)              |
+| ne         | Nepálština                     |
+| nl         | Holandština                    |
+| nn         | Norština (Nynorsk)             |
+| no         | Norština                       |
+| oc         | Okcitánština                   |
+| om         | Oromština                      |
+| or         | Urijština                      |
+| pa         | Paňdžábština                   |
+| pl         | Polština                       |
+| ps         | Paštština                      |
+| pt         | Portugalština                  |
+| pt-BR      | Portugalština (Brazílie)       |
+| pt-PT      | Portugalština (Portugalsko)    |
+| qu         | Kečuánština                    |
+| rm         | Rétorománština                 |
+| ro         | Rumunština                     |
+| ru         | Ruština                        |
+| sd         | Sindhština                     |
+| sh         | Srbochorvatština               |
+| si         | Sinhálština                    |
+| sk         | Slovenština                    |
+| sl         | Slovinština                    |
+| sn         | Šonština                       |
+| so         | Somálština                     |
+| sq         | Albánština                     |
+| sr         | Srbština                       |
+| st         | Jižní sotština                 |
+| su         | Sundánština                    |
 | sv         | Swedish                        |
 | sw         | Swahili                        |
 | ta         | Tamil                          |
