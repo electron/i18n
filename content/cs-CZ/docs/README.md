@@ -25,7 +25,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
 * [Klávesové zkratky](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Aktualizace aplikací](tutorial/updates.md)
 
 ## Návody
 
