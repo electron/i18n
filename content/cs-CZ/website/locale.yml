@@ -92,9 +92,9 @@ apps:
   something_missing: Něco chybí?
   edit_this_app: Upravte tuto aplikaci.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Kopírovat
+  copy_to_clipboard: Kopírovat do schránky
+  copied: Zkopírováno
 or: nebo
 pages:
   '/':
@@ -113,7 +113,7 @@ pages:
     title: API
     description: API reference documentation for the latest Electron release
   '/docs/development':
-    title: Development
+    title: Vývoj
     description: Developing with Electron
   '/docs/tutorial':
     title: Tutorial
