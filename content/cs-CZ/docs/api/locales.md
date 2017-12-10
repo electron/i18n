@@ -115,27 +115,27 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | sr         | Srbština                       |
 | st         | Jižní sotština                 |
 | su         | Sundánština                    |
-| sv         | Swedish                        |
-| sw         | Swahili                        |
-| ta         | Tamil                          |
-| te         | Telugu                         |
-| tg         | Tajik                          |
-| th         | Thai                           |
-| ti         | Tigrinya                       |
-| tk         | Turkmen                        |
-| to         | Tonga                          |
-| tr         | Turkish                        |
-| tt         | Tatar                          |
+| sv         | Švédština                      |
+| sw         | Svahilština                    |
+| ta         | Tamilština                     |
+| te         | Telugština                     |
+| tg         | Tádžičtina                     |
+| th         | Thajština                      |
+| ti         | Tigrinijština                  |
+| tk         | Turkmenština                   |
+| to         | Tongština                      |
+| tr         | Turečtina                      |
+| tt         | Tatarština                     |
 | tw         | Twi                            |
-| ug         | Uighur                         |
-| uk         | Ukrainian                      |
-| ur         | Urdu                           |
-| uz         | Uzbek                          |
-| vi         | Vietnamese                     |
-| xh         | Xhosa                          |
-| yi         | Yiddish                        |
-| yo         | Yoruba                         |
-| zh         | Chinese                        |
-| zh-CN      | Chinese (Simplified)           |
-| zh-TW      | Chinese (Traditional)          |
-| zu         | Zulu                           |
+| ug         | Ujgurština                     |
+| uk         | Ukrajinština                   |
+| ur         | Urdština                       |
+| uz         | Uzbečtina                      |
+| vi         | Vietnamština                   |
+| xh         | Xhoština                       |
+| yi         | Jidiš                          |
+| yo         | Jorubština                     |
+| zh         | Čínština                       |
+| zh-CN      | Čínština (zjednodušena)        |
+| zh-TW      | Čínština (tradiční)            |
+| zu         | Zuluština                      |
