@@ -1,10 +1,10 @@
-## Class: TouchBarLabel
+## Класс: TouchBarLabel
 
 > Create a label in the touch bar for native macOS applications
 
 Process: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` *Экспериментально*
 
 * `options` Object 
   * `label` String (optional) - Text to display.
