@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> 创建和控制浏览器窗口。
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> 创建和控制浏览器窗口。
 
 线程：[主线程](../glossary.md#main-process)
 
