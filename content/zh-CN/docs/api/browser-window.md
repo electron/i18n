@@ -1110,4 +1110,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
