@@ -14,17 +14,17 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
+* Пишите в стиле [стандартном](http://npm.im/standard) для JavaScript.
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) для определения переменных
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
-## Naming Things
+## Именование сущностей
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Electron APIs использует ту же схему капитализации, что и Node.js:
 
 * When the module itself is a class like `BrowserWindow`, use `CamelCase`.
 * When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
