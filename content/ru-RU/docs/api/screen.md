@@ -51,7 +51,7 @@ app.on('ready', () => {
 
 ## События
 
-The `screen` module emits the following events:
+Объект `screen` имеет следующие события:
 
 ### Событие: 'display-added'
 
@@ -87,7 +87,7 @@ The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Возвращает [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 
