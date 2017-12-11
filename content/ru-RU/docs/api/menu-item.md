@@ -1,6 +1,6 @@
-## Class: MenuItem
+## Класс: MenuItem
 
-> Add items to native application menus and context menus.
+> Добавляет элементы в основное меню и контекстное меню приложения.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -26,7 +26,7 @@ See [`Menu`](menu.md) for examples.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
-### Roles
+### Роли
 
 Roles allow menu items to have predefined behaviors.
 
@@ -73,7 +73,7 @@ The following additional roles are available on macOS:
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
 
-### Instance Properties
+### Свойства экземпляра
 
 The following properties are available on instances of `MenuItem`:
 
