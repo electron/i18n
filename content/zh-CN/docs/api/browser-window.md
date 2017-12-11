@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+请注意，即使是使用 `ready-to-show` 事件的应用程序，仍建议使用设置 `backgroundColor` 使应用程序感觉更原生。
 
-## Parent and child windows
+## 父子窗口
 
-By using `parent` option, you can create child windows:
+通过使用 `parent` 选项，你可以创建子窗口：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+`child` 窗口将总是显示在 `top` 窗口的顶部.
 
-### Modal windows
+### 模态窗口
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+模态窗口是禁用父窗口的子窗口，创建模态窗口必须设置 `parent` 和 `modal` 选项：
 
 ```javascript
 const {BrowserWindow} = require('electron')
