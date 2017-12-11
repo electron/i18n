@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Создание и работа с окном браузера.
+> Создание окон браузера и управление ими.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -58,7 +58,7 @@ win.loadURL('https://github.com')
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
-## Parent and child windows
+## Родительские и дочерние окна
 
 By using `parent` option, you can create child windows:
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### Модальные окна
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Видимость страниц
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
@@ -106,9 +106,9 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## Класс: BrowserWindow
 
-> Создание и работа с окном браузера.
+> Создание окон браузера и управление ими.
 
 Process: [Main](../glossary.md#main-process)
 
