@@ -112,7 +112,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 Process: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` это [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `BrowserWindow` with native properties as set by the `options`.
 
@@ -219,7 +219,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 Objects created with `new BrowserWindow` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
 #### Event: 'page-title-updated'
 
@@ -405,13 +405,13 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Возвращает `BrowserWindow` - окно, которое владеет указанным `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Возвращает `BrowserWindow` - окно с указанным `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -427,7 +427,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a Chrome extension by name.
+Удаляет расширение Chrome с указанным именем.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -453,7 +453,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a DevTools extension by name.
+Удаляет расширение DevTools с указанным именем.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Свойства экземпляра
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -533,7 +533,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Скрывает окно.
 
 #### `win.isVisible()`
 
