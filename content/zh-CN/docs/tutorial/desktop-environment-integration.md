@@ -14,7 +14,7 @@ Windows 和 macOS 分别通过打开跳转列表和dock菜单使应用程序能�
 
 **跳转列表**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![跳转列表最近的文件](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **应用 dock 菜单**
 
@@ -175,7 +175,7 @@ Unity DE 也具有同样的特性，在运行器上显示进度条。
 
 **任务栏按钮中的进度栏:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![任务栏进度栏](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
 若要设置窗口的进度栏, 可以使用 [ BrowserWindow. setProgressBar ](../api/browser-window.md#winsetprogressbarprogress) API:
 
