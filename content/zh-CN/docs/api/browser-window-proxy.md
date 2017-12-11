@@ -4,42 +4,42 @@
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+使用 `window.open` 创建一个新窗口时会返回一个 `BrowserWindowProxy`对象，并提供一个有限功能的子窗口.
 
 ### 实例方法
 
-The `BrowserWindowProxy` object has the following instance methods:
+`BrowserWindowProxy` 对象具有以下实例方法:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+将焦点从子窗口中移除.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+强制关闭子窗口, 而不调用其卸载事件(unload event)
 
 #### `win.eval(code)`
 
 * `code` String
 
-Evaluates the code in the child window.
+Eval子窗口中的代码
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+聚焦子窗口(即窗口置顶)
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+调用子窗口上的打印对话框
 
 #### `win.postMessage(message, targetOrigin)`
 
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+调通过指定位置或用`*`来代替不明位置，向子窗口发送信息
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+除了这些方法,子窗口还可以无特性和使用单一方法来实现 `window.opener` 对象.
 
 ### 实例属性
 
