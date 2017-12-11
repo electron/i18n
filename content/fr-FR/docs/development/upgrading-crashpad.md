@@ -1,8 +1,8 @@
-# Upgrading Crashpad
+# Mettre à jour Crashpad
 
-1. Get the version of crashpad that we're going to use.
+1. Télécharger la version de crashpad que nous allons utiliser.
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
+    - `libcc/src/third_party/crashpad/README.chromium` aura une ligne `Revision:` avec un checksum
     - We need to check out the correponding branch.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
