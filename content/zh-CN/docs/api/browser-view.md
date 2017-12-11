@@ -1,17 +1,17 @@
-## Class: BrowserView
+## 类: BrowserView
 
-> Create and control views.
+> 创建和控制视图
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
 
-线程：[主线程](../glossary.md#main-process)
+线程：[主进程](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView`被用来让`BrowserWindow`嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
 
 ## 例子
 
 ```javascript
-// 在主进程.
+// 在主进程中.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,10 +29,10 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([可选])` *实验功能*
 
 * `options` Object (可选) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
 
 ### 静态方法
 
