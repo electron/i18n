@@ -1,4 +1,4 @@
-# Upgrading Node
+# Обновление Node
 
 ## Discussion
 
