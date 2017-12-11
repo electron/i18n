@@ -72,4 +72,4 @@ view.webContents.loadURL('https://electron.atom.io')
 
 #### `view.setBackgroundColor(color)` *实验功能*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - 颜色值格式为 `#aarrggbb` 或 `#argb`, 透明度为可选参数.
