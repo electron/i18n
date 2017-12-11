@@ -21,7 +21,7 @@ languages:
   current: aktualnie wybrano
 community:
   title: Społeczność Electrona
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'Narzędzia, boilerplates, filmiki i więcej od <a href="https://github.com/sindresorhus/awesome-electron">wspaniałych</a>kontrybutorów otwartego kodu. Znajdź lub dodaj <a href="/community#meetups">spotkanie</a> blisko Ciebie.'
   tools: Narzędzia
   boilerplates: Boilerplates
   components: Komponenty
@@ -63,18 +63,18 @@ download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
   title: "Otwórz <a href='https://github.com/electron/electron-quick-start' target='_blank'>Szybki Poradnik</a>, aby zobaczyć Electron w akcji:"
-  description: A minimal Electron app with helpful notations.
+  description: Minimalna aplikacja z pomocnymi wskazówkami.
   clone: Sklonuj repozytorium Quick Start
   go_into_repo: Wejdź w repozytorium
   install_deps: Zainstaluj zależności i uruchom
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: Lub zanurkuj głębiej w <a href='/docs'>dokumentację</a>.
 need_help:
   title: Potrzebna pomoc?
   description: Zadaj pytanie na forum <a href='https://discuss.atom.io/c/electron'>Discuss</a> lub na naszym kanale <a href='http://atom-slack.herokuapp.com/'>Slack'a</a>. Śledź<a href="https://twitter.com/electronjs">@electronjs</a> na Twitterze, aby być na bieżąco z ważnymi wiadomościami. Potrzebujesz indywidualnego kontaktu? Napisz e-mail na adres <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
   languages: Języki
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: Przetłumaczony kontent ze wspaniałą globalną społecznością programistów.
 help_translate: "Pomóż w tłumaczeniu"
 footer:
   see_something: Widzisz coś, co wymaga poprawy?
@@ -141,4 +141,4 @@ pages:
 _404:
   page_not_found: Nie znaleziono strony.
   if_this_is_an_error: Jeżeli to jest błąd
-  please_file_an_issue: please file an issue.
+  please_file_an_issue: proszę zgłoś problem.
