@@ -1,8 +1,8 @@
 # Стиль кода
 
-These are the style guidelines for coding in Electron.
+Это руководство по стилю кодирования для Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Вы пожете запустить `npm run lint` для того чтобы получить список проблемных мест по стилю кода, найденных с помощью `cpplint` и `eslint`.
 
 ## C++ и Python
 
