@@ -30,7 +30,7 @@ IPC стенды для взаимодействия между процесса
 
 ### libchromiumcontent
 
-Общая библиотека, которая включает в себя [Chromium Content module](https://www.chromium.org/developers/content-module) и все его зависимости. (Например, Blink, [V8](#v8) и т.д.). Also referred to as "libcc".
+Общая библиотека, которая включает в себя [Chromium Content module](https://www.chromium.org/developers/content-module) и все его зависимости. (Например, Blink, [V8](#v8) и т.д.). Также именуется "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
