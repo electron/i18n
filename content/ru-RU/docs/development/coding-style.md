@@ -15,8 +15,8 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 ## JavaScript
 
 * Пишите в стиле [стандартном](http://npm.im/standard) для JavaScript.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
+* Имена файлов должны соединяться через `-` вместо `_`, например, `file-name.js` вместо `file_name.js`, поскольку имена в [github/atom](https://github.com/github/atom) обычно пишутся в форме `module-name`. Это правило применяется только к `.js`-файлам.
+* Используйте новый синтаксис ES6/ES2015 там, где это уместно 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) для определения переменных
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
@@ -26,7 +26,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 
 Electron APIs использует ту же схему капитализации, что и Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
+* Когд модуль это класс, такой как `BrowserWindow`, используйте `CamelCase`.
 * When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
 * When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
