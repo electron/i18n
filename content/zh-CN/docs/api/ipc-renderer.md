@@ -4,13 +4,13 @@
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-`ipcRenderer` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 的实例。 你可以使用它提供的一些方法从渲染进程 (web 页面) 发送同步或异步的消息到主进程。 You can also receive replies from the main process.
+`ipcRenderer` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 的实例。 你可以使用它提供的一些方法从渲染进程 (web 页面) 发送同步或异步的消息到主进程。 也可以接收主进程回复的消息。
 
-See [ipcMain](ipc-main.md) for code examples.
+请从 [ipcMain](ipc-main.md) 查看代码示例。
 
 ## 方法
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` 模块使用以下方法来监听事件和发送消息。
 
 ### `ipcRenderer.on(channel, listener)`
 
