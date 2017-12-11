@@ -1,6 +1,6 @@
 # net
 
-> HTTP/HTTPS запросы являются нативными для Chromium
+> Выполнение HTTP/HTTPS-запросов с использованием найтивной сетевой библиотеки Chromium
 
 Process: [Main](../glossary.md#main-process)
 
@@ -42,12 +42,12 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 ## Методы
 
-`net` имеет следующие методы:
+Модуль `net` имеет следующие методы:
 
 ### `net.request(options)`
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
-Returns [`ClientRequest`](./client-request.md)
+Возвращает [`ClientRequest`](./client-request.md)
 
 Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
