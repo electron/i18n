@@ -1,10 +1,10 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Показывает стандартные диалоги для открытия и сохранения файлов, предупреждения и т.п.
 
 Process: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Пример для показа диалога выбора нескольких файлов и папок:
 
 ```javascript
 const {dialog} = require('electron')
@@ -20,7 +20,7 @@ console.log(dialog)
 
 ## Методы
 
-The `dialog` module has the following methods:
+Модуль `dialog` имеет следующие методы:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
