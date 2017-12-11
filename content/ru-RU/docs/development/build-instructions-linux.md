@@ -1,16 +1,16 @@
 # Инструкции по сборке (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Следуйте рекомендациям ниже для сборки Electron под Linux.
 
 ## Требования
 
-* At least 25GB disk space and 8GB RAM.
+* Как минимум 25 ГБ дискового пространства и 8 ГБ памяти.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 * Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
 * Development headers of GTK+ and libnotify.
 
-On Ubuntu, install the following libraries:
+Под Ubuntu, установите следующие библиотеки:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+Под RHEL / CentOS, установите следующие библиотеки:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Под Fedora, установите следующие библиотеки:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -55,7 +55,7 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### Кросс-компиляция
 
 If you want to build for an `arm` target you should also install the following dependencies:
 
@@ -135,11 +135,11 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### Building `libchromiumcontent` locally
+### Сборка `libchromiumcontent` локально
 
 To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+1. Установите [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
 3. Fetch the git submodules:
 
@@ -170,7 +170,7 @@ $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Использование других компиляторов вместо `clang`
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
@@ -181,7 +181,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_cl
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Переменные окружения
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
