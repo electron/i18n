@@ -1,6 +1,6 @@
-# Upgrading Chromium
+# Обновление Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Это обзор шагов, необходимых для обновления Chromium в Electron.
 
 - Upgrade libcc to a new Chromium version
 - Make Electron code compatible with the new libcc
@@ -35,7 +35,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
 
-## Update Electron's code
+## Обновление кода Electron
 
 1. Get the code: 
   -     sh
@@ -84,17 +84,17 @@ When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix
 
 Follow all the steps above to fix Electron code on all supported platforms.
 
-## Updating Crashpad
+## Обновление Crashpad
 
 If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
 
-## Updating NodeJS
+## Обновление NodeJS
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
 See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
 
-## Verify ffmpeg support
+## Проверка поддержки ffmpeg
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
@@ -128,7 +128,7 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Useful links
+## Полезные ссылки
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
