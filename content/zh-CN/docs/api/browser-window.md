@@ -5,10 +5,10 @@
 线程：[主线程](../glossary.md#main-process)
 
 ```javascript
-// 在主进程.
+// 在主进程中.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// 或者从渲染进程中使用 `remote`.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
