@@ -28,7 +28,7 @@ Electron支持[Chrome 开发者工具扩展](https://developer.chrome.com/extens
 
 ## 支持的开发者工具扩展
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron 只支持有限的`chrome.*`API，所以使用了一些不支持的`chrome.*`API的扩展可能无法正常工作。 以下的开发者工具扩展已经通过测试保证可以工作：
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -40,8 +40,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### 如果 DevTools 扩展不工作, 我该怎么办？
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+首先请确保扩展仍在维护中, 有些扩展甚至不支持 Chrome 浏览器的最新版本, 对此我们也无能为力。
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+然后在Electron的问题列表中提交一个 bug, 并描述扩展的哪个部分没有按预期的方式工作。
