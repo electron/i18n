@@ -207,7 +207,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 在 Windows，你可以突出显示任务栏按钮，以获得用户的关注。 这类似于在 macOS 上弹出 dock 图标。 在 MSDN，它如是说：
 
-> 通常, 会闪现一个窗口, 通知用户该窗口需要注意, 但当前没有键盘焦点。
+> 通常, 会闪现一个窗口, 通知用户该窗口需要注意, 但是该窗口当前没有键盘焦点。
 
 要在 BrowserWindow 的任务栏按钮突出显示，可以使用 [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
@@ -218,7 +218,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-不要忘记在调用 `flashFrame` 方法后，设置 `false` 来关闭突出显示。 在上面的例子，它是在窗口进入焦点时调用的，但你可能会 使用超时或某些其他事件来禁用它。
+不要忘记调用 `flashFrame` 方法参数为 `false` 来关闭突出显示。 在上面的示例中, 当窗口进入焦点时会调用它, 但您可能会使用超时或其他一些事件来禁用它。
 
 ## 展示文件窗口 (macOS)
 
