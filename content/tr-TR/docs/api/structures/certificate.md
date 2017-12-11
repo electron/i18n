@@ -1,9 +1,9 @@
-# Certificate Object
+# Sertifika Objesi
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
+* ` data ` Dizesi - PEM tarafından kodlanmış veriler
+* ` issuer ` [ CertificatePrincipal ](certificate-principal.md) - İhraçcı asıl
+* `issuerName</ 0> String - İhracını Ortak Adı</li>
+<li><code>issuerCert` Certificate - Issuer certificate (if not self-signed)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
