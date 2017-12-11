@@ -8,7 +8,7 @@ You can run `npm run lint` to show any style issues detected by `cpplint` and `e
 
 For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
-The Python version we are using now is Python 2.7.
+Версией Python, которую мы используем в настоящее время, является Python 2.7.
 
 The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
@@ -27,8 +27,8 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 Electron APIs использует ту же схему капитализации, что и Node.js:
 
 * Когд модуль это класс, такой как `BrowserWindow`, используйте `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
+* Когда модуль это набор APIs, такой как `globalShortcut`, используйте `mixedCase`.
+* Когда API это свойство объекта, и оно обладает достаточной сложностью для помещения в отдельную главу, как например `win.webContents`, используйте `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
 When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
