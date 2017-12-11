@@ -4,29 +4,29 @@ Electron支持[Chrome 开发者工具扩展](https://developer.chrome.com/extens
 
 ## 如何加载一个开发者工具扩展
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+这个文档简要的描述了手动加载一个扩展的过程 你可以试一下[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)，一个可以直接从Chrome的WebStore下载扩展的第三方工具
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+为了在Electron中加载一个扩展，你需要在Chrome浏览器中下载它，找到它在系统目录中位置，然后调用`BrowserWindow.addDevToolsExtension(extension)`API 加载它
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+以[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)作为示例：
 
-1. Install it in Chrome browser.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
+1. 在 Chrome 浏览器中安装。
+2. 导航到`chrome://extensions`，找到扩展的ID号，形如`fmkadmapgofadopljbjfkapdkoienihi`的hash字符串。
+3. 找到Chrome存储扩展的系统路径 
+    * 在Ｗindows 下为 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * 在 Linux下为： 
         * `~/.config/google-chrome/Default/Extensions/`
         * `~/.config/google-chrome-beta/Default/Extensions/`
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+    * 在 macOS下为`~/Library/Application Support/Google/Chrome/Default/Extensions`。
+4. 将扩展的路径传给`BrowserWindow.addDevToolsExtension`，对于React Developer Tools 来说 应该为`~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**注意：**`BrowserWindow.addDevToolsExtension`API不可以在ready事件发出之前调用
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+`BrowserWindow.addDevToolsExtension`将会返回扩展的名字，你可以把这个名字传入`BrowserWindow.removeDevToolsExtension`API来卸载它。
 
-## Supported DevTools Extensions
+## 支持的开发者工具扩展
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
