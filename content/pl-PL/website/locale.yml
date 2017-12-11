@@ -62,7 +62,7 @@ explore:
 download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Otwórz <a href='https://github.com/electron/electron-quick-start' target='_blank'>Szybki Poradnik</a>, aby zobaczyć Electron w akcji:"
   description: A minimal Electron app with helpful notations.
   clone: Sklonuj repozytorium Quick Start
   go_into_repo: Wejdź w repozytorium
@@ -114,7 +114,7 @@ pages:
     description: Dokumentacja API dla najnowszej wersji Electrona
   '/docs/development':
     title: Rozwój
-    description: Developing with Electron
+    description: Praca z Electron
   '/docs/tutorial':
     title: Poradnik
     description: Poradniki i tutoriale dla najnowszej wersji Electrona
@@ -134,11 +134,11 @@ pages:
     title: Strefa użytkownika
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron to narzędzie open-source, które pomoże ci monitorować i debugować twoją aplikację stworzoną z Electron. Twórz na szczycie wspaniałych Narzędzi Programistycznych Chrome.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron to framework o otwartym kodzie źródłowych dla łatwiejszego pisania testów integracyjnych dla twojej aplikacji stworzonej z Electron. Twórz na szczycie ChromeDriver i WebDriverIO.
 _404:
   page_not_found: Nie znaleziono strony.
-  if_this_is_an_error: If this is an error
+  if_this_is_an_error: Jeżeli to jest błąd
   please_file_an_issue: please file an issue.
