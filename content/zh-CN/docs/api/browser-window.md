@@ -16,24 +16,24 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// 加载远程URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// 或加载本地HTML文件
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## 無邊框視窗
+## 无边框窗口
 
-若你想要創建一個 無邊框或是任意型狀的視窗 可以使用 [Frameless Window](frameless-window.md) API
+如果想创建一个无边框或者任意形状的视图，可以使用[Frameless Window](frameless-window.md) 的API
 
-## 優雅地顯示視窗
+## 优雅地显示窗口
 
-頁面在載入時，使用者會看到未完成的畫面，這不是一件好事。為了讓畫面準備好在顯示，我們有兩種接決方式
+当页面在窗口中直接加载时，用户会看到未完成的页面，这不是一个好的原生应用的体验。为了让画面准备好了再显示，这有两种不同的解决方案。
 
 ### 使用`ready-to-show`事件
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+在加载页面时，渲染进程第一次完成绘制时，会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+这个事件通常在 `did-finish-load` 事件之后发出，但是页面有许多远程资源时，它可能会在 `did-finish-load`之前发出事件。
 
-### Setting `backgroundColor`
+### 设置 `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+对于一个复杂的应用，`ready-to-show` 可能发出的太晚，会让应用感觉缓慢。 在这种情况下，建议立刻显示窗口，并使用接近应用程序背景的 `backgroundColor`
 
 ```javascript
 const {BrowserWindow} = require('electron')
