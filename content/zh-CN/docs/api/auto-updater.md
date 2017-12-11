@@ -1,12 +1,12 @@
 # autoUpdater
 
-> 启用自动更新来更新程序自己
+> 使应用程序能够自动更新
 
 线程：[主线程](../glossary.md#main-process)
 
 ` autoUpdater`模块提供一个接口给[ Squirrel](https://github.com/Squirrel)框架
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+你可以使用这些项目之一进行快速启动多平台发布服务器以分发应用程序:
 
 * [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
 * [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
