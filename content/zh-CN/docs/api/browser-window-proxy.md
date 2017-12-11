@@ -2,7 +2,7 @@
 
 > 操纵子浏览器窗口
 
-Process: [Renderer](../glossary.md#renderer-process)
+进程: [渲染进程](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
