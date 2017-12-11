@@ -40,36 +40,36 @@ view.webContents.loadURL('https://electron.atom.io')
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+返回 `BrowserView` - 带有`id`的视图.
 
-### Instance Properties
+### 实例属性
 
-Objects created with `new BrowserView` have the following properties:
+使用 `new BrowserView` 创建的对象具有以下属性:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *实验功能*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+视图的[`WebContents`](web-contents.md) 对象
 
-#### `view.id` *Experimental*
+#### `view.id` *实验功能*
 
-A `Integer` representing the unique ID of the view.
+视图的唯一ID `Integer`.
 
 ### 实例方法
 
-Objects created with `new BrowserView` have the following instance methods:
+使用 `new BrowserView`创建的对象具有以下实例方法:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *实验功能*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - 如果为`true`，视图宽度跟随窗口变化. 默认为 `false`.
+  * `height` Boolean - 如果为`true`，视图高度跟随窗口变化. 默认为 `false`.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *实验功能*
 
 * ` bounds`[ 矩形 ](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+调整视图的大小，并将它移动到窗口边界
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *实验功能*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
