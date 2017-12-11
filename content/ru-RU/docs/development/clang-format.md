@@ -1,4 +1,4 @@
-# Использование clang-format на C++ коде
+# Использование clang-format в коде на C++
 
 [`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) is a tool to automatically format C/C++/Objective-C code, so that developers don't need to worry about style issues during code reviews.
 
@@ -18,7 +18,7 @@ The workflow to format your changed code:
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
-## Editor Integration
+## Интеграция с редактором кода
 
 You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
