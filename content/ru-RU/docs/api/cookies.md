@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Экземпляры класса `Cookies` доступны через свойство `cookies` объекта `Session`.
 
 Например:
 
@@ -31,9 +31,9 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### События экземпляра
 
-The following events are available on instances of `Cookies`:
+Для экземпляров `Cookies` доступны следующие события:
 
-#### Event: 'changed'
+#### Событие: 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
