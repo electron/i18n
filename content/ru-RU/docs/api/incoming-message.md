@@ -1,14 +1,14 @@
-## Class: IncomingMessage
+## Класс: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> Обрабатывает запросы на HTTP/HTTPS-запросы.
 
 Process: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` реализует интерфейс [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) и, тем самым, также и [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### События экземпляра
 
-#### Event: 'data'
+#### Событие: 'data'
 
 Возвращает:
 
@@ -16,11 +16,11 @@ Process: [Main](../glossary.md#main-process)
 
 The `data` event is the usual method of transferring response data into applicative code.
 
-#### Event: 'end'
+#### Событие: 'end'
 
 Indicates that response body has ended.
 
-#### Event: 'aborted'
+#### Событие: 'aborted'
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
