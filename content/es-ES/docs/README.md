@@ -11,7 +11,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Glosario de términos](glossary.md)
 * [Plataformas soportadas](tutorial/supported-platforms.md)
 * [Seguridad](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
+* [Control de versiones](tutorial/electron-versioning.md)
 * [Distribución de aplicaciones](tutorial/application-distribution.md)
 * [Guía de publicación en la Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guía de Windows Store](tutorial/windows-store-guide.md)
@@ -25,7 +25,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
 * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Actualización de aplicaciones](tutorial/updates.md)
 
 ## Tutoriales
 
