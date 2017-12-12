@@ -37,14 +37,14 @@
 
 * `channel` String (optional)
 
-Removes all listeners, or those of the specified `channel`.
+移除所有的监听器，当指定 `channel` 时只移除与其相关的所有监听器。
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+通过 `channel` 发送异步消息到主进程，可以携带任意参数。 Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 
