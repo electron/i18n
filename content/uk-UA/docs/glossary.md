@@ -66,15 +66,15 @@ OSR (Off-screen rendering) може бути використаний для з�
 
 ### процес
 
-Процес — екземпляр комп'ютерної програми, яка виконується. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Процес — екземпляр комп'ютерної програми, яка виконується. Застосунки Electron які використовують [головний](#main-process) і один чи декілька процесів [рендерингу](#renderer-process) фактично виконують декілька програм одночасно.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+В Node.js та Electron, кожен запущений процес має об'єкт `process`. Цей об'єкт глобальний, надає інформацію про поточний процес та контролює його. Як глобальний, він завжди доступний без використання require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Дивіться також: [головний процес](#main-process), [процес рендерингу](#renderer-process)
 
 ### процес рендерингу
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Процес рендерингу це вікно браузера у вашому додатку. На відміну від головного процесу, цих може бути декілька і кожен виконується в окремому процесі. Вони також можуть бути приховані.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
