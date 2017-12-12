@@ -65,7 +65,7 @@ Emitted when there is no available update.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
