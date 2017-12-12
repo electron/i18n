@@ -10,11 +10,11 @@ ASAR був створений для збільшення продуктивн�
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [була](https://github.com/electron-archive/brightray) статичною бібліотекою, яка робила легшим використання [libchromiumcontent](#libchromiumcontent) в додатках. Зараз вона є застарілою та об'єднаною з Electron.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Бібліотека C Run-time (CRT) є частиною стандартної бібліотеки C++ яка включає стандартну бібліотеку ISO C99. Бібліотеки Visual C++, які реалізують CRT підтримку нативної розробки коду, нативний змішаний та керований код, а також чистий керований код для розробки .NET.
 
 ### DMG
 
@@ -22,15 +22,15 @@ Apple Disk Image (DMG) это пакетний формат, який викор
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Це програма, яка дозволяє користувачам вводити букви та символи, які відсутні на клавіатурі. Наприклад, користувачі з Латинською клавіатурою можуть вводити Китайські, Японські, Корейські або Індійські символи.
 
 ### IPC
 
-IPC (Inter-Process Communication) це набір засобів для комунікація або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
+IPC (Inter-Process Communication) це набір засобів для комунікації або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
 
 ### libchromiumcontent
 
-Загальна бібліотека, яка включає в себе [Chromium Content module](https://www.chromium.org/developers/content-module) і всі його залежності (Наприкkад, Blink, [V8](#v8) і т.д.). Also referred to as "libcc".
+Загальна бібліотека, яка включає в себе [Chromium Content module](https://www.chromium.org/developers/content-module) і всі його залежності (Наприкkад, Blink, [V8](#v8) і т.д.). Також відома як "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
