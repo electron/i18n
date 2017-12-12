@@ -14,7 +14,7 @@ Since Electron uses Chromium for displaying web pages, Chromium's multi-process 
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-### Differences Between Main Process and Renderer Process
+### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
@@ -24,7 +24,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Napisz swoją Pierwszą Aplikację Używając Electron
 
 Generally, an Electron app is structured like this:
 
@@ -125,7 +125,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## Uruchom swoją aplikację
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
