@@ -40,7 +40,7 @@ app.on('ready', () => {
 
 Получает множество категорий групп. Группы категорий могут быть изменены по мере достижения новых путей кода.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Как только все дочерние процессы выполнили запрос `getCategories`, вызывается `callback` с массивом групп категорий.
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -49,7 +49,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
   * `traceOptions` String
 * `callback` Function
 
-Start recording on all processes.
+Начинает запись во всех процессах.
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 
