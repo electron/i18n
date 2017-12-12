@@ -1,16 +1,16 @@
 ## Class: Menu
 
-> Create native application menus and context menus.
+> Создает в найтивных приложениях меню и контекстные меню.
 
 Process: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Создает новое меню.
 
 ### Статические методы
 
-The `menu` class has the following static methods:
+Класс `menu` имеет следующие статические методы:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -20,7 +20,7 @@ Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` w
 
 Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -48,7 +48,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Методы экземпляра
 
-The `menu` object has the following instance methods:
+Объект `меню` имеет следующие методы экземпляра:
 
 #### `menu.popup([browserWindow, options])`
 
@@ -65,7 +65,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 * `browserWindow` BrowserWindow (optional) - Default is the focused window.
 
-Closes the context menu in the `browserWindow`.
+Закрывает контекстное меню в `browserWindow`.
 
 #### `menu.append(menuItem)`
 
