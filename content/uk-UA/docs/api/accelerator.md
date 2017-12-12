@@ -9,7 +9,7 @@
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Гарячі клавіші реєструються з допомогою модуля [`globalShortcut`](global-shortcut.md), використовуючи метод [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), тобто
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -22,11 +22,11 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## Зауваження
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+На Linux і Windows, клавіша `Command` не має ніякого впливу, тому використовуйте `CommandOrControl`, який являє собою `Command` на macOS та `Control` на Linux і Windows, для визначення акселераторів.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Використовуйте `Alt` замість `Option`. Клавіша `Option` існує тільки на macOS, тоді як клавіша `Alt` доступна на всіх платформах.
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
