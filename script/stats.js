@@ -3,7 +3,7 @@
 const got = require('got')
 const fs = require('fs')
 const path = require('path')
-const url = 'https://electronjs.org/language-stats.json'
+const url = 'https://electronjs.org/crowdin/status'
 
 got(url, {json: true}).then(data => {
   fs.writeFileSync(
