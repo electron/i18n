@@ -20,7 +20,7 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 ### Задание точек останова
 
-Затем, откройте Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Затем, откройте Visual Studio. Electron не был собран из Visual Studio, и поэтому код не содержит файла проекта; тем не менее, вы можете открывать исходные файлы просто "как файл", то есть Visual Studio откроет их сами по себе. Тем не менее, вы можете ставить точки останова - Visual Studio автоматически определит, что этот исходный код соответствует исполняемому коду в подключенном процессе, и остановится на указанной точке останова.
 
 Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
 
