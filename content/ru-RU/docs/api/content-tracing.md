@@ -61,7 +61,7 @@ app.on('ready', () => {
 * `test_MyTest*`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` контролирует какой тип трассировки включен. Данный параметр представляет собой список, разделенный запятыми. Возможные опции:
 
 * `record-until-full`
 * `record-continuously`
@@ -69,9 +69,9 @@ app.on('ready', () => {
 * `enable-sampling`
 * `enable-systrace`
 
-Первые 3 опции – режимы записи трассировки, и поэтому они являются взаимоисключающими. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+Первые 3 опции – режимы записи трассировки, и поэтому они являются взаимоисключающими. Если в строке `traceOptions` появляются более чем один режим записи трассировки, последний имеет приоритет. Если ни один из режимов записи трассировки не указан, режим записи будет `record-until-full`.
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+Опции трассировки изначально будет установлены в значения по умолчанию (`record_mode` будет `record-until-full`, `enable_sampling` и `enable_systrace` будут `false`), после чего будут установлены значения из `traceOptions`.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,7 +79,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+Останавливает запись во всех процессах.
 
 Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
