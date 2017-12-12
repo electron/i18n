@@ -81,11 +81,11 @@ app.on('ready', () => {
 
 Останавливает запись во всех процессах.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить все дочерние процессы очистить оставшиеся данные трассировки.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Когда все дочерние процессы выполнили запрос `stopRecording`, вызывается `callback` с именем файла, который содержит данные трассировки.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Данные трассировки будут записаны в `resultFilePath` если он не пуст или во временный файл. Настоящий путь будет передан в `callback`, если он не является `null`.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
@@ -94,17 +94,17 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+Начинает мониторинг во всех процессах.
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+Мониторинг начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос `startMonitoring`.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+`callback` будет вызван, как только все дочерние процессы выполнили запрос ` startMonitoring`.
 
 ### `contentTracing.stopMonitoring(callback)`
 
 * `callback` Function
 
-Stop monitoring on all processes.
+Останавливает мониторинг во всех процессах.
 
 Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
 
@@ -116,7 +116,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 
 Get the current monitoring traced data.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
