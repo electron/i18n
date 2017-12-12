@@ -106,7 +106,7 @@ app.on('ready', () => {
 
 Останавливает мониторинг во всех процессах.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Когда все дочерние процессы выполнили запрос ` stopMonitoring `, вызывается `callback`.
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
@@ -114,11 +114,11 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 * `callback` Function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+Получает текущие данные мониторинга.
 
-Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить все дочерние процессы очистить оставшиеся данные трассировки.
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Когда все дочерние процессы выполнили запрос ` captureMonitoringSnapshot`, вызывается `callback` с именем файла, который содержит данные трассировки.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
@@ -126,4 +126,4 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+Получает максимальное использование буфера трассировки в процентах среди всех процессов. Когда значение TraceBufferUsage определено, `callback` будет вызван.
