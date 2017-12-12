@@ -53,13 +53,13 @@
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+返回 `any` - 由 [`ipcMain`](ipc-main.md) 处理程序发送过来的值。
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
+通过 `channel` 发送同步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+主进程可以使用 `ipcMain` 监听 `channel` 来接收这些消息，并通过设置 `event.returnValue` 回复消息。
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
