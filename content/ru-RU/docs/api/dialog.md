@@ -11,7 +11,7 @@ const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Диалоговое окно открывается из главного потока Electron. Если вы хотите использовать объект диалогового окна из рендер-процесса, помните, что доступ к нему нужно получать через remote:
 
 ```javascript
 const {dialog} = require('electron').remote
@@ -30,13 +30,13 @@ console.log(dialog)
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `свойства` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
+  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
+    * `openFile` - позволяет выбирать файлы.
+    * `openDirectory` - позволяет выбирать папки.
+    * `multiSelections` - позволяет выбрать несколько объектов.
+    * `showHiddenFiles` - отображает в диалоге скрытые файлы.
+    * `createDirectory` - позволяет создавать новые папки прямо в диалоговом окне. *macOS*
+    * `promptToCreate` - предупреждает, если путь указанный в диалоге не существует. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
     * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
