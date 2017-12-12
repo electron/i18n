@@ -55,7 +55,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -67,7 +67,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -84,7 +84,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -100,7 +100,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -115,7 +115,7 @@ Emitted when a redirect is received while requesting a resource.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted when the document in the given frame is loaded.
 
@@ -123,7 +123,7 @@ Emitted when the document in the given frame is loaded.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
@@ -132,7 +132,7 @@ Emitted when page receives favicon urls.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
@@ -159,7 +159,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -174,7 +174,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 
 Emitted when a navigation is done.
@@ -185,7 +185,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 * `isMainFrame` Boolean
 
@@ -197,7 +197,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
@@ -235,7 +235,7 @@ Emitted when the renderer process crashes or is killed.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `name` String
 * `version` String
 
@@ -249,7 +249,7 @@ Emitted when `webContents` is destroyed.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -292,7 +292,7 @@ Emitted when DevTools is focused / opened.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
@@ -307,7 +307,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -321,7 +321,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `request` Object 
   * `method` String
   * `url` URL
@@ -344,7 +344,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -374,7 +374,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
@@ -383,7 +383,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -398,7 +398,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -440,7 +440,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
@@ -470,7 +470,7 @@ app.on('ready', () => {
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -494,7 +494,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
