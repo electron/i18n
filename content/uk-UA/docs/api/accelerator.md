@@ -1,8 +1,8 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> Визначте гарячі клавіші.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Акселератори це стрічки, що можуть містити декілька модифікаторів і коди клавіш, поєднаних знаком `+`, використовуються для визначення гарячих клавіш у вашому застосунку.
 
 Приклади:
 
