@@ -24,14 +24,14 @@
 * `channel` String
 * `listener` Function
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+添加一次性的 `listener`。当且仅当下一个消息发送到 `channel` 时 `listener` 才会被调用，随后 <0>listener</0> 会被移除。
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+从监听器数组中移除监听 `channel` 的指定 `listener`。
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
