@@ -1,6 +1,6 @@
 # remote
 
-> Use main process modules from the renderer process.
+> Позволяет использовать модули главного процесса из рендер-процесса.
 
 Процесс: [Renderer](../glossary.md#renderer-process)
 
