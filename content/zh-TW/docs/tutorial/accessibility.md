@@ -40,7 +40,7 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 透過 [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows)，你可以把協助工具的開關放在應用程式喜好設定中，讓使用者自行決定。 使用者系統上的輔助工具優先權更高，會蓋過這項設定值。
 
-### 輔助技術
+### 輔具
 
 Electron 應用程式偵測到輔助技術 (Windows) 或 VoiceOver (macOS) 時，會自動開啟協助工具。 細節可參考 Chrome 的 [協助工具文件](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
 
