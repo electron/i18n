@@ -1,9 +1,9 @@
 # شئ MemoryInfo
 
 * `t`pid - عدد صحیح - شناسه ی فرایند را پردازش می کند.
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM. On macOS its value will always be 0.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `t`workingSetSize - عدد صحیح - مقدار حافظه ی اختصاص داده شده به RAM در حال حاضر.
+* `t`peakWorkingSetSize - عدد صحیح - بیشترین مقدار حافظه که تا کنون به RAM اختصاص داده شده. در macOS این مقدار باید ۰ باشد.
+* `t`privateBytes - عدد صحیح - مقداری از حافظه که با فرایندهای دیگر مانند پشته ی جاوااسکریپت یا محتوای HTML به اشتراک گذاشته نشده است.
+* `t`sharedBytes - عدد صحیح - مقداری از حافظه که بین فرایندها، عمدتا حافظه ای که توسط کدهای خودِ الکترون، به اشتراک گذاشته می شود.
 
-Note that all statistics are reported in Kilobytes.
+توجه کنید که تمام آمارها بر اساس کیلوبایت گزارش می شوند.
