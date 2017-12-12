@@ -1,13 +1,13 @@
-## Class: TouchBarSpacer
+## Клас: TouchBarSpacer
 
-> Create a spacer between two items in the touch bar for native macOS applications
+> Створює відступ між елементами в панелі дотику для нативних macOS застосунків
 
 Процес: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSpacer(options)` *Experimental*
+### `new TouchBarSpacer(options)` *Експериментальний*
 
 * `options` Об'єкт 
-  * `size` String (optional) - Size of spacer, possible values are: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+  * `size` String (опціонально) - розмір відступу, можливі варіанти: 
+    * `small` - Малий відступ між елементами.
+    * `large` - Великий відступ між елементами.
+    * `flexible` - Зайняти весь доступний простір.
