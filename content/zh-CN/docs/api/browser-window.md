@@ -93,18 +93,18 @@ child.once('ready-to-show', () => {
 
 * 在所有平台上, 可见性状态与窗口是否隐藏/最小化与否相关。
 * 此外, 在 macOS 上, 可见性状态还跟踪窗口的遮挡状态相关。 如果窗口被另一个窗口完全遮挡了，可见性状态为`hidden`. 在其他平台上，可见性状态只有在使用 `win.hide()`使窗口最小化或者隐藏时才为 `hidden`
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* 如果创建`BrowserWindow` 时带有 `show: false`的参数, 最初的可见性状态将为`visible` 尽管窗口实际上是隐藏的。
+* 如果`backgroundThrottling`被禁用，可见性状态将保持为`visible` 即使窗户被最小化、遮挡或隐藏。
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+推荐您在可见性状态为 `hidden` 时暂停消耗资源的操作以便减少电力消耗。
 
 ### 平台相关的提示
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* 在 macOS 上，modal 窗口将显示为附加到父窗口的工作表。
+* 在 macOS 上，子窗口将保持与父窗口的相对位置。而在 Windows 和 Linux 中，当父窗口移动时子窗口不会移动。
+* 在Windows上，不支持动态更改父窗口。
+* 在Linux上，模态窗口的类型将更改为 `dialog`.
+* 在Linux上，许多桌面环境不支持隐藏模态窗口。
 
 ## Class: BrowserWindow
 
@@ -112,17 +112,17 @@ It is recommended that you pause expensive operations when the visibility state 
 
 线程：[主线程](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` 是一个[EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+通过 `options` 可以创建一个具有原生属性的 `BrowserWindow` 。
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (可选) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
+  * `width` Integer (可选) - 窗口的宽度，单位为像素。默认为`800`.
+  * `height` Integer(可选) - 窗口的高度，单位为像素。默认为`600`.
+  * `x` Integer (可选) (如果 y 存在时**必填**) - 窗口相对于屏幕左侧的偏移位置. 默认居中.
+  * `y` Integer (可选) (如果 x 存在时**必填**) - 窗口相对于屏幕顶部的偏移位置. 默认居中.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
   * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
