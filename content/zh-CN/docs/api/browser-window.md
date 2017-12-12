@@ -161,8 +161,8 @@ child.once('ready-to-show', () => {
     * `hidden-inset` - 废弃, 使用 `hiddenInset` 来代替.
     * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
     * `customButtonsOnHover` Boolean (可选) - 在 macOS 的无边框窗口上绘制自定义的关闭, 最小化和全屏按钮. 只有鼠标滑过窗口的左上角时这些按钮才会显示. 这些自定义按钮可以阻止工具栏窗口的鼠标事件。 ** 注意: **此选项目前是实验性的。
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. 默认值为 `true`。
+  * `fullscreenWindowTitle` Boolean (可选) - 在 macOS 全屏模式时, 为所有带`titleBarStyle`选项的标题栏上显示的标题。默认值为`false`.
+  * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. 默认值为 `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
