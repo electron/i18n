@@ -40,21 +40,21 @@ IPC (Inter-Process Communication) це набір засобів для кому
 
 Кожен файл головного процесу застосунку визначений у `main` властивості у `package.json`. Так `electron` знає, який файл виконувати спочатку.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+В Chromium, цей процес також відомий як "процес браузера". Він перейменований в Electron щоб уникнути плутанини з процесом рендерингу.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Дивіться також: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Акронім для Apple's Mac App Store. Для інструкції надсилання вашого додатку в MAS, дивіться [Інструкція подання в Mac App Store](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### нативні модулі
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Нативні модулі (так звані [addons](https://nodejs.org/api/addons.html) в Node.js) цк модулі написані на C чи C++, які можуть бути завантажені в Node.js чи Electron за допомогою функції require(), і використовуються так ніби вони є модулями Node.js. Вони зазвичай використовуються для надання зв'язку JavaScript, який запущений в Node.js та C/C++ бібліотек.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Дивіться також [Використання Нативних Модулів Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
