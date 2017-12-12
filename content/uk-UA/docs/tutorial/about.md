@@ -1,4 +1,4 @@
-# About Electron
+# Про Electron
 
 [Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
 
@@ -48,11 +48,11 @@ New features added to Electron should primarily be native APIs. If a feature can
 
 Нижче наведені віхи історії Electron.
 
-| :calendar:      | :tada:                                                                                                              |
-| --------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
-| **May 2014**    | [Atom Shell is open sourced](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                          |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                                  |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
-| **May 2016**    | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **August 2016** | [Windows Store support for Electron apps](https://electronjs.org/docs/tutorial/windows-store-guide).                |
+| :calendar:       | :tada:                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Квітень 2013** | [Стартував Atom Shell](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).             |
+| **Травень 2014** | [Відкрився доступ до коду Atom Shell](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                       |
+| **Квітень 2015** | [Atom Shell перейменований в Electron](https://github.com/electron/electron/pull/1389).                                   |
+| **Травень 2016** | [Випуск Electron `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                     |
+| **Травень 2016** | [Застосунки Electron стали сумісні з Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
+| **Серпень 2016** | [Windows Store підтримує застосунки Electron](https://electronjs.org/docs/tutorial/windows-store-guide).                  |
