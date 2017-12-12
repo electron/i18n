@@ -19,9 +19,9 @@ app.on('window-all-closed', () => {
 
 ### Подія: 'will-finish-launching'
 
-Відбувається коли застосунок закінчує основний запуск. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Відбувається коли застосунок закінчує основний запуск. На Windows і Linux, подія `will-finish-launching` те саме що і подія `ready`; на macOS, ця подія представляє `NSApplication` повідомлення `applicationWillFinishLaunching`. Зазвичай ви будете налаштовувати тут слухачі на `open-file` та `open-url` події, запускати репортер збоїв та автооновлювач.
 
-In most cases, you should just do everything in the `ready` event handler.
+В більшості випадків, ви повинні робити все в хендлері події `ready`.
 
 ### Подія: 'ready'
 
