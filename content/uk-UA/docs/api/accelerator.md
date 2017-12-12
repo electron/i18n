@@ -28,7 +28,7 @@ app.on('ready', () => {
 
 Використовуйте `Alt` замість `Option`. Клавіша `Option` існує тільки на macOS, тоді як клавіша `Alt` доступна на всіх платформах.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+Клавіша `Super` відповідає клавіші `Windows` на Windows та Linux і `Cmd` на macOS.
 
 ## Доступні модифікатори
 
