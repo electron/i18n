@@ -17,7 +17,7 @@
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
 
 ### `ipcRenderer.once(channel, listener)`
 
