@@ -92,9 +92,9 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 ## Примеры
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
 
-### Главный (Main) процесс
+### Главный процесс
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -212,11 +212,11 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Замечания о меню приложения в macOS
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Standard Menus
+### Стандартные меню
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -236,7 +236,7 @@ On macOS the label of the application menu's first item is always your app's nam
 
 The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
-## Menu Item Position
+## Позиция элемента меню
 
 You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
@@ -250,7 +250,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Примеры
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -262,7 +262,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
     <br />- 1
     - 2
@@ -271,7 +271,7 @@ Menu:
     - 5
     
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -284,7 +284,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
     <br />- ---
     - a
