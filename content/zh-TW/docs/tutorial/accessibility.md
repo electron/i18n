@@ -44,7 +44,7 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 Electron 應用程式偵測到輔助技術 (Windows) 或 VoiceOver (macOS) 時，會自動開啟協助工具。 細節可參考 Chrome 的 [協助工具文件](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)。
 
-在 macOS 裡，第三方輔助技術可以程式化設定 `AXManualAccessibility` 屬性來開啟或關閉 Electron 應用程式中的協助工具:
+在 macOS 裡，第三方輔具可以程式化設定 `AXManualAccessibility` 屬性來開啟或關閉 Electron 應用程式中的協助工具:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
