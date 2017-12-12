@@ -1,6 +1,6 @@
 ## Class: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Создает HTTP/HTTPS-запросы.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -36,7 +36,7 @@ const request = net.request({
 
 ### События экземпляра
 
-#### Event: 'response'
+#### Событие: 'response'
 
 Возвращает:
 
@@ -83,11 +83,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Событие: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### Событие: 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
@@ -99,11 +99,11 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
-#### Event: 'close'
+#### Событие: 'close'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### Событие: 'redirect'
 
 Возвращает:
 

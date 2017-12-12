@@ -66,7 +66,7 @@ You can make the test suite run faster by isolating the specific test or block y
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
+  // ... 只有在這個區塊裡的測試會被執行到
 })
 ```
 

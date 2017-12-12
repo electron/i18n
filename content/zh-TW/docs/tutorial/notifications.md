@@ -30,7 +30,7 @@ Later versions of Windows allow for advanced notifications, with custom template
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
-### Quiet Hours / Presentation Mode
+### 勿打擾時間 / 簡報模式
 
 To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
@@ -46,7 +46,7 @@ Note that notifications are limited to 256 bytes in size and will be truncated i
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### 勿擾模式 / Session State
 
 To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 

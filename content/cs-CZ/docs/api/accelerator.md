@@ -43,21 +43,21 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Available key codes
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* `` až `9`
+* `A` až `Z`
+* `F1` až `F24`
+* Interpunkční znaménka jako `~`, `!`, `@`, `#`, `$` atd.
 * `Plus`
-* `Space`
+* `Mezera`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (neboli `Enter`)
+* Šipky `Up`, `Down`, `Left` and `Right`
+* `Home` a `End`
+* `PageUp` a `PageDown`
+* `Escape` (zkráceně `Esc`)
+* `VolumeUp`, `VolumeDown` a `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` a `MediaPlayPause`
 * `PrintScreen`

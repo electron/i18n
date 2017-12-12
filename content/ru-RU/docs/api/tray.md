@@ -4,7 +4,7 @@
 
 Процесс: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -64,7 +64,7 @@ Creates a new tray icon associated with the `image`.
 
 The `Tray` module emits the following events:
 
-#### Event: 'click'
+#### Событие: 'click'
 
 * `event` Event 
   * `altKey` Boolean
@@ -75,7 +75,7 @@ The `Tray` module emits the following events:
 
 Emitted when the tray icon is clicked.
 
-#### Event: 'right-click' *macOS* *Windows*
+#### Событие: 'right-click' *macOS* *Windows*
 
 * `event` Event 
   * `altKey` Boolean
@@ -86,7 +86,7 @@ Emitted when the tray icon is clicked.
 
 Emitted when the tray icon is right clicked.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Событие: 'double-click' *macOS* *Windows*
 
 * `event` Event 
   * `altKey` Boolean
@@ -97,49 +97,49 @@ Emitted when the tray icon is right clicked.
 
 Вызывается при двойном нажатии на иконку в трее.
 
-#### Event: 'balloon-show' *Windows*
+#### Событие: 'balloon-show' *Windows*
 
 Emitted when the tray balloon shows.
 
-#### Event: 'balloon-click' *Windows*
+#### Событие: 'balloon-click' *Windows*
 
 Emitted when the tray balloon is clicked.
 
-#### Event: 'balloon-closed' *Windows*
+#### Событие: 'balloon-closed' *Windows*
 
 Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
-#### Event: 'drop' *macOS*
+#### Событие: 'drop' *macOS*
 
 Emitted when any dragged items are dropped on the tray icon.
 
-#### Event: 'drop-files' *macOS*
+#### Событие: 'drop-files' *macOS*
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
-#### Event: 'drop-text' *macOS*
+#### Событие: 'drop-text' *macOS*
 
 * `event` Event
 * `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
 
-#### Event: 'drag-enter' *macOS*
+#### Событие: 'drag-enter' *macOS*
 
 Emitted when a drag operation enters the tray icon.
 
-#### Event: 'drag-leave' *macOS*
+#### Событие: 'drag-leave' *macOS*
 
 Emitted when a drag operation exits the tray icon.
 
-#### Event: 'drag-end' *macOS*
+#### Событие: 'drag-end' *macOS*
 
 Emitted when a drag operation ends on the tray or ends at another location.
 
-#### Event: 'mouse-enter' *macOS*
+#### Событие: 'mouse-enter' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
@@ -150,7 +150,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 Emitted when the mouse enters the tray icon.
 
-#### Event: 'mouse-leave' *macOS*
+#### Событие: 'mouse-leave' *macOS*
 
 * `event` Event 
   * `altKey` Boolean

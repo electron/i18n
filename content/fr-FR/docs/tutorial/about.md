@@ -1,4 +1,4 @@
-# A propos d'Electron
+# À propos d'Electron
 
 [Electron](https://electronjs.org) est une librairie open source développé par GitHub pour créer des applications desktop cross-platform avec HTML, CSS et JavaScript. C'est en combinant [Chromium](https://www.chromium.org/Home) et [Node.js](https://nodejs.org) en un seul runtime qu'Electron accomplit cette tâche. Ainsi les applications peuvent être empaquetées pour Mac, Windows et Linux.
 

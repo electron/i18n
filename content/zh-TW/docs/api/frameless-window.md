@@ -1,10 +1,10 @@
-# Frameless Window
+# 無框視窗
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
-## Create a frameless window
+## 建立無框視窗
 
 To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
 
@@ -14,9 +14,9 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### Alternatives on macOS
+### macOS 替代方案
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. 要達成這個目標，請將 `titleBarStyle` 選項設定為:
 
 #### `hidden`
 
@@ -48,7 +48,7 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## 透明視窗
 
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
@@ -58,7 +58,7 @@ let win = new BrowserWindow({transparent: true, frame: false})
 win.show()
 ```
 
-### Limitations
+### 限制
 
 * You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
@@ -100,7 +100,7 @@ button {
 
 If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
-## Text selection
+## 文字選取
 
 In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 

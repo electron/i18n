@@ -417,8 +417,8 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -433,8 +433,8 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -443,8 +443,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean`
 

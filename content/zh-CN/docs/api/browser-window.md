@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> 创建和控制浏览器窗口。
 
 线程：[主线程](../glossary.md#main-process)
 
 ```javascript
-// 在主进程.
+// 在主进程中.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// 或者从渲染进程中使用 `remote`.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,24 +16,24 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// 加载远程URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// 或加载本地HTML文件
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## 無邊框視窗
+## 无边框窗口
 
-若你想要創建一個 無邊框或是任意型狀的視窗 可以使用 [Frameless Window](frameless-window.md) API
+如果想创建一个无边框或者任意形状的视图，可以使用[Frameless Window](frameless-window.md) 的API
 
-## 優雅地顯示視窗
+## 优雅地显示窗口
 
-頁面在載入時，使用者會看到未完成的畫面，這不是一件好事。為了讓畫面準備好在顯示，我們有兩種接決方式
+当页面在窗口中直接加载时，用户会看到未完成的页面，这不是一个好的原生应用的体验。为了让画面准备好了再显示，这有两种不同的解决方案。
 
 ### 使用`ready-to-show`事件
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+在加载页面时，渲染进程第一次完成绘制时，会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+这个事件通常在 `did-finish-load` 事件之后发出，但是页面有许多远程资源时，它可能会在 `did-finish-load`之前发出事件。
 
-### Setting `backgroundColor`
+### 设置 `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+对于一个复杂的应用，`ready-to-show` 可能发出的太晚，会让应用感觉缓慢。 在这种情况下，建议立刻显示窗口，并使用接近应用程序背景的 `backgroundColor`
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+请注意，即使是使用 `ready-to-show` 事件的应用程序，仍建议使用设置 `backgroundColor` 使应用程序感觉更原生。
 
-## Parent and child windows
+## 父子窗口
 
-By using `parent` option, you can create child windows:
+通过使用 `parent` 选项，你可以创建子窗口：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+`child` 窗口将总是显示在 `top` 窗口的顶部.
 
-### Modal windows
+### 模态窗口
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+模态窗口是禁用父窗口的子窗口，创建模态窗口必须设置 `parent` 和 `modal` 选项：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -87,96 +87,96 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### 页面可见性
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[ 页面可见性 API ](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) 的工作方式如下:
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* 在所有平台上, 可见性状态与窗口是否隐藏/最小化与否相关。
+* 此外, 在 macOS 上, 可见性状态还跟踪窗口的遮挡状态相关。 如果窗口被另一个窗口完全遮挡了，可见性状态为`hidden`. 在其他平台上，可见性状态只有在使用 `win.hide()`使窗口最小化或者隐藏时才为 `hidden`
+* 如果创建`BrowserWindow` 时带有 `show: false`的参数, 最初的可见性状态将为`visible` 尽管窗口实际上是隐藏的。
+* 如果`backgroundThrottling`被禁用，可见性状态将保持为`visible` 即使窗户被最小化、遮挡或隐藏。
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+推荐您在可见性状态为 `hidden` 时暂停消耗资源的操作以便减少电力消耗。
 
-### Platform notices
+### 平台相关的提示
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* 在 macOS 上，modal 窗口将显示为附加到父窗口的工作表。
+* 在 macOS 上，子窗口将保持与父窗口的相对位置。而在 Windows 和 Linux 中，当父窗口移动时子窗口不会移动。
+* 在Windows上，不支持动态更改父窗口。
+* 在Linux上，模态窗口的类型将更改为 `dialog`.
+* 在Linux上，许多桌面环境不支持隐藏模态窗口。
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> 创建和控制浏览器窗口。
 
 线程：[主线程](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` 是一个[EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+通过 `options` 可以创建一个具有原生属性的 `BrowserWindow` 。
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (可选) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
-  * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
-  * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hidden-inset` - Deprecated, use `hiddenInset` instead.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
+  * `width` Integer (可选) - 窗口的宽度，单位为像素。默认为`800`.
+  * `height` Integer(可选) - 窗口的高度，单位为像素。默认为`600`.
+  * `x` Integer (可选) (如果 y 存在时**必填**) - 窗口相对于屏幕左侧的偏移位置. 默认居中.
+  * `y` Integer (可选) (如果 x 存在时**必填**) - 窗口相对于屏幕顶部的偏移位置. 默认居中.
+  * `useContentSize` Boolean (可选) - `width` 和 `height` 将使用 web 页面的尺寸, 这意味着实际窗口的尺寸应该包括窗口框架的大小，稍微会大一点。 默认值为 `false`.
+  * `center` Boolean (可选) - 窗口在屏幕居中.
+  * `minWidth` Integer (可选) - 窗口的最小宽度, 默认值为 ``.
+  * `minHeight` Integer (可选) - 窗口的最小高度. 默认值为 ``.
+  * `maxWidth` Integer (可选) - 窗口的最大宽度, 默认无限制.
+  * `maxHeight` Integer (可选) - 窗口的最大高度, 默认无限制.
+  * `resizable` Boolean (可选) - 窗口是否可以改变尺寸. 默认值为`true`.
+  * `movable` Boolean (可选) - 窗口是否可以移动. 在 Linux 中无效. 默认值为 `true`.
+  * ` minimizable ` Boolean (可选) - 窗口是否可以最小化. 在 Linux 中无效. 默认值为 `true`.
+  * ` maximizable ` Boolean (可选) - 窗口是否可以最大化动. 在 Linux 中无效. 默认值为 `true`.
+  * `closable` Boolean (可选) - 窗口是否可以关闭. 在 Linux 中无效. 默认值为 `true`.
+  * ` focusable ` Boolean (可选) - 窗口是否可以聚焦. 默认值为 `true`。 在 Windows 中设置 `focusable: false` 也意味着设置了`skipTaskbar: true`. 在 Linux 中设置 `focusable: false` 时窗口停止与 wm 交互, 并且窗口将始终置顶。
+  * `alwaysOnTop` Boolean (可选) -窗口是否永远在别的窗口的上面. 默认值为`false`.
+  * ` fullscreen ` Boolean (可选) - 窗口是否可以全屏. 当设置为 `false` 时，在 macOS 上全屏的按钮将被隐藏或禁用. 默认值为 `false`.
+  * ` fullscreenable ` Boolean (可选) - 窗口是否可以进入全屏状态. 在 macOS上, 最大化/缩放按钮是否可用 默认值为 `true`。
+  * `skipTaskbar` Boolean (可选) - 是否在任务栏中显示窗口. 默认值为`false`.
+  * `kiosk` Boolean (可选) - kiosk 模式. 默认值为 `false`.
+  * `title` String (可选) - 窗口的默认标题. 默认值为 `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (可选) - 窗口的图标. 在 Windows 上推荐使用 `ICO` 图标来获得最佳的视觉效果, 默认使用可执行文件的图标.
+  * `show` Boolean (可选) - 窗口创建的时候是否显示. 默认值为`true`.
+  * `frame` Boolean (可选) - 设置为 `false` 时可以创建一个[Frameless Window](frameless-window.md). 默认值为 `true`.
+  * `parent` BrowserWindow (可选) - 指定父窗口. 默认值为 `null`.
+  * `modal` Boolean (可选) -是否为模态窗. 仅供子窗口使用. 默认值为`false`.
+  * `acceptFirstMouse` Boolean (可选) - 是否允许单击页面来激活窗口. 默认值为 `false`.
+  * `disableAutoHideCursor` Boolean (可选) - 是否在输入时隐藏鼠标. 默认值为`false`.
+  * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
+  * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小时, 大于屏幕的尺寸. 默认值为`false`.
+  * `backgroundColor` String (可选) - 窗口的16进制背景颜色, 例如 `#66CD00` 或 `#FFF` 或 `#80FFFFFF` (支持alpha透明度). 默认值为`#FFF` (白色).
+  * `hasShadow` Boolean (可选) - 窗口是否有阴影. 仅在 macOS 上支持. 默认值为 `true`.
+  * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
+  * `transparent` Boolean (可选) - 使窗口 [透明](frameless-window.md). 默认值为 `false`.
+  * `type` String (可选) - 窗口的类型, 默认为普通窗口. 下面可以查看更多.
+  * `titleBarStyle` String (可选) - 窗口标题栏的样式. 默认值为 `default`. 可能的值有： 
+    * `default` - 标准灰色不透明的Mac标题栏
+    * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
+    * `hidden-inset` - 废弃, 使用 `hiddenInset` 来代替.
+    * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
+    * `customButtonsOnHover` Boolean (可选) - 在 macOS 的无边框窗口上绘制自定义的关闭, 最小化和全屏按钮. 只有鼠标滑过窗口的左上角时这些按钮才会显示. 这些自定义按钮可以阻止工具栏窗口的鼠标事件。 ** 注意: **此选项目前是实验性的。
+  * `fullscreenWindowTitle` Boolean (可选) - 在 macOS 全屏模式时, 为所有带`titleBarStyle`选项的标题栏上显示的标题。默认值为`false`.
+  * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Default is `false`.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. 默认值为 `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
-    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
+    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. 默认值为 `true`。
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. 默认值为 `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Default is `true`.
+    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. 默认值为 `true`。
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
     * `images` Boolean (optional) - Enables image support. Default is `true`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
@@ -1110,4 +1110,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。

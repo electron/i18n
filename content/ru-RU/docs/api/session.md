@@ -42,9 +42,9 @@ The `session` module has the following properties:
 
 A `Session` object, the default session object of the app.
 
-## Class: Session
+## Класс: Session
 
-> Get and set properties of a session.
+> Получает и устанавливает свойства сессии.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -58,9 +58,9 @@ console.log(ses.getUserAgent())
 
 ### События экземпляра
 
-The following events are available on instances of `Session`:
+Для экземпляров `Session` доступны следующие события:
 
-#### Event: 'will-download'
+#### Событие: 'will-download'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Свойства экземпляра
 
 The following properties are available on instances of `Session`:
 

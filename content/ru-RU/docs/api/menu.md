@@ -1,16 +1,16 @@
 ## Class: Menu
 
-> Create native application menus and context menus.
+> Создает в найтивных приложениях меню и контекстные меню.
 
 Process: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Создает новое меню.
 
 ### Статические методы
 
-The `menu` class has the following static methods:
+Класс `menu` имеет следующие статические методы:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -20,7 +20,7 @@ Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` w
 
 Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -48,7 +48,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Методы экземпляра
 
-The `menu` object has the following instance methods:
+Объект `меню` имеет следующие методы экземпляра:
 
 #### `menu.popup([browserWindow, options])`
 
@@ -65,7 +65,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 * `browserWindow` BrowserWindow (optional) - Default is the focused window.
 
-Closes the context menu in the `browserWindow`.
+Закрывает контекстное меню в `browserWindow`.
 
 #### `menu.append(menuItem)`
 
@@ -92,9 +92,9 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 ## Примеры
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
 
-### Главный (Main) процесс
+### Главный процесс
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -212,11 +212,11 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Замечания о меню приложения в macOS
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Standard Menus
+### Стандартные меню
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -236,7 +236,7 @@ On macOS the label of the application menu's first item is always your app's nam
 
 The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
-## Menu Item Position
+## Позиция элемента меню
 
 You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
@@ -250,7 +250,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Примеры
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -262,7 +262,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
     <br />- 1
     - 2
@@ -271,7 +271,7 @@ Menu:
     - 5
     
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -284,7 +284,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
     <br />- ---
     - a

@@ -2,68 +2,68 @@
 
 > Communicate asynchronously from a renderer process to the main process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+进程: [渲染进程](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+`ipcRenderer` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 的实例。 你可以使用它提供的一些方法从渲染进程 (web 页面) 发送同步或异步的消息到主进程。 也可以接收主进程回复的消息。
 
-See [ipcMain](ipc-main.md) for code examples.
+请从 [ipcMain](ipc-main.md) 查看代码示例。
 
 ## 方法
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` 模块使用以下方法来监听事件和发送消息。
 
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+添加一次性的 `listener`。当且仅当下一个消息发送到 `channel` 时 `listener` 才会被调用，随后 <0>listener</0> 会被移除。
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+从监听器数组中移除监听 `channel` 的指定 `listener`。
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
 * `channel` String (optional)
 
-Removes all listeners, or those of the specified `channel`.
+移除所有的监听器，当指定 `channel` 时只移除与其相关的所有监听器。
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+通过 `channel` 发送异步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+主进程可以使用 `ipcMain` 监听 `channel` 来接收这些消息。
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+返回 `any` - 由 [`ipcMain`](ipc-main.md) 处理程序发送过来的值。
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+通过 `channel` 发送同步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+主进程可以使用 `ipcMain` 监听 `channel` 来接收这些消息，并通过设置 `event.returnValue` 回复消息。
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+就像 `ipcRenderer.send`，不同的是消息会被发送到 host 页面上的 `<webview>` 元素，而不是主进程。

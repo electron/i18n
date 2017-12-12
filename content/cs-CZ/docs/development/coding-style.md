@@ -1,14 +1,14 @@
-# Coding Style
+# Styl kódování
 
 These are the style guidelines for coding in Electron.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
-## C++ and Python
+## C++ a Python
 
 For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
-The Python version we are using now is Python 2.7.
+Verze jazyku Python, kterou nyní využíváme je Python 2.7.
 
 The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 

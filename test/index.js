@@ -28,7 +28,7 @@ describe('i18n.docs', () => {
 
   // disabled until we come up with a nice strategy for
   // dealing with renamed files in electron/electron and how to redirect
-  // 
+  //
   // it('ignores files that have a special <!-- i18n-ignore --> HTML comment', () => {
   //   fs.existsSync(path.join(__dirname, '../content/en-US/docs/tutorial/electron-versioning.md')).should.eq(true)
 
@@ -194,7 +194,6 @@ describe('i18n.locales', () => {
   it('sets some custom language names', () => {
     i18n.locales['zh-TW'].languageName.should.equal('Chinese Traditional')
     i18n.locales['zh-CN'].languageName.should.equal('Chinese Simplified')
-    i18n.locales['en-CA'].languageName.should.equal('English (Canada)')
   })
 
   it('includes languageNativeName for every locale', () => {

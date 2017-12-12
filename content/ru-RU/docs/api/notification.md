@@ -43,9 +43,9 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 Objects created with `new Notification` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
-#### Event: 'show'
+#### Событие: 'show'
 
 Возвращает:
 
@@ -61,7 +61,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Событие: 'close'
 
 Возвращает:
 

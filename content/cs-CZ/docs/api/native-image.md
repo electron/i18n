@@ -31,16 +31,16 @@ Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended bec
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
-* Small icon 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
-* Large icon 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
+* Malé ikony 
+ * 16x16 (100% DPI měřítko)
+ * 20x20 (125% DPI měřítko)
+ * 24x24 (150% DPI měřítko)
+ * 32x32 (200% DPI měřítko)
+* Velké ikony 
+ * 32x32 (100% DPI měřítko)
+ * 40x40 (125% DPI měřítko)
+ * 48x48 (150% DPI měřítko)
+ * 64x64 (200% DPI měřítko)
 * 256x256
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
@@ -93,7 +93,7 @@ To mark an image as a template image, its filename should end with the word `Tem
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
-## Methods
+## Metody
 
 The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
 

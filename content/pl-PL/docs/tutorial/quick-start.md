@@ -1,20 +1,20 @@
 # Pierwsze Kroki
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScript przez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako wariant środowiska wykonawczego Node.js, który jest skupiony na programach komputerowych zamiast serwerów sieci web.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Zamiast tego Electron używa stron internetowych jako GUI, więc możesz też myśleć o tym jak o minimalnej przeglądarce Chromium, sterowanej przez JavaScript.
 
-### Main Process
+### Proces Główny
 
 In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
 
-### Renderer Process
+### Proces Renderowania
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
-### Differences Between Main Process and Renderer Process
+### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
@@ -24,7 +24,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Napisz swoją Pierwszą Aplikację Używając Electron
 
 Generally, an Electron app is structured like this:
 
@@ -125,7 +125,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## Uruchom swoją aplikację
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 

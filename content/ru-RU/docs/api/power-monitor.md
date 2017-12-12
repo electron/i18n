@@ -1,6 +1,6 @@
 # powerMonitor
 
-> Monitor power state changes.
+> Отслеживает изменения состояния питания устройства.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -23,18 +23,18 @@ app.on('ready', () => {
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend'
+### Событие: 'suspend'
 
 Emitted when the system is suspending.
 
-### Event: 'resume'
+### Событие: 'resume'
 
 Emitted when system is resuming.
 
-### Event: 'on-ac' *Windows*
+### Событие: 'on-ac' *Windows*
 
 Emitted when the system changes to AC power.
 
-### Event: 'on-battery' *Windows*
+### Событие: 'on-battery' *Windows*
 
 Emitted when system changes to battery power.

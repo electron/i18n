@@ -1,34 +1,34 @@
 # Стиль кода
 
-These are the style guidelines for coding in Electron.
+Это руководство по стилю кодирования для Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Вы пожете запустить `npm run lint` для того чтобы получить список проблемных мест по стилю кода, найденных с помощью `cpplint` и `eslint`.
 
 ## C++ и Python
 
-For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Для C++ и Python мы следуем [стилю кодирования](http://www.chromium.org/developers/coding-style) Chromium. Для автоматического форматирования кода на C++ вы можете использовать [clang-format](clang-format.md). Есть также скрипт `script/cpplint.py`, позволяющий проверить, что все файлы соответствуют стилю.
 
-The Python version we are using now is Python 2.7.
+Версией Python, которую мы используем в настоящее время, является Python 2.7.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Код C++ использует многожество абстракций и типов Chrome, поэтому рекомендуется ознакомиться с ними. Хорошее место чтобы начать это [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) из документации по Chromium. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
+* Пишите в стиле [стандартном](http://npm.im/standard) для JavaScript.
+* Имена файлов должны соединяться через `-` вместо `_`, например, `file-name.js` вместо `file_name.js`, поскольку имена в [github/atom](https://github.com/github/atom) обычно пишутся в форме `module-name`. Это правило применяется только к `.js`-файлам.
+* Используйте новый синтаксис ES6/ES2015 там, где это уместно 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) для определения переменных
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
-## Naming Things
+## Именование сущностей
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Electron APIs использует ту же схему капитализации, что и Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
+* Когд модуль это класс, такой как `BrowserWindow`, используйте `CamelCase`.
+* Когда модуль это набор APIs, такой как `globalShortcut`, используйте `mixedCase`.
+* Когда API это свойство объекта, и оно обладает достаточной сложностью для помещения в отдельную главу, как например `win.webContents`, используйте `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
 When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.

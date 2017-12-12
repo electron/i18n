@@ -155,7 +155,7 @@ and the following behaviors have been changed:
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
 
-### Additional Entitlements
+### 額外的權利
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
@@ -201,15 +201,15 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
 
-#### Workaround
+#### 因應措施
 
 `shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
-## Cryptographic Algorithms Used by Electron
+## Electron 用到的密碼編譯演算法
 
 Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
 
-Electron uses following cryptographic algorithms:
+Electron 使用到了下列密碼編譯演算法:
 
 * AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)

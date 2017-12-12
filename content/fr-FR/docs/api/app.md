@@ -374,7 +374,7 @@ Sur *Linux* et *macOS*, les icônes dépendent de l'application associée au typ
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Vous pouvez remplacer uniquement les chemins d’un `name` défini dans `app.getPath`.
 
 Par défaut, les cookies et la cache des pages web seront stockés dans le répertoire `userData`. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 

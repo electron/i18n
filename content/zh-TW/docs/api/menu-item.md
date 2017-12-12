@@ -15,10 +15,10 @@ See [`Menu`](menu.md) for examples.
     * `event` Event
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
+  * `label` String - (選用)
+  * `sublabel` String - (選用)
+  * `accelerator` [Accelerator](accelerator.md) (選用)
+  * `icon` ([NativeImage](native-image.md) | String) (選用)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
@@ -39,11 +39,11 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `複製`
+* `copy`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
-* `delete (刪除)`
+* `delete`
 * `minimize` - Minimize current window
 * `close` - Close current window
 * `quit`- Quit the application

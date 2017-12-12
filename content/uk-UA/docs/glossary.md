@@ -10,11 +10,11 @@ ASAR був створений для збільшення продуктивн�
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [була](https://github.com/electron-archive/brightray) статичною бібліотекою, яка робила легшим використання [libchromiumcontent](#libchromiumcontent) в додатках. Зараз вона є застарілою та об'єднаною з Electron.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Бібліотека C Run-time (CRT) є частиною стандартної бібліотеки C++ яка включає стандартну бібліотеку ISO C99. Бібліотеки Visual C++, які реалізують CRT підтримку нативної розробки коду, нативний змішаний та керований код, а також чистий керований код для розробки .NET.
 
 ### DMG
 
@@ -22,15 +22,15 @@ Apple Disk Image (DMG) это пакетний формат, який викор
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Це програма, яка дозволяє користувачам вводити букви та символи, які відсутні на клавіатурі. Наприклад, користувачі з Латинською клавіатурою можуть вводити Китайські, Японські, Корейські або Індійські символи.
 
 ### IPC
 
-IPC (Inter-Process Communication) це набір засобів для комунікація або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
+IPC (Inter-Process Communication) це набір засобів для комунікації або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
 
 ### libchromiumcontent
 
-Загальна бібліотека, яка включає в себе [Chromium Content module](https://www.chromium.org/developers/content-module) і всі його залежності (Наприкkад, Blink, [V8](#v8) і т.д.). Also referred to as "libcc".
+Загальна бібліотека, яка включає в себе [Chromium Content module](https://www.chromium.org/developers/content-module) і всі його залежності (Наприкkад, Blink, [V8](#v8) і т.д.). Також відома як "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
@@ -38,51 +38,51 @@ IPC (Inter-Process Communication) це набір засобів для кому
 
 Головний процес, зазвичай файл з назвою `main.js`, є точкою входу для кожної програми Electron. Він контролює життя додатку, від відкриття до закриття. Він також керує такими елементами як Меню, Панель меню, Dock, Трей, тощо. Головний процес відповідальний за кожен новий процес рендерінгу (render process) в програмі. Node API є вбудованим.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Кожен файл головного процесу застосунку визначений у `main` властивості у `package.json`. Так `electron` знає, який файл виконувати спочатку.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+В Chromium, цей процес також відомий як "процес браузера". Він перейменований в Electron щоб уникнути плутанини з процесом рендерингу.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Дивіться також: [головний процес](#process), [процес рендерингу](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Акронім для Apple's Mac App Store. Для інструкції надсилання вашого додатку в MAS, дивіться [Інструкція подання в Mac App Store](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### нативні модулі
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Нативні модулі (так звані [addons](https://nodejs.org/api/addons.html) в Node.js) цк модулі написані на C чи C++, які можуть бути завантажені в Node.js чи Electron за допомогою функції require(), і використовуються так ніби вони є модулями Node.js. Вони зазвичай використовуються для надання зв'язку JavaScript, який запущений в Node.js та C/C++ бібліотек.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Нативні модулі Node підтримуються Electron, але так як Electron скоріш за все використовує відмінну версію V8 від тієї що в Node встановленого у вашій системі, вам потрібно вручну визначити розташування заголовків Electron при побудові нативних модулів.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Дивіться також [Використання Нативних Модулів Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System це керований скриптом інсталятор для Microsoft Windows. Випускається під комбінацією вільних прикладних ліцензій і гироко використовується як альтернатива комерційним пропрієтарним продуктам таким як InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) підтримує NSIS як ціль побудови.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen rendering) може бути використаний для завантаження великих сторінок у фоні і подальшого відображення (так буде набагато швидше). Дозволяє рендерити сторінку, не показуючи її на екрані.
 
 ### процес
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Процес — екземпляр комп'ютерної програми, яка виконується. Застосунки Electron які використовують [головний](#main-process) і один чи декілька процесів [рендерингу](#renderer-process) фактично виконують декілька програм одночасно.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+В Node.js та Electron, кожен запущений процес має об'єкт `process`. Цей об'єкт глобальний, надає інформацію про поточний процес та контролює його. Як глобальний, він завжди доступний без використання require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Дивіться також: [головний процес](#main-process), [процес рендерингу](#renderer-process)
 
 ### процес рендерингу
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Процес рендерингу це вікно браузера у вашому додатку. На відміну від головного процесу, цих може бути декілька і кожен виконується в окремому процесі. Вони також можуть бути приховані.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+У нормальних браузерах, веб-сторінки зазвичай виконуються в тестових середовищах і не мають доступу до нативних ресурсів. Користувачі Electron, однак, мають змогу використовувати Node.js API на веб-сторінках, дозволяючи низькорівневу взаємодію з операційною системою.
 
-See also: [process](#process), [main process](#main-process)
+Дивіться також: [процес](#process), [процес рендерингу](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel це фреймворк з відкритим кодом, що дозволяє застосункам Electron оновлюватися автоматично коли виходить нова версія. Дивіться [autoUpdater](api/auto-updater.md) API для початку роботи з Squirrel.
 
 ### користувацький простір
 
@@ -92,11 +92,11 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 це JavaScript енджін Google з відкритим кодом. Написаний на C++ і використовується Google в Chrome. V8 може запускатися автономно чи вбудовуватися в будь-який C++ застосунок.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron будує V8 як частину Chromium і потім вказує Node на V8 коли будує його.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Номери версій V8 завжди відповідають версіям Google Chrome. Chrome 59 включає V8 5.9, Chrome 58 включає V8 5.8, тощо.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -104,4 +104,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` тег використовується, щоб вставити 'гостьовий' контент (такий як сторонні веб-сторінки) у ваш застосунок Electron. Він схожий до `iframe`, але відрізняється тим, що кожен webview запускається як окремий процес. Він не має таких самих прав як ваша веб-сторінка і вся взаємодія вашого застосунку та вставленого контенту буде асинхронною. Це захищає ваш додаток від нього.

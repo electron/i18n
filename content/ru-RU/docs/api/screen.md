@@ -1,6 +1,6 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Предоставляет информацию о размере экрана, дисплеях, позиции курсора.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -51,9 +51,9 @@ app.on('ready', () => {
 
 ## События
 
-The `screen` module emits the following events:
+Объект `screen` имеет следующие события:
 
-### Event: 'display-added'
+### Событие: 'display-added'
 
 Возвращает:
 
@@ -62,7 +62,7 @@ The `screen` module emits the following events:
 
 Emitted when `newDisplay` has been added.
 
-### Event: 'display-removed'
+### Событие: 'display-removed'
 
 Возвращает:
 
@@ -71,7 +71,7 @@ Emitted when `newDisplay` has been added.
 
 Emitted when `oldDisplay` has been removed.
 
-### Event: 'display-metrics-changed'
+### Событие: 'display-metrics-changed'
 
 Возвращает:
 
@@ -87,7 +87,7 @@ The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Возвращает [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 

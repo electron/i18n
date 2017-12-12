@@ -1,6 +1,6 @@
 ## Class: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> 發出 HTTP/HTTPS 請求。
 
 處理序: [主處理序](../glossary.md#main-process)
 
@@ -155,9 +155,9 @@ Adds a chunk of data to the request body. The first write operation may cause th
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (選用)
+* `encoding` String (選用)
+* `callback` Function (選用)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 

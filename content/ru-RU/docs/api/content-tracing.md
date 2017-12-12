@@ -1,12 +1,12 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Получайте данные трассировки из модуля содержимого (content module) Chromium для поиска узких мест производительности и медленных операций.
 
 Process: [Main](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Этот модуль не включает веб-интерфейс, поэтому Вам необходимо открыть `chrome://tracing/` в браузере Chrome и загрузить сгенерированный файл для просмотра результатов.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` приложения не произошло.
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -31,16 +31,16 @@ app.on('ready', () => {
 
 ## Методы
 
-The `contentTracing` module has the following methods:
+Модуль ` contentTracing` имеет следующие методы:
 
 ### `contentTracing.getCategories(callback)`
 
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Получает множество категорий групп. Группы категорий могут быть изменены по мере достижения новых путей кода.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Как только все дочерние процессы выполнили запрос `getCategories`, вызывается `callback` с массивом групп категорий.
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -49,19 +49,19 @@ Once all child processes have acknowledged the `getCategories` request the `call
   * `traceOptions` String
 * `callback` Function
 
-Start recording on all processes.
+Начинает запись во всех процессах.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording. `callback` будет вызван, как только все дочерние процессы выполнили запрос `startRecording`.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` – фильтр, который контролирует какие группы категорий должны быть отслежены. Фильтр может иметь опциональный префикс `-`, чтобы исключить группы категорий, которые содержат соответствующую категорию. Категория не может быть и включена, и исключена одновременно.
 
 Примеры:
 
 * `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
+* `test_MyTest*`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` контролирует какой тип трассировки включен. Данный параметр представляет собой список, разделенный запятыми. Возможные опции:
 
 * `record-until-full`
 * `record-continuously`
@@ -69,9 +69,9 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `enable-sampling`
 * `enable-systrace`
 
-The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+Первые 3 опции – режимы записи трассировки, и поэтому они являются взаимоисключающими. Если в строке `traceOptions` появляются более чем один режим записи трассировки, последний имеет приоритет. Если ни один из режимов записи трассировки не указан, режим записи будет `record-until-full`.
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+Опции трассировки изначально будет установлены в значения по умолчанию (`record_mode` будет `record-until-full`, `enable_sampling` и `enable_systrace` будут `false`), после чего будут установлены значения из `traceOptions`.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,13 +79,13 @@ The trace option will first be reset to the default option (`record_mode` set to
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+Останавливает запись во всех процессах.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить все дочерние процессы очистить оставшиеся данные трассировки.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Когда все дочерние процессы выполнили запрос `stopRecording`, вызывается `callback` с именем файла, который содержит данные трассировки.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Данные трассировки будут записаны в `resultFilePath` если он не пуст или во временный файл. Настоящий путь будет передан в `callback`, если он не является `null`.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
@@ -94,19 +94,19 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+Начинает мониторинг во всех процессах.
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+Мониторинг начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос `startMonitoring`.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+`callback` будет вызван, как только все дочерние процессы выполнили запрос ` startMonitoring`.
 
 ### `contentTracing.stopMonitoring(callback)`
 
 * `callback` Function
 
-Stop monitoring on all processes.
+Останавливает мониторинг во всех процессах.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Когда все дочерние процессы выполнили запрос ` stopMonitoring `, вызывается `callback`.
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
@@ -114,11 +114,11 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 * `callback` Function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+Получает текущие данные мониторинга.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить все дочерние процессы очистить оставшиеся данные трассировки.
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Когда все дочерние процессы выполнили запрос ` captureMonitoringSnapshot`, вызывается `callback` с именем файла, который содержит данные трассировки.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
@@ -126,4 +126,4 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+Получает максимальное использование буфера трассировки в процентах среди всех процессов. Когда значение TraceBufferUsage определено, `callback` будет вызван.

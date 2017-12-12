@@ -1,6 +1,6 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Обнаружение событий клавиатуры в то время когда приложение не имеет фокуса клавиатуры.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -36,7 +36,7 @@ app.on('will-quit', () => {
 
 ## Методы
 
-The `globalShortcut` module has the following methods:
+Модуль `globalShortcut` имеет следующие методы:
 
 ### `globalShortcut.register(accelerator, callback)`
 

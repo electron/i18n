@@ -60,7 +60,7 @@ explore:
     - Veja o que é possível com Electron com exemplos de código e dicas úteis para
     - construindo seu aplicativo.
 download_from_github: Download no GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a>no GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a> no GitHub
 quick_start:
   title: "Inicie com o app <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> para ver o Electron em ação:"
   description: Um pequeno aplicativo Electron com notações úteis.

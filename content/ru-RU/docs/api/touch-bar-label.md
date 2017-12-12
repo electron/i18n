@@ -1,10 +1,10 @@
-## Class: TouchBarLabel
+## Класс: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Создает метку на тач-панели, для найтивного macOS-приложения
 
 Process: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` *Экспериментально*
 
 * `options` Object 
   * `label` String (optional) - Text to display.
@@ -12,11 +12,11 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarLabel`:
+Для экземпляров `TouchBarLabel` доступны следующие свойства:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Строка (`String`), представляющая текущий текст метки. Изменение этого значения немедленно обновляет метку на тач-панели.
 
 #### `touchBarLabel.textColor`
 

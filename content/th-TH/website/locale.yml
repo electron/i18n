@@ -24,7 +24,7 @@ community:
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: เครื่องมือ
   boilerplates: Boilerplates
-  components: Components
+  components: ส่วนประกอบ
   videos: วีดีโอ
   meetups: พบเจอได้ที่
   awesome_notice: รายชื่อพวกนี้ถูกสร้างจาก <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus's Awesome Electron </a> repository <br> มีอะไรหาย? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> สร้าง pull request สิ</a>

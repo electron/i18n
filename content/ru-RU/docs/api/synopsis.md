@@ -1,6 +1,6 @@
 # Краткий обзор
 
-> How to use Node.js and Electron APIs.
+> Как использовать Node.js и Electron API.
 
 All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
 
@@ -36,9 +36,9 @@ The renderer process is no different than a normal web page, except for the extr
 
 To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## Деструктирующее присваивание
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+Начиная с версии 0.37 можно использовать [деструктирующее присваивание](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), для того чтобы упростить использование встроенных модулей.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Это эквивалентно следующему коду:
 
 ```javascript
 const electron = require('electron')

@@ -10,7 +10,7 @@ ASAR был создан для повышения производительн�
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [была](https://github.com/electron-archive/brightray) статической библиотекой, созданной для того чтобы [libchromiumcontent](#libchromiumcontent) было проще использовать в приложениях. Сейчас она уже является устаревшей и была объединена с кодовой базой Electron.
 
 ### CRT
 
@@ -30,7 +30,7 @@ IPC стенды для взаимодействия между процесса
 
 ### libchromiumcontent
 
-Общая библиотека, которая включает в себя [Chromium Content module](https://www.chromium.org/developers/content-module) и все его зависимости. (Например, Blink, [V8](#v8) и т.д.). Also referred to as "libcc".
+Общая библиотека, которая включает в себя [Chromium Content module](https://www.chromium.org/developers/content-module) и все его зависимости. (Например, Blink, [V8](#v8) и т.д.). Также именуется "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
@@ -42,7 +42,7 @@ Every app's main process file is specified in the `main` property in `package.js
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-See also: [process](#process), [renderer process](#renderer-process)
+См. также: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
@@ -54,7 +54,7 @@ See also: [process](#process), [renderer process](#renderer-process)
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+См. также [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -64,7 +64,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
-### process
+### процесс
 
 A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 

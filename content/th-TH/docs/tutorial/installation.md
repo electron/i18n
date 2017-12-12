@@ -1,6 +1,6 @@
-# Installation
+# การติดตั้ง
 
-> Tips for installing Electron
+> เคล็ดลับสำหรับการติดตั้ง Electron
 
 To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
 
@@ -10,7 +10,7 @@ npm install electron --save-dev
 
 See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
 
-## Global Installation
+## การติดตั้งทั่วไป
 
 You can also install the `electron` command globally in your `$PATH`:
 
@@ -18,7 +18,7 @@ You can also install the `electron` command globally in your `$PATH`:
 npm install electron -g
 ```
 
-## Customization
+## การปรับแต่ง
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 

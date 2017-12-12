@@ -1,6 +1,6 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Создает иконки приложения, в том числе для системного лотка (Windows), дока (macOS), используя файлы PNG и JPG.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -25,7 +25,7 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## Поддерживаемые форматы
 
 Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
@@ -45,7 +45,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## High Resolution Image
+## Изображения с высоким разрешением
 
 On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
 
@@ -99,7 +99,7 @@ The `nativeImage` module has the following methods, all of which return an insta
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Возвращает `NativeImage`
 
 Creates an empty `NativeImage` instance.
 
@@ -107,7 +107,7 @@ Creates an empty `NativeImage` instance.
 
 * `path` String
 
-Returns `NativeImage`
+Возвращает `NativeImage`
 
 Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
@@ -123,7 +123,7 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Возвращает `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer`.
 
@@ -131,11 +131,11 @@ Creates a new `NativeImage` instance from `buffer`.
 
 * `dataURL` String
 
-Returns `NativeImage`
+Возвращает `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
-## Class: NativeImage
+## Класс: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
 
@@ -143,7 +143,7 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 ### Методы экземпляра
 
-The following methods are available on instances of the `NativeImage` class:
+Для экземпляров класса `NativeImage` доступны следующие методы:
 
 #### `image.toPNG([options])`
 
@@ -185,11 +185,11 @@ Notice that the returned pointer is a weak pointer to the underlying native imag
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Возвращает `Boolean` - признак того что изображение пустое.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Возвращает [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
@@ -203,9 +203,9 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* `rect` [Rectangle](structures/rectangle.md) - область изображения до которой нужно обрезать
 
-Returns `NativeImage` - The cropped image.
+Возвращает `NativeImage` - обрезанное изображение.
 
 #### `image.resize(options)`
 
@@ -217,7 +217,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Возвращает `Float` - пропорции изображения.
 
 #### `image.addRepresentation(options)`
 

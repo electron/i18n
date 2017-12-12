@@ -107,7 +107,7 @@ Creates an empty `NativeImage` instance.
 
 * `path` String
 
-Returns `NativeImage`
+回傳 `NativeImage`
 
 Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
@@ -121,9 +121,9 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (選用) - 預設值為 1.0。
 
-Returns `NativeImage`
+回傳 `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer`.
 
@@ -131,7 +131,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 * `dataURL` String
 
-Returns `NativeImage`
+回傳 `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
@@ -189,7 +189,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+回傳 [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 

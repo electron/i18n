@@ -8,7 +8,7 @@
 // 在主處理序裡。
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// 或由畫面轉譯處理序裡使用 `remote`。
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,10 +16,10 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// 載入遠端 URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// 或載入本機 HTML 檔案
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -31,7 +31,7 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
-### Using `ready-to-show` event
+### 使用 `ready-to-show` 事件
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
 
-### Setting `backgroundColor`
+### 設定 `backgroundColor`
 
 For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### 強制回應視窗
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -112,7 +112,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 處理序: [主處理序](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` 是個 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)。
 
 It creates a new `BrowserWindow` with native properties as set by the `options`.
 
@@ -141,7 +141,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
   * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
+  * `icon` ([NativeImage](native-image.md) | String) (選用) - 視窗圖示。 On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
   * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
@@ -189,16 +189,16 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
     * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to ``.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
+      * `standard` String (選用) - 預設值為 `Times New Roman`。
+      * `serif` String (選用) - 預設值為 `Times New Roman`。
+      * `sansSerif` String (選用) - 預設值為 `Arial`。
+      * `monospace` String (選用) - 預設值為 `Courier New`。
+      * `cursive` String (選用) - 預設值為 `Script`。
+      * `fantasy` String (選用) - 預設值為 `Impact`。
+    * `defaultFontSize` Integer (選用) - 預設值為 `16`。
+    * `defaultMonospaceFontSize` Integer (選用) - 預設值為 `13`。
+    * `minimumFontSize` Integer (選用) - 預設值為 ``。
+    * `defaultEncoding` String (選用) - 預設值為 `ISO-8859-1`。
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the \[Page Visibility API\]\[#page-visibility\]. Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **注意:** 這個選項目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
@@ -347,7 +347,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // 當使用者點了他們滑鼠的上一頁鍵後將視窗導回上一頁
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -419,7 +419,7 @@ Adds Chrome extension located at `path`, and returns extension's name.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -427,13 +427,13 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a Chrome extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -445,7 +445,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -453,7 +453,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -468,7 +468,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 ### 物件屬性
 
@@ -476,7 +476,7 @@ Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// 在這個範例中，`win` 是我們要用的物件
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
@@ -609,7 +609,7 @@ Resizes and moves the window to the supplied bounds
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (選用) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -621,7 +621,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (選用) *macOS*
 
 Resizes the window to `width` and `height`.
 
@@ -633,7 +633,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (選用) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -751,7 +751,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (選用) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -774,7 +774,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (選用)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -876,7 +876,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (選用)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Same as `webContents.loadURL(url[, options])`.
@@ -1004,7 +1004,7 @@ Sets the properties for the window's taskbar button.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+跟 `webContents.showDefinitionForSelection()` 一樣。
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 

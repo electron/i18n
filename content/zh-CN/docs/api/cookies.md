@@ -31,67 +31,67 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### 事件
 
-The following events are available on instances of `Cookies`:
+以下事件会在` Cookies `实例触发。
 
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - 该事件触发后的cookie 值。
+* `cause` String - coodie 值变动的原因，该变量可能的值为： 
+  * ` explicit ` - cookie 是由消费者的操作直接更改的。
+  * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
+  * ` expired ` - cookie 在过期时自动删除。
+  * ` evicted ` - 在GC（垃圾回收机制）过程中被回收。
+  * `expired-overwrite` - 一个已过期的时间覆写了原cookie 的过期时间。
+* `removed` Boolean - `true `表示cookie 已被删掉, 否则为` false`.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+该事件在cookie 被添加、修改、删除或过期时触发。
 
 ### 实例方法
 
-The following methods are available on instances of `Cookies`:
+以下方法可以在` Cookies `实例调用。
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
+* `filter` Object - 过滤器对象，包含过滤参数 
+  * ` url `String (可选) - 检索与 ` url ` 关联的 cookie。空意味着检索所有 url 的 cookie。
+  * ` name `String (可选) - 按名称筛选 cookie。
+  * ` domain` String (可选) - 检索其域名匹配或为 ` domain ` 子域名的 cookie。
+  * ` path `String (可选) - 检索路径与 ` path ` 匹配的 cookie。
+  * ` secure `Boolean (可选) - 通过其Secure 属性筛选 cookie。
+  * ` session `Boolean (可选) - 筛选出session 内可用或持久性 cookie。
+* `callback` Function - 回调函数 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - 返回的cookie 对象数组.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+调用此函数获取所有匹配` filter `对象条件的cookie，回调函数将会在获取到结果后以` callback( error, cookies) `形式被调用。
 
 #### `cookies.set(details, callback)`
 
 * `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * ` url `String - 与 cookie 关联的 url。
+  * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
+  * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
+  * ` domain `String (可选) - cookie 的域名。如果省略, 则默认为空。
+  * ` path `String (可选) - cookie 的路径。如果省略, 则默认为空。
+  * ` secure `Boolean (可选) - 是否将 cookie 标记为Secure。默认为 false。
+  * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
+  * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 * `callback` Function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+设置一个以` details `对象为模型的cookie，回调函数将在设置执行后以` callback(error) `形式被调用。
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* ` url `String - 与 cookie 关联的 URL。
+* ` name `String - cookie 名称。
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+删除与 ` url ` 和 ` name ` 相匹配的 cookie, 回调函数将在执行完成时被调用。
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+写入所有未写入磁盘的 cookie。

@@ -11,7 +11,7 @@ nav:
   code_of_conduct: 行為準則
 docs:
   title: Electron 文件
-  description: 瀏覽<a href="/docs/all">完整文件頁</a>，或是到<a href="/docs/faq">常見問題集</a>中看看。
+  description: 到<a href="/docs/all">文件大全</a>一次看全部的文件內容; 也可以看看<a href="/docs/faq">常見問題集</a>。
   guides: 導引
   api_reference: API 參考
   advanced: 進階

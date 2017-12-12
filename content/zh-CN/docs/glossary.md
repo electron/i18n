@@ -50,7 +50,7 @@ IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来�
 
 ### native modules原生模块
 
-原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中加载或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要使在Node.js 上运行的 JavaScript 能调用 C/C++ 的库。
+原生模块 (在 Node.js 里也叫 [addons](https://nodejs.org/api/addons.html))，是一些使用 C or C++ 编写的能够在 Node.js 中或者在 Electron 中使用 require() 方法来加载的模块，它使用起来就如同 Node.js 的模块。 它主要使在Node.js 上运行的 JavaScript 能调用 C/C++ 的库。
 
 Electron 支持原生的 Node 模块，但是 Electron 非常可能使用了和你系统中安装的Node所不一样的 V8 版本，所以在构建原生模块的时候你需要手动指定 Electron 所使用的头文件的位置。
 
@@ -68,7 +68,7 @@ OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 �
 
 一个进程是计算机程序正在执行中的一个实例。 Electron 应用同时使用了[main](#main-process) 进程和一个或者多个 [renderer](#renderer-process) 进程来运行多个程序。
 
-在 Node.js 和 Electron 里面，每个运行的进程包含一个 `process` 对象。 这个对象作为一个全局的提供当前进程的相关信息，操作方法。 作为一个全局变量，它在应用内部能够不用 require() 就能随时可用的。
+在 Node.js 和 Electron 里面，每个运行中的进程都有一个 `process` 对象。 这个对象作为一个全局的提供当前进程的相关信息，操作方法。 作为一个全局变量，它在应用内部能够不用 require() 就能随时可用的。
 
 参见: [main process](#main-process), [renderer process](#renderer-process)
 
@@ -82,7 +82,7 @@ OSR(离屏渲染) 可以让你渲染页面而不用立刻显示到屏幕上。 �
 
 ### Squirrel
 
-Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新到发布的新的版本. 详见 [autoUpdater](api/auto-updater.md) API 了解如何开始使用 Squirrel。
+Squirrel 是一个开源的框架来让 Electron 的应用能够自动的更新到最新发布的版本. 详见 [autoUpdater](api/auto-updater.md) API 了解如何开始使用 Squirrel。
 
 ### userland
 

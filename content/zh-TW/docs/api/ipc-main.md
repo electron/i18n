@@ -17,26 +17,26 @@ It is also possible to send messages from the main process to the renderer proce
 An example of sending and handling messages between the render and main processes:
 
 ```javascript
-// In main process.
+// 在主處理序裡。
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // 印出 "ping"
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // 印出 "ping"
   event.returnValue = 'pong'
 })
 ```
 
 ```javascript
-// In renderer process (web page).
+// 在畫面轉譯處理序中 (網頁)。
 const {ipcRenderer} = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // 印出 "pong"
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```

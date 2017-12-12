@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Создание и работа с окном браузера.
+> Создание окон браузера и управление ими.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -31,7 +31,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Когда страница загружается в окно напрямую, пользователи могут видеть ступенчатую загрузку страницы, что является дурным тоном для нативного приложения. Для создания окна без ступенчатой загрузки существует два решения, которые можно использовать в различных ситуациях.
 
-### Использование `ready-to-show` события
+### Использование события `ready-to-show`
 
 При загрузке страницы, после рендеринга страницы будет вызвано событие `ready-to-show`, которое будет вызвано первый раз если окно до этого еще не было показано. Окно, показанное после этого события, не будет иметь визуальной ступенчатой подгрузки:
 
@@ -58,7 +58,7 @@ win.loadURL('https://github.com')
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
-## Parent and child windows
+## Родительские и дочерние окна
 
 By using `parent` option, you can create child windows:
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### Модальные окна
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Видимость страниц
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
@@ -106,13 +106,13 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## Класс: BrowserWindow
 
-> Создание и работа с окном браузера.
+> Создание окон браузера и управление ими.
 
 Process: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` это [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `BrowserWindow` with native properties as set by the `options`.
 
@@ -219,7 +219,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 Objects created with `new BrowserWindow` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
 #### Event: 'page-title-updated'
 
@@ -230,7 +230,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### Событие: 'close'
 
 Возвращает:
 
@@ -252,85 +252,85 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### Событие: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' *Windows*
+#### Событие: 'session-end' *Windows*
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Событие: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Событие: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Событие: 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Событие: 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Событие: 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Событие: 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Событие: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Событие: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Событие: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Событие: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Событие: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Событие: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Событие: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### Событие: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Событие: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Событие: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Событие: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Событие: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
@@ -356,19 +356,19 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Событие: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Событие: 'scroll-touch-end' *macOS*
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Событие: 'scroll-touch-edge' *macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' *macOS*
+#### Событие: 'swipe' *macOS*
 
 Возвращает:
 
@@ -377,11 +377,11 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Событие: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### Событие: 'sheet-end' *macOS*
 
 Emitted when the window has closed a sheet.
 
@@ -405,13 +405,13 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Возвращает `BrowserWindow` - окно, которое владеет указанным `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Возвращает `BrowserWindow` - окно с указанным `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -427,7 +427,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a Chrome extension by name.
+Удаляет расширение Chrome с указанным именем.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -453,7 +453,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a DevTools extension by name.
+Удаляет расширение DevTools с указанным именем.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Свойства экземпляра
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -533,7 +533,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Скрывает окно.
 
 #### `win.isVisible()`
 

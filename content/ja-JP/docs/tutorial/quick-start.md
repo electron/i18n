@@ -1,8 +1,8 @@
 # クイック スタート
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electronは、豊富なネイティブ (オペレーティング・システム) APIを備えたランタイムを提供することで、純粋なJavaScriptでデスクトップ・アプリケーションを開発できるようにします。 Webサーバではなく、デスクトップ・アプリケーションに焦点を当てたNode.jsランタイムがElectronであると捉えても構いません。
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+これは、Electronはグラフィカルユーザーインターフェース (GUI) ライブラリへのJavaScriptバインディングである、という意味ではありません。 その代わりにGUIとしてWebページを使うので、ElectronはJavaScriptで操作できる、最小限のChromiumブラウザである、と捉えることもできます。
 
 ### メインプロセス
 

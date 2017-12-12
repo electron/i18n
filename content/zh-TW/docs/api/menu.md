@@ -212,7 +212,7 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## macOS 應用程式選單注意事項
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 

@@ -17,12 +17,12 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Voor het opzetten van een server om crashrapporten te accepteren en te verwerken, kunt u volgende projecten gebruiken:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Crashrapporten worden lokaal opgeslagen in een toepassingsspecifieke tijdelijke map. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
 ## Methods
 
@@ -100,7 +100,7 @@ Set an extra parameter to be sent with the crash report. The values specified he
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` String - The version of Electron.
+* `ver` String - de versie van Electron.
 * `platform` String - e.g. 'win32'.
 * `process_type` String - e.g. 'renderer'.
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'

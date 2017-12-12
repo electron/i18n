@@ -45,7 +45,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 ### `contentTracing.startRecording(options, callback)`
 
 * `options` Object 
-  * `categoryFilter` 字串
+  * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
 
@@ -90,7 +90,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `options` Object 
-  * `categoryFilter` 字串
+  * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
 

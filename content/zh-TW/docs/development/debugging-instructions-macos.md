@@ -2,7 +2,7 @@
 
 If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
 
-## Requirements
+## 需求
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
@@ -31,7 +31,7 @@ Let's assume that you want to debug `app.setName()`, which is defined in `browse
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+之後，開啟 Electron:
 
 ```sh
 (lldb) run
@@ -85,7 +85,7 @@ To finish debugging at this point, run `process continue`. You can also continue
 
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
-### Further Reading
+### 延介閱讀
 
 LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 

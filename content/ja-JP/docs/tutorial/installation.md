@@ -8,7 +8,7 @@ Electronのビルド済みバイナリを使用するためには、[`npm`](http
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+アプリケーション中のElectronバージョンの管理についてお知りになりたいときは、[バージョンに関するドキュメント](electron-versioning.md)をご覧ください。
 
 ## グローバルインストール
 

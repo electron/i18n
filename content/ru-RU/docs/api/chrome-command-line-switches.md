@@ -92,7 +92,7 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Список серверов (разделенные запятой), для которых разрешена интегрированная аутентификация.
 
 Например:
 
@@ -107,7 +107,7 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Игнорировать ошибки, связанные с сертификатами.
 
 ## --ppapi-flash-path=`path`
 

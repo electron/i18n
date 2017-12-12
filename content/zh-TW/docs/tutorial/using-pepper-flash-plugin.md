@@ -51,7 +51,7 @@ You can also try loading the system wide Pepper Flash plugin instead of shipping
 
 ## 在 `<webview>` 標籤中啟用 Flash 外掛程式
 
-Add `plugins` attribute to `<webview>` tag.
+將 `plugins` 屬性加到 `<webview>` 標籤裡。
 
 ```html
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>

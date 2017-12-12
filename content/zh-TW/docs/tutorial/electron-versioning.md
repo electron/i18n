@@ -2,13 +2,13 @@
 
 > 我們的版號訂定策略和實作細節。
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Electron 從 2.0.0 版開始遵照 [semver](#semver)。以下指令將安裝 Electron 最新的穩定版:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+將現有專案更新成最新的穩定版:
 
 ```sh
 npm install --save-dev electron@latest
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 1.x 版
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron *< 2.0* 的版本並不符合 [semver](http://semver.org) 規範。 Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
@@ -38,7 +38,7 @@ We will cover in detail how git branching works, how npm tagging works, what dev
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Electron 從 2.0 版開始遵照 semver。
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
@@ -56,7 +56,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 
 Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
-# Stabilization Branches
+# 穩定分支
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
@@ -68,7 +68,7 @@ We allow for multiple stabilization branches to exist simultaneously, and intend
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
-# Beta Releases and Bug Fixes
+# Beta 版及 Bug 修正
 
 Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
@@ -142,7 +142,7 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
 
-# Versionless `master`
+# 無關版號的 `master`
 
 * The `master` branch will always contain `0.0.0-dev` in its `package.json`
 * Release branches are never merged back to master

@@ -24,7 +24,7 @@ console.log(dialog)
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (可选)
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional)
@@ -68,7 +68,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (可选)
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (可选)
 * `options` Object 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -103,7 +103,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `icon` [NativeImage](native-image.md) (optional)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 默认值为 `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 * `callback` Function (optional) 
   * `response` Number - The index of the button that was clicked
   * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
@@ -127,7 +127,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (可选)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
