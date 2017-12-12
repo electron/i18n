@@ -11,16 +11,16 @@
 Процесс форматирования измененного вами кода:
 
 1. Сделать изменения кода в репозитории Electron.
-2. Run `git add your_changed_file.cc`.
+2. Запустите `git add your_changed_file.cc`.
 3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
 4. Run `git add your_changed_file.cc`, and commit your change.
-5. Now the branch is ready to be opened as a pull request.
+5. Теперь эта ветка готова для открытия пулл-реквеста.
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## Интеграция с редактором кода
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+Вы также можете интегрировать `clang-format` напрямую с вашим любимым редактором. Дальнейшие указания по настройке интеграции с редакторами вы найдете на этих страницах:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim и Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
