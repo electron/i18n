@@ -27,21 +27,21 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` об'єкт *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Відбувається коли Electron завершує ініціалізацію. На macOS, `launchInfo` тримає `userInfo` `NSUserNotification`, яка використовувалася для відкриття застосунку, якщо він був запущений з Центру Сповіщень. Ви можете викликати `app.isReady()` щоб перевірити чи відбулася дана подія.
 
 ### Подія: 'window-all-closed'
 
-Emitted when all windows have been closed.
+Відбувається коли всі вікна зачиняються.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Якщо ви не підписані на цю подію і всі вікна закриваються, поведінкою за замовчуванням є вихід з застосунку; однак, якщо ви підписані, ви можете контролювати чи виходити з застосунку чи ні. Якщо користувач натискає `Cmd + Q`, або розробник викликає `app.quit()`, Electron спочатку намагатиметься закрити всі вікна, а потім виникає подія `will-quit`, і в цьому випадку подія `window-all-closed`не буде виникати.
 
 ### Подія: 'before-quit'
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -51,7 +51,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -61,7 +61,7 @@ See the description of the `window-all-closed` event for the differences between
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `exitCode` Integer
 
 Emitted when the application is quitting.
@@ -70,7 +70,7 @@ Emitted when the application is quitting.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `path` String
 
 Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
@@ -83,7 +83,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
@@ -94,7 +94,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `hasVisibleWindows` Boolean
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
@@ -103,7 +103,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contains app-specific state stored by the activity on another device.
 
@@ -115,7 +115,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
@@ -123,7 +123,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
@@ -132,7 +132,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
@@ -141,7 +141,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `window` BrowserWindow
 
 Emitted when a new [browserWindow](browser-window.md) is created.
@@ -150,7 +150,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `webContents` WebContents
 
 Emitted when a new [webContents](web-contents.md) is created.
@@ -159,7 +159,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - The error code
@@ -187,7 +187,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -211,7 +211,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
@@ -244,7 +244,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
@@ -253,7 +253,7 @@ Emitted when the gpu process crashes or is killed.
 
 Повертає:
 
-* `event` Event
+* `event` Подія
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
