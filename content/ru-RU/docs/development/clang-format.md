@@ -13,7 +13,7 @@
 1. Сделать изменения кода в репозитории Electron.
 2. Запустите `git add your_changed_file.cc`.
 3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
+4. Запустите `git add your_changed_file.cc`, и выполните commit.
 5. Теперь эта ветка готова для открытия пулл-реквеста.
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
