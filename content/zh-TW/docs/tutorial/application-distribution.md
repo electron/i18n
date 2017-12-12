@@ -44,9 +44,9 @@ electron/resources/
 
 細節可以參考[應用程式打包](application-packaging.md)。
 
-## 針對下載的二位進檔品牌客製
+## 針對下載的二位進檔客製品牌
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+將你的應用程式包進 Electron 後，你可能會想要客製化 Electron 品牌後再發佈給使用者。
 
 ### Windows
 
@@ -59,7 +59,7 @@ After bundling your app into Electron, you will want to rebrand Electron before 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+你也可以修改輔助應用程式的名字，不要讓 `Electron Helper` 出現在「活動監視器」中，只將輔助應用程式執行檔的名稱改掉就好。
 
 改名後的應用程式結構應該像:
 
