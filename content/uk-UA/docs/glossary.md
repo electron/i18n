@@ -38,7 +38,7 @@ IPC (Inter-Process Communication) це набір засобів для кому
 
 Головний процес, зазвичай файл з назвою `main.js`, є точкою входу для кожної програми Electron. Він контролює життя додатку, від відкриття до закриття. Він також керує такими елементами як Меню, Панель меню, Dock, Трей, тощо. Головний процес відповідальний за кожен новий процес рендерінгу (render process) в програмі. Node API є вбудованим.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Кожен файл головного процесу застосунку визначений у `main` властивості у `package.json`. Так `electron` знає, який файл виконувати спочатку.
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
@@ -62,7 +62,7 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen rendering) може бути використаний для завантаження великих сторінок у фоні і подальшого відображення (так буде набагато швидше). Дозволяє рендерити сторінку, не показуючи її на екрані.
 
 ### процес
 
@@ -82,7 +82,7 @@ See also: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel це фреймворк з відкритим кодом, що дозволяє застосункам Electron оновлюватися автоматично коли виходить нова версія. Дивіться [autoUpdater](api/auto-updater.md) API для початку роботи з Squirrel.
 
 ### користувацький простір
 
@@ -94,9 +94,9 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 V8 це JavaScript енджін Google з відкритим кодом. Написаний на C++ і використовується Google в Chrome. V8 може запускатися автономно чи вбудовуватися в будь-який C++ застосунок.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron будує V8 як частину Chromium і потім вказує Node на V8 коли будує його.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Номери версій V8 завжди відповідають версіям Google Chrome. Chrome 59 включає V8 5.9, Chrome 58 включає V8 5.8, тощо.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
