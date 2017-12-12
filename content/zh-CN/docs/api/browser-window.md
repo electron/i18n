@@ -2,7 +2,7 @@
 
 > 创建和控制浏览器窗口。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 ```javascript
 // 在主进程中.
