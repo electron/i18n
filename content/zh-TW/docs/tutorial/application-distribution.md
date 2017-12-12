@@ -89,7 +89,7 @@ MyApp.app/Contents
 
 ## 打包工具
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+除了手動打包以外，你也可以考慮選用第三方打包工具來幫你完成這些事情:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
