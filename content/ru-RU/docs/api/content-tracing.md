@@ -53,12 +53,12 @@ app.on('ready', () => {
 
 Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording. `callback` будет вызван, как только все дочерние процессы выполнили запрос `startRecording`.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` – фильтр, который контролирует какие группы категорий должны быть отслежены. Фильтр может иметь опциональный префикс `-`, чтобы исключить группы категорий, которые содержат соответствующую категорию. Категория не может быть и включена, и исключена одновременно.
 
 Примеры:
 
 * `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
+* `test_MyTest*`,
 * `"-excluded_category1,-excluded_category2`
 
 `traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
