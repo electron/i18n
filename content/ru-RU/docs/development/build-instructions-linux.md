@@ -38,7 +38,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Другие дистрибутивы могут предложить аналогичные пакеты для установки через менеджеры пакетов, такие как pacman. Либо можно скомпилировать их из исходного кода.
 
 ## Получение кода
 
