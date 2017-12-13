@@ -1,6 +1,6 @@
 # Отладка под Windows
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. Однако, с использованием Visual Studio, сервера символов Electron, размещенного на GitHub, и исходного кода Electron, довольно легко перейти к пошаговой отладке с точки останова в исходном коде Electron.
 
 ## Требования
 
