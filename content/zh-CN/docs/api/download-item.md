@@ -74,49 +74,49 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - 设置下载项目的保存文件路径。
 
-该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+该API仅能在`will-download` 方法的回调中使用。 如果用户没有通过API设置保存路径，Electron将使用默认方式来确定保存路径（通常会提示保存对话框）。
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+返回 `String` - 下载项目的保存路径。这将是通过`downloadItem.setSavePath(path)`设置的路径，或从显示的保存对话框中选择的路径。
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+暂停下载。
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+返回`Boolean` - 下载是否暂停。
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+恢复已暂停的下载。
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**笔记：** 为了支持断点下载，必须要从支持范围内请求下载，并且提供`Last-Modified` 和 `ETag`的值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+恢复布尔值 - 是否可以恢复下载。
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+取消下载操作。
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+返回`String` - 从中​​下载项目的源URL。
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+返回`String` - MIME类型的文件。
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+返回`Boolean` - 下载是否具有用户手势。
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+返回`String` - 下载项目的文件名。
 
 **Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
