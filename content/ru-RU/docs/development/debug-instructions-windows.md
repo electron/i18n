@@ -6,9 +6,9 @@
 
 * **Отладочная сборка Electron**: Обычно проще всего собрать ее самостоятельно, используя инструменты и предварительные требования, перечисленные в [инструкции по сборке под Windows](build-instructions-windows.md). Вы конечно можете скачать обычную сборку Electron и подключиться для отладки к ней, но вы обнаружите, что она сильно оптимизирована, и это существенно затрудняет отладку: отладчик не сможет показать вам содержимое всех переменных, и путь выполнения может казаться странным вследствие встраивания функций (inlining), хвостовых вызовов (trail calls) и других оптимизаций, выполненных компилятором.
 
-* **Visual Studio с инструментами C++**: бесплатная общественная редакция Visual Studio, можно использовать версии VS2013 и VS2015. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio с инструментами C++**: бесплатная общественная редакция Visual Studio, можно использовать версии VS2013 и VS2015. После установки, [настройте Visual Studio для использования сервера символов Electron на GitHub](setting-up-symbol-server.md). Это позволит Visual Studio получить лучшее представление о том, что происходит внутри Electron, что позводит представить переменные в удобочитаемом формате.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: [бесплатный инструмент от SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx), позволяющий вам просматривать параметры процессов, файловые дескрипторы, и операции над реестром.
 
 ## Подключение к Electron для отладки
 
