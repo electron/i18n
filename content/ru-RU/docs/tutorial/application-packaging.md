@@ -47,14 +47,14 @@ const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Получить список всех файлов в корне архива:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Использовать модуль из архива:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
