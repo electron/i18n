@@ -14,6 +14,6 @@
 为了使额外的通知按钮在macOS上工作，您的应用程序必须符合以下标准。
 
 * 应用程序已签名
-* App将`info.plist`变量中的`NSUserNotificationAlertStyle`属性值设置为`alert`.
+* 应用程序将`info.plist`变量中的`NSUserNotificationAlertStyle`属性值设置为`alert`.
 
 任何一个条件不满足则按钮无法显示。
