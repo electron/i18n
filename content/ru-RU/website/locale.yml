@@ -78,7 +78,7 @@ taglines:
 help_translate: "Помочь перевести"
 footer:
   see_something: Увидели, что нуждается в исправлении?
-  propose_change: Предлогаю изменить в исходном файле.
+  propose_change: Предлагаю изменить в исходном файле.
   need_different_version: Нужна другая версия документации?
   see_available_versions: Просмотреть доступные версии.
   want_something_searchable: Желаете что-либо поискать?
