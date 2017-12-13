@@ -1,18 +1,18 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> 从主进程到渲染进程的异步通信。
 
 线程：[主线程](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+ipcMain模块是EventEmitter类的一个实例。 在主进程使用时，它处理异步并且接收来自于渲染进程（网页）的同步信息。 从渲染器进程发送的消息将被发送到该模块。
 
-## Sending Messages
+## 发送消息
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+当然也有可能从主进程向渲染进程发送消息，查阅webContents.send 获取更多信息。
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* 发送消息时，事件名称为`channel `。
+* 回复同步信息时，需要设置`event.returnValue`。
+* 将异步消息发送回发件人，需要使用`event.sender.send(...)`。
 
 An example of sending and handling messages between the render and main processes:
 
