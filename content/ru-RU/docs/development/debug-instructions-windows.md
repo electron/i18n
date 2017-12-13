@@ -26,9 +26,9 @@ Relevant code files can be found in `./atom/` as well as in Brightray, found in 
 
 ### Подключение
 
-Вы можете подключить отладчик Visual Studio к запущенному процессу, на локальном или удаленном компьютере. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+Вы можете подключить отладчик Visual Studio к запущенному процессу, на локальном или удаленном компьютере. После того как процесс был запущен, нажмите Debug / Attach to Process (или нажмите `CTRL + ALT + P`), чтобы открыть диалоговое окно «Attach to Process». Вы можете использовать эту возможность для отладки приложений, выполняемых на локальном или удаленном компьютере, и для одновременной отладки нескольких процессов.
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Если Electron выполняется под учетной записью другого пользователя, установите флажок `Show processes from all users`. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
 
 ### К какому процессу я должен подключиться?
 
