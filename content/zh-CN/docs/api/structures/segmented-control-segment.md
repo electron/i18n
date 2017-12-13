@@ -1,5 +1,5 @@
 # SegmentedControlSegment Object
 
-* `label` String - (optional) The text to appear in this segment
-* `icon` NativeImage - (optional) The image to appear in this segment
+* `label` String - (可选) segment展示的文本。
+* `icon` NativeImage - (可选) segment展示的图标。
 * `enabled` Boolean - (optional) Whether this segment is selectable. Default: true
