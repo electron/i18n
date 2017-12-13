@@ -38,6 +38,6 @@ Relevant code files can be found in `./atom/` as well as in Brightray, found in 
 
 ## Использование ProcMon для наблюдения за процессом
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+В то время как Visual Studio отлично подходит для изучения конкретных путей выполнения, ProcMon действительно силен в наблюдении за всем, что делает ваше приложение с операционной системой - включая файлы, реестр, сеть, процессы и детальное профилирование процессов. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
 В качестве введения в базовые и расширенные возможности отладки через ProcMon можно рекомендовать [это видео руководство](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) от Microsoft.
