@@ -17,7 +17,7 @@ xvfb-maybe electron-mocha ./test/*.js
 
 ### Travis CI
 
-On Travis, your `.travis.yml` should look roughly like this:
+Для Travis, ваш `.travis.yml` должен выглядеть примерно так:
 
 ```yml
 addons:
