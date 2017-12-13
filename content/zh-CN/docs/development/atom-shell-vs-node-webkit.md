@@ -8,7 +8,7 @@
 
 **1. 程序的入口**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+在NW.js中，应用的主入口是网页或者JS脚本。 你需要在`package.json`中指定一个html或者js文件，一旦应用的主窗口(在html作为主入口点的情况下)或脚本被执行，应用就会在浏览器窗口打开。
 
 在 Electron 中，入口是一个 JavaScript 脚本。 不同于直接提供一个URL，你需要手动创建一个浏览器窗口，然后通过 API 加载 HTML 文件。 你还可以监听窗口事件，决定何时让应用退出。
 
@@ -26,6 +26,6 @@ Electron 的工作方式更像 Node.js 运行时。 Electron 的 APIs 更加底�
 
 如果你是有经验的 NW.js 用户，你应该会熟悉 Node 上下文和 web 上下文的概念。这些概念的产生源于 NW.js 的实现方式。
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+通过使用Node的[multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622)(多上下文)特性，Electron不需要在网页中引入新的Javascript上下文。
 
 注意: 自从 0.13 以来，NW.js 选择性支持多上下文。

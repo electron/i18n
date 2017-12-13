@@ -42,7 +42,7 @@
 
 ## Правила Markdown
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Використовуйте `sh` замість `cmd` в блоках коду (згідно синтаксису підсвітки).
 * Лінії мають вкладатися в 80 стовпчиків.
 * Списки не можуть мати вкладеність більшу ніж 2 рівні ( згідно візуалізатору markdown).
 * Всі `js` та `javascript` блоки коду перевіряються за допопмогою [standard-markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@
 
 Кожна сторінка повинна використовувати актуальне ім'я об'єкту як назву, що повертається з `require('electron')`, як-от `BrowserWindow`, `autoUpdater` і `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Під заголовком сторінки має бути стрічка опису, яка починається з `>`.
 
 Для прикладу `session`:
 
@@ -212,4 +212,4 @@ required[, optional]
 
 ## Переклади документації
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Дивіться на [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)

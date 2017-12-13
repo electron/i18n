@@ -1,20 +1,20 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> 从主进程到渲染进程的异步通信。
 
 线程：[主线程](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+ipcMain模块是EventEmitter类的一个实例。 在主进程使用时，它处理异步并且接收来自于渲染进程（网页）的同步信息。 从渲染器进程发送的消息将被发送到该模块。
 
-## Sending Messages
+## 发送消息
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+当然也有可能从主进程向渲染进程发送消息，查阅webContents.send 获取更多信息。
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* 发送消息时，事件名称为`channel `。
+* 回复同步信息时，需要设置`event.returnValue`。
+* 将异步消息发送回发件人，需要使用`event.sender.send(...)`。
 
-An example of sending and handling messages between the render and main processes:
+下面是在渲染和主进程之间发送和处理消息的一个例子：
 
 ```javascript
 // In main process.
@@ -43,43 +43,43 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## 方法
 
-The `ipcMain` module has the following method to listen for events:
+IpcMain模块有以下方法来侦听事件：
 
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+为事件添加一个一次性用的listener 函数.这个 listener 只有在下次的消息到达 channel 时被请求调用，之后就被删除了.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+为特定的 channel 从监听队列中删除特定的 listener 监听者.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+删除所有监听者，或特指的 channel 的所有监听者.
 
-## Event object
+## 事件对象
 
-The `event` object passed to the `callback` has the following methods:
+传递给 callback 的 event 对象有如下方法:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+将此设置为在一个同步消息中返回的值.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+返回发送消息的 webContents ，你可以调用 event.sender.send 来回复异步消息，更多信息 webContents.send.

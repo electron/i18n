@@ -223,18 +223,18 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
 #### Event: 'close'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -336,9 +336,9 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -370,9 +370,9 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -385,7 +385,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Подія: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 

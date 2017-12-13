@@ -86,9 +86,9 @@ Squirrel це фреймворк з відкритим кодом, що дозв
 
 ### користувацький простір
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Цей термін виник в співтоваристві Unix де "користувацький" відносився до програм, які виконуються поза ядром операційної системи. Останнім часом, термін популяризований в Node та npm спільноті, щоб розділяти функціонал доступний в "ядрі Node" та пакети опубліковані в реєстрі npm, набагато більшою спільнотою "користувачів".
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Як і Node, Electron цілеспрямований мати невеликий набір API, який надає всі потрібні примітиви для розробки мультиплатформенних застосунків. Така філософія дизайну дозволяє Electron залишатися гнучким інструментом, не будучи надмірно визначеним у використанні. Користувацький простір дозволяє користувачам створювати і поширювати інструменти, які надають додатковий функціонал тому, що вже доступне в "ядрі".
 
 ### V8
 

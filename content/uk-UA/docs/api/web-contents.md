@@ -53,9 +53,9 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -65,9 +65,9 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -82,9 +82,9 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -98,9 +98,9 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -113,26 +113,26 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
@@ -157,9 +157,9 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -172,9 +172,9 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 
 Emitted when a navigation is done.
@@ -183,9 +183,9 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 * `isMainFrame` Boolean
 
@@ -195,9 +195,9 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -224,18 +224,18 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `name` String
 * `version` String
 
@@ -247,9 +247,9 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -290,9 +290,9 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
@@ -305,9 +305,9 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -319,9 +319,9 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `request` Object 
   * `method` String
   * `url` URL
@@ -342,9 +342,9 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -372,18 +372,18 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -396,9 +396,9 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -438,9 +438,9 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
@@ -468,9 +468,9 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -492,9 +492,9 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Returns:
+Повертає:
 
-* `event` Event
+* `event` Подія
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
