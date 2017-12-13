@@ -154,4 +154,4 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+返回`Double` - 自下载开始时的UNIX纪元以来的秒数。
