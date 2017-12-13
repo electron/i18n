@@ -44,37 +44,37 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String
 
-Emitted when the download has been updated and is not done.
+当下载正在执行但还没完成的时候发出。
 
-The `state` can be one of following:
+状态可以是以下之一：
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - 下载正在进行中
+* `interrupted` - 下载已经中断，可以恢复
 
-#### Event: 'done'
+#### 事件名: 'done'
 
 返回:
 
 * `event` Event
 * `state` String
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+当下载文件已经到本地时发出。这包括一个完整的下载，取消下载（`downloadItem.cancel()`）和中断不可恢复的下载。
 
-The `state` can be one of following:
+状态可以是以下之一：
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - 下载成功完成 
+* `cancelled` - 下载已被取消
+* `interrupted` - 下载已经中断，无法恢复
 
 ### 实例方法
 
-The `downloadItem` object has the following methods:
+`downloadItem` 对象具有以下方法：
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - 设置下载项目的保存文件路径。
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
 
 #### `downloadItem.getSavePath()`
 
