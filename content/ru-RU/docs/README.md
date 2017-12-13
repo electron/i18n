@@ -89,7 +89,7 @@
 * [Стиль кода](development/coding-style.md)
 * [Использование clang-format на C++ коде](development/clang-format.md)
 * [Структура каталога с исходным кодом](development/source-code-directory-structure.md)
-* [Технические отличия от NW.js (ранее был извествен как node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Технические отличия от NW.js (ранее node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Обзор системы сборки](development/build-system-overview.md)
 * [Инструкции по сборке (macOS)](development/build-instructions-osx.md)
 * [Инструкции по сборке (Windows)](development/build-instructions-windows.md)
