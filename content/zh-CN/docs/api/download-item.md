@@ -118,39 +118,39 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 返回`String` - 下载项目的文件名。
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**笔记：**文件名与本地磁盘中保存的实际文件名不尽相同。 如果用户在提示的下载保存对话框中更改文件名称，保存的文件的实际名称将会不同。
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+返回`Integer` - 下载项目的总大小（以字节为单位）。
 
-If the size is unknown, it returns 0.
+如果大小未知，则返回0。
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+返回`Integer` - 下载项目的接收字节。
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+返回`String` - 响应头中的Content-Disposition字段。
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+返回 `String` - 表示当前状态.。可能是 `progressing`, `completed`, `cancelled` 或者 `interrupted`。
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**笔记：** 以下方法特别有助于在会话重新启动时恢复取消的项目。
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+返回String [] - 包含任何重定向的项目的完整url链。
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+返回String - Last-Modified的值。
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+返回String - ETag的值。
 
 #### `downloadItem.getStartTime()`
 
