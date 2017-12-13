@@ -1,10 +1,10 @@
-## Class: DownloadItem
+## 类：downloadItem
 
-> Control file downloads from remote sources.
+> 控制来自于远程资源的文件下载。
 
 线程：[主线程](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+在Electron中，`DownloadItem` 是一个代表下载项目的`EventEmitter`。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程.
@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### 事件
 
-#### Event: 'updated'
+#### 事件名: 'updated'
 
 返回:
 
