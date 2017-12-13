@@ -4,7 +4,7 @@ To mitigate [issues](https://github.com/joyent/node/issues/6960) around long pat
 
 ## Создание `asar` архива
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron может работать с файлами в архиве без распаковки оного.
 
 Steps to package your app into an `asar` archive:
 
