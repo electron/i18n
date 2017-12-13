@@ -32,9 +32,9 @@ Relevant code files can be found in `./atom/` as well as in Brightray, found in 
 
 ### К какому процессу я должен подключиться?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Код, выполняющийся в рамках основного процесса (то есть, код находящийся в вашем основном JavaScript файле или вызывающийся из него), а также код, вызываемый с помощью remote (`require('electron').remote`), будет выполняться внутри основного процесса, в то время как остальной код будет выполняться внутри соответствующего процесса визуализации.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Вы можете подключиться к несколько программам для отладки, но только одна программа будет активна в отладчике в каждый момент времени. Вы можете задать активную программу в панели инструментов `Debug Location` либо в окне `Processes`.
 
 ## Использование ProcMon для наблюдения за процессом
 
