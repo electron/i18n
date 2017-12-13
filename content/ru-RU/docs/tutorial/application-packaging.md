@@ -4,9 +4,9 @@ To mitigate [issues](https://github.com/joyent/node/issues/6960) around long pat
 
 ## Создание `asar` архива
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron может работать с файлами в архиве без распаковки оного.
+Архив [asar](https://github.com/electron/asar) это простой tar-подобный формат, который объединяет файлы в один общий файл. Electron может читать любые файлы из архива без распаковки всего архива.
 
-Steps to package your app into an `asar` archive:
+Шаги по упаковке приложения в `asar`-архив:
 
 ### 1. Установка утилиты asar
 
@@ -28,7 +28,7 @@ In Electron there are two sets of APIs: Node APIs provided by Node.js and Web AP
 
 With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Например, предположим что у нас есть архив `example.asar` лежащий в `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -40,7 +40,7 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Прочитать файл в `asar`-архиве:
 
 ```javascript
 const fs = require('fs')
