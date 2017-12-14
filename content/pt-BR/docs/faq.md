@@ -6,7 +6,7 @@ Ao executar o `npm install electron`, alguns usuários encontram erros de instal
 
 Em quase todos os casos, esses problemas são resultado de problemas de rede e não de problemas reais com o pacote npm `electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, e `ETIMEDOUT` são resultados da falta de internet. A melhor solução é tentar trocar de rede ou aguardar um pouco e tentar instalar novamente.
 
-Você também pode tentar baixa o Electron diretamente do [electron/electron/releases](https://github.com/electron/electron/releases). se a instalação via `npm` falha.
+Se a instalação via `npm` falhar, você também pode tentar baixar o Electron diretamente do código fonte em [electron/electron/releases](https://github.com/electron/electron/releases).
 
 ## Quando o Electron será atualizado para a versão mais recente do Chrome?
 
@@ -47,9 +47,9 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Janela/bandeja do meu app desapareceu depois de alguns minutos.
 
-Isto acontece quando a variável que é usada para armazenar a janela/bandeja fica com o resto coletado.
+Isto acontece quando a variável que é usada para armazenar a janela/bandeja é apagada pelo coletor de lixo.
 
-Se você encontrar esse problema, veja os artigos útil:
+Se você encontrar esse problema, esses artigos podem ser úteis:
 
 * [Gerenciamento de Memória](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Escopo de variável](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
@@ -136,4 +136,4 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. Poe exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
