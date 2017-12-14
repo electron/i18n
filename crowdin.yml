@@ -1,3 +1,4 @@
+commit_message: 'feat: new translations'
 files:
   - source: /content/en-US/docs/*.md
     translation: /content/%locale%/docs/%original_file_name%
