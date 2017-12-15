@@ -2,11 +2,11 @@
 
 ## Tại sao tôi lại gặp sự cố trong khi cài đặt Electron?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Khi chạy `npm install electron`, một số người dùng đôi khi gặp phải lỗi cài đặt.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là vấn đề với gói npm của `electron`. Các lỗi như `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, và `ETIMEDOUT` tất cả là biểu hiện của các vấn đề về mạng. Giải pháp tốt nhất là thử đổi mạng, hoặc chờ một lát sau đó thử cài lại sau.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/releases](https://github.com/electron/electron/releases) nếu quá trình cài đặt `npm` bị lỗi.
 
 ## Khi nào Chrome được cập nhật phiên bản mới nhất vào Electron?
 
