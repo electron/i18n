@@ -1,4 +1,4 @@
-# Synopsis
+# Konu Özeti
 
 > How to use Node.js and Electron APIs.
 
