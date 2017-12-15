@@ -12,11 +12,11 @@ Process: [Main](../glossary.md#main-process)
   * `method` String (необязательное) – Метод HTTP запроса. По умолчанию GET.
   * `url` String (необязательное) – URL запроса. Должен быть предоставлен в абсолютной форме, с указаной схемой протокола http или https.
   * `session` Object (необязательное) – Экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
-  * `partition` String (необязательное) – Название [`partition`](session.md), с которым ассоциирован данный запрос. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
+  * `partition` String (необязательное) – Название [`partition`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Опция `session` преобладает над опцией `partition`. Поэтому, если `session` указана, то `partition` игнорируется.
+  * `protocol` String (необязательное) – Схема протокола в виде 'scheme:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
+  * `host` String (необязательное) – Имя хоста, предоставленное конкатенацией домена и номера порта 'hostname:port'.
+  * `hostname` String (необязательное) – Доменное имя сервера.
+  * `port` Integer (необязательное) – Номер порта сервера.
   * `path` String (optional) - The path part of the request URL.
   * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
