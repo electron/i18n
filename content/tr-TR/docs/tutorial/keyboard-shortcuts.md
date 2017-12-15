@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Klavye Kısayolları
 
 > Configure local and global keyboard shortcuts
 
