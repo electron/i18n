@@ -51,7 +51,7 @@ benefits:
   windows_installers: Windows用インストーラー
 get_started:
   title: 始めましょう！
-  description: Electronでの開発を始めるには、以下の情報をチェックしてください。Electronを用いたWebアプリのパッケージ化、APIへのアクセス、インストーラの作成方法などが解説されています。
+  description: Electronでの開発を始めるには、こちらの情報をチェックしてください。Electronを用いたWebアプリのパッケージ化、APIへのアクセス、インストーラの作成方法などが解説されています。
 explore:
   title: ElectronのAPIに触れる
   description:
