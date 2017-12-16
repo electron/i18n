@@ -6,7 +6,7 @@
 
 ` globalShortcut ` 模块可以在操作系统中注册/注销全局快捷键, 以便可以为各种快捷方式自定义操作。
 
-** Note: **快捷方式是全局的; 即使应用程序没有键盘焦点, 它也仍然在持续监听键盘事件。 在应用程序模块发出 `ready ` 事件之前, 不应使用此模块。
+** 注意: **快捷方式是全局的; 即使应用程序没有键盘焦点, 它也仍然在持续监听键盘事件。 在应用程序模块发出 `ready ` 事件之前, 不应使用此模块。
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -36,16 +36,16 @@ app.on('will-quit', () => {
 
 ## 方法
 
-The `globalShortcut` module has the following methods:
+` globalShortcut ` 模块具有以下方法:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+注册 ` accelerator ` 的全局快捷键。当用户按下已注册的快捷键时, 将调用 ` callback `函数。
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+如果该快捷键已经被其他应用程序使用, 回调函数将不会被触发。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 ### `globalShortcut.isRegistered(accelerator)`
 
