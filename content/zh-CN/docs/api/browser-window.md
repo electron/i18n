@@ -394,71 +394,71 @@ win.on('app-command', (e, cmd) => {
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+返回 `BrowserWindow[]` - 所有打开的窗口的数组
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+返回 `BrowserWindow` - 当前获得焦点的窗口, 如果没有就返回 `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+返回 `BrowserWindow` - 拥有给定 `webContents` 的窗口.
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+返回 `BrowserWindow` -拥有给定 `id` 的窗口.
 
 #### `BrowserWindow.addExtension(path)`
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+添加位于 `path`的扩展，并且返回扩展名
 
-The method will also not return if the extension's manifest is missing or incomplete.
+该方法如果扩展的 manifest 缺失或不完整，该方法不会返回。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.removeExtension(name)`
 
 * `name` String
 
-Remove a Chrome extension by name.
+根据名字删除一个 Chrome 的扩展。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+返回 `Object` - 键是扩展名, 每个值都是一个包含 `name` 和 `version` 属性的对象.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+添加位于 `path`的 DevTools 扩展，并且返回扩展名
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+扩展将被记住, 所以你只需要调用这个API一次, 这个API不是用于编程使用. 如果尝试添加已经加载的扩展, 此方法将不会返回, 而是会向控制台记录警告.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+该方法如果扩展的 manifest 缺失或不完整，该方法不会返回。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `name` String
 
-Remove a DevTools extension by name.
+根据名字删除一个 DevTools 的扩展。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+返回 `Object` - 键是扩展名, 每个值都是一个包含 `name` 和 `version` 属性的对象.
 
 To check if a DevTools extension is installed you can run the following:
 
@@ -469,7 +469,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 ### Instance Properties
 
