@@ -4,7 +4,7 @@
 
 ## Local Shortcuts
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Вы можете использовать модуль [Menu](../api/menu.md) для настройки горячих клавиш, которые срабатывают только когда приложение активно. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Настроить сочетания клавиш на основе операционной системы пользователя легко.
 
 ```js
 {
@@ -25,7 +25,7 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## Глобальные сочетания клавиш
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
