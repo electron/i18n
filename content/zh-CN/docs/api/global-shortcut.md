@@ -1,18 +1,18 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> 当应用程序没有键盘焦点时监听全局键盘事件。
 
 线程：[主线程](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+` globalShortcut ` 模块可以在操作系统中注册/注销全局快捷键, 以便可以为各种快捷方式自定义操作。
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+** Note: **快捷方式是全局的; 即使应用程序没有键盘焦点, 它也仍然在持续监听键盘事件。 在应用程序模块发出 `ready ` 事件之前, 不应使用此模块。
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // 注册一个 'CommandOrControl+X' 的全局快捷键
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
@@ -21,15 +21,15 @@ app.on('ready', () => {
     console.log('registration failed')
   }
 
-  // Check whether a shortcut is registered.
+  // 检查快捷键是否注册成功
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // 注销快捷键
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // 清空所有快捷键
   globalShortcut.unregisterAll()
 })
 ```
