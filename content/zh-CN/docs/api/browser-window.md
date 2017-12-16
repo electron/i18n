@@ -253,79 +253,79 @@ window.onbeforeunload = (e) => {
 
 #### 事件： 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+口已经关闭时触发。当你接收到这个事件的时候, 你应当删除对已经关闭的窗口的引用对象和避免再次使用它.
 
-#### Event: 'session-end' *Windows*
+#### 事件: 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+因为强制关机或机器重启或会话注销而导致窗口会话结束时触发
 
-#### Event: 'unresponsive'
+#### 事件: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+网页变得未响应时触发
 
-#### Event: 'responsive'
+#### 事件: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+未响应的页面变成响应时触发
 
-#### Event: 'blur'
+#### 事件: 'blur'
 
-Emitted when the window loses focus.
+当窗口失去焦点时触发
 
-#### Event: 'focus'
+#### 事件: 'focus'
 
-Emitted when the window gains focus.
+当窗口获得焦点时触发
 
-#### Event: 'show'
+#### 事件: 'show'
 
-Emitted when the window is shown.
+当窗口显示时触发
 
-#### Event: 'hide'
+#### 事件: 'hide'
 
-Emitted when the window is hidden.
+当窗口隐藏时触发
 
-#### Event: 'ready-to-show'
+#### 事件: 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+当页面已经渲染完成(但是还没有显示) 并且窗口可以被现实时触发
 
-#### Event: 'maximize'
+#### 事件: 'maximize'
 
-Emitted when window is maximized.
+窗口最大化时触发
 
-#### Event: 'unmaximize'
+#### 事件: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+当窗口从最大化状态退出时触发
 
-#### Event: 'minimize'
+#### 事件: 'minimize'
 
-Emitted when the window is minimized.
+窗口最小化时触发
 
-#### Event: 'restore'
+#### 事件: 'restore'
 
-Emitted when the window is restored from a minimized state.
+当窗口从最小化状态恢复时触发
 
-#### Event: 'resize'
+#### 事件: 'resize'
 
-Emitted when the window is being resized.
+调整窗口大小时触发
 
-#### Event: 'move'
+#### 事件: 'move'
 
-Emitted when the window is being moved to a new position.
+窗口移动到新位置时触发
 
-**Note**: On macOS this event is just an alias of `moved`.
+**注意**: 在 macOS 上，此事件仅是`moved`的别名.
 
-#### Event: 'moved' *macOS*
+#### 事件: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+当窗口移动到新位置时触发一次
 
-#### Event: 'enter-full-screen'
+#### 事件: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+窗口进入全屏状态时触发
 
-#### Event: 'leave-full-screen'
+#### 事件: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+窗口离开全屏状态时触发
 
-#### Event: 'enter-html-full-screen'
+#### 事件: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
