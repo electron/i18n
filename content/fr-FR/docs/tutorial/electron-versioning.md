@@ -1,6 +1,6 @@
 # Versionnement d'Electron
 
-> A detailed look at our versioning policy and implementation.
+> Un descriptif de la politique de gestion de version et d'implémentation.
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
