@@ -45,7 +45,7 @@ Objects created with `new Notification` emit the following events:
 
 ** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
-#### Event: 'show'
+#### 事件: 'show'
 
 返回:
 
