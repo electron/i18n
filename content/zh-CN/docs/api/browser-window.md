@@ -504,86 +504,86 @@ win.loadURL('https://github.com')
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+尝试关闭窗口。这与用户手动点击窗口的关闭按钮效果相同。但页面也可以取消关闭。请看 [close event](#event-close)
 
 #### `win.focus()`
 
-Focuses on the window.
+聚焦于窗口
 
 #### `win.blur()`
 
-Removes focus from the window.
+取消窗口的聚焦
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+返回 `Boolean` - 判断窗口是否聚焦
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+返回 `Boolean` -判断窗口是否被销毁
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+显示并聚焦于窗口
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+显示但不聚焦于窗口
 
 #### `win.hide()`
 
-Hides the window.
+隐藏窗口
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+返回 `Boolean` - 判断窗口是否可见
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+返回 `Boolean` - 判断是否为模态窗口
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+最大化窗口。如果窗口尚未显示, 这也将会显示 (但不会聚焦)。
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+取消窗口最大化
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+返回 `Boolean` - 判断窗口是否最大化
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+窗口最小化。在某些平台上, 最小化的窗口将显示在Dock中.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+将窗口从最小化状态恢复到以前的状态。
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+返回 `Boolean` -判断窗口是否最小化
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+设置窗口是否应处于全屏模式。
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+返回 `Boolean` - 窗口当前是否已全屏
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* ` aspectRatio ` Float- 为内容视图保持的宽高比.
+* `extraSize` [Size](structures/size.md) - 维持高宽比值时不包含的额外大小
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+这将使窗口保持长宽比。 额外的大小允许开发人员有空间 (以像素为单位), 不包括在纵横比计算中。 此 API 已经考虑了窗口大小和内容大小之间的差异。
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+想象一个使用高清视频播放器和相关控件的普通窗口。 Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
