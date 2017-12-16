@@ -212,14 +212,14 @@ child.once('ready-to-show', () => {
 * 在 Linux 上, 可能的类型有 ` desktop `、` dock `、` toolbar `、` splash `、` notification `。
 * 在 macOS, 可能的类型是 `desktop`, `textured`. 
   * `textured` 类型增加金属色泽的外观 (`NSTexturedBackgroundWindowMask`).
-  * `desktop` 类型将窗口置于桌面背景级别 (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+  * `desktop` 类型将窗口置于桌面背景级别 (`kCGDesktopWindowLevel - 1`). 注意，桌面窗口不会接收焦点、键盘或鼠标事件，但您可以使用< 0> globalShortcut < /0 >接收快捷键的消息
+* 在 Windows 上, 可能的类型为 `toolbar`.
 
 ### 事件
 
-Objects created with `new BrowserWindow` emit the following events:
+使用 `new BrowserWindow ` 创建的对象具有以下属性:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 #### 事件： 'page-title-updated'
 
@@ -228,31 +228,30 @@ Objects created with `new BrowserWindow` emit the following events:
 * `event` Event
 * `title` String
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题
 
-#### 事件：close
+#### 事件： 'close'
 
 返回:
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+在窗口要关闭的时候触发。 它在DOM 的`beforeunload` 和 `unload` 事件之前触发. 调用`event.preventDefault()`将阻止这个操作。
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 例如：
+通常你想通过 `beforeunload`处理器来决定是否关闭窗口，但是它也会在窗口重载的时候触发. 在 Electron 里，返回处 `undefined`之外的任何值都将取消关闭. 例如：
 
 ```javascript
 window.onbeforeunload = (e) => {
   console.log('I do not want to be closed')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
+  // 与通常的浏览器不同,会提示给用户一个消息框,
+  //返回非空值将默认取消关闭
+  //建议使用对话框 API 让用户确认关闭应用程序.
   e.returnValue = false
 }
 ```
 
-#### Event: 'closed'
+#### 事件： 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
