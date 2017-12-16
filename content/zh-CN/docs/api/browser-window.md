@@ -327,70 +327,70 @@ window.onbeforeunload = (e) => {
 
 #### 事件: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+窗口进入由HTML API 触发的全屏状态时触发
 
-#### Event: 'leave-html-full-screen'
+#### 事件: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+窗口离开由HTML API触发的全屏状态时触发
 
-#### Event: 'app-command' *Windows*
+#### 事件: 'app-command' *Windows*
 
 返回:
 
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+请求一个[应用程序命令](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx)时触发. 典型的是键盘上的媒体键或浏览器命令, 以及在Windows上的一些鼠标中内置的“后退”按钮。
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+命令是小写的，下划线替换为连字符，以及`APPCOMMAND_` 前缀将被删除。 例如 `APPCOMMAND_BROWSER_BACKWARD`将被`browser-backward`触发.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // 当用户点击鼠标返回按钮时，导航窗口会后退
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### 事件: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+滚轮事件阶段开始时触发
 
-#### Event: 'scroll-touch-end' *macOS*
+#### 事件: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+滚轮事件阶段结束时触发
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### 事件: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+滚轮事件阶段到达元素边缘时触发
 
-#### Event: 'swipe' *macOS*
+#### 事件: 'swipe' *macOS*
 
 返回:
 
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+三指拖移时触发，可选的方向为 `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### 事件: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+窗口打开sheet(工作表) 时触发
 
-#### Event: 'sheet-end' *macOS*
+#### 事件: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+窗口关闭sheet(工作表) 时触发
 
 #### 事件: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+当点击了系统的新标签按钮时触发
 
 ### 静态方法
 
-The `BrowserWindow` class has the following static methods:
+`BrowserWindow` 类有以下方法:
 
 #### `BrowserWindow.getAllWindows()`
 
