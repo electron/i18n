@@ -8,7 +8,7 @@ Depuis la version 2.0.0, Electron applique la politique [semver](#semver) (gesti
 npm install --save-dev electron
 ```
 
-Mettre à jour un projet existant pour utiliser la dernière version stable :
+Pour mettre à jour un projet existant afin d'utiliser la dernière version stable :
 
 ```sh
 npm install --save-dev electron@latest
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Les versions d'Electron antérieure à la version *2.0.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Les versions d'Electron antérieure à la version *2.0.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. Il y a de grandes chances d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
 
 Here is an example of the 1.x strategy:
 
