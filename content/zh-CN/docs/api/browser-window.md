@@ -460,7 +460,7 @@ win.on('app-command', (e, cmd) => {
 
 返回 `Object` - 键是扩展名, 每个值都是一个包含 `name` 和 `version` 属性的对象.
 
-To check if a DevTools extension is installed you can run the following:
+要检查是否安装了 DevTools 扩展，您可以运行以下内容:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -471,36 +471,36 @@ console.log(installed)
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-### Instance Properties
+### 实例属性
 
-Objects created with `new BrowserWindow` have the following properties:
+使用 `new BrowserWindow ` 创建的对象具有以下属性:
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// 在这个例子中,`win` 是我们的实例
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+窗口拥有的 `WebContents` 对象. 所有与网页相关的事件和操作都将通过它完成.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+有关它的方法和事件, 请参见 [`webContents` documentation](web-contents.md)
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+`Integer` 窗口的唯一ID
 
 ### 实例方法
 
-Objects created with `new BrowserWindow` have the following instance methods:
+使用 `new BrowserWindow `创建的对象具有以下实例方法:
 
 ** 注意: **某些方法仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+强制关闭窗口, 除了` closed `之外，`close`，`unload` 和 `beforeunload` 都不会被触发
 
 #### `win.close()`
 
