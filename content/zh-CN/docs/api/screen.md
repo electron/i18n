@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
