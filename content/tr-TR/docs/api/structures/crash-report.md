@@ -1,4 +1,4 @@
-# CrashReport Object
+# HataRapor Nesnesi
 
-* `date` String
+* `gün` Metin
 * `ID` Integer
