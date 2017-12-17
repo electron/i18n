@@ -1,4 +1,4 @@
-# `Dosya` Nesne
+# `File` Nesne
 
 > Use the HTML5 `File` API to work natively with files on the filesystem.
 
