@@ -682,9 +682,9 @@ win.loadURL('https://github.com')
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+返回 `Boolean` - 窗口是否可以被用户拖动
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -696,7 +696,7 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -708,7 +708,7 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -730,7 +730,7 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
