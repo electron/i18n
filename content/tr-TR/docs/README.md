@@ -86,11 +86,11 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ## Geliştirme
 
-* [Coding Style](development/coding-style.md)
+* [Kodlama Stili](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
+* [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
+* [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
 * [Build Instructions (macOS)](development/build-instructions-osx.md)
 * [Build Instructions (Windows)](development/build-instructions-windows.md)
 * [Build Instructions (Linux)](development/build-instructions-linux.md)
