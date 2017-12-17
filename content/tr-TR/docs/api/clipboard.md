@@ -1,4 +1,4 @@
-# clipboard
+# pano
 
 > Perform copy and paste operations on the system clipboard.
 
