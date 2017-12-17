@@ -65,7 +65,7 @@ quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
   clone: Hızlı Başlangıç deposunu kopyala
-  go_into_repo: Go into the repository
+  go_into_repo: Depo içerisine git
   install_deps: Bağımlılıkları yükle ve çalıştır
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
@@ -74,14 +74,14 @@ need_help:
 headings:
   languages: Diller
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: Bizim mükemmel geliştirici topluluğumuz tarafından yerelleştirilmiş içerik.
 help_translate: "Çeviriye yardım et"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
+  see_something: Düzeltilmesi gereken bir şey mi gördün?
+  propose_change: Kaynak dosyada bir değişiklik öneriyorum.
+  need_different_version: Dokümanların farklı bir sürümüne mi ihtiyacınız var?
   see_available_versions: Kullanılabilir sürümleri gör.
-  want_something_searchable: Want something searchable?
+  want_something_searchable: Aranabilir olmasını ister misiniz?
   view_all_docs: Tüm dokümanları bir sayfada görüntüle
   see_the_faq: 'Bkz: sıkça sorulan sorular'
 apps:
@@ -134,7 +134,7 @@ pages:
     title: Kullanıcı alanı
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron, Electron uygulamanızı, incelemenize, izlemenize ve hataları ayıklamanıza yardımcı olacak, açık kaynak kodlu bir araçtır. İnanılmaz Chrome Geliştirici Araçları eklentisi üzerine kuruludur.
   '/spectron':
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
