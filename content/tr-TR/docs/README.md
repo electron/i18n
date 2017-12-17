@@ -48,7 +48,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [`<webview>`Etiket](api/webview-tag.md)
 * [`window.open` Fonksiyon](api/window-open.md)
 
-### Ana Süreç için modüller:
+### Ana Süreç İçin Modüller:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -58,7 +58,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
-* [Menü](api/menu.md)
+* [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
@@ -69,25 +69,25 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Oluşturma Süreci (Web Sayfası) İçin Modüller:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Her İki Süreç Modülleri:
 
-* [pano](api/clipboard.md)
+* [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [ekran](api/screen.md)
-* [kabuk](api/shell.md)
+* [screen](api/screen.md)
+* [shell](api/shell.md)
 
 ## Geliştirme
 
 * [Kodlama Stili](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
+* [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
 * [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
@@ -97,7 +97,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Hata Ayıklama Talimatları (macOS)](development/debugging-instructions-macos.md)
 * [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
+* [Stil Kılavuz Dokümantasyonu](styleguide.md)
 * [Chrome Yükseltme](development/upgrading-chrome.md)
 * [Chromium Geliştirme](development/chromium-development.md)
 * [V8 Geliştirme](development/v8-development.md)
