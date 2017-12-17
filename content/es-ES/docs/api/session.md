@@ -1,6 +1,6 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
 Process: [Main](../glossary.md#main-process)
 
