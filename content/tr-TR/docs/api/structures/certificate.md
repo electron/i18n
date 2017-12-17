@@ -1,6 +1,6 @@
-# Sertifika Objesi
+# Certificate Nesnesi
 
-* ` data ` Dizesi - PEM tarafından kodlanmış veriler
+* `data` String - PEM tarafından kodlanmış veri
 * ` issuer ` [ CertificatePrincipal ](certificate-principal.md) - İhraçcı asıl
 * `issuerName</ 0> String - İhracını Ortak Adı</li>
 <li><code>issuerCert` Certificate - Issuer certificate (if not self-signed)
