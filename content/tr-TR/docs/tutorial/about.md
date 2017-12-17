@@ -1,4 +1,4 @@
-# About Electron
+# Electron Hakkında
 
 [Electron](https://electronjs.org), HTML, CSS ve JavaScript ile çok platformlu masaüstü uygulamaları oluşturmak için GitHub tarafından geliştirilen bir açık kaynak kütüphanesidir. Electron bunu, [Chromium](https://www.chromium.org/Home) ve [Node.js](https://nodejs.org)'yi tek bir çalışma zamanında birleştirerek gerçekleştirir ve uygulamalar Mac, Windows ve Linux için paketlenebilir.
 
@@ -44,7 +44,7 @@ For instance, Electron uses just the rendering library from Chromium rather than
 
 New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
-## History
+## Tarihçe
 
 Below are milestones in Electron's history.
 
