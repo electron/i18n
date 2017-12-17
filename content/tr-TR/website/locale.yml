@@ -89,7 +89,7 @@ apps:
   description: "Electron ile, şirketiniz ya da fikriniz için bir masaüstü uygulama oluşturmak kolaydır.\nBaşlangıçta GitHub'ın <a href='https://atom.io' target='_blank'>Atom Editörü</a> için geliştirilen Electron, Microsoft, Facebook, Slack ve Docker gibi firmalar tarafından, uygulama oluşturmak için kullanılmıştır."
   view_more: Daha fazla uygulama görüntüleyin
   submit_your_own: kendininkini gönder
-  something_missing: Birşey mi eksik?
+  something_missing: Bir şey mi eksik?
   edit_this_app: Bu uygulamayı düzenle.
 clipboard:
   copy: Kopyala
@@ -98,14 +98,14 @@ clipboard:
 or: ya da
 pages:
   '/':
-    title: Electron | Javascript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.
-    description: 'Javascript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.'
+    title: Electron | JavaScript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.
+    description: 'JavaScript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.'
   '/apps':
     title: Electron Uygulamaları
     description: Electron ile Yapılmış Uygulamalar
   '/docs':
     title: Dokümantasyon
-    description: En sonki Electron sürümü için API referans dokümantasyonu
+    description: En son ki Electron sürümü için API referans dokümantasyonu
   '/docs/all':
     title: Tüm Electron Dokümanları!
     description: Tüm Electron kılavuzları ve API belgesi bir tek, aranabilir sayfada.
@@ -137,8 +137,8 @@ pages:
     description: Devtron, Electron uygulamanızı, incelemenize, izlemenize ve hataları ayıklamanıza yardımcı olacak, açık kaynak kodlu bir araçtır. İnanılmaz Chrome Geliştirici Araçları eklentisi üzerine kuruludur.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron, Electron uygulamanıza, kolaylıkla test entegrasyonu yazılmasını sağlayan, açık kaynak kodlu kütüphanedir. ChromeDriver ve WebDriverIO ya geliştirilmiştir.
 _404:
   page_not_found: Sayfa bulunamadı.
   if_this_is_an_error: Bu bir hata ise
-  please_file_an_issue: please file an issue.
+  please_file_an_issue: lütfen sorunu bulunuz.
