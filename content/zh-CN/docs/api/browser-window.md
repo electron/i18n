@@ -658,27 +658,27 @@ win.loadURL('https://github.com')
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+设置窗口最大化的 `width` 和 `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+返回 ` Integer [] `-包含窗口最大化的宽度和高度。
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+设置用户是否可以手动调整窗口大小。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+返回 `Boolean` - 设置窗口是否可以被用户改变大小.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+设置窗口是否可由用户移动。在 Linux 上无效。
 
 #### `win.isMovable()` *macOS* *Windows*
 
