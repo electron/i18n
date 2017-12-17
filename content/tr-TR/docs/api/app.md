@@ -1,4 +1,4 @@
-# app
+# uygulama
 
 > Control your application's event lifecycle.
 
