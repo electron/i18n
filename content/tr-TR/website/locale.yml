@@ -35,10 +35,10 @@ electron_is_easy:
   video_link: Videoyu İzle
 web_technologies:
   title: Web Teknolojileri
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  description: Electron Chromium ve Node.js kullanır, bu yüzden uygulamanızı HTML, CSS ve JavaScript ile oluşturabilirsiniz.
 open_source:
   title: Açık Kaynak
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Electron, GitHub ve aktif olarak katkıda bulunan topluluk tarafından sürdürülen, açık kaynak kodlu bir projedir.
 cross_platform:
   title: Platformlar Arası
   description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
