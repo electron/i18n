@@ -1,4 +1,4 @@
-# BluetoothDevice Nesnesi
+# BluetoothAygıt Nesnesi
 
-* ` deviceName ` Dizesi
-* `deviceId` Dizesi
+* `aygıtAdı` Metin
+* `aygıtKodu` Metin
