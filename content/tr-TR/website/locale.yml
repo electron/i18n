@@ -8,7 +8,7 @@ nav:
   releases: Sürümler
   contact: İletişim
   languages: Diller
-  code_of_conduct: Code of Conduct
+  code_of_conduct: Davranış Kodu
 docs:
   title: Electron Dokümanları
   description: Dokümanları <a href="/docs/all">tek bir sayfada</a> görün veya <a href="/docs/faq"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
@@ -88,12 +88,12 @@ apps:
   title: Apps built on Electron
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
   view_more: Daha fazla uygulama görüntüleyin
-  submit_your_own: submit your own
-  something_missing: Something missing?
+  submit_your_own: kendininkini gönder
+  something_missing: Birşey mi eksik?
   edit_this_app: Bu uygulamayı düzenle.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
+  copy: Kopyala
+  copy_to_clipboard: Panoya Kopyala
   copied: Kopyalandı
 or: ya da
 pages:
@@ -111,7 +111,7 @@ pages:
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: En sonki Electron sürümü için API referans dokümantasyonu
   '/docs/development':
     title: Geliştirme
     description: Elektron ile Geliştirme
@@ -120,7 +120,7 @@ pages:
     description: En son Electron sürümü için kılavuzlar ve eğitimler
   '/blog':
     title: Electron Bloğu
-    description: All the latest news from the Electron team and community.
+    description: Electron takım ve topluluğundan en sonki haberler.
   '/community':
     title: Topluluk
   '/releases':
