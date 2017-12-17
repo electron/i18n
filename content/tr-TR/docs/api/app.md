@@ -1,6 +1,6 @@
 # app
 
-> Control your application's event lifecycle.
+> Uygulamanızın etkinlik ömrünü kontrol edin.
 
 Process: [Main](../glossary.md#main-process)
 
