@@ -1,6 +1,6 @@
 # Electron SSS
 
-## Why am I having trouble installing Electron?
+## Neden Electron yüklerken sorunla karşılaşıyorum?
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
@@ -8,7 +8,7 @@ In almost all cases, these errors are the result of network problems and not act
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
-## When will Electron upgrade to latest Chrome?
+## Electron ne zaman en son ki Chrome sürümüne yükseltiliyor?
 
 The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
@@ -51,8 +51,8 @@ This happens when the variable which is used to store the window/tray gets garba
 
 If you encounter this problem, the following articles may prove helpful:
 
-* [Hafıza İdaresi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Bellek Yönetimi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Değişken Etki Alanı](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:
 
