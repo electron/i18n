@@ -105,13 +105,13 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+返回 ` String `- 查找粘贴板上的文本。 此方法在从渲染进程调用时使用同步 IPC。 每当激活应用程序时, 都会从查找粘贴板中重新读取缓存值。
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+将 ` text ` 作为纯文本写入查找粘贴板。此方法在从渲染进程调用时使用同步 IPC。
 
 ### `clipboard.clear([type])`
 
@@ -123,46 +123,46 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * ` type ` String（可选）
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+返回 ` String [] `- 剪贴板 ` type ` 所支持的格式的数组。
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *实验功能*
 
 * `format` String
 * ` type ` String（可选）
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+返回 ` Boolean `, 剪贴板是否支持指定的 ` format `。
 
 ```javascript
 const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` *实验功能*
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` *实验功能*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+返回 ` Buffer `- 从剪贴板中读取 ` format ` 类型的内容。
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` *实验功能*
 
 * `format` String
 * `buffer` Buffer
 * ` type ` String（可选）
 
-Writes the `buffer` into the clipboard as `format`.
+将 `buffer ` 作为 ` format ` 类型写入剪贴板。
 
 ### `clipboard.write(data[, type])`
 
 * `data` Object 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
+  * ` text ` String（可选）
+  * ` html ` String（可选）
+  * `image` [NativeImage](native-image.md) (可选)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
 * ` type ` String（可选）
