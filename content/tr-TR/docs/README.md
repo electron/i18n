@@ -1,4 +1,4 @@
-Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin olunuz. Sürüm numarası, sayfa URL'inin bir parçası olmalıdır. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin olunuz. Sürüm numarası, sayfa URL'inin bir parçası olmalıdır. Eğer değilse, muhtemelen kullandığınız bir geliştirme dal dokümantasyonu, Electron sürümünüzle uyumlu olmayan API değişikliklerini içeriyor olabilir. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## SSS
 
@@ -44,7 +44,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ### Özel DOM Elementleri:
 
-* [`Dosya` Nesne](api/file-object.md)
+* [`File` Nesne](api/file-object.md)
 * [`<webview>`Etiket](api/webview-tag.md)
 * [`window.open` Fonksiyon](api/window-open.md)
 
@@ -89,14 +89,14 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Kodlama Stili](development/coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
 * [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [NW.js (eski adı node-webkit)'le Teknik Farklılıkları](development/atom-shell-vs-node-webkit.md)
 * [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
 * [İnşaa Talimatları (macOS)](development/build-instructions-osx.md)
 * [İnşaa Talimatları (Windows)](development/build-instructions-windows.md)
 * [İnşaa Talimatları (Linux)](development/build-instructions-linux.md)
 * [Hata Ayıklama Talimatları (macOS)](development/debugging-instructions-macos.md)
 * [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
+* [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
 * [Stil Kılavuz Dokümantasyonu](styleguide.md)
 * [Chrome Yükseltme](development/upgrading-chrome.md)
 * [Chromium Geliştirme](development/chromium-development.md)
