@@ -43,7 +43,7 @@ cross_platform:
   title: Platformlar Arası
   description: Electron, Mac, Windows ve Linux'te uygulamalar oluşturmak ve bu üç platformda çalıştırmakla uyumludur.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
+  hard_parts_made_easy: Zor parçaları kolaylaştırır
   automatic_updates: Otomatik güncellemeler
   native_menus_and_notifications: Yerel Menüler ve Bildirimler
   crash_reporting: Hata raporlama
@@ -51,7 +51,7 @@ benefits:
   windows_installers: Windows yükleyicisi
 get_started:
   title: Başlarken
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Electron'la başlamak için, aşağıdaki kaynakları kontrol ediniz. Web uygulamanızı nasıl Electron ile paketleyebileceğinizi, tüm API'lere erişebileceğinizi ve yükleyeciler oluşturabileceğinizi öğrenin.
 explore:
   title: Elektron API'leri keşfetmek
   description:
