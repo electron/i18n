@@ -1,4 +1,4 @@
-# Environment Variables
+# Ortam Değişkenleri
 
 > Control application configuration and behavior without changing code.
 
