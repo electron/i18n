@@ -31,7 +31,7 @@ community:
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
   title: Düşündüğünden daha kolay
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
+  description: Eğer bir website oluşturabiliyorsanız, masaüstü uygulama da oluşturabilirsiniz. Electron, JavaScript, HTML ve CSS gibi web teknolojileriyle birlikte yaratıcı, yerli uygulamalar oluşturmak için bir sistemdir. Uygulamanızın özüne odaklanabilmeniz için, zor kısımların üstesinden gelir.
   video_link: Videoyu İzle
 web_technologies:
   title: Web Teknolojileri
@@ -41,7 +41,7 @@ open_source:
   description: Electron, GitHub ve aktif olarak katkıda bulunan topluluk tarafından sürdürülen, açık kaynak kodlu bir projedir.
 cross_platform:
   title: Platformlar Arası
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Electron, Mac, Windows ve Linux'te uygulamalar oluşturmak ve bu üç platformda çalıştırmakla uyumludur.
 benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: Otomatik güncellemeler
