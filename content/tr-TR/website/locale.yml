@@ -1,4 +1,4 @@
-tagline: Javascript, HTML ve CSS ile çapraz platform Masaüstü uygulamaları geliştir
+tagline: JavaScript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştirin
 nav:
   docs: Dokümanlar
   blog: Blog
@@ -30,11 +30,11 @@ community:
   awesome_notice: Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
-  title: Sandığından daha kolay
+  title: Düşündüğünden daha kolay
   description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
   video_link: Videoyu İzle
 web_technologies:
-  title: Web teknolojileri
+  title: Web Teknolojileri
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
   title: Açık Kaynak
