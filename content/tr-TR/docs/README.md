@@ -2,7 +2,7 @@ Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin
 
 ## SSS
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Electron SSS](faq.md)
 
@@ -16,18 +16,18 @@ There are questions that are asked quite often. Check this out before creating a
 * [Mac App Store'a Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md)
 * [Windows Uygulama Mağazası'na Gönderme Kılavuzu](tutorial/windows-store-guide.md)
 * [Uygulama Paketleme](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Yerel Düğüm Modüllerini Kullanmak](tutorial/using-native-node-modules.md)
+* [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
+* [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
+* [DevTools Eklentisi](tutorial/devtools-extension.md)
+* [Pepper Flash Eklentisini Kullanma](tutorial/using-pepper-flash-plugin.md)
+* [Widevine CDM Eklentisini Kullanma](tutorial/using-widevine-cdm-plugin.md)
+* [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
+* [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
 * [Klavye Kısayolları](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Uygulamaları Güncelleme](tutorial/updates.md)
 
-## Rehberler
+## Eğitimler
 
 * [Hızlı Başlangıç](tutorial/quick-start.md)
 * [Masaüstü Ortam Entegrasyonu](tutorial/desktop-environment-integration.md)
