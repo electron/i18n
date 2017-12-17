@@ -690,11 +690,11 @@ win.loadURL('https://github.com')
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+设置窗口是否可以最小化. 在 Linux 上无效.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+返回 `Boolean` -窗口是否可以最小化
 
 在 Linux 上总是返回 ` true `。
 
@@ -702,11 +702,11 @@ Returns `Boolean` - Whether the window can be manually minimized by user
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+设置窗口是否可以最大化. 在 Linux 上无效.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+返回 `Boolean` - 窗口是否可以最大化.
 
 在 Linux 上总是返回 ` true `。
 
@@ -714,31 +714,31 @@ Returns `Boolean` - Whether the window can be manually maximized by user.
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+设置点击最大化按钮是否可以全屏或最大化窗口.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+返回 `Boolean` - 是否为全屏状态或窗口最大化
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+设置窗口是否可以人为关闭。在 Linux 上无效.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+返回 `Boolean` - 窗口是否被用户关闭了.
 
 在 Linux 上总是返回 ` true `。
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (可选) *macOS* - 可以为下面的值 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, 和 ~~`dock`~~ (参考值). 默认值为 `floating`. 更多信息，请查阅 [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels)
+* `relativeLevel` Integer (可选) *macOS* - 设置此窗口相对于给定 `级别`的层数。. 默认值为``. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+设置窗口是否应始终显示在其他窗口的顶部。设置之后, 仍然是一个普通窗口, 而不是一个无法聚焦的工具箱窗口。
 
 #### `win.isAlwaysOnTop()`
 
