@@ -1,4 +1,4 @@
 # BluetoothDevice Nesnesi
 
-* `deviceName` Metin
-* `deviceId` Metin
+* ` deviceName ` String
+* `deviceId` String
