@@ -49,12 +49,12 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 This happens when the variable which is used to store the window/tray gets garbage collected.
 
-If you encounter this problem, the following articles may prove helpful:
+Eğer bu problemle karşılaşılırsa, aşağıdaki makaleler yardımcı olabilir:
 
 * [Bellek Yönetimi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Değişken Etki Alanı](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Eğer hızlı çözüm istiyorsanız, değişkenlerinizi evrensel olarak değiştirebilirsiniz. Bu kodu:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -82,7 +82,7 @@ Due to the Node.js integration of Electron, there are some extra symbols inserte
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
+// Ana süreç içerisinde.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -112,7 +112,7 @@ When using Electron's built-in module you might encounter an error like this:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Yakalanmamış TipHatası: Geçersiz 'setZoomLevel' değeri okunamıyor
 ```
 
 This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
