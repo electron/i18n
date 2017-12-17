@@ -46,7 +46,7 @@ benefits:
   hard_parts_made_easy: The hard parts made easy
   automatic_updates: Otomatik güncellemeler
   native_menus_and_notifications: Yerel Menüler ve Bildirimler
-  crash_reporting: Hata raporu
+  crash_reporting: Hata raporlama
   debugging_and_profiling: Hata ayıklama ve profil oluşturma
   windows_installers: Windows yükleyicisi
 get_started:
@@ -94,12 +94,12 @@ apps:
 clipboard:
   copy: Copy
   copy_to_clipboard: Copy to Clipboard
-  copied: Copied
-or: veya
+  copied: Kopyalandı
+or: ya da
 pages:
   '/':
-    title: Electron | Javascript, HTML ve CSS ile çapraz platform Masaüstü uygulamaları geliştir.
-    description: 'Javascript, HTML ve CSS ile çapraz platform Masaüstü uygulamaları geliştir.'
+    title: Electron | Javascript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.
+    description: 'Javascript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.'
   '/apps':
     title: Electron Uygulamaları
     description: Electron ile Yapılmış Uygulamalar
@@ -114,12 +114,12 @@ pages:
     description: API reference documentation for the latest Electron release
   '/docs/development':
     title: Geliştirme
-    description: Developing with Electron
+    description: Elektron ile Geliştirme
   '/docs/tutorial':
-    title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    title: Eğitim
+    description: En son Electron sürümü için kılavuzlar ve eğitimler
   '/blog':
-    title: Electron Blog
+    title: Electron Bloğu
     description: All the latest news from the Electron team and community.
   '/community':
     title: Topluluk
