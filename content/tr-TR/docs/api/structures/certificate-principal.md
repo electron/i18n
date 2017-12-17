@@ -1,6 +1,6 @@
 # CertificatePrincipal Object
 
-* `commonName` String - Common Name
+* `commonName` String - Ortak İsim
 * `organizations` String[] - Organization names
 * `organizationUnits` String[] - Organization Unit names
 * `locality` String - Locality
