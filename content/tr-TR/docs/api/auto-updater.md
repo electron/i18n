@@ -37,29 +37,29 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Olaylar
+## Events
 
 The `autoUpdater` object emits the following events:
 
-### Olay: 'error'
+### Event: 'error'
 
-Dönüşler:
+Returns:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Güncelleştirilirken bir hata olduğunda ortaya çıkan.
 
 ### Event: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Bir güncellemenin başlatılıp başlatılmadığını kontrol ederken ortaya çıkan.
 
 ### Event: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Kullanılabilir bir güncelleştirme olduğunda ortaya çıkan. Güncelleştirme otomatik olarak karşıdan yüklenir.
 
-### Event: 'update-not-available'
+### Olay: 'update-not-available'
 
-Emitted when there is no available update.
+Mevcut bir güncelleme yokken ortaya çıkan.
 
 ### Event: 'update-downloaded'
 
@@ -71,24 +71,24 @@ Returns:
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Bir güncelleme indirildiğinde ortaya çıkan.
 
-On Windows only `releaseName` is available.
+Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
-## Methods
+## Metodlar
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` nesnesi *macOS* (isteğe bağlı) - HTTP başıkları ister.
 
-Sets the `url` and initialize the auto updater.
+`url`'i belirler ve otomatik güncelleyici başlar.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+`String`'i geri döndürür - Geçerli olan akış URL'ini günceller.
 
 ### `autoUpdater.checkForUpdates()`
 
