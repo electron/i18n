@@ -2,9 +2,9 @@
 
 > 在系统剪贴板上执行复制和粘贴操作。
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
-The following example shows how to write a string to the clipboard:
+下面的示例演示如何将字符串写入剪贴板:
 
 ```javascript
 const {clipboard} = require('electron')
