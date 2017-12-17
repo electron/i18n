@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
 The `shell` module provides functions related to desktop integration.
 
