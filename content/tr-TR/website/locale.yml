@@ -28,7 +28,7 @@ community:
   videos: Videolar
   meetups: Buluşmalar
   awesome_notice: Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: Bir konferans eklemek için, <code>data/meetups.json</code> düzenleyin ve <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">talepte bulunun</a>.
 electron_is_easy:
   title: Düşündüğünden daha kolay
   description: Eğer bir website oluşturabiliyorsanız, masaüstü uygulama da oluşturabilirsiniz. Electron, JavaScript, HTML ve CSS gibi web teknolojileriyle birlikte yaratıcı, yerli uygulamalar oluşturmak için bir sistemdir. Uygulamanızın özüne odaklanabilmeniz için, zor kısımların üstesinden gelir.
@@ -55,14 +55,14 @@ get_started:
 explore:
   title: Elektron API'leri keşfetmek
   description:
-    - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
-    - interactively demonstrates the most important features of the Electron API.
+    - <a href="https://github.com/electron/electron-api-demos">Electron API Önizlemeler uygulaması</a>
+    - etkileşimli olarak Electron API'nin en önemli özelliklerini gösterir.
     - Electron'la nelerin yapılabileceğinin mümkün olduğunu örnek kod ve faydalı ipuçlarıyla görün
     - uygulaman kuruluyor.
 download_from_github: Github'dan indirin
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tüm sürümleri GitHub'da Göster</a>
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Eylemdeki Electron'u görmek için <a href='https://github.com/electron/electron-quick-start' target='_blank'>Hızlı Başlangıç</a> uygulamasına dönün:"
   description: Faydalı notasyonlarla, minimal bir Electron uygulaması.
   clone: Hızlı Başlangıç deposunu kopyala
   go_into_repo: Depo içerisine git
