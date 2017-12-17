@@ -1,4 +1,4 @@
 # HataRapor Nesnesi
 
 * `gün` Metin
-* `ID` Integer
+* `KOD` Sayı
