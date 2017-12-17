@@ -1,4 +1,4 @@
-tagline: JavaScript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştirin
+tagline: JavaScript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştirin
 nav:
   docs: Dokümanlar
   blog: Blog
@@ -98,8 +98,8 @@ clipboard:
 or: ya da
 pages:
   '/':
-    title: Electron | JavaScript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.
-    description: 'JavaScript, HTML ve CSS ile çoklu platform masaüstü uygulamaları geliştir.'
+    title: Electron | Javascript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştir.
+    description: 'JavaScript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştirin.'
   '/apps':
     title: Electron Uygulamaları
     description: Electron ile Yapılmış Uygulamalar
