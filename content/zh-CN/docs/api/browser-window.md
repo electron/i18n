@@ -183,7 +183,7 @@ child.once('ready-to-show', () => {
     * `webgl` Boolean (可选) - 启用 WebGL 支持. 默认值为 `true`.
     * `webaudio` Boolean (可选) - 启用 WebAudio 支持. 默认值为 `true`.
     * `plugins` Boolean (可选) - 是否支持插件. 默认值为 `false`.
-    * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实现功能. 默认值为 `false`.
+    * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实验功能. 默认值为 `false`.
     * `experimentalCanvasFeatures` Boolean (可选) - 启用 Chromium 的实验画布功能. 默认值为`false`.
     * `scrollBounce` Boolean (可选) - 在 macOS 启用弹力动画 (橡皮筋) 效果. 默认值为 `false`.
     * ` blinkFeatures `String (可选)-由 `, ` 分隔的特性列表, 如 ` CSSVariables、KeyboardEventKey `。 在 [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62)文件中查看被支持的所有特性.
