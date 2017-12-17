@@ -23,57 +23,57 @@ console.log(clipboard.readText('selection'))
 
 ` clipboard ` 对象具有以下方法:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+** 注意: **被标记为实验性的 api 将来可能被删除。
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* ` type ` String（可选）
 
-Returns `String` - The content in the clipboard as plain text.
+返回 ` String `- 剪贴板中的纯文本内容。
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* ` type ` String（可选）
 
-Writes the `text` into the clipboard as plain text.
+将 ` text ` 作为纯文本写入剪贴板。
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* ` type ` String（可选）
 
-Returns `String` - The content in the clipboard as markup.
+返回 ` String `- 剪贴板中的HTML内容。
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* ` type ` String（可选）
 
-Writes `markup` to the clipboard.
+将 ` markup ` 写入剪贴板。
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* ` type ` String（可选）
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+返回 [` NativeImage `](native-image.md)- 剪贴板中的图像内容。
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* ` type ` String（可选）
 
-Writes `image` to the clipboard.
+将 ` image ` 写入剪贴板。
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* ` type ` String（可选）
 
-Returns `String` - The content in the clipboard as RTF.
+返回 ` String `- 剪贴板中的RTF内容。
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* ` type ` String（可选）
 
 Writes the `text` into the clipboard in RTF.
 
@@ -90,7 +90,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` String
-* `type` String (optional)
+* ` type ` String（可选）
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* ` type ` String（可选）
 
 清除剪贴板内容。
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* ` type ` String（可选）
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* ` type ` String（可选）
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* ` type ` String（可选）
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* ` type ` String（可选）
 
 ```javascript
 const {clipboard} = require('electron')
