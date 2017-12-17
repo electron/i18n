@@ -33,7 +33,7 @@ let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `pano`
+## `clipboard`
 
 ```js
 // Deprecated
