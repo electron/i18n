@@ -1,4 +1,4 @@
-# ekran
+# screen
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
