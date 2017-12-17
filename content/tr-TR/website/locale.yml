@@ -58,13 +58,13 @@ explore:
     - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
     - interactively demonstrates the most important features of the Electron API.
     - See what's possible with Electron with sample code and helpful tips for
-    - building your app.
+    - uygulaman kuruluyor.
 download_from_github: Github'dan indirin
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tüm sürümleri GitHub'da Göster</a>
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
+  clone: Hızlı Başlangıç deposunu kopyala
   go_into_repo: Go into the repository
   install_deps: Bağımlılıkları yükle ve çalıştır
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
@@ -82,11 +82,11 @@ footer:
   need_different_version: Need a different version of the docs?
   see_available_versions: Kullanılabilir sürümleri gör.
   want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
-  see_the_faq: See the frequently asked questions
+  view_all_docs: Tüm dokümanları bir sayfada görüntüle
+  see_the_faq: 'Bkz: sıkça sorulan sorular'
 apps:
-  title: Apps built on Electron
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
+  title: Electron ile yapılmış uygulamalar
+  description: "Electron ile, şirketiniz ya da fikriniz için bir masaüstü uygulama oluşturmak kolaydır.\nBaşlangıçta GitHub'ın <a href='https://atom.io' target='_blank'>Atom Editörü</a> için geliştirilen Electron, Microsoft, Facebook, Slack ve Docker gibi firmalar tarafından, uygulama oluşturmak için kullanılmıştır."
   view_more: Daha fazla uygulama görüntüleyin
   submit_your_own: kendininkini gönder
   something_missing: Birşey mi eksik?
@@ -105,10 +105,10 @@ pages:
     description: Electron ile Yapılmış Uygulamalar
   '/docs':
     title: Dokümantasyon
-    description: Guides and API reference documentation for the latest Electron release
+    description: En sonki Electron sürümü için API referans dokümantasyonu
   '/docs/all':
     title: Tüm Electron Dokümanları!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Tüm Electron kılavuzları ve API belgesi bir tek, aranabilir sayfada.
   '/docs/api':
     title: API
     description: En sonki Electron sürümü için API referans dokümantasyonu
