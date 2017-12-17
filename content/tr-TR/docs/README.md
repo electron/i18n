@@ -50,7 +50,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ### Ana Süreç için modüller:
 
-* [uygulama](api/app.md)
+* [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -78,7 +78,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ### Modules for Both Processes:
 
-* [clipboard](api/clipboard.md)
+* [pano](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [ekran](api/screen.md)
@@ -91,13 +91,13 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
+* [İnşaa Talimatları (macOS)](development/build-instructions-osx.md)
+* [İnşaa Talimatları (Windows)](development/build-instructions-windows.md)
+* [İnşaa Talimatları (Linux)](development/build-instructions-linux.md)
+* [Hata Ayıklama Talimatları (macOS)](development/debugging-instructions-macos.md)
+* [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Chrome Yükseltme](development/upgrading-chrome.md)
+* [Chromium Geliştirme](development/chromium-development.md)
+* [V8 Geliştirme](development/v8-development.md)
