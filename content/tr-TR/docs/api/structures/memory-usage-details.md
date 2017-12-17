@@ -1,4 +1,4 @@
-# MemoryUsageDetails Object
+# MemoryUsageDetails Nesnesi
 
 * `count` Number
 * `size` Number
