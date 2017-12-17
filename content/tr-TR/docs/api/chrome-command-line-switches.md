@@ -1,4 +1,4 @@
-# Supported Chrome Command Line Switches
+# Desteklenen Chrome Komut Satırı Anahtarları
 
 > Command line switches supported by Electron.
 
