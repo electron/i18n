@@ -21,7 +21,7 @@ console.log(clipboard.readText('selection'))
 
 ## 方法
 
-The `clipboard` module has the following methods:
+` clipboard ` 对象具有以下方法:
 
 **Note:** Experimental APIs are marked as such and could be removed in future.
 
