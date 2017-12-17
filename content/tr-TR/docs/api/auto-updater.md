@@ -35,11 +35,11 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
 
 ## Events
 
-The `autoUpdater` object emits the following events:
+`autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
 ### Event: 'error'
 
@@ -92,10 +92,10 @@ Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Sunucuya bir güncelleştirme olup olmadığını sorar. Bu API'yi kullanmadan önce `setFeedURL`'i çağırmalısınız.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Uygulamayı yeniden başlatır ve indirmeler bittikten sonra güncellemeyi yükler. O yalnızca `update-downloaded` ortaya çıktıktan sonra çağırılmış olmalıdır.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Not:** `autoUpdater.quitAndInstall()` ilk olarak tüm uygulama pencerelerini kapatacak ve bundan sonra `uygulama` üzerinde sadece `before-quit` event'i ortaya çıkacak. Bu normal çıkış event sırasından farklıdır.
