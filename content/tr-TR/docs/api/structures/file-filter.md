@@ -1,4 +1,4 @@
-# FileFilter Object
+# FileFilter Nesnesi
 
 * `name` String
 * `extensions` String[]
