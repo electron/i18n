@@ -1,6 +1,6 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Kendiliğinden güncelleme yapmak için uygulamaları etkinleştirin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
