@@ -2,7 +2,7 @@
 
 > 在系统剪贴板上执行复制和粘贴操作。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
 下面的示例演示如何将字符串写入剪贴板:
 
@@ -164,7 +164,7 @@ console.log(clipboard.has('<p>selection</p>'))
   * ` html ` String（可选）
   * `image` [NativeImage](native-image.md) (可选)
   * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
+  * ` bookmark ` String (可选)- url 的标题 `text`。
 * ` type ` String（可选）
 
 ```javascript
