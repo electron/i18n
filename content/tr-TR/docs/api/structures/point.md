@@ -1,4 +1,4 @@
-# Point Object
+# Point Nesnesi
 
 * `x` Number
 * `y` Number
