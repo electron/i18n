@@ -605,18 +605,18 @@ win.loadURL('https://github.com')
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+返回 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* ` bounds`[ 矩形 ](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (可选) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+调整窗口的工作区 (如网页) 的大小并将其移动到所提供的边界。
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+返回 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
@@ -624,11 +624,11 @@ Returns [`Rectangle`](structures/rectangle.md)
 * `height` Integer
 * `animate` Boolean (可选) *macOS*
 
-Resizes the window to `width` and `height`.
+调整窗口的`width`和 `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+返回 ` Integer [] `-包含窗口的宽度和高度。
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -636,22 +636,22 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (可选) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+将窗口的工作区 (如网页) 的大小调整为 ` width ` 和 ` height `。
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+返回 ` Integer [] `-包含窗口的宽度和高度。
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+设置窗口最小化的 `width` 和`height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+返回 ` Integer [] `-包含窗口最小化的宽度和高度。
 
 #### `win.setMaximumSize(width, height)`
 
