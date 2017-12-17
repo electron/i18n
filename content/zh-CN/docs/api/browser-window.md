@@ -742,11 +742,11 @@ win.loadURL('https://github.com')
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+返回 `Boolean` - 当前窗口是否始终在其它窗口之前.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+将窗口移动到屏幕中央。
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -754,30 +754,30 @@ Moves window to the center of the screen.
 * `y` Integer
 * `animate` Boolean (可选) *macOS*
 
-Moves window to `x` and `y`.
+将窗口移动到 ` x ` 和 ` y `。
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+返回 `Integer[]` - 返回一个包含当前窗口位置的数组.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+将原生窗口的标题更改为 ` title `。
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+返回 ` String `-原生窗口的标题。
 
-**Note:** The title of web page can be different from the title of the native window.
+**注意:** 网页的标题和原生窗口的标题可以不一致
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (可选)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+更改macOS上的工作表的附件点。默认情况下, 工作表时在窗口框架下附加的，但是您可能想要将它们显示在 HTML-rendered 的工具栏。例如:
 
 ```javascript
 const {BrowserWindow} = require('electron')
