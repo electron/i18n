@@ -15,15 +15,15 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ignore la limite de connexion pour la liste de `domains` séparés par `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Désactive le cache disque pour les requêtes HTTP.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Désactive les protocoles HTTP/2 et SPDY/3.1.
 
 ## --inspect=`port` et --inspect-brk=`port`
 
