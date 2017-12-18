@@ -1,10 +1,10 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Soumet un rapport de plantage à un serveur distant.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+Voici un exemple d'envoi automatique d'un rapport de plantage à un serveur distant :
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -26,7 +26,7 @@ Crash reports are saved locally in an application-specific temp directory folder
 
 ## Méthodes
 
-The `crashReporter` module has the following methods:
+Le module `crashReporter` dispose des méthodes suivantes :
 
 ### `crashReporter.start(options)`
 
@@ -98,7 +98,7 @@ Set an extra parameter to be sent with the crash report. The values specified he
 
 ## Payload du Crash Report
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un `POST` en `multipart/form-data` :
 
 * `ver` String - La version d'Electron.
 * `platform` String - Par exemple 'win32'.
@@ -108,5 +108,5 @@ The crash reporter will send the following data to the `submitURL` as a `multipa
 * `_productName` String - Le nom du produit dans l'objet `options` de `crashReporter`.
 * `prod` String - Nom du produit sous-jacent. Dans ce cas Electron.
 * `_companyName` String - Le nom de l'entreprise dans l'objet `options` de `crashReporter`.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `upload_file_minidump` File - Le rapport d'incident dans le format `minidump`.
+* Toutes les propriétés de niveau 1 de l'objet `extra` dans l'objet `options` de `crashReporter`.
