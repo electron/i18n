@@ -32,19 +32,19 @@ Ces deux outils utilisent la bibliothèque [Outils d'accessibilité pour les dé
 
 Si vous connaissez d’autres bons outils d'accessibilité pour Electrons, ajoutez-les à la [documentation de l’accessibilité](https://electronjs.org/docs/tutorial/accessibility) avec une pull request.
 
-## Enabling Accessibility
+## Activer l'accessibilité
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Les applications Electron maintiennent l'accessibilité désactivée par défaut pour des raisons de performance, mais il existe plusieurs façons de l'activer.
 
-### Inside Application
+### Dans l'application
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+En utilisant [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), vous pouvez exposer l'option d'accessibilité aux utilisateurs dans les préférences de l'application. Les utilitaires d'assistance système de l'utilisateur ont la priorité sur ce paramètre et le remplaceront.
 
-### Assistive Technology
+### Technologies d’assistance
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+L'application Electron active automatiquement l'accessibilité lorsqu'elle détecte une technologie d'assistance (Windows) ou VoiceOver (macOS). Consultez la [documentation d’accessibilité](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) de Chrome pour plus de détails.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Sur macOS, la technologie d'assistance tierce peut modifier l'accessibilité dans les applications Electron en réglant l'attribut `AXManualAccessibility` par programmation :
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
