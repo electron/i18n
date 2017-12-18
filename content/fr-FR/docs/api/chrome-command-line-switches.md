@@ -53,7 +53,7 @@ Utiliser le serveur proxy spécifié, qui remplace le paramètre système. Cet i
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Demande à Electron de contourner le serveur proxy pour la liste d'hôtes séparées par des semi-colons. Cet indicateurs prend effet uniquement si utilisé conjointement avec `--proxy-server`.
 
 Par exemple :
 
