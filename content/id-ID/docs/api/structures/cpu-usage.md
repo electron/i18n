@@ -1,4 +1,4 @@
-# CPUUsage Object
+# Obyek PenggunaanCPU
 
-* `percentCPUUsage` Number - Percentage of CPU used since the last call to getCPUUsage. First call returns 0.
+* `percentCPUUsage` Angka - Prosentase penggunaan CPU sejak panggilan terakhir untuk getCPUUsage.
 * `idleWakeupsPerSecond` Number - The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0.
