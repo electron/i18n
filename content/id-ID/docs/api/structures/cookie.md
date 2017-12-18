@@ -1,8 +1,8 @@
 # Obyek Cookie
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
+* `name` String - Nama cookie.
+* `value` String - Nilai cookie.
+* `domain` String (tidak wajib diisi) - Domain cookie.
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
 * `path` String (optional) - The path of the cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
