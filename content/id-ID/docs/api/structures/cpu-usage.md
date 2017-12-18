@@ -1,4 +1,4 @@
 # Obyek PenggunaanCPU
 
 * `percentCPUUsage` Angka - Prosentase penggunaan CPU sejak panggilan terakhir untuk getCPUUsage.
-* `idleWakeupsPerSecond` Number - The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0.
+* `idleWakeupsPerSecond` Angka - Nilai rata-rata Cpu menganggur terjaga per detik sejak pangggilan terakhir untuk getCPUUsage. Panggilan pertama mengembalikan nilai 0.
