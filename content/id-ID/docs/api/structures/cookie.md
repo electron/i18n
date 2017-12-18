@@ -8,4 +8,4 @@
 * `secure` Boolean (tidak wajib diisi) - Kalau cookie ditandai sebagai aman.
 * `httpOnly` Boolean (tidak wajib diisi) - Kalau cookie ditandai hanya sebagai HTTP.
 * `session` Boolean (tidak wajib diisi) - Apakah cookie adalah sebuah cookie sesi atau cookie tetap dengan tanggal kadaluwarsa.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `expirationDate` Double (tidak wajib diisi) - Tanggal kadaluwarsa dari sebuah cookie sebagai sebuah jumlah detik sejak zamann UNIX. Tidak disediakan untuk cookie sesi.
