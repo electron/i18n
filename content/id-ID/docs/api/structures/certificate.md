@@ -8,5 +8,5 @@
 * `subjectName` String - Nama Umum Subyek
 * `serialNumber` String - Nila Hex yang mewakili string
 * `validStart` Angka - Tanggal dimulainya Sertifikat mulai menjadi valid dalam detik
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `validExpiry` Angka - Tanggal akhir Sertifikat masih valid dalam detik
+* `fingerprint` String - Sidik jari Sertifikat
