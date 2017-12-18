@@ -27,29 +27,29 @@ Désactive les protocoles HTTP/2 et SPDY/3.1.
 
 ## --inspect=`port` et --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Les indicateurs relatifs au débogage, reportez-vous au guide [Déboguer le processus principal](../tutorial/debugging-main-process.md) pour plus de détails.
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Active le débogage distant via HTTP sur le `port` spécifié.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Spécifie les indicateurs a transmettre au moteur de NodeJS. Il doit être indiqué lors du démarrage d'Electron si vous souhaitez activer les `flags` dans le processus principal.
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Voir la [documentation de Node](https://nodejs.org/api/cli.html) ou exécutez `node --help` dans votre console pour avoir la liste des indicateurs disponibles. De plus, exécutez `node --v8-options` pour afficher la liste des indicateurs qui se réfèrent spécifiquement au moteur JavaScript V8 de Node.
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Utiliser le serveur proxy spécifié, qui remplace le paramètre système. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
