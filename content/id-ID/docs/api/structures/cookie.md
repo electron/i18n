@@ -3,8 +3,8 @@
 * `name` String - Nama cookie.
 * `value` String - Nilai cookie.
 * `domain` String (tidak wajib diisi) - Domain cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
+* `hostOnly` Boolean (tidak wajib diisi) - Jika seandainya cookie adalah sebuah cookie hanya-penerima.
+* `path` String (tidak wajib diisi) - Jejak dari sebuah cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
 * `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
 * `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
