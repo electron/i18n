@@ -49,7 +49,7 @@ Voir la [documentation de Node](https://nodejs.org/api/cli.html) ou exécutez `n
 
 ## --proxy-server=`address:port`
 
-Utiliser le serveur proxy spécifié, qui remplace le paramètre système. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Utiliser le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket.
 
 ## --proxy-bypass-list=`hosts`
 
