@@ -16,23 +16,23 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. Il y a de grandes chances d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
+Les versions d'Electron antérieure à la version *< 2.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. Bien que pratiques pour les développeurs pour merger des fonctionnalités, cela créer des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longue et la stabilité est un résultat très attendu. Il y a de grandes chances d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
 
-Here is an example of the 1.x strategy:
+Voici un exemple de la stratégie 1.x :
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Une application développée avec la `1.8.1` ne peux pas avoir les résolutions de bugs de la `1.8.3` sans absorber la fonctionnalité de la `1.8.2`, ou faire un rétroportage de la résolution tout en maintenant une nouvelle ligne de versionnage.
 
 ## Version 2.0 et supérieur
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Il y a plusieurs changements majeurs par rapport à notre stratégie 1.x décrite ci-dessous. Chaque changement vise à satisfaire les besoins et les priorités des développeurs/mainteneurs et développeurs d'applications.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. Utilisation stricte de semver
+2. Introduction de semver compatible avec les tags `-beta`
+3. Introduction des [messages de commit conventionnels](https://conventionalcommits.org/)
+4. Définition clair des branches de stabilisation
+5. La branche `master` est sans version; seulement les branches de stabilités contiennent des informations de versionnage
 
 We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
 
