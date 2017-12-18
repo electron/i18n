@@ -25,7 +25,7 @@ Une fois que vous avez déployé votre serveur de mise à jour, continuez à imp
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Ensuite, construisez l'URL du serveur de mise à jour et informez-en [autoUpdater](../api/auto-updater.md):
 
 ```js
 const server = 'https://your-deployment-url.com'
@@ -34,7 +34,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Comme dernière étape, vérifiez les mises à jour. L'exemple ci-dessous vérifie chaque minute:
 
 ```js
 setInterval(() => {
@@ -42,11 +42,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Une fois que votre application est [empaqueté](../tutorial/application-distribution.md), il recevra une mise à jour pour chaque nouvelle [version GitHub](https://help.github.com/articles/creating-releases/) que vous publierez.
 
-## Applying updates
+## Appliquer la mise à jour
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Maintenant que vous avez configuré le mécanisme de mise à jour de base de votre application, vous devez vous assurer que l’utilisateur sera notifié quand il y a une mise à jour. Cela peut être fait en utilisant l'API [events](../api/auto-updater.md#events) d'autoUpdater :
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -64,7 +64,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Veillez également à ce que les erreurs sont [traitées](../api/auto-updater.md#event-error). Voici un exemple de leur affichage dans `stderr` :
 
 ```js
 autoUpdater.on('error', message => {
