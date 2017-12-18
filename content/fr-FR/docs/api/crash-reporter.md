@@ -100,11 +100,11 @@ Set an extra parameter to be sent with the crash report. The values specified he
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
+* `ver` String - La version d'Electron.
+* `platform` String - Par exemple 'win32'.
+* `process_type` String - Par exemple 'renderer'.
+* `guid` String - Par exemple '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` String - La version dans `package.json`.
 * `_productName` String - The product name in the `crashReporter` `options` object.
 * `prod` String - Name of the underlying product. In this case Electron.
 * `_companyName` String - The company name in the `crashReporter` `options` object.
