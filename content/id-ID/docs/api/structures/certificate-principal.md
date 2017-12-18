@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# Obyek PokokSertifikat
 
-* `commonName` String - Common Name
-* `organizations` String[] - Organization names
-* `organizationUnits` String[] - Organization Unit names
-* `locality` String - Locality
-* `state` String - State or province
-* `country` String - Country or region
+* `commonName` String - Nama Umum
+* `organizations` String[] - Nama Organisasi
+* `organizationUnits` String[] - Nama Unit Organisasi
+* `locality` String - Lokalitas
+* `state` String - Negara Bagian atau Propinsi
+* `country` String - Negara atau wilayah
