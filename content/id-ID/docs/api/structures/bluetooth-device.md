@@ -1,4 +1,4 @@
-# BluetoothDevice Object
+# Objek PeralatanBluetooth
 
-* `deviceName` String
-* `deviceId` String
+* `NamaAlat` String
+* `IdentitasAlat` String
