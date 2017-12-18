@@ -1,6 +1,6 @@
-# Certificate Object
+# Objek Sertifikat
 
-* `data` String - PEM encoded data
+* `data` String - data PEM yang dikodekan
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
 * `issuerName` String - Issuer's Common Name
 * `issuerCert` Certificate - Issuer certificate (if not self-signed)
