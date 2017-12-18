@@ -2,7 +2,7 @@
 
 > Les paramètres de ligne de commande pris en charge par Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Vous pouvez utiliser [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) pour ajouter à votre script principal de votre application avant que l'événement [ready](app.md#event-ready) du module [app](app.md) soit émis :
 
 ```javascript
 const {app} = require('electron')
