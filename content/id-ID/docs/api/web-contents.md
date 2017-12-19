@@ -298,26 +298,26 @@ Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code> url </ 0>  String</li>
-<li><code>error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+<li><code> error </ 0>  String - Kode kesalahan</li>
+<li><code> sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
+<li><code>callback` Fungsi 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Acara : 'pilih-klien-sertifikat'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code>url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+<li><code> url </ 0> URL</li>
+<li><code> certificateList </ 0>  <a href="structures/certificate.md"> Sertifikat [] </ 1></li>
+<li><code>callback` Fungsi 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Emitted ketika sertifikat klien diminta.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -328,15 +328,15 @@ Pengembalian:
 * ` event </ 0>  Acara</li>
 <li><code>request` Object 
   * `method` String
-  * `url` URL
-  * `referrer` URL
+  * ` url </ 0> URL</li>
+<li><code>referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Fungsi 
   * `username` String
   * `password` String
 
@@ -448,7 +448,7 @@ Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Fungsi 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -693,7 +693,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Fungsi 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -706,7 +706,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Fungsi 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -827,21 +827,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` Fungsi 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Fungsi 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Fungsi 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -873,7 +873,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Fungsi 
   * `error` Error
   * `data` Buffer
 
@@ -1065,7 +1065,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
-* `callback` Function 
+* `callback` Fungsi 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
