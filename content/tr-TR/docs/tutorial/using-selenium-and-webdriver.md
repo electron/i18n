@@ -6,7 +6,7 @@
 
 ## Spectron'u Ayarlama
 
-[Spectron](https://electron.atom.io/spectron), Electron işin resmi olarak desteklenen test çatısıdır. [WebdriverIO](http://webdriver.io/) üzerinde yapılmıştır, testlerinizde Electron API'lerine erişim için yardımcı olur ve içinde ChromeDriver'ı barındırır.
+[Spectron](https://electron.atom.io/spectron), Electron için resmi olarak desteklenen test çatısıdır. [WebdriverIO](http://webdriver.io/) üzerinde yapılmıştır, testlerinizde Electron API'lerine erişim için yardımcı olur ve içinde ChromeDriver'ı barındırır.
 
 ```sh
 $ npm install --save-dev spectron
@@ -69,7 +69,7 @@ $ npm install selenium-webdriver
 
 ### 3. ChromeDriver'a bağlanma
 
-Electron'un `selenium-webdriver`'ın kullanımı normaldeki gibi. Sadece bir farkla, kendiniz chrome driver'a nasıl bağlanacağınızı ve Electron'un binary dosyasının nerede olduğunu işaretlemelisiniz:
+Electron'un `selenium-webdriver` ile kullanımı normaldeki gibi. Sadece bir farkla, kendiniz chrome driver'a nasıl bağlanacağınızı ve Electron'un binary dosyasının nerede olduğunu işaretlemelisiniz:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
