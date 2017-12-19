@@ -62,8 +62,8 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-* `event` Event
-* `item` [DownloadItem](download-item.md)
+* ` event </ 0>  Acara</li>
+<li><code>item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
