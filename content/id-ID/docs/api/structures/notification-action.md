@@ -1,19 +1,37 @@
 # NotificationAction Object
 
-* `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* ` ketik </ 0>  String - Tipe tindakan, dapat <code> tombol </ 0> .</li>
+<li><code> teks </ 0>  String - (opsional) Label untuk tindakan yang diberikan.</li>
+</ul>
 
-## Platform / Action Support
+<h2>Platform / Action Support</h2>
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                         |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+<table>
+<thead>
+<tr>
+  <th>tipe aksi</th>
+  <th>Dukungan Platform</th>
+  <th>Penggunaan <code> teks </ 0></th>
+  <th>Default <code> teks </ 0></th>
+  <th>Keterbatasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>tombol`</td> 
+    Maksimum satu tombol, jika multiple hanya diberikan yang terakhir digunakan. Tindakan ini juga incomptible dengan  hasReply </ 0> dan akan diabaikan jika <code> hasReply </ 0> yaitu <code> benar </ 0> .</td>
+</tr>
+</tbody>
+</table>
 
-### Button support on macOS
+<h3>Dukungan tombol pada macos</h3>
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+<p>In order for extra notification buttons to work on macOS your app must meet the
+following criteria.</p>
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+<ul>
+<li>Aplikasi ditandatangani</li>
+<li>App memilikinya <code> NSUserNotificationAlertStyle </ 0> disetel ke <code> alert </ 0> di <code> info.plist </ 0> .</li>
+</ul>
 
-If either of these requirements are not met the button simply won't appear.
+<p>Jika salah satu dari persyaratan ini tidak terpenuhi maka tombolnya tidak akan muncul.</p>
