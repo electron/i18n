@@ -2,7 +2,7 @@
 
 > Monitor power state changes.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
