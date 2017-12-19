@@ -39,8 +39,8 @@ The following methods are available on instances of `WebRequest`:
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` url </ 0>  String</li>
+<li><code>method` String
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -65,8 +65,8 @@ The `listener` will be called with `listener(details, callback)` before sending 
 
 * `details` Object 
   * `id` Integer
-  * `url` String
-  * `method` String
+  * ` url </ 0>  String</li>
+<li><code>method` String
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
@@ -84,8 +84,8 @@ The `callback` has to be called with an `response` object.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` url </ 0>  String</li>
+<li><code>method` String
     * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
@@ -102,8 +102,8 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
 
 * `details` Object 
   * `id` String
-  * `url` String
-  * `method` String
+  * ` url </ 0>  String</li>
+<li><code>method` String
   * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
@@ -124,8 +124,8 @@ The `callback` has to be called with an `response` object.
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` url </ 0>  String</li>
+<li><code>method` String
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -142,8 +142,8 @@ The `listener` will be called with `listener(details)` when first byte of the re
 * `listener` Function 
   * `details` Object 
     * `id` String
-    * `url` String
-    * `method` String
+    * ` url </ 0>  String</li>
+<li><code>method` String
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
@@ -161,8 +161,8 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` url </ 0>  String</li>
+<li><code>method` String
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -179,8 +179,8 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `listener` Function 
   * `details` Object 
     * `id` Integer
-    * `url` String
-    * `method` String
+    * ` url </ 0>  String</li>
+<li><code>method` String
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
