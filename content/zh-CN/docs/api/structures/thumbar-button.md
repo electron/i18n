@@ -1,11 +1,11 @@
-# ThumbarButton Object
+# ThumbarButton 对象
 
-* `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
+* `icon` [NativeImage](../native-image.md) - 显示在缩略图工具栏中的图标.
 * `click` Function
-* `tooltip` String (optional) - The text of the button's tooltip.
-* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+* `tooltip` String (可选) - 按钮的提示文本.
+* `flags` String[] (可选) - 控制按钮特定的状态和行为. 默认为 `['enabled']`.
 
-The `flags` is an array that can include following `String`s:
+`flags` 属性是一个数组，包含以下`String`类型的值:
 
 * `enabled` - The button is active and available to the user.
 * `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
