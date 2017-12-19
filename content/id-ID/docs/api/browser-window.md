@@ -386,7 +386,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Event : 'new-window-for-tab' * macOS </ 0></h4> 
 
 Emitted when the native new tab button is clicked.
 
@@ -416,55 +416,55 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` String
+* ` path </ 0>  String</li>
+</ul>
 
-Adds Chrome extension located at `path`, and returns extension's name.
+<p>Adds Chrome extension located at <code>path`, and returns extension's name.</p> 
+  The method will also not return if the extension's manifest is missing or incomplete.
+  
+  **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+  
+  #### `BrowserWindow.removeExtension(name)`
+  
+  * `name` String
+  
+  Remove a Chrome extension by name.
+  
+  **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+  
+  #### `BrowserWindow.getExtensions()`
+  
+  Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+  
+  **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+  
+  #### `BrowserWindow.addDevToolsExtension(path)`
+  
+  * ` path </ 0>  String</li>
+</ul>
 
-The method will also not return if the extension's manifest is missing or incomplete.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-#### `BrowserWindow.removeExtension(name)`
-
-* `name` String
-
-Remove a Chrome extension by name.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-#### `BrowserWindow.getExtensions()`
-
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-#### `BrowserWindow.addDevToolsExtension(path)`
-
-* `path` String
-
-Adds DevTools extension located at `path`, and returns extension's name.
-
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
-
-The method will also not return if the extension's manifest is missing or incomplete.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-#### `BrowserWindow.removeDevToolsExtension(name)`
-
-* `name` String
-
-Remove a DevTools extension by name.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-#### `BrowserWindow.getDevToolsExtensions()`
-
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
-
-To check if a DevTools extension is installed you can run the following:
-
-```javascript
+<p>Adds DevTools extension located at <code>path`, and returns extension's name.</p> 
+    The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+    
+    The method will also not return if the extension's manifest is missing or incomplete.
+    
+    **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+    
+    #### `BrowserWindow.removeDevToolsExtension(name)`
+    
+    * `name` String
+    
+    Remove a DevTools extension by name.
+    
+    **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+    
+    #### `BrowserWindow.getDevToolsExtensions()`
+    
+    Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+    
+    To check if a DevTools extension is installed you can run the following:
+    
+    ```javascript
 const {BrowserWindow} = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
@@ -874,8 +874,8 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
-* `options` Object (optional) 
+* ` url </ 0>  String</li>
+<li><code>options` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
