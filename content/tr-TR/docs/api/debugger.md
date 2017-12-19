@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-Chrome Geliştiri Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://developer.chrome.com/devtools/docs/debugger-protocol) var.
+Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://developer.chrome.com/devtools/docs/debugger-protocol) var.
 
 ```javascript
 const {BrowserWindow} = require('electron')
