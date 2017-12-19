@@ -1,6 +1,6 @@
 # Selenyum ve WebDriver Kullanma
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+[ChromeDriver - Chrome için WebDriver](https://sites.google.com/a/chromium.org/chromedriver/)'dan:
 
 > WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
 
