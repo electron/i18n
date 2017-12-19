@@ -118,7 +118,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
+* `pilihan` Objek (opsional) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -426,362 +426,362 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
     
     #### `BrowserWindow.removeExtension(name)`
     
-    * `name` String
-    
-    Remove a Chrome extension by name.
-    
-    **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-    
-    #### `BrowserWindow.getExtensions()`
-    
-    Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
-    
-    **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-    
-    #### `BrowserWindow.addDevToolsExtension(path)`
-    
-    * ` path </ 0>  String</li>
+    * ` nama </ 0>  String</li>
 </ul>
 
-<p>Adds DevTools extension located at <code>path`, and returns extension's name.</p> 
-      The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
-      
-      The method will also not return if the extension's manifest is missing or incomplete.
-      
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-      
-      #### `BrowserWindow.removeDevToolsExtension(name)`
-      
-      * `name` String
-      
-      Remove a DevTools extension by name.
-      
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-      
-      #### `BrowserWindow.getDevToolsExtensions()`
+<p>Remove a Chrome extension by name.</p>
+
+<p><strong>Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
+      #### `BrowserWindow.getExtensions()`
       
       Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
       
-      To check if a DevTools extension is installed you can run the following:
+      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
       
-      ```javascript
+      #### `BrowserWindow.addDevToolsExtension(path)`
+      
+      * ` path </ 0>  String</li>
+</ul>
+
+<p>Adds DevTools extension located at <code>path`, and returns extension's name.</p> 
+        The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+        
+        The method will also not return if the extension's manifest is missing or incomplete.
+        
+        **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+        
+        #### `BrowserWindow.removeDevToolsExtension(name)`
+        
+        * ` nama </ 0>  String</li>
+</ul>
+
+<p>Remove a DevTools extension by name.</p>
+
+<p><strong>Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
+          #### `BrowserWindow.getDevToolsExtensions()`
+          
+          Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+          
+          To check if a DevTools extension is installed you can run the following:
+          
+          ```javascript
 const {BrowserWindow} = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
-  
-  **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-  
-  ### Instance Properties
-  
-  Objects created with `new BrowserWindow` have the following properties:
-  
-  ```javascript
+      
+      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+      
+      ### Instance Properties
+      
+      Objects created with `new BrowserWindow` have the following properties:
+      
+      ```javascript
 const {BrowserWindow} = require('electron')
 // In this example `win` is our instance
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
-
-#### `win.webContents`
-
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
-
-See the [`webContents` documentation](web-contents.md) for its methods and events.
-
-#### `win.id`
-
-A `Integer` representing the unique ID of the window.
-
-### Instance Methods
-
-Objects created with `new BrowserWindow` have the following instance methods:
-
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
-
-#### `win.destroy()`
-
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
-
-#### `win.close()`
-
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
-
-#### `win.focus()`
-
-Focuses on the window.
-
-#### `win.blur()`
-
-Removes focus from the window.
-
-#### `win.isFocused()`
-
-Returns `Boolean` - Whether the window is focused.
-
-#### `win.isDestroyed()`
-
-Returns `Boolean` - Whether the window is destroyed.
-
-#### `win.show()`
-
-Shows and gives focus to the window.
-
-#### `win.showInactive()`
-
-Shows the window but doesn't focus on it.
-
-#### `win.hide()`
-
-Sembunyikan jendela.
-
-#### `win.isVisible()`
-
-Returns `Boolean` - Whether the window is visible to the user.
-
-#### `win.isModal()`
-
-Returns `Boolean` - Whether current window is a modal window.
-
-#### `win.maximize()`
-
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
-
-#### `win.unmaximize()`
-
-Unmaximizes the window.
-
-#### `win.isMaximized()`
-
-Returns `Boolean` - Whether the window is maximized.
-
-#### `win.minimize()`
-
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
-
-#### `win.restore()`
-
-Restores the window from minimized state to its previous state.
-
-#### `win.isMinimized()`
-
-Returns `Boolean` - Whether the window is minimized.
-
-#### `win.setFullScreen(flag)`
-
-* `flag` Boolean
-
-Sets whether the window should be in fullscreen mode.
-
-#### `win.isFullScreen()`
-
-Returns `Boolean` - Whether the window is in fullscreen mode.
-
-#### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
-
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
-
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
-
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
-
-#### `win.previewFile(path[, displayName])` *macOS*
-
-* `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
-
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
-
-#### `win.closeFilePreview()` *macOS*
-
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
-
-#### `win.setBounds(bounds[, animate])`
-
-* `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
-
-Resizes and moves the window to the supplied bounds
-
-#### `win.getBounds()`
-
-Returns [`Rectangle`](structures/rectangle.md)
-
-#### `win.setContentBounds(bounds[, animate])`
-
-* `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
-
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
-
-#### `win.getContentBounds()`
-
-Returns [`Rectangle`](structures/rectangle.md)
-
-#### `win.setSize(width, height[, animate])`
-
-* `width` Integer
-* `height` Integer
-* `animate` Boolean (optional) *macOS*
-
-Resizes the window to `width` and `height`.
-
-#### `win.getSize()`
-
-Returns `Integer[]` - Contains the window's width and height.
-
-#### `win.setContentSize(width, height[, animate])`
-
-* `width` Integer
-* `height` Integer
-* `animate` Boolean (optional) *macOS*
-
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
-
-#### `win.getContentSize()`
-
-Returns `Integer[]` - Contains the window's client area's width and height.
-
-#### `win.setMinimumSize(width, height)`
-
-* `width` Integer
-* `height` Integer
-
-Sets the minimum size of window to `width` and `height`.
-
-#### `win.getMinimumSize()`
-
-Returns `Integer[]` - Contains the window's minimum width and height.
-
-#### `win.setMaximumSize(width, height)`
-
-* `width` Integer
-* `height` Integer
-
-Sets the maximum size of window to `width` and `height`.
-
-#### `win.getMaximumSize()`
-
-Returns `Integer[]` - Contains the window's maximum width and height.
-
-#### `win.setResizable(resizable)`
-
-* `resizable` Boolean
-
-Sets whether the window can be manually resized by user.
-
-#### `win.isResizable()`
-
-Returns `Boolean` - Whether the window can be manually resized by user.
-
-#### `win.setMovable(movable)` *macOS* *Windows*
-
-* `movable` Boolean
-
-Sets whether the window can be moved by user. On Linux does nothing.
-
-#### `win.isMovable()` *macOS* *Windows*
-
-Returns `Boolean` - Whether the window can be moved by user.
-
-On Linux always returns `true`.
-
-#### `win.setMinimizable(minimizable)` *macOS* *Windows*
-
-* `minimizable` Boolean
-
-Sets whether the window can be manually minimized by user. On Linux does nothing.
-
-#### `win.isMinimizable()` *macOS* *Windows*
-
-Returns `Boolean` - Whether the window can be manually minimized by user
-
-On Linux always returns `true`.
-
-#### `win.setMaximizable(maximizable)` *macOS* *Windows*
-
-* `maximizable` Boolean
-
-Sets whether the window can be manually maximized by user. On Linux does nothing.
-
-#### `win.isMaximizable()` *macOS* *Windows*
-
-Returns `Boolean` - Whether the window can be manually maximized by user.
-
-On Linux always returns `true`.
-
-#### `win.setFullScreenable(fullscreenable)`
-
-* `fullscreenable` Boolean
-
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
-
-#### `win.isFullScreenable()`
-
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
-
-#### `win.setClosable(closable)` *macOS* *Windows*
-
-* `closable` Boolean
-
-Sets whether the window can be manually closed by user. On Linux does nothing.
-
-#### `win.isClosable()` *macOS* *Windows*
-
-Returns `Boolean` - Whether the window can be manually closed by user.
-
-On Linux always returns `true`.
-
-#### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
-
-* `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
-
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
-
-#### `win.isAlwaysOnTop()`
-
-Returns `Boolean` - Whether the window is always on top of other windows.
-
-#### `win.center()`
-
-Moves window to the center of the screen.
-
-#### `win.setPosition(x, y[, animate])`
-
-* `x` Integer
-* `y` Integer
-* `animate` Boolean (optional) *macOS*
-
-Moves window to `x` and `y`.
-
-#### `win.getPosition()`
-
-Returns `Integer[]` - Contains the window's current position.
-
-#### `win.setTitle(title)`
-
-* `title` String
-
-Changes the title of native window to `title`.
-
-#### `win.getTitle()`
-
-Returns `String` - The title of the native window.
-
-**Note:** The title of web page can be different from the title of the native window.
-
-#### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
-
-* `offsetY` Float
-* `offsetX` Float (optional)
-
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
-
-```javascript
+  
+  #### `win.webContents`
+  
+  A `WebContents` object this window owns. All web page related events and operations will be done via it.
+  
+  See the [`webContents` documentation](web-contents.md) for its methods and events.
+  
+  #### `win.id`
+  
+  A `Integer` representing the unique ID of the window.
+  
+  ### Instance Methods
+  
+  Objects created with `new BrowserWindow` have the following instance methods:
+  
+  ** Catatan: </ 0> Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p> 
+  
+  #### `win.destroy()`
+  
+  Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+  
+  #### `win.close()`
+  
+  Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+  
+  #### `win.focus()`
+  
+  Focuses on the window.
+  
+  #### `win.blur()`
+  
+  Removes focus from the window.
+  
+  #### `win.isFocused()`
+  
+  Returns `Boolean` - Whether the window is focused.
+  
+  #### `win.isDestroyed()`
+  
+  Returns `Boolean` - Whether the window is destroyed.
+  
+  #### `win.show()`
+  
+  Shows and gives focus to the window.
+  
+  #### `win.showInactive()`
+  
+  Shows the window but doesn't focus on it.
+  
+  #### `win.hide()`
+  
+  Sembunyikan jendela.
+  
+  #### `win.isVisible()`
+  
+  Returns `Boolean` - Whether the window is visible to the user.
+  
+  #### `win.isModal()`
+  
+  Returns `Boolean` - Whether current window is a modal window.
+  
+  #### `win.maximize()`
+  
+  Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+  
+  #### `win.unmaximize()`
+  
+  Unmaximizes the window.
+  
+  #### `win.isMaximized()`
+  
+  Returns `Boolean` - Whether the window is maximized.
+  
+  #### `win.minimize()`
+  
+  Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+  
+  #### `win.restore()`
+  
+  Restores the window from minimized state to its previous state.
+  
+  #### `win.isMinimized()`
+  
+  Returns `Boolean` - Whether the window is minimized.
+  
+  #### `win.setFullScreen(flag)`
+  
+  * `flag` Boolean
+  
+  Sets whether the window should be in fullscreen mode.
+  
+  #### `win.isFullScreen()`
+  
+  Returns `Boolean` - Whether the window is in fullscreen mode.
+  
+  #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
+  
+  * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
+  * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+  
+  This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+  
+  Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+  
+  #### `win.previewFile(path[, displayName])` *macOS*
+  
+  * `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
+  * `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+  
+  Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+  
+  #### `win.closeFilePreview()` *macOS*
+  
+  Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+  
+  #### `win.setBounds(bounds[, animate])`
+  
+  * `bounds` [Rectangle](structures/rectangle.md)
+  * `animate` Boolean (optional) *macOS*
+  
+  Resizes and moves the window to the supplied bounds
+  
+  #### `win.getBounds()`
+  
+  Returns [`Rectangle`](structures/rectangle.md)
+  
+  #### `win.setContentBounds(bounds[, animate])`
+  
+  * `bounds` [Rectangle](structures/rectangle.md)
+  * `animate` Boolean (optional) *macOS*
+  
+  Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+  
+  #### `win.getContentBounds()`
+  
+  Returns [`Rectangle`](structures/rectangle.md)
+  
+  #### `win.setSize(width, height[, animate])`
+  
+  * `width` Integer
+  * `height` Integer
+  * `animate` Boolean (optional) *macOS*
+  
+  Resizes the window to `width` and `height`.
+  
+  #### `win.getSize()`
+  
+  Returns `Integer[]` - Contains the window's width and height.
+  
+  #### `win.setContentSize(width, height[, animate])`
+  
+  * `width` Integer
+  * `height` Integer
+  * `animate` Boolean (optional) *macOS*
+  
+  Resizes the window's client area (e.g. the web page) to `width` and `height`.
+  
+  #### `win.getContentSize()`
+  
+  Returns `Integer[]` - Contains the window's client area's width and height.
+  
+  #### `win.setMinimumSize(width, height)`
+  
+  * `width` Integer
+  * `height` Integer
+  
+  Sets the minimum size of window to `width` and `height`.
+  
+  #### `win.getMinimumSize()`
+  
+  Returns `Integer[]` - Contains the window's minimum width and height.
+  
+  #### `win.setMaximumSize(width, height)`
+  
+  * `width` Integer
+  * `height` Integer
+  
+  Sets the maximum size of window to `width` and `height`.
+  
+  #### `win.getMaximumSize()`
+  
+  Returns `Integer[]` - Contains the window's maximum width and height.
+  
+  #### `win.setResizable(resizable)`
+  
+  * `resizable` Boolean
+  
+  Sets whether the window can be manually resized by user.
+  
+  #### `win.isResizable()`
+  
+  Returns `Boolean` - Whether the window can be manually resized by user.
+  
+  #### `win.setMovable(movable)` *macOS* *Windows*
+  
+  * `movable` Boolean
+  
+  Sets whether the window can be moved by user. On Linux does nothing.
+  
+  #### `win.isMovable()` *macOS* *Windows*
+  
+  Returns `Boolean` - Whether the window can be moved by user.
+  
+  On Linux always returns `true`.
+  
+  #### `win.setMinimizable(minimizable)` *macOS* *Windows*
+  
+  * `minimizable` Boolean
+  
+  Sets whether the window can be manually minimized by user. On Linux does nothing.
+  
+  #### `win.isMinimizable()` *macOS* *Windows*
+  
+  Returns `Boolean` - Whether the window can be manually minimized by user
+  
+  On Linux always returns `true`.
+  
+  #### `win.setMaximizable(maximizable)` *macOS* *Windows*
+  
+  * `maximizable` Boolean
+  
+  Sets whether the window can be manually maximized by user. On Linux does nothing.
+  
+  #### `win.isMaximizable()` *macOS* *Windows*
+  
+  Returns `Boolean` - Whether the window can be manually maximized by user.
+  
+  On Linux always returns `true`.
+  
+  #### `win.setFullScreenable(fullscreenable)`
+  
+  * `fullscreenable` Boolean
+  
+  Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+  
+  #### `win.isFullScreenable()`
+  
+  Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+  
+  #### `win.setClosable(closable)` *macOS* *Windows*
+  
+  * `closable` Boolean
+  
+  Sets whether the window can be manually closed by user. On Linux does nothing.
+  
+  #### `win.isClosable()` *macOS* *Windows*
+  
+  Returns `Boolean` - Whether the window can be manually closed by user.
+  
+  On Linux always returns `true`.
+  
+  #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
+  
+  * `flag` Boolean
+  * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
+  * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+  
+  Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+  
+  #### `win.isAlwaysOnTop()`
+  
+  Returns `Boolean` - Whether the window is always on top of other windows.
+  
+  #### `win.center()`
+  
+  Moves window to the center of the screen.
+  
+  #### `win.setPosition(x, y[, animate])`
+  
+  * `x` Integer
+  * `y` Integer
+  * `animate` Boolean (optional) *macOS*
+  
+  Moves window to `x` and `y`.
+  
+  #### `win.getPosition()`
+  
+  Returns `Integer[]` - Contains the window's current position.
+  
+  #### `win.setTitle(title)`
+  
+  * `title` String
+  
+  Changes the title of native window to `title`.
+  
+  #### `win.getTitle()`
+  
+  Returns `String` - The title of the native window.
+  
+  **Note:** The title of web page can be different from the title of the native window.
+  
+  #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+  
+  * `offsetY` Float
+  * `offsetX` Float (optional)
+  
+  Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+  
+  ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
@@ -875,7 +875,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * ` url </ 0>  String</li>
-<li><code>options` Object (optional) 
+<li><code>pilihan` Objek (opsional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -923,7 +923,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional) 
+* `pilihan` Objek (opsional) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -997,7 +997,7 @@ The `buttons` is an array of `Button` objects:
     
     #### `win.setAppDetails(options)` *Windows*
     
-    * `options` Object 
+    * `pilihan` Object 
       * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
       * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
       * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
