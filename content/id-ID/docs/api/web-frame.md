@@ -134,13 +134,15 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Mengembalikan ` Objek </ 0> :</p>
 
-* `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+<ul>
+<li><code>images` [MemoryUsageDetails](structures/memory-usage-details.md)</li> 
+
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
-* `other` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `other` [MemoryUsageDetails](structures/memory-usage-details.md)</ul> 
 
 Returns an object describing usage information of Blink's internal memory caches.
 
