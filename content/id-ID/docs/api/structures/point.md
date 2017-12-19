@@ -1,4 +1,5 @@
-# Point Object
+# Objek titik
 
-* `x` Number
-* `y` Number
+*  x </ 0>  nomor</li>
+<li><code> y </ 0>  nomor</li>
+</ul>
