@@ -1,4 +1,4 @@
-# UploadFileSystem Object
+# UploadFileSystem 对象
 
 * `type` String - `fileSystem`.
 * `filsSystemURL` String - FileSystem url to read data for upload.
