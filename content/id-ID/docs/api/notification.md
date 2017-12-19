@@ -49,59 +49,65 @@ Objects created with `new Notification` emit the following events:
 
 Pengembalian:
 
-* `event` Event
+* ` event </ 0>  Acara</li>
+</ul>
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+<p>Emitted when the notification is shown to the user, note this could be fired
+multiple times as a notification can be shown multiple times through the
+<code>show()` method.</p> 
+  #### Event: 'click'
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
+</ul>
 
-#### Event: 'click'
+<p>Emitted when the notification is clicked by the user.</p>
 
-Pengembalian:
+<h4>Event: 'close'</h4>
 
-* `event` Event
+<p>Pengembalian:</p>
 
-Emitted when the notification is clicked by the user.
+<ul>
+<li><code> event </ 0>  Acara</li>
+</ul>
 
-#### Event: 'close'
+<p>Emitted when the notification is closed by manual intervention from the user.</p>
 
-Pengembalian:
+<p>This event is not guarunteed to be emitted in all cases where the notification
+is closed.</p>
 
-* `event` Event
+<h4>Event: 'reply' <em>macOS</em></h4>
 
-Emitted when the notification is closed by manual intervention from the user.
+<p>Pengembalian:</p>
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
-
-#### Event: 'reply' *macOS*
-
-Pengembalian:
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' *macOS*
-
-Pengembalian:
-
-* `event` Event
-* `index` Number - The index of the action that was activated
-
-### Instance Methods
-
-Objects created with `new Notification` have the following instance methods:
-
-#### `notification.show()`
-
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
-
-### Playing Sounds
-
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
-
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
-
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code>reply` String - The string the user entered into the inline reply field
+  
+  Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+  
+  #### Event: 'action' *macOS*
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
+<li><code>index` Number - The index of the action that was activated
+  ### Instance Methods
+  
+  Objects created with `new Notification` have the following instance methods:
+  
+  #### `notification.show()`
+  
+  Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+  
+  ### Playing Sounds
+  
+  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+  
+  * `~/Library/Sounds`
+  * `/Library/Sounds`
+  * `/Network/Library/Sounds`
+  * `/System/Library/Sounds`
+  
+  See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
