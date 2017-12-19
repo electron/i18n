@@ -9,12 +9,12 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 * `pilihan` Obyek 
   * `label` String (tidak wajib diisi) - tombol teks Popover.
   * `ikon` [GambarAsli](native-image.md) (tidak wajib diisi) - tombol ikon Popover.
-  * `jenis-jenis` [TouchBar](touch-bar.md) (optional) - butir-butir untuk ditampilkan didalam popover.
+  * `jenis-jenis` [TouchBar](touch-bar.md) (tidak wajib diisi) - butir-butir untuk ditampilkan didalam popover.
   * `showCloseButton` Boolean (tidak wajib diisi) - `benar` untuk menampilkan tombol penutup pada bagian kiri Popover, `salah` untuk tidak memperlihatkannya. Bawaanya adalah `benar`.
 
 ### Properti Instance
 
-The following properties are available on instances of `TouchBarPopover`:
+Properti berikut ini tersedia dalam kejadian `TouchBarPopover`:
 
 #### `touchBarPopover.label`
 
