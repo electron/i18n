@@ -64,13 +64,13 @@ The following events are available on instances of `Session`:
 
 * ` event </ 0>  Acara</li>
 <li><code>item` [DownloadItem](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
+</ul>
 
-Emitted when Electron is about to download `item` in `webContents`.
-
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
-
-```javascript
+<p>Emitted when Electron is about to download <code>item` in `webContents`.</p> 
+  Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+  
+  ```javascript
 const {session} = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
@@ -86,7 +86,7 @@ The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
+* `callback` Fungsi 
   * `size` Integer - Cache size used in bytes.
 
 Callback is invoked with the session's current cache size.
@@ -174,8 +174,8 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 #### `ses.resolveProxy(url, callback)`
 
-* `url` URL
-* `callback` Function 
+* ` url </ 0> URL</li>
+<li><code>callback` Fungsi 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
@@ -214,12 +214,12 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Fungsi 
   * `request` Object 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
-    * `error` String - Verification result from chromium.
-  * `callback` Function 
+    * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
+<li><code>error` String - Verification result from chromium.
+  * `callback` Fungsi 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
@@ -245,10 +245,10 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function 
+* `handler` Fungsi 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `callback` Fungsi 
     * `permissionGranted` Boolean - Allow or deny the permission
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
@@ -304,7 +304,7 @@ Returns `String` - The user agent for this session.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `callback` Fungsi 
   * `result` Buffer - Blob data.
 
 Returns `Blob` - The blob data associated with the `identifier`.
