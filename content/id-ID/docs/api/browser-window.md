@@ -1014,104 +1014,104 @@ The `buttons` is an array of `Button` objects:
     
     #### `win.setIcon(icon)` *Windows* *Linux*
     
-    * `icon` [NativeImage](native-image.md)
-    
-    Ubah ikon jendela.
-    
-    #### `win.setAutoHideMenuBar(hide)`
-    
-    * `hide` Boolean
-    
-    Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
-    
-    If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
-    
-    #### `win.isMenuBarAutoHide()`
-    
-    Returns `Boolean` - Whether menu bar automatically hides itself.
-    
-    #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
-    
-    * `visible` Boolean
-    
-    Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
-    
-    #### `win.isMenuBarVisible()`
-    
-    Returns `Boolean` - Whether the menu bar is visible.
-    
-    #### `win.setVisibleOnAllWorkspaces(visible)`
-    
-    * `visible` Boolean
-    
-    Sets whether the window should be visible on all workspaces.
-    
-    **Note:** This API does nothing on Windows.
-    
-    #### `win.isVisibleOnAllWorkspaces()`
-    
-    Returns `Boolean` - Whether the window is visible on all workspaces.
-    
-    **Note:** This API always returns false on Windows.
-    
-    #### `win.setIgnoreMouseEvents(ignore)`
-    
-    * `ignore` Boolean
-    
-    Makes the window ignore all mouse events.
-    
-    All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
-    
-    #### `win.setContentProtection(enable)` *macOS* *Windows*
-    
-    * `enable` Boolean
-    
-    Prevents the window contents from being captured by other apps.
-    
-    On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
-    
-    #### `win.setFocusable(focusable)` *Windows*
-    
-    * `focusable` Boolean
-    
-    Changes whether the window can be focused.
-    
-    #### `win.setParentWindow(parent)` *Linux* *macOS*
-    
-    * `parent` BrowserWindow
-    
-    Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
-    
-    #### `win.getParentWindow()`
-    
-    Returns `BrowserWindow` - The parent window.
-    
-    #### `win.getChildWindows()`
-    
-    Returns `BrowserWindow[]` - All child windows.
-    
-    #### `win.setAutoHideCursor(autoHide)` *macOS*
-    
-    * `autoHide` Boolean
-    
-    Controls whether to hide cursor when typing.
-    
-    #### `win.setVibrancy(type)` *macOS*
-    
-    * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
-    
-    Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
-    
-    #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
-    
-    * `touchBar` TouchBar
-    
-    Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
-    
-    **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
-    
-    #### `win.setBrowserView(browserView)` *Experimental*
-    
-    * `browserView` [BrowserView](browser-view.md)
-    
-    **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+    * ` ikon </ 0>  <a href="native-image.md"> NativeImage </ 1></li>
+</ul>
+
+<p>Ubah ikon jendela.</p>
+
+<h4><code>win.setAutoHideMenuBar(hide)`</h4> 
+      * `hide` Boolean
+      
+      Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+      
+      If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+      
+      #### `win.isMenuBarAutoHide()`
+      
+      Returns `Boolean` - Whether menu bar automatically hides itself.
+      
+      #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
+      
+      * `visible` Boolean
+      
+      Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+      
+      #### `win.isMenuBarVisible()`
+      
+      Returns `Boolean` - Whether the menu bar is visible.
+      
+      #### `win.setVisibleOnAllWorkspaces(visible)`
+      
+      * `visible` Boolean
+      
+      Sets whether the window should be visible on all workspaces.
+      
+      **Note:** This API does nothing on Windows.
+      
+      #### `win.isVisibleOnAllWorkspaces()`
+      
+      Returns `Boolean` - Whether the window is visible on all workspaces.
+      
+      **Note:** This API always returns false on Windows.
+      
+      #### `win.setIgnoreMouseEvents(ignore)`
+      
+      * `ignore` Boolean
+      
+      Makes the window ignore all mouse events.
+      
+      All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+      
+      #### `win.setContentProtection(enable)` *macOS* *Windows*
+      
+      * `enable` Boolean
+      
+      Prevents the window contents from being captured by other apps.
+      
+      On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+      
+      #### `win.setFocusable(focusable)` *Windows*
+      
+      * `focusable` Boolean
+      
+      Changes whether the window can be focused.
+      
+      #### `win.setParentWindow(parent)` *Linux* *macOS*
+      
+      * `parent` BrowserWindow
+      
+      Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+      
+      #### `win.getParentWindow()`
+      
+      Returns `BrowserWindow` - The parent window.
+      
+      #### `win.getChildWindows()`
+      
+      Returns `BrowserWindow[]` - All child windows.
+      
+      #### `win.setAutoHideCursor(autoHide)` *macOS*
+      
+      * `autoHide` Boolean
+      
+      Controls whether to hide cursor when typing.
+      
+      #### `win.setVibrancy(type)` *macOS*
+      
+      * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
+      
+      Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+      
+      #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+      
+      * `touchBar` TouchBar
+      
+      Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+      
+      **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+      
+      #### `win.setBrowserView(browserView)` *Experimental*
+      
+      * `browserView` [BrowserView](browser-view.md)
+      
+      **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
