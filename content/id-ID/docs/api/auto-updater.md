@@ -45,27 +45,30 @@ The `autoUpdater` object emits the following events:
 
 Pengembalian:
 
-* `error` Error
+* ` error </ 0> Kesalahan</li>
+</ul>
 
-Emitted when there is an error while updating.
+<p>Emitted when there is an error while updating.</p>
 
-### Event: 'checking-for-update'
+<h3>Event: 'checking-for-update'</h3>
 
-Emitted when checking if an update has started.
+<p>Emitted when checking if an update has started.</p>
 
-### Event: 'update-available'
+<h3>Event: 'update-available'</h3>
 
-Emitted when there is an available update. The update is downloaded automatically.
+<p>Emitted when there is an available update. The update is downloaded
+automatically.</p>
 
-### Event: 'update-not-available'
+<h3>Event: 'update-not-available'</h3>
 
-Emitted when there is no available update.
+<p>Emitted when there is no available update.</p>
 
-### Event: 'update-downloaded'
+<h3>Event: 'update-downloaded'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* ` event </ 0>  Acara</li>
+<ul>
+<li><code> event </ 0>  Acara</li>
 <li><code>releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
