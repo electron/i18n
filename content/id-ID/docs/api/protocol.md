@@ -68,8 +68,8 @@ app.on('ready', () => {
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -90,8 +90,8 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -120,8 +120,8 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -138,14 +138,14 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
-      * `url` String
-      * `method` String
+      * ` url </ 0>  String</li>
+<li><code>method` String
       * `session` Object (optional)
       * `uploadData` Object (optional) 
         * `contentType` String - MIME type of the content.
@@ -182,8 +182,8 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -198,8 +198,8 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -214,8 +214,8 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -230,14 +230,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` url </ 0>  String</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
-      * `url` String
-      * `method` String
+      * ` url </ 0>  String</li>
+<li><code>method` String
       * `session` Object (optional)
       * `uploadData` Object (optional) 
         * `contentType` String - MIME type of the content.
