@@ -1,5 +1,6 @@
-# MemoryUsageDetails Object
+# Objek MemoryUsageDetails
 
-* `count` Number
-* `size` Number
-* `liveSize` Number
+*  hitung </ 0>  nomor</li>
+<li><code> ukuran </ 0>  nomor</li>
+<li><code> liveSize </ 0>  nomor</li>
+</ul>
