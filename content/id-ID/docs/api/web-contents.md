@@ -879,8 +879,8 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
 * `callback` Fungsi 
-  * `error` Error
-  * `data` Buffer
+  * ` error </ 0> Kesalahan</li>
+<li><code>data` Buffer
 
 Prints window's web page as PDF with Chromium's preview printing custom settings.
 
@@ -1100,11 +1100,12 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
 * `callback` Function - `(error) => {}`. 
-  * `error` Error
+  * ` error </ 0> Kesalahan</li>
+</ul></li>
+</ul>
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
-
-```javascript
+<p>Returns <code>Boolean` - true if the process of saving page has been initiated successfully.</p> 
+    ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
