@@ -2,11 +2,11 @@
 
 [ChromeDriver - Chrome için WebDriver](https://sites.google.com/a/chromium.org/chromedriver/)'dan:
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver farklı tarayıcılar üzerinde web uygulamaları test etmek için açık kaynak bir araçtır. Web sayfalarını gezinme, kullanıcı girdisi, Javascript çalıştırma ve daha fazlasını yapabilir. ChromeDriver, Chrome için WebDriver'ın ağ protokolünü gerçekleyen, kendi başına çalışan bir sunucudur. Chromium ve Webdriver takımları tarafından geliştirilir.
 
-## Setting up Spectron
+## Spectron'u Ayarlama
 
-[Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electron.atom.io/spectron), Electron işin resmi olarak desteklenen test çatısıdır. [WebdriverIO](http://webdriver.io/) üzerinde yapılmıştır, testlerinizde Electron API'lerine erişim için yardımcı olur ve içinde ChromeDriver'ı barındırır.
 
 ```sh
 $ npm install --save-dev spectron
@@ -42,13 +42,13 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## WebDriverjs'yi Ayarlama
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) Web driver kullanarak test yapmanıza yarayan bir Node paketidir, biz de örnek olarak kullanacağız.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver'ı başlatın
 
-First you need to download the `chromedriver` binary, and run it:
+Öncelikle `chromedriver`'ı indirin ve başlatın:
 
 ```sh
 $ npm install electron-chromedriver
@@ -57,28 +57,28 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+`9515` port numarasını unutmayın, daha sonra kullanacağız
 
-### 2. Install WebDriverJS
+### 2. WebDriverJS'yi kurun
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. ChromeDriver'a bağlanma
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+Electron'un `selenium-webdriver`'ın kullanımı normaldeki gibi. Sadece bir farkla, kendiniz chrome driver'a nasıl bağlanacağınızı ve Electron'un binary dosyasının nerede olduğunu işaretlemelisiniz:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  //  "9515" chrome tarafından açılan port numarası.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
-      binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
+      // Electron binary dosyasına giden dizin.
+      binary: '/UygulamaDizini/Contents/MacOS/Electron'
     }
   })
   .forBrowser('electron')
@@ -94,15 +94,17 @@ driver.wait(() => {
 }, 1000)
 
 driver.quit()
+ 
+Context | Request Context
 ```
 
 ## Setting up with WebdriverIO
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriver'ı başlatın
 
-First you need to download the `chromedriver` binary, and run it:
+Öncelikle `chromedriver`'ı indirin ve başlatın:
 
 ```sh
 $ npm install electron-chromedriver
@@ -111,7 +113,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+`9515` port numarasını unutmayın, daha sonra kullanacağız
 
 ### 2. Install WebdriverIO
 
