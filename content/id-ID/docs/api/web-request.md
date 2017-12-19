@@ -40,8 +40,8 @@ The following methods are available on instances of `WebRequest`:
   * `details` Object 
     * `id` Integer
     * ` url </ 0>  String</li>
-<li><code>method` String
-    * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Fungsi 
@@ -66,8 +66,8 @@ The `listener` will be called with `listener(details, callback)` before sending 
 * `details` Object 
   * `id` Integer
   * ` url </ 0>  String</li>
-<li><code>method` String
-  * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Fungsi 
@@ -85,8 +85,8 @@ The `callback` has to be called with an `response` object.
   * `details` Object 
     * `id` Integer
     * ` url </ 0>  String</li>
-<li><code>method` String
-    * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -103,8 +103,8 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
 * `details` Object 
   * `id` String
   * ` url </ 0>  String</li>
-<li><code>method` String
-  * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
@@ -125,8 +125,8 @@ The `callback` has to be called with an `response` object.
   * `details` Object 
     * `id` Integer
     * ` url </ 0>  String</li>
-<li><code>method` String
-    * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -143,8 +143,8 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `details` Object 
     * `id` String
     * ` url </ 0>  String</li>
-<li><code>method` String
-    * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -162,8 +162,8 @@ The `listener` will be called with `listener(details)` when a server initiated r
   * `details` Object 
     * `id` Integer
     * ` url </ 0>  String</li>
-<li><code>method` String
-    * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
@@ -180,8 +180,8 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `details` Object 
     * `id` Integer
     * ` url </ 0>  String</li>
-<li><code>method` String
-    * `resourceType` String
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.
