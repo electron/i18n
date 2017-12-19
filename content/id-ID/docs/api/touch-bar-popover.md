@@ -1,8 +1,8 @@
-## Class: TouchBarPopover
+## Kelas: TouchBarPopover
 
-> Create a popover in the touch bar for native macOS applications
+> Membuat sebuah popover pada palang sentuh (touch bar) untuk aplikasi asli macOs
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarPopover(options)` *Experimental*
 
