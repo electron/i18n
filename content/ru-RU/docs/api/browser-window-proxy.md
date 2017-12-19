@@ -37,7 +37,7 @@
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Отправляет сообщение дочернему окну с указанием ротидельского окна или `*` без указания.
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
