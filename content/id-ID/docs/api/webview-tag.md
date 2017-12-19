@@ -473,8 +473,8 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
 * `callback` Fungsi 
-  * `error` Error
-  * `data` Buffer
+  * ` error </ 0> Kesalahan</li>
+<li><code>data` Buffer
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
