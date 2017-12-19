@@ -101,8 +101,8 @@ The `listener` will be called with `listener(details)` just before a request is 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `details` Object 
-  * `id` String
-  * ` url </ 0>  String</li>
+  * ` id </ 0>  String</li>
+<li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
   * `timestamp` Double
@@ -141,8 +141,8 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fungsi 
   * `details` Object 
-    * `id` String
-    * ` url </ 0>  String</li>
+    * ` id </ 0>  String</li>
+<li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
     * `timestamp` Double
