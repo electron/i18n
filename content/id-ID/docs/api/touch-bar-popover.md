@@ -4,12 +4,12 @@
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarPopover(options)` *Experimental*
+### ` TouchBarPopover(pilihan) baru` *Eksperimental*
 
-* `pilihan` Object 
-  * `label` String (optional) - Popover button text.
-  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
-  * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
+* `pilihan` Obyek 
+  * `label` String (tidak wajib diisi) - tombol teks Popover.
+  * `ikon` [GambarAsli](native-image.md) (tidak wajib diisi) - tombol ikon Popover.
+  * `jenis-jenis` [TouchBar](touch-bar.md) (optional) - butir-butir untuk ditampilkan didalam popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
 
 ### Instance Properties
