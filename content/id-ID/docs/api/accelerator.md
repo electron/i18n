@@ -1,26 +1,25 @@
-# Accelerator
+# Akselerator
 
-> Define keyboard shortcuts.
+> Tentukan pintasan keyboard.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Accelerators adalah Strings yang dapat berisi banyak pengubah dan kode kunci, dikombinasikan dengan karakter ` + </ 0> , dan digunakan untuk menentukan cara pintas keyboard di seluruh aplikasi Anda.</p>
 
-Examples:
+<p>Contoh:</p>
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+<ul>
+<li><code>Command Or Control + A`</li> 
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+* `Command Or Control + Shift + Z`</ul> 
 
-```javascript
-const {app, globalShortcut} = require('electron')
+Jalan pintas terdaftar dengan modul ` globalShortcut </ 0> dengan menggunakan metode <a href="global-shortcut.md#globalshortcutregisteraccelerator-callback"><code> register </ 1> 
+, misalnya</p>
 
-app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
-  globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
-  })
-})
-```
+<pre><code class="javascript">const {app, globalShortcut} = memerlukan ('elektron') app.on ('siap', () = & gt; {
+   // Daftarkan pendatang jalan pintas 'CommandOrControl + Y'.
+  globalShortcut.register ('CommandOrControl + Y', () = & gt; {
+     // Lakukan hal-hal saat Y dan salah satu Command / Control ditekan.
+  })})
+`</pre> 
 
 ## Platform notice
 
