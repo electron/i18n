@@ -82,21 +82,21 @@ Writes the `text` into the clipboard in RTF.
 Returns `Object`:
 
 * `title` String
-* `url` String
+* ` url </ 0>  String</li>
+</ul>
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
-
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
-
-* `title` String
-* `url` String
-* `type` String (optional)
-
-Writes the `title` and `url` into the clipboard as a bookmark.
-
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
-
-```js
+<p>Returns an Object containing <code>title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.</p> 
+  ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+  
+  * `title` String
+  * ` url </ 0>  String</li>
+<li><code>type` String (optional)
+  
+  Writes the `title` and `url` into the clipboard as a bookmark.
+  
+  **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+  
+  ```js
 clipboard.write({
   text: 'https://electron.atom.io',
   bookmark: 'Electron Homepage'
@@ -166,7 +166,6 @@ Writes the `buffer` into the clipboard as `format`.
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
 * `type` String (optional)
-
 ```javascript
 const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
