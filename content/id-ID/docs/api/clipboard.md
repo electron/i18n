@@ -79,9 +79,11 @@ Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Mengembalikan ` Objek </ 0> :</p>
 
-* `title` String
+<ul>
+<li><code>title` String</li> 
+
 * ` url </ 0>  String</li>
 </ul>
 
