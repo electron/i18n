@@ -966,148 +966,151 @@ The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
-
-The `flags` is an array that can include following `String`s:
-
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
-
-#### `win.setThumbnailClip(region)` *Windows*
-
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
-
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
-
-#### `win.setThumbnailToolTip(toolTip)` *Windows*
-
-* `toolTip` String
-
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
-
-#### `win.setAppDetails(options)` *Windows*
-
-* `options` Object 
-  * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
-  * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
-  * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
-  * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
-
-Sets the properties for the window's taskbar button.
-
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
-
-#### `win.showDefinitionForSelection()` *macOS*
-
-Same as `webContents.showDefinitionForSelection()`.
-
-#### `win.setIcon(icon)` *Windows* *Linux*
-
-* `icon` [NativeImage](native-image.md)
-
-Ubah ikon jendela.
-
-#### `win.setAutoHideMenuBar(hide)`
-
-* `hide` Boolean
-
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
-
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
-
-#### `win.isMenuBarAutoHide()`
-
-Returns `Boolean` - Whether menu bar automatically hides itself.
-
-#### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
-
-* `visible` Boolean
-
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
-
-#### `win.isMenuBarVisible()`
-
-Returns `Boolean` - Whether the menu bar is visible.
-
-#### `win.setVisibleOnAllWorkspaces(visible)`
-
-* `visible` Boolean
-
-Sets whether the window should be visible on all workspaces.
-
-**Note:** This API does nothing on Windows.
-
-#### `win.isVisibleOnAllWorkspaces()`
-
-Returns `Boolean` - Whether the window is visible on all workspaces.
-
-**Note:** This API always returns false on Windows.
-
-#### `win.setIgnoreMouseEvents(ignore)`
-
-* `ignore` Boolean
-
-Makes the window ignore all mouse events.
-
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
-
-#### `win.setContentProtection(enable)` *macOS* *Windows*
-
-* `enable` Boolean
-
-Prevents the window contents from being captured by other apps.
-
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
-
-#### `win.setFocusable(focusable)` *Windows*
-
-* `focusable` Boolean
-
-Changes whether the window can be focused.
-
-#### `win.setParentWindow(parent)` *Linux* *macOS*
-
-* `parent` BrowserWindow
-
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
-
-#### `win.getParentWindow()`
-
-Returns `BrowserWindow` - The parent window.
-
-#### `win.getChildWindows()`
-
-Returns `BrowserWindow[]` - All child windows.
-
-#### `win.setAutoHideCursor(autoHide)` *macOS*
-
-* `autoHide` Boolean
-
-Controls whether to hide cursor when typing.
-
-#### `win.setVibrancy(type)` *macOS*
-
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
-
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
-
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
-
-* `touchBar` TouchBar
-
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
-
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
-
-#### `win.setBrowserView(browserView)` *Experimental*
-
-* `browserView` [BrowserView](browser-view.md)
-
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+  * ` klik </ 0> Fungsi</li>
+<li><code> tooltip </ 0>  String (opsional) - Teks tooltip tombol.</li>
+<li><code> flag </ 0>  String [] (opsional) - Mengontrol keadaan dan perilaku tombol tertentu. Secara default, itu adalah <code> ['enabled'] </ 0> .</li>
+</ul></li>
+</ul>
+
+<p>The <code> bendera </ 0> adalah array yang yang dapat mencakup berikut <code> String </ 0> s:</p>
+
+<ul>
+<li><code> diaktifkan </ 0> - Tombol aktif dan tersedia untuk pengguna.</li>
+<li><code> dinonaktifkan </ 0> - Tombol dinonaktifkan. Ini ada, namun memiliki keadaan visual yang mengindikasikan bahwa hal itu tidak akan merespons tindakan pengguna.</li>
+<li><code> dismissonclick </ 0> - Saat tombol diklik, jendela thumbnail segera ditutup.</li>
+<li><code> nobackground </ 0> - Jangan menggambar batas tombol, gunakan hanya gambarnya.</li>
+<li><code> hidden </ 0> - Tombol tidak ditunjukkan ke pengguna.</li>
+<li><code> noninteraktif </ 0> - Tombol diaktifkan tapi tidak interaktif; tidak ada tombol tekan yang ditarik. Nilai ini ditujukan untuk contoh di mana tombol digunakan dalam pemberitahuan.</li>
+</ul>
+
+<h4><code>win.setThumbnailClip(region)` *Windows*</h4> 
+    * `region` [Rectangle](structures/rectangle.md) - Region of the window
+    
+    Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+    
+    #### `win.setThumbnailToolTip(toolTip)` *Windows*
+    
+    * `toolTip` String
+    
+    Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+    
+    #### `win.setAppDetails(options)` *Windows*
+    
+    * `options` Object 
+      * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
+      * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
+      * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
+      * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
+      * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
+    
+    Sets the properties for the window's taskbar button.
+    
+    **Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+    
+    #### `win.showDefinitionForSelection()` *macOS*
+    
+    Same as `webContents.showDefinitionForSelection()`.
+    
+    #### `win.setIcon(icon)` *Windows* *Linux*
+    
+    * `icon` [NativeImage](native-image.md)
+    
+    Ubah ikon jendela.
+    
+    #### `win.setAutoHideMenuBar(hide)`
+    
+    * `hide` Boolean
+    
+    Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+    
+    If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+    
+    #### `win.isMenuBarAutoHide()`
+    
+    Returns `Boolean` - Whether menu bar automatically hides itself.
+    
+    #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
+    
+    * `visible` Boolean
+    
+    Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+    
+    #### `win.isMenuBarVisible()`
+    
+    Returns `Boolean` - Whether the menu bar is visible.
+    
+    #### `win.setVisibleOnAllWorkspaces(visible)`
+    
+    * `visible` Boolean
+    
+    Sets whether the window should be visible on all workspaces.
+    
+    **Note:** This API does nothing on Windows.
+    
+    #### `win.isVisibleOnAllWorkspaces()`
+    
+    Returns `Boolean` - Whether the window is visible on all workspaces.
+    
+    **Note:** This API always returns false on Windows.
+    
+    #### `win.setIgnoreMouseEvents(ignore)`
+    
+    * `ignore` Boolean
+    
+    Makes the window ignore all mouse events.
+    
+    All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+    
+    #### `win.setContentProtection(enable)` *macOS* *Windows*
+    
+    * `enable` Boolean
+    
+    Prevents the window contents from being captured by other apps.
+    
+    On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+    
+    #### `win.setFocusable(focusable)` *Windows*
+    
+    * `focusable` Boolean
+    
+    Changes whether the window can be focused.
+    
+    #### `win.setParentWindow(parent)` *Linux* *macOS*
+    
+    * `parent` BrowserWindow
+    
+    Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+    
+    #### `win.getParentWindow()`
+    
+    Returns `BrowserWindow` - The parent window.
+    
+    #### `win.getChildWindows()`
+    
+    Returns `BrowserWindow[]` - All child windows.
+    
+    #### `win.setAutoHideCursor(autoHide)` *macOS*
+    
+    * `autoHide` Boolean
+    
+    Controls whether to hide cursor when typing.
+    
+    #### `win.setVibrancy(type)` *macOS*
+    
+    * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
+    
+    Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+    
+    #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+    
+    * `touchBar` TouchBar
+    
+    Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+    
+    **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+    
+    #### `win.setBrowserView(browserView)` *Experimental*
+    
+    * `browserView` [BrowserView](browser-view.md)
+    
+    **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
