@@ -1,11 +1,11 @@
-# Electron Documentation Styleguide
+# Electron Belgeleme Stil Rehberi
 
-These are the guidelines for writing Electron documentation.
+Electron belgeleri yazmak için rehberler.
 
-## Titles
+## Başlıklar
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
+* Her sayfa en yukarıda `#` seviyesinde bir başlığa sahip olmalıdır.
+* Aynı sayfadaki bölümler `##` seviyesinde başlığa sahip olmalıdır.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
