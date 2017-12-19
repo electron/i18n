@@ -196,46 +196,46 @@ Jenis aktivitas yang didukung ditentukan di aplikasi <code> Info.plist </ 0> di 
 
 <ul>
 <li><code> event </ 0>  Acara</li>
-<li><code>webContents` [WebContents](web-contents.md)</li> 
+<li><code> webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
+<li><code> url </ 0>  String</li>
+<li><code> error </ 0>  String - Kode kesalahan</li>
+<li><code> sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
+<li><code>callback` Fungsi 
 
-* ` url </ 0>  String</li>
-<li><code>error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted</ul> 
+* ` isTrusted </ 0>  Boolean - Apakah akan mempertimbangkan sertifikat sebagai terpercaya</li>
+</ul></li>
+</ul>
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+<p>Emitted ketika gagal untuk memverifikasi <code> certificate </ 0> untuk <code> url </ 0> , untuk mempercayai sertifikat Anda harus mencegah perilaku default dengan
+ <code> event.preventDefault () </ 0> dan memanggil < 0> callback (true) </ 0> .</p>
 
-```javascript
-const {app} = require('electron')
+<pre><code class="javascript">const {app} = require ('electron') app.on ('certificate-error', ( event , webContents, url, error, certificate, callback) = & gt; {
+   if (url === 'https: // github .com ') {
+     // Verifikasi logika.
+    event.preventDefault ()
+     callback (true)
+   } else {
+     callback (false)
+   }})
+`</pre> 
+  ### Acara : 'pilih-klien-sertifikat'
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
+<li><code> webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
+<li><code> url </ 0> URL</li>
+<li><code> certificateList </ 0>  <a href="structures/certificate.md"> Sertifikat [] </ 1></li>
+<li><code>callback` Fungsi 
+    * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1> (opsional)</li>
+</ul></li>
+</ul>
 
-app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
-  if (url === 'https://github.com') {
-    // Verification logic.
-    event.preventDefault()
-    callback(true)
-  } else {
-    callback(false)
-  }
-})
-```
+<p>Emitted ketika sertifikat klien diminta.</p>
 
-### Event: 'select-client-certificate'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
-<li><code>webContents` [WebContents](web-contents.md)
-* `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
-
-Emitted when a client certificate is requested.
-
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
-
-```javascript
+<p>The <code> url </ 0> sesuai dengan entri navigasi meminta sertifikat klien dan <code> callback </ 0> bisa disebut dengan entri disaring dari daftar. Using
+<code>event.preventDefault()` prevents the application from using the first certificate from the store.</p> 
+      ```javascript
 const {app} = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
@@ -243,32 +243,32 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   callback(list[0])
 })
 ```
-
-### Event: 'login'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
-<li><code>webContents` [WebContents](web-contents.md)
-* `request` Object 
-  * `method` String
-  * `url` URL
-  * `referrer` URL
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Function 
-  * `username` String
-  * `password` String
-
-Emitted when `webContents` wants to do basic auth.
-
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
-
-```javascript
+  
+  ### Event: 'login'
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
+<li><code> webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
+<li><code>request` Object 
+    * `method` String
+    * ` url </ 0> URL</li>
+<li><code>referrer` URL
+  * `authInfo` Object 
+    * `isProxy` Boolean
+    * `scheme` String
+    * `host` String
+    * `port` Integer
+    * `realm` String
+  * `callback` Fungsi 
+    * `username` String
+    * `password` String
+  
+  Emitted when `webContents` wants to do basic auth.
+  
+  The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+  
+  ```javascript
 const {app} = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
@@ -382,7 +382,6 @@ Anda dapat meminta jalur berikut dengan nama:
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
-
 ### `app.getFileIcon(path[, options], callback)`
 
 * ` path </ 0>  String</li>
@@ -391,7 +390,7 @@ Anda dapat meminta jalur berikut dengan nama:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Function 
+* `callback` Fungsi 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -589,7 +588,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Fungsi 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -656,7 +655,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
   * `options` Object 
     * `certificate` String - Path for the pkcs12 file.
     * `password` String - Passphrase for the certificate.
-  * `callback` Function 
+  * `callback` Fungsi 
     * `result` Integer - Result of import.
   
   Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
