@@ -1,4 +1,5 @@
-# UploadBlob Object
+# Upload Blob Objek
 
-* `type` String - `blob`.
-* `blobUUID` String - UUID of blob data to upload.
+*  ketik </ 0>  String - <code> blob </ 0> .</li>
+<li><code> blobUUID </ 0>  String - UUID data gumpalan untuk diunggah.</li>
+</ul>
