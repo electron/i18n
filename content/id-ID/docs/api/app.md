@@ -1,47 +1,52 @@
-# app
+# aplikasi
 
-> Kontrol siklus hidup acara aplikasi Anda.
+> Kontrol aplikasi Anda acara siklus hidup.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
-The following example shows how to quit the application when the last window is closed:
+Contoh berikut menunjukkan bagaimana cara menghentikan aplikasi saat jendela terakhir ditutup:
 
 ```javascript
-const {app} = require('electron')
-app.on('window-all-closed', () => {
-  app.quit()
-})
+const {app} = require ('electron') app.on ('window-all-closed', () = & gt; {
+   app.quit ()})
 ```
 
-## Events
+## Acara
 
-The `app` object emits the following events:
+The ` aplikasi </ 0> objek memancarkan peristiwa berikut:</p>
 
-### Event: 'will-finish-launching'
+<h3>Acara : 'will-finish-launching'</h3>
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+<p>Emitted saat aplikasi sudah selesai basic startup. Pada Windows dan Linux, <code> akan-selesai-launching </ 0>  acara adalah sama dengan <code> siap </ 0>  event ; di macos , acara ini mewakili aplikasi <code> applicationWillFinishLaunching </ 0> dari
+ <code> NSApplication </ 0> . Anda biasanya akan menyiapkan pendengar untuk acara <code> open-file </ 0> dan
+ <code> open-url </ 0> di sini, dan memulai reporter kecelakaan dan updater otomatis.</p>
 
-In most cases, you should just do everything in the `ready` event handler.
+<p>Dalam kebanyakan kasus, Anda hanya harus melakukan semuanya dalam pengendali event <code> siap </ 0>  .</p>
 
-### Event: 'ready'
+<h3>Acara : 'siap'</h3>
 
-Returns:
+<p>Pengembalian:</p>
 
-* `launchInfo` Object *macOS*
+<ul>
+<li><code> launchInfo </ 0> Objek <em> macOS </ 1></li>
+</ul>
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+<p>Emitted ketika Elektron selesai menginisialisasi. Di macos , <code> launchInfo </ 0> memegang <code> userInfo </ 0> dari <code> NSUserNotification </ 0> yang digunakan untuk membuka aplikasi, jika diluncurkan dari Notification Center. Anda dapat menghubungi <code> app.isReady () </ 0> untuk memeriksa apakah acara ini telah dipecat.</p>
 
-### Event: 'window-all-closed'
+<h3>Acara : 'window-all-closed'</h3>
 
-Emitted when all windows have been closed.
+<p>Emitted ketika semua jendela telah ditutup.</p>
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+<p>Jika Anda tidak berlangganan acara ini dan semua jendela ditutup, perilaku defaultnya adalah berhenti dari aplikasi; Namun, jika Anda berlangganan, Anda mengontrol apakah aplikasi berhenti atau tidak. Jika pengguna menekan <code> Cmd + Q </ 0> , atau pengembang yang disebut
+ <code> app.quit () </ 0> , Elektron pertama akan mencoba untuk menutup semua jendela dan kemudian memancarkan
+ <code> akan- berhenti </ 0>  event , dan dalam hal ini <code> jendela-semua-ditutup </ 0>  acara tidak akan dipancarkan.</p>
 
-### Event: 'before-quit'
+<h3>Acara : 'sebelum-berhenti'</h3>
 
-Returns:
+<p>Pengembalian:</p>
 
-* `event` Event
+<ul>
+<li><code>event` Event</li> </ul> 
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -49,7 +54,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 
@@ -59,7 +64,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `exitCode` Integer
@@ -68,7 +73,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `path` String
@@ -81,7 +86,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `url` String
@@ -92,7 +97,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -101,7 +106,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -113,7 +118,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Pengembalian:
 
 * `event` Event
 
@@ -121,7 +126,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `window` BrowserWindow
@@ -130,7 +135,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `window` BrowserWindow
@@ -139,7 +144,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `window` BrowserWindow
@@ -148,7 +153,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `webContents` WebContents
@@ -157,7 +162,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -185,7 +190,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -209,7 +214,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -242,7 +247,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `killed` Boolean
@@ -251,7 +256,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Pengembalian:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
