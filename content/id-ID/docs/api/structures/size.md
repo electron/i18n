@@ -1,4 +1,5 @@
-# Size Object
+# Ukuran Obyek
 
-* `width` Number
-* `height` Number
+*  width </ 0>  Nomor</li>
+<li><code> tinggi </ 0>  nomor</li>
+</ul>
