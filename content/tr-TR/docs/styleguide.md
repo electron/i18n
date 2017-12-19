@@ -7,47 +7,47 @@ Electron belgeleri yazmak için rehberler.
 * Her sayfa en yukarıda `#` seviyesinde bir başlığa sahip olmalıdır.
 * Aynı sayfadaki bölümler `##` seviyesinde başlığa sahip olmalıdır.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* "ve", "ile" gibi bağlaçlar dışında sayfanın başlığındaki tüm kelimeler büyük harfle başlamalıdır.
+* Bölüm başlıklarının sadece ilk harfi büyük harfli olmalıdır.
 
-Using `Quick Start` as example:
+Örnek olarak `Hızlı Başlangıç`:
 
 ```markdown
-# Quick Start
+# Hızlı Başlangıç
 
 ...
 
-## Main process
+## Ana Süreç
 
 ...
 
-## Renderer process
+## Renderer Süreç
 
 ...
 
-## Run your app
+## Uygulamanızı başlatın
 
 ...
 
-### Run as a distribution
+### Dağıtım olarak başlatın
 
 ...
 
-### Manually downloaded Electron binary
+### El ile indirilmiş Electron binary'si
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+API referansları için bazı istisnalar mevcut.
 
-## Markdown rules
+## Markdown kuralları
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
+* Kod bloklarında `sh` yerine `cmd` kullanın. (Sözdizimi işaretleyicisinden dolayı).
+* Satırlar 80. karakterde bitmelidir.
 * No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Tüm `js` ve `javascript` kod blokları [standard-markdown](http://npm.im/standard-markdown) ile kontrol edilir.
 
-## Picking words
+## Kelime seçimi
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
