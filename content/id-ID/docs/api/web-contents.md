@@ -231,17 +231,19 @@ win.webContents.on('will-prevent-unload', (event) => {
   Pengembalian:
   
   * ` event </ 0>  Acara</li>
-<li><code>killed` Boolean
-  
-  Emitted when the renderer process crashes or is killed.
-  
-  #### Event: 'plugin-crashed'
-  
-  Pengembalian:
-  
-  * ` event </ 0>  Acara</li>
-<li><code>name` String
-  * `version` String
+<li><code> terbunuh </ 0>  Boolean</li>
+</ul>
+
+<p>Emitted when the renderer process crashes or is killed.</p>
+
+<h4>Event: 'plugin-crashed'</h4>
+
+<p>Pengembalian:</p>
+
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> nama </ 0>  String</li>
+<li><code>version` String
   
   Emitted when a plugin process has crashed.
   
@@ -321,64 +323,67 @@ Emitted ketika sertifikat klien diminta.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Acara : 'login'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code>request` Object 
-  * `method` String
-  * ` url </ 0> URL</li>
-<li><code>referrer` URL
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Fungsi 
-  * `username` String
-  * `password` String
+<li><code>permintaan` Object 
+  * ` method </ 0>  String</li>
+<li><code> url </ 0> URL</li>
+<li><code> perujuk </ 0> URL</li>
+</ul></li>
+<li><code>authInfo` Object 
+    * ` isProxy </ 0>  Boolean</li>
+<li><code> skema </ 0>  String</li>
+<li><code> host </ 0>  String</li>
+<li><code> port </ 0>  Integer</li>
+<li><code> realm </ 0>  String</li>
+</ul></li>
+<li><code>callback` Fungsi 
+      * ` nama pengguna </ 0>  String</li>
+<li><code> kata sandi </ 0>  String</li>
+</ul></li>
+</ul>
 
-Emitted when `webContents` wants to do basic auth.
+<p>Emitted ketika <code> webContents </ 0> ingin melakukan auth dasar.</p>
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
-
-#### Event: 'found-in-page'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
+<p>The usage is the same with <a href="app.md#event-login">the <code>login` event of `app`</a>.</p> 
+        #### Event: 'found-in-page'
+        
+        Pengembalian:
+        
+        * ` event </ 0>  Acara</li>
 <li><code>result` Object 
-  * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
-  * `finalUpdate` Boolean
-
-Emitted when a result is available for [`webContents.findInPage`] request.
-
-#### Event: 'media-started-playing'
-
-Emitted when media starts playing.
-
-#### Event: 'media-paused'
-
-Emitted when media is paused or done playing.
-
-#### Event: 'did-change-theme-color'
-
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
-
-```html
+          * `requestId` Integer
+          * `activeMatchOrdinal` Integer - Position of the active match.
+          * `matches` Integer - Number of Matches.
+          * `selectionArea` Object - Coordinates of first match region.
+          * `finalUpdate` Boolean
+        
+        Emitted when a result is available for [`webContents.findInPage`] request.
+        
+        #### Event: 'media-started-playing'
+        
+        Emitted when media starts playing.
+        
+        #### Event: 'media-paused'
+        
+        Emitted when media is paused or done playing.
+        
+        #### Event: 'did-change-theme-color'
+        
+        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+        
+        ```html
 <meta name='theme-color' content='#ff0000'>
 ```
-
-#### Event: 'update-target-url'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
+    
+    #### Event: 'update-target-url'
+    
+    Pengembalian:
+    
+    * ` event </ 0>  Acara</li>
 <li><code> url </ 0>  String</li>
 </ul>
 
@@ -391,69 +396,69 @@ Pengembalian:
 <ul>
 <li><code> event </ 0>  Acara</li>
 <li><code>type` String
-* `image` NativeImage (optional)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
-
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
-
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
-
-#### Event: 'context-menu'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
+    * `image` NativeImage (optional)
+    * `scale` Float (optional) - scaling factor for the custom cursor
+    * `size` [Size](structures/size.md) (optional) - the size of the `image`
+    * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+    
+    Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+    
+    If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+    
+    #### Event: 'context-menu'
+    
+    Pengembalian:
+    
+    * ` event </ 0>  Acara</li>
 <li><code>params` Object 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
-
-Emitted when there is a new context menu that needs to be handled.
-
-#### Event: 'select-bluetooth-device'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
+      * `x` Integer - x coordinate
+      * `y` Integer - y coordinate
+      * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
+      * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
+      * `pageURL` String - URL of the top level page that the context menu was invoked on.
+      * `frameURL` String - URL of the subframe that the context menu was invoked on.
+      * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
+      * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+      * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
+      * `isEditable` Boolean - Whether the context is editable.
+      * `selectionText` String - Text of the selection that the context menu was invoked on.
+      * `titleText` String - Title or alt text of the selection that the context was invoked on.
+      * `misspelledWord` String - The misspelled word under the cursor, if any.
+      * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
+      * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+      * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+      * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+        * `inError` Boolean - Whether the media element has crashed.
+        * `isPaused` Boolean - Whether the media element is paused.
+        * `isMuted` Boolean - Whether the media element is muted.
+        * `hasAudio` Boolean - Whether the media element has audio.
+        * `isLooping` Boolean - Whether the media element is looping.
+        * `isControlsVisible` Boolean - Whether the media element's controls are visible.
+        * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+        * `canRotate` Boolean - Whether the media element can be rotated.
+      * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
+        * `canUndo` Boolean - Whether the renderer believes it can undo.
+        * `canRedo` Boolean - Whether the renderer believes it can redo.
+        * `canCut` Boolean - Whether the renderer believes it can cut.
+        * `canCopy` Boolean - Whether the renderer believes it can copy
+        * `canPaste` Boolean - Whether the renderer believes it can paste.
+        * `canDelete` Boolean - Whether the renderer believes it can delete.
+        * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+    
+    Emitted when there is a new context menu that needs to be handled.
+    
+    #### Event: 'select-bluetooth-device'
+    
+    Pengembalian:
+    
+    * ` event </ 0>  Acara</li>
 <li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Fungsi 
-  * `deviceId` String
-
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
-
-```javascript
+    * `callback` Fungsi 
+      * `deviceId` String
+    
+    Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+    
+    ```javascript
 const {app, webContents} = require('electron')
 app.commandLine.appendSwitch('enable-web-bluetooth')
 
@@ -515,7 +520,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 #### `contents.loadURL(url[, options])`
 
 * ` url </ 0>  String</li>
-<li><code>options` Object (optional) 
+<li><code>pilihan` Objek (opsional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -796,7 +801,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `pilihan` Objek (opsional) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -854,7 +859,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `pilihan` Objek (opsional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -867,7 +872,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `pilihan` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -939,7 +944,7 @@ win.webContents.on('devtools-opened', () => {
 <p>Removes the specified path from DevTools workspace.</p>
 
 <h4><code>contents.openDevTools([options])`</h4> 
-    * `options` Object (optional) 
+    * `pilihan` Objek (opsional) 
       * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
     
     Opens the devtools.
@@ -1120,7 +1125,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `pilihan` Object 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
