@@ -61,8 +61,8 @@ The following methods are available on instances of `Cookies`:
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `callback` Fungsi 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * ` error </ 0> Kesalahan</li>
+<li><code>cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
 Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
 
@@ -78,20 +78,21 @@ Sends a request to get all cookies matching `details`, `callback` will be called
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Fungsi 
-  * `error` Error
+  * ` error </ 0> Kesalahan</li>
+</ul></li>
+</ul>
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
-
-#### `cookies.remove(url, name, callback)`
-
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
-* `callback` Function
-
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Function
-
-Tulis data cookie yang tidak tertulis ke disk.
+<p>Sets a cookie with <code>details`, `callback` will be called with `callback(error)` on complete.</p> 
+    #### `cookies.remove(url, name, callback)`
+    
+    * `url` String - The URL associated with the cookie.
+    * `name` String - The name of cookie to remove.
+    * `callback` Function
+    
+    Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+    
+    #### `cookies.flushStore(callback)`
+    
+    * `callback` Function
+    
+    Tulis data cookie yang tidak tertulis ke disk.
