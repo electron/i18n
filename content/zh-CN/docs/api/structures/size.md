@@ -1,4 +1,4 @@
-# 物体尺寸
+# Size 对象
 
-* 宽度
-* 高度
+* `width` Number
+* `height` Number
