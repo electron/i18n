@@ -46,131 +46,163 @@ The ` aplikasi </ 0> objek memancarkan peristiwa berikut:</p>
 <p>Pengembalian:</p>
 
 <ul>
-<li><code>event` Event</li> </ul> 
+<li><code> event </ 0>  Acara</li>
+</ul>
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+<p>Emitted sebelum aplikasi mulai menutup jendela-jendelanya. Memanggil <code> event.preventDefault () </ 0> akan mencegah perilaku default, yang mengakhiri aplikasi.</p>
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+<p><strong> Catatan: </ 0> Jika aplikasi berhenti diprakarsai oleh <code> autoUpdater.quitAndInstall () </ 1> 
+lalu <code> sebelum-berhenti </ 1> dipancarkan <em> setelah </ 2> memancarkan < 1> dekat </ 1>  acara pada semua jendela dan menutup mereka.</p>
 
-### Event: 'will-quit'
+<h3>Acara : 'akan-berhenti'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
+<ul>
+<li><code> event </ 0>  Acara</li>
+</ul>
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+<p>Emitted ketika semua jendela telah ditutup dan aplikasi akan berhenti. Memanggil <code> event.preventDefault () </ 0> akan mencegah perilaku default, yang mengakhiri aplikasi.</p>
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+<p>Lihat deskripsi <code> jendela-semua-ditutup </ 0>  acara untuk perbedaan antara <code> akan-berhenti </ 0> dan <code> jendela-semua-ditutup </ 0> peristiwa.</p>
 
-### Event: 'quit'
+<h3>Acara : 'berhenti'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `exitCode` Integer
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> exitCode </ 0>  Integer</li>
+</ul>
 
-Emitted when the application is quitting.
+<p>Emitted saat aplikasi berhenti.</p>
 
-### Event: 'open-file' *macOS*
+<h3>Event : 'open-file' <em> macos </ 0></h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `path` String
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> path </ 0>  String</li>
+</ul>
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+<p>Emitted saat pengguna ingin membuka file dengan aplikasi. The <code> open-file yang </ 0> 
+event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan kembali aplikasi untuk membuka file. <code> open-file </ 0> juga dipancarkan saat sebuah file diturunkan ke dok dan aplikasi belum berjalan. Pastikan untuk mendengarkan <code> open-file yang </ 0>  acara sangat awal di startup aplikasi Anda untuk menangani kasus ini (bahkan sebelum <code> siap </ 0>  acara dipancarkan).</p>
 
-You should call `event.preventDefault()` if you want to handle this event.
+<p>Anda harus menghubungi <code> event .preventDefault () </ 0> jika Anda ingin menangani acara ini .</p>
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+<p>Pada Windows , Anda harus mengurai <code> process.argv </ 0> (dalam proses utama) untuk mendapatkan filepath.</p>
 
-### Event: 'open-url' *macOS*
+<h3>Acara : 'buka-url' <em> macos </ 0></h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `url` String
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> url </ 0>  String</li>
+</ul>
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+<p>Emitted saat pengguna ingin membuka URL dengan aplikasi. File <code> Info.plist <code> aplikasi Anda
+ harus menentukan skema url di dalam kunci <code> CFBundleURLTypes </ 0> , dan set <code> NSPrincipalClass </ 0> ke <0> AtomApplication </ 0> .</p>
 
-You should call `event.preventDefault()` if you want to handle this event.
+<p>Anda harus menghubungi <code> event .preventDefault () </ 0> jika Anda ingin menangani acara ini .</p>
 
-### Event: 'activate' *macOS*
+<h3>Acara : 'aktifkan' <em> macOS </ 0></h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `hasVisibleWindows` Boolean
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> hasVisibleWindows </ 0>  Boolean</li>
+</ul>
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+<p>Emitted saat aplikasi diaktifkan. Berbagai tindakan dapat memicu acara ini , seperti meluncurkan aplikasi untuk pertama kalinya, mencoba meluncurkan ulang aplikasi saat sudah berjalan, atau mengklik ikon dok atau ikon taskbar.</p>
 
-### Event: 'continue-activity' *macOS*
+<h3>Acara : 'lanjutkan aktivitas' <em> macOS </ 0></h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> ketik </ 0> String - String yang mengidentifikasi aktivitas. Maps ke
+ <a href="https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType"><code> NSUserActivity.activityType </ 0>.</li>
+<li><code> userInfo </ 0> Objek - Berisi status spesifik aplikasi yang disimpan oleh aktivitas di perangkat lain.</li>
+</ul>
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+<p>Emitted selama <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html"> Handoff </ 0> saat aktivitas dari perangkat lain ingin dilanjutkan. Anda harus menghubungi <code> event .preventDefault () </ 0> jika Anda ingin menangani acara ini .</p>
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+<p>Aktivitas pengguna hanya dapat dilanjutkan di aplikasi yang memiliki ID Tim pengembang yang sama dengan aplikasi sumber aktivitas dan yang mendukung jenis aktivitas.
+Jenis aktivitas yang didukung ditentukan di aplikasi <code> Info.plist </ 0> di bawah tombol
+ <code> NSUserActivityTypes </ 0> .</p>
 
-### Event: 'new-window-for-tab' *macOS*
+<h3>Event : 'new-window-for-tab' <em> macOS </ 0></h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
+<ul>
+<li><code> event </ 0>  Acara</li>
+</ul>
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+<p>Emitted saat pengguna mengklik tombol tab baru macOS asli . Tombol tab baru hanya terlihat jika arus <code> BrowserWindow </ 0> memiliki
+ <code> tabbingIdentifier </ 0></p>
 
-### Event: 'browser-window-blur'
+<h3>Acara : 'browser-window-blur'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `window` BrowserWindow
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> jendela </ 0> Jendela Peramban</li>
+</ul>
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+<p>Emitted ketika <a href="browser-window.md"> browserWindow </ 0> menjadi kabur.</p>
 
-### Event: 'browser-window-focus'
+<h3>Acara : 'browser-window-focus'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `window` BrowserWindow
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> jendela </ 0> Jendela Peramban</li>
+</ul>
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+<p>Emitted ketika <a href="browser-window.md"> browserWindow </ 0> terpusat.</p>
 
-### Event: 'browser-window-created'
+<h3>Acara : 'browser-window-created'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `window` BrowserWindow
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> jendela </ 0> Jendela Peramban</li>
+</ul>
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+<p>Emitted ketika baru <a href="browser-window.md"> browserWindow </ 0> dibuat.</p>
 
-### Event: 'web-contents-created'
+<h3>Acara : 'isi web-dibuat'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `webContents` WebContents
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> webContents </ 0> Konten Web</li>
+</ul>
 
-Emitted when a new [webContents](web-contents.md) is created.
+<p>Emitted ketika baru <a href="web-contents.md"> webContents </ 0> dibuat.</p>
 
-### Event: 'certificate-error'
+<h3>Acara : 'sertifikat-kesalahan'</h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `url` String
-* `error` String - The error code
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code>webContents` [WebContents](web-contents.md)</li> 
+
+* ` url </ 0>  String</li>
+<li><code>error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Whether to consider the certificate as trusted</ul> 
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
@@ -192,8 +224,8 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Pengembalian:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` event </ 0>  Acara</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -216,8 +248,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Pengembalian:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` event </ 0>  Acara</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
   * `url` URL
@@ -249,8 +281,8 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Pengembalian:
 
-* `event` Event
-* `killed` Boolean
+* ` event </ 0>  Acara</li>
+<li><code>killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
 
@@ -258,8 +290,8 @@ Emitted when the gpu process crashes or is killed.
 
 Pengembalian:
 
-* `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* ` event </ 0>  Acara</li>
+<li><code>accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
@@ -353,8 +385,8 @@ Anda dapat meminta jalur berikut dengan nama:
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` String
-* `options` Object (optional) 
+* ` path </ 0>  String</li>
+<li><code>options` Object (optional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -375,130 +407,129 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.setPath(name, path)`
 
 * `name` String
-* `path` String
+* ` path </ 0>  String</li>
+</ul>
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+<p>Overrides the <code>path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.</p> 
+  You can only override paths of a `name` defined in `app.getPath`.
+  
+  By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+  
+  ### `app.getVersion()`
+  
+  Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+  
+  ### `app.getName()`
+  
+  Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+  
+  Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+  
+  ### `app.setName(name)`
+  
+  * `name` String
+  
+  Mengabaikan nama aplikasi saat ini.
+  
+  ### `app.getLocale()`
+  
+  Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+  
+  **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+  
+  **Note:** On Windows you have to call it after the `ready` events gets emitted.
+  
+  ### `app.addRecentDocument(path)` *macOS* *Windows*
+  
+  * ` path </ 0>  String</li>
+</ul>
 
-You can only override paths of a `name` defined in `app.getPath`.
-
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
-
-### `app.getVersion()`
-
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
-
-### `app.getName()`
-
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
-
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
-
-### `app.setName(name)`
-
-* `name` String
-
-Mengabaikan nama aplikasi saat ini.
-
-### `app.getLocale()`
-
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
-
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
-
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
-
-### `app.addRecentDocument(path)` *macOS* *Windows*
-
-* `path` String
-
-Adds `path` to the recent documents list.
-
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
-
-### `app.clearRecentDocuments()` *macOS* *Windows*
-
-Bersihkan daftar dokumen terakhir.
-
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Returns `Boolean` - Whether the call succeeded.
-
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
-
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
-
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
-
-### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Returns `Boolean` - Whether the call succeeded.
-
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Returns `Boolean`
-
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
-
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
-
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-
-### `app.setUserTasks(tasks)` *Windows*
-
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
-
-Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
-
-`tasks` is an array of [`Task`](structures/task.md) objects.
-
-Returns `Boolean` - Whether the call succeeded.
-
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
-
-### `app.getJumpListSettings()` *Windows*
-
-Returns `Object`:
-
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
-
-### `app.setJumpList(categories)` *Windows*
-
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
-
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
-
-* `ok` - Nothing went wrong.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
-
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
-
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
-
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
-
-Here's a very simple example of creating a custom Jump List:
-
-```javascript
+<p>Adds <code>path` to the recent documents list.</p> 
+    This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+    
+    ### `app.clearRecentDocuments()` *macOS* *Windows*
+    
+    Bersihkan daftar dokumen terakhir.
+    
+    ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    
+    * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+    * `path` String (optional) *Windows* - Defaults to `process.execPath`
+    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    
+    Returns `Boolean` - Whether the call succeeded.
+    
+    This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+    
+    On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+    
+    **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+    
+    The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+    
+    ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    
+    * `protocol` String - The name of your protocol, without `://`.
+    * `path` String (optional) *Windows* - Defaults to `process.execPath`
+    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    
+    Returns `Boolean` - Whether the call succeeded.
+    
+    This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+    
+    ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    
+    * `protocol` String - The name of your protocol, without `://`.
+    * `path` String (optional) *Windows* - Defaults to `process.execPath`
+    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    
+    Returns `Boolean`
+    
+    This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+    
+    **Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+    
+    The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+    
+    ### `app.setUserTasks(tasks)` *Windows*
+    
+    * `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+    
+    Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+    
+    `tasks` is an array of [`Task`](structures/task.md) objects.
+    
+    Returns `Boolean` - Whether the call succeeded.
+    
+    **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+    
+    ### `app.getJumpListSettings()` *Windows*
+    
+    Returns `Object`:
+    
+    * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+    * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+    ### `app.setJumpList(categories)` *Windows*
+    
+    * `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+    
+    Sets or removes a custom Jump List for the application, and returns one of the following strings:
+    
+    * `ok` - Nothing went wrong.
+    * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
+    * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+    * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
+    * `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+    
+    If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+    
+    **Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+    
+    **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+    
+    Here's a very simple example of creating a custom Jump List:
+    
+    ```javascript
 const {app} = require('electron')
 
 app.setJumpList([
@@ -603,107 +634,108 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
-
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
-
-### `app.getCurrentActivityType()` *macOS*
-
-Returns `String` - The type of the currently running activity.
-
-### `app.setAppUserModelId(id)` *Windows*
-
-* `id` String
-
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
-
-### `app.importCertificate(options, callback)` *LINUX*
-
-* `options` Object 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
-* `callback` Function 
-  * `result` Integer - Result of import.
-
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
-
-### `app.disableHardwareAcceleration()`
-
-Disables hardware acceleration for current app.
-
-This method can only be called before app is ready.
-
-### `app.disableDomainBlockingFor3DAPIs()`
-
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
-
-This method can only be called before app is ready.
-
-### `app.getAppMemoryInfo()` *Deprecated*
-
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
-
-### `app.getAppMetrics()`
-
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
-
-### `app.getGpuFeatureStatus()`
-
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
-
-### `app.setBadgeCount(count)` *Linux* *macOS*
-
-* `count` Integer
-
-Returns `Boolean` - Whether the call succeeded.
-
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
-
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
-
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
-
-### `app.getBadgeCount()` *Linux* *macOS*
-
-Returns `Integer` - The current value displayed in the counter badge.
-
-### `app.isUnityRunning()` *Linux*
-
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
-
-### `app.getLoginItemSettings([options])` *macOS* *Windows*
-
-* `options` Object (optional) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
-
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
-
-Returns `Object`:
-
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
-
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-
-### `app.setLoginItemSettings(settings)` *macOS* *Windows*
-
-* `settings` Object 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
-
-Set the app's login item settings.
-
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
-
-```javascript
+* `type` String - Uniquely identifies the activity. Maps ke ` NSUserActivity.activityType </ 0>.</li>
+<li><code>userInfo` Object - App-specific state to store for use by another device.</li> 
+  
+  * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.</ul> 
+  
+  Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+  
+  ### `app.getCurrentActivityType()` *macOS*
+  
+  Returns `String` - The type of the currently running activity.
+  
+  ### `app.setAppUserModelId(id)` *Windows*
+  
+  * `id` String
+  
+  Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+  
+  ### `app.importCertificate(options, callback)` *LINUX*
+  
+  * `options` Object 
+    * `certificate` String - Path for the pkcs12 file.
+    * `password` String - Passphrase for the certificate.
+  * `callback` Function 
+    * `result` Integer - Result of import.
+  
+  Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+  
+  ### `app.disableHardwareAcceleration()`
+  
+  Disables hardware acceleration for current app.
+  
+  This method can only be called before app is ready.
+  
+  ### `app.disableDomainBlockingFor3DAPIs()`
+  
+  By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+  
+  This method can only be called before app is ready.
+  
+  ### `app.getAppMemoryInfo()` *Deprecated*
+  
+  Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+  
+  ### `app.getAppMetrics()`
+  
+  Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+  
+  ### `app.getGpuFeatureStatus()`
+  
+  Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+  
+  ### `app.setBadgeCount(count)` *Linux* *macOS*
+  
+  * `count` Integer
+  
+  Returns `Boolean` - Whether the call succeeded.
+  
+  Sets the counter badge for current app. Setting the count to `` will hide the badge.
+  
+  On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+  
+  **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+  
+  ### `app.getBadgeCount()` *Linux* *macOS*
+  
+  Returns `Integer` - The current value displayed in the counter badge.
+  
+  ### `app.isUnityRunning()` *Linux*
+  
+  Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+  
+  ### `app.getLoginItemSettings([options])` *macOS* *Windows*
+  
+  * `options` Object (optional) 
+    * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
+    * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  
+  If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+  
+  Returns `Object`:
+  
+  * `openAtLogin` Boolean - `true` if the app is set to open at login.
+  * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
+  * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
+  * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
+  * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+  
+  **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  
+  ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+  
+  * `settings` Object 
+    * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
+    * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+    * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
+    * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  
+  Set the app's login item settings.
+  
+  To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+  
+  ```javascript
 const appFolder = path.dirname(process.execPath)
 const updateExe = path.resolve(appFolder, '..', 'Update.exe')
 const exeName = path.basename(process.execPath)
