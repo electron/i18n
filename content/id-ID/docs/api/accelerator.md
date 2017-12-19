@@ -21,42 +21,45 @@ Jalan pintas terdaftar dengan modul ` globalShortcut </ 0> dengan menggunakan me
   })})
 `</pre> 
 
-## Platform notice
+## Pemberitahuan platform
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan <code> CommandOrControl </ 0> yang mewakili <code> Command </ 0> pada macOS dan <code> Control </ 0 > di Linux dan Windows untuk menentukan beberapa akselerator.</p>
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+<p>Gunakan <code> Alt </ 0> daripada <code> Option </ 0> . Tombol <code> Option </ 0> hanya ada di macOS , sedangkan tombol <code> Alt </ 0> tersedia di semua platform.</p>
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+<p>The <code> super </ 0> kunci dipetakan ke <code> Windows </ 0> tombol pada Windows dan Linux dan
+ <code> Cmd </ 0> di MacOS .</p>
 
-## Available modifiers
+<h2>Tersedia pengubah</h2>
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
-* `Alt`
-* `Option`
+<ul>
+<li><code> Perintah </ 0> (atau <code> Cmd </ 0> sebentar)</li>
+<li><code> Kontrol </ 0> (atau <code> Ctrl </ 0> sebentar)</li>
+<li><code> CommandOrControl </ 0> (atau <code> CmdOrCtrl </ 0> untuk jangka pendek)</li>
+<li><code>Alt`</li> 
+
+* `Pilihan`
 * `AltGr`
-* `Shift`
-* `Super`
+* `Bergeser`
+* `Super`</ul> 
 
-## Available key codes
+## Kode kunci yang tersedia
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* ` 0 </ 0> sampai <code> 9 </ 0></li>
+<li><code> A </ 0> ke <code> Z </ 0></li>
+<li><code> F1 </ 0> sampai <code> F24 </ 0></li>
+<li>Tanda baca seperti <code> ~ </ 0> , <code> ! </ 0> , <code> @ </ 0> , <code> # </ 0> , <code> $ </ 0> , dll.</li>
+<li><code>Plus`
+* `Ruang`
 * `Tab`
-* `Backspace`
-* `Delete`
-* `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
-* `PrintScreen`
+* `Menghapus`
+* `Menghapus`
+* `Memasukkan`
+* ` Kembali </ 0> (atau <code> Enter </ 0> sebagai alias)</li>
+<li><code> Atas </ 0> , <code> Turun </ 0> , <code> Kiri </ 0> dan <code> Kanan </ 0></li>
+<li><code> Beranda </ 0> dan <code> Akhir </ 0></li>
+<li><code> Halaman Atas </ 0> dan <code> Halaman Bawah </ 0></li>
+<li><code> Escape </ 0> (atau <code> Esc </ 0> singkatnya)</li>
+<li><code> VolumeUp </ 0> , <code> VolumeDown </ 0> dan <code> VolumeMute </ 0></li>
+<li><code> MediaNextTrack </ 0> , <code> MediaPreviousTrack </ 0> , <code> MediaStop </ 0> dan <code> MediaPlayPause </ 0></li>
+<li><code>Layar cetak`
