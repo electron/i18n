@@ -18,8 +18,8 @@ Properti berikut ini tersedia dalam kejadian `TouchBarPopover`:
 
 #### `touchBarPopover.label`
 
-A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
+A `String` mewakili tombol text popover yang berlaku Mengganti nilai ini akan segera memperbaharui popover di dalam palang sentuh (touch bar).
 
 #### `touchBarPopover.icon`
 
-A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
+Sebuah `GambarAsli` mewakili ikon tombol popover yang berlaku. Mengganti nilai ini akan segera memperbaharui popover di palang sentuh (touch bar).
