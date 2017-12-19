@@ -1,4 +1,4 @@
-# 任务对象
+# Task 对象
 
 * `program` 字符串 - 要执行的程序的路径，通常你需要指定 `process.execPath`，也就是打开当前程序的路径
 * `arguments` 字符串- 给 `program` 这个程序执行时的命令行参数。
