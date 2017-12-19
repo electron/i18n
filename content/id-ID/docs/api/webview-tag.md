@@ -531,8 +531,8 @@ The following DOM events are available to the `webview` tag:
 
 Pengembalian:
 
-* `url` String
-* `isMainFrame` Boolean
+* ` url </ 0>  String</li>
+<li><code>isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -668,8 +668,8 @@ console.log(requestId)
 
 Pengembalian:
 
-* `url` String
-* `frameName` String
+* ` url </ 0>  String</li>
+<li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
@@ -693,62 +693,66 @@ webview.addEventListener('new-window', (e) => {
 
 Pengembalian:
 
-* `url` String
+* ` url </ 0>  String</li>
+</ul>
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+<p>Emitted when a user or the page wants to start navigation. It can happen when
+the <code>window.location` object is changed or a user clicks a link in the page.</p> 
+  This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+  
+  It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+  
+  Calling `event.preventDefault()` does **NOT** have any effect.
+  
+  ### Event: 'did-navigate'
+  
+  Pengembalian:
+  
+  * ` url </ 0>  String</li>
+</ul>
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+<p>Emitted when a navigation is done.</p>
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+<p>This event is not emitted for in-page navigations, such as clicking anchor links
+or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
+    ### Event: 'did-navigate-in-page'
+    
+    Pengembalian:
+    
+    * `isMainFrame` Boolean
+    * ` url </ 0>  String</li>
+</ul>
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+<p>Emitted when an in-page navigation happened.</p>
 
-### Event: 'did-navigate'
-
-Pengembalian:
-
-* `url` String
-
-Emitted when a navigation is done.
-
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-### Event: 'did-navigate-in-page'
-
-Pengembalian:
-
-* `isMainFrame` Boolean
-* `url` String
-
-Emitted when an in-page navigation happened.
-
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
-
-### Event: 'close'
-
-Fired when the guest page attempts to close itself.
-
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
-
-```javascript
+<p>When in-page navigation happens, the page URL changes but does not cause
+navigation outside of the page. Examples of this occurring are when anchor links
+are clicked or when the DOM <code>hashchange` event is triggered.</p> 
+      ### Event: 'close'
+      
+      Fired when the guest page attempts to close itself.
+      
+      The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+      
+      ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('close', () => {
   webview.src = 'about:blank'
 })
 ```
-
-### Event: 'ipc-message'
-
-Pengembalian:
-
-* `channel` String
-* `args` Array
-
-Fired when the guest page has sent an asynchronous message to embedder page.
-
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
-
-```javascript
+  
+  ### Event: 'ipc-message'
+  
+  Pengembalian:
+  
+  * `channel` String
+  * `args` Array
+  
+  Fired when the guest page has sent an asynchronous message to embedder page.
+  
+  With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+  
+  ```javascript
 // In embedder page.
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
@@ -811,18 +815,19 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Pengembalian:
 
-* `url` String
+*  url </ 0>  String</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-### Event: 'devtools-opened'
+<h3>Event: 'devtools-opened'</h3>
 
-Emitted when DevTools is opened.
+<p>Emitted when DevTools is opened.</p>
 
-### Event: 'devtools-closed'
+<h3>Event: 'devtools-closed'</h3>
 
-Emitted when DevTools is closed.
+<p>Emitted when DevTools is closed.</p>
 
-### Event: 'devtools-focused'
+<h3>Event: 'devtools-focused'</h3>
 
-Emitted when DevTools is focused / opened.
+<p>Emitted when DevTools is focused / opened.</p>
