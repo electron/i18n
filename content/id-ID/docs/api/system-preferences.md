@@ -17,21 +17,23 @@ The `systemPreferences` object emits the following events:
 
 Pengembalian:
 
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* ` event </ 0>  Acara</li>
+<li><code>newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
 Pengembalian:
 
-* `event` Event
+* ` event </ 0>  Acara</li>
+</ul>
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+<h3>Event: 'inverted-color-scheme-changed' <em>Windows</em></h3>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code>invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
 ## Methods
 
