@@ -37,7 +37,7 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options, callback])`
 
 * ` url </ 0>  String</li>
-<li><code>options` Object (optional) *macOS* 
+<li><code>pilihan` Objek (opsional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
