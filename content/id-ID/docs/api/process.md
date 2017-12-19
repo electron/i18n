@@ -93,23 +93,27 @@ Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Object`:
+Mengembalikan ` Objek </ 0> :</p>
 
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
+<ul>
+<li><code>workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.</li> 
+
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself</ul> 
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemMemoryInfo()`
 
-Returns `Object`:
+Mengembalikan ` Objek </ 0> :</p>
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+<ul>
+<li><code>total` Integer - The total amount of physical memory in Kilobytes available to the system.</li> 
+
 * `free` Integer - The total amount of memory not being used by applications or disk cache.
 * `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*</ul> 
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
