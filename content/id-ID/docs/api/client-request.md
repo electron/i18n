@@ -52,7 +52,7 @@ Pengembalian:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Fungsi 
   * `username` String
   * `password` String
 
