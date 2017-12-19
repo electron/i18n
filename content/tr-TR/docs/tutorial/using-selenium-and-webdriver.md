@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Açılan pencerenin başlığını kontrol eden ufak bir uyglama
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,24 +22,26 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Check if the window is visible
+  // Pencerenin görünürlüğünü kontrol et
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verify the window is visible
+  // Pencere görünür durumda mı, doğrula.
   assert.equal(isVisible, true)
 }).then(function () {
-  // Get the window's title
+  // Pencere başlığını al
   return app.client.getTitle()
 }).then(function (title) {
-  // Verify the window's title
+  // Pencere başlığını doğrula
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log any failures
+  // Hataları kayıt et
   console.error('Test failed', error.message)
 }).then(function () {
-  // Stop the application
+  // Uygulamayı durdur
   return app.stop()
 })
+ 
+Context | Request Context
 ```
 
 ## WebDriverjs'yi Ayarlama
@@ -98,7 +100,7 @@ driver.quit()
 Context | Request Context
 ```
 
-## Setting up with WebdriverIO
+## WebdriverIO'yu Ayarlama
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
@@ -115,24 +117,24 @@ Only local connections are allowed.
 
 `9515` port numarasını unutmayın, daha sonra kullanacağız
 
-### 2. Install WebdriverIO
+### 2. WebdriverIO'yu kurun
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Chrome driver'a bağlanın
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  host: 'localhost', // chrome driver sunucusu olarak localhost kullan
+  port: 9515,        // "9515" chrome driver tarafından açılan port numarası.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/UygulamaDizini/electron', // Electron binary dosyasına giden dizin.
+      args: [/* cli arguments */]           // Opsiyonel.  şöyle de olabilir: 'app=' + /path/to/your/app/
     }
   }
 }
@@ -150,8 +152,8 @@ client
   .end()
 ```
 
-## Workflow
+## İş Akışı
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Electron'u tekrar kurmadan, uygulamanızı test etmek için, basitçe uygulamanızı Electron'un kaynak dizini içerisine [koyun](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md).
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Alternatif olarak, argüman yollayarak kendi electron'unuz üzerinden uygulamayı çalıştırabilirsiniz. Böylece Electron'un kaynak dizinine kopyala/yapıştır yapmanıza gerek kalmaz.
