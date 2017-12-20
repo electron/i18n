@@ -23,17 +23,17 @@ The ` dialog </ 0> modul memiliki metode berikut:</p>
 
 <h3><code>dialog.showOpenDialog ([browserWindow,] options [, callback])`</h3> 
 
-* `browserWindow` BrowserWindow (optional)
-* `pilihan` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
+* ` jendela browser </ 0> jendela Browser(opsional)</li>
+<li><code>pilihan` Objek 
+  * ` judul </ 0>  String (opsional)</li>
+<li><code> default jalan</ 0>  String (opsional)</li>
+<li><code> buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
+<li><code> filter </ 0>  <a href="structures/file-filter.md"> FileFilter [] </ 1> (opsional)</li>
+<li><code>properti` String [] (opsional) - Berisi fitur mana yang harus digunakan dialog. Nilai berikut didukung: 
+    * ` buka file </ 0> - Memungkinkan file dipilih.</li>
+<li><code> buka direktorat </ 0> - Biarkan direktori dipilih.</li>
+<li><code> multi pilihan</ 0> - Memungkinkan beberapa jalur untuk dipilih.</li>
+<li><code>showHiddenFiles` - Show hidden files in dialog.
     * `createDirectory` - Allow creating new directories from dialog. *macOS*
     * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
     * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
@@ -67,13 +67,13 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
-* `pilihan` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `message` String (optional) *macOS* - Message to display above text fields.
+* ` jendela browser </ 0> jendela Browser(opsional)</li>
+<li><code>pilihan` Object 
+  * ` judul </ 0>  String (opsional)</li>
+<li><code>defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * ` buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
+<li><code> filter </ 0>  <a href="structures/file-filter.md"> FileFilter [] </ 1> (opsional)</li>
+<li><code>message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
 * `callback` Function (optional) 
@@ -89,8 +89,8 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
-* `pilihan` Object 
+* ` jendela browser </ 0> jendela Browser(opsional)</li>
+<li><code>pilihan` Object 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
@@ -126,8 +126,8 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
-* `pilihan` Object 
+* ` jendela browser </ 0> jendela Browser(opsional)</li>
+<li><code>pilihan` Object 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
 * `callback` Function
