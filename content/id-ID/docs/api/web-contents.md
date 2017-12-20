@@ -833,64 +833,65 @@ console.log(requestId)
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
 * `callback` Fungsi 
-  * `image` [NativeImage](native-image.md)
+  * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+</ul></li>
+</ul>
 
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
-
-#### `contents.hasServiceWorker(callback)`
-
-* `callback` Fungsi 
-  * `hasWorker` Boolean
-
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `callback` Fungsi 
-  * `success` Boolean
-
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
-
-#### `contents.getPrinters()`
-
-Get the system printer list.
-
-Returns [`PrinterInfo[]`](structures/printer-info.md)
-
-#### `contents.print([options])`
-
-* `pilihan` Objek (opsional) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
-
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
-
-Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
-
-Use `page-break-before: always;` CSS style to force to print to a new page.
-
-#### `contents.printToPDF(options, callback)`
-
-* `pilihan` Object 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Fungsi 
-  * ` error </ 0> Kesalahan</li>
+<p>Captures a snapshot of the page within <code>rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
+    #### `contents.hasServiceWorker(callback)`
+    
+    * `callback` Fungsi 
+      * `hasWorker` Boolean
+    
+    Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
+    
+    #### `contents.unregisterServiceWorker(callback)`
+    
+    * `callback` Fungsi 
+      * `success` Boolean
+    
+    Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
+    
+    #### `contents.getPrinters()`
+    
+    Get the system printer list.
+    
+    Returns [`PrinterInfo[]`](structures/printer-info.md)
+    
+    #### `contents.print([options])`
+    
+    * `pilihan` Objek (opsional) 
+      * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+      * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
+      * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+    
+    Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+    
+    Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+    
+    Use `page-break-before: always;` CSS style to force to print to a new page.
+    
+    #### `contents.printToPDF(options, callback)`
+    
+    * `pilihan` Object 
+      * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+      * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+      * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
+      * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
+      * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+    * `callback` Fungsi 
+      * ` error </ 0> Kesalahan</li>
 <li><code>data` Buffer
-
-Prints window's web page as PDF with Chromium's preview printing custom settings.
-
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
-
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
-
-By default, an empty `options` will be regarded as:
-
-```javascript
+    
+    Prints window's web page as PDF with Chromium's preview printing custom settings.
+    
+    The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+    
+    The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+    
+    By default, an empty `options` will be regarded as:
+    
+    ```javascript
 {
   marginsType: 0,
   printBackground: false,
