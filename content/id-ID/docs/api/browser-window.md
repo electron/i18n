@@ -1,47 +1,33 @@
-# BrowserWindow
+# Jendela browser
 
-> Create and control browser windows.
+> Buat dan kendalikan jendela browser.
 
 Proses:  Utama </ 0></p> 
 
 ```javascript
 // Dalam proses utamanya.
-const {BrowserWindow} = require('electron')
-
-// Or use `remote` from the renderer process.
-// const {BrowserWindow} = require('electron').remote
-
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
-})
-
-// Load a remote URL
-win.loadURL('https://github.com')
-
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+const {jendela Browser} = memerlukan ('electron') // Atau gunakan `remote` dari proses renderer.
+// const {jendela Browser} = memerlukan ('electron').terpencil biarkan menang=jendela baru Browser ( {lebar: 800, tinggi: 600} ) menang.di ('tutup', () = & gt; {menang = batal}) //beban sebuah remote URL win.loadURL ('https://github.com') // Atau muat file HTML lokal win.loadURL (`file: // $ {__ dirname} / app / index.html`)
 ```
 
-## Frameless window
+## Jendela tanpa bingkai
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Untuk membuat jendela tanpa krom , atau jendela transparan dalam bentuk sewenang-wenang, Anda dapat menggunakan API  Frameless Window </ 0> .</p> 
 
-## Showing window gracefully
+## Menampilkan jendela dengan anggun
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Saat memuat halaman di jendela secara langsung, pengguna mungkin melihat pemuatan laman secara bertahap, yang bukan pengalaman bagus untuk aplikasi asli. Untuk membuat tampilan jendela tanpa lampu kilat visual, ada dua solusi untuk situasi yang berbeda.
 
-### Using `ready-to-show` event
+### Menggunakan ` siap-show </ 0>  acara</h3>
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+<p>Saat memuat halaman, <code> siap-show </ 0>  acara akan dikeluarkan saat proses penyaji telah memberikan halaman untuk pertama kalinya jika jendela belum terbukti belum. Menampilkan jendela setelah acara ini tidak memiliki lampu kilat visual:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({show: false})
 win.once('ready-to-show', () => {
   win.show()
 })
-```
+`</pre> 
 
 This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
 
@@ -108,7 +94,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Buat dan kendalikan jendela browser.
 
 Proses:  Utama </ 0></p> 
 
