@@ -336,8 +336,8 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
-* `code` String
-* `userGesture` Boolean - Default `false`.
+* ` kode </ 0> String</li>
+<li><code>userGesture` Boolean - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -626,8 +626,8 @@ Fired when page leaves fullscreen triggered by HTML API.
 Pengembalian:
 
 * `level` Integer
-* `message` String
-* `line` Integer
+* ` pesan </ 0> String</li>
+<li><code>line` Integer
 * `sourceId` String
 
 Fired when the guest window logs a console message.
