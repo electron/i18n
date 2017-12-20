@@ -84,22 +84,22 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 * `MAP test.com [::1]:77` 强制"test.com"解析为IPv6环回地址. 也将强制生成的套接字地址端口为77.
 * `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+这些映射适用于网络请求中的端点主机. 网络请求包括TCP连接和直连的主机解析器, 以及HTTP代理连接中的`CONNECT`方式, 以及在`SOCKS`代理连接中的端点主机.
 
 ## --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+与`--host-rules`类似, 但是这些`rules`仅适用于主机解析器.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+启用了集成身份验证的以逗号分隔的服务器列表。
 
 例如：
 
     --auth-server-whitelist='*example.com, *foobar.com, *baz'
     
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. 没有`*`前缀，则url必须完全匹配.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
