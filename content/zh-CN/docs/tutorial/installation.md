@@ -26,7 +26,7 @@ npm install electron -g
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+此外, 您还可以使用 `--platform` 来指定开发平台 (例如, ` win32 `、` linux ` 等):
 
 ```shell
 npm install --platform=win32 electron
