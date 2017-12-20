@@ -50,4 +50,4 @@ tanpa sifat dan metode tunggal.</p>
 <p>Objek <code> BrowserWindowProxy </ 0> memiliki properti contoh berikut:</p>
 
 <h4><code>menang`</h4> 
-        A `Boolean` that is set to true after the child window gets closed.
+        A  Boolean </ 0> yang disetel ke true setelah jendela anak ditutup.</p>
