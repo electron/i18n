@@ -87,29 +87,34 @@ Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi <code> crashpad
 <li><code> unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server</li>
 </ul>
 
-<p>This would normally be controlled by user preferences. This has no effect if
-called before <code>start` is called.</p> 
+<p>Ini biasanya dikendalikan oleh preferensi pengguna. Ini tidak berpengaruh jika dipanggil sebelum <code> mulai </ 0> dipanggil.</p>
+
+<p><strong> Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p>
+
+<h3><code> kecelakaan Reporter.set Extra Parameter (kunci, nilai) </ 0>  <em> macos </ 1></h3>
+
+<ul>
+<li><code> kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
+<li><code> nilai </ 0>  String - Nilai parameter, harus panjangnya kurang dari 64 karakter. Menentukan <code> null </ 0> atau <code> undefined </ 0> akan menghapus kunci dari parameter tambahan.</li>
+</ul>
+
+<p>Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. Nilai yang ditetapkan di sini akan dikirim di samping nilai-nilai yang ditetapkan melalui <code> ekstra </ 0>  option 
+ketika <code> mulai </ 0> dipanggil. Ini API hanya tersedia pada MacOS , jika Anda perlu menambahkan / update parameter tambahan pada Linux dan Windows setelah panggilan pertama Anda untuk
+ <code> mulai </ 0> Anda dapat menghubungi <code> mulai </ 0> lagi dengan unggah < 0> ekstra </ 0> pilihan.</p>
+
+<h2>Laporan Kecelakaan Payload</h2>
+
+<p>Reporter kecelakaan akan mengirimkan data berikut ke <code> submitURL </ 0> sebagai <code> multipart / form-data </ 0>  <code> POST </ 0> :</p>
+
+<ul>
+<li><code> ver </ 0>  String - Versi Elektron .</li>
+<li><code> platform </ 0>  String - misal 'win32'.</li>
+<li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
+<li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'</li>
+<li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
+<li><code>_productName` String - The product name in the `crashReporter` `options` object.</li> 
     
-    ** Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p> 
-    
-    ### `crashReporter.setExtraParameter(key, value)` *macOS*
-    
-    * `key` String - Parameter key, must be less than 64 characters long.
-    * `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
-    
-    Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
-    
-    ## Crash Report Payload
-    
-    The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
-    
-    * `ver` String - The version of Electron.
-    * `platform` String - e.g. 'win32'.
-    * `process_type` String - e.g. 'renderer'.
-    * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-    * `_version` String - The version in `package.json`.
-    * `_productName` String - The product name in the `crashReporter` `options` object.
     * `prod` String - Name of the underlying product. In this case Electron.
     * `_companyName` String - The company name in the `crashReporter` `options` object.
     * `upload_file_minidump` File - The crash report in the format of `minidump`.
-    * All level one properties of the `extra` object in the `crashReporter` `options` object.
+    * All level one properties of the `extra` object in the `crashReporter` `options` object.</ul>
