@@ -92,7 +92,7 @@ request.on('login', (authInfo, callback) => {
     
     Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
     
-    #### Event: 'error'
+    #### Acara: 'kesalahan'
     
     Pengembalian:
     
