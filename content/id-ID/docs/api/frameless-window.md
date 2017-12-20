@@ -6,36 +6,33 @@ Jendela buram tanpa bingkai adalah jendela yang tidak memiliki  krom </ 0> , bag
 
 <h2>Buat jendela buram tanpa bingkai</h2>
 
-<p>To create a frameless window, you need to set <code>frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:</p> 
+<p>Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
+ <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
-```
+`</pre> 
 
-### Alternatives on macOS
+### Alternatif macos
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+Pada macos 10.9 Mavericks dan yang lebih baru, ada cara alternatif untuk menentukan jendela chromeless. Alih-alih menyetel ` bingkai </ 0> ke <code> false </ 0> yang menonaktifkan kedua kontrol titlebar dan jendela, Anda mungkin ingin agar bilah judul tersembunyi dan konten Anda meluas ke ukuran jendela penuh, namun tetap lindungi kontrol jendela ("lampu lalu lintas") untuk tindakan jendela standar.
+Anda dapat melakukannya dengan menetapkan <code> titleBarStyle </ 0>  option :</p>
 
-#### `hidden`
+<h4><code>tersembunyi`</h4> 
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
-
-```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
-win.show()
-```
-
-#### `hiddenInset`
-
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+Hasil di bar judul tersembunyi dan jendela konten ukuran penuh, namun bilah judul masih memiliki kontrol jendela standar ("lampu lalu lintas") di kiri atas.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
-win.show()
+const {jendela Browser} = memerlukan ('electron') biarkan menang = jendela Browser baru( {gaya catatan : 'tersembunyi'} ) menang.menunjukkan ()
+```
+
+#### `tersembunyi sisipan`
+
+Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu lalu lintas sedikit lebih tertutup dari tepi jendela.
+
+```javascript
+const {jendela Browser} = memerlukan ('electron') biar menang = baru Browser jendela( {gaya catatan: 'tersembunyi sisipan'} ) menang.menunjukan ()
 ```
 
 #### `customButtonsOnHover`
