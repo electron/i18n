@@ -1,10 +1,10 @@
-# Environment Variables
+# Variabel Lingkungan
 
-> Control application configuration and behavior without changing code.
+> Kontrol konfigurasi dan perilaku aplikasi tanpa mengubah kode.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Perilaku Elektron tertentu dikendalikan oleh variabel lingkungan karena diinisialisasi lebih awal dari pada baris perintah dan kode aplikasi.
 
-POSIX shell example:
+Contoh kulit POSIX:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
