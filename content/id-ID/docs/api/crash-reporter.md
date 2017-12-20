@@ -25,7 +25,7 @@ API sebelum memulai reporter kecelakaan.</p>
 <h3><code>kecelakaan Reporter.mulai (pilihan)`</h3> 
 
 * `pilihan` Objek 
-  * ` nama perusahaan </ 0>  String (opsional)</li>
+  * `` nama perusahaan </ 0>  String (opsional)</li>
 <li><code> submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
 <li><code> nama product</ 0>  String (opsional) - Default ke <code> app.getName () </ 0> .</li>
 <li><code> ungkah ke Server </ 0>  Boolean (opsional) - Apakah laporan kerusakan harus dikirim ke server Default adalah <code> true </ 0> .</li>
@@ -37,13 +37,17 @@ API sebelum memulai reporter kecelakaan.</p>
 <p>Anda diminta untuk memanggil metode ini sebelum menggunakan API <code> crashReporter </ 0> lainnya dan dalam setiap proses (utama / perender) yang ingin Anda kumpulkan laporan kerusakan.
 Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai </ 0> saat memanggil dari berbagai proses.</p>
 
-<p><strong>Note</strong> Child processes created via the <code>child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.</p> 
-    **Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
-    
-    **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `setExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
-    
-    ```js
- const args = [
+<p><strong> Catatan </ 0> Proses anak yang dibuat melalui modul <code> child_process </ 1> tidak akan memiliki akses ke modul Elektron .
+Oleh karena itu, untuk mengumpulkan laporan kerusakan dari mereka, gunakan <code> process.crashReporter.start </ 0> . Lewati pilihan yang sama seperti di atas dan yang tambahan yang disebut <code> crash Direktori</ 0> yang seharusnya mengarah ke direktori untuk menyimpan laporan kerusakan sementara. Anda bisa menguji ini dengan memanggil <code> process.crash () </ 0> untuk menabrak proses anak.</p>
+
+<p><strong> Catatan: </ 0> Untuk mengumpulkan laporan kerusakan dari proses anak di Windows , Anda perlu menambahkan kode tambahan ini juga.
+Ini akan memulai proses yang akan memantau dan mengirim laporan kecelakaan. Ganti <code> submit Url </ 0> , <code> nama produk</ 0> 
+dan <code> crash Direktori</ 0> dengan nilai yang sesuai.</p>
+
+<p><strong> Catatan: </ 0> Jika Anda memerlukan parameter tambahan / update <code> ekstra </ 1> setelah panggilan pertama <code> mulai </ 1> Anda dapat memanggil <code> set Extra Parameter </ 1> di macOS atau panggil <code> mulai </ 1> 
+lagi dengan parameter <code> ekstra </ 1> baru di-update di Linux dan Windows .</p>
+
+<pre><code class="js"> const args = [
    `--reporter-url=${submitURL}`,
    `--application-name=${productName}`,
    `--crashes-directory=${crashesDirectory}`
@@ -55,54 +59,53 @@ Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai <
    env: env,
    detached: true
  })
-```
-
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
-
-### `crashReporter.getLastCrashReport()`
-
-Returns [`CrashReport`](structures/crash-report.md):
-
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
-
-### `crashReporter.getUploadedReports()`
-
-Returns [`CrashReport[]`](structures/crash-report.md):
-
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
-
-### `crashReporter.getUploadToServer()` *Linux* *macOS*
-
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
-
-**Note:** This API can only be called from the main process.
-
-### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
-
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
-
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
-
-**Note:** This API can only be called from the main process.
-
-### `crashReporter.setExtraParameter(key, value)` *macOS*
-
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
-
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
-
-## Crash Report Payload
-
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
-
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+``</pre> 
+    **Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+    
+    ### `crashReporter.getLastCrashReport()`
+    
+    Returns [`CrashReport`](structures/crash-report.md):
+    
+    Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+    
+    ### `crashReporter.getUploadedReports()`
+    
+    Returns [`CrashReport[]`](structures/crash-report.md):
+    
+    Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+    
+    ### `crashReporter.getUploadToServer()` *Linux* *macOS*
+    
+    Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+    
+    **Note:** This API can only be called from the main process.
+    
+    ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
+    
+    * `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+    
+    This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+    
+    **Note:** This API can only be called from the main process.
+    
+    ### `crashReporter.setExtraParameter(key, value)` *macOS*
+    
+    * `key` String - Parameter key, must be less than 64 characters long.
+    * `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+    
+    Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+    
+    ## Crash Report Payload
+    
+    The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+    
+    * `ver` String - The version of Electron.
+    * `platform` String - e.g. 'win32'.
+    * `process_type` String - e.g. 'renderer'.
+    * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+    * `_version` String - The version in `package.json`.
+    * `_productName` String - The product name in the `crashReporter` `options` object.
+    * `prod` String - Name of the underlying product. In this case Electron.
+    * `_companyName` String - The company name in the `crashReporter` `options` object.
+    * `upload_file_minidump` File - The crash report in the format of `minidump`.
+    * All level one properties of the `extra` object in the `crashReporter` `options` object.
