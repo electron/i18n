@@ -177,34 +177,34 @@ Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+</ul>
 
-Sets the `image` associated with this tray icon when pressed on macOS.
-
-#### `tray.setToolTip(toolTip)`
-
-* `toolTip` String
-
-Sets the hover text for this tray icon.
-
-#### `tray.setTitle(title)` *macOS*
-
-* `title` String
-
-Sets the title displayed aside of the tray icon in the status bar.
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
-
-Sets when the tray's icon background becomes highlighted (in blue).
-
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-
-```javascript
+<p>Sets the <code>image` associated with this tray icon when pressed on macOS.</p> 
+  #### `tray.setToolTip(toolTip)`
+  
+  * `toolTip` String
+  
+  Sets the hover text for this tray icon.
+  
+  #### `tray.setTitle(title)` *macOS*
+  
+  * `title` String
+  
+  Sets the title displayed aside of the tray icon in the status bar.
+  
+  #### `tray.setHighlightMode(mode)` *macOS*
+  
+  * `mode` String - Highlight mode with one of the following values: 
+    * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+    * `always` - Always highlight the tray icon.
+    * `never` - Never highlight the tray icon.
+  
+  Sets when the tray's icon background becomes highlighted (in blue).
+  
+  **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+  
+  ```javascript
 const {BrowserWindow, Tray} = require('electron')
 
 const win = new BrowserWindow({width: 800, height: 600})
