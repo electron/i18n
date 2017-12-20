@@ -2,7 +2,7 @@
 
 > Get system preferences.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 ```javascript
 const {systemPreferences} = require('electron')
@@ -15,23 +15,25 @@ The `systemPreferences` object emits the following events:
 
 ### Event: 'accent-color-changed' *Windows*
 
-Returns:
+Pengembalian:
 
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* ` event </ 0>  Acara</li>
+<li><code>newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
-Returns:
+Pengembalian:
 
-* `event` Event
+* ` event </ 0>  Acara</li>
+</ul>
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+<h3>Event: 'inverted-color-scheme-changed' <em>Windows</em></h3>
 
-Returns:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code>invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
 ## Methods
 
@@ -60,7 +62,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Fungsi 
   * `event` String
   * `userInfo` Object
 
@@ -84,7 +86,7 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Fungsi 
   * `event` String
   * `userInfo` Object
 

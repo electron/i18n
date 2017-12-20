@@ -26,7 +26,7 @@ In the example above, both `BrowserWindow` and `win` were remote objects and `ne
 
 **Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
 
-## Lifetime of Remote Objects
+## Remotes Objects 的生命週期
 
 Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 

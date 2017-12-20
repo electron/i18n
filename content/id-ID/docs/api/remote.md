@@ -137,12 +137,12 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* ` nama </ 0>  String</li>
+</ul>
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
-
-## Properties
-
-### `remote.process`
-
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+<p>Returns <code>any` - The global variable of `name` (e.g. `global[name]`) in the main process.</p> 
+    ## Properties
+    
+    ### `remote.process`
+    
+    The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.

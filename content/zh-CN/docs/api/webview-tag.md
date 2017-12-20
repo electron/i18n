@@ -613,11 +613,11 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Fired when page receives favicon urls.
 
-### Event: 'enter-html-full-screen'
+### 事件: 'enter-html-full-screen'
 
 Fired when page enters fullscreen triggered by HTML API.
 
-### Event: 'leave-html-full-screen'
+### 事件: 'leave-html-full-screen'
 
 Fired when page leaves fullscreen triggered by HTML API.
 

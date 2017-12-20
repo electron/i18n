@@ -137,8 +137,8 @@ pages:
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron is een open source framework voor het gemakkelijk schrijven van integraties tests voor uw elektron app. Gebouwd op basis van ChromeDriver en WebDriverIO.
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
+  page_not_found: Pagina niet gevonden.
+  if_this_is_an_error: Als dit een fout is
   please_file_an_issue: please file an issue.

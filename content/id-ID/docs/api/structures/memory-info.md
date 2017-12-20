@@ -1,9 +1,10 @@
-# MemoryInfo Object
+# Objek info memory
 
-* `pid` Integer - Process id of the process.
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM. On macOS its value will always be 0.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+*  pid </ 0>  Integer - Proses id proses.</li>
+<li><code> workingSetSize </ 0>  Integer - Jumlah memori yang saat ini disematkan pada RAM fisik sebenarnya.</li>
+<li><code> peakWorkingSetSize </ 0>  Integer - Jumlah maksimum memori yang pernah disematkan ke RAM fisik sebenarnya. Pada macOS nilainya akan selalu 0.</li>
+<li><code> privateBytes </ 0>  Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti tumpukan JS atau konten HTML.</li>
+<li><code> sharedBytes </ 0>  Integer - Jumlah memori yang dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri.</li>
+</ul>
 
-Note that all statistics are reported in Kilobytes.
+<p>Perhatikan bahwa semua statistik dilaporkan di Kilobytes.</p>

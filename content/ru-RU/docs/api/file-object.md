@@ -2,13 +2,13 @@
 
 > Использует `File` из HTML5 API для найтивной работы с файлами в файловой системе.
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+Файловый интерфейс DOM предоставляет абстракции над файловой системой, чтобы позволить пользователям работать с ней с помощью файлового API HTML5. Electron добавил атрибут `path` к интерфейсу `File`, который предоставляет настоящий путь к файлу в файловой системе.
 
-Example of getting a real path from a dragged-onto-the-app file:
+Пример получения настоящего пути из перетаскиваемого в приложение файла:
 
 ```html
 <div id="holder">
-  Drag your file here
+  Перетащите файл сюда
 </div>
 
 <script>
@@ -17,7 +17,7 @@ Example of getting a real path from a dragged-onto-the-app file:
     e.stopPropagation();
 
     for (let f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
+      console.log('Файл, который вы перетащили: ', f.path)
     }
   });
   document.addEventListener('dragover', function (e) {

@@ -1,4 +1,4 @@
-# Coding Style
+# Kodlama Stili
 
 These are the style guidelines for coding in Electron.
 

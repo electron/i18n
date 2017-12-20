@@ -1,6 +1,6 @@
-# Updating Applications
+# 更新应用程序
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+有几种方法可以更新Electron应用。 The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
 ## Deploying an update server
 

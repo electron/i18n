@@ -105,13 +105,13 @@ Creates an empty `NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* ` path </ 0>  String</li>
+</ul>
 
-Returns `NativeImage`
-
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
-
-```javascript
+<p>Returns <code>NativeImage`</p> 
+ Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+ 
+ ```javascript
 const nativeImage = require('electron').nativeImage
 
 let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')

@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
 
@@ -43,30 +43,33 @@ The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Pengembalian:
 
-* `error` Error
+* ` error </ 0> Kesalahan</li>
+</ul>
 
-Emitted when there is an error while updating.
+<p>Emitted when there is an error while updating.</p>
 
-### Event: 'checking-for-update'
+<h3>Event: 'checking-for-update'</h3>
 
-Emitted when checking if an update has started.
+<p>Emitted when checking if an update has started.</p>
 
-### Event: 'update-available'
+<h3>Event: 'update-available'</h3>
 
-Emitted when there is an available update. The update is downloaded automatically.
+<p>Emitted when there is an available update. The update is downloaded
+automatically.</p>
 
-### Event: 'update-not-available'
+<h3>Event: 'update-not-available'</h3>
 
-Emitted when there is no available update.
+<p>Emitted when there is no available update.</p>
 
-### Event: 'update-downloaded'
+<h3>Event: 'update-downloaded'</h3>
 
-Returns:
+<p>Pengembalian:</p>
 
-* `event` Event
-* `releaseNotes` String
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code>releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
 * `updateURL` String
@@ -81,8 +84,8 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* ` url </ 0>  String</li>
+<li><code>requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
 Sets the `url` and initialize the auto updater.
 

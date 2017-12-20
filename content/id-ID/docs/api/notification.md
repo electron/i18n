@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `pilihan` Object 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
   * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle
@@ -47,61 +47,67 @@ Objects created with `new Notification` emit the following events:
 
 #### Event: 'show'
 
-Returns:
+Pengembalian:
 
-* `event` Event
+* ` event </ 0>  Acara</li>
+</ul>
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+<p>Emitted when the notification is shown to the user, note this could be fired
+multiple times as a notification can be shown multiple times through the
+<code>show()` method.</p> 
+  #### Event: 'click'
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
+</ul>
 
-#### Event: 'click'
+<p>Emitted when the notification is clicked by the user.</p>
 
-Returns:
+<h4>Event: 'close'</h4>
 
-* `event` Event
+<p>Pengembalian:</p>
 
-Emitted when the notification is clicked by the user.
+<ul>
+<li><code> event </ 0>  Acara</li>
+</ul>
 
-#### Event: 'close'
+<p>Emitted when the notification is closed by manual intervention from the user.</p>
 
-Returns:
+<p>This event is not guarunteed to be emitted in all cases where the notification
+is closed.</p>
 
-* `event` Event
+<h4>Event: 'reply' <em>macOS</em></h4>
 
-Emitted when the notification is closed by manual intervention from the user.
+<p>Pengembalian:</p>
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
-
-#### Event: 'reply' *macOS*
-
-Returns:
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' *macOS*
-
-Returns:
-
-* `event` Event
-* `index` Number - The index of the action that was activated
-
-### Instance Methods
-
-Objects created with `new Notification` have the following instance methods:
-
-#### `notification.show()`
-
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
-
-### Playing Sounds
-
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
-
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
-
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code>reply` String - The string the user entered into the inline reply field
+  
+  Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+  
+  #### Event: 'action' *macOS*
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
+<li><code>index` Number - The index of the action that was activated
+  ### Instance Methods
+  
+  Objects created with `new Notification` have the following instance methods:
+  
+  #### `notification.show()`
+  
+  Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+  
+  ### Playing Sounds
+  
+  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+  
+  * `~/Library/Sounds`
+  * `/Library/Sounds`
+  * `/Network/Library/Sounds`
+  * `/System/Library/Sounds`
+  
+  See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.

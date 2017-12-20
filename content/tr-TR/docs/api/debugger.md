@@ -1,10 +1,10 @@
-## Class: Debugger
+## Sınıf: Hata ayıklayıcı
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Chrome'un uzaktan hata ayıklama protokolü içın alternatif bir geçiş noktası.
 
-Process: [Main](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://developer.chrome.com/devtools/docs/debugger-protocol) var.
 
 ```javascript
 const {BrowserWindow} = require('electron')

@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> Uygulamanızın etkinlik ömrünü kontrol edin.
 
-Process: [Main](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Aşağıdaki örnek, son pencere kapatıldığı zaman uygulamadan nasıl çıkılacağını göstermektedir:
 
 ```javascript
 const {app} = require('electron')
@@ -13,13 +13,13 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Olaylar
 
-The `app` object emits the following events:
+`app` nesnesi aşağıdaki olaylarla ortaya çıkar:
 
-### Event: 'will-finish-launching'
+### Olay: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 

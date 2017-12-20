@@ -82,33 +82,33 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` String
+* ` skema </ 0>  String</li>
+</ul>
 
-Registers the `scheme` as secure scheme.
+<p>Registers the <code>scheme` as secure scheme.</p> 
+  Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+  
+  ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
+  
+  * ` skema </ 0>  String</li>
+</ul>
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
-
-### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
-
-* `scheme` String
-
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
-
-### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
-
-* `scheme` String
-* `options` Object (optional) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
-
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
-
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
-
-```javascript
+<p>Resources will be loaded from this <code>scheme` regardless of the current page's Content Security Policy.</p> 
+    ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
+    
+    * ` skema </ 0>  String</li>
+<li><code>pilihan` Objek (opsional) 
+      * `secure` Boolean - (optional) Default true.
+      * `bypassCSP` Boolean - (optional) Default true.
+      * `allowServiceWorkers` Boolean - (optional) Default true.
+      * `supportFetchAPI` Boolean - (optional) Default true.
+      * `corsEnabled` Boolean - (optional) Default true.
+    
+    Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+    
+    Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+    
+    ```javascript
 const {webFrame} = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
@@ -134,13 +134,15 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Mengembalikan ` Objek </ 0> :</p>
 
-* `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+<ul>
+<li><code>images` [MemoryUsageDetails](structures/memory-usage-details.md)</li> 
+
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
-* `other` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `other` [MemoryUsageDetails](structures/memory-usage-details.md)</ul> 
 
 Returns an object describing usage information of Blink's internal memory caches.
 

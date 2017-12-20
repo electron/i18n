@@ -183,7 +183,7 @@ child.once('ready-to-show', () => {
     * `webgl` Boolean (可选) - 启用 WebGL 支持. 默认值为 `true`.
     * `webaudio` Boolean (可选) - 启用 WebAudio 支持. 默认值为 `true`.
     * `plugins` Boolean (可选) - 是否支持插件. 默认值为 `false`.
-    * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实现功能. 默认值为 `false`.
+    * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实验功能. 默认值为 `false`.
     * `experimentalCanvasFeatures` Boolean (可选) - 启用 Chromium 的实验画布功能. 默认值为`false`.
     * `scrollBounce` Boolean (可选) - 在 macOS 启用弹力动画 (橡皮筋) 效果. 默认值为 `false`.
     * ` blinkFeatures `String (可选)-由 `, ` 分隔的特性列表, 如 ` CSSVariables、KeyboardEventKey `。 在 [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62)文件中查看被支持的所有特性.
@@ -201,25 +201,25 @@ child.once('ready-to-show', () => {
     * ` defaultEncoding ` String (可选) - 默认值为 `ISO-8859-1`.
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响 \[页面可见性 API\] \[#page-visibility\]。 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
-    * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to the value of the `nodeIntegration` option. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
+    * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。 **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的 `window.open()`. 默认为 `false`. **注意:** 该选项目前为实验性质.
+    * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认为 ` nodeIntegration ` 选项的值。 ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
 
-When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+` type ` 选项的可能值和行为与平台相关。可能的值为:
 
-* On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* On macOS, possible types are `desktop`, `textured`. 
-  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+* 在 Linux 上, 可能的类型有 ` desktop `、` dock `、` toolbar `、` splash `、` notification `。
+* 在 macOS, 可能的类型是 `desktop`, `textured`. 
+  * `textured` 类型增加金属色泽的外观 (`NSTexturedBackgroundWindowMask`).
+  * `desktop` 类型将窗口置于桌面背景级别 (`kCGDesktopWindowLevel - 1`). 注意，桌面窗口不会接收焦点、键盘或鼠标事件，但您可以使用< 0> globalShortcut < /0 >接收快捷键的消息
+* 在 Windows 上, 可能的类型为 `toolbar`.
 
 ### 事件
 
-Objects created with `new BrowserWindow` emit the following events:
+使用 `new BrowserWindow ` 创建的对象具有以下属性:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 #### 事件： 'page-title-updated'
 
@@ -228,240 +228,239 @@ Objects created with `new BrowserWindow` emit the following events:
 * `event` Event
 * `title` String
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题
 
-#### 事件：close
+#### 事件： 'close'
 
 返回:
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+在窗口要关闭的时候触发。 它在DOM 的`beforeunload` 和 `unload` 事件之前触发. 调用`event.preventDefault()`将阻止这个操作。
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 例如：
+通常你想通过 `beforeunload`处理器来决定是否关闭窗口，但是它也会在窗口重载的时候触发. 在 Electron 里，返回处 `undefined`之外的任何值都将取消关闭. 例如：
 
 ```javascript
 window.onbeforeunload = (e) => {
   console.log('I do not want to be closed')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
+  // 与通常的浏览器不同,会提示给用户一个消息框,
+  //返回非空值将默认取消关闭
+  //建议使用对话框 API 让用户确认关闭应用程序.
   e.returnValue = false
 }
 ```
 
-#### Event: 'closed'
+#### 事件： 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+口已经关闭时触发。当你接收到这个事件的时候, 你应当删除对已经关闭的窗口的引用对象和避免再次使用它.
 
-#### Event: 'session-end' *Windows*
+#### 事件: 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+因为强制关机或机器重启或会话注销而导致窗口会话结束时触发
 
-#### Event: 'unresponsive'
+#### 事件: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+网页变得未响应时触发
 
-#### Event: 'responsive'
+#### 事件: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+未响应的页面变成响应时触发
 
-#### Event: 'blur'
+#### 事件: 'blur'
 
-Emitted when the window loses focus.
+当窗口失去焦点时触发
 
-#### Event: 'focus'
+#### 事件: 'focus'
 
-Emitted when the window gains focus.
+当窗口获得焦点时触发
 
-#### Event: 'show'
+#### 事件: 'show'
 
-Emitted when the window is shown.
+当窗口显示时触发
 
-#### Event: 'hide'
+#### 事件: 'hide'
 
-Emitted when the window is hidden.
+当窗口隐藏时触发
 
-#### Event: 'ready-to-show'
+#### 事件: 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+当页面已经渲染完成(但是还没有显示) 并且窗口可以被现实时触发
 
-#### Event: 'maximize'
+#### 事件: 'maximize'
 
-Emitted when window is maximized.
+窗口最大化时触发
 
-#### Event: 'unmaximize'
+#### 事件: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+当窗口从最大化状态退出时触发
 
-#### Event: 'minimize'
+#### 事件: 'minimize'
 
-Emitted when the window is minimized.
+窗口最小化时触发
 
-#### Event: 'restore'
+#### 事件: 'restore'
 
-Emitted when the window is restored from a minimized state.
+当窗口从最小化状态恢复时触发
 
-#### Event: 'resize'
+#### 事件: 'resize'
 
-Emitted when the window is being resized.
+调整窗口大小时触发
 
-#### Event: 'move'
+#### 事件: 'move'
 
-Emitted when the window is being moved to a new position.
+窗口移动到新位置时触发
 
-**Note**: On macOS this event is just an alias of `moved`.
+**注意**: 在 macOS 上，此事件仅是`moved`的别名.
 
-#### Event: 'moved' *macOS*
+#### 事件: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+当窗口移动到新位置时触发一次
 
-#### Event: 'enter-full-screen'
+#### 事件: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+窗口进入全屏状态时触发
 
-#### Event: 'leave-full-screen'
+#### 事件: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+窗口离开全屏状态时触发
 
-#### Event: 'enter-html-full-screen'
+#### 事件: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+窗口进入由HTML API 触发的全屏状态时触发
 
-#### Event: 'leave-html-full-screen'
+#### 事件: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+窗口离开由HTML API触发的全屏状态时触发
 
-#### Event: 'app-command' *Windows*
+#### 事件: 'app-command' *Windows*
 
 返回:
 
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+请求一个[应用程序命令](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx)时触发. 典型的是键盘上的媒体键或浏览器命令, 以及在Windows上的一些鼠标中内置的“后退”按钮。
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+命令是小写的，下划线替换为连字符，以及`APPCOMMAND_` 前缀将被删除。 例如 `APPCOMMAND_BROWSER_BACKWARD`将被`browser-backward`触发.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // 当用户点击鼠标返回按钮时，导航窗口会后退
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### 事件: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+滚轮事件阶段开始时触发
 
-#### Event: 'scroll-touch-end' *macOS*
+#### 事件: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+滚轮事件阶段结束时触发
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### 事件: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+滚轮事件阶段到达元素边缘时触发
 
-#### Event: 'swipe' *macOS*
+#### 事件: 'swipe' *macOS*
 
 返回:
 
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+三指拖移时触发，可选的方向为 `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### 事件: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+窗口打开sheet(工作表) 时触发
 
-#### Event: 'sheet-end' *macOS*
+#### 事件: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+窗口关闭sheet(工作表) 时触发
 
 #### 事件: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+当点击了系统的新标签按钮时触发
 
 ### 静态方法
 
-The `BrowserWindow` class has the following static methods:
+`BrowserWindow` 类有以下方法:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+返回 `BrowserWindow[]` - 所有打开的窗口的数组
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+返回 `BrowserWindow` - 当前获得焦点的窗口, 如果没有就返回 `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+返回 `BrowserWindow` - 拥有给定 `webContents` 的窗口.
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+返回 `BrowserWindow` -拥有给定 `id` 的窗口.
 
 #### `BrowserWindow.addExtension(path)`
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+添加位于 `path`的扩展，并且返回扩展名
 
-The method will also not return if the extension's manifest is missing or incomplete.
+该方法如果扩展的 manifest 缺失或不完整，该方法不会返回。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.removeExtension(name)`
 
 * `name` String
 
-Remove a Chrome extension by name.
+根据名字删除一个 Chrome 的扩展。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+返回 `Object` - 键是扩展名, 每个值都是一个包含 `name` 和 `version` 属性的对象.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+添加位于 `path`的 DevTools 扩展，并且返回扩展名
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+扩展将被记住, 所以你只需要调用这个API一次, 这个API不是用于编程使用. 如果尝试添加已经加载的扩展, 此方法将不会返回, 而是会向控制台记录警告.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+该方法如果扩展的 manifest 缺失或不完整，该方法不会返回。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `name` String
 
-Remove a DevTools extension by name.
+根据名字删除一个 DevTools 的扩展。
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+返回 `Object` - 键是扩展名, 每个值都是一个包含 `name` 和 `version` 属性的对象.
 
-To check if a DevTools extension is installed you can run the following:
+要检查是否安装了 DevTools 扩展，您可以运行以下内容:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -470,315 +469,315 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-### Instance Properties
+### 实例属性
 
-Objects created with `new BrowserWindow` have the following properties:
+使用 `new BrowserWindow ` 创建的对象具有以下属性:
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// 在这个例子中,`win` 是我们的实例
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+窗口拥有的 `WebContents` 对象. 所有与网页相关的事件和操作都将通过它完成.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+有关它的方法和事件, 请参见 [`webContents` documentation](web-contents.md)
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+`Integer` 窗口的唯一ID
 
 ### 实例方法
 
-Objects created with `new BrowserWindow` have the following instance methods:
+使用 `new BrowserWindow `创建的对象具有以下实例方法:
 
 ** 注意: **某些方法仅在特定的操作系统上可用, 这些方法会被标记出来。
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+强制关闭窗口, 除了` closed `之外，`close`，`unload` 和 `beforeunload` 都不会被触发
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+尝试关闭窗口。这与用户手动点击窗口的关闭按钮效果相同。但页面也可以取消关闭。请看 [close event](#event-close)
 
 #### `win.focus()`
 
-Focuses on the window.
+聚焦于窗口
 
 #### `win.blur()`
 
-Removes focus from the window.
+取消窗口的聚焦
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+返回 `Boolean` - 判断窗口是否聚焦
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+返回 `Boolean` -判断窗口是否被销毁
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+显示并聚焦于窗口
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+显示但不聚焦于窗口
 
 #### `win.hide()`
 
-Hides the window.
+隐藏窗口
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+返回 `Boolean` - 判断窗口是否可见
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+返回 `Boolean` - 判断是否为模态窗口
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+最大化窗口。如果窗口尚未显示, 这也将会显示 (但不会聚焦)。
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+取消窗口最大化
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+返回 `Boolean` - 判断窗口是否最大化
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+窗口最小化。在某些平台上, 最小化的窗口将显示在Dock中.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+将窗口从最小化状态恢复到以前的状态。
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+返回 `Boolean` -判断窗口是否最小化
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+设置窗口是否应处于全屏模式。
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+返回 `Boolean` - 窗口当前是否已全屏
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* ` aspectRatio ` Float- 为内容视图保持的宽高比.
+* `extraSize` [Size](structures/size.md) - 维持高宽比值时不包含的额外大小
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+这将使窗口保持长宽比。 额外的大小允许开发人员有空间 (以像素为单位), 不包括在纵横比计算中。 此 API 已经考虑了窗口大小和内容大小之间的差异。
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以调用这个api传入参数16/9 和[ 40,50 ]. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 只需要把网页中的所有额外的高度和宽度加起来就行.
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
-* `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `path` String -要用 QuickLook 预览的文件的绝对路径。 这一点很重要，因为Quick Look 使用了路径上的文件名和文件扩展名 来决定要打开的文件的内容类型。
+* `displayName` String (可选) - 在Quick Look 模态视图中显示的文件的名称。 这完全是视觉的，不会影响文件的内容类型。 默认值为 `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+使用 [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)来预览路径中的文件.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+关闭当前打开的 [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) 面板.
 
 #### `win.setBounds(bounds[, animate])`
 
-* ` bounds`[ 矩形 ](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Boolean (可选) *macOS*
 
-Resizes and moves the window to the supplied bounds
+重置窗口，并且移动窗口到指定的位置
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+返回 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* ` bounds`[ 矩形 ](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Boolean (可选) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+调整窗口的工作区 (如网页) 的大小并将其移动到所提供的边界。
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+返回 [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (可选) *macOS*
 
-Resizes the window to `width` and `height`.
+调整窗口的`width`和 `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+返回 ` Integer [] `-包含窗口的宽度和高度。
 
 #### `win.setContentSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (可选) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+将窗口的工作区 (如网页) 的大小调整为 ` width ` 和 ` height `。
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+返回 ` Integer [] `-包含窗口的宽度和高度。
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+设置窗口最小化的 `width` 和`height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+返回 ` Integer [] `-包含窗口最小化的宽度和高度。
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+设置窗口最大化的 `width` 和 `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+返回 ` Integer [] `-包含窗口最大化的宽度和高度。
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+设置用户是否可以手动调整窗口大小。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+返回 `Boolean` - 设置窗口是否可以被用户改变大小.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+设置窗口是否可由用户移动。在 Linux 上无效。
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+返回 `Boolean` - 窗口是否可以被用户拖动
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+设置窗口是否可以最小化. 在 Linux 上无效.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+返回 `Boolean` -窗口是否可以最小化
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+设置窗口是否可以最大化. 在 Linux 上无效.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+返回 `Boolean` - 窗口是否可以最大化.
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+设置点击最大化按钮是否可以全屏或最大化窗口.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+返回 `Boolean` - 是否为全屏状态或窗口最大化
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+设置窗口是否可以人为关闭。在 Linux 上无效.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+返回 `Boolean` - 窗口是否被用户关闭了.
 
-On Linux always returns `true`.
+在 Linux 上总是返回 ` true `。
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (可选) *macOS* - 可以为下面的值 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, 和 ~~`dock`~~ (参考值). 默认值为 `floating`. 更多信息，请查阅 [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels)
+* `relativeLevel` Integer (可选) *macOS* - 设置此窗口相对于给定 `级别`的层数。. 默认值为``. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+设置窗口是否应始终显示在其他窗口的顶部。设置之后, 仍然是一个普通窗口, 而不是一个无法聚焦的工具箱窗口。
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+返回 `Boolean` - 当前窗口是否始终在其它窗口之前.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+将窗口移动到屏幕中央。
 
 #### `win.setPosition(x, y[, animate])`
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (可选) *macOS*
 
-Moves window to `x` and `y`.
+将窗口移动到 ` x ` 和 ` y `。
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+返回 `Integer[]` - 返回一个包含当前窗口位置的数组.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+将原生窗口的标题更改为 ` title `。
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+返回 ` String `-原生窗口的标题。
 
-**Note:** The title of web page can be different from the title of the native window.
+**注意:** 网页的标题和原生窗口的标题可以不一致
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (可选)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+更改macOS上的工作表的附件点。默认情况下, 工作表时在窗口框架下附加的，但是您可能想要将它们显示在 HTML-rendered 的工具栏。例如:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -967,17 +966,17 @@ The `buttons` is an array of `Button` objects:
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `tooltip` String (可选) - 按钮的提示文本.
+  * `flags` String[] (可选) - 控制按钮特定的状态和行为. 默认为 `['enabled']`.
 
-The `flags` is an array that can include following `String`s:
+`flags` 属性是一个数组，包含以下`String`类型的值:
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `enabled` - 该按钮处于活动状态并可供用户使用.
+* `disabled` - 该按钮被禁用。 它存在，但有一个显示状态表明它不会响应用户操作。
+* `dismissonclick` - 当按钮被点击时，缩略图窗口立即关闭。
+* `nobackground` - 不可以画按钮边框，只能使用图片背景。
+* `hidden` - 该按钮对用户不可见。
+* `noninteractive` - 该按钮已启用，但处于未激活状态; 没有绘制按钮按下状态。 这个值用于通知功能的按钮实例。
 
 #### `win.setThumbnailClip(region)` *Windows*
 

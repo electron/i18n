@@ -209,6 +209,6 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## Vertalingen van de documentatie
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Zie [elektron/elektron-i18n](https://github.com/electron/electron-i18n#readme)

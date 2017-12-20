@@ -1,4 +1,5 @@
-# FileFilter Object
+# Objek FileFilter
 
-* `name` String
-* `extensions` String[]
+*  nama </ 0>  Deretan</li>
+<li><code> ekstensi </ 0>  Deretan []</li>
+</ul>

@@ -238,8 +238,8 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.loadURL(url[, options])`
 
-* `url` URL
-* `options` Object (optional) 
+* ` url </ 0> URL</li>
+<li><code>pilihan` Objek (opsional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `pilihan` Objek (opsional) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -457,7 +457,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional) 
+* `pilihan` Objek (opsional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -466,22 +466,22 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Object 
+* `pilihan` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
-  * `error` Error
-  * `data` Buffer
+* `callback` Fungsi 
+  * ` error </ 0> Kesalahan</li>
+<li><code>data` Buffer
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` Fungsi 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
@@ -529,10 +529,10 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+Pengembalian:
 
-* `url` String
-* `isMainFrame` Boolean
+* ` url </ 0>  String</li>
+<li><code>isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -542,7 +542,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+Pengembalian:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -553,7 +553,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Returns:
+Pengembalian:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Returns:
+Pengembalian:
 
 * `status` Boolean
 * `newURL` String
@@ -584,7 +584,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Returns:
+Pengembalian:
 
 * `oldURL` String
 * `newURL` String
@@ -598,7 +598,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+Pengembalian:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +607,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+Pengembalian:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +623,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+Pengembalian:
 
 * `level` Integer
 * `message` String
@@ -643,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+Pengembalian:
 
 * `result` Object 
   * `requestId` Integer
@@ -666,10 +666,10 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+Pengembalian:
 
-* `url` String
-* `frameName` String
+* ` url </ 0>  String</li>
+<li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
@@ -691,64 +691,68 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Returns:
+Pengembalian:
 
-* `url` String
+* ` url </ 0>  String</li>
+</ul>
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+<p>Emitted when a user or the page wants to start navigation. It can happen when
+the <code>window.location` object is changed or a user clicks a link in the page.</p> 
+  This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+  
+  It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+  
+  Calling `event.preventDefault()` does **NOT** have any effect.
+  
+  ### Event: 'did-navigate'
+  
+  Pengembalian:
+  
+  * ` url </ 0>  String</li>
+</ul>
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+<p>Emitted when a navigation is done.</p>
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+<p>This event is not emitted for in-page navigations, such as clicking anchor links
+or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
+    ### Event: 'did-navigate-in-page'
+    
+    Pengembalian:
+    
+    * `isMainFrame` Boolean
+    * ` url </ 0>  String</li>
+</ul>
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+<p>Emitted when an in-page navigation happened.</p>
 
-### Event: 'did-navigate'
-
-Returns:
-
-* `url` String
-
-Emitted when a navigation is done.
-
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-### Event: 'did-navigate-in-page'
-
-Returns:
-
-* `isMainFrame` Boolean
-* `url` String
-
-Emitted when an in-page navigation happened.
-
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
-
-### Event: 'close'
-
-Fired when the guest page attempts to close itself.
-
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
-
-```javascript
+<p>When in-page navigation happens, the page URL changes but does not cause
+navigation outside of the page. Examples of this occurring are when anchor links
+are clicked or when the DOM <code>hashchange` event is triggered.</p> 
+      ### Event: 'close'
+      
+      Fired when the guest page attempts to close itself.
+      
+      The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+      
+      ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('close', () => {
   webview.src = 'about:blank'
 })
 ```
-
-### Event: 'ipc-message'
-
-Returns:
-
-* `channel` String
-* `args` Array
-
-Fired when the guest page has sent an asynchronous message to embedder page.
-
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
-
-```javascript
+  
+  ### Event: 'ipc-message'
+  
+  Pengembalian:
+  
+  * `channel` String
+  * `args` Array
+  
+  Fired when the guest page has sent an asynchronous message to embedder page.
+  
+  With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+  
+  ```javascript
 // In embedder page.
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
@@ -776,10 +780,10 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+Pengembalian:
 
-* `name` String
-* `version` String
+* ` nama </ 0>  String</li>
+<li><code>version` String
 
 Fired when a plugin process is crashed.
 
@@ -797,7 +801,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+Pengembalian:
 
 * `themeColor` String
 
@@ -809,20 +813,21 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+Pengembalian:
 
-* `url` String
+*  url </ 0>  String</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-### Event: 'devtools-opened'
+<h3>Event: 'devtools-opened'</h3>
 
-Emitted when DevTools is opened.
+<p>Emitted when DevTools is opened.</p>
 
-### Event: 'devtools-closed'
+<h3>Event: 'devtools-closed'</h3>
 
-Emitted when DevTools is closed.
+<p>Emitted when DevTools is closed.</p>
 
-### Event: 'devtools-focused'
+<h3>Event: 'devtools-focused'</h3>
 
-Emitted when DevTools is focused / opened.
+<p>Emitted when DevTools is focused / opened.</p>

@@ -8,9 +8,9 @@ nav:
   releases: Versioni
   contact: Contatti
   languages: Lingue
-  code_of_conduct: Code of Conduct
+  code_of_conduct: Codice di Condotta
 docs:
-  title: Electron Documentation
+  title: Documentazione di Electron
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: Guide
   api_reference: API Reference

@@ -1,4 +1,5 @@
-# UploadRawData Object
+# Objek Upload Raw Data
 
-* `type` String - `rawData`.
-* `bytes` Buffer - Data to be uploaded.
+*  ketik </ 0>  String - <code> rawData </ 0> .</li>
+<li><code> byte </ 0>  Buffer - Data yang akan diunggah.</li>
+</ul>

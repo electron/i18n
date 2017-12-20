@@ -2,7 +2,7 @@
 
 > 使用 PNG 或 JPG 文件创建托盘、坞站和应用程序图标。
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
 在Electron中, 对于拍摄图像的 api, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将使用空图像。
 
@@ -139,7 +139,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
 ### 实例方法
 

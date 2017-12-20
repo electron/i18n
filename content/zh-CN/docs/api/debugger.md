@@ -1,4 +1,4 @@
-## Class: Debugger
+## 类: Debugger
 
 > An alternate transport for Chrome's remote debugging protocol.
 
@@ -35,13 +35,13 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (optional) - 需要调试的协议的版本
 
-Attaches the debugger to the `webContents`.
+添加调试器到 `webContents` 。
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.detach()`
 

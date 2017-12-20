@@ -60,9 +60,9 @@ const constraints = {
 }
 ```
 
-## Methods
+## Métodos
 
-The `desktopCapturer` module has the following methods:
+El módulo `desktopCapturer` tiene los siguientes métodos:
 
 ### `desktopCapturer.getSources(options, callback)`
 

@@ -1,45 +1,45 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Kendiliğinden güncelleme yapmak için uygulamaları etkinleştirin.
 
-Process: [Main](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+`autoUpdater` modülü [Squirrel](https://github.com/Squirrel) frameworkü için bir arayüz sağlar.
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+Bu projelerden birini kullanarak uygulamanızı dağıtmak için bir çoklu platform yayın sunucusunu hızlı bir şekilde başlatabilirsiniz:
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [nuts](https://github.com/GitbookIO/nuts): *Uygulamalarınız için bir akıllı serbest bırakma sunucusudur ve Github'ı backend olarak kullanır. Squirrel ile otomatik güncelleştirmeler (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Tam özellikli, elektron uygulamaları için kendinden barındırmalı serbest bırakma sunucusu, otomatik güncelleme ile uyumludur.*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Squirrel için basit bir node.js sunucusu. Mac ve Squirrel. Windows için GitHub sürümleri kullanılıyor*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): * Squirrel için basit bir PHP uygulamasıdır. Windows güncelleştirmeleri bir klasörden okur. Delta güncelleştirmeleri destekler.*
 
-## Platform notices
+## Platform bildirimleri
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+`autoUpdater` farklı platformlar için tekdüze bir API sağlamasına rağmen hala her platformda ince farklılıklar vardır.
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+MacOS'ta, `autoUpdater` modulü [Squirrel](https://github.com/Squirrel/Squirrel.Mac) üzerine kurulmuştur. Mac'in anlamı onu çalışabilir yapmak için herhangi bir özel kuruma ihtiyacınız yok demektir. Sunucu tarafı gereksinimleri için [Sunucu desteği](https://github.com/Squirrel/Squirrel.Mac#server-support) okuyabilirsiniz. [Uygulama Aktarım Katmanı Güvenliği](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)'nin (ATS) güncelleştirme işleminin bir parçası olarak yapılan tüm istekler için geçerli olduğunu unutmayın. Uygulamalar plist'lerine `NSAllowsArbitraryLoads` anahtarını ekleyerek ATS'nin devre dışı kalmasını sağlamalıdır.
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**Not:** macOS'ta uygulamanız otomatik güncelleştirmeler için onaylı olmalıdır. Bu `Squirrel.Mac`'nin bir gereksinimidir.
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
+Windows'ta `autoUpdater`'ı kullanmadan önce uygulamanızı bir kullanıcının makinesine yüklemeniz gerekir. Bu nedenle Windows yükleyici paketi oluşturmak için [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) veya [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) kullanılması önerilir.
 
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
+[electron-winstaller](https://github.com/electron/windows-installer) veya [electron-forge](https://github.com/electron-userland/electron-forge) kullanırken uygulamanız [ilk çalıştığında ](https://github.com/electron/windows-installer#handling-squirrel-events)güncellenmeye çalışmadığından emin olun ([Ayrıca daha fazla bilgi için buna bakın](https://github.com/electron/electron/issues/7155)). Ayrıca, uygulamanız için masaüstü kısayolları almak için [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) 'ı kullanmanız önerilir.
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
+Yükleyici Squirrel ile [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) şeklinde bir kısayol ikonu üretecektir ve bunun formatı `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` şeklinde olacaktır. `com.squirrel.slack.Slack` ve `com.squirrel.code.Code` bunun örnekleridir. Uygulamanız için `app.setAppUserModelId` API ile aynı ID'yi kullanmanız gerekiyor, aksi halde Windows görev çubuğunda uygulamanızı doğru bir şekilde sabitleyemeyecektir.
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer herhangi bir statik dosya ana sisteminde tutabilir. Squirrel.Windows'un nasıl çalıştığı hakkında daha fazla bilgi almak için [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) belgelerini okuyabilirsiniz.
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
 
 ## Events
 
-The `autoUpdater` object emits the following events:
+`autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
 ### Event: 'error'
 
@@ -47,19 +47,19 @@ Returns:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Güncelleştirilirken bir hata olduğunda ortaya çıkan.
 
 ### Event: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Bir güncellemenin başlatılıp başlatılmadığını kontrol ederken ortaya çıkan.
 
 ### Event: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Kullanılabilir bir güncelleştirme olduğunda ortaya çıkan. Güncelleştirme otomatik olarak karşıdan yüklenir.
 
-### Event: 'update-not-available'
+### Olay: 'update-not-available'
 
-Emitted when there is no available update.
+Mevcut bir güncelleme yokken ortaya çıkan.
 
 ### Event: 'update-downloaded'
 
@@ -71,31 +71,31 @@ Returns:
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Bir güncelleme indirildiğinde ortaya çıkan.
 
-On Windows only `releaseName` is available.
+Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
-## Methods
+## Metodlar
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` nesnesi *macOS* (isteğe bağlı) - HTTP başıkları ister.
 
-Sets the `url` and initialize the auto updater.
+`url`'i belirler ve otomatik güncelleyici başlar.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+`String`'i geri döndürür - Geçerli olan akış URL'ini günceller.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Sunucuya bir güncelleştirme olup olmadığını sorar. Bu API'yi kullanmadan önce `setFeedURL`'i çağırmalısınız.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Uygulamayı yeniden başlatır ve indirmeler bittikten sonra güncellemeyi yükler. O yalnızca `update-downloaded` ortaya çıktıktan sonra çağırılmış olmalıdır.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Not:** `autoUpdater.quitAndInstall()` ilk olarak tüm uygulama pencerelerini kapatacak ve bundan sonra `uygulama` üzerinde sadece `before-quit` event'i ortaya çıkacak. Bu normal çıkış event sırasından farklıdır.

@@ -1,4 +1,4 @@
 # BluetoothDevice Nesnesi
 
-* ` deviceName ` Dizesi
-* `deviceId` Dizesi
+* ` deviceName ` String
+* `deviceId` String

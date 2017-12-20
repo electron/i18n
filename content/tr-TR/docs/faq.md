@@ -1,88 +1,88 @@
 # Electron SSS
 
-## Why am I having trouble installing Electron?
+## Neden Electron yüklerken sorunla karşılaşıyorum?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+`npm install electron` çalıştırılırken, bazı kullanıcılar bazen kurulum hatalarıyla karşılaşmaktadırlar.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Hemen hemen tüm durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi ile ilgili olmayan sorunlar sonucudur. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ve `ETIMEDOUT` gibi hatalar, ağ bağlantı problemlerinin göstergesidir. En iyi çözüm ağ bağlantılarını değiştirmek ya da biraz bekleyip tekrar kurmayı denemektir.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Eğer `npm` ile kurulum hataya düşüyorsa, Electron'u doğrudan [electron/electron/releases](https://github.com/electron/electron/releases)' den indirmeyi deneyebilirsiniz.
 
-## When will Electron upgrade to latest Chrome?
+## Electron ne zaman en son ki Chrome sürümüne yükseltiliyor?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Electron Chrome sürümü genellikle, Chrome'un yeni kararlı sürümü çıktıktan 1 veya 2 hafta sonrasında dahil edilmiş olunuyor. Bu değer tahminidir, garanti edilemez ve yükseltme ile ilgili çalışma miktarına bağlıdır.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Sadece istikrarlı Chrome kanalı kullanılır. Eğer beta veya geliştirme kanalında önemli bir hata düzeltmesi varsa, biz arka bağlantı noktası olacağız.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Daha fazla bilgi için lütfen [güvenlik giriş](tutorial/security.md)'ine bakınız.
 
-## When will Electron upgrade to latest Node.js?
+## Electron ne zaman en son ki Node.js sürümüne yükseltiliyor?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Node.js'in yeni sürümü yayınlandığında, biz genellikle Electron'u güncellemek için yaklaşık 1 ay bekliyoruz. Bu sayede, yeni Node.js sürümlerinde sıklıkla karşılaşılan hataları önleyebiliyoruz.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
-## How to share data between web pages?
+## Web sayfaları arasında veri paylaşmak nasıl gerçekleştirilir?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Web sayfaları arasında veri paylaşımının (işleyici işlemleri) en kolay yolu, tarayıcılarda zaten mevcut olan HTML5 API'lerini kullanmaktır. [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), ve [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) iyi adaylardır.
 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
-// In the main process.
+// Ana süreç içerisinde.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// Sayfa 1'de.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// Sayfa 2'de.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Uygulamamın penceresi/simge konumundaki kısmı birkaç dakika sonra kayboluyor.
 
 This happens when the variable which is used to store the window/tray gets garbage collected.
 
-If you encounter this problem, the following articles may prove helpful:
+Eğer bu problemle karşılaşılırsa, aşağıdaki makaleler yardımcı olabilir:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Bellek Yönetimi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Değişken Etki Alanı](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Eğer hızlı çözüm istiyorsanız, değişkenlerinizi evrensel olarak değiştirebilirsiniz. Bu kodu:
 
 ```javascript
 const {app, Tray} = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('Merhaba dünya')
 })
 ```
 
-to this:
+buna:
 
 ```javascript
 const {app, Tray} = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('merhaba dünya')
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Electron'da jQuery/RequireJS/Meteor/AngularJS kullanamıyorum.
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// In the main process.
+// Ana süreç içerisinde.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -106,13 +106,13 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` geçersiz.
 
 When using Electron's built-in module you might encounter an error like this:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Yakalanmamış TipHatası: Geçersiz 'setZoomLevel' değeri okunamıyor
 ```
 
 This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.

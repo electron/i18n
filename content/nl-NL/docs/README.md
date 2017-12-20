@@ -25,7 +25,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Toetsencombinaties](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Programma's bijwerken](tutorial/updates.md)
 
 ## Tutorials
 

@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -61,15 +61,15 @@ Send given command to the debugging target.
 
 #### Event: 'detach'
 
-* `event` Event
-* `reason` String - Reason for detaching debugger.
+* ` event </ 0>  Acara</li>
+<li><code>reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Event: 'message'
 
-* `event` Event
-* `method` String - Method name.
+* ` event </ 0>  Acara</li>
+<li><code>method` String - Method name.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever debugging target issues instrumentation event.

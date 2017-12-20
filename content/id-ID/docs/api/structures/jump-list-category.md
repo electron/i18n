@@ -1,11 +1,15 @@
-# JumpListCategory Object
+# Objek JumpListCategory
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
+* `mengetik` String (opsional) - Salah satu dari berikut ini: 
+  * `tasks` - Items in this category will be placed into the standard `Tasks` category. Hanya ada satu kategori seperti itu, dan itu akan selalu ditampilkan di bagian bawah Daftar Langsung.
   * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
-* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+  * ` recent </ 0> - Menampilkan daftar file yang baru dibuka oleh aplikasi, nama kategori dan itemnya ditetapkan oleh Windows . Item dapat ditambahkan ke kategori ini secara tidak langsung menggunakan <code> app.addRecentDocument (path) </ 0> .</li>
+<li><code> custom </ 0> - Menampilkan daftar tugas atau file, <code> nama </ 0> harus ditetapkan oleh aplikasi.</li>
+</ul></li>
+<li><code> name </ 0>  String (opsional) - Harus ditetapkan jika <code> ketik </ 0> adalah <code> custom </ 0> , jika tidak maka itu harus dihilangkan.</li>
+<li><code> item </ 0> JumpListItem [] (opsional) - Array dari <a href="jump-list-item.md"><code> JumpListItem </ 1> benda jika <code> ketik </ 0> adalah <code> tugas </ 0> atau
+ <code> kustom < / 0> , jika tidak maka harus dihilangkan.</li>
+</ul>
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+<p><strong> Catatan: </ 0> Jika objek <code> JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
+properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . If the <code>name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.</p>

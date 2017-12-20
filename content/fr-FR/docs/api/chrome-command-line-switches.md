@@ -2,7 +2,7 @@
 
 > Les paramètres de ligne de commande pris en charge par Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Vous pouvez utiliser [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) pour ajouter à votre script principal de votre application avant que l'événement [ready](app.md#event-ready) du module [app](app.md) soit émis :
 
 ```javascript
 const {app} = require('electron')
@@ -15,45 +15,45 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ignore la limite de connexion pour la liste de `domains` séparés par `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Désactive le cache disque pour les requêtes HTTP.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Désactive les protocoles HTTP/2 et SPDY/3.1.
 
 ## --inspect=`port` et --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Les indicateurs relatifs au débogage, reportez-vous au guide [Déboguer le processus principal](../tutorial/debugging-main-process.md) pour plus de détails.
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Active le débogage distant via HTTP sur le `port` spécifié.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Spécifie les indicateurs a transmettre au moteur de NodeJS. Il doit être indiqué lors du démarrage d'Electron si vous souhaitez activer les `flags` dans le processus principal.
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Voir la [documentation de Node](https://nodejs.org/api/cli.html) ou exécutez `node --help` dans votre console pour avoir la liste des indicateurs disponibles. De plus, exécutez `node --v8-options` pour afficher la liste des indicateurs qui se réfèrent spécifiquement au moteur JavaScript V8 de Node.
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Utiliser le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket.
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Demande à Electron de contourner le serveur proxy pour la liste d'hôtes séparées par des semi-colons. Cet indicateurs prend effet uniquement si utilisé conjointement avec `--proxy-server`.
 
 Par exemple :
 

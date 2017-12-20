@@ -1,8 +1,8 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Lütfen, Electron sürümünüzle eşleşen belgeleri kullandığınızdan, emin olunuz. Sürüm numarası, sayfa URL'inin bir parçası olmalıdır. Eğer değilse, muhtemelen kullandığınız bir geliştirme dal dokümantasyonu, Electron sürümünüzle uyumlu olmayan API değişikliklerini içeriyor olabilir. Dokümantasyonun eski sürümlerini görüntülemek için, [etikete göre gözatın](https://github.com/electron/electron/tree/v1.4.0) ile GitHub'da "Switch branches/tags" seçeneklerini açarak, sürümünüzle eşleşen etiketi seçebilirsiniz.
 
 ## SSS
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Electron SSS](faq.md)
 
@@ -11,44 +11,44 @@ There are questions that are asked quite often. Check this out before creating a
 * [Terimler Sözlüğü](glossary.md)
 * [Desteklenen Platformlar](tutorial/supported-platforms.md)
 * [Güvenlik](tutorial/security.md)
-* [Sürüm](tutorial/electron-versioning.md)
+* [Versiyonlama](tutorial/electron-versioning.md)
 * [Uygulama Dağıtımı](tutorial/application-distribution.md)
 * [Mac App Store'a Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md)
 * [Windows Uygulama Mağazası'na Gönderme Kılavuzu](tutorial/windows-store-guide.md)
 * [Uygulama Paketleme](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Yerel Düğüm Modüllerini Kullanmak](tutorial/using-native-node-modules.md)
+* [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
+* [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
+* [DevTools Eklentisi](tutorial/devtools-extension.md)
+* [Pepper Flash Eklentisini Kullanma](tutorial/using-pepper-flash-plugin.md)
+* [Widevine CDM Eklentisini Kullanma](tutorial/using-widevine-cdm-plugin.md)
+* [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
+* [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
+* [Klavye Kısayolları](tutorial/keyboard-shortcuts.md)
+* [Uygulamaları Güncelleme](tutorial/updates.md)
 
-## Tutorials
+## Eğitimler
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Hızlı Başlangıç](tutorial/quick-start.md)
+* [Masaüstü Ortam Entegrasyonu](tutorial/desktop-environment-integration.md)
+* [Çevrimiçi/Çevrimdışı Olay Algılama](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Yerel Bildirimler](tutorial/notifications.md)
 
-## API References
+## API Referansları
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Konu Özeti](api/synopsis.md)
+* [İşlem Nesnesi](api/process.md)
+* [Desteklenen Chrome Komut Satırı Anahtarları](api/chrome-command-line-switches.md)
+* [Ortam Değişkenleri](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Özel DOM Elementleri:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`File` Nesne](api/file-object.md)
+* [`<webview>`Etiket](api/webview-tag.md)
+* [`window.open` Fonksiyon](api/window-open.md)
 
-### Modules for the Main Process:
+### Ana Süreç İçin Modüller:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -69,14 +69,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Oluşturma Süreci (Web Sayfası) İçin Modüller:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Her İki Süreç Modülleri:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -84,20 +84,20 @@ There are questions that are asked quite often. Check this out before creating a
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Geliştirme
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Kodlama Stili](development/coding-style.md)
+* [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
+* [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
+* [NW.js (eski adı node-webkit)'le Teknik Farklılıkları](development/atom-shell-vs-node-webkit.md)
+* [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
+* [İnşaa Talimatları (macOS)](development/build-instructions-osx.md)
+* [İnşaa Talimatları (Windows)](development/build-instructions-windows.md)
+* [İnşaa Talimatları (Linux)](development/build-instructions-linux.md)
+* [Hata Ayıklama Talimatları (macOS)](development/debugging-instructions-macos.md)
+* [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
+* [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
+* [Stil Kılavuz Dokümantasyonu](styleguide.md)
+* [Chrome Yükseltme](development/upgrading-chrome.md)
+* [Chromium Geliştirme](development/chromium-development.md)
+* [V8 Geliştirme](development/v8-development.md)

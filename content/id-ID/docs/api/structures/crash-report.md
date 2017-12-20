@@ -1,4 +1,4 @@
-# CrashReport Object
+# Obyek CrashReport
 
-* `date` String
-* `ID` Integer
+* `tangggal` String
+* `Identitas` Integer

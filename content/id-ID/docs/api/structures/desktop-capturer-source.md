@@ -1,5 +1,5 @@
-# DesktopCapturerSource Object
+# Obyek SumberPenangkapDesktop
 
-* `id` String - The identifier of a window or screen that can be used as a `chromeMediaSourceId` constraint when calling [`navigator.webkitGetUserMedia`]. The format of the identifier will be `window:XX` or `screen:XX`, where `XX` is a random generated number.
-* `name` String - A screen source will be named either `Entire Screen` or `Screen <index>`, while the name of a window source will match the window title.
-* `thumbnail` [NativeImage](../native-image.md) - A thumbnail image. **Note:** There is no guarantee that the size of the thumbnail is the same as the `thumbnailSize` specified in the `options` passed to `desktopCapturer.getSources`. The actual size depends on the scale of the screen or window.
+* `id` String - Pengenal jendela atau layar yang dapat digunakan sebagai sebuah pemaksa `chromeMediaSourceId` ketika memanggil [`navigator.webkitGetUserMedia`]. Formatpengenal akan menjadi `jendela:XX` atau `layar:XX`, dimana `XX` adalah sebuah nomor yang dihasilkan secara acak.
+* `nama` String - Sebuah sumber layar akan dinamai, baik `Seluruh Layar` atau `Layar <index>`, sementara itu nama sumber jendela akan cocok dengan judul jendela.
+* `miniatur` [GambarAsli](../native-image.md) - Sebuah gambar miniatur. **Catatan:** Tidak ada jaminan bahwa ukuran dari miniatur sama dengan `ukuran Miniatur` yang dirincikan dalam `pilihan` dilewatkan ke `desktopCapturer.getSources`. Ukuran sesungguhnya tergantung pada skala dari layar atau jendela.

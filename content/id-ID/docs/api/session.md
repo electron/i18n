@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 The `session` module can be used to create new `Session` objects.
 
@@ -25,7 +25,7 @@ The `session` module has the following methods:
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object 
+* `pilihan` Object 
   * `cache` Boolean - Whether to enable cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 You can create a `Session` object in the `session` module:
 
@@ -62,15 +62,15 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-* `event` Event
-* `item` [DownloadItem](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* ` event </ 0>  Acara</li>
+<li><code>item` [DownloadItem](download-item.md)
+* ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
+</ul>
 
-Emitted when Electron is about to download `item` in `webContents`.
-
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
-
-```javascript
+<p>Emitted when Electron is about to download <code>item` in `webContents`.</p> 
+  Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+  
+  ```javascript
 const {session} = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
@@ -86,7 +86,7 @@ The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
+* `callback` Fungsi 
   * `size` Integer - Cache size used in bytes.
 
 Callback is invoked with the session's current cache size.
@@ -99,7 +99,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Object (optional) 
+* `pilihan` Objek (opsional) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -174,8 +174,8 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 #### `ses.resolveProxy(url, callback)`
 
-* `url` URL
-* `callback` Function 
+* ` url </ 0> URL</li>
+<li><code>callback` Fungsi 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
@@ -188,7 +188,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
+* `pilihan` Object 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -214,12 +214,12 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
-  * `request` Object 
+* `proc` Fungsi 
+  * `permintaan` Object 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
-    * `error` String - Verification result from chromium.
-  * `callback` Function 
+    * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
+<li><code>error` String - Verification result from chromium.
+  * `callback` Fungsi 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
@@ -245,10 +245,10 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function 
+* `handler` Fungsi 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `callback` Fungsi 
     * `permissionGranted` Boolean - Allow or deny the permission
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
@@ -304,14 +304,14 @@ Returns `String` - The user agent for this session.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `callback` Fungsi 
   * `result` Buffer - Blob data.
 
 Returns `Blob` - The blob data associated with the `identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
+* `pilihan` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)

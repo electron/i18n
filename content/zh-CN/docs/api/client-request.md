@@ -1,10 +1,10 @@
-## Class: ClientRequest
+## 类: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> 发起HTTP/HTTPS请求.
 
 线程：[主线程](../glossary.md#main-process)
 
-`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
 
 ### `new ClientRequest(options)`
 

@@ -1,11 +1,11 @@
-# Cookie Object
+# Obyek Cookie
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `namz` String - Nama cookie.
+* `nilai` String - Nilai cookie.
+* `domain` String (tidak wajib diisi) - Domain cookie.
+* `hanyaPenerima` Boolean (tidak wajib diisi) - Kalau cookie adalah sebuah cookie hanya-penerima.
+* `jejak` String (tidak wajib diisi) - Jejak dari sebuah cookie.
+* `aman` Boolean (tidak wajib diisi) - Kalau cookie ditandai sebagai aman.
+* `hanyaHttp` Boolean (tidak wajib diisi) - Kalau cookie ditandai hanya sebagai HTTP.
+* `sesi` Boolean (tidak wajib diisi) - Apakah cookie adalah sebuah cookie sesi atau cookie tetap dengan tanggal kadaluwarsa.
+* `tanggalKadaluwarsa` Double (tidak wajib diisi) - Tanggal kadaluwarsa dari sebuah cookie sebagai sebuah jumlah detik sejak zamann UNIX. Tidak disediakan untuk cookie sesi.

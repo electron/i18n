@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Process: [Main](../glossary.md#main-process)
+Proses:  Utama </ 0></p> 
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
@@ -35,8 +35,8 @@ The following events are available on instances of `Cookies`:
 
 #### Event: 'changed'
 
-* `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
+* ` event </ 0>  Acara</li>
+<li><code>cookie` [Cookie](structures/cookie.md) - The cookie that was changed
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
@@ -60,9 +60,9 @@ The following methods are available on instances of `Cookies`:
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+* `callback` Fungsi 
+  * ` error </ 0> Kesalahan</li>
+<li><code>cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
 Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
 
@@ -77,21 +77,22 @@ Sends a request to get all cookies matching `details`, `callback` will be called
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Function 
-  * `error` Error
+* `callback` Fungsi 
+  * ` error </ 0> Kesalahan</li>
+</ul></li>
+</ul>
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
-
-#### `cookies.remove(url, name, callback)`
-
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
-* `callback` Function
-
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Function
-
-Tulis data cookie yang tidak tertulis ke disk.
+<p>Sets a cookie with <code>details`, `callback` will be called with `callback(error)` on complete.</p> 
+    #### `cookies.remove(url, name, callback)`
+    
+    * `url` String - The URL associated with the cookie.
+    * `name` String - The name of cookie to remove.
+    * `callback` Function
+    
+    Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+    
+    #### `cookies.flushStore(callback)`
+    
+    * `callback` Function
+    
+    Tulis data cookie yang tidak tertulis ke disk.

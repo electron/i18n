@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### Platform bildirimleri
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -110,7 +110,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
