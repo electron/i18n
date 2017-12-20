@@ -48,45 +48,49 @@ dan <code> crash Direktori</ 0> dengan nilai yang sesuai.</p>
 lagi dengan parameter <code> ekstra </ 1> baru di-update di Linux dan Windows .</p>
 
 <pre><code class="js"> const args = [
-   `--reporter-url=${submitURL}`,
-   `--application-name=${productName}`,
-   `--crashes-directory=${crashesDirectory}`
- ]
- const env = {
-   ELECTRON_INTERNAL_CRASH_SERVICE: 1
- }
- spawn(process.execPath, args, {
-   env: env,
-   detached: true
- })
+    `--reporter-url = $ {submitURL} `,
+    `--application-name = $ {productName} `,
+    `--crashes-directory = $ {crashesDirectory} `
+  ]
+  const env = {
+    ELECTRON_INTERNAL_CRASH_SERVICE: 1
+  }
+  bertelur (process.execPath, args, {
+    env: env,
+    dilepas: true
+  })
 ``</pre> 
-    **Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+    ** Catatan: </ 0> Pada macos , Electron menggunakan klien ` crashpad </ 1> baru untuk pengumpulan dan pelaporan kecelakaan.
+Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi <code> crashpad </ 0> dari proses utama menggunakan <code> crashReporter.start </ 0> diperlukan terlepas dari proses mana yang ingin Anda kumpulkan. Setelah diinisialisasi dengan cara ini, pengendara crashpad mengumpulkan crash dari semua proses. Anda masih harus menghubungi <code> crashReporter.start </ 0> dari proses renderer atau child, jika tidak crash dari mereka akan dilaporkan tanpa <code> companyName </ 0> , <code> productName </ 0> atau salah satu dari informasi <code> ekstra </ 0> .</p>
+
+<h3><code>kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`</h3> 
     
-    ### `crashReporter.getLastCrashReport()`
+    Mengembalikan ` kecelakaan Report </ 0> :</p>
+
+<p>Mengembalikan tanggal dan ID dari laporan kerusakan terakhir Jika tidak ada laporan kerusakan yang dikirim atau reporter kecelakaan belum dimulai, <code> null </ 0> dikembalikan.</p>
+
+<h3><code>kecelakaan reporter.dapatkan unggahan repoter ()`</h3> 
     
-    Returns [`CrashReport`](structures/crash-report.md):
+    Mengembalikan ` kecelakaan Report [] </ 0> :</p>
+
+<p>Mengembalikan semua laporan kerusakan yang diupload. Setiap laporan berisi tanggal dan upload ID.</p>
+
+<h3><code>kecelakaan Reporter.dapatkan unggahan ke Server () </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
+
+<p>Mengembalikan <code> Boolean </ 0> - Apakah laporan harus diserahkan ke server. Tetapkan melalui <code> start </ 0> method atau <code> set unggahan ke Server </ 0> .</p>
+
+<p><strong> Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p>
+
+<h3><code> kecelakaan Reporter.dapatkan unggahan ke Server () </ 0> <em> Linux </ 1> <em> macos </ 1></h3>
+
+<ul>
+<li><code> unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server</li>
+</ul>
+
+<p>This would normally be controlled by user preferences. This has no effect if
+called before <code>start` is called.</p> 
     
-    Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
-    
-    ### `crashReporter.getUploadedReports()`
-    
-    Returns [`CrashReport[]`](structures/crash-report.md):
-    
-    Returns all uploaded crash reports. Each report contains the date and uploaded ID.
-    
-    ### `crashReporter.getUploadToServer()` *Linux* *macOS*
-    
-    Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
-    
-    **Note:** This API can only be called from the main process.
-    
-    ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
-    
-    * `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
-    
-    This would normally be controlled by user preferences. This has no effect if called before `start` is called.
-    
-    **Note:** This API can only be called from the main process.
+    ** Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p> 
     
     ### `crashReporter.setExtraParameter(key, value)` *macOS*
     
