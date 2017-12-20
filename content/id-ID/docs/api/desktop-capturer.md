@@ -1,13 +1,13 @@
-# desktopCapturer
+# desktop menangkap
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Akses informasi tentang sumber media yang dapat digunakan untuk menangkap audio dan video dari desktop menggunakan API [ ` navigator.mediaDevices.getUserMedia </ 0> ] .</p>
+</blockquote>
 
-Process: [Renderer](../glossary.md#renderer-process)
+<p>Proses: <a href="../glossary.md#renderer-process"> Renderer </ 0></p>
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+<p>Contoh berikut menunjukkan bagaimana menangkap video dari jendela desktop yang judulnya adalah <code> Elektron </ 0> :</p>
 
-```javascript
-// In the renderer process.
+<pre><code class="javascript">// Dalam proses renderer.
 const {desktopCapturer} = require('electron')
 
 desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
@@ -39,40 +39,43 @@ function handleStream (stream) {
 function handleError (e) {
   console.log(e)
 }
-```
+`</pre> 
+> 
+> Untuk menangkap video dari sumber yang disediakan oleh ` desktopCapturer </ 0> kendala yang dilewatkan ke [ <code> navigator.mediaDevices.getUserMedia </ 0> ] harus menyertakan
+ <code> chromeMediaSource: 'desktop' </ 0> , dan <code> audio: false </ 0> .</p>
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+<p>Untuk menangkap audio dan video dari keseluruhan desktop, batasan yang dilewatkan ke [ <code> navigator.mediaDevices.getUserMedia </ 0> ] harus menyertakan <code> chromeMediaSource: 'desktop' </ 0> , untuk <code> audio < / 0> dan <code> video </ 0> , namun tidak boleh menyertakan batasan < 0> chromeMediaSourceId </ 0> .</p>
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+<pre><code class="javascript">kendala const = {
+   audio: {
+     wajib: {
+       chromeMediaSource: 'desktop'
+     }
+   },
+   video: {
+     wajib: {
+       chromeMediaSource: 'desktop'
+     }
+   }}
+`</pre> 
+> 
+> ## Metode
+> 
+> The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
 
-```javascript
-const constraints = {
-  audio: {
-    mandatory: {
-      chromeMediaSource: 'desktop'
-    }
-  },
-  video: {
-    mandatory: {
-      chromeMediaSource: 'desktop'
-    }
-  }
-}
-```
+<h3><code>desktopCapturer.getSources (opsi, callback)`</h3> 
+> 
+> * `pilihan` Objek 
+>   * ` jenis </ 0>  String [] - Kumpulan String yang mencantumkan jenis sumber desktop yang akan ditangkap, jenis yang tersedia adalah <code> layar </ 0> dan <code> jendela </ 0> .</li>
+<li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
+</ul></li>
+<li><code>callback` Fungsi 
+>     *  error </ 0> Kesalahan</li>
+<li><code> sumber </ 0>  <a href="structures/desktop-capturer-source.md"> DesktopCapturerSource [] </ 1></li>
+</ul></li>
+</ul>
 
-## Methods
+<p>Mulai mengumpulkan informasi tentang semua sumber media desktop yang tersedia, dan panggil <code> callback (kesalahan, sumber) </ 0> setelah selesai.</p>
 
-The `desktopCapturer` module has the following methods:
-
-### `desktopCapturer.getSources(options, callback)`
-
-* `pilihan` Object 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
-* `callback` Fungsi 
-  * ` error </ 0> Kesalahan</li>
-<li><code>sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
-
-Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
-
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+<p><code> sources </ 0> adalah array dari <a href="structures/desktop-capturer-source.md"><code> objek DesktopCapturerSource </ 1> 
+, masing-masing <code> DesktopCapturerSource </ 0> mewakili layar atau jendela individual yang dapat ditangkap.</p>

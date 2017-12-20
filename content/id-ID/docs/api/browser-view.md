@@ -1,75 +1,73 @@
-## Class: BrowserView
+## Kelas: lihat browser
 
-> Create and control views.
+> Buat dan kontrol tampilan.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p> 
 
 Proses:  Utama </ 0></p> 
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+A ` lihat browser</ 0> dapat digunakan untuk menyematkan konten web tambahan ke
+ <code> jendela Browser</ 0> . Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif
+ tag <code> lihat web</ 0> .</p>
 
-## Example
+<h2>Contoh</h2>
 
-```javascript
-// In the main process.
-const {BrowserView, BrowserWindow} = require('electron')
+<pre><code class="javascript">// Dalam proses utamanya.
+const {BrowserView, BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on ('tertutup', () = & gt; {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300}) view.webContents.loadURL ('https : //electron.atom.io ')
+`</pre> 
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
-})
+### ` baru lihat browser( [options] ) </ 0>  <em> Eksperimental </ 1></h3>
 
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
-win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
-```
+<ul>
+<li><code>pilihan` Objek (opsional) 
 
-### `new BrowserView([options])` *Experimental*
+* ` refrensi web</ 0> </ 0> Objek (contoh) - Lihat <a href="browser-window.md">jendela Browser </ 1>.</li>
+</ul></li>
+</ul>
 
-* `pilihan` Objek (opsional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+<h3>Metode Statis</h3>
 
-### Static Methods
+<h4><code>Lihat Browser.fromId (id)`</h4> 
+  * ` id </ 0>  Bilangan bulat</li>
+</ul>
 
-#### `BrowserView.fromId(id)`
+<p>Kembali <code> lihat Browser </ 0> - Tampilan dengan <code> id </ 0> yang diberikan .</p>
 
-* `id` Integer
+<h3>Contoh properti</h3>
 
-Returns `BrowserView` - The view with the given `id`.
+<p>Objek yang dibuat dengan <code>lihat Browser baru </ 0> memiliki properti berikut:</p>
 
-### Instance Properties
+<h4><code> baru lihat browser () </ 0> <em> Eksperimental </ 1></h4>
 
-Objects created with `new BrowserView` have the following properties:
+<p>Sebuah <a href="web-contents.md"><code> isi Web </ 0> objek yang dimiliki oleh pandangan ini.</p>
 
-#### `view.webContents` *Experimental*
+<h4><code> lihat.id </ 0>  <em> Eksperimental </ 1></h4>
 
-A [`WebContents`](web-contents.md) object owned by this view.
+<p>A <code>bilangan bulat </ 0> mewakili ID unik dari tampilan.</p>
 
-#### `view.id` *Experimental*
+<h3>Metode contoh</h3>
 
-A `Integer` representing the unique ID of the view.
+<p>Objek yang dibuat dengan <code> lihat Browser baru </ 0> memiliki metode contoh berikut:</p>
 
-### Instance Methods
+<h4><code> lihat.set otomatis ubah ukuran (pilihan) </ 0>  <em> Eksperimental </ 1></h4>
 
-Objects created with `new BrowserView` have the following instance methods:
+<ul>
+<li><code>pilihan` Objek 
+    *  lebar </ 0>  Boolean - Jika <code> benar </ 0> , lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> false </ 0> secara default.</li>
+<li><code> tinggi </ 0>  Boolean - Jika <code> benar </ 0> , tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> salah </ 0> secara default.</li>
+</ul></li>
+</ul>
 
-#### `view.setAutoResize(options)` *Experimental*
+<h4><code> lihat.set batas (batas) </ 0>  <em> Eksperimental </ 1></h4>
 
-* `pilihan` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+<ul>
+<li><code> batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+</ul>
 
-#### `view.setBounds(bounds)` *Experimental*
+<p>Mengubah ukuran dan memindahkan pandangan ke batas yang tersedia relatif terhadap jendela.</p>
 
-* `bounds` [Rectangle](structures/rectangle.md)
+<h4><code> lihat.set latar belakang warna(warna) </ 0>  <em> Eksperimental </ 1></h4>
 
-Resizes and moves the view to the supplied bounds relative to the window.
-
-#### `view.setBackgroundColor(color)` *Experimental*
-
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+<ul>
+<li><code> warna </ 0>  tali - Warna dalam <code> #aarrggbb </ 0> atau <code> #argb </ 0> . Saluran alfa bersifat opsional.</li>
+</ul>

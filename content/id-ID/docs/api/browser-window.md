@@ -1,81 +1,61 @@
-# BrowserWindow
+# Jendela browser
 
-> Create and control browser windows.
+> Buat dan kendalikan jendela browser.
 
 Proses:  Utama </ 0></p> 
 
 ```javascript
-// In the main process.
-const {BrowserWindow} = require('electron')
-
-// Or use `remote` from the renderer process.
-// const {BrowserWindow} = require('electron').remote
-
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
-})
-
-// Load a remote URL
-win.loadURL('https://github.com')
-
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+// Dalam proses utamanya.
+const {jendela Browser} = memerlukan ('electron') // Atau gunakan `remote` dari proses renderer.
+// const {jendela Browser} = memerlukan ('electron').terpencil biarkan menang=jendela baru Browser ( {lebar: 800, tinggi: 600} ) menang.di ('tutup', () = & gt; {menang = batal}) //beban sebuah remote URL win.loadURL ('https://github.com') // Atau muat file HTML lokal win.loadURL (`file: // $ {__ dirname} / app / index.html`)
 ```
 
-## Frameless window
+## Jendela tanpa bingkai
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Untuk membuat jendela tanpa krom , atau jendela transparan dalam bentuk sewenang-wenang, Anda dapat menggunakan API  Frameless Window </ 0> .</p> 
 
-## Showing window gracefully
+## Menampilkan jendela dengan anggun
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Saat memuat halaman di jendela secara langsung, pengguna mungkin melihat pemuatan laman secara bertahap, yang bukan pengalaman bagus untuk aplikasi asli. Untuk membuat tampilan jendela tanpa lampu kilat visual, ada dua solusi untuk situasi yang berbeda.
 
-### Using `ready-to-show` event
+### Menggunakan ` siap-show </ 0>  acara</h3>
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+<p>Saat memuat halaman, <code> siap-show </ 0>  acara akan dikeluarkan saat proses penyaji telah memberikan halaman untuk pertama kalinya jika jendela belum terbukti belum. Menampilkan jendela setelah acara ini tidak memiliki lampu kilat visual:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
-win.once('ready-to-show', () => {
-  win.show()
-})
-```
+<pre><code class="javascript">const {jendela Browser} = memerlukan ('electron') nyalakan = jendela baru Browser({show: false}) win.once ('siap-untuk-menunjukkan', () = & gt; {win.show ()})
+`</pre> 
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi untuk halaman dengan banyak sumber daya terpencil, itu mungkin dipancarkan sebelum acara <code> Apakah-selesai-load </ 0>.</p>
 
-### Setting `backgroundColor`
+<h3>Pengaturan <code> warna latar belakang</ 0></h3>
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+<p>Untuk aplikasi yang kompleks, <code> siap-show </ 0>  acara bisa dipancarkan terlambat, membuat aplikasi merasa lambat. Dalam kasus ini, sebaiknya segera tampilkan jendela, dan gunakan latar belakang < 0> warna latar belakang </ 0> ke latar belakang aplikasi Anda:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
-```
+`</pre> 
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Preview untuk aplikasi yang menggunakan ` siap-untuk-menunjukkan </ 0> peristiwa, masih disarankan untuk melakukan <code> backgroundColor </ 0> untuk aplikasi yang lebih asli.</p>
 
-## Parent and child windows
+<h2>Jendela orang tua dan anak</h2>
 
-By using `parent` option, you can create child windows:
+<p>Dengan menggunakan opsi <code> induk </ 0>  , Anda dapat membuat jendela anak:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 
 let top = new BrowserWindow()
 let child = new BrowserWindow({parent: top})
 child.show()
 top.show()
-```
+`</pre> 
 
-The `child` window will always show on top of the `top` window.
+Jendela ` anak </ 0> akan selalu tampil di atas jendela <code> atas </ 0> .</p>
 
-### Modal windows
+<h3>Jendela modal</h3>
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+<p>Jendela modal adalah jendela anak yang menonaktifkan jendela orangtua, untuk menciptakan jendela modal, Anda harus menetapkan pilihan <code>orang tua` dan `modal`pilihan:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -98,7 +78,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### Pemberitahuan platform
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -108,7 +88,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Buat dan kendalikan jendela browser.
 
 Proses:  Utama </ 0></p> 
 
@@ -494,7 +474,7 @@ win.loadURL('https://github.com')
   
   A `Integer` representing the unique ID of the window.
   
-  ### Instance Methods
+  ### Metode Instance
   
   Objects created with `new BrowserWindow` have the following instance methods:
   
@@ -504,15 +484,15 @@ win.loadURL('https://github.com')
   
   Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
   
-  #### `win.close()`
+  #### `win.close ()`
   
   Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
   
-  #### `win.focus()`
+  #### `win.focus ()`
   
   Focuses on the window.
   
-  #### `win.blur()`
+  #### `win.blur ()`
   
   Removes focus from the window.
   
@@ -600,8 +580,8 @@ win.loadURL('https://github.com')
   
   #### `win.setBounds(bounds[, animate])`
   
-  * `bounds` [Rectangle](structures/rectangle.md)
-  * `animate` Boolean (optional) *macOS*
+  * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+<li><code>animate` Boolean (optional) *macOS*
   
   Resizes and moves the window to the supplied bounds
   
@@ -611,8 +591,8 @@ win.loadURL('https://github.com')
   
   #### `win.setContentBounds(bounds[, animate])`
   
-  * `bounds` [Rectangle](structures/rectangle.md)
-  * `animate` Boolean (optional) *macOS*
+  * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+<li><code>animate` Boolean (optional) *macOS*
   
   Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
   
@@ -868,27 +848,28 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 * `callback` Fungsi 
-  * `image` [NativeImage](native-image.md)
+  * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+</ul></li>
+</ul>
 
-Same as `webContents.capturePage([rect, ]callback)`.
-
-#### `win.loadURL(url[, options])`
-
-* ` url </ 0>  String</li>
+<p>Same as <code>webContents.capturePage([rect, ]callback)`.</p> 
+    #### `win.loadURL(url[, options])`
+    
+    * ` url </ 0>  String</li>
 <li><code>pilihan` Objek (opsional) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
-
-Same as `webContents.loadURL(url[, options])`.
-
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
-
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
-
-```javascript
+      * `httpReferrer` String (optional) - A HTTP Referrer url.
+      * `userAgent` String (optional) - A user agent originating the request.
+      * `extraHeaders` String (optional) - Extra headers separated by "\n"
+      * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+      * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+    
+    Same as `webContents.loadURL(url[, options])`.
+    
+    The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+    
+    To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+    
+    ```javascript
 let url = require('url').format({
   protocol: 'file',
   slashes: true,
@@ -1114,4 +1095,4 @@ The `buttons` is an array of `Button` objects:
       
       * `browserView` [BrowserView](browser-view.md)
       
-      **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+      ** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p>

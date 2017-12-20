@@ -1,4 +1,4 @@
-# Objek GPUFeatureStatus
+# GPUFeatureStatus Object
 
 * ` 2d_canvas </ 0>  String - kanvas</li>
 <li><code> flash_3d </ 0>  String - Flash</li>

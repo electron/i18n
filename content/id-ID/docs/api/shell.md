@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
 The `shell` module provides functions related to desktop integration.
 

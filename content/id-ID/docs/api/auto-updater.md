@@ -1,104 +1,133 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
 Proses:  Utama </ 0></p> 
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+Modul ` autoUpdater </ 0> menyediakan sebuah antarmuka untuk
+<a href="https://github.com/Squirrel"> kerangka Squirrel </ 1>.</p>
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+<p>Anda dapat dengan cepat meluncurkan server pelepasan multi platform untuk mendistribusikannya
+aplikasi dengan menggunakan salah satu proyek ini:</p>
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
-
-## Platform notices
-
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
-
-### macOS
-
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
-
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
-
-### Windows
-
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
-
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
-
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
-
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
-
-### Linux
-
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
-
-## Events
-
-The `autoUpdater` object emits the following events:
-
-### Event: 'error'
-
-Pengembalian:
-
-* ` error </ 0> Kesalahan</li>
+<ul>
+<li><a href="https://github.com/GitbookIO/nuts"> kacang </ 0>: <em> Server pelepasan cerdas untuk aplikasi Anda, menggunakan GitHub sebagai backend. Pembaruan otomatis dengan Squirrel (Mac & amp; Windows) </ 1></li>
+<li><a href="https://github.com/ArekSredzki/electron-release-server"> elektron-release-server </ 0>: <em> Fitur lengkap,
+host rilis self-host untuk aplikasi elektron, kompatibel dengan
+auto-updater </ 1></li>
+<li><a href="https://github.com/Aluxian/squirrel-updates-server"> squirrel-updates-server </ 0>: <em> Server node.js sederhana
+untuk Squirrel.Mac dan Squirrel.Windows yang menggunakan rilis GitHub </ 1></li>
+<li><a href="https://github.com/Arcath/squirrel-release-server"> squirrel-release-server </ 0>: <em> Aplikasi PHP sederhana untuk Squirrel.Windows yang membaca update dari sebuah folder. Mendukung pembaruan delta. </ 0></li>
 </ul>
 
-<p>Emitted when there is an error while updating.</p>
+<h2>Pemberitahuan platform</h2>
 
-<h3>Event: 'checking-for-update'</h3>
+<p>Meskipun <code> autoUpdater </ 0> menyediakan API seragam untuk berbagai platform, ada
+Masih ada beberapa perbedaan halus pada setiap platform.</p>
 
-<p>Emitted when checking if an update has started.</p>
+<h3>macOS</h3>
 
-<h3>Event: 'update-available'</h3>
+<p>Di macos, modul <code> autoUpdater </ 0> dibangun di atas <a href="https://github.com/Squirrel/Squirrel.Mac"> Squirrel.Mac </ 1>,
+artinya Anda tidak memerlukan pengaturan khusus untuk membuatnya bekerja. Untuk server-side
+persyaratan, Anda dapat membaca <a href="https://github.com/Squirrel/Squirrel.Mac#server-support"> Server Support </ 0>. Perhatikan bahwa <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35"> App
+Keamanan Transportasi </ 0> (ATS) berlaku untuk semua permintaan yang dilakukan sebagai bagian dari
+proses update Aplikasi yang perlu di disable ATS bisa menambahkan
+<code> NSAllowsArbitraryLoads </ 0> kunci ke plist aplikasi mereka.</p>
 
-<p>Emitted when there is an available update. The update is downloaded
-automatically.</p>
+<p><strong> Catatan: </ 0> Aplikasi Anda harus ditandatangani untuk update otomatis pada macos.
+Ini adalah persyaratan <code> Squirrel.Mac <</p>
 
-<h3>Event: 'update-not-available'</h3>
+<h3>Windows</h3>
 
-<p>Emitted when there is no available update.</p>
+<p>Pada Windows, Anda harus menginstal aplikasi Anda ke mesin pengguna sebelum Anda bisa
+gunakan <code> autoUpdater </ 0>, jadi sebaiknya gunakan
+<a href="https://github.com/electron/windows-installer"> paket pemecah elektron / winstaller </ 1>, <a href="https://github.com/electron-userland/electron-forge"> atau <a href="https://github.com/electron/grunt-electron-installer"> grunt-electron-installer </ 3> untuk menghasilkan pemasang Windows.</p>
 
-<h3>Event: 'update-downloaded'</h3>
+<p>Bila menggunakan <a href="https://github.com/electron/windows-installer"> electron-winstaller </ 0> atau <a href="https://github.com/electron-userland/electron-forge"> electron-forge </ 1> pastikan Anda tidak mencoba memperbarui aplikasi Anda <a href="https://github.com/electron/windows-installer#handling-squirrel-events"> saat pertama kali berjalan </ 2> (Juga lihat <3 > masalah ini untuk info lebih lanjut </ 3>). Sebaiknya gunakan <a href="https://github.com/mongodb-js/electron-squirrel-startup"> elektron-squirrel-startup </ 0> untuk mendapatkan pintasan desktop untuk aplikasi Anda.</p>
+
+<p>Installer yang dihasilkan dengan Squirrel akan membuat shortcut icon dengan
+<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx"> ID Model Aplikasi Pengguna </ 0> dalam format
+<code> com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE </ 1>, contohnya adalah
+<code> com.squirrel.slack.Slack </ 1> dan <code> com.squirrel.code.Code </ 1>. Anda harus menggunakan
+ID yang sama untuk aplikasi Anda dengan API <code> app.setAppUserModelId </ 0>, jika tidak Windows akan melakukannya
+tidak bisa pin aplikasi Anda dengan benar di task bar.</p>
+
+<p>Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host file statis lainnya.
+Anda bisa membaca dokumen <a href="https://github.com/Squirrel/Squirrel.Windows"> Squirrel.Windows </ 0> untuk mendapatkan rincian lebih lanjut
+tentang bagaimana Squirrel.Windows bekerja.</p>
+
+<h3>Linux</h3>
+
+<p>Tidak ada dukungan built-in untuk auto-updater di Linux, jadi dianjurkan untuk melakukannya
+gunakan manajer paket distribusi untuk memperbarui aplikasi Anda.</p>
+
+<h2>Acara</h2>
+
+<p>Objek <code> autoUpdater </ 0> memancarkan peristiwa berikut:</p>
+
+<h3>Acara: 'kesalahan'</h3>
 
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code>releaseNotes` String
-* `releaseName` String
-* `releaseDate` Date
-* `updateURL` String
+<li>Kesalahan <code> kesalahan </ 0></li>
+</ul>
 
-Emitted when an update has been downloaded.
+<p>Emitted saat ada error saat mengupdate.</p>
 
-On Windows only `releaseName` is available.
+<h3>Acara: 'check-for-update'</h3>
 
-## Methods
+<p>Emitted saat memeriksa apakah update telah dimulai.</p>
 
-The `autoUpdater` object has the following methods:
+<h3>Acara: 'update-available'</h3>
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+<p>dibunyikan saat ada update yang tersedia. Pembaruan diunduh
+secara otomatis.</p>
 
-* ` url </ 0>  String</li>
-<li><code>requestHeaders` Object *macOS* (optional) - HTTP request headers.
+<h3>Acara: 'update-tidak-tersedia'</h3>
 
-Sets the `url` and initialize the auto updater.
+<p>Emitted saat tidak ada update yang tersedia.</p>
 
-### `autoUpdater.getFeedURL()`
+<h3>Acara: 'update-download'</h3>
 
-Returns `String` - The current update feed URL.
+<p>Pengembalian:</p>
 
-### `autoUpdater.checkForUpdates()`
+<ul>
+<li><code> acara </ 0> Acara</li>
+<li><code> releaseNotes </ 0> String</li>
+<li><code> releaseName </ 0> String</li>
+<li><code> releaseDate </ 0> Tanggal</li>
+<li><code> updateURL </ 0> String</li>
+</ul>
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+<p>Emitted saat update telah didownload.</p>
 
-### `autoUpdater.quitAndInstall()`
+<p>Di Windows saja <code> releaseName </ 0> tersedia.</p>
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+<h2>Metode</h2>
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+<p>Objek <code> autoUpdater </ 0> memiliki metode berikut:</p>
+
+<h3><code>autoUpdater.setFeedURL (url [, requestHeaders])`</h3> 
+
+* ` url </ 0> String</li>
+<li><code> requestHeader </ 0> Objek <em> macOS </ 1> (opsional) - header permintaan HTTP.</li>
+</ul>
+
+<p>Menetapkan <code> url </ 0> dan menginisialisasi updater otomatis.</p>
+
+<h3><code>autoUpdater.getFeedURL ()`</h3> 
+    Mengembalikan ` String </ 0> - URL feed pembaruan saat ini.</p>
+
+<h3><code>autoUpdater.checkForUpdates ()`</h3> 
+    
+    Meminta server apakah ada update. Anda harus menghubungi ` setFeedURL </ 0> sebelumnya
+menggunakan API ini</p>
+
+<h3><code>autoUpdater.quitAndInstall ()`</h3> 
+    
+    Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah  update-download </ 0> telah dipancarkan.</p>
+
+<p><strong> Catatan: </ 0> <code> autoUpdater.quitAndInstall () </ 1> akan menutup semua jendela aplikasi
+pertama dan hanya memancarkan <code> sebelum-berhenti </ 1> pada <code> aplikasi </ 1> setelah itu. Ini berbeda
+dari urutan kejadian berhenti normal.</p>

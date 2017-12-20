@@ -1,75 +1,64 @@
-## Class: Debugger
+## Kelas: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Transport alternatif untuk protokol debugging jarak jauh Chrome.
 
 Proses:  Utama </ 0></p> 
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Alat Pengembang Chrome memiliki  pengikatan khusus </ 0> yang tersedia pada runtime JavaScript yang memungkinkan berinteraksi dengan halaman dan menginstruksikannya.</p> 
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-
-try {
-  win.webContents.debugger.attach('1.1')
-} catch (err) {
-  console.log('Debugger attach failed : ', err)
-}
-
-win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
-})
-
-win.webContents.debugger.on('message', (event, method, params) => {
-  if (method === 'Network.requestWillBeSent') {
-    if (params.request.url === 'https://www.github.com') {
-      win.webContents.debugger.detach()
-    }
-  }
-})
-
-win.webContents.debugger.sendCommand('Network.enable')
+const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () mencoba {win.webContents.debugger.attach ('1.1')} ha (err) {console.log ('Debugger melampirkan gagal:', err )} win.webContents.debugger.on ('hapus' (acara, alasan) = & gt; {console.log ('Debugger yang tertutup karena:', alasan)}) win.webContents.debugger.on ('pesan' acara, metode, params) = & gt; {jika (metode === 'Network.requestWillBeSent') {jika (params.request.url === 'https://www.github.com') {win.webContents. debugger.detach ()}}}) win.webContents.debugger.sendCommand ('Network.enable')
 ```
 
-### Instance Methods
+### Metode Instance
 
-#### `debugger.attach([protocolVersion])`
+#### `debugger.melmpirkan ( [protocolVersion] )`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* ` protocolVersion </ 0>  String (opsional) - Versi protokol debug yang diminta</li>
+</ul>
 
-Attaches the debugger to the `webContents`.
+<p>Atasi debugger ke <code>isi web </ 0> .</p>
 
-#### `debugger.isAttached()`
+<h4><code>debugger.adalah terlampir()`</h4> 
+  Mengembalikan ` Boolean </ 0> - Apakah debugger terpasang ke <code>isi web </ 0> .</p>
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+<h4><code>debugger.melepaskan ()`</h4> 
+  
+  Lepaskan debugger dari `isi web </ 0> .</p>
 
-#### `debugger.detach()`
+<h4><code>debugger.kirim perintah (metode [, perintah Params, panggil kembali])`</h4> 
+  
+  * ` method </ 0>  String - Nama metode, harus menjadi salah satu metode yang didefinisikan oleh
+  protokol debugging jarak jauh.</li>
+<li><code> perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
+<li><code>callback` Fungsi (opsional) - Respon 
+    *  kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
+<li><code> mengulang </ 0> Setiap - Respon yang didefinisikan oleh atribut 'kembali' dari
+  deskripsi perintah dalam protokol debugging jarak jauh.</li>
+</ul></li>
+</ul>
 
-Detaches the debugger from the `webContents`.
+<p>Kirim perintah yang diberikan ke target debugging.</p>
 
-#### `debugger.sendCommand(method[, commandParams, callback])`
+<h3>Contoh peristiwa</h3>
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `callback` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+<h4>Acara : 'melepaskan'</h4>
 
-Send given command to the debugging target.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+</ul>
 
-### Instance Events
+<p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
+ <code>isi web</ 0> ditutup atau devtools dipanggil untuk < web > konten < 0> yang dilampirkan </ 0> .</p>
 
-#### Event: 'detach'
+<h4>Acara : 'pesan'</h4>
 
-* ` event </ 0>  Acara</li>
-<li><code>reason` String - Reason for detaching debugger.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> metode </ 0> String - nama metode.</li>
+<li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
+ dalam protokol debugging jarak jauh.</li>
+</ul>
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
-
-#### Event: 'message'
-
-* ` event </ 0>  Acara</li>
-<li><code>method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-
-Emitted whenever debugging target issues instrumentation event.
+<p>Emitted kapanpun terjadi debugging sasaran soal acara instrumentasi .</p>

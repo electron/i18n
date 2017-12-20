@@ -1,8 +1,8 @@
-# Supported Chrome Command Line Switches
+# Saklar Baris Perintah Chrome yang Didukung
 
-> Command line switches supported by Electron.
+> Beralih baris perintah yang didukung oleh Elektron .
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Anda dapat menggunakan [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) untuk menambahkan mereka di app's script utama sebelum acara [siap](app.md#event-ready) modul [app](app.md) dibunyikan:
 
 ```javascript
 const {app} = require('electron')

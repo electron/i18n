@@ -92,7 +92,7 @@ request.on('login', (authInfo, callback) => {
     
     Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
     
-    #### Event: 'error'
+    #### Acara: 'kesalahan'
     
     Pengembalian:
     
@@ -123,7 +123,7 @@ request.on('login', (authInfo, callback) => {
     
     Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
     
-    ### Instance Methods
+    ### Metode Instance
     
     #### `request.setHeader(name, value)`
     
