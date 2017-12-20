@@ -23,61 +23,69 @@ Pengembalian:
 <li><code> negara </ 0>  String</li>
 </ul>
 
-<p>Emitted when the download has been updated and is not done.</p>
+<p>Emitted saat download telah di perbarui dan belum selesai.</p>
 
-<p>The <code>state` can be one of following:</p> 
-    * `progressing` - The download is in-progress.
-    * `interrupted` - The download has interrupted and can be resumed.
-    #### Event: 'done'
-    
-    Pengembalian:
-    
-    * ` event </ 0>  Acara</li>
+<p><code> Negara </ 0> dapat menjadi salah satu dari berikut:</p>
+
+<ul>
+<li><code> maju </ 0> - Unduhan sedang dalam proses.</li>
+<li><code> terputus </ 0> - Unduhan telah terganggu dan dapat dilanjutkan.</li>
+</ul>
+
+<h4>Acara : 'selesai'</h4>
+
+<p>Pengembalian:</p>
+
+<ul>
+<li><code> event </ 0>  Acara</li>
 <li><code> negara </ 0>  String</li>
 </ul>
 
-<p>Emitted when the download is in a terminal state. This includes a completed
-download, a cancelled download (via <code>downloadItem.cancel()`), and interrupted download that can't be resumed.</p> 
-        The `state` can be one of following:
-        
-        * `completed` - The download completed successfully.
-        * `cancelled` - The download has been cancelled.
-        * `interrupted` - The download has interrupted and can not resume.
-        ### Metode Instance
-        
-        The `downloadItem` object has the following methods:
-        
-        #### `downloadItem.setSavePath(path)`
-        
-        * `path` String - Set the save file path of the download item.
-        
-        The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
-        
-        #### `downloadItem.getSavePath()`
-        
-        Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
-        
-        #### `downloadItem.pause()`
+<p>Emitted saat download dalam status terminal. Ini termasuk unduhan yang selesai, unduhan yang dibatalkan (melalui <code> downloadItem.cancel () </ 0> ), dan undingan terputus yang tidak dapat dilanjutkan.</p>
+
+<p><code> Negara </ 0> dapat menjadi salah satu dari berikut:</p>
+
+<ul>
+<li><code> selesai </ 0> - Unduhan selesai dengan sukses.</li>
+<li><code> dibatalkan </ 0> - Unduhan telah dibatalkan.</li>
+<li><code> terputus </ 0> - Unduhan telah terganggu dan tidak dapat dilanjutkan.</li>
+</ul>
+
+<h3>Metode Instance</h3>
+
+<p><code> download Item </ 0> objek memiliki metode berikut:</p>
+
+<h4><code>download Item.set jalan tersimpan (jalan)`</h4> 
+    * ` jalan </ 0> String - Atur file path download item.</li>
+</ul>
+
+<p>API hanya tersedia dalam sesi <code> akan mengunduh </ 0> fungsi callback.
+Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunakan rutinitas asli untuk menentukan jalur simpan (Biasanya meminta dialog simpan).</p>
+
+<h4><code>downloadItem.getSavePath ()`</h4> 
+        Mengembalikan ` String </ 0> - Jalur penyimpanan item unduhan. Ini akan menjadi jalur yang ditetapkan melalui <code> downloadItem.setSavePath (jalur) </ 0> atau jalur yang dipilih dari dialog simpan yang ditunjukkan.</p>
+
+<h4><code>download Item.jedah ()`</h4> 
         
         Jeda unduhan.
         
-        #### `downloadItem.isPaused()`
+        #### `downloadItem.fi jeda ()`
         
-        Returns `Boolean` - Whether the download is paused.
+        Mengembalikan ` Boolean </ 0> - Apakah unduhan dijeda.</p>
+
+<h4><code>downloadItem.lanjut ()`</h4> 
         
-        #### `downloadItem.resume()`
+        Melanjutkan pengunduhan yang telah dijeda.
         
-        Resumes the download that has been paused.
+        ** Catatan: </ 0> Untuk mengaktifkan download ulang server yang Anda unduh harus mendukung permintaan jangkauan dan memberikan nilai header ` Last-Modified </ 1> dan <code> ETag </ 1> . Jika tidak <code> lanjut () </ 0> akan memberhentikan byte yang telah diterima sebelumnya dan memulai kembali unduhan dari awal.</p>
+
+<h4><code>download Item.bisa lanjut ()`</h4> 
         
-        **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+        Lanjut ` Boolean </ 0> - Apakah proses download bisa dilanjutkan.</p>
+
+<h4><code>download Item.batal ()`</h4> 
         
-        #### `downloadItem.canResume()`
-        
-        Resumes `Boolean` - Whether the download can resume.
-        
-        #### `downloadItem.cancel()`
-        
-        Cancels the download operation.
+        Membatalkan operasi unduh.
         
         #### `downloadItem.getURL()`
         
