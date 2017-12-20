@@ -1,16 +1,16 @@
 # İnşaa Talimatları (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri takip edin.
 
-## Prerequisites
+## Ön gereklilikler
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
+* En az 25GB disk alanı ve 8GB hafıza.
+* Python 2.7.x. CentOS gibi bazı dağıtımlar hala Python 2.6.x kullanmakta, dolayısıyla Python versiyonunuzu `python -V` komutu ile ile kontrol edin.
+* Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](http://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
+* [clang](https://clang.llvm.org/get_started.html) 3.4 veya sonrası.
 * Development headers of GTK+ and libnotify.
 
-On Ubuntu, install the following libraries:
+Ubuntu üzerinde, aşağıdaki kütüphaneleri kurun:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+RHEL / CentOS üzerinde aşağıdaki kütüphaneleri kurun:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Fedora üzerinde aşağıdaki kütüphaneleri kurun:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,17 +38,17 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Diğer linux dağıtımları pacman gibi paket yöneticileri üzerinden benzer paketler sunuyor olabilir. Ya da kaynak kodtan derleyebilirsiniz.
 
-## Getting the Code
+## Kodu almak
 
 ```sh
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## İlk işleri halletmek
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Ilk işleri halleden bootstsrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Bu betiğin çalışması içın Python 2.7.x'e sahip olmanız gerekir. Bağımlılıkları indirmek bir miktar zaman alabilir. Dikkat ederseniz, Electron'u inşaa etmek için `Makefile` yerine `ninja` kullanıyoruz.
 
 ```sh
 $ cd electron
