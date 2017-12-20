@@ -515,7 +515,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Metode Instance
 
 #### `contents.loadURL(url[, options])`
 
@@ -654,8 +654,8 @@ Injects CSS into the current web page.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* ` kode </ 0> String</li>
+<li><code>userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
