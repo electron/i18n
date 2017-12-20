@@ -21,44 +21,50 @@ const {BrowserView, BrowserWindow} = require ('elektron') nyalakan = baru Browse
 <ul>
 <li><code>pilihan` Objek (opsional) 
 
-* `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).</li> </ul> 
+* ` refrensi web</ 0> </ 0> Objek (contoh) - Lihat <a href="browser-window.md">jendela Browser </ 1>.</li>
+</ul></li>
+</ul>
 
-### Static Methods
+<h3>Metode Statis</h3>
 
-#### `BrowserView.fromId(id)`
+<h4><code>Lihat Browser.fromId (id)`</h4> 
+  * ` id </ 0>  Bilangan bulat</li>
+</ul>
 
-* `id` Integer
+<p>Kembali <code> lihat Browser </ 0> - Tampilan dengan <code> id </ 0> yang diberikan .</p>
 
-Returns `BrowserView` - The view with the given `id`.
+<h3>Contoh properti</h3>
 
-### Instance Properties
+<p>Objek yang dibuat dengan <code>lihat Browser baru </ 0> memiliki properti berikut:</p>
 
-Objects created with `new BrowserView` have the following properties:
+<h4><code> baru lihat browser () </ 0> <em> Eksperimental </ 1></h4>
 
-#### `view.webContents` *Experimental*
+<p>Sebuah <a href="web-contents.md"><code> isi Web </ 0> objek yang dimiliki oleh pandangan ini.</p>
 
-A [`WebContents`](web-contents.md) object owned by this view.
+<h4><code> lihat.id </ 0>  <em> Eksperimental </ 1></h4>
 
-#### `view.id` *Experimental*
+<p>A <code>bilangan bulat </ 0> mewakili ID unik dari tampilan.</p>
 
-A `Integer` representing the unique ID of the view.
+<h3>Metode contoh</h3>
 
-### Instance Methods
+<p>Objek yang dibuat dengan <code> lihat Browser baru </ 0> memiliki metode contoh berikut:</p>
 
-Objects created with `new BrowserView` have the following instance methods:
+<h4><code> lihat.set otomatis ubah ukuran (pilihan) </ 0>  <em> Eksperimental </ 1></h4>
 
-#### `view.setAutoResize(options)` *Experimental*
+<ul>
+<li><code>pilihan` Objek 
+    * ` lebar </ 0>  Boolean - Jika <code> benar </ 0> , lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> false </ 0> secara default.</li>
+<li><code> tinggi </ 0>  Boolean - Jika <code> benar </ 0> , tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> salah </ 0> secara default.</li>
+</ul></li>
+</ul>
 
-* `pilihan` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+<h4><code> lihat.set batas (batas) </ 0>  <em> Eksperimental </ 1></h4>
 
-#### `view.setBounds(bounds)` *Experimental*
+<ul>
+<li><code> batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+</ul>
 
-* `bounds` [Rectangle](structures/rectangle.md)
+<p>Mengubah ukuran dan memindahkan pandangan ke batas yang tersedia relatif terhadap jendela.</p>
 
-Resizes and moves the view to the supplied bounds relative to the window.
-
-#### `view.setBackgroundColor(color)` *Experimental*
-
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+<h4><code>view.setBackgroundColor(color)` *Experimental*</h4> 
+      * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
