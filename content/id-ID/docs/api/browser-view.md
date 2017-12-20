@@ -1,38 +1,27 @@
-## Class: BrowserView
+## Kelas: lihat browser
 
-> Create and control views.
+> Buat dan kontrol tampilan.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p> 
 
 Proses:  Utama </ 0></p> 
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+A ` lihat browser</ 0> dapat digunakan untuk menyematkan konten web tambahan ke
+ <code> jendela Browser</ 0> . Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif
+ tag <code> lihat web</ 0> .</p>
 
-## Example
+<h2>Contoh</h2>
 
-```javascript
-// In the main process.
-const {BrowserView, BrowserWindow} = require('electron')
+<pre><code class="javascript">// Dalam proses utamanya.
+const {BrowserView, BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on ('tertutup', () = & gt; {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300}) view.webContents.loadURL ('https : //electron.atom.io ')
+`</pre> 
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
-})
+### ` baru lihat browser( [options] ) </ 0>  <em> Eksperimental </ 1></h3>
 
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
-win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
-```
+<ul>
+<li><code>pilihan` Objek (opsional) 
 
-### `new BrowserView([options])` *Experimental*
-
-* `pilihan` Objek (opsional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).</li> </ul> 
 
 ### Static Methods
 
