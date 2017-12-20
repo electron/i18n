@@ -65,10 +65,10 @@ Ketika Elektron membaca dari file ASAR , log membaca mengimbangi dan jalankan fi
 
 Mencetak tumpukan jejak ke konsol saat Electron crash.
 
-Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</p>
-
-<h3><code>ELECTRON_DEFAULT_ERROR_MODE` *Windows*</h3> 
-
-Shows the Windows's crash dialog when Electron crashes.
-
 Variabel lingkungan ini tidak akan bekerja jika  crashReporter </ 0> dimulai.</p>
+
+<h3><code> ELECTRON_DEFAULT_kesalahan_mode </ 0>  <em> jendela </ 1></h3>
+
+<p>Menunjukkan dialog crash Windows saat Electron crash.</p>
+
+<p>Variabel lingkungan ini tidak akan bekerja jika <code> crashReporter </ 0> dimulai.</p>
