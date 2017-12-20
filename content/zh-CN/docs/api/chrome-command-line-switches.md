@@ -80,9 +80,9 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 例如：
 
 * `MAP * 127.0.0.1` 强制将所有主机名映射到127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP *.google.com proxy` 强制所有google.com子域名解析到"proxy".
+* `MAP test.com [::1]:77` 强制"test.com"解析为IPv6环回地址. 也将强制生成的套接字地址端口为77.
+* `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
