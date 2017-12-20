@@ -2,7 +2,7 @@
 
 > Electron支持的命令行开关.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+您可以在[app](app.md) 模块的[ready](app.md#event-ready)事件生效之前，使用[app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value)将它们附加到您的应用程序的主要脚本中：
 
 ```javascript
 const {app} = require('electron')
@@ -10,25 +10,25 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // 你的代码
 })
 ```
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+忽略由`,`分割的`domains`列表的连接限制.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+禁用HTTP请求的磁盘缓存.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+禁用HTTP/2和SPDY/3.1协议.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+调试相关的标识, 更多详细信息请查看 [Debugging the Main Process](../tutorial/debugging-main-process.md)指南.
 
 ## --remote-debugging-port=`port`
 
