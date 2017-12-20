@@ -29,39 +29,38 @@ win.once('ready-to-show', () => {
 })
 `</pre> 
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi untuk halaman dengan banyak sumber daya terpencil, itu mungkin dipancarkan sebelum acara <code> Apakah-selesai-load </ 0>.</p>
 
-### Setting `backgroundColor`
+<h3>Pengaturan <code> warna latar belakang</ 0></h3>
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+<p>Untuk aplikasi yang kompleks, <code> siap-show </ 0>  acara bisa dipancarkan terlambat, membuat aplikasi merasa lambat. Dalam kasus ini, sebaiknya segera tampilkan jendela, dan gunakan latar belakang < 0> warna latar belakang </ 0> ke latar belakang aplikasi Anda:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
-```
+`</pre> 
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Preview untuk aplikasi yang menggunakan ` siap-untuk-menunjukkan </ 0> peristiwa, masih disarankan untuk melakukan <code> backgroundColor </ 0> untuk aplikasi yang lebih asli.</p>
 
-## Parent and child windows
+<h2>Jendela orang tua dan anak</h2>
 
-By using `parent` option, you can create child windows:
+<p>Dengan menggunakan opsi <code> induk </ 0>  , Anda dapat membuat jendela anak:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 
 let top = new BrowserWindow()
 let child = new BrowserWindow({parent: top})
 child.show()
 top.show()
-```
+`</pre> 
 
-The `child` window will always show on top of the `top` window.
+Jendela ` anak </ 0> akan selalu tampil di atas jendela <code> atas </ 0> .</p>
 
-### Modal windows
+<h3>Jendela modal</h3>
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+<p>A modal window is a child window that disables parent window, to create a modal
+window, you have to set both <code>parent` and `modal` options:
 
 ```javascript
 const {BrowserWindow} = require('electron')
