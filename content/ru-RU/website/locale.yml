@@ -11,7 +11,7 @@ nav:
   code_of_conduct: Нормы поведения
 docs:
   title: Документация Electron
-  description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">FAQ</a>.
+  description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
   guides: Руководства
   api_reference: Справочник по API
   advanced: Расширенный
