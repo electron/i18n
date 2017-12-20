@@ -1,6 +1,6 @@
 # 支持的 Chrome 命令行开关
 
-> Command line switches supported by Electron.
+> Electron支持的命令行开关.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
