@@ -125,17 +125,17 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 防止Chromium降低不可见的页面渲染进程的优先级.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+这个标识是全局的, 影响所有渲染进程. 如果你只想禁用一个窗口的节流保护，你可以采取[playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-Prints Chromium's logging into console.
+在控制台打印Chromium日志.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+这个开关不能用于`app.commandLine.appendSwitch`, 因为它在用户应用程序加载之前就被解析了, 但是你可以设置`ELECTRON_ENABLE_LOGGING`环境变量来达到同样的效果.
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+给定默认的最大的有效V-logging等级; 0是默认值。 通常V-logging等级为正值.
 
 This switch only works when `--enable-logging` is also passed.
 
