@@ -8,7 +8,7 @@ Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri taki
 * Python 2.7.x. CentOS gibi bazı dağıtımlar hala Python 2.6.x kullanmakta, dolayısıyla Python versiyonunuzu `python -V` komutu ile ile kontrol edin.
 * Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](http://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
 * [clang](https://clang.llvm.org/get_started.html) 3.4 veya sonrası.
-* Development headers of GTK+ and libnotify.
+* GTK+ ve libnotify için geliştirme başlıkları.
 
 Ubuntu üzerinde, aşağıdaki kütüphaneleri kurun:
 
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## İlk işleri halletmek
 
-Ilk işleri halleden bootstsrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Bu betiğin çalışması içın Python 2.7.x'e sahip olmanız gerekir. Bağımlılıkları indirmek bir miktar zaman alabilir. Dikkat ederseniz, Electron'u inşaa etmek için `Makefile` yerine `ninja` kullanıyoruz.
+Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Bu betiğin çalışması içın Python 2.7.x'e sahip olmanız gerekir. Bağımlılıkları indirmek bir miktar zaman alabilir. Dikkat ederseniz, Electron'u inşaa etmek için `Makefile` yerine `ninja` kullanıyoruz.
 
 ```sh
 $ cd electron
@@ -57,7 +57,7 @@ $ ./script/bootstrap.py --verbose
 
 ### Başka sistemler için derleme
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Eğer `arm` üstüne inşaa etmek istiyorsanız aşağıdaki bağımlılıkları da indirmeniz gerekir:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
@@ -103,7 +103,7 @@ $ ./script/build.py -c D
 
 ## Temizlik
 
-To clean the build files:
+İnşaa dosyalarını temizlemek için:
 
 ```sh
 $ npm run clean
@@ -121,7 +121,7 @@ $ npm run clean-build
 
 ### Hata mesajı: Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Önceden inşaa edilmiş `clang` `libtinfo.so.5` bağlantısını yapmaya çalışacak. Makinanın mimarisine göre, uygun `libncurses`'e smylink yapın:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -133,21 +133,21 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## İleri düzey başlıklar
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımları içindir. Özel bir dağıtım veya cihaz için, aşağıdaki bilgiler işinize yarayabilir.
 
 ### `libchromiumcontent`'i yerelinize inşaa etme
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Önceden inşaa edilmiş`libchromiumcontent`'i kullanmak istemezseniz, `libchromiumcontent`'i kendiniz aşağıdaki adımlarla inşaa edebilirsiniz:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)'u kurun
+2. [Ek inşaa bağımlılıklarını](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) kurun
+3. Git alt modullerini çekin:
 
 ```sh
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. `--build_release_libcc` argümanını `bootstrap.py` betiğine geçin:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Ortam Değişkenleri
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+`CC` ve `CXX` dışında, aşağıdaki ortam değişkenlerini de özel inşaa konfigurasyonları için ayarlayabilirsiniz:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +199,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+İlgili ortam değişkenleri `bootstrap.py` betiğini çalıştırırken ayarlanmalıdır, `build.py` betiğinin içerisinde çalışmayacaktır.
