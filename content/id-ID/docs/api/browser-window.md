@@ -59,8 +59,7 @@ Jendela ` anak </ 0> akan selalu tampil di atas jendela <code> atas </ 0> .</p>
 
 <h3>Jendela modal</h3>
 
-<p>A modal window is a child window that disables parent window, to create a modal
-window, you have to set both <code>parent` and `modal` options:
+<p>Jendela modal adalah jendela anak yang menonaktifkan jendela orangtua, untuk menciptakan jendela modal, Anda harus menetapkan pilihan <code>orang tua` dan `modal`pilihan:
 
 ```javascript
 const {BrowserWindow} = require('electron')
