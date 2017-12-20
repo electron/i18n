@@ -934,22 +934,22 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [NativeImage](native-image.md)-显示在任务栏图标右下角的图标。如果此参数为 `null`, 则清除已有覆盖
+* `description` String -提供给屏幕阅读器的描述文字
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+在当前任务栏图标上设置一个 16 x 16 像素的图标, 通常用于传达某种应用程序状态或被动地通知用户。
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+设置窗口是否应该有阴影. 在 Windows 和 Linux 系统无效
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+返回 `Boolean` - 判断窗口是否有阴影.
 
-On Windows and Linux always returns `true`.
+在 Windows 和 Linux 上总是返回 `true`.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
