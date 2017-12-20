@@ -61,14 +61,14 @@ Mencetak log internal Chrome ke konsol.
 
 Ketika Elektron membaca dari file ASAR , log membaca mengimbangi dan jalankan file ke sistem ` tmpdir </ 0> . File yang dihasilkan dapat diberikan ke modul ASAR untuk mengoptimalkan pemesanan file.</p>
 
-<h3><code>ELECTRON_ENABLE_STACK_DUMPING`</h3> 
+<h3><code>ELECTRON_memungkinkan_tumpuka _DUMPING`</h3> 
 
-Prints the stack trace to the console when Electron crashes.
+Mencetak tumpukan jejak ke konsol saat Electron crash.
 
-This environment variable will not work if the `crashReporter` is started.
+Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</p>
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+<h3><code>ELECTRON_DEFAULT_ERROR_MODE` *Windows*</h3> 
 
 Shows the Windows's crash dialog when Electron crashes.
 
-This environment variable will not work if the `crashReporter` is started.
+Variabel lingkungan ini tidak akan bekerja jika  crashReporter </ 0> dimulai.</p>
