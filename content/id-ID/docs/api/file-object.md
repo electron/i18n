@@ -1,28 +1,29 @@
-# `File` Object
+# ` File </ 0> Objek</h1>
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+<blockquote>
+  <p>Gunakan API HTML5 <code> File </ 0>  untuk bekerja secara native dengan file pada file sistem.</p>
+</blockquote>
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+<p>Antarmuka File DOM menyediakan abstraksi di sekitar file asli agar pengguna dapat mengerjakan file asli secara langsung dengan API file HTML5 . Elektron telah menambahkan atribut <code> path </ 0> ke antarmuka <code> File </ 0> yang menunjukkan path sebenarnya file pada file sistem.</p>
 
-Example of getting a real path from a dragged-onto-the-app file:
+<p>Contoh mendapatkan jalur nyata dari file yang diseret-ke-aplikasi:</p>
 
-```html
-<div id="holder">
-  Drag your file here
-</div>
+<pre><code class="html">&lt;div id="holder"&gt;
+   Tarik file Anda di sini
+ </ 0> 
 
-<script>
-  document.addEventListener('drop', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
+&lt;script&gt;
+   document.addEventListener ('drop', function (e) {
+     e.preventDefault ();
+     e.stopPropagation ();
 
-    for (let f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
-    }
-  });
-  document.addEventListener('dragover', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-  });
-</script>
-```
+     untuk (biarkan f dari e.dataTransfer.files) {
+       console.log ('File yang Anda seret di sini:', f.path)
+     }
+   });
+  document.addEventListener ('dragover', function (e) {
+     e.preventDefault ();
+     e.stopPropagation ();
+   });
+</ 1>
+`</pre>
