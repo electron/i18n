@@ -988,7 +988,7 @@ win.webContents.on('devtools-opened', () => {
     An example of sending messages from the main process to the renderer process:
     
     ```javascript
-// In the main process.
+// Dalam proses utamanya.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
