@@ -109,17 +109,17 @@ To clean the build files:
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Sadece `out` ve `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Not:** Her iki clean komutu `bootstrap` betiğinin inşaa öncesi çalıştırılmasını şart koşar.
 
-## Troubleshooting
+## Arıza giderme
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### Hata mesajı: Error While Loading Shared Libraries: libtinfo.so.5
 
 Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
@@ -127,15 +127,15 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## Testler
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+[İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests) sayfasını ziyaret edin
 
-## Advanced topics
+## İleri düzey başlıklar
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### Building `libchromiumcontent` locally
+### `libchromiumcontent`'i yerelinize inşaa etme
 
 To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
@@ -181,7 +181,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_cl
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Ortam Değişkenleri
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
