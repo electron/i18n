@@ -1,6 +1,6 @@
 # 安装
 
-> Tips for installing Electron
+> Electron安装小贴士
 
 要安装预编译好的的二进制文件, 请使用 [` npm `](https://docs.npmjs.com/)。 首选的方法是在项目中作为development dependency安装。
 
@@ -20,7 +20,7 @@ npm install electron -g
 
 ## 自定义
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+如果需要安装某一位数的版本 (例如,在` x64`位的系统中安装` ia32`位版本), 则可以使用 npm中的 ` arch ` 命令，或可以通过设置 ` npm_config_arch ` 的环境变量来进行安装:
 
 ```shell
 npm install --arch=ia32 electron
