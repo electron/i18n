@@ -103,27 +103,27 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+需要用户委托凭证的服务器的逗号分隔列表. 没有`*`前缀则url必须完全匹配.
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+忽略证书相关的错误.
 
 ## --ppapi-flash-path=`path`
 
-Sets the `path` of the pepper flash plugin.
+设置pepper flash插件的`path`属性.
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+设置pepper flash插件的`version`属性.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+启用需要保存的网络日志事件并将其写入`path`路径下.
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+防止Chromium降低不可见的页面渲染进程的优先级.
 
 This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
