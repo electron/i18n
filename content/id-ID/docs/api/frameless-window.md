@@ -35,9 +35,9 @@ Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu la
 const {jendela Browser} = memerlukan ('electron') biar menang = baru Browser jendela( {gaya catatan: 'tersembunyi sisipan'} ) menang.menunjukan ()
 ```
 
-#### `customButtonsOnHover`
+#### `adat tombol di atas hover`
 
-Uses custom drawn close, miniaturize, and fullscreen buttons that display when hovering in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Menggunakan tombol ditarik, miniatur, dan layar penuh yang dipamerkan saat melayang di kiri atas jendela. Tombol khusus ini mencegah masalah dengan peristiwa mouse yang terjadi dengan tombol toolbar jendela standar. This option is only applicable for frameless windows.
 
 ```javascript
 const {BrowserWindow} = require('electron')
