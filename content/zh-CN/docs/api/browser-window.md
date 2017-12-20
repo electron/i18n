@@ -955,16 +955,16 @@ win.loadURL('http://localhost:8000/post', {
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+返回 `Boolean` - 按钮是否成功添加
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+将指定的一组按钮添加到菜单栏的缩图工具栏上。 返回一个 `Boolean` 对象表示是否成功地添加了缩略图.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+由于空间有限, 缩图工具栏中的按钮数量不要超过7个。 一旦设置了缩略图工具栏，则无法删除。 但你可以通过调用 API 传递一个空数组来清除按钮.
 
-The `buttons` is an array of `Button` objects:
+`buttons` 是一个 `Button` 对象的数组:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - 在缩图工具栏上显示的图标.
   * `click` Function
   * `tooltip` String (可选) - 按钮的提示文本.
   * `flags` String[] (可选) - 控制按钮特定的状态和行为. 默认为 `['enabled']`.
@@ -973,14 +973,14 @@ The `buttons` is an array of `Button` objects:
 
 * `enabled` - 该按钮处于活动状态并可供用户使用.
 * `disabled` - 该按钮被禁用。 它存在，但有一个显示状态表明它不会响应用户操作。
-* `dismissonclick` - 当按钮被点击时，缩略图窗口立即关闭。
-* `nobackground` - 不可以画按钮边框，只能使用图片背景。
+* `dismissonclick` - 当按钮被点击时，会立即关闭缩略图窗口。
+* `nobackground` - 仅仅使用图像而不绘制边框。
 * `hidden` - 该按钮对用户不可见。
 * `noninteractive` - 该按钮已启用，但处于未激活状态; 没有绘制按钮按下状态。 这个值用于通知功能的按钮实例。
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) 窗口的区域
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
