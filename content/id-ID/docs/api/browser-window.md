@@ -22,11 +22,7 @@ Saat memuat halaman di jendela secara langsung, pengguna mungkin melihat pemuata
 
 <p>Saat memuat halaman, <code> siap-show </ 0>  acara akan dikeluarkan saat proses penyaji telah memberikan halaman untuk pertama kalinya jika jendela belum terbukti belum. Menampilkan jendela setelah acara ini tidak memiliki lampu kilat visual:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
-win.once('ready-to-show', () => {
-  win.show()
-})
+<pre><code class="javascript">const {jendela Browser} = memerlukan ('electron') nyalakan = jendela baru Browser({show: false}) win.once ('siap-untuk-menunjukkan', () = & gt; {win.show ()})
 `</pre> 
 
 Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi untuk halaman dengan banyak sumber daya terpencil, itu mungkin dipancarkan sebelum acara <code> Apakah-selesai-load </ 0>.</p>
