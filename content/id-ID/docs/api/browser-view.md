@@ -53,7 +53,7 @@ const {BrowserView, BrowserWindow} = require ('elektron') nyalakan = baru Browse
 
 <ul>
 <li><code>pilihan` Objek 
-    * ` lebar </ 0>  Boolean - Jika <code> benar </ 0> , lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> false </ 0> secara default.</li>
+    *  lebar </ 0>  Boolean - Jika <code> benar </ 0> , lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> false </ 0> secara default.</li>
 <li><code> tinggi </ 0>  Boolean - Jika <code> benar </ 0> , tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> salah </ 0> secara default.</li>
 </ul></li>
 </ul>
@@ -66,5 +66,8 @@ const {BrowserView, BrowserWindow} = require ('elektron') nyalakan = baru Browse
 
 <p>Mengubah ukuran dan memindahkan pandangan ke batas yang tersedia relatif terhadap jendela.</p>
 
-<h4><code>view.setBackgroundColor(color)` *Experimental*</h4> 
-      * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+<h4><code> lihat.set latar belakang warna(warna) </ 0>  <em> Eksperimental </ 1></h4>
+
+<ul>
+<li><code> warna </ 0>  tali - Warna dalam <code> #aarrggbb </ 0> atau <code> #argb </ 0> . Saluran alfa bersifat opsional.</li>
+</ul>
