@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on macOS.
 
-## Prerequisites
+## Ön gereklilikler
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
@@ -32,15 +32,15 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Save the file
 
-## Getting the Code
+## Kodu almak
 
 ```sh
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## İlk işleri halletmek
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Ilk işleri halleden bootstsrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```sh
 $ cd electron
