@@ -87,31 +87,32 @@ Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunaka
         
         Membatalkan operasi unduh.
         
-        #### `downloadItem.getURL()`
+        #### `downloadItem.dapatkan Url ()`
         
-        Returns `String` - The origin url where the item is downloaded from.
+        Mengembalikan ` String </ 0> - Urutan asal tempat item tersebut didownload.</p>
+
+<h4><code>downloadItem.dapatkan tipe pantonim ()`</h4> 
         
-        #### `downloadItem.getMimeType()`
+        Mengembalikan ` String </ 0> - Jenis file mime.</p>
+
+<h4><code>downloadItem. Telah mengguna sikap ()`</h4> 
         
-        Returns `String` - The files mime type.
+        Mengembalikan ` Boolean </ 0> - Apakah pengunduhan memiliki isyarat pengguna.</p>
+
+<h4><code>downloadItem.dapatkan nama file ()`</h4> 
         
-        #### `downloadItem.hasUserGesture()`
+        Mengembalikan ` String </ 0> - Nama file dari item unduhan.</p>
+
+<p><strong> Catatan: </ 0> Nama file tidak selalu sama dengan yang sebenarnya tersimpan di 
+disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta, nama sebenarnya dari file yang tersimpan akan berbeda.</p>
+
+<h4><code>downloadItem.dpatkan Total Byte ()`</h4> 
         
-        Returns `Boolean` - Whether the download has user gesture.
-        
-        #### `downloadItem.getFilename()`
-        
-        Returns `String` - The file name of the download item.
-        
-        **Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
-        
-        #### `downloadItem.getTotalBytes()`
-        
-        Returns `Integer` - The total size in bytes of the download item.
-        
-        If the size is unknown, it returns 0.
-        
-        #### `downloadItem.getReceivedBytes()`
+        Mengembalikan ` Integer </ 0> - Ukuran total dalam byte dari item unduhan.</p>
+
+<p>Jika ukurannya tidak diketahui, ia mengembalikan 0.</p>
+
+<h4><code>downloadItem.dapat di terima Byte()`</h4> 
         
         Returns `Integer` - The received bytes of the download item.
         
