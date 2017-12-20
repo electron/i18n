@@ -116,15 +116,18 @@ secara otomatis.</p>
 
 <p>Menetapkan <code> url </ 0> dan menginisialisasi updater otomatis.</p>
 
-<h3><code>autoUpdater.getFeedURL()`</h3> 
-    Returns `String` - The current update feed URL.
+<h3><code>autoUpdater.getFeedURL ()`</h3> 
+    Mengembalikan ` String </ 0> - URL feed pembaruan saat ini.</p>
+
+<h3><code>autoUpdater.checkForUpdates ()`</h3> 
     
-    ### `autoUpdater.checkForUpdates()`
+    Meminta server apakah ada update. Anda harus menghubungi ` setFeedURL </ 0> sebelumnya
+menggunakan API ini</p>
+
+<h3><code>autoUpdater.quitAndInstall ()`</h3> 
     
-    Asks the server whether there is an update. You must call `setFeedURL` before using this API.
-    
-    ### `autoUpdater.quitAndInstall()`
-    
-    Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
-    
-    **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+    Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah  update-download </ 0> telah dipancarkan.</p>
+
+<p><strong> Catatan: </ 0> <code> autoUpdater.quitAndInstall () </ 1> akan menutup semua jendela aplikasi
+pertama dan hanya memancarkan <code> sebelum-berhenti </ 1> pada <code> aplikasi </ 1> setelah itu. Ini berbeda
+dari urutan kejadian berhenti normal.</p>
