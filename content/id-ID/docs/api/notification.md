@@ -93,7 +93,7 @@ is closed.</p>
   
   * ` event </ 0>  Acara</li>
 <li><code>index` Number - The index of the action that was activated
-  ### Instance Methods
+  ### Metode Instance
   
   Objects created with `new Notification` have the following instance methods:
   
