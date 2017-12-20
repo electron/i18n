@@ -1,12 +1,12 @@
-# Frameless Window
+# Jendela tanpa bingkai
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Buka jendela tanpa bilah alat, perbatasan, atau " krom " grafis lainnya .
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Jendela buram tanpa bingkai adalah jendela yang tidak memiliki  krom </ 0> , bagian jendela, seperti bilah alat, yang bukan merupakan bagian dari halaman web. Ini adalah pilihan pada kelas ` BrowserWindow </ 0> .</p>
 
-## Create a frameless window
+<h2>Buat jendela buram tanpa bingkai</h2>
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+<p>To create a frameless window, you need to set <code>frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:</p> 
 
 ```javascript
 const {BrowserWindow} = require('electron')
