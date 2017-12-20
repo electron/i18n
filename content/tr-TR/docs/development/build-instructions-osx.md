@@ -47,7 +47,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## İnşaa
 
 Build both `Release` and `Debug` targets:
 
@@ -67,7 +67,7 @@ After building is done, you can find `Electron.app` under `out/D`.
 
 Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
 
-## Cleaning
+## Temizlik
 
 To clean the build files:
 
