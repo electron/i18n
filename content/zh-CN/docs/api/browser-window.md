@@ -882,9 +882,9 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 与 `webContents.loadURL(url[, options])` 相同.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+`url` 可以是远程地址 (例如 `http://`),也可以是 `file://` 协议的本地HTML文件的路径.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+为了确保文件网址格式正确, 建议使用Node的 [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) 方法:
 
 ```javascript
 let url = require('url').format({
@@ -896,7 +896,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+您可以通过执行以下操作, 使用带有网址编码数据的 `POST`请求​​加载网址:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -910,23 +910,23 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+与 `webContents.reload` 相同.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+将 `menu` 设置为窗口的菜单栏, 如设置为 ` null ` 时将移除菜单栏。
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
 * `options` Object (可选) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+  * `mode` String *Windows* - 进度条的模式. 可以为 `none`, `normal`, `indeterminate`, `error`, 或 `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+设置进度栏中的进度值。有效范围是 [0, 1.0]。
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+当进度小于0时不显示进度; 当进度大于0时显示结果不确定.
 
 On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
 
