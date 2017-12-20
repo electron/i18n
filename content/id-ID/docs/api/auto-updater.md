@@ -1,21 +1,28 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
 Proses:  Utama </ 0></p> 
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+Modul ` autoUpdater </ 0> menyediakan sebuah antarmuka untuk
+<a href="https://github.com/Squirrel"> kerangka Squirrel </ 1>.</p>
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+<p>Anda dapat dengan cepat meluncurkan server pelepasan multi platform untuk mendistribusikannya
+aplikasi dengan menggunakan salah satu proyek ini:</p>
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+<ul>
+<li><a href="https://github.com/GitbookIO/nuts"> kacang </ 0>: <em> Server pelepasan cerdas untuk aplikasi Anda, menggunakan GitHub sebagai backend. Pembaruan otomatis dengan Squirrel (Mac & amp; Windows) </ 1></li>
+<li><a href="https://github.com/ArekSredzki/electron-release-server"> elektron-release-server </ 0>: <em> Fitur lengkap,
+host rilis self-host untuk aplikasi elektron, kompatibel dengan
+auto-updater </ 1></li>
+<li><a href="https://github.com/Aluxian/squirrel-updates-server">squirrel-updates-server</a>: <em>A simple node.js server
+for Squirrel.Mac and Squirrel.Windows which uses GitHub releases</em></li>
+<li><a href="https://github.com/Arcath/squirrel-release-server">squirrel-release-server</a>: <em>A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.</em></li>
+</ul>
 
-## Platform notices
+<h2>Platform notices</h2>
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+<p>Though <code>autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
 
 ### macOS
 
