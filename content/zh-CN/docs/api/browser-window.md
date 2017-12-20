@@ -1023,85 +1023,85 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+返回 `Boolean` - 判断窗口的菜单栏是否自动隐藏.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+设置窗口的菜单栏是否可见. 如果设为可见, 菜单栏自动隐藏时, 用户仍然可以按下 `Alt` 键来显示.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+返回 `Boolean` - 判断窗口的菜单栏是否可见.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+设置窗口是否在所有工作空间上可见
 
-**Note:** This API does nothing on Windows.
+**注意:** 该 API 在 Windows 上无效.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+返回 `Boolean` - 判断窗口是否在所有工作空间上可见.
 
-**Note:** This API always returns false on Windows.
+**注意:** 该 API 在 Windows 上始终返回 false.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
 * `ignore` Boolean
 
-Makes the window ignore all mouse events.
+忽略窗口内的所有鼠标事件
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+在此窗口中发生的所有鼠标事件将被传递到此窗口下面的窗口, 但如果此窗口具有焦点, 它仍然会接收键盘事件
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+防止窗口内容被其他应用捕获
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+在macOS中, 它设置 NSWindow的 sharingType为 NSWindowSharingNone. 在Windows中, 它设置 `WDA_MONITOR`调用 SetWindowDisplayAffinity.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+设置窗口是否可聚焦
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+设置 `parent` 为当前窗口的父窗口. 为`null`时表示将当前窗口转为顶级窗口
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+返回 `BrowserWindow` - 父窗口.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+返回 `BrowserWindow[]` - 首页的子窗口.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+设置输入时是否隐藏光标
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
+* `type` String - 可以为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` 或 `ultra-dark`. 更多详细信息，请查阅 [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc)
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+在浏览器窗口中添加一个动态效果. 设置为`null`或空字符串将移除窗口的动态效果。
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *实验*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
