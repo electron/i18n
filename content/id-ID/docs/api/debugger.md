@@ -26,29 +26,39 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
   
   Lepaskan debugger dari `isi web </ 0> .</p>
 
-<h4><code>debugger.sendCommand(method[, commandParams, callback])`</h4> 
+<h4><code>debugger.kirim perintah (metode [, perintah Params, panggil kembali])`</h4> 
   
-  * `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-  * `commandParams` Object (optional) - JSON object with request parameters.
-  * `callback` Function (optional) - Response 
-    * `error` Object - Error message indicating the failure of the command.
-    * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
-  
-  Send given command to the debugging target.
-  
-  ### Instance Events
-  
-  #### Event: 'detach'
-  
-  * ` event </ 0>  Acara</li>
-<li><code>reason` String - Reason for detaching debugger.
-  
-  Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
-  
-  #### Event: 'message'
-  
-  * ` event </ 0>  Acara</li>
-<li><code>method` String - Method name.
-  * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-  
-  Emitted whenever debugging target issues instrumentation event.
+  * ` method </ 0>  String - Nama metode, harus menjadi salah satu metode yang didefinisikan oleh
+  protokol debugging jarak jauh.</li>
+<li><code> perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
+<li><code>callback` Fungsi (opsional) - Respon 
+    *  kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
+<li><code> mengulang </ 0> Setiap - Respon yang didefinisikan oleh atribut 'kembali' dari
+  deskripsi perintah dalam protokol debugging jarak jauh.</li>
+</ul></li>
+</ul>
+
+<p>Kirim perintah yang diberikan ke target debugging.</p>
+
+<h3>Contoh peristiwa</h3>
+
+<h4>Acara : 'melepaskan'</h4>
+
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+</ul>
+
+<p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
+ <code>isi web</ 0> ditutup atau devtools dipanggil untuk < web > konten < 0> yang dilampirkan </ 0> .</p>
+
+<h4>Acara : 'pesan'</h4>
+
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> metode </ 0> String - nama metode.</li>
+<li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
+ dalam protokol debugging jarak jauh.</li>
+</ul>
+
+<p>Emitted kapanpun terjadi debugging sasaran soal acara instrumentasi .</p>
