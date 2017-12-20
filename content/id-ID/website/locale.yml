@@ -104,41 +104,41 @@ pages:
     title: Aplikasi Elektronika
     description: Aplikasi Dibangun di Elektron
   '/docs':
-    title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    title: Dokumentasi
+    description: Dokumentasi
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Semua Dokumen Elektronika!
+    description: Semua panduan Elektron dan dokumentasi API pada satu halaman yang dapat dicari.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: Dokumentasi referensi API untuk pelepasan Elektron terbaru
   '/docs/development':
-    title: Development
-    description: Developing with Electron
+    title: Pengembangan
+    description: Mengembangkan dengan Elektron
   '/docs/tutorial':
     title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    description: Panduan dan tutorial untuk rilis Elektron terbaru
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Blog elektron
+    description: Semua berita terbaru dari tim dan komunitas Elektron.
   '/community':
     title: Komunitas
   '/releases':
     title: Rilis
   '/contact':
     title: Kontak
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Hubungi tim Elektron di Twitter, Slack, GitHub, atau melalui email.
   '/languages':
     title: bahasa
   '/userland':
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron adalah alat open source untuk membantu Anda memeriksa, memantau, dan debug aplikasi Elektron Anda. Dibangun di atas Alat Pengembang Chrome yang menakjubkan.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron adalah kerangka kerja open source untuk memudahkan pengujian integrasi untuk aplikasi Elektron Anda. Dibangun di atas ChromeDriver dan WebDriverIO.
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: Halaman tidak ditemukan.
+  if_this_is_an_error: Jika ini adalah kesalahan
+  please_file_an_issue: tolong ajukan masalah
