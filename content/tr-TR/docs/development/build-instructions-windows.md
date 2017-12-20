@@ -32,7 +32,7 @@ $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## İnşaa
 
 Build both Release and Debug targets:
 
@@ -66,7 +66,7 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## Temizlik
 
 To clean the build files:
 
