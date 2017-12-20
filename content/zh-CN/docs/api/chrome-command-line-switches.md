@@ -63,23 +63,23 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+上面的代码, 除了本地地址(`localhost`,`127.0.0.1`等等.), `google.com`子域名, 包含`foo.com`后缀的主机地址, 以及任何在`1.2.3.4:5678`上的地址以外的所有主机都将使用代理服务器.
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+在指定`url`中使用PAC脚本.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+不要使用代理服务器，并始终直接连接. 覆盖传递的任何其他代理服务器标志。
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+控制主机名映射方式的`rules`的逗号分隔列表.
 
 例如：
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
+* `MAP * 127.0.0.1` 强制将所有主机名映射到127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
 * `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
