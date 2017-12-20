@@ -27,20 +27,20 @@ The `features` string follows the format of standard browser, but each feature h
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* ` pesan </ 0> String</li>
+<li><code> targetOrigin </ 0> String</li>
+</ul>
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
-
-### Using Chrome's `window.open()` implementation
-
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
-
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
-
-This option can also be set on `<webview>` tags as well:
-
-```html
+<p>Sends a message to the parent window with the specified origin or <code>*` for no origin preference.</p> 
+    ### Using Chrome's `window.open()` implementation
+    
+    If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+    
+    Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+    
+    This option can also be set on `<webview>` tags as well:
+    
+    ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
