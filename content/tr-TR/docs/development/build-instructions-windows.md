@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## İlk işleri halletmek
 
-Ilk işleri halleden bootstsrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
 ```powershell
 $ cd electron
