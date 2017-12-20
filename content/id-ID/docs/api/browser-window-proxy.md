@@ -1,50 +1,53 @@
-## Class: BrowserWindowProxy
+## Kelas: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Memanipulasi jendela browser anak
 
-Process: [Renderer](../glossary.md#renderer-process)
+Proses:  Renderer </ 0></p> 
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+Objek ` BrowserWindowProxy </ 0> dikembalikan dari <code> window.open </ 0> dan menyediakan
+fungsi terbatas dengan jendela anak.</p>
 
-### Instance Methods
+<h3>Metode Instance</h3>
 
-The `BrowserWindowProxy` object has the following instance methods:
+<p>Objek <code> BrowserWindowProxy </ 0> memiliki metode contoh berikut:</p>
 
-#### `win.blur()`
+<h4><code>win.blur ()`</h4> 
 
-Removes focus from the child window.
+Menghapus fokus dari jendela anak.
 
-#### `win.close()`
+#### `win.close ()`
 
-Forcefully closes the child window without calling its unload event.
+Memaksa menutup jendela anak tanpa memanggil acara bongkar muatnya.
 
-#### `win.eval(code)`
+#### `win.eval (kode)`
 
-* `code` String
+* ` kode </ 0> String</li>
+</ul>
 
-Evaluates the code in the child window.
+<p>Mengevaluasi kode di jendela anak.</p>
 
-#### `win.focus()`
+<h4><code>win.focus ()`</h4> 
+    Memfokuskan jendela anak (membawa jendela ke depan).
+    
+    #### `win.print ()`
+    
+    Meminta dialog cetak pada jendela anak.
+    
+    #### `win.postMessage (pesan, targetOrigin)`
+    
+    * ` pesan </ 0> String</li>
+<li><code> targetOrigin </ 0> String</li>
+</ul>
 
-Focuses the child window (brings the window to front).
+<p>Mengirim pesan ke jendela anak dengan asal yang ditentukan atau <code> * </ 0> untuk no
+preferensi asal</p>
 
-#### `win.print()`
+<p>Selain metode ini, jendela anak menerapkan objek <code> window.opener </ 0>
+tanpa sifat dan metode tunggal.</p>
 
-Invokes the print dialog on the child window.
+<h3>Instance Properties</h3>
 
-#### `win.postMessage(message, targetOrigin)`
+<p>Objek <code> BrowserWindowProxy </ 0> memiliki properti contoh berikut:</p>
 
-* `message` String
-* `targetOrigin` String
-
-Sends a message to the child window with the specified origin or `*` for no origin preference.
-
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
-
-### Instance Properties
-
-The `BrowserWindowProxy` object has the following instance properties:
-
-#### `win.closed`
-
-A `Boolean` that is set to true after the child window gets closed.
+<h4><code>menang`</h4> 
+        A `Boolean` that is set to true after the child window gets closed.
