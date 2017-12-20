@@ -1,28 +1,27 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Tampilkan dialog sistem asli untuk membuka dan menyimpan file, mengingatkan, dll.
 
 Proses:  Utama </ 0></p> 
 
-An example of showing a dialog to select multiple files and directories:
+Contoh menampilkan dialog untuk memilih beberapa file dan direktori:
 
 ```javascript
 const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Dialog dibuka dari thread utama Elektron. Jika Anda ingin menggunakan objek dialog dari proses renderer, ingatlah untuk mengaksesnya dengan menggunakan remote:
 
 ```javascript
-const {dialog} = require('electron').remote
-console.log(dialog)
+const {dialog} = membutuhkan ('elektron'). remote console.log (dialog)
 ```
 
-## Methods
+## Metode
 
-The `dialog` module has the following methods:
+The ` dialog </ 0> modul memiliki metode berikut:</p>
 
-### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
+<h3><code>dialog.showOpenDialog ([browserWindow,] options [, callback])`</h3> 
 
 * `browserWindow` BrowserWindow (optional)
 * `pilihan` Object 
