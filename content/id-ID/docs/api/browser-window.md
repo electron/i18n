@@ -848,27 +848,28 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 * `callback` Fungsi 
-  * `image` [NativeImage](native-image.md)
+  * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+</ul></li>
+</ul>
 
-Same as `webContents.capturePage([rect, ]callback)`.
-
-#### `win.loadURL(url[, options])`
-
-* ` url </ 0>  String</li>
+<p>Same as <code>webContents.capturePage([rect, ]callback)`.</p> 
+    #### `win.loadURL(url[, options])`
+    
+    * ` url </ 0>  String</li>
 <li><code>pilihan` Objek (opsional) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
-
-Same as `webContents.loadURL(url[, options])`.
-
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
-
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
-
-```javascript
+      * `httpReferrer` String (optional) - A HTTP Referrer url.
+      * `userAgent` String (optional) - A user agent originating the request.
+      * `extraHeaders` String (optional) - Extra headers separated by "\n"
+      * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+      * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+    
+    Same as `webContents.loadURL(url[, options])`.
+    
+    The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+    
+    To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+    
+    ```javascript
 let url = require('url').format({
   protocol: 'file',
   slashes: true,
