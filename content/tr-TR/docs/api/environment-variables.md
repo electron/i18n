@@ -1,6 +1,6 @@
 # Ortam Değişkenleri
 
-> Control application configuration and behavior without changing code.
+> Uygulama ayarlarını ve davranışını koda dokunmadan kontrol edin.
 
 Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
 
