@@ -494,7 +494,7 @@ win.loadURL('https://github.com')
   
   A `Integer` representing the unique ID of the window.
   
-  ### Instance Methods
+  ### Metode Instance
   
   Objects created with `new BrowserWindow` have the following instance methods:
   
@@ -504,15 +504,15 @@ win.loadURL('https://github.com')
   
   Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
   
-  #### `win.close()`
+  #### `win.close ()`
   
   Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
   
-  #### `win.focus()`
+  #### `win.focus ()`
   
   Focuses on the window.
   
-  #### `win.blur()`
+  #### `win.blur ()`
   
   Removes focus from the window.
   
@@ -600,8 +600,8 @@ win.loadURL('https://github.com')
   
   #### `win.setBounds(bounds[, animate])`
   
-  * `bounds` [Rectangle](structures/rectangle.md)
-  * `animate` Boolean (optional) *macOS*
+  * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+<li><code>animate` Boolean (optional) *macOS*
   
   Resizes and moves the window to the supplied bounds
   
@@ -611,8 +611,8 @@ win.loadURL('https://github.com')
   
   #### `win.setContentBounds(bounds[, animate])`
   
-  * `bounds` [Rectangle](structures/rectangle.md)
-  * `animate` Boolean (optional) *macOS*
+  * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+<li><code>animate` Boolean (optional) *macOS*
   
   Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
   
