@@ -976,50 +976,50 @@ win.loadURL('http://localhost:8000/post', {
 * `dismissonclick` - 当按钮被点击时，会立即关闭缩略图窗口。
 * `nobackground` - 仅仅使用图像而不绘制边框。
 * `hidden` - 该按钮对用户不可见。
-* `noninteractive` - 该按钮已启用，但处于未激活状态; 没有绘制按钮按下状态。 这个值用于通知功能的按钮实例。
+* `noninteractive` - 该按钮可启用但不是交互式; 也不绘制按下的状态. 此值适用于在通知中使用按钮的情况。
 
 #### `win.setThumbnailClip(region)` *Windows*
 
 * `region` [Rectangle](structures/rectangle.md) 窗口的区域
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 当 region 为空即 `{x: 0, y: 0, width: 0, height: 0}`时, 则重置缩图为整个窗口.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+设置在任务栏中悬停在窗口缩略图上时显示的工具提示。
 
 #### `win.setAppDetails(options)` *Windows*
 
 * `options` Object 
-  * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
-  * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
-  * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
-  * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
+  * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
+  * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
+  * `appIconIndex` Integer (可选) - `appIconPath` 中的图标索引. 当`appIconPath` 没设置时则忽略. 默认值为``.
+  * `relaunchCommand` String (可选) - 窗口的 [重新启动命令](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
+  * `relaunchDisplayName` String (可选) - 窗口的[重新启动显示名称](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
-Sets the properties for the window's taskbar button.
+设置窗口任务栏按钮的属性。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注意:** `relaunchCommand` 和 `relaunchDisplayName` 必须一起设置. 如果这些属性中的一个没有设置, 那么两者都不会被使用.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+和 `webContents.showDefinitionForSelection()` 相同.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+设置窗口图标
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+设置窗口的菜单栏是否自动隐藏。设置后只有当用户按下 `Alt` 键时才显示菜单栏.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+如果菜单栏已经可见, 调用 `setAutoHideMenuBar(true)`时不会立刻隐藏.
 
 #### `win.isMenuBarAutoHide()`
 
