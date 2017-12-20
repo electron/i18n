@@ -5,7 +5,7 @@
 Proses:  Utama </ 0></p> 
 
 ```javascript
-// In the main process.
+// Dalam proses utamanya.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -1114,4 +1114,4 @@ The `buttons` is an array of `Button` objects:
       
       * `browserView` [BrowserView](browser-view.md)
       
-      **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+      ** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p>
