@@ -65,66 +65,66 @@ gunakan manajer paket distribusi untuk memperbarui aplikasi Anda.</p>
 
 <p>Objek <code> autoUpdater </ 0> memancarkan peristiwa berikut:</p>
 
-<h3>Event: 'error'</h3>
+<h3>Acara: 'kesalahan'</h3>
 
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> error </ 0> Kesalahan</li>
+<li>Kesalahan <code> kesalahan </ 0></li>
 </ul>
 
-<p>Emitted when there is an error while updating.</p>
+<p>Emitted saat ada error saat mengupdate.</p>
 
-<h3>Event: 'checking-for-update'</h3>
+<h3>Acara: 'check-for-update'</h3>
 
-<p>Emitted when checking if an update has started.</p>
+<p>Emitted saat memeriksa apakah update telah dimulai.</p>
 
-<h3>Event: 'update-available'</h3>
+<h3>Acara: 'update-available'</h3>
 
-<p>Emitted when there is an available update. The update is downloaded
-automatically.</p>
+<p>dibunyikan saat ada update yang tersedia. Pembaruan diunduh
+secara otomatis.</p>
 
-<h3>Event: 'update-not-available'</h3>
+<h3>Acara: 'update-tidak-tersedia'</h3>
 
-<p>Emitted when there is no available update.</p>
+<p>Emitted saat tidak ada update yang tersedia.</p>
 
-<h3>Event: 'update-downloaded'</h3>
+<h3>Acara: 'update-download'</h3>
 
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code>releaseNotes` String</li> 
+<li><code> acara </ 0> Acara</li>
+<li><code> releaseNotes </ 0> String</li>
+<li><code> releaseName </ 0> String</li>
+<li><code> releaseDate </ 0> Tanggal</li>
+<li><code> updateURL </ 0> String</li>
+</ul>
 
-* `releaseName` String
-* `releaseDate` Date
-* `updateURL` String</ul> 
+<p>Emitted saat update telah didownload.</p>
 
-Emitted when an update has been downloaded.
+<p>Di Windows saja <code> releaseName </ 0> tersedia.</p>
 
-On Windows only `releaseName` is available.
+<h2>Metode</h2>
 
-## Methods
+<p>Objek <code> autoUpdater </ 0> memiliki metode berikut:</p>
 
-The `autoUpdater` object has the following methods:
+<h3><code>autoUpdater.setFeedURL (url [, requestHeaders])`</h3> 
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+* ` url </ 0> String</li>
+<li><code> requestHeader </ 0> Objek <em> macOS </ 1> (opsional) - header permintaan HTTP.</li>
+</ul>
 
-* ` url </ 0>  String</li>
-<li><code>requestHeaders` Object *macOS* (optional) - HTTP request headers.
+<p>Menetapkan <code> url </ 0> dan menginisialisasi updater otomatis.</p>
 
-Sets the `url` and initialize the auto updater.
-
-### `autoUpdater.getFeedURL()`
-
-Returns `String` - The current update feed URL.
-
-### `autoUpdater.checkForUpdates()`
-
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
-
-### `autoUpdater.quitAndInstall()`
-
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
-
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+<h3><code>autoUpdater.getFeedURL()`</h3> 
+    Returns `String` - The current update feed URL.
+    
+    ### `autoUpdater.checkForUpdates()`
+    
+    Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+    
+    ### `autoUpdater.quitAndInstall()`
+    
+    Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+    
+    **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
