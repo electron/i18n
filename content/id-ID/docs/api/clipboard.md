@@ -1,23 +1,22 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Lakukan operasi copy dan paste pada clipboard sistem.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-The following example shows how to write a string to the clipboard:
+Contoh berikut menunjukkan cara menulis string ke clipboard:
 
 ```javascript
 const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+Pada sistem X Window, ada juga clipboard pilihan. Untuk memanipulasinya, Anda harus melewati ` pilihan </ 0> untuk setiap metode:</p>
 
-```javascript
-const {clipboard} = require('electron')
+<pre><code class="javascript">const {clipboard} = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
-```
+`</pre> 
 
 ## Methods
 
