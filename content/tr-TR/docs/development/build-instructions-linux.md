@@ -55,7 +55,7 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### Başka sistemler için derleme
 
 If you want to build for an `arm` target you should also install the following dependencies:
 
@@ -64,44 +64,44 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Benzer olarak `arm64` için:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+`arm<code> veya <code>ia32` hedefleri için derlerken, `bootstrap.py` betiğine <0>--target_arch</code> parametresi geçmelisiniz:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## İnşaa
 
-If you would like to build both `Release` and `Debug` targets:
+Eğer hem `Dağıtım` hem `Hata ayıklama` hedeflerinde inşaa etmek isterseniz:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Bu betik `out/R` içerisinde oldukça büyük bir Electron çalıştırılabilir dosyası oluşturacaktır. Dosya boyu 1.3 gigabyte'ı geçebilir. Bunun sebebi, Dağıtım hedefli inşaa'nın hata ayıklama sembollerini içeriyor oluşudur. Dosya boyutunu düşürmek içın `create-dist.py` dosyasını çalıştırabilirsiniz:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Bu betik çalışır bir dağıtımı çok daha ufak boyutlarda `dist`dizinine çıkarır. `create-dist.py` betiğini çalıştırdıktan sonra, hala `out/R` dizini içerisinde bulunan 1.3+ gigabyte'lık dosyayı silmek isteyebilirsiniz.
 
-You can also build the `Debug` target only:
+Ay~i zamanda sadece `Hata ayıklama` hedefleyerek inşaa edebilirsiniz:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+İnşaa tamamlandıktan sonra, `electron` hata ayıklama ikilisini `out/D` dizini altında bulabilirsiniz.
 
-## Cleaning
+## Temizlik
 
 To clean the build files:
 
