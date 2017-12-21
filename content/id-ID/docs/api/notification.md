@@ -1,28 +1,29 @@
-# Notification
+# Pemberitahuan
 
-> Create OS desktop notifications
-
-Proses:  Utama </ 0></p> 
-
-## Using in the renderer process
-
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
-
-## Class: Notification
-
-> Create OS desktop notifications
+> Buat notifikasi desktop OS
 
 Proses:  Utama </ 0></p> 
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+## Menggunakan dalam proses renderer
 
-It creates a new `Notification` with native properties as set by the `options`.
+Jika Anda ingin menampilkan Notifikasi dari proses renderer, Anda harus menggunakan  HTML5 Notification API </ 0></p> 
 
-### Static Methods
+## Kelas: Pemberitahuan
 
-The `Notification` class has the following static methods:
+> Buat notifikasi desktop OS
 
-#### `Notification.isSupported()`
+Proses:  Utama </ 0></p> 
+
+` Pemberitahuan </ 0> adalah
+ <a href="http://nodejs.org/api/events.html#events_class_events_eventemitter"> acara Emitter </ 1> .</p>
+
+<p>Ini menciptakan baru <code> Pemberitahuan </ 0> dengan sifat asli yang ditetapkan oleh <code> Pilihan </ 0> .</p>
+
+<h3>Metode Statis</h3>
+
+<p>Kelas <code> pemberitaun</ 0> memiliki metode statis berikut:</p>
+
+<h4><code>Notification.isSupported()`</h4> 
 
 Returns `Boolean` - Whether or not desktop notifications are supported on the current system
 
