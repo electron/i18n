@@ -22,13 +22,13 @@ Süreç: [Ana](../glossary.md#main-process)
   * `enabled` Boolean (isteğe bağlı) - Eğer değer false ise, menü öğesi soluk ve tıklanamaz olacaktır.
   * `visible` Boolean (optional) - Eğer değer false ise, menü öğesi tamamen görünmez olacaktır.
   * `checked` Boolean (isteğe bağlı) - Yalnızca `checkbox` veya `radio` türü menü öğeleri için belirtilmiş olmalıdır.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (isteğe bağlı) - `submenu` türü menu öğeleri için tanımlanmalıdır. Eğer `submenu` belirtilmişse `type: 'submenu'` atlanmış olabilir. Eğer değer bir `menü` değilse o zaman bu otomatik olarak `Menu.buildFromTemplate` kullanarak birine dönüştürülür.
+  * `id` String (isteğe bağlı) - Tek bir menu içinde benzersiz. Eğer tanımlanmışsa o zaman öğe pozisyon özelliğiyle bu öğeye referans gibi kullanılabilir.
+  * `position` String (isteğe bağlı) - Bu alan iyi ayarlanmış belirli bir menü içinde özel bir konum sağlamakta.
 
-### Roles
+### Roller
 
-Roles allow menu items to have predefined behaviors.
+Roller, menü öğelerinin önceden tanımlanmış davranışlara sahip olmalarını sağlar.
 
 It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
 
