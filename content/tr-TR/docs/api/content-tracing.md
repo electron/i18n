@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Bu modül web arabirimi içermez o yüzden sonuçları görüntülemek için `chrome://tracing/` bunu Chrome tarayıcısında açın ve oluşturulan dosyayı yükleyin.
 
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
@@ -38,7 +38,7 @@ The `contentTracing` module has the following methods:
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
@@ -49,13 +49,13 @@ Once all child processes have acknowledged the `getCategories` request the `call
   * `traceOptions` String
 * `callback` Function
 
-Start recording on all processes.
+Tüm işlemler kaydetmeye başlayın.
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 
 `categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-Examples:
+Örnekler:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
@@ -104,7 +104,7 @@ Once all child processes have acknowledged the `startMonitoring` request the `ca
 
 * `callback` Function
 
-Stop monitoring on all processes.
+Tüm işlemlerin izlemesini durdurun.
 
 Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
 
