@@ -8,7 +8,7 @@ This guide explains how to integrate your application into those desktop environ
 
 See [Notifications](notifications.md)
 
-## Recent documents (Windows & macOS)
+## Şuan ki Dökümanlar (Windows & macOS)
 
 Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
@@ -52,7 +52,7 @@ macOS enables developers to specify a custom menu for the dock, which usually co
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Özel dock menüyü kurmak için sadece macOS üzerinde kullanılabilen `app.dock.setMenu` API ' yi kullanabilirsin:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -74,11 +74,11 @@ app.dock.setMenu(dockMenu)
 
 On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Uygulamalar görevleri program özelliklerine ve önemli şeylere göre tanımlar kullanıcının bunlara göre yapması beklenir. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Tasks of Internet Explorer:**
+**Internet Explorer'ın görevi:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
@@ -115,7 +115,7 @@ On Windows you can add a thumbnail toolbar with specified buttons in a taskbar l
 
 From MSDN, it's illustrated:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
@@ -165,13 +165,13 @@ In Unity, you can add custom entries to its launcher via modifying the `.desktop
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Görev çubuğunda ilerleme çubuğu (Windows, macOS, Unity)
 
 On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+MacOS üzerinde ilerleme çubuğu dock simgesinin bir parçası olarak görüntülenir.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Unity DE aynı zamanda başlatıcıda ki ilerleme çubuğunu belirlemenizi sağlayan benzer bir özelliğe sahiptir.
 
 **Progress bar in taskbar button:**
 
@@ -203,7 +203,7 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## Flash çerçeve (Windows)
 
 On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
 
@@ -220,13 +220,13 @@ win.flashFrame(true)
 
 Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
 
-## Represented File of Window (macOS)
+## Pencerenin temsili dosyası (macOS)
 
 On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
 
 You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
 
-**Represented file popup menu:**
+**Temsil dosya açılan menüsü:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
