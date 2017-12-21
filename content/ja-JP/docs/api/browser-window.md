@@ -377,7 +377,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### イベント: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
@@ -389,7 +389,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### 静的メソッド
 
 The `BrowserWindow` class has the following static methods:
 
