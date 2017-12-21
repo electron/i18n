@@ -8,17 +8,17 @@ Om de al gebouwde binaire bestanden van Electron te installeren, gebruik je [`np
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Kijk in de [Electron versie documentatie](electron-versioning.md) om meer informatie te vinden over hoe je verschillende versies kunt beheren in je project.
 
-## Global Installation
+## Globale Installatie
 
-You can also install the `electron` command globally in your `$PATH`:
+Je kan `electron` ook globaal installeren in je `$PATH`:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Maatwerk
 
 If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
 
