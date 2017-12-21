@@ -51,6 +51,8 @@ Itu` net </ 0>  API hanya dapat digunakan setelah aplikasi memancarkan <code> si
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
-Returns [`ClientRequest`](./client-request.md)
+Mengembalikan  permintaan clien</ 0></p>
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+<p>Menciptakan <a href="./client-request.md"><code> permintaan klien </ 0> misalnya menggunakan disediakan
+ <code> Pilihan </ 1> yang langsung diteruskan ke <code> permintaan klien </ 1> konstruktor.
+Metode <code> net.request </ 0> akan digunakan untuk mengeluarkan permintaan HTTP yang aman dan tidak aman sesuai dengan skema protokol yang ditentukan di objek <code> options </ 0> .</p>
