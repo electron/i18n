@@ -1,6 +1,6 @@
-# nativeImage
+# asli
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Buat ikon nampan, dok , dan aplikasi menggunakan file PNG atau JPG.
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
