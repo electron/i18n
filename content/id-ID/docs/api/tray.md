@@ -241,16 +241,16 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* ` menu </ 0> Menu</li>
+</ul>
 
-Sets the context menu for this icon.
+<p>Sets the context menu for this icon.</p>
 
-#### `tray.getBounds()` *macOS* *Windows*
-
-Returns [`Rectangle`](structures/rectangle.md)
-
-The `bounds` of this tray icon as `Object`.
-
-#### `tray.isDestroyed()`
-
-Returns `Boolean` - Whether the tray icon is destroyed.
+<h4><code>tray.getBounds()` *macOS* *Windows*</h4> 
+  Returns [`Rectangle`](structures/rectangle.md)
+  
+  The `bounds` of this tray icon as `Object`.
+  
+  #### `tray.isDestroyed()`
+  
+  Returns `Boolean` - Whether the tray icon is destroyed.
