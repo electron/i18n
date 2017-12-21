@@ -121,7 +121,7 @@ From MSDN, it's illustrated:
 
 **Thumbnail toolbar of Windows Media Player:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![oynatıcı](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
 
@@ -175,7 +175,7 @@ Unity DE aynı zamanda başlatıcıda ki ilerleme çubuğunu belirlemenizi sağl
 
 **Progress bar in taskbar button:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Görev çubuğu ilerleme çubuğu](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
 To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
 
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+Ana işlem içinde:
 
 ```javascript
 const {ipcMain} = require('electron')
