@@ -57,8 +57,8 @@ Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> dis
 <h3><code>globalShortcut.unregister(accelerator)`</h3> 
     * `accelerator` [Accelerator](accelerator.md)
     
-    Unregisters the global shortcut of `accelerator`.
+    Unregisters jalan pintas global ` akselerator </ 0> .</p>
+
+<h3><code>globalShortcut.unregisterAll()`</h3> 
     
-    ### `globalShortcut.unregisterAll()`
-    
-    Unregisters all of the global shortcuts.
+    Unregisters semua jalan pintas global.
