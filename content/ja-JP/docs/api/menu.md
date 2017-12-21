@@ -8,7 +8,7 @@
 
 Creates a new menu.
 
-### Static Methods
+### 静的メソッド
 
 The `menu` class has the following static methods:
 
