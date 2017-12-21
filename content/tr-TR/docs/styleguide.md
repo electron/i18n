@@ -181,7 +181,7 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### Olaylar
 
-The events chapter must be in following form:
+Olaylar bölümü aşşağıdaki form da olmak zorundadır:
 
 ```markdown
 ### Event: 'wake-up'
@@ -195,11 +195,11 @@ Returns:
 
 The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
 
-The arguments of an event follow the same rules as methods.
+Bir olayda ki argümanlar metodların takip ettiği kurallar ile aynıdır.
 
 ### Özellikler
 
-The properties chapter must be in following form:
+Metodların bölümü aşağıdaki formda olmak zorundadır:
 
 ```markdown
 ### session.defaultSession
@@ -209,6 +209,6 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## Belge Çevirileri
 
 See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
