@@ -42,19 +42,19 @@ Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
   * `overwrite` - Çerez, aynı isimde yeni bir çerez eklendiği için silindi.
   * `expired` - Çerez, süresi dolduğu için otomatik olarak silindi.
   * `evicted` - Çerez, çöp toplama sürecinde otomatik olarak tahliye edildi.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+  * `expired-overwrite` - Zaten zamanı dolmuş çerez tarafından üzerine yazma işlemi yapıldı.
+* `removed` Boolean - Çerez silinmişse `true`, aksi halde `false` döner.
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### Sınıf örneği metodları
 
-The following methods are available on instances of `Cookies`:
+Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
+* `filter` Nesne 
+  * `url` Katar (Opsiyonel) - `url` ile bağıntılı çerezleri çeker. Eğer boş girilirse tüm çerezler çekilir.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
@@ -94,4 +94,4 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Yazılmamış çerezlerı disk'e yazar.
