@@ -58,7 +58,7 @@ See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Ini dilepaskan di bawah kombinasi lisensi perangkat lunak bebas, dan merupakan alternatif yang banyak digunakan untuk produk berpemilik komersial seperti InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
 ### OSR
 
@@ -66,15 +66,15 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 ### process
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Proses adalah turunan dari sebuah program komputer yang sedang dijalankan. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+In Node.js and Electron, each running process has a `process` object. Objek ini bersifat global yang memberikan informasi tentang, dan kontrol atas, proses saat ini. Sebagai global, selalu tersedia untuk aplikasi tanpa menggunakan require ().
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Proses renderer adalah jendela browser di aplikasi Anda. Berbeda dengan proses utama, ada beberapa kelipatannya dan masing-masing dijalankan dalam proses terpisah. Mereka juga bisa disembunyikan.
 
 Di normal browser, halaman web biasanya menjalankan dalam lingkungan sandboxed dan tidak diperbolehkan akses ke sumber daya yang asli. Pengguna Elektron, namun, memiliki kekuatan untuk menggunakan api Node.js di halaman web yang memungkinkan interaksi tingkat sistem operasi yang lebih rendah.
 
@@ -82,11 +82,11 @@ See also: [process](#process), [main process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel adalah kerangka sumber terbuka yang memungkinkan aplikasi Elektron diperbarui secara otomatis saat versi baru dilepaskan. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Istilah ini berasal dari komunitas Unix, di mana "userland" atau "userspace" mengacu pada program yang berjalan di luar kernel sistem operasi. Baru-baru ini, istilah ini telah dipopulerkan di komunitas Node dan npm untuk membedakan antara fitur yang ada di " inti Node " versus paket yang dipublikasikan ke registri npm oleh komunitas "pengguna" yang jauh lebih besar.
 
 Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
@@ -104,4 +104,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. Ini tidak memiliki izin yang sama seperti halaman web Anda dan semua interaksi antara aplikasi dan konten tertanam Anda akan menjadi asinkron. Ini membuat aplikasi Anda tetap aman dari konten yang disematkan.
