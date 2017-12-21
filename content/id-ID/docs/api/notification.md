@@ -83,38 +83,42 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 
 <p>Ini acara tidak guarunteed akan dipancarkan dalam semua kasus di mana pemberitahuan ditutup.</p>
 
-<h4>Event: 'reply' <em>macOS</em></h4>
+<h4>Acara : 'balas' <em> macos </ 0></h4>
 
 <p>Pengembalian:</p>
 
 <ul>
 <li><code> event </ 0>  Acara</li>
-<li><code>reply` String - The string the user entered into the inline reply field
+<li><code> balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
+</ul>
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+<p>Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan <code> telah di balas: benar </ 0> .</p>
 
-#### Event: 'action' *macOS*
+<h4>Acara: 'aktifkan' <em> macOS </ 0></h4>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* ` event </ 0>  Acara</li>
-<li><code>index` Number - The index of the action that was activated
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code> masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan</li>
+</ul>
 
-### Metode Instance
+<h3>Metode Instance</h3>
 
-Objects created with `new Notification` have the following instance methods:
+<p>Objek yang dibuat dengan <code> Notifikasi baru </ 0> memiliki metode contoh berikut:</p>
 
-#### `notification.show()`
+<h4><code>pemberitahuan.menunjukkan ()`</h4> 
+  Segera tunjukkan notifikasi tersebut kepada pengguna, mohon perhatikan hal ini tidak seperti penerapan Pemberitahuan HTML5, cukup memberi contoh ` Notifikasi baru </ 0> tidak segera menunjukkannya kepada pengguna, Anda perlu memanggil metode ini sebelum OS akan ditampilkan. saya t.</p>
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+<h3>Memutar Suara</h3>
 
-### Playing Sounds
+<p>Di macos , Anda dapat menentukan nama suara yang ingin Anda putar saat pemberitahuan ditampilkan. Salah satu suara default (di bawah Preferensi Sistem> Suara) dapat digunakan, selain file suara khusus. Pastikan file suara disalin di bawah kumpulan aplikasi (misalnya, <code>App kamu .app/isi/sumber daya </ 0> ), atau salah satu dari lokasi berikut:</p>
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
-
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
-
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+<ul>
+<li><code>~ / Perpustakaan / Suara`</li> 
+  
+  * `/ Perpustakaan / Suara`
+  * `/ Jaringan / Perpustakaan / Suara`
+  * `/ Sistem / Perpustakaan / Suara`</ul> 
+  
+  Lihat dokumen  NS suara </ 0> untuk informasi lebih lanjut.</p>
