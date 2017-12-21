@@ -1,104 +1,113 @@
-## Class: MenuItem
+## Kelas: Menu Item
 
-> Add items to native application menus and context menus.
+> Tambahkan item ke menu aplikasi asli dan menu konteks.
 
 Proses:  Utama </ 0></p> 
 
-See [`Menu`](menu.md) for examples.
+Lihat ` Menu </ 0> untuk contohnya.</p>
 
-### `new MenuItem(options)`
+<h3><code>MenuItem baru (pilihan)`</h3> 
 
-* `pilihan` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
-    * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
-    * ` event </ 0>  Acara</li>
+* `pilihan` Objek 
+  * `klik` Fungsi (opsional) - Akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
+    * ` menuItem </ 0> MenuItem</li>
+<li><code> jendela browser </ 0>jendela Browser</li>
+<li><code> event </ 0>  Acara</li>
 </ul></li>
-<li><code>role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-    * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-    * `label` String - (optional)
-    * `sublabel` String - (optional)
-    * `accelerator` [Accelerator](accelerator.md) (optional)
-    * `icon` ([NativeImage](native-image.md) | String) (optional)
-    * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-    * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-    * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-    * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-    * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-    * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
-  ### Roles
-  
-  Roles allow menu items to have predefined behaviors.
-  
-  It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
-  
-  The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
-  
-  The `role` property can have following values:
-  
-  * `undo`
-  * `redo`
-  * `cut`
-  * `copy`
-  * `paste`
-  * `pasteandmatchstyle`
-  * `selectall`
-  * `delete`
-  * `minimize` - Minimize current window
-  * `close` - Close current window
-  * `quit`- Quit the application
-  * `reload` - Reload the current window
-  * `forcereload` - Reload the current window ignoring the cache.
-  * `toggledevtools` - Toggle developer tools in the current window
-  * `togglefullscreen`- Toggle full screen mode on the current window
-  * `resetzoom` - Reset the focused page's zoom level to the original size
-  * `zoomin` - Zoom in the focused page by 10%
-  * `zoomout` - Zoom out the focused page by 10%
-  * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-  * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
-  
-  The following additional roles are available on macOS:
-  
-  * `about` - Map to the `orderFrontStandardAboutPanel` action
-  * `hide` - Map to the `hide` action
-  * `hideothers` - Map to the `hideOtherApplications` action
-  * `unhide` - Map to the `unhideAllApplications` action
-  * `startspeaking` - Map to the `startSpeaking` action
-  * `stopspeaking` - Map to the `stopSpeaking` action
-  * `front` - Map to the `arrangeInFront` action
-  * `zoom` - Map to the `performZoom` action
-  * `window` - The submenu is a "Window" menu
-  * `help` - The submenu is a "Help" menu
-  * `services` - The submenu is a "Services" menu
-  
-  When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
-  
-  ### Instance Properties
-  
-  The following properties are available on instances of `MenuItem`:
-  
-  #### `menuItem.enabled`
-  
-  A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
-  
-  #### `menuItem.visible`
-  
-  A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
-  
-  #### `menuItem.checked`
-  
-  A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
-  
-  A `checkbox` menu item will toggle the `checked` property on and off when selected.
-  
-  A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
-  
-  You can add a `click` function for additional behavior.
-  
-  #### `menuItem.label`
-  
-  A `String` representing the menu items visible label
-  
-  #### `menuItem.click`
-  
-  A `Function` that is fired when the MenuItem receives a click event
+<li><code> peran </ 0>  String (opsional) - Tentukan tindakan item menu, bila ditentukan properti
+ <code> klik </ 0> akan diabaikan. Lihat <a href="#roles"> peran </ 1> .</li>
+<li><code> ketik </ 0>  String (opsional) - Dapat <code> normal </ 0> , <code> pemisah </ 0> , <code> submenu </ 0> , <code> kotak centang </ 0> atau
+ <code> radio </ 0> .</li>
+<li><code> label </ 0>  String - (opsional)</li>
+<li><code> sublabel </ 0>  String - (opsional)</li>
+<li><code> akselerator </ 0>  <a href="accelerator.md"> Accelerator </ 1> (opsional)</li>
+<li><code> ikon </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String ) (opsional)</li>
+<li><code> diaktifkan </ 0>  Boolean (opsional) - Jika salah, item menu akan diklik dan tidak dapat diklik.</li>
+<li><code> terlihat </ 0>  Boolean (opsional) - Jika salah, item menu akan seluruhnya tersembunyi.</li>
+<li><code> diperiksa </ 0>  Boolean (opsional) - Sebaiknya hanya ditentukan untuk item menu jenis <code> kotak centang </ 0> atau <code> radio </ 0> .</li>
+<li><code> submenu </ 0> (MenuItemConstructorOptions [] | Menu) (opsional) - Harus ditentukan untuk <code> submenu </ 0> ketik item menu. Jika
+ <code> submenu </ 0> ditentukan, tipe <code> : 'submenu' </ 0> dapat diabaikan. Jika nilainya bukan <code> Menu </ 0> maka otomatis akan dikonversi menjadi satu dengan
+ <code> Menu.buildFromTemplate </ 0> .</li>
+<li><code> id </ 0>  String (opsional) - Unik dalam satu menu. Jika di definisikan maka bisa dijadikan acuan untuk item ini dengan atribut posisi.</li>
+<li><code> posisi </ 0>  String (opsional) - Bidang ini memungkinkan definisi lokasi yang spesifik dalam menu tertentu.</li>
+</ul></li>
+</ul>
+
+<h3>Peran</h3>
+
+<p>Peran memungkinkan item menu memiliki perilaku yang telah ditentukan.</p>
+
+<p>Cara terbaik adalah menentukan <code> peran </ 0> untuk item menu yang sesuai dengan peran standar, daripada mencoba menerapkan perilaku secara manual pada fungsi <code> klik </ 0> .
+Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</p>
+
+<p><code> label </ 0> dan <code> akselerator </ 0> nilai-nilai opsional ketika menggunakan <code> peran </ 0> dan akan default ke nilai yang sesuai untuk setiap platform.</p>
+
+<p>Properti <code> peran </ 0> dapat memiliki nilai berikut:</p>
+
+<ul>
+<li><code>membuka`
+    * `mengulangi`
+    * `memotong`
+    * `salinan`
+    * `pasta`
+    * `pasteandmatchstyle`
+    * `Pilih Semua`
+    * `menghapus`
+    * ` minimize </ 0> - Minimalkan jendela saat ini</li>
+<li><code>close` - Close current window
+    * `quit`- Quit the application
+    * `reload` - Reload the current window
+    * `forcereload` - Reload the current window ignoring the cache.
+    * `toggledevtools` - Toggle developer tools in the current window
+    * `togglefullscreen`- Toggle full screen mode on the current window
+    * `resetzoom` - Reset the focused page's zoom level to the original size
+    * `zoomin` - Zoom in the focused page by 10%
+    * `zoomout` - Zoom out the focused page by 10%
+    * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
+    * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+    
+    The following additional roles are available on macOS:
+    
+    * `about` - Map to the `orderFrontStandardAboutPanel` action
+    * `hide` - Map to the `hide` action
+    * `hideothers` - Map to the `hideOtherApplications` action
+    * `unhide` - Map to the `unhideAllApplications` action
+    * `startspeaking` - Map to the `startSpeaking` action
+    * `stopspeaking` - Map to the `stopSpeaking` action
+    * `front` - Map to the `arrangeInFront` action
+    * `zoom` - Map to the `performZoom` action
+    * `window` - The submenu is a "Window" menu
+    * `help` - The submenu is a "Help" menu
+    * `services` - The submenu is a "Services" menu
+    
+    When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+    
+    ### Instance Properties
+    
+    The following properties are available on instances of `MenuItem`:
+    
+    #### `menuItem.enabled`
+    
+    A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+    
+    #### `menuItem.visible`
+    
+    A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+    
+    #### `menuItem.checked`
+    
+    A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+    
+    A `checkbox` menu item will toggle the `checked` property on and off when selected.
+    
+    A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+    
+    You can add a `click` function for additional behavior.
+    
+    #### `menuItem.label`
+    
+    A `String` representing the menu items visible label
+    
+    #### `menuItem.click`
+    
+    A `Function` that is fired when the MenuItem receives a click event
