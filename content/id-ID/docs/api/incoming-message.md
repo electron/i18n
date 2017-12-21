@@ -1,42 +1,46 @@
-## Class: IncomingMessage
+## Kelas: pesan datang
 
-> Handle responses to HTTP/HTTPS requests.
+> Tangani tanggapan terhadap permintaan HTTP / HTTPS.
 
 Proses:  Utama </ 0></p> 
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+` IncomingMessage </ 0> mengimplementasikan 
+antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> Readable Stream </ 1> dan karena itu <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> EventEmitter </ 2> .</p>
 
-### Instance Events
+<h3>Contoh peristiwa</h3>
 
-#### Event: 'data'
+<h4>Acara : 'data'</h4>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `chunk` Buffer - A chunk of response body's data.
+<ul>
+<li><code> bingkai</ 0>  penyangga- Sejumlah data dari respon tubuh.</li>
+</ul>
 
-The `data` event is the usual method of transferring response data into applicative code.
+<p><code> Data </ 0>  acara adalah metode biasa mentransfer data respon ke dalam kode aplikatif.</p>
 
-#### Event: 'end'
+<h4>Acara : 'akhir'</h4>
 
-Indicates that response body has ended.
+<p>Menunjukkan bahwa tubuh respons telah berakhir.</p>
 
-#### Event: 'aborted'
+<h4>Acara : 'dibatalkan'</h4>
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+<p>Emitted ketika permintaan telah dibatalkan selama transaksi HTTP berlangsung.</p>
 
-#### Acara: 'kesalahan'
+<h4>Acara: 'kesalahan'</h4>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-`error` Error - Typically holds an error string identifying failure root cause.
+<p>Kesalahan <code> kesalahan </ 0> - Biasanya memegang string kesalahan yang mengidentifikasi penyebab kegagalan akar.</p>
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+<p>Emitted saat terjadi kesalahan saat streaming data respon acara. Misalnya, jika server menutup yang mendasari sementara respon masih streaming, sebuah event <code> kesalahan</ 0>  akan dipancarkan pada objek respon dan acara <code> tutup </ 0> selanjutnya akan mengikuti permintaan. objek.
+</p>
 
-### Instance Properties
+<h3>Instance Properties</h3>
 
-An `IncomingMessage` instance has the following readable properties:
+<p>Contoh <code> datang pesan </ 0> memiliki properti yang mudah dibaca berikut ini:</p>
 
-#### `response.statusCode`
+<h4><code>response.statusCode`</h4> 
 
 An `Integer` indicating the HTTP response status code.
 
