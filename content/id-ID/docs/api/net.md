@@ -41,13 +41,13 @@ app.on('ready', () => {
 
 Omong-omong, hampir sama dengan bagaimana Anda biasa menggunakan modul  HTTP </ 0> /  HTTPS </ 1> dari Node.js</p> 
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+Itu` net </ 0>  API hanya dapat digunakan setelah aplikasi memancarkan <code> siap </ 0>  acara . Mencoba untuk menggunakan modul sebelum <code> siap </ 0>  acara akan melemparkan kesalahan.</p>
 
-## Methods
+<h2>Metode</h2>
 
-The `net` module has the following methods:
+<p>Itu <code> net </ 0> modul memiliki metode berikut:</p>
 
-### `net.request(options)`
+<h3><code>net.pilihan (pilihan)`</h3> 
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
