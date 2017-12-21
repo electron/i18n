@@ -47,27 +47,27 @@ Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktans
 * ` minimize ` - Geçerli pencereyi simge durumuna küçültme
 * `close` - Geçerli pencereyi kapatma
 * ` quit ` - Uygulamadan çıkma
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `reload` - Geçerli pencereyi yeniden yükleme
+* `forcereload` - Önbelleği yok sayarak geçerli pencereyi yeniden yükleme.
+* `toggledevtools` - Geliştirici araçlarını geçerli pencerede aç / kapat
+* `togglefullscreen` - Geçerli pencerede tam ekran modunu aç / kapat
+* `resetzoom` - Odaklanmış sayfanın yakınlaştırma düzeyini orijinal boyutuna sıfırlayın
+* `zoomin` - Odaklanmış sayfayı % 10 yakınlaştırma
+* `zoomout` - Odaklanmış sayfayı% 10 oranında uzaklaştırma
+* `editMenu` - Tüm varsayılan "Edit" menüsü (Undo, Copy, vb.)
+* `windowMenu` - Tüm varsayılan "Window" menüsü (Minimize, Close, vb.)
 
-The following additional roles are available on macOS:
+Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `window` - The submenu is a "Window" menu
+* `about` - `orderFrontStandardAboutPanel` eylemine eşleme
+* `hide` - `hide` eylemine eşleme
+* `hideothers` - `hideOtherApplications` eylemine eşleme
+* `unhide` - `unhideAllApplications` eylemine eşleme
+* `startspeaking` - `startSpeaking` eylemine eşleme
+* `stopspeaking` - `stopSpeaking` eylemine eşleme
+* `front` - `arrangeInFront` eylemine eşleme
+* `zoom` - `performZoom` eylemine eşleme
+* ` window ` - Alt menü bir "Window" menüsüdür
 * `help` - The submenu is a "Help" menu
 * `services` - The submenu is a "Services" menu
 
