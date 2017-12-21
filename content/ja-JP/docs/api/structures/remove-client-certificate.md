@@ -1,4 +1,4 @@
-# RemoveClientCertificate Object
+# RemoveClientCertificate オブジェクト
 
 * `type` String - `clientCertificate`.
-* `origin` String - Origin of the server whose associated client certificate must be removed from the cache.
+* `origin` String - クライアント証明書が関連付けられているサーバーの起点 キャッシュから削除する必要があります。
