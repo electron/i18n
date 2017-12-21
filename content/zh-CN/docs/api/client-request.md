@@ -40,7 +40,7 @@ const request = net.request({
 
 返回:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` 收到的消息 - 表示HTTP响应消息的对象。
 
 #### 事件: "login"
 
@@ -56,9 +56,9 @@ const request = net.request({
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+当身份验证代理请求用户认证时触发
 
-The `callback` function is expected to be called back with user credentials:
+用户证书会调用 `callback`方法:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+提供空的凭证将取消请求，并在响应对象上报告一个身份验证错误:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,19 +85,19 @@ request.on('login', (authInfo, callback) => {
 
 #### Event: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+在 `request` 最终的 chunk 数据后写入 `request` 后触发
 
 #### Event: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+当 `request`请求被中止时发出。如果`request` 请求已经关闭， `abort`中止事件将不会被触发。
 
 #### Event: 'error'
 
 返回:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error -提供失败信息的错误对象。
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+当 `net`网络模块没有发出网络请求时会触发。 Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
 #### 事件：close
 
