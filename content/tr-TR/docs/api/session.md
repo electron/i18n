@@ -1,6 +1,6 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Tarayıcı oturumu, Çerezler, önbellek, proxy ayarlarını yönetin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -20,7 +20,7 @@ console.log(ses.getUserAgent())
 
 ## Metodlar
 
-The `session` module has the following methods:
+`session` modülü aşağıdaki yöntemleri içerir:
 
 ### `session.fromPartition(partition[, options])`
 
@@ -36,11 +36,11 @@ To create a `Session` with `options`, you have to ensure the `Session` with the 
 
 ## Özellikler
 
-The `session` module has the following properties:
+`session` modülü aşağıdaki yöntemleri içerir:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesi.
 
 ## Class: Session
 
@@ -56,9 +56,9 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Örnek Olaylar
 
-The following events are available on instances of `Session`:
+Aşağıdaki olaylar `Session` örneğinde kullanılabilir:
 
 #### Event: 'will-download'
 
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Örnek yöntemler
 
 The following methods are available on instances of `Session`:
 
