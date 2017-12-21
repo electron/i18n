@@ -979,8 +979,8 @@ win.webContents.on('devtools-opened', () => {
     
     #### `contents.send(channel[, arg1][, arg2][, ...])`
     
-    * `channel` String
-    * `...args` any[]
+    * ` saluran </ 0>  String</li>
+<li><code>...args` any[]
     
     Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
     
