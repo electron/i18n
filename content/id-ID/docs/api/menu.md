@@ -74,36 +74,36 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   #### `menu.append(menuItem)`
   
-  * `menuItem` MenuItem
-  
-  Appends the `menuItem` to the menu.
-  
-  #### `menu.insert(pos, menuItem)`
-  
-  * `pos` Integer
-  * `menuItem` MenuItem
-  
-  Inserts the `menuItem` to the `pos` position of the menu.
-  
-  ### Instance Properties
-  
-  `menu` objects also have the following properties:
-  
-  #### `menu.items`
-  
-  A `MenuItem[]` array containing the menu's items.
-  
-  Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-  
-  ## Examples
-  
-  The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
-  
-  ### Main process
-  
-  An example of creating the application menu in the main process with the simple template API:
-  
-  ```javascript
+  * ` menuItem </ 0> MenuItem</li>
+</ul>
+
+<p>Appends the <code>menuItem` to the menu.</p> 
+    #### `menu.insert(pos, menuItem)`
+    
+    * `pos` Integer
+    * ` menuItem </ 0> MenuItem</li>
+</ul>
+
+<p>Inserts the <code>menuItem` to the `pos` position of the menu.</p> 
+      ### Instance Properties
+      
+      `menu` objects also have the following properties:
+      
+      #### `menu.items`
+      
+      A `MenuItem[]` array containing the menu's items.
+      
+      Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+      
+      ## Examples
+      
+      The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+      
+      ### Main process
+      
+      An example of creating the application menu in the main process with the simple template API:
+      
+      ```javascript
 const {app, Menu} = require('electron')
 
 const template = [
@@ -194,12 +194,12 @@ if (process.platform === 'darwin') {
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
-
-### Render process
-
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
-
-```html
+  
+  ### Render process
+  
+  Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+  
+  ```html
 <!-- index.html -->
 <script>
 const {remote} = require('electron')
@@ -223,23 +223,31 @@ macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linu
 
 ### Menu Standar
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
+ <code> Windows </ 0> . Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
+ <code> peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
 
-* `window`
-* `help`
-* `services`
+<ul>
+<li><code>jendela`</li> 
 
-### Standard Menu Item Actions
+* `membantu`
+* `jasa`</ul> 
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+### Tindakan Item Menu Standar
 
-### Main Menu's Name
+macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
+ <code> Sembunyikan xxx </ 0> , dan <code> Sembunyikan Lainnya </ 0> . Untuk mengatur tindakan item menu ke tindakan standar, Anda harus mengatur atribut <code> role </ 0> dari item menu.</p>
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+<h3>Nama Menu Utama</h3>
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+<p>Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda
+ . Lihat
+ <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html"> About Information Property List Files </ 0> 
+untuk informasi lebih lanjut.</p>
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+<h2>Setting Menu for Specific Browser Window (<em>Linux</em> <em>Windows</em>)</h2>
+
+<p>The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code>setMenu` method</a> of browser windows can set the menu of certain browser windows.
 
 ## Menu Item Position
 
