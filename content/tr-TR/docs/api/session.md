@@ -89,7 +89,7 @@ The following methods are available on instances of `Session`:
 * `callback` Function 
   * `size` Integer - Cache size used in bytes.
 
-Callback is invoked with the session's current cache size.
+Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
 
 #### `ses.clearCache(callback)`
 
@@ -142,7 +142,7 @@ For example:
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+`proxyBypassRules` aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
@@ -268,7 +268,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (optional) - Called when operation is done.
 
-Clears the host resolver cache.
+Ana çözümleyici önbelleğini temizler.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
@@ -291,15 +291,15 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `userAgent` String
 * `acceptLanguages` String (optional)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+`UserAgent` ve `acceptLanguages` bu oturum için geçersiz kılar.
 
 The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Bu mevcut `WebContents` etkilemez ve her `WebContents` `webContents.setUserAgent` oturum genelinde kullanıcı aracısı geçersiz kılmak için kullanabilirsiniz.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+`String` döndürür - Bu oturum için kullanıcı aracısı.
 
 #### `ses.getBlobData(identifier, callback)`
 
@@ -328,23 +328,23 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (optional) - Called when operation is done
 
-Clears the session’s HTTP authentication cache.
+Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
-### Instance Properties
+### Örnek özellikleri
 
 The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Bu oturum için [çerezleri](cookies.md) nesnesi.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Bu oturum için [WebRequest](web-request.md) nesnesi.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Bu oturum için bir [Protocol](protocol.md) nesnesi.
 
 ```javascript
 const {app, session} = require('electron')
