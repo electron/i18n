@@ -97,11 +97,11 @@ request.on('login', (authInfo, callback) => {
 
 * `error` Error -提供失败信息的错误对象。
 
-当 `net`网络模块没有发出网络请求时会触发。 Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+当 `net`网络模块没有发出网络请求时会触发。 通常情况下，当 `request`请求对象发出一个 `error`错误事件时，一个 `close`关闭事件会随之发生，并且不会提供响应对象。
 
 #### 事件：close
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+作为HTTP 的 request-response 中的最后一个事件发出。 `close`事件表明，在`request`或`response` 对象中不会发出更多的事件。
 
 #### Event: 'redirect'
 
