@@ -71,7 +71,7 @@ app.on('ready', () => {
 
 前3个选项是跟踪记录模式，因此是相互排斥的。 如果`traceOptions`字符串中出现多个跟踪记录模式，最后一个优先。 如果指定没有跟踪记录模式，那记录模式就是`record-until-full`。
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+在从`traceOptions`解析的选项应用于它之前，跟踪选项将首先被重置为默认选项(`record_mode` 设置为 `record-until-full`, `enable_sampling` 和 `enable_systrace` 设置为 `false`)。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,7 +79,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+停止所有进程记录。
 
 Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
