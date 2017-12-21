@@ -1,47 +1,47 @@
-## Class: Cookies
+## Sınıf: Cookies
 
-> Query and modify a session's cookies.
+> Oturumdaki çerezleri sorgulayın veya değiştirin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+`Cookies`'den türeyen objecler `Session'ın` `cookies` sembolü ile erişilir.
 
-For example:
+Örneğin:
 
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// Tüm çerezleri sorgula.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// Sadece belirli bir Url ile bağlantılı çerezleri sorgula.
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// İlgili veri ile bir çerez ata
+// Aynı isimde başka bir çerez varsa, üzerine yazar.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
 ```
 
-### Instance Events
+### Sınıf Örneği Olayları
 
-The following events are available on instances of `Cookies`:
+Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
 
-#### Event: 'changed'
+#### Olay: 'changed'
 
-* `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
+* `event` Olay
+* `cookie` [Çerez](structures/cookie.md) - Değişen çerez
+* `cause` Katar - Olan değışimin nedeni (Aşağıdaki değerlerle): 
+  * `explicit` - Çerez direkt olarak kullanıcının bir aksiyonu tarafından değiştirildi.
+  * `overwrite` - Çerez, aynı isimde yeni bir çerez eklendiği için silindi.
+  * `expired` - Çerez, süresi dolduğu için otomatik olarak silindi.
+  * `evicted` - Çerez, çöp toplama sürecinde otomatik olarak tahliye edildi.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
 * `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
 
