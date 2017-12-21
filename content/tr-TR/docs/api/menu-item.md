@@ -30,9 +30,9 @@ Süreç: [Ana](../glossary.md#main-process)
 
 Roller, menü öğelerinin önceden tanımlanmış davranışlara sahip olmalarını sağlar.
 
-Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktansa standart rolle eşleşen herhangi bir menü öğesi için `role` belirtmek en iyisidir. Yerleşik `rol` davranışı en iyi doğal deneyimini verecektir.
+Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktansa standart rolle eşleşen herhangi bir menü öğesi için `role` belirtmek en iyisidir. Yerleşik `role` davranışı en iyi doğal deneyimini verecektir.
 
-`Etiket` ve `Hızlandırıcı` değerleri bir `rol` kullanırken isteğe bağlıdır ve her platform için uygun değerleri varsayılan olur.
+`label` ve `accelerator` değerleri bir `rol` kullanırken isteğe bağlıdır ve her platform için uygun değerleri varsayılan olur.
 
 `role` özelliği aşağıdaki değerlere sahiptir:
 
@@ -71,7 +71,7 @@ Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 * `help` - Alt menü bir "Yardım" menüsüdür
 * `services` - Alt menü bir "Servisler" menüsüdür
 
-MacOS'ta bir `role` belirtirken, menü öğesini etkileyecek seçenekler yalnıza `label` ve `accelerator`'dür. Diğer tüm seçenekler yok sayılır.
+MacOS'ta bir `role` belirtirken, menü öğesini etkileyecek seçenekler yalnızca `label` ve `accelerator`'dür. Diğer tüm seçenekler yok sayılır.
 
 ### Örnek özellikleri
 
