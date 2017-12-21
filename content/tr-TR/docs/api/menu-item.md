@@ -1,10 +1,10 @@
-## Class: MenuItem
+## Sınıf: MenuItem
 
-> Add items to native application menus and context menus.
+> Yerel uygulama menülerine ve bağlam menülerine öğeler ekleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+[`Menu`](menu.md) örnekleri için bkz.
 
 ### `new MenuItem(options)`
 
