@@ -40,30 +40,32 @@ antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> 
 
 <p>Contoh <code> datang pesan </ 0> memiliki properti yang mudah dibaca berikut ini:</p>
 
-<h4><code>response.statusCode`</h4> 
+<h4><code>respon.status Code`</h4> 
 
-An `Integer` indicating the HTTP response status code.
+Sebuah ` Integer </ 0> yang menunjukkan kode status respons HTTP.</p>
 
-#### `response.statusMessage`
+<h4><code>response.statusMessage`</h4> 
 
-A `String` representing the HTTP status message.
+A `String` mewakili the HTTP status message.
 
-#### `response.headers`
+#### `Tanggapan`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+Sebuah ` Objek </ 0> mewakili header respon HTTP. The <code> header </ 0> objek diformat sebagai berikut:</p>
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+<ul>
+<li>Semua nama header diturunkan.</li>
+<li>Setiap nama header menghasilkan properti bernilai array pada objek header.</li>
+<li>Setiap nilai header didorong ke dalam array yang terkait dengan nama kopinya.</li>
+</ul>
 
-#### `response.httpVersion`
+<h4><code>respon.http Versi`</h4> 
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Sebuah ` String </ 0> yang menunjukkan nomor versi protokol HTTP . Nilai tipikal adalah '1.0' atau '1.1'. Selain itu <code> httpVersionMajor </ 0> dan <code> httpVersionMinor </ 0> adalah dua properti yang dapat dibaca Integer yang mengembalikan masing-masing bilangan utama HTTP dan versi minor.</p>
 
-#### `response.httpVersionMajor`
+<h4><code>respon.http Versi utama`</h4> 
 
-An `Integer` indicating the HTTP protocol major version number.
+Sebuah ` Integer </ 0> yang menunjukkan nomor versi protokol utama HTTP .</p>
 
-#### `response.httpVersionMinor`
+<h4><code>respon.http Versi kecil`</h4> 
 
-An `Integer` indicating the HTTP protocol minor version number.
+Sebuah  Integer </ 0> yang menunjukkan nomor versi protokol HTTP minor .</p>
