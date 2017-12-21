@@ -54,8 +54,8 @@ Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktans
 * `resetzoom` - Odaklanmış sayfanın yakınlaştırma düzeyini orijinal boyutuna sıfırlayın
 * `zoomin` - Odaklanmış sayfayı % 10 yakınlaştırma
 * `zoomout` - Odaklanmış sayfayı% 10 oranında uzaklaştırma
-* `editMenu` - Tüm varsayılan "Edit" menüsü (Undo, Copy, vb.)
-* `windowMenu` - Tüm varsayılan "Window" menüsü (Minimize, Close, vb.)
+* `editMenu` - Tüm varsayılan "Düzenle" menüsü (Geri alma, Kopyalama, vb.)
+* `windowMenu` - Tüm varsayılan "Pencere" menüsü (Simge durumuna küçült, kapat, vb.)
 
 Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 
@@ -67,29 +67,29 @@ Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 * `stopspeaking` - `stopSpeaking` eylemine eşleme
 * `front` - `arrangeInFront` eylemine eşleme
 * `zoom` - `performZoom` eylemine eşleme
-* ` window ` - Alt menü bir "Window" menüsüdür
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* ` window ` - Alt menü bir "Pencere" menüsüdür
+* `help` - Alt menü bir "Yardım" menüsüdür
+* `services` - Alt menü bir "Servisler" menüsüdür
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+MacOS'ta bir `role` belirtirken, menü öğesini etkileyecek seçenekler yalnıza `label` ve `accelerator`'dür. Diğer tüm seçenekler yok sayılır.
 
-### Instance Properties
+### Örnek özellikleri
 
-The following properties are available on instances of `MenuItem`:
+Aşağıdaki özellikler `MenuItem` örneklerinde mevcuttur:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Öğenin etkin olup olmadığını gösteren bir `Boolean` vardır, bu özellik dinamik olarak değiştirilebilir.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Öğenin görünür olup olmadığını gösteren bir `Boolean` vardır, bu özellik dinamik olarak değiştirilebilir.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Öğenin işaretli olup olmadığını gösteren bir `Boolean` vardır, bu özellik dinamik olarak değiştirilebilir.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Bir `checkbox` menü öğesi seçildiğinde `checked` özelliği etkinleştirip devre dışı bırakacaktır.
 
 A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
