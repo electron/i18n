@@ -49,24 +49,24 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 
 <p>Kirim pesan ke proses utama secara asinkron melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
 
-<p>The main process handles it by listening for <code>channel` with `ipcMain` module.</p> 
-                    ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
-                    
+<p>Proses utama menangani dengan mendengarkan modul <code> saluran </ 0> dengan <code> ipcMain </ 0> .</p>
+
+<h3><code>ipcRenderer.sikron di kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
                     * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Returns <code>any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.</p> 
-                        Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.
-                        
-                        The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
-                        
-                        **Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
-                        
-                        ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
-                        
+<p>Mengembalikan <code> sembarang </ 0> - Nilai dikirim kembali oleh handler <a href="ipc-main.md"><code> ipcMain </ 1> .</p>
+
+<p>Kirim pesan ke proses utama secara serentak melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
+
+<p>Proses utama mengatasinya dengan mendengarkan modul <code> channel </ 0> dengan <code> ipcMain </ 0> , dan balasannya dengan menyetel <code> acara.kembali di nilai </ 0> .</p>
+
+<p><strong> Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p>
+
+<h3><code>ipcRenderer.kirim ke tuan rumah(saluran [, arg1] [, arg2] [, ...])`</h3> 
                         * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Like <code>ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.</p>
+<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
