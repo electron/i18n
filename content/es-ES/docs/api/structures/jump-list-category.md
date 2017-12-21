@@ -1,8 +1,8 @@
-# JumpListCategory Object
+# Objeto JumpListCategory
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
+* `tipo` Cadena (opcional) - Una de los siguientes: 
+  * `tareas` - Los objetos en esta categoría se colocarán en la categoría estándar de `Tareas`. Puede haber sólo una categoría, y siempre será mostrada en la parte inferior de la Lista Jump.
+  * `frecuente` - Muestra una lista de archivos abiertos frecuentemente por la aplicación, el nombre de la categoría y sus artículos son establecidos por Windows.
   * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
   * `custom` - Displays tasks or file links, `name` must be set by the app.
 * `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
