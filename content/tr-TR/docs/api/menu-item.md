@@ -30,7 +30,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 Roller, menü öğelerinin önceden tanımlanmış davranışlara sahip olmalarını sağlar.
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktansa standart rolle eşleşen herhangi bir menü öğesi için `role` belirtmek en iyisidir. Yerleşik `rol` davranışı en iyi doğal deneyimini verecektir.
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
