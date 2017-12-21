@@ -1,16 +1,16 @@
-# Glossary
+# Glosarium
 
-This page defines some terminology that is commonly used in Electron development.
+Halaman ini mendefinisikan beberapa terminologi yang umum digunakan dalam pengembangan Elektron .
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR singkatan dari Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+The ASAR Format diciptakan terutama untuk meningkatkan kinerja pada Windows ... TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Sekarang sudah tidak berlaku lagi dan telah digabungkan ke dalam basis kode Elektron.
 
 ### CRT
 
@@ -18,11 +18,11 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Image Disk Apple adalah format kemasan yang digunakan oleh macos . File DMG biasanya digunakan untuk mendistribusikan aplikasi "installer". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Editor Metode Masukan. Sebuah program yang memungkinkan pengguna memasukkan karakter dan simbol yang tidak ditemukan di keyboard mereka. Misalnya, ini memungkinkan pengguna keyboard Latin memasukkan karakter China, Jepang, Korea, dan Indic.
 
 ### IPC
 
