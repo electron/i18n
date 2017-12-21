@@ -1,6 +1,6 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Memblokir sistem agar tidak masuk modus daya-rendah (tidur).
 
 Proses:  Utama </ 0></p> 
 
@@ -22,7 +22,7 @@ Modul `powerSaveBlocker` mempunyai metods sebagai berikut:
 ### `powerSaveBlocker.start(type)`
 
 * `type` String - jenis Power save blocker. 
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-app-suspension` Mencegah aplikasi agar tidak ditangguhkan/dibekukan. Menjaga sistem tetap aktif tetapi mengizinkan layar untuk dimatikan. Contoh kasus penggunaannya: mengunduh sebuah file atau memainkan audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
 Returns `Integer` - The blocker ID that is assigned to this power blocker
