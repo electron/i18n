@@ -6,7 +6,7 @@
 
 该模块不包含网页接口，所以你需要在Chrome浏览器打开`chrome://tracing/`页面，然后加载生成的文件来查看结果。
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**注意：**在应用程序模块的 `ready ` 事件就绪之前，您不应该使用此模块。
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -31,14 +31,14 @@ app.on('ready', () => {
 
 ## 方法
 
-The `contentTracing` module has the following methods:
+`contentTracing`模块包含以下方法：
 
 ### `contentTracing.getCategories(callback)`
 
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+获取一个类别组的集合。随着能访问的新的代码路径不一样，获取的类别组对象也会不一样。
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
