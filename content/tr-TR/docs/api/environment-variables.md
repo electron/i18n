@@ -2,23 +2,23 @@
 
 > Uygulama ayarlarını ve davranışını koda dokunmadan kontrol edin.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Bazı Electron davranışları, komut satırı parametreleri ve uygulamanın kendisinin kodundan daha önce başladığı için ortam değişkenleri tarafından kontrol edilir.
 
-POSIX shell example:
+POSIX kabuk örneği:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windows konsol örneği:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## Production Variables
+## Canlı ortam değışkenleri
 
 The following environment variables are intended primarily for use at runtime in packaged Electron applications.
 
