@@ -1,27 +1,25 @@
-# globalShortcut
+# jalan pintas global
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Deteksi kejadian keyboard saat aplikasi tidak memiliki fokus keyboard.
 
 Proses:  Utama </ 0></p> 
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+The ` globalShortcut </ 0> modul dapat mendaftarkan / unregister shortcut keyboard global dengan sistem operasi sehingga Anda dapat menyesuaikan operasi untuk berbagai cara pintas.</p>
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+<p><strong> Catatan: </ 0> Jalan pintas bersifat global; itu akan bekerja bahkan jika aplikasi tidak memiliki fokus keyboard. Anda tidak boleh menggunakan modul ini sampai event <code> ready </ 0>
+ dari modul aplikasi dipancarkan.</p>
 
-```javascript
-const {app, globalShortcut} = require('electron')
+<pre><code class="javascript">const {app, globalShortcut} = memerlukan ('elektron') app.on ('siap', () = & gt; {
+   // Daftarkan pendatang jalan pintas 'CommandOrControl + X'.
+  const (= perintah) = ()perintah atau Control + X ', () = & gt; {
+     console.log (' perintah atau Control + X ditekan ')
+   })
 
-app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
-  })
+   if (! ret) {
+     console.log (' registrasi gagal ')
+   }
 
-  if (!ret) {
-    console.log('registration failed')
-  }
-
-  // Check whether a shortcut is registered.
+   / / Periksa apakah jalan pintas sudah terdaftar.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
@@ -32,7 +30,7 @@ app.on('will-quit', () => {
   // Unregister all shortcuts.
   globalShortcut.unregisterAll()
 })
-```
+`</pre> 
 
 ## Methods
 
@@ -43,24 +41,24 @@ The `globalShortcut` module has the following methods:
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+<p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini akan diam-diam gagal. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
-### `globalShortcut.isRegistered(accelerator)`
+<h3><code>globalShortcut.isRegistered(accelerator)`</h3> 
 
-* `accelerator` [Accelerator](accelerator.md)
+* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
+</ul>
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+<p>Mengembalikan <code> Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+<p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini tetap akan kembali <code> salah</ 0> . Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
-### `globalShortcut.unregister(accelerator)`
-
-* `accelerator` [Accelerator](accelerator.md)
-
-Unregisters the global shortcut of `accelerator`.
-
-### `globalShortcut.unregisterAll()`
-
-Unregisters all of the global shortcuts.
+<h3><code>globalShortcut.unregister(accelerator)`</h3> 
+    * `accelerator` [Accelerator](accelerator.md)
+    
+    Unregisters the global shortcut of `accelerator`.
+    
+    ### `globalShortcut.unregisterAll()`
+    
+    Unregisters all of the global shortcuts.
