@@ -128,7 +128,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### イベント: 'browser-window-focus'
 
 戻り値：
 
@@ -137,7 +137,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### イベント: 'browser-window-created'
 
 戻り値：
 
@@ -146,7 +146,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### イベント: 'web-contents-created'
 
 戻り値：
 
@@ -155,17 +155,17 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 Emitted when a new [webContents](web-contents.md) is created.
 
-### Event: 'certificate-error'
+### イベント: 'certificate-error'
 
 戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - エラーコード
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - 証明書を信頼できるものと見なすかどうか
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
@@ -174,7 +174,7 @@ const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // 検証ロジック。
     event.preventDefault()
     callback(true)
   } else {
@@ -183,7 +183,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### イベント: 'select-client-certificate'
 
 戻り値：
 
@@ -207,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### イベント: 'login'
 
 戻り値：
 
@@ -240,7 +240,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### イベント: 'gpu-process-crashed'
 
 戻り値：
 
@@ -249,7 +249,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Emitted when the gpu process crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### イベント: 'accessibility-support-changed' *macOS* *Windows*
 
 戻り値：
 
@@ -258,7 +258,7 @@ Emitted when the gpu process crashes or is killed.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-## Methods
+## メソッド
 
 The `app` object has the following methods:
 
@@ -396,7 +396,7 @@ Overrides the current application's name.
 
 ### `app.getLocale()`
 
-現在のアプリケーションのロケール `文字列` を返します。可能な戻り値が記載されている [ここで](locales.md)。
+Returns `String` - 現在のアプリケーションロケール。可能な戻り値は[here](locales.md)に記録されています。
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
