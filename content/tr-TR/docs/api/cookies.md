@@ -68,7 +68,7 @@ Sends a request to get all cookies matching `details`, `callback` will be called
 
 #### `cookies.set(details, callback)`
 
-* `details` Object 
+* `details` Nesne 
   * `url` String - The url to associate the cookie with.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
