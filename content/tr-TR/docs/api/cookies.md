@@ -55,7 +55,7 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 
 * `filter` Nesne 
   * `url` Katar (Opsiyonel) - `url` ile bağıntılı çerezleri çeker. Eğer boş girilirse tüm çerezler çekilir.
-  * `name` String (optional) - Filters cookies by name.
+  * `name` Katar (opsiyonel) - Çerezleri isme göre filtrele.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
