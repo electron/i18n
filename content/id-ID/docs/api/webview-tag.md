@@ -490,172 +490,172 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
     ### `<webview>.send(channel[, arg1][, arg2][, ...])`
     
     * ` saluran </ 0>  String</li>
-<li><code>...args` any[]
-    
-    Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
-    
-    See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
-    
-    ### `<webview>.sendInputEvent(event)`
-    
-    * `event` Object
-    
-    Sends an input `event` to the page.
-    
-    See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
-    
-    ### `<webview>.setZoomFactor(factor)`
-    
-    * `factor` Number - Zoom factor.
-    
-    Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
-    
-    ### `<webview>.setZoomLevel(level)`
-    
-    * `level` Number - Zoom level
-    
-    Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
-    
-    ### `<webview>.showDefinitionForSelection()` *macOS*
-    
-    Shows pop-up dictionary that searches the selected word on the page.
-    
-    ### `<webview>.getWebContents()`
-    
-    Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
-    
-    ## DOM events
-    
-    The following DOM events are available to the `webview` tag:
-    
-    ### Event: 'load-commit'
-    
-    Pengembalian:
-    
-    * ` url </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Send an asynchronous message to renderer process via <code>channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
+      See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+      
+      ### `<webview>.sendInputEvent(event)`
+      
+      * `event` Object
+      
+      Sends an input `event` to the page.
+      
+      See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
+      
+      ### `<webview>.setZoomFactor(factor)`
+      
+      * `factor` Number - Zoom factor.
+      
+      Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+      
+      ### `<webview>.setZoomLevel(level)`
+      
+      * `level` Number - Zoom level
+      
+      Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+      
+      ### `<webview>.showDefinitionForSelection()` *macOS*
+      
+      Shows pop-up dictionary that searches the selected word on the page.
+      
+      ### `<webview>.getWebContents()`
+      
+      Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+      
+      ## DOM events
+      
+      The following DOM events are available to the `webview` tag:
+      
+      ### Event: 'load-commit'
+      
+      Pengembalian:
+      
+      * ` url </ 0>  String</li>
 <li><code>isMainFrame` Boolean
-    
-    Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
-    
-    ### Event: 'did-finish-load'
-    
-    Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
-    
-    ### Event: 'did-fail-load'
-    
-    Pengembalian:
-    
-    * `errorCode` Integer
-    * `errorDescription` String
-    * `validatedURL` String
-    * `isMainFrame` Boolean
-    
-    This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
-    
-    ### Event: 'did-frame-finish-load'
-    
-    Pengembalian:
-    
-    * `isMainFrame` Boolean
-    
-    Fired when a frame has done navigation.
-    
-    ### Event: 'did-start-loading'
-    
-    Corresponds to the points in time when the spinner of the tab starts spinning.
-    
-    ### Event: 'did-stop-loading'
-    
-    Corresponds to the points in time when the spinner of the tab stops spinning.
-    
-    ### Event: 'did-get-response-details'
-    
-    Pengembalian:
-    
-    * `status` Boolean
-    * `newURL` String
-    * `originalURL` String
-    * `httpResponseCode` Integer
-    * `requestMethod` String
-    * `referrer` String
-    * `headers` Object
-    * `resourceType` String
-    
-    Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
-    
-    ### Event: 'did-get-redirect-request'
-    
-    Pengembalian:
-    
-    * `oldURL` String
-    * `newURL` String
-    * `isMainFrame` Boolean
-    
-    Fired when a redirect was received while requesting a resource.
-    
-    ### Event: 'dom-ready'
-    
-    Fired when document in the given frame is loaded.
-    
-    ### Event: 'page-title-updated'
-    
-    Pengembalian:
-    
-    * `title` String
-    * `explicitSet` Boolean
-    
-    Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
-    
-    ### Event: 'page-favicon-updated'
-    
-    Pengembalian:
-    
-    * `favicons` String[] - Array of URLs.
-    
-    Fired when page receives favicon urls.
-    
-    ### Event: 'enter-html-full-screen'
-    
-    Fired when page enters fullscreen triggered by HTML API.
-    
-    ### Event: 'leave-html-full-screen'
-    
-    Fired when page leaves fullscreen triggered by HTML API.
-    
-    ### Event: 'console-message'
-    
-    Pengembalian:
-    
-    * `level` Integer
-    * ` pesan </ 0> String</li>
+      
+      Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+      
+      ### Event: 'did-finish-load'
+      
+      Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+      
+      ### Event: 'did-fail-load'
+      
+      Pengembalian:
+      
+      * `errorCode` Integer
+      * `errorDescription` String
+      * `validatedURL` String
+      * `isMainFrame` Boolean
+      
+      This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+      
+      ### Event: 'did-frame-finish-load'
+      
+      Pengembalian:
+      
+      * `isMainFrame` Boolean
+      
+      Fired when a frame has done navigation.
+      
+      ### Event: 'did-start-loading'
+      
+      Corresponds to the points in time when the spinner of the tab starts spinning.
+      
+      ### Event: 'did-stop-loading'
+      
+      Corresponds to the points in time when the spinner of the tab stops spinning.
+      
+      ### Event: 'did-get-response-details'
+      
+      Pengembalian:
+      
+      * `status` Boolean
+      * `newURL` String
+      * `originalURL` String
+      * `httpResponseCode` Integer
+      * `requestMethod` String
+      * `referrer` String
+      * `headers` Object
+      * `resourceType` String
+      
+      Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+      
+      ### Event: 'did-get-redirect-request'
+      
+      Pengembalian:
+      
+      * `oldURL` String
+      * `newURL` String
+      * `isMainFrame` Boolean
+      
+      Fired when a redirect was received while requesting a resource.
+      
+      ### Event: 'dom-ready'
+      
+      Fired when document in the given frame is loaded.
+      
+      ### Event: 'page-title-updated'
+      
+      Pengembalian:
+      
+      * `title` String
+      * `explicitSet` Boolean
+      
+      Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+      
+      ### Event: 'page-favicon-updated'
+      
+      Pengembalian:
+      
+      * `favicons` String[] - Array of URLs.
+      
+      Fired when page receives favicon urls.
+      
+      ### Event: 'enter-html-full-screen'
+      
+      Fired when page enters fullscreen triggered by HTML API.
+      
+      ### Event: 'leave-html-full-screen'
+      
+      Fired when page leaves fullscreen triggered by HTML API.
+      
+      ### Event: 'console-message'
+      
+      Pengembalian:
+      
+      * `level` Integer
+      * ` pesan </ 0> String</li>
 <li><code>line` Integer
-    * `sourceId` String
-    
-    Fired when the guest window logs a console message.
-    
-    The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
-    
-    ```javascript
+      * `sourceId` String
+      
+      Fired when the guest window logs a console message.
+      
+      The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+      
+      ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
   console.log('Guest page logged a message:', e.message)
 })
 ```
-
-### Event: 'found-in-page'
-
-Pengembalian:
-
-* `result` Object 
-  * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
-  * `finalUpdate` Boolean
-
-Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
-
-```javascript
+  
+  ### Event: 'found-in-page'
+  
+  Pengembalian:
+  
+  * `result` Object 
+    * `requestId` Integer
+    * `activeMatchOrdinal` Integer - Position of the active match.
+    * `matches` Integer - Number of Matches.
+    * `selectionArea` Object - Coordinates of first match region.
+    * `finalUpdate` Boolean
+  
+  Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
+  
+  ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('found-in-page', (e) => {
   webview.stopFindInPage('keepSelection')
