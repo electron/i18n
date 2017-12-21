@@ -1,11 +1,11 @@
-# PrinterInfo Object
+# PrinterInfo オブジェクト
 
 * `name` String
 * `description` String
 * `status` Number
 * `isDefault` Boolean
 
-## Example
+## 例
 
 Below is an example of some of the additional options that may be set which may be different on each platform.
 
