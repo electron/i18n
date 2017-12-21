@@ -1,4 +1,4 @@
-# CertificatePrincipal Object(証明書内容）
+# CertificatePrincipal オブジェクト
 
 * `commonName String[] - プロジェクト名</li>
 <li><code>organizations`String[] - 組織名
