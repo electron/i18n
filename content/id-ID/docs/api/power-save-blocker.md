@@ -43,4 +43,4 @@ Menghentikan pemblokir hemat daya yang ditetapkan.
 
 * `id` Integer - Id pemblokir hemat daya dikembalikan dengan `powerSaveBlocker.start`.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+Returns `Boolean` - Yang mana sesuai dengan `powerSaveBlocker` pada saat dimulai.
