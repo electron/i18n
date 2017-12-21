@@ -75,7 +75,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --host-rules=`rules`
 
-控制主机名映射方式的`rules`的逗号分隔列表.
+以逗号分隔的`rules`列表，用于控制主机名的映射方式
 
 例如：
 
@@ -103,7 +103,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-需要用户委托凭证的服务器的逗号分隔列表. 没有`*`前缀则url必须完全匹配.
+需要身份验证的服务器的逗号分隔列表. 没有`*`前缀则url必须完全匹配.
 
 ## --ignore-certificate-errors
 
