@@ -14,15 +14,15 @@
   * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session`选项优先于`partition`选项. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
   * `protocol` String (可选) - 在"scheme:"表单中的协议方案. 目前支持的值为'http:' 或者'https:'. 默认为'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'
+  * `hostname` String (可选) - 服务器主机名.
+  * `port` Integer (可选) - 服务器侦听的端口号.
+  * `path` String (可选) - 请求URL的路径部分.
+  * `redirect` String (可选) - 请求的重定向模式. 可选值为 `follow`, `error` 或 `manual`. 默认值为 `follow`. 当模式为`error`时, 重定向将被终止. 当模式为 `manual`时，表示延迟重定向直到调用了 [`request.followRedirect`](#requestfollowRedirect)。 在此模式中侦听 [`redirect`](#event-redirect)事件，以获得关于重定向请求的更多细节。
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+`options` 属性，如 `protocol`, `host`, `hostname`, `port` 和 `path`，在 [URL](https://nodejs.org/api/url.html) 模块中会严格遵循 Node.js 的模式
 
-For instance, we could have created the same request to 'github.com' as follows:
+例如,我们可以创建与github.com相同的请求如下:
 
 ```JavaScript
 const request = net.request({
@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### 事件
+### 实例事件
 
 #### Event: 'response'
 
