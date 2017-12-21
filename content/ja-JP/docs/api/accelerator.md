@@ -41,19 +41,19 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Shift`
 * `Super`
 
-## Available key codes
+## 利用可能なキーコード
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
+* `` から `9`
+* `A` から `Z`
+* `F1` から `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
-* `Tab`
-* `Backspace`
+* `プラス`
+* `スペース`
+* `タブ`
+* `バックスペース`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
+* `Return` (またはエイリアスとして `Enter`)
 * `Up`, `Down`, `Left` and `Right`
 * `Home` and `End`
 * `PageUp` and `PageDown`
