@@ -980,15 +980,15 @@ win.webContents.on('devtools-opened', () => {
     #### `contents.send(channel[, arg1][, arg2][, ...])`
     
     * ` saluran </ 0>  String</li>
-<li><code>...args` any[]
-    
-    Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
-    
-    The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
-    
-    An example of sending messages from the main process to the renderer process:
-    
-    ```javascript
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Send an asynchronous message to renderer process via <code>channel`, you can also send arbitrary arguments. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
+      The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+      
+      An example of sending messages from the main process to the renderer process:
+      
+      ```javascript
 // Dalam proses utamanya.
 const {app, BrowserWindow} = require('electron')
 let win = null
@@ -1001,8 +1001,8 @@ app.on('ready', () => {
   })
 })
 ```
-
-```html
+  
+  ```html
 <!-- index.html -->
 <html>
 <body>
