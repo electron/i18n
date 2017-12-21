@@ -1,27 +1,27 @@
-# pemblokirHematEnergi
+# powerSaveBlocker
 
 > Block the system from entering low-power (sleep) mode.
 
 Proses:  Utama </ 0></p> 
 
-For example:
+Sebagai contoh:
 
 ```javascript
-const {powerSaveBlocker} = require('electron')
+const {powerSaveBlocker} = require('electron') 
 
-const id = powerSaveBlocker.start('prevent-display-sleep')
-console.log(powerSaveBlocker.isStarted(id))
+const id = powerSaveBlocker.start('mencegah-tampilan-tidur') 
+console.log(powerSaveBlocker.isStarted(id)) 
 
 powerSaveBlocker.stop(id)
 ```
 
 ## Methods
 
-The `powerSaveBlocker` module has the following methods:
+Modul `powerSaveBlocker` mempunyai metods sebagai berikut:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type. 
+* `type` String - jenis Power save blocker. 
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
