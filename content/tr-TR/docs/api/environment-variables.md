@@ -40,7 +40,7 @@ ASAR desteğini iptal eder. Bu değişken sadece `ELECTRON_RUN_AS_NODE`'u kullan
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+Süreçi normal bir Node.js süreci olarak başlat.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
@@ -48,28 +48,28 @@ O anki konsol oturumuna kendini bağlama.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+Linux'taki global menu bar'ını kullanma.
 
-## Development Variables
+## Geliştirme değişkenleri
 
-The following environment variables are intended primarily for development and debugging purposes.
+Aşağıdaki ortam değişkenleri birincil olarak geliştirme ve hata ayıklama niyetiyle kullanılır.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Chrome'un kendi içindeki kayıtlarını konsola basar.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Electron ASAR dosyasından okuduğunda, okunanları `tmpdir` altına kaydeder. Ortaya çıkan dosya ASAR modülüne optimizasyon için sağlanabilir.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Electron çöktüğünde yığıt izlerini konsola basar.
 
-This environment variable will not work if the `crashReporter` is started.
+Bu ortam değişkeni `crashReporter` başlamış durumdaysa çalışmaz.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Electron çöktüğünde windows'un çökme diyaloğunu gösterir.
 
-This environment variable will not work if the `crashReporter` is started.
+Bu ortam değişkeni `crashReporter` başlamış durumdaysa çalışmaz.
