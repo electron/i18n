@@ -14,13 +14,13 @@ Süreç: [Ana](../glossary.md#main-process)
     * `browserWindow` BrowserWindow
     * `event` Event
   * `role` String (isteğe bağlı) - `click` özelliğinin yok sayılacağı belirtildiği zaman menunun eylemini belirtir. [roles](#roles) bkz.
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
+  * `type` String (isteğe bağlı) - `normal`, `separator`, `submenu`, `checkbox` veya `radio` olabilir.
+  * `label` String - (isteğe bağlı)
+  * `sublabel` String - (isteğe bağlı)
+  * `accelerator` [Accelerator](accelerator.md) (isteğe bağlı)
+  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı)
+  * `enabled` Boolean (isteğe bağlı) - Eğer değer false ise, menü öğesi soluk ve tıklanamaz olacaktır.
+  * `visible` Boolean (optional) - Eğer değer false ise, menü öğesi tamamen görünmez olacaktır.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
   * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
