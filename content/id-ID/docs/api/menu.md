@@ -1,104 +1,109 @@
-## Class: Menu
+## Kelas: Menu
 
-> Create native application menus and context menus.
+> Buat menu aplikasi asli dan menu konteks.
 
 Proses:  Utama </ 0></p> 
 
-### `new Menu()`
+### `Menu baru ()`
 
-Creates a new menu.
+Membuat menu baru.
 
-### Static Methods
+### Metode Statis
 
-The `menu` class has the following static methods:
+Kelas ` menu </ 0> memiliki metode statis berikut:</p>
 
-#### `Menu.setApplicationMenu(menu)`
+<h4><code>Menu.set Aaplikasi Menu (menu)`</h4> 
 
-* `menu` Menu
+* ` menu </ 0> Menu</li>
+</ul>
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+<p>Set <code> menu </ 0> sebagai menu aplikasi pada macOS . Pada Windows dan Linux,
+ <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+<p>Melewati<code> null </ 0> akan menghapus menu bar pada Windows dan Linux namun tidak berpengaruh pada macos .</p>
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+<p><strong> Catatan: </ 0> ini API harus dipanggil setelah <code> siap </ 1>  acara dari <code> aplikasi </ 1> modul.</p>
 
-#### `Menu.getApplicationMenu()`
+<h4><code>Menu.dapatkan aplikasi Menu ()`</h4> 
+  Mengembalikan ` Menu </ 0> - Menu aplikasi, jika diatur, atau <code> null </ 0> , jika tidak disetel.</p>
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+<p><strong> Catatan: </ 0> Contoh <code> Menu </ 1> yang dikembalikan tidak mendukung penambahan atau penghapusan item menu secara dinamis. <a href="#instance-properties"> Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p>
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+<h4><code> Menu.kirim aksi pertama ke Responder (tindakan) </ 0>  <em> macos </ 1></h4>
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+<ul>
+<li><code> aksi </ 0>  String</li>
+</ul>
 
-* `action` String
+<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default . Biasanya Anda hanya akan menggunakan
+ <a href="menu-item.md#roles"><code> peran </ 0> properti dari <a href="menu-item.md"><code> MenuItem </ 1> .</p>
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+<p>Lihat <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7"> MacOS Kakao Acara Penanganan Panduan </ 0> 
+untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
-
-#### `Menu.buildFromTemplate(template)`
-
-* `template` MenuItemConstructorOptions[]
-
-Returns `Menu`
-
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
-
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
-
-### Metode Instance
-
-The `menu` object has the following instance methods:
-
-#### `menu.popup([browserWindow, options])`
-
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `pilihan` Objek (opsional) 
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-
-Pops up this menu as a context menu in the `browserWindow`.
-
-#### `menu.closePopup([browserWindow])`
-
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-
-Closes the context menu in the `browserWindow`.
-
-#### `menu.append(menuItem)`
-
-* `menuItem` MenuItem
-
-Appends the `menuItem` to the menu.
-
-#### `menu.insert(pos, menuItem)`
-
-* `pos` Integer
-* `menuItem` MenuItem
-
-Inserts the `menuItem` to the `pos` position of the menu.
-
-### Instance Properties
-
-`menu` objects also have the following properties:
-
-#### `menu.items`
-
-A `MenuItem[]` array containing the menu's items.
-
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-
-## Examples
-
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
-
-### Main process
-
-An example of creating the application menu in the main process with the simple template API:
-
-```javascript
+<h4><code>Menu.membangun dari Template (template)`</h4> 
+  
+  * `template` MenuItemConstructorOptions[]
+  
+  Returns `Menu`
+  
+  Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+  
+  You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+  
+  ### Metode Instance
+  
+  The `menu` object has the following instance methods:
+  
+  #### `menu.popup([browserWindow, options])`
+  
+  * `browserWindow` BrowserWindow (optional) - Default is the focused window.
+  * `pilihan` Objek (opsional) 
+    * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+    * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+    * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
+    * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  
+  Pops up this menu as a context menu in the `browserWindow`.
+  
+  #### `menu.closePopup([browserWindow])`
+  
+  * `browserWindow` BrowserWindow (optional) - Default is the focused window.
+  
+  Closes the context menu in the `browserWindow`.
+  
+  #### `menu.append(menuItem)`
+  
+  * `menuItem` MenuItem
+  
+  Appends the `menuItem` to the menu.
+  
+  #### `menu.insert(pos, menuItem)`
+  
+  * `pos` Integer
+  * `menuItem` MenuItem
+  
+  Inserts the `menuItem` to the `pos` position of the menu.
+  
+  ### Instance Properties
+  
+  `menu` objects also have the following properties:
+  
+  #### `menu.items`
+  
+  A `MenuItem[]` array containing the menu's items.
+  
+  Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+  
+  ## Examples
+  
+  The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+  
+  ### Main process
+  
+  An example of creating the application menu in the main process with the simple template API:
+  
+  ```javascript
 const {app, Menu} = require('electron')
 
 const template = [
@@ -214,9 +219,9 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Notes on macOS Application Menu
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
 
-### Standard Menus
+### Menu Standar
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
