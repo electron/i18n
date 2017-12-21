@@ -54,24 +54,26 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     * `Pilih Semua`
     * `menghapus`
     * ` minimize </ 0> - Minimalkan jendela saat ini</li>
-<li><code>close` - Close current window
-    * `quit`- Quit the application
-    * `reload` - Reload the current window
-    * `forcereload` - Reload the current window ignoring the cache.
-    * `toggledevtools` - Toggle developer tools in the current window
-    * `togglefullscreen`- Toggle full screen mode on the current window
-    * `resetzoom` - Reset the focused page's zoom level to the original size
-    * `zoomin` - Zoom in the focused page by 10%
-    * `zoomout` - Zoom out the focused page by 10%
-    * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-    * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
-    
-    The following additional roles are available on macOS:
-    
-    * `about` - Map to the `orderFrontStandardAboutPanel` action
-    * `hide` - Map to the `hide` action
-    * `hideothers` - Map to the `hideOtherApplications` action
-    * `unhide` - Map to the `unhideAllApplications` action
+<li><code> tutup </ 0> - Tutup jendela saat ini</li>
+<li><code> berhenti </ 0> - Keluar dari aplikasi</li>
+<li><code> reload </ 0> - Muat ulang jendela aktif</li>
+<li><code> forcereload </ 0> - Muat ulang jendela aktif yang mengabaikan cache.</li>
+<li><code> toggledev alat </ 0> - Toggle alat pengembang di jendela aktif</li>
+<li><code> toggle penuh layar </ 0> - Beralih mode layar penuh pada jendela aktif</li>
+<li><code> reset zoom </ 0> - Reset tingkat zoom halaman terfokus ke ukuran aslinya</li>
+<li><code> perbesar </ 0> - Perbesar halaman yang terfokus sebesar 10%</li>
+<li><code> perkecil </ 0> - Perkecil halaman yang terfokus sebesar 10%</li>
+<li><code> editMenu </ 0> - Seluruh menu "Edit" default (Undo, Copy, dll.)</li>
+<li><code> jendela Menu </ 0> - Menu "Jendela" default keseluruhan (Minimalkan, Tutup, dll.)</li>
+</ul>
+
+<p>Peran tambahan berikut tersedia di macOS :</p>
+
+<ul>
+<li><code> tentang </ 0> - Peta ke <code> orderFrontStandardAboutPanel </ 0> tindakan</li>
+<li><code> menyembunyikan </ 0> - Peta ke <code> menyembunyikan </ 0> tindakan</li>
+<li><code> menyembunyi lain </ 0> - Peta ke <code> menyembunyikan aplikasi lain</ 0> tindakan</li>
+<li><code>unhide` - Map to the `unhideAllApplications` action
     * `startspeaking` - Map to the `startSpeaking` action
     * `stopspeaking` - Map to the `stopSpeaking` action
     * `front` - Map to the `arrangeInFront` action
