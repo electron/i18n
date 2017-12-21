@@ -9,7 +9,7 @@ Süreç: [Ana](../glossary.md#main-process)
 ### `new MenuItem(options)`
 
 * `options` Nesnesi 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function (isteğe bağlı) - menuye basıldığı zaman `fonksiyon click(menuItem, browserWindow, event) ile birlikte` çağırılmış olacak. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
