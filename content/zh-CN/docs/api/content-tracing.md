@@ -81,7 +81,7 @@ app.on('ready', () => {
 
 停止所有进程记录。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
 
@@ -116,7 +116,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 
 Get the current monitoring traced data.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
