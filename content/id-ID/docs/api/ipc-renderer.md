@@ -1,18 +1,19 @@
-# ipcRenderer
+# ipc Renderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Berkomunikasi secara asynchronous dari proses renderer ke proses utama.
 
 Proses:  Renderer </ 0></p> 
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+The ` ipcRenderer </ 0> modul adalah turunan dari
+ <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Ini menyediakan beberapa metode sehingga Anda dapat mengirim pesan sinkron dan asinkron dari proses render (halaman web) ke proses utama.  Anda juga bisa menerima balasan dari proses utama.</p>
 
-See [ipcMain](ipc-main.md) for code examples.
+<p>Lihat <a href="ipc-main.md"> ipcMain </ 0> untuk contoh kode.</p>
 
-## Methods
+<h2>Metode</h2>
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+<p>The <code> ipcRenderer </ 0> modul memiliki metode berikut untuk mendengarkan acara dan mengirim pesan:</p>
 
-### `ipcRenderer.on(channel, listener)`
+<h3><code>ipcRenderer.on (saluran, pendengar)`</h3> 
 
 * ` saluran </ 0>  String</li>
 <li><code> pendengar </ 0> Fungsi</li>
@@ -21,50 +22,51 @@ The `ipcRenderer` module has the following method to listen for events and send 
 <p>Mendengarkan <code> saluran </ 0> , ketika sebuah pesan baru tiba <code> pendengar </ 0> akan dipanggil dengan
  <code> pendengar (acara, args ...) </ 0> .</p>
 
-<h3><code>ipcRenderer.once(channel, listener)`</h3> 
+<h3><code>ipcRenderer.sekali (saluran, pendengar)`</h3> 
     * ` saluran </ 0>  String</li>
 <li><code> pendengar </ 0> Fungsi</li>
 </ul>
 
-<p>Adds a one time <code>listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.</p> 
-        ### `ipcRenderer.removeListener(channel, listener)`
-        
+<p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
+
+<h3><code>ipcRenderer.pendengar menghapus (saluran, pendengar)`</h3> 
         * ` saluran </ 0>  String</li>
 <li><code> pendengar </ 0> Fungsi</li>
 </ul>
 
-<p>Removes the specified <code>listener` from the listener array for the specified `channel`.</p> 
-            ### `ipcRenderer.removeAllListeners([channel])`
-            
-            * `channel` String (optional)
-            
-            Removes all listeners, or those of the specified `channel`.
-            
-            ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
-            
-            * ` saluran </ 0>  String</li>
-<li><code>...args` any[]
-            
-            Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
-            
-            The main process handles it by listening for `channel` with `ipcMain` module.
-            
-            ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
-            
-            * ` saluran </ 0>  String</li>
-<li><code>...args` any[]
-            
-            Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
-            
-            Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
-            
-            The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
-            
-            **Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
-            
-            ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
-            
-            * ` saluran </ 0>  String</li>
-<li><code>...args` any[]
-            
-            Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+<p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
+
+<h3><code>ipcRenderer.pendengar menghapus semua ( [saluran] )`</h3> 
+            * ` saluran </ 0>  String (opsional)</li>
+</ul>
+
+<p>Menghapus semua pendengar, atau orang-orang dari yang ditentukan <code> saluran </ 0> .</p>
+
+<h3><code>ipcRenderer.kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
+                * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Kirim pesan ke proses utama secara asinkron melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
+
+<p>The main process handles it by listening for <code>channel` with `ipcMain` module.</p> 
+                    ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+                    
+                    * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Returns <code>any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.</p> 
+                        Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.
+                        
+                        The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+                        
+                        **Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+                        
+                        ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+                        
+                        * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Like <code>ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.</p>
