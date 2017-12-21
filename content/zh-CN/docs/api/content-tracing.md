@@ -1,10 +1,10 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> 从Chromium的内容模块收集跟踪数据，以查找性能瓶颈和缓慢的操作。
 
 线程：[主线程](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+该模块不包含网页接口，所以你需要在Chrome浏览器打开`chrome://tracing/`页面，然后加载生成的文件来查看结果。
 
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
