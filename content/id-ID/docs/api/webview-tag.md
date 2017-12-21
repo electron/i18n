@@ -489,8 +489,8 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 <p>Captures a snapshot of the <code>webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.</p> 
     ### `<webview>.send(channel[, arg1][, arg2][, ...])`
     
-    * `channel` String
-    * `...args` any[]
+    * ` saluran </ 0>  String</li>
+<li><code>...args` any[]
     
     Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
     
@@ -746,8 +746,8 @@ webview.addEventListener('close', () => {
   
   Pengembalian:
   
-  * `channel` String
-  * `args` Array
+  * ` saluran </ 0>  String</li>
+<li><code>args` Array
   
   Fired when the guest page has sent an asynchronous message to embedder page.
   
