@@ -79,7 +79,7 @@ Electronの初期化処理が終わった時に発生します。 MacOS では�
 
 Windowsでは、ファイル名はメインプロセスの`process.argv`に渡されます。
 
-### Event: 'open-url' *macOS*
+### イベント: 'open-url' *macOS*
 
 戻り値：
 
@@ -90,7 +90,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
 
-### Event: 'activate' *macOS*
+### イベント: 'activate' *macOS*
 
 戻り値：
 
@@ -99,7 +99,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
-### Event: 'continue-activity' *macOS*
+### イベント: 'continue-activity' *macOS*
 
 戻り値：
 
@@ -111,7 +111,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'new-window-for-tab' *macOS*
+### イベント: 'new-window-for-tab' *macOS*
 
 戻り値：
 
@@ -119,7 +119,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### イベント: 'browser-window-blur'
 
 戻り値：
 
