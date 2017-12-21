@@ -3,5 +3,5 @@
 * `type` String - `file`.
 * `filePath` String - アップロードするファイルのパス。
 * `offset` Integer - デフォルトは``です。
-* `length` Integer - Number of bytes to read from `offset`. Defaults to ``.
-* `modificationTime` Double - Last Modification time in number of seconds sine the UNIX epoch.
+* `length` Integer - `offset`から読み取るバイト数。 デフォルトは``です。
+* `modificationTime` Double - UNIX時間を秒数で表した最終変更時刻。
