@@ -46,7 +46,7 @@ app.on('ready', () => {
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-访问[Node documentation](https://nodejs.org/api/cli.html)文档或者在终端中运行`node --help`命令查看flags变量列表. 此外，还可以运行`node --v8-options`来查看与Node的V8 JavaScript引擎特定相关的flags列表。
+访问[Node documentation](https://nodejs.org/api/cli.html)文档或者在终端中运行`node --help`命令查看可用的标志列表. 此外，还可以运行`node --v8-options`来查看与Node的V8 JavaScript引擎特定相关的flags列表。
 
 ## --proxy-server=`address:port`
 
