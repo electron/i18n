@@ -231,35 +231,35 @@
 </tr>
 <tr>
   <td>id</td>
-  <td>Indonesian</td>
+  <td>bahasa Indonesia</td>
 </tr>
 <tr>
-  <td>is</td>
-  <td>Icelandic</td>
+  <td>sedang</td>
+  <td>Bahasa Iceland</td>
 </tr>
 <tr>
-  <td>it</td>
-  <td>Italian</td>
+  <td>saya t</td>
+  <td>Italia</td>
 </tr>
 <tr>
-  <td>it-CH</td>
-  <td>Italian (Switzerland)</td>
+  <td>gatal</td>
+  <td>Italia (Swiss)</td>
 </tr>
 <tr>
-  <td>it-IT</td>
-  <td>Italian (Italy)</td>
+  <td>itu-itu</td>
+  <td>Italia (Italia)</td>
 </tr>
 <tr>
   <td>ja</td>
-  <td>Japanese</td>
+  <td>Jepang</td>
 </tr>
 <tr>
   <td>jw</td>
-  <td>Javanese</td>
+  <td>Jawa</td>
 </tr>
 <tr>
   <td>ka</td>
-  <td>Georgian</td>
+  <td>Bahasa Georgia</td>
 </tr>
 <tr>
   <td>kk</td>
@@ -267,7 +267,7 @@
 </tr>
 <tr>
   <td>km</td>
-  <td>Cambodian</td>
+  <td>Kamboja</td>
 </tr>
 <tr>
   <td>kn</td>
@@ -275,11 +275,11 @@
 </tr>
 <tr>
   <td>ko</td>
-  <td>Korean</td>
+  <td>Korea</td>
 </tr>
 <tr>
   <td>ku</td>
-  <td>Kurdish</td>
+  <td>Bahasa Kurdi</td>
 </tr>
 <tr>
   <td>ky</td>
@@ -295,39 +295,39 @@
 </tr>
 <tr>
   <td>lo</td>
-  <td>Laothian</td>
+  <td>Laos</td>
 </tr>
 <tr>
   <td>lt</td>
-  <td>Lithuanian</td>
+  <td>Lithuania</td>
 </tr>
 <tr>
   <td>lv</td>
-  <td>Latvian</td>
+  <td>Latvia</td>
 </tr>
 <tr>
   <td>mk</td>
-  <td>Macedonian</td>
+  <td>Orang Makedonia</td>
 </tr>
 <tr>
   <td>ml</td>
   <td>Malayalam</td>
 </tr>
 <tr>
-  <td>mn</td>
-  <td>Mongolian</td>
+  <td>M N</td>
+  <td>Orang maya</td>
 </tr>
 <tr>
   <td>mo</td>
-  <td>Moldavian</td>
+  <td>Moldavia</td>
 </tr>
 <tr>
-  <td>mr</td>
+  <td>Bapak</td>
   <td>Marathi</td>
 </tr>
 <tr>
-  <td>ms</td>
-  <td>Malay</td>
+  <td>Nona</td>
+  <td>Melayu</td>
 </tr>
 <tr>
   <td>mt</td>
@@ -435,11 +435,11 @@
 </tr>
 <tr>
   <td>sq</td>
-  <td>Albanian</td>
+  <td>bahasa Albania</td>
 </tr>
 <tr>
   <td>sr</td>
-  <td>Serbian</td>
+  <td>Serbia</td>
 </tr>
 <tr>
   <td>st</td>
@@ -447,11 +447,11 @@
 </tr>
 <tr>
   <td>su</td>
-  <td>Sundanese</td>
+  <td>Orang Sunda</td>
 </tr>
 <tr>
   <td>sv</td>
-  <td>Swedish</td>
+  <td>Swedia</td>
 </tr>
 <tr>
   <td>sw</td>
