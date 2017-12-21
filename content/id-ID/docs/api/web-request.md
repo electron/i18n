@@ -59,29 +59,10 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function
+* ` pendengar </ 0> Fungsi</li>
+</ul>
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
-
-* `details` Object 
-  * `id` Integer
-  * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>resourceType` String
-  * `timestamp` Double
-  * `requestHeaders` Object
-* `callback` Fungsi 
-  * `respon` Object 
-    * `cancel` Boolean (optional)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
-
-The `callback` has to be called with an `response` object.
-
-#### `webRequest.onSendHeaders([filter, ]listener)`
-
-* `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fungsi 
+<p>The <code>listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.</p> 
   * `details` Object 
     * `id` Integer
     * ` url </ 0>  String</li>
@@ -89,101 +70,120 @@ The `callback` has to be called with an `response` object.
 <li><code>resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
+  * `callback` Fungsi 
+    * `respon` Object 
+      * `cancel` Boolean (optional)
+      * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+  
+  The `callback` has to be called with an `response` object.
+  
+  #### `webRequest.onSendHeaders([filter, ]listener)`
+  
+  * `filter` Object 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `listener` Fungsi 
+    * `details` Object 
+      * `id` Integer
+      * ` url </ 0>  String</li>
+<li><code> method </ 0>  String</li>
+<li><code>resourceType` String
+      * `timestamp` Double
+      * `requestHeaders` Object
+  
+  The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+  
+  #### `webRequest.onHeadersReceived([filter, ]listener)`
+  
+  * `filter` Object 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * ` pendengar </ 0> Fungsi</li>
+</ul>
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
-
-#### `webRequest.onHeadersReceived([filter, ]listener)`
-
-* `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function
-
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
-
-* `details` Object 
-  * ` id </ 0>  String</li>
+<p>The <code>listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.</p> 
+    * `details` Object 
+      * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-  * `timestamp` Double
-  * `statusLine` String
-  * `statusCode` Integer
-  * `responseHeaders` Object
-* `callback` Fungsi 
-  * `respon` Object 
-    * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
-
-The `callback` has to be called with an `response` object.
-
-#### `webRequest.onResponseStarted([filter, ]listener)`
-
-* `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fungsi 
-  * `details` Object 
-    * `id` Integer
-    * ` url </ 0>  String</li>
+      * `timestamp` Double
+      * `statusLine` String
+      * `statusCode` Integer
+      * `responseHeaders` Object
+    * `callback` Fungsi 
+      * `respon` Object 
+        * `cancel` Boolean
+        * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
+        * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+    
+    The `callback` has to be called with an `response` object.
+    
+    #### `webRequest.onResponseStarted([filter, ]listener)`
+    
+    * `filter` Object 
+      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+    * `listener` Fungsi 
+      * `details` Object 
+        * `id` Integer
+        * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-    * `timestamp` Double
-    * `responseHeaders` Object
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
-    * `statusCode` Integer
-    * `statusLine` String
-
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
-
-#### `webRequest.onBeforeRedirect([filter, ]listener)`
-
-* `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fungsi 
-  * `details` Object 
-    * ` id </ 0>  String</li>
+        * `timestamp` Double
+        * `responseHeaders` Object
+        * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+        * `statusCode` Integer
+        * `statusLine` String
+    
+    The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+    
+    #### `webRequest.onBeforeRedirect([filter, ]listener)`
+    
+    * `filter` Object 
+      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+    * `listener` Fungsi 
+      * `details` Object 
+        * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-    * `timestamp` Double
-    * `redirectURL` String
-    * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
-    * `fromCache` Boolean
-    * `responseHeaders` Object
-
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
-
-#### `webRequest.onCompleted([filter, ]listener)`
-
-* `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fungsi 
-  * `details` Object 
-    * `id` Integer
-    * ` url </ 0>  String</li>
+        * `timestamp` Double
+        * `redirectURL` String
+        * `statusCode` Integer
+        * `ip` String (optional) - The server IP address that the request was actually sent to.
+        * `fromCache` Boolean
+        * `responseHeaders` Object
+    
+    The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+    
+    #### `webRequest.onCompleted([filter, ]listener)`
+    
+    * `filter` Object 
+      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+    * `listener` Fungsi 
+      * `details` Object 
+        * `id` Integer
+        * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-    * `timestamp` Double
-    * `responseHeaders` Object
-    * `fromCache` Boolean
-    * `statusCode` Integer
-    * `statusLine` String
-
-The `listener` will be called with `listener(details)` when a request is completed.
-
-#### `webRequest.onErrorOccurred([filter, ]listener)`
-
-* `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fungsi 
-  * `details` Object 
-    * `id` Integer
-    * ` url </ 0>  String</li>
+        * `timestamp` Double
+        * `responseHeaders` Object
+        * `fromCache` Boolean
+        * `statusCode` Integer
+        * `statusLine` String
+    
+    The `listener` will be called with `listener(details)` when a request is completed.
+    
+    #### `webRequest.onErrorOccurred([filter, ]listener)`
+    
+    * `filter` Object 
+      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+    * `listener` Fungsi 
+      * `details` Object 
+        * `id` Integer
+        * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-    * `timestamp` Double
-    * `fromCache` Boolean
-    * `error` String - The error description.
-
-The `listener` will be called with `listener(details)` when an error occurs.
+        * `timestamp` Double
+        * `fromCache` Boolean
+        * `error` String - The error description.
+    
+    The `listener` will be called with `listener(details)` when an error occurs.
