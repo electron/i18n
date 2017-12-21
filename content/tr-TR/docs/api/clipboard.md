@@ -1,10 +1,10 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Kopyalama ve yapıştırma işlemlerini sistem panosunda gerçekleştirin.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+Aşağıdaki örnek bir dizeyi panoya nasıl yazacağınızı gösterir:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -21,7 +21,7 @@ console.log(clipboard.readText('selection'))
 
 ## Methods
 
-The `clipboard` module has the following methods:
+Pano modülü aşağıdaki yöntemleri içerir:
 
 **Note:** Experimental APIs are marked as such and could be removed in future.
 
@@ -55,7 +55,7 @@ Writes `markup` to the clipboard.
 
 * `type` String (optional)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+[`NativeImage`](native-image.md) - Pano içindeki resim içeriği.
 
 ### `clipboard.writeImage(image[, type])`
 
@@ -68,7 +68,7 @@ Writes `image` to the clipboard.
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as RTF.
+`Dize` - RTF olarak pano içeriği.
 
 ### `clipboard.writeRTF(text[, type])`
 
@@ -149,7 +149,7 @@ Returns `String` - Reads `format` type from the clipboard.
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer (biçim, arabellek [, tür])` *Deneysel*
 
 * `format` String
 * `buffer` Buffer
@@ -172,4 +172,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+`Verileri` panoya yazar.
