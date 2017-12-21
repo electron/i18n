@@ -1,10 +1,10 @@
-# Certificate Object
+# Certificate オブジェクト
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
-* `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
+* `data` String - PEMエンコードデータ
+* `issuer` [CertificatePrincipal](certificate-principal.md) - 発行元
+* `issuerName` String - 発行者の一般名
+* `issuerCert` Certificate - 発行者証明書（自己署名していない場合）
+* `subject` [CertificatePrincipal](certificate-principal.md) - 主要な件名
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
 * `validStart` Number - Start date of the certificate being valid in seconds
