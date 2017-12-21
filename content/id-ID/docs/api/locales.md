@@ -471,7 +471,7 @@
 </tr>
 <tr>
   <td>th</td>
-  <td>Thai</td>
+  <td>Bahasa Thailand</td>
 </tr>
 <tr>
   <td>ti</td>
@@ -482,12 +482,12 @@
   <td>Turkmen</td>
 </tr>
 <tr>
-  <td>to</td>
+  <td>untuk</td>
   <td>Tonga</td>
 </tr>
 <tr>
   <td>tr</td>
-  <td>Turkish</td>
+  <td>Turki</td>
 </tr>
 <tr>
   <td>tt</td>
@@ -503,11 +503,11 @@
 </tr>
 <tr>
   <td>uk</td>
-  <td>Ukrainian</td>
+  <td>Ukraina</td>
 </tr>
 <tr>
   <td>ur</td>
-  <td>Urdu</td>
+  <td>Bahasa Urdu</td>
 </tr>
 <tr>
   <td>uz</td>
@@ -515,7 +515,7 @@
 </tr>
 <tr>
   <td>vi</td>
-  <td>Vietnamese</td>
+  <td>Vietnam</td>
 </tr>
 <tr>
   <td>xh</td>
@@ -523,7 +523,7 @@
 </tr>
 <tr>
   <td>yi</td>
-  <td>Yiddish</td>
+  <td>Yiddi</td>
 </tr>
 <tr>
   <td>yo</td>
@@ -531,7 +531,7 @@
 </tr>
 <tr>
   <td>zh</td>
-  <td>Chinese</td>
+  <td>Cina</td>
 </tr>
 <tr>
   <td>zh-CN</td>
