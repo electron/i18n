@@ -32,9 +32,9 @@ Roller, menü öğelerinin önceden tanımlanmış davranışlara sahip olmalar�
 
 Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktansa standart rolle eşleşen herhangi bir menü öğesi için `role` belirtmek en iyisidir. Yerleşik `rol` davranışı en iyi doğal deneyimini verecektir.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+`Etiket` ve `Hızlandırıcı` değerleri bir `rol` kullanırken isteğe bağlıdır ve her platform için uygun değerleri varsayılan olur.
 
-The `role` property can have following values:
+`role` özelliği aşağıdaki değerlere sahiptir:
 
 * `undo`
 * `redo`
@@ -44,9 +44,9 @@ The `role` property can have following values:
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
+* ` minimize ` - Geçerli pencereyi simge durumuna küçültme
+* `close` - Geçerli pencereyi kapatma
+* ` quit ` - Uygulamadan çıkma
 * `reload` - Reload the current window
 * `forcereload` - Reload the current window ignoring the cache.
 * `toggledevtools` - Toggle developer tools in the current window
