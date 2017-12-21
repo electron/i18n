@@ -13,7 +13,7 @@ Süreç: [Ana](../glossary.md#main-process)
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (isteğe bağlı) - `click` özelliğinin yok sayılacağı belirtildiği zaman menunun eylemini belirtir. [roles](#roles) bkz.
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String - (optional)
   * `sublabel` String - (optional)
