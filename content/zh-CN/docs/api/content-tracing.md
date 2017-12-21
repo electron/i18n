@@ -81,9 +81,9 @@ app.on('ready', () => {
 
 停止所有进程记录。
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+一旦所有子进程确认了 `stopRecording`请求，将传递包含跟踪数据的文件作为参数调用`callback`。
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
 
