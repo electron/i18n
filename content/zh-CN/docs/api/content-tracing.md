@@ -40,7 +40,7 @@ app.on('ready', () => {
 
 获取一个类别组的集合。随着能访问的新的代码路径不一样，获取的类别组对象也会不一样。
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+一旦所有子进程确认`getCategories`请求之后，传递类别组数组参数的`callback`就会被调用。
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -49,11 +49,11 @@ Once all child processes have acknowledged the `getCategories` request the `call
   * `traceOptions` String
 * `callback` Function
 
-Start recording on all processes.
+开始记录所有进程。
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` 是一个用来控制哪些类别组需要被跟踪的过滤器。 A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
 示例:
 
