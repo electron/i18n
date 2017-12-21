@@ -20,23 +20,23 @@ Windows konsol örneği:
 
 ## Canlı ortam değışkenleri
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+Aşağıdaki ortam değişkenleri, Electron uygulamalarının çalışma anında kulllanılır.
 
 ### `GOOGLE_API_KEY`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Electron Google'ın geocoding servisine istek atarken kullanmak üzere kodun içine gömülmüş bir API anahtarı kullanır. Bu API anahtarı Electron'un her versiyonunda olduğu için, bu anahtara ait kota genelde aşılır. Bu durumdan kurtulmak için, Google API anahtarınızı ortam değişkeni olarak sağlayabilirsiniz. Tarayıcı geocoding istekleri atmadan önce ana sürece aşağıdakı kodu yerleştirin:
 
 ```javascript
-process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
+process.env.GOOGLE_API_KEY = 'API_ANAHTARINIZI_BURAYA_YAZIN'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
+Google API anahtarını nasıl elde edeceğinizi öğrenmek için [bu](https://www.chromium.org/developers/how-tos/api-keys) sayfayı ziyaret edin.
 
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+Varsayılan olarak, yeni yaratılmış bir Google API anahtarı geocoding istekleri yapmaya müsait olmayabilir. Geocoding isteklerini açmak içinse [bu](https://console.developers.google.com/apis/api/geolocation/overview) sayfayı ziyaret edebilirsiniz.
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+ASAR desteğini iptal eder. Bu değişken sadece `ELECTRON_RUN_AS_NODE`'u kullanan çoklanmış alt (çocuk) süreçlerde veya yavrulayan çocuk süreçlerde desteklenir.
 
 ### `ELECTRON_RUN_AS_NODE`
 
@@ -44,7 +44,7 @@ Starts the process as a normal Node.js process.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+O anki konsol oturumuna kendini bağlama.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
