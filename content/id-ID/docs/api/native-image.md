@@ -95,20 +95,20 @@ Untuk menandai gambar sebagai gambar template, nama filenya harus diakhiri denga
 
 Itu ` gambar asli </ 0> modul memiliki metode berikut, yang semuanya mengembalikan instance dari <code> NativeImage </ 0> kelas:</p>
 
-<h3><code>nativeImage.createEmpty()`</h3> 
+<h3><code>gambar asli.membuat kosong()`</h3> 
 
-Returns `NativeImage`
+Mengembalikan ` gambar asli </ 0></p>
 
-Creates an empty `NativeImage` instance.
+<p>Creates an empty <code>NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
 * ` path </ 0>  String</li>
 </ul>
 
-<p>Returns <code>NativeImage`</p> 
- Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
- 
+<p>Mengembalikan <code> gambar asli </ 0></p>
+
+<p>Creates a new <code>NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.</p> 
  ```javascript
 const nativeImage = require('electron').nativeImage
 
@@ -121,17 +121,17 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Mengembalikan ` gambar asli </ 0></p>
 
-Creates a new `NativeImage` instance from `buffer`.
+<p>Creates a new <code>NativeImage` instance from `buffer`.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
 * `dataURL` String
 
-Returns `NativeImage`
+Mengembalikan ` gambar asli </ 0></p>
 
-Creates a new `NativeImage` instance from `dataURL`.
+<p>Creates a new <code>NativeImage` instance from `dataURL`.
 
 ## Class: NativeImage
 
@@ -205,20 +205,28 @@ Returns `Boolean` - Whether the image is a template image.
 
 Returns `NativeImage` - The cropped image.
 
-#### `image.resize(options)`
+#### `gambar.mengubah ukuran (pilihan)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* ` pilihan </ 0> Objek
+  * <code> lebar </ 0>  Integer (opsional) - Default ke lebar gambar.
+ * <code> tinggi </ 0>  bilangan bulat (opsional) - Default ke tinggi gambar
+  * <code> kualitas </ 0>  String (opsional) - Kualitas gambar mengubah ukuran yang diinginkan.
+   Nilai yang mungkin <code> bagus </ 0> , <code> lebih baik </ 0> atau <code> terbaik </ 0> . Defaultnya adalah <code> terbaik </ 0> .
+   Nilai ini mengekspresikan kualitas / kecepatan tradeoff yang diinginkan. Mereka diterjemahkan
+    ke dalam metode algoritma khusus yang bergantung pada kemampuan
+    (CPU, GPU) dari platform yang mendasarinya. Ada kemungkinan ketiga metode
+    dipetakan ke algoritma yang sama pada platform tertentu.</li>
+</ul>
 
-Returns `NativeImage` - The resized image.
+<p>Mengembalikan <code> gambar asli </ 0> - gambar ukurannya.</p>
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+<p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
-#### `image.getAspectRatio()`
+<h4><code>image.getAspectRatio()`</h4> 
+ Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
-Returns `Float` - The image's aspect ratio.
-
-#### `image.addRepresentation(options)`
-
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
-
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+<h4><code>image.addRepresentation(options)`</h4> 
+ 
+ * `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+ 
+ Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
