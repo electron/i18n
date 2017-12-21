@@ -1,4 +1,4 @@
-# Synopsis
+# Ringkasan
 
 > How to use Node.js and Electron APIs.
 
