@@ -91,14 +91,14 @@ Aşağıdaki özellikler `MenuItem` örneklerinde mevcuttur:
 
 Bir `checkbox` menü öğesi seçildiğinde `checked` özelliği etkinleştirip devre dışı bırakacaktır.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Bir `radio` menü öğesi tıklandığında `checked` özelliğini açar ve bu özelliğin aynı menüdeki tüm bitişik öğeler için kapatılmasına neden olur.
 
-You can add a `click` function for additional behavior.
+Ek davranış için bir `click` işlevi ekleyebilirsiniz.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+Görünen menü öğelerini bir `String` temsil eder
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+MenuItem bir tıklama olayı aldığında tetiklenen bir `Function`'dır
