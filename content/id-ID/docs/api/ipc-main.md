@@ -1,18 +1,22 @@
-# ipcMain
+# ipc Main
 
-> Communicate asynchronously from the main process to renderer processes.
+> Berkomunikasi asynchronous dari proses utama ke proses renderer.
 
 Proses:  Utama </ 0></p> 
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+` ipc Main </ 0> modul adalah turunan dari
+ <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Bila digunakan dalam proses utama, ia menangani pesan asinkron dan sinkron yang dikirim dari proses renderer (halaman web). Pesan yang dikirim dari penyaji akan dipancarkan ke modul ini.</p>
 
-## Sending Messages
+<h2>Mengirim Pesan</h2>
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+<p>It is also possible to send messages from the main process to the renderer
+process, see <a href="web-contents.md#webcontentssendchannel-arg1-arg2-">webContents.send</a> for more information.</p>
 
-* When sending a message, the event name is the `channel`.
+<ul>
+<li>When sending a message, the event name is the <code>channel`.</li> 
+
 * To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.</ul> 
 
 An example of sending and handling messages between the render and main processes:
 
