@@ -288,13 +288,13 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### イベント: 'certificate-error'
 
 戻り値：
 
 * `event` Event
 * `url` String
-* `error` String - The error code
+* `error` String - エラーコード
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
@@ -303,7 +303,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### イベント: 'select-client-certificate'
 
 戻り値：
 
@@ -317,7 +317,7 @@ Emitted when a client certificate is requested.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### イベント: 'login'
 
 戻り値：
 
