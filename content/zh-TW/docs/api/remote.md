@@ -16,7 +16,7 @@ win.loadURL('https://github.com')
 
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
-## Remote Objects
+## 遠端物件
 
 Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
@@ -26,7 +26,7 @@ In the example above, both `BrowserWindow` and `win` were remote objects and `ne
 
 **Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
 
-## Remotes Objects 的生命週期
+## 遠端物件生命週期
 
 Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
