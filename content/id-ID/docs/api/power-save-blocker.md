@@ -37,7 +37,7 @@ Sebagai contoh, sebuah API memanggil A untuk meminta `prevent-app-suspension`, d
 
 * `id` Integer - Id pemblokir hemat daya dikembalikan dengan `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Menghentikan pemblokir hemat daya yang ditetapkan.
 
 ### `powerSaveBlocker.isStarted(id)`
 
