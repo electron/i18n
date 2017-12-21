@@ -18,7 +18,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### 静的メソッド
 
 The `Notification` class has the following static methods:
 
