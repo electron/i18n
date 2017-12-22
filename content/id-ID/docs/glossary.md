@@ -72,7 +72,7 @@ In Node.js and Electron, each running process has a `process` object. Objek ini 
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### proses renderer
 
 Proses renderer adalah jendela browser di aplikasi Anda. Berbeda dengan proses utama, ada beberapa kelipatannya dan masing-masing dijalankan dalam proses terpisah. Mereka juga bisa disembunyikan.
 
@@ -88,15 +88,15 @@ Squirrel adalah kerangka sumber terbuka yang memungkinkan aplikasi Elektron dipe
 
 Istilah ini berasal dari komunitas Unix, di mana "userland" atau "userspace" mengacu pada program yang berjalan di luar kernel sistem operasi. Baru-baru ini, istilah ini telah dipopulerkan di komunitas Node dan npm untuk membedakan antara fitur yang ada di " inti Node " versus paket yang dipublikasikan ke registri npm oleh komunitas "pengguna" yang jauh lebih besar.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. Filosofi desain ini memungkinkan Elektron untuk tetap menjadi alat yang fleksibel tanpa terlalu menentukan tentang bagaimana penggunaannya. Userland memungkinkan pengguna membuat dan berbagi alat yang menyediakan fungsionalitas tambahan di atas apa yang tersedia di "inti".
+Seperti Node , Elektron difokuskan untuk memiliki sekumpulan API kecil yang menyediakan semua primitif yang diperlukan untuk pengembangan aplikasi desktop multi-platform. Filosofi desain ini memungkinkan Elektron untuk tetap menjadi alat yang fleksibel tanpa terlalu menentukan tentang bagaimana penggunaannya. Userland memungkinkan pengguna membuat dan berbagi alat yang menyediakan fungsionalitas tambahan di atas apa yang tersedia di "inti".
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 adalah mesin JavaScript open source Google . Ini ditulis dalam bahasa C ++ dan digunakan di Google Chrome . V8 bisa berjalan standalone, atau bisa dimasukkan ke aplikasi C ++ apapun .
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Elektron membangun V8 sebagai bagian dari Chromium dan kemudian mengarahkan Node ke V8 saat membangunnya.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Nomor versi V8 selalu sesuai dengan yang dimiliki Google Chrome . Chrome 59 menyertakan V8 5,9, Chrome 58 menyertakan V8 5.8, dll.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
