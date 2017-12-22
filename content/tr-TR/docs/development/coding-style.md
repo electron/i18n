@@ -24,11 +24,11 @@ C+++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara ha
 
 ## İsimlendirmeler
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Electron API'leri Node.js ile aynı büyük/küçük harf düzenini kullanır:
 
 * When the module itself is a class like `BrowserWindow`, use `CamelCase`.
 * When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
 * When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Yeni bir API oluştururken, jQuery'nin tek-fonksiyon stili yerine getter ve setter kullanarak erişim yapmak tercih edilir. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
