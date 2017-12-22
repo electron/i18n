@@ -86,7 +86,7 @@ $ npm run clean-build
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Troubleshooting
+## Penyelesaian masalah
 
 ### Command xxxx not found
 
