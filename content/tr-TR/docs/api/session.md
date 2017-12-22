@@ -142,7 +142,7 @@ For example:
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-`proxyBypassRules` aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
+`proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
@@ -291,15 +291,15 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `userAgent` String
 * `acceptLanguages` String (optional)
 
-`UserAgent` ve `acceptLanguages` bu oturum için geçersiz kılar.
+`userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
 
 The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Bu mevcut `WebContents` etkilemez ve her `WebContents` `webContents.setUserAgent` oturum genelinde kullanıcı aracısı geçersiz kılmak için kullanabilirsiniz.
+Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `webContents.setUserAgent` yapısını oturum genelinde kullanıcı aracısını geçersiz kılmak için kullanabilir.
 
 #### `ses.getUserAgent()`
 
-`Dize` döndürür - Bu oturum için kullanıcı aracısı.
+`String` döndürür - Bu oturum için kullanıcı aracısı.
 
 #### `ses.getBlobData(identifier, callback)`
 
