@@ -8,4 +8,4 @@
 * `nombre` Cadena (opcional) - Debe establecerse si `tipo` es `personalizado`, de lo contrario debe omitirse.
 * `objetos` JumpListItem [] (opcional) - Array de objetos [`JumpListItem`](jump-list-item.md) si `tipo` es `tareas` o `personalizado`, de lo contrario debe omitirse.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Nota:** Si un objeto de `JumpListCategory` no tiene ni el `tipo` ni el `nombre` de su conjunto de propiedad, se asume que su `tipo` es `tareas`. Si la propiedad `nombre` está establecida pero la propiedad `tipo` se omite entonces el `tipo` se asume que el tipo es `personalizado`.
