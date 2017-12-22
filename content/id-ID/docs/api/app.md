@@ -767,9 +767,12 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
                                               ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
                                               
                                               * `settings` Object 
-                                                * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-                                                * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-                                                * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
+                                                * ` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
+<li><code> openAsHidden </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi sebagai tersembunyi. Default ke
+ <code> false </ 0> . Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi
+ <code> app.getLoginItemStatus (). BeenOpenedAsHidden </ 0> harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada
+ macos .</li>
+<li><code>path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
                                                 * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
                                               
                                               Set the app's login item settings.
