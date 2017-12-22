@@ -71,27 +71,27 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 * `details` Nesne 
   * `url` Katar - Çerezin ilişkilendirileceği url.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Function 
-  * `error` Error
+  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
+  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
+  * `path` Katar (opsiyonel) - Çerezin geçerli olduğu dizin. Değer girilmezse boş atanır.
+  * `secure` Katar (opsiyonel) - Çerez güvenli olarak işaretlensin mi? Varsayılan değeri False.
+  * `httpOnly` Boolean (opsiyonel) - Çerez httpOnly olarak işaretlensin mi? Varsayılan değeri False.
+  * `expirationDate` Double (opsiyonel) - UNIX epoch başlangıcından itibaren saniyeler cinsinden çerezin geçerliliğini yitirme süresi. Eğer boş geçilirse, çerez bir oturum çerezi olarak algılanır ve farklı oturumlar arasında kalıcı olmaz.
+* `callback` Fonksiyon 
+  * `error` Hata
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+`details<code> ile bir çerez ataması yapar, tamamlandığında <code>callback(error)` çağırılır.
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
-* `callback` Function
+* `url` String - URL ile ilişkilendirilen çerez.
+* `name` Katar - Silinecek çerezin ismi.
+* `callback` Fonksiyon
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+`url` ve `name` ile eşleşen çerezleri siler, işlem tamamlandığında `callback`, `callback()` şeklinde çağırılır.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Function
+* `callback` Fonksiyon
 
 Yazılmamış çerezlerı disk'e yazar.
