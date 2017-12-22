@@ -1,6 +1,6 @@
 # Kodlama Stili
 
-These are the style guidelines for coding in Electron.
+Electron için kodlama stili rehberleri.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
