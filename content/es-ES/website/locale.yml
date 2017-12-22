@@ -15,6 +15,11 @@ docs:
   guides: Guías
   api_reference: Referencia de la API
   advanced: Avanzado
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: Elija el idioma del sitio
   translation_progress: Progreso de la traducción
@@ -54,11 +59,7 @@ get_started:
   description: Para comenzar con Electron, revisa los recursos de abajo. Aprende como ajustar tu aplicación web con ELectron, acceder a todas las APIs, y generar instaladores.
 explore:
   title: Explorar las APIs de Electron
-  description:
-    - La <a href="https://github.com/electron/electron-api-demos">API de Electron de la aplicación Desmos</a>
-    - de forma interactiva demuestra las características mas importantes de la API de Electron.
-    - Ve que es posible con Electron con códigos de ejemplo y consejos útiles para
-    - construyendo su app.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Descargar desde GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas las versiones</a> en GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Encuentra contenido en nuestra increíble comunidad global de desarrolladores.
 help_translate: "Ayuda a traducir"
 footer:
-  see_something: '¿Ves algo que necesite arreglarse?'
-  propose_change: Proponer un cambio a nuestro código fuente.
-  need_different_version: '¿Necesitas una versión diferente de la documentación?'
-  see_available_versions: Ver las versiones disponibles.
-  want_something_searchable: '¿Quieres algo searchable?'
-  view_all_docs: Ver todos la documentación en una pagina
   see_the_faq: Ver las preguntas frecuentes
 apps:
   title: Aplicaciones hechas con Electron
