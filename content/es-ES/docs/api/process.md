@@ -38,10 +38,10 @@ Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`,
 
 Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando este a `verdad` se deshabilitará el apoyo por parte de archivos `asar` en modulos integrados del nodo.
 
-### `process.noDeprecation`
+### `proceso.noDepreación`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+Un `Booleano` que controla si las advertencias de degradación son enviadas a `stderr`.  
+Ajustar este como `verdad` silenciará advertencias de degradación. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
