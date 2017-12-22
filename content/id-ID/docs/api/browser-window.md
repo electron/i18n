@@ -802,7 +802,7 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
-* `callback` Function
+* `callback ` Fungsi
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
