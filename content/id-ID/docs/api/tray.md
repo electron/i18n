@@ -1,6 +1,6 @@
-## Class: Tray
+## Kelas: Baki
 
-> Add icons and context menus to the system's notification area.
+> Tambahkan ikon dan menu konteks ke area pemberitahuan sistem.
 
 Proses:  Utama </ 0></p> 
 
@@ -23,11 +23,11 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**Keterbatasan platform**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
+* Indikator aplikasi hanya akan ditampilkan bila memiliki menu konteks.
 * When app indicator is used on Linux, the `click` event is ignored.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
@@ -84,11 +84,11 @@ Emitted when the tray icon is clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
-Emitted when the tray icon is right clicked.
+Dibunyikan ketika ikon tray benar diklik.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
+* `peristiwa` Peristiwa 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -118,7 +118,7 @@ Emitted when any dragged items are dropped on the tray icon.
 * ` event </ 0>  Acara</li>
 <li><code>files` String[] - The paths of the dropped files.
 
-Emitted when dragged files are dropped in the tray icon.
+Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-text' *macOS*
 
