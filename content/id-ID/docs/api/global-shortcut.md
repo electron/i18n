@@ -39,7 +39,7 @@ The `globalShortcut` module has the following methods:
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `callback ` Fungsi
 
 Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
 
