@@ -31,40 +31,40 @@ app.on ('siap', () = > {
 
 ## Methods
 
-The `contentTracing` module has the following methods:
+Modul ` contentTracing ` memiliki metode berikut:
 
-### `contentTracing.getCategories(callback)`
+### `contentTracing.getCategories (callback)`
 
 * `callback` Fungsi 
-  * `categories` String[]
+  * `kategori ` String []
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Dapatkan satu kelompok kategori. Kelompok kategori dapat berubah sebagai jalur kode baru tercapai.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Setelah semua proses anak mengakui permintaan`getCategories` `callback` dipanggil dengan sekelompok grup kategori.
 
-### `contentTracing.startRecording(options, callback)`
+### `contentTracing.startRecording (pilihan,callback)`
 
-* `pilihan` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+* `pilihan` Objek 
+  * `kategori Filter ` String
+  * `traceOptions ` String
+* `callback ` Fungsi
 
-Start recording on all processes.
+Mulai rekaman pada semua proses.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman. The `callback ` akan menjadi dipanggil sekali semua proses anak telah mengakui permintaan ` startRecording `.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter ` adalah filter untuk mengontrol grup kategori apa yang seharusnya ditelusuri. Filter dapat memiliki awalan `-` opsional untuk mengecualikan grup kategori yang berisi kategori yang cocok. Memiliki keduanya termasuk dan dikecualikan pola kategori dalam daftar yang sama tidak didukung.
 
 Contoh:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1,-excluded_category2`
+* `"-excluded_category1, -kategori yang dikecualikan 2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions ` mengontrol jenis pelacakan yang diaktifkan, ini adalah koma-delimited daftar. Pilihan yang mungkin adalah:
 
-* `record-until-full`
-* `record-continuously`
+* `record-sampai-penuh`
+* `rekam terus menerus`
 * `trace-to-console`
 * `enable-sampling`
 * `enable-systrace`
@@ -90,9 +90,9 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `pilihan` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+  * `kategori Filter ` String
+  * `traceOptions ` String
+* `callback ` Fungsi
 
 Start monitoring on all processes.
 
@@ -102,7 +102,7 @@ Once all child processes have acknowledged the `startMonitoring` request the `ca
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Function
+* `callback ` Fungsi
 
 Stop monitoring on all processes.
 
