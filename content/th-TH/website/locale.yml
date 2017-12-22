@@ -15,6 +15,11 @@ docs:
   guides: คู่มือ
   api_reference: API อ้างอิง
   advanced: ขั้นสูง
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: เลือกภาษาของเว็บไซต์
   translation_progress: ความคืบหน้าการแปลภาษา
@@ -54,11 +59,7 @@ get_started:
   description: เริ่มต้นกับ Electron ลองดูทรัพยากรด้านล่าง เรียนรู้วิธีหุ้มเว็บแอปด้วย Electron เข้าถึง API ทั้งหมด และสร้างตัวติดตั้ง
 explore:
   title: สำรวจ API ของ Electron
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">สาธิตการใช้งาน API ของ Electron</a>
-    - การสาธิตมีการโต้ตอบกับคุณสมบัติสำคัญๆ ของ Electron API
-    - ลองดูความเป็นไปด้วยด้วย Electron ด้วยตัวอย่างโค้ดและเคล็ดลับที่เป็นประโยชน์สำหรับ
-    - สร้างแอปของคุณ
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "ช่วยแปลภาษา"
 footer:
-  see_something: เห็นอะไรบางอย่างที่ควรแก้?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: ดูเวอร์ชั่นอื่น ๆ ที่มีทั้งหมด
-  want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
   see_the_faq: See the frequently asked questions
 apps:
   title: แอปที่สร้างขึ้นจาก Electron
