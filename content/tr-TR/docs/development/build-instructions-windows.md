@@ -68,19 +68,19 @@ $ python script\bootstrap.py --msvs
 
 ## Temizlik
 
-To clean the build files:
+İnşaa dosyalarını temizlemek için:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Sadece `out` and `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
 ## Testler
 
