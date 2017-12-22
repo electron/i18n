@@ -15,6 +15,11 @@ docs:
   guides: Przewodniki
   api_reference: API
   advanced: Zaawansowane
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: Wybierz język strony
   translation_progress: Postęp tłumaczenia
@@ -54,11 +59,7 @@ get_started:
   description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak uzbroić swoją aplikację internetową w Electron, przeglądaj API, generuj instalatory.
 explore:
   title: Przeglądaj API Electrona
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">Aplikacje demonstracyjne Electron API</a>
-    - interaktywnie przedstawia najważniejsze cechy Electron API.
-    - Zobacz przykładowy kod i przydatne wskazówki, aby dowiedzieć się,
-    - co można stworzyć.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Przetłumaczony kontent ze wspaniałą globalną społecznością programistów.
 help_translate: "Pomóż w tłumaczeniu"
 footer:
-  see_something: Widzisz coś, co wymaga poprawy?
-  propose_change: Zaproponuj zmiany w pliku źródłowym.
-  need_different_version: Potrzebujesz innej wersji dokumentacji?
-  see_available_versions: Zobacz dostępne wersje.
-  want_something_searchable: Chcesz coś znaleźć?
-  view_all_docs: Wyświetl wszystkie dokumenty na jednej stronie
   see_the_faq: Zobacz najczęściej zadawane pytania
 apps:
   title: Aplikacje stworzone przy użyciu Electrona
