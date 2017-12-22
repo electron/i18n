@@ -71,52 +71,52 @@ Contoh:
 
 3 pilihan pertama adalah mode perekaman jejak dan karenanya saling eksklusif. Jika lebih dari satu mode perekaman jejak muncul di string ` traceOptions ` yang terakhir diutamakan. Jika tidak ada mode perekaman jejak ditentukan, mode perekaman `record-until-full`.
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+Pilihan jejak pertama akan diatur ulang ke opsi default (`record_mode` diatur ke `record-until-full `, `enable_sampling `dan` enable_systrace ` set ke `false`) sebelum pilihan yang diuraikan dari `traceOptions` diterapkan di dalamnya.
 
-### `contentTracing.stopRecording(resultFilePath, callback)`
+### `isi Tracing.stop Recording (hasil File Path, callback)`
 
-* `resultFilePath` String
+* `resultFilePath ` String
 * `callback` Fungsi 
-  * `resultFilePath` String
+  * `resultFilePath ` String
 
-Stop recording on all processes.
+Berhenti merekam pada semua proses.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini membantu meminimalkan overhead runtime Dari penelusuran sejak mengirim data jejak melalui IPC bisa menjadi operasi yang mahal. Begitu, Untuk mengakhiri penelusuran, kita harus secara asinkron meminta semua proses anak untuk menyiram apapun tertunda jejak data.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Setelah semua proses anak mengakui permintaan `stopRecording` `callback ` akan dipanggil dengan file yang berisi data yang dilacak.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sementara Path file yang sebenarnya akan dilewatkan ke `callback` jika tidak `null`.
 
-### `contentTracing.startMonitoring(options, callback)`
+### `isi Tracing.startMonitoring (pilihan, callback)`
 
-* `pilihan` Object 
+* `pilihan` Objek 
   * `kategori Filter ` String
   * `traceOptions ` String
 * `callback ` Fungsi
 
-Start monitoring on all processes.
+Mulai memonitor semua proses.
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+Pemantauan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan `startMonitoring`.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+Setelah semua proses anak telah mengakui permintaan `startMonitoring` `callback` akan dipanggil.
 
-### `contentTracing.stopMonitoring(callback)`
+### `isi Tracing.stop Monitoring (callback)`
 
 * `callback ` Fungsi
 
-Stop monitoring on all processes.
+Hentikan pemantauan pada semua proses.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Setelah semua proses anak telah mengakui `stopMonitoring` meminta `callback` dipanggil.
 
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `isi Tracing.capture Monitoring Snapshot (hasil File Path, callback)`
 
-* `resultFilePath` String
+* `resultFilePath ` String
 * `callback` Fungsi 
-  * `resultFilePath` String
+  * `resultFilePath ` String
 
-Get the current monitoring traced data.
+Dapatkan data jejak pemantauan saat ini.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini karena mungkin harganya mahal operasi untuk mengirim jejak data melalui IPC dan kami ingin menghindari yang tidak dibutuhkan runtime overhead dari penelusuran. Jadi, untuk mengakhiri penelusuran, kita harus secara asinkron bertanya semua proses anak untuk menyiram data jejak yang tertunda.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
