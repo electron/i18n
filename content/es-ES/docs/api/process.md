@@ -1,16 +1,16 @@
 # proceso
 
-> Extensions to process object.
+> Extensiones al objeto en proceso.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+El objeto en `proceso` de Electron está comprendido entre [Node.js `proceso` objecto](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
 
-## Events
+## Eventos
 
-### Event: 'loaded'
+### Evento: "cargado"
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Emitido cuando Electron ha cargado su script de inicialización y está empezando a carga la página web o el script principal.
 
 It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
 
