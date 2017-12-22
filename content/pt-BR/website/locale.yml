@@ -15,6 +15,11 @@ docs:
   guides: Guias
   api_reference: Referência da API
   advanced: Avançado
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: Escolha o seu idioma
   translation_progress: Progresso da Tradução
@@ -54,11 +59,7 @@ get_started:
   description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com Electron, acesse todas as APIs e gerado de instaladores.
 explore:
   title: Explore as APIs do Electron
-  description:
-    - Os <a href="https://github.com/electron/electron-api-demos">Exemplos de aplicativo das APIs do Electron</a>
-    - interativamente, demonstra as características mais importantes da API do Electron.
-    - Veja o que é possível com Electron com exemplos de código e dicas úteis para
-    - construindo seu aplicativo.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Download no GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a> no GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Conteúdo traduzido pela nossa incrível comunidade de desenvolvedores.
 help_translate: "Ajude a traduzir"
 footer:
-  see_something: Alguma coisa precisa de modificação?
-  propose_change: Propor uma modificação no código fonte do arquivo.
-  need_different_version: Precisa de uma versão diferente da documentação?
-  see_available_versions: Veja as versões disponíveis.
-  want_something_searchable: Quero algo pesquisável?
-  view_all_docs: Ver toda a documentação do Electron em uma só página
   see_the_faq: Veja as perguntas frequentes
 apps:
   title: Aplicativos construídos com Electron
