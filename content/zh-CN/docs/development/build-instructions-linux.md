@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### 环境变量
 
-除了 `CC` 及 `CXX`, 你还可以设置以下环境变量来自定义编译配置:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
