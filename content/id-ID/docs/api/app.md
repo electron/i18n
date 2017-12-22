@@ -730,9 +730,9 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <p>Mengembalikan <code> Boolean </ 0> - Apakah panggilan berhasil.</p>
 
-<p>Sets the counter badge for current app. Setting the count to <code>0` will hide the badge.</p> 
+<p>Menetapkan lencana penghitung untuk aplikasi saat ini. Menetapkan hitungan ke<code>0` akan menyembunyikan lencana</p> 
                                               
-                                              On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+                                              Di macos itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
                                               
                                               **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
                                               
