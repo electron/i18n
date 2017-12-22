@@ -2,7 +2,7 @@
 
 Electron için kodlama stili rehberleri.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+`cpplint` ve `eslint` tarafından tespit edilen durumları görmek için `npm run lint` çalıştırabilirsiniz.
 
 ## C++ and Python
 
