@@ -56,12 +56,12 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 * `filter` Nesne 
   * `url` Katar (Opsiyonel) - `url` ile bağıntılı çerezleri çeker. Eğer boş girilirse tüm çerezler çekilir.
   * `name` Katar (opsiyonel) - Çerezleri isme göre filtrele.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
-  * `error` Error
+  * `domain` Katar (opsiyonel) - `domains` ile eşleşen domain'lerin çerezlerini çeker
+  * `path` Katar (opsiyonel) - `path` ile eşleşen çerezleri çeker.
+  * `secure` Boolean (opsiyonel) - Secure özelliği olan çerezleri çeker.
+  * `session` Boolean (opsiyonel) - Oturumu ya da kalıcı çerezleri filtreler.
+* `callback` Fonksiyon 
+  * `error` Hata
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
 Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
