@@ -23,7 +23,7 @@ describe('i18n.docs', () => {
     const base = 'https://github.com/electron/electron/tree/master'
     const docs = i18n.docs['en-US']
     docs['/docs/api/accelerator'].githubUrl.should.equal(`${base}/docs/api/accelerator.md`)
-    docs['/docs/tutorial/versioning'].githubUrl.should.equal(`${base}/docs/tutorial/versioning.md`)
+    docs['/docs/tutorial/electron-versioning'].githubUrl.should.equal(`${base}/docs/tutorial/electron-versioning.md`)
   })
 
   // disabled until we come up with a nice strategy for
@@ -117,7 +117,7 @@ describe('API Docs', () => {
   })
 
   it('fixes relative images in docs', () => {
-    const doc = i18n.docs['en-US']['/docs/tutorial/versioning']
+    const doc = i18n.docs['en-US']['/docs/tutorial/electron-versioning']
     const $ = cheerio.load(doc.html)
     const sources = $('img')
       .map((i, el) => $(el).attr('src'))
