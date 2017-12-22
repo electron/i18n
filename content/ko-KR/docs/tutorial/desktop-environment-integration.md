@@ -80,7 +80,7 @@ Windows에선 JumpList의 `Tasks` 카테고리에 원하는 작업을 설정할 
 
 **Internet Explorer의 작업:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
 MacOS의 dock menu와는 달리 Windows의 사용자 작업은 애플리케이션 바로 가기처럼 작동합니다. 유저가 작업을 클릭할 때 설정한 인수와 함께 새로운 애플리케이션이 실행됩니다.
 
