@@ -117,7 +117,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## Penyelesaian masalah
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Environment variables
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
