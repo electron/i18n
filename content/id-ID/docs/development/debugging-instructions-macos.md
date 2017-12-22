@@ -1,39 +1,37 @@
 # Debugging on macOS
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak disebabkan oleh Anda JavaScript aplikasi, melainkan oleh elektron itu sendiri, debugging bisa menjadi sedikit rumit, terutama untuk pengembang tidak digunakan untuk native / C ++ debugging. Namun, dengan menggunakan lldb, dan Electron kode sumber, itu cukup mudah untuk mengaktifkan debugging langkah-melalui dengan breakpoints dalam Electron kode sumber 's.
 
-## Requirements
+## Persyaratan
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* ** Sebuah membangun debug Elektron </ 0> : Cara termudah biasanya membangun sendiri, menggunakan alat dan prasyarat yang tercantum dalam  membangun petunjuk untuk MacOS </ 1> . Meskipun Anda dapat dengan mudah menempel dan debug Electron karena Anda dapat men-download secara langsung, Anda akan menemukan bahwa itu sangat dioptimalkan, membuat debugging secara substansial lebih sulit: debugger tidak akan dapat menunjukkan isi semua variabel dan jalur eksekusi bisa tampak aneh karena inlining, panggilan ekor, dan optimasi compiler lainnya.</p></li> 
+    
+    * ** Xcode </ 0> : Selain Xcode, juga menginstal alat baris perintah Xcode. Mereka termasuk LLDB, debugger default dalam Xcode di Mac OS X. Ini mendukung debugging C , Objective- C dan C ++ pada desktop dan perangkat iOS dan simulator.</p></li> </ul> 
+        
+        ## Melekat dan Debugging Electron
+        
+        Untuk memulai sesi debugging, membuka Terminal dan mulai ` lldb </ 0> , melewati debug membangun Elektron sebagai parameter.</p>
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+<pre><code class="sh">$ Lldb ./out/D/Electron.app (lldb) menargetkan menciptakan "./out/D/Electron.app" Saat set dieksekusi untuk './out/D/Electron.app' (x86_64).
+`</pre> 
+        
+        ### pengaturan Breakpoints
+        
+        LLDB adalah alat yang ampuh dan mendukung beberapa strategi untuk pemeriksaan kode. Untuk pengenalan dasar ini, mari kita asumsikan bahwa Anda menelepon perintah dari JavaScript yang tidak berperilaku dengan benar - sehingga Anda ingin istirahat pada bahwa perintah ini C ++ rekan dalam Elektron sumber.
+        
+        File kode yang relevan dapat ditemukan di ` ./ atom / </ 0> serta dalam Brightray, ditemukan di
+ <code> ./brightray/browser </ 0> dan <code> ./brightray/common </ 0 > . Jika Anda hardcore, Anda juga dapat men-debug Chromium langsung, yang jelas ditemukan dalam <code> kromium _src </ 0> .</p>
 
-## Attaching to and Debugging Electron
-
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
-
-```sh
-$ lldb ./out/D/Electron.app
-(lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
-```
-
-### Setting Breakpoints
-
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
-
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
-
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
-
-```sh
+<p>Let's assume that you want to debug <code>app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+        
+        ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
-
-Then, start Electron:
-
-```sh
+    
+    Then, start Electron:
+    
+    ```sh
 (lldb) run
 ```
 
