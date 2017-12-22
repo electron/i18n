@@ -15,6 +15,11 @@ docs:
   guides: Các hướng dẫn
   api_reference: Tài liệu tham khảo về API
   advanced: Nâng cao
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: Chọn ngôn ngữ
   translation_progress: Tiến độ dịch thuật
@@ -54,11 +59,7 @@ get_started:
   description: Để bắt đầu với Electron, bạn có thể xem qua kho tài nguyên dưới đây. Tìm hiểu làm thể nào để đóng gói web app của bạn với Electron thành ứng dụng, và cách kết nối đến các API của Eletron cũng như việc tạo ra các file cài đặt cuối cùng cho ứng dụng của bạn đế các nền tảng.
 explore:
   title: Khám phá các API của Electron
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">Ứng dụng demo các API của Electron API</a>
-    - các tương tác demo các tính năng quan trọng nhất của các API của Electron.
-    - Xem những gì Electron có thể làm với các code đơn giản và các lời khuyên hữu ích cho
-    - xây dựng ứng dụng của bạn.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Tải về từ Github
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Nội dung được dịch từ cộng đồng các developer tuyệt vời của chúng tôi.
 help_translate: "Tham gia dịch"
 footer:
-  see_something: Thấy cái gì đó cần chỉnh sửa?
-  propose_change: Đề xuất một thay đổi đến source file.
-  need_different_version: Cần tài liệu cho từng phiên bản khác nhau?
-  see_available_versions: Xem các phiên bản có sẵn.
-  want_something_searchable: Muốn tìm kiếm một cái gì đó?
-  view_all_docs: Xem tất cả tài liệu trên một trang
   see_the_faq: Xem các câu hỏi thường gặp
 apps:
   title: Các ứng dụng được xây dựng từ Electron
