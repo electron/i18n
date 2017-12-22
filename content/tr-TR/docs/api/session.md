@@ -1,6 +1,6 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Tarayıcı oturumu, Çerezler, önbellek, proxy ayarlarını yönetin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -18,14 +18,14 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Methods
+## Metodlar
 
-The `session` module has the following methods:
+`session` modülü aşağıdaki yöntemleri içerir:
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object 
+* `options` Nesne 
   * `cache` Boolean - Whether to enable cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -34,13 +34,13 @@ If `partition` starts with `persist:`, the page will use a persistent session av
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Properties
+## Özellikler
 
-The `session` module has the following properties:
+`session` modülü aşağıdaki yöntemleri içerir:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
 ## Class: Session
 
@@ -56,9 +56,9 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Örnek Olaylar
 
-The following events are available on instances of `Session`:
+Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 #### Event: 'will-download'
 
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Örnek yöntemler
 
 The following methods are available on instances of `Session`:
 
@@ -89,7 +89,7 @@ The following methods are available on instances of `Session`:
 * `callback` Function 
   * `size` Integer - Cache size used in bytes.
 
-Callback is invoked with the session's current cache size.
+Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
 
 #### `ses.clearCache(callback)`
 
@@ -113,7 +113,7 @@ Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Object 
+* `config` Nesne 
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
@@ -142,7 +142,7 @@ For example:
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+`proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
@@ -188,7 +188,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
+* `options` Nesne 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -215,7 +215,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function 
-  * `request` Object 
+  * `request` Nesne 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Verification result from chromium.
@@ -268,7 +268,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (optional) - Called when operation is done.
 
-Clears the host resolver cache.
+Ana çözümleyici önbelleğini temizler.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
@@ -291,15 +291,15 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `userAgent` String
 * `acceptLanguages` String (optional)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+`userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
 
 The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `webContents.setUserAgent` yapısını oturum genelinde kullanıcı aracısını geçersiz kılmak için kullanabilir.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+`String` döndürür - Bu oturum için kullanıcı aracısı.
 
 #### `ses.getBlobData(identifier, callback)`
 
@@ -311,7 +311,7 @@ Returns `Blob` - The blob data associated with the `identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
+* `options` Nesne 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
@@ -328,23 +328,23 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (optional) - Called when operation is done
 
-Clears the session’s HTTP authentication cache.
+Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
-### Instance Properties
+### Örnek özellikleri
 
 The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Bu oturum için [çerezler](cookies.md) nesnesi.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Bu oturum için [Webistek](web-request.md) nesnesi.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Bu oturum için bir [Protokol](protocol.md) nesnesi.
 
 ```javascript
 const {app, session} = require('electron')

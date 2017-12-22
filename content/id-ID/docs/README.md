@@ -1,56 +1,56 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Pastikan Anda menggunakan dokumen yang sesuai dengan versi Elektron Anda . Versi nomor harus menjadi bagian dari halaman URL. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
-* [Electron FAQ](faq.md)
+* [FAQ Elektronika](faq.md)
 
-## Guides
+## Panduan
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
+* [Daftar Istilah](glossary.md)
+* [Platform yang Didukung](tutorial/supported-platforms.md)
+* [Keamanan](tutorial/security.md)
 * [Versi](tutorial/electron-versioning.md)
 * [Distribusi Aplikasi](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Panduan Pengiriman Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Panduan Toko Windows](tutorial/windows-store-guide.md)
+* [Kemasan Aplikasi](tutorial/application-packaging.md)
+* [Menggunakan Modul Node Asli](tutorial/using-native-node-modules.md)
+* [Proses Utama Debugging](tutorial/debugging-main-process.md)
+* [Menggunakan Selenium dan WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [Ekstensi DevTools](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Menggunakan Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Menggunakan Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Rendering di luar layar](tutorial/offscreen-rendering.md)
+* [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
+* [Memperbarui Aplikasi](tutorial/updates.md)
 
-## Tutorials
+## Tutorial
 
 * [Mulai Cepat](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Integrasi Lingkungan Desktop](tutorial/desktop-environment-integration.md)
+* [Deteksi Peristiwa Online / Offline](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Pemberitahuan Asli](tutorial/notifications.md)
 
-## API References
+## Referensi API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Ringkasan](api/synopsis.md)
+* [Proses objek](api/process.md)
+* [Saklar Baris Perintah Chrome yang Didukung](api/chrome-command-line-switches.md)
+* [Variabel Lingkungan](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Elemen DOM Khusus:
 
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
-### Modules for the Main Process:
+### Modul untuk Proses Utama:
 
-* [app](api/app.md)
+* [aplikasi](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -60,7 +60,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [bersih](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

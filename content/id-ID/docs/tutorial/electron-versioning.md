@@ -1,6 +1,6 @@
-# Electron Versioning
+# Versi Elektronika
 
-> A detailed look at our versioning policy and implementation.
+> Tampilan rinci tentang kebijakan dan implementasi versi kami.
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
@@ -8,7 +8,7 @@ As of version 2.0.0, Electron follows [semver](#semver). The following command w
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Untuk memperbarui proyek yang ada untuk menggunakan versi stabil terbaru:
 
 ```sh
 npm install --save-dev electron@latest
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Versi utama berhubungan dengan perubahan API pengguna akhir . Versi minor berhubungan dengan rilis utama Chromium . Versi patch sesuai dengan fitur baru dan perbaikan bug. Meskipun mudah bagi pengembang yang menggabungkan fitur, ini menciptakan masalah bagi pengembang aplikasi yang menghadapi klien. Siklus pengujian QA dari aplikasi utama seperti Slack, Stride, Teams, Skype, VS Code, Atom , dan Desktop dapat berlangsung lama dan stabilitas adalah hasil yang sangat diinginkan. Ada risiko tinggi dalam mengadopsi fitur baru saat mencoba menyerap perbaikan bug.
 
 Here is an example of the 1.x strategy:
 
@@ -34,31 +34,31 @@ There are several major changes from our 1.x strategy outlined below. Each chang
 4. Clearly defined stabilization branches
 5. The `master` branch is versionless; only stability branches contain version information
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Kami akan membahas secara rinci bagaimana cara kerja git branching, bagaimana penandaan npm bekerja, apa yang diharapkan pengembang untuk dilihat, dan bagaimana seseorang dapat mengubah backport.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Dari 2,0 dan seterusnya, Elektron akan mengikuti semver.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada kategori semver mereka yang sesuai (mis. Major, Minor, Patch).
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
+* **Versi increment** 
+    * Pembaruan versi kromium
+    * update versi utama node.js
+    * Elektron melanggar API berubah
+* **Versi minor** 
+    * update versi node.js minor
+    * Perubahan API non-breaking elektron
 * **Patch Version Increments** 
     * node.js patch version updates
-    * fix-related chromium patches
+    * memperbaiki kromium terkait patch
     * electron bug fixes
 
 Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Stabilization Branches
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+Stabilisasi cabang adalah cabang yang berjalan sejajar dengan master, mengambil hanya cherry-mengambil komit yang berkaitan dengan keamanan atau stabilitas. Cabang-cabang ini tidak pernah tergabung kembali untuk dikuasai.
 
 ![](../images/versioning-sketch-1.png)
 
@@ -66,11 +66,11 @@ Stabilization branches are always either **major** or **minor** version lines, a
 
 We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Baris yang lebih tua tidak akan didukung oleh GitHub, namun kelompok lain dapat mengambil stabilitas kepemilikan dan stabilitas backport dan keamanan mereka sendiri. Kami mencegah hal ini, namun menyadari bahwa ini membuat hidup lebih mudah bagi banyak pengembang aplikasi.
 
 # Beta Releases and Bug Fixes
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Developers want to know which releases are *safe* to use. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.

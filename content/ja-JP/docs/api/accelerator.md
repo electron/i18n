@@ -4,7 +4,7 @@
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Examples:
+例：
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
@@ -30,34 +30,34 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Available modifiers
+## 使用可能な修飾子
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (または略して `Cmd`)
+* `Control` (または略して `Ctrl`)
+* `CommandOrControl` (または略して `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## 利用可能なキーコード
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
-* `Tab`
-* `Backspace`
+* `` から `9`
+* `A` から `Z`
+* `F1` から `F24`
+* `~`, `!`, `@`, `#`, `$`, などのような句読点
+* `プラス`
+* `スペース`
+* `タブ`
+* `バックスペース`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (またはエイリアスとして `Enter`)
+* `Up` と `Down`、 `Left`、 `Right`
+* `Home` と `End`
+* `PageUp` と `PageDown`
+* `Escape` (または略して `Esc`)
+* `VolumeUp` と `VolumeDown`、 `VolumeMute`
+* `MediaNextTrack` と `MediaPreviousTrack`、 `MediaStop`、 `MediaPlayPause`
 * `PrintScreen`

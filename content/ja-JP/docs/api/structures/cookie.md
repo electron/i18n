@@ -1,11 +1,11 @@
-# Cookie Object
+# Cookie オブジェクト
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `name` String - Cookieの名前。
+* `value` String - Cookieの値。
+* `domain` String (optional) - クッキーのドメイン。
+* `hostOnly` Boolean (optional) - クッキーがホストオンリーであるかどうか。
+* `path` String (optional) - Cookieのパス。
+* `secure` Boolean (optional) - クッキーが安全であるとマークされているかどうか。
+* `httpOnly` Boolean (optional) - CookieがHTTPのみとしてマークされているかどうか。
+* `session` Boolean (optional) - クッキーがセッションクッキーであるか、有効期限のある永続クッキーであるかどうか。
+* `expirationDate` Double (optional) - クッキーの有効期限は、UNIX時間からの秒数です。セッションCookieには指定されません。

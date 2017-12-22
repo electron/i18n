@@ -221,7 +221,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'page-title-updated'
+#### イベント: 'page-title-updated'
 
 戻り値：
 
@@ -230,7 +230,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### イベント: 'close'
 
 戻り値：
 
@@ -252,89 +252,89 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### イベント: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' *Windows*
+#### イベント: 'session-end' *Windows*
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### イベント: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### イベント: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### イベント: 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### イベント: 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### イベント: 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### イベント: 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### イベント: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### イベント: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### イベント: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### イベント: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### イベント: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### イベント: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### イベント: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### イベント: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### イベント: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### イベント: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### イベント: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### イベント: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### イベント: 'app-command' *Windows*
 
 戻り値：
 
@@ -356,19 +356,19 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### イベント: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### イベント: 'scroll-touch-end' *macOS*
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### イベント: 'scroll-touch-edge' *macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' *macOS*
+#### イベント: 'swipe' *macOS*
 
 戻り値：
 
@@ -377,19 +377,19 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### イベント: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### イベント: 'sheet-end' *macOS*
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### イベント: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### 静的メソッド
 
 The `BrowserWindow` class has the following static methods:
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### インスタンスプロパティ
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### インスタンスメソッド
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -967,12 +967,12 @@ The `buttons` is an array of `Button` objects:
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
+  * `tooltip` String (optional) - ボタンのツールチップのテキスト。
   * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
 The `flags` is an array that can include following `String`s:
 
-* `enabled` - The button is active and available to the user.
+* `enabled` - ボタンはアクティブで、ユーザーが使用できます。
 * `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
 * `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
 * `nobackground` - Do not draw a button border, use only the image.

@@ -46,7 +46,7 @@ app.on('ready', () => {
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-访问[Node documentation](https://nodejs.org/api/cli.html)文档或者在终端中运行`node --help`命令查看flags变量列表. 此外，还可以运行`node --v8-options`来查看与Node的V8 JavaScript引擎特定相关的flags列表。
+访问[Node documentation](https://nodejs.org/api/cli.html)文档或者在终端中运行`node --help`命令查看可用的标志列表. 此外，还可以运行`node --v8-options`来查看与Node的V8 JavaScript引擎特定相关的flags列表。
 
 ## --proxy-server=`address:port`
 
@@ -75,7 +75,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --host-rules=`rules`
 
-控制主机名映射方式的`rules`的逗号分隔列表.
+以逗号分隔的`rules`列表，用于控制主机名的映射方式
 
 例如：
 
@@ -103,7 +103,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-需要用户委托凭证的服务器的逗号分隔列表. 没有`*`前缀则url必须完全匹配.
+需要身份验证的服务器的逗号分隔列表. 没有`*`前缀则url必须完全匹配.
 
 ## --ignore-certificate-errors
 

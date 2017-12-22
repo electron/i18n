@@ -1,32 +1,32 @@
-# Electron FAQ
+# Elektron FAQ
 
-## Why am I having trouble installing Electron?
+## Mengapa saya menemui kesulitan menginstal Electron?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Saat menjalankan `npm menginstal elektron`, beberapa pengguna sesekali menemuinya kesalahan instalasi.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Di hampir semua kasus, kesalahan ini adalah hasil dari masalah jaringan dan tidak masalah aktual dengan `electron` paket npm. Kesalahan seperti `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, dan `ETIMEDOUT` adalah semua indikasi dari hal tersebut. masalah jaringan. Resolusi terbaik adalah untuk mencoba beralih jaringan, atau hanya menunggu sedikit dan mencoba menginstal lagi.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Anda juga dapat mencoba mendownload Electron langsung dari [Electron/Electron/pelepasan](https://github.com/electron/electron/releases) Jika memasang melalui `npm`gagal.
 
-## When will Electron upgrade to latest Chrome?
+## Ketika Electron akan meng-upgrade ke Chrome terbaru?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+Versi Chrome Electron biasanya terbentur dalam satu atau dua minggu setelahnya versi Chrome stabil baru akan dirilis. Perkiraan ini tidak dijamin dan tergantung pada jumlah pekerjaan yang terlibat dengan peningkatan.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Hanya saluran stabil Chrome yang digunakan. Jika perbaikan penting ada dalam versi beta atau dev Saluran, kita akan back-port itu.
 
-For more information, please see the [security introduction](tutorial/security.md).
+Untuk informasi lebih lanjut, silakan lihat [pengenalan keamanan](tutorial/security.md).
 
-## When will Electron upgrade to latest Node.js?
+## Kapan Electron akan tingkatkan ke Node.js terbaru?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Ketika sebuah versi baru dari Node.js akan dirilis, kita biasanya menunggu selama sebulan sebelum meningkatkannya salah satu di Electron. Jadi kita bisa menghindari terkena bug diperkenalkan dalam versi Node.js baru, yang sangat sering terjadi.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Fitur baru Node.js biasanya dibawa oleh tingkatan V8, karena Electron adalah menggunakan V8 dikirimkan oleh browser Chrome, fitur JavaScript baru mengkilap dari Versi Node.js yang baru biasanya sudah ada di Electron.
 
-## How to share data between web pages?
+## Bagaimana cara berbagi data antara halaman web?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Untuk berbagi data antara halaman web (proses renderer) cara paling sederhana adalah dengan gunakan HTML5 API yang sudah tersedia di browser. Kandidat yang baik adalah [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), dan [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Atau anda bisa menggunakan sistem IPC, yang khusus untuk Electron, untuk menyimpan objek dalam proses utama sebagai variabel global, dan kemudian mengaksesnya dari renderers melalui `remot`elemen`electron`modul:
 
 ```javascript
 // In the main process.
@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Aplikasi saya jendela/nampan menghilang setelah beberapa menit.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Ini terjadi ketika variabel yang digunakan untuk menyimpan jendela/nampan mendapat sampah dikumpulkan.
 
-If you encounter this problem, the following articles may prove helpful:
+Jika Anda mengalami masalah ini, artikel berikut mungkin bisa membantu:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Manajemen memori](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Lingkup variabel](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Jika Anda ingin memperbaiki cepat, Anda bisa membuat variabel global dengan mengubahnya kode dari ini:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+ini:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,11 +75,11 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Saya tidak dapat menggunakan jQuery/RequireJS/Meteor/AngularJS di electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Karena integrasi Electron Node.js, ada beberapa simbol tambahan dimasukkan ke dalam DOM seperti `module`, `export`, `require`. Hal ini menyebabkan masalah untuk beberapa perpustakaan karena mereka ingin memasukkan simbol dengan nama yang sama.
 
-To solve this, you can turn off node integration in Electron:
+Untuk memecahkan masalah ini, Anda dapat menonaktifkan node integrasi dalam electron:
 
 ```javascript
 // In the main process.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Tetapi jika Anda ingin menyimpan kemampuan menggunakan Node.js dan Electron API, Anda harus mengubah nama simbol dalam halaman sebelum termasuk perpustakaan lain:
 
 ```html
 <head>
@@ -106,34 +106,34 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `memerlukan('elektron').xxx` tidak terdefinisi.
 
-When using Electron's built-in module you might encounter an error like this:
+Bila menggunakan built-in modul Electron anda mungkin menemukan kesalahan seperti ini:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Ini karena Anda memasang modul [npm `electron` modul](https://www.npmjs.com/package/electron)terinstal baik lokal maupun global, yang menggantikan modul built-in Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Untuk memverifikasi apakah Anda menggunakan modul built-in yang benar, Anda dapat mencetaknya jalur `electron` modul:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+dan kemudian memeriksa apakah itu dalam bentuk sebagai berikut:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Jika itu seperti `node_modules/electron/index.js`, maka Anda harus melakukannya lepaskan npm `electron` modul, atau ganti namanya.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Namun jika Anda menggunakan modul built-in tapi masih mendapatkan kesalahan ini, sangat mungkin Anda menggunakan modul dalam proses yang salah. Sebagai contoh `electron.app` hanya dapat digunakan dalam proses utama, sedangkan`electron.webFrame` hanya tersedia dalam proses renderer.

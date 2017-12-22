@@ -1,12 +1,12 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> 从Chromium的内容模块收集跟踪数据，以查找性能瓶颈和缓慢的操作。
 
 线程：[主线程](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+该模块不包含网页接口，所以你需要在Chrome浏览器打开`chrome://tracing/`页面，然后加载生成的文件来查看结果。
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**注意：**在应用程序模块的 `ready ` 事件就绪之前，您不应该使用此模块。
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -31,16 +31,16 @@ app.on('ready', () => {
 
 ## 方法
 
-The `contentTracing` module has the following methods:
+`contentTracing`模块包含以下方法：
 
 ### `contentTracing.getCategories(callback)`
 
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+获取一个类别组的集合。随着能访问的新的代码路径不一样，获取的类别组对象也会不一样。
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+一旦所有子进程确认`getCategories`请求之后，传递类别组数组参数的`callback`就会被调用。
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -49,11 +49,11 @@ Once all child processes have acknowledged the `getCategories` request the `call
   * `traceOptions` String
 * `callback` Function
 
-Start recording on all processes.
+开始记录所有进程。
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` 是一个用来控制哪些类别组需要被跟踪的过滤器。 过滤器可以有一个可选的`-`前缀来排除包含一个匹配类别的类别组。 同一个列表中，不支持既有包含的类别模式又有排除的类别模式。
 
 示例:
 
@@ -61,7 +61,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `test_MyTest*,test_OtherStuff`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` 控制哪种跟踪模式被启用，该属性值是一个逗号分隔列表。可能选项有：
 
 * `record-until-full`
 * `record-continuously`
@@ -69,9 +69,9 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `enable-sampling`
 * `enable-systrace`
 
-The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+前3个选项是跟踪记录模式，因此是相互排斥的。 如果`traceOptions`字符串中出现多个跟踪记录模式，最后一个优先。 如果指定没有跟踪记录模式，那记录模式就是`record-until-full`。
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+在从`traceOptions`解析的选项应用于它之前，跟踪选项将首先被重置为默认选项(`record_mode` 设置为 `record-until-full`, `enable_sampling` 和 `enable_systrace` 设置为 `false`)。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,13 +79,13 @@ The trace option will first be reset to the default option (`record_mode` set to
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+停止所有进程记录。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+一旦所有子进程确认了 `stopRecording`请求，将传递包含跟踪数据的文件作为参数调用`callback`。
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+如果`resultFilePath`不为空，则跟踪数据会被写入该路径，否则就被写入一个临时文件。实际的文件路径如果不为`null`的话就被传递给`callback`函数了。
 
 ### `contentTracing.startMonitoring(options, callback)`
 
@@ -116,7 +116,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 
 Get the current monitoring traced data.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 

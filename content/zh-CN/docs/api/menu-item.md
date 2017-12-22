@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+有关示例, 请参见 [` Menu `](menu.md)。
 
 ### `new MenuItem(options)`
 
@@ -28,7 +28,7 @@ See [`Menu`](menu.md) for examples.
 
 ### Roles
 
-Roles allow menu items to have predefined behaviors.
+可以通过角色来为menu添加预定义行为。
 
 It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
 
@@ -75,7 +75,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### 实例属性
 
-The following properties are available on instances of `MenuItem`:
+以下为 ` MenuItem ` 实例的可用属性:
 
 #### `menuItem.enabled`
 

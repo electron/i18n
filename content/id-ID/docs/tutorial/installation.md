@@ -1,16 +1,16 @@
-# Installation
+# Instalasi
 
-> Tips for installing Electron
+> Tip untuk memasang Elektron
 
 To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
-npm install electron --save-dev
+npm menginstal elektron - menyimpan-dev
 ```
 
 See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
 
-## Global Installation
+## Instalasi global
 
 You can also install the `electron` command globally in your `$PATH`:
 
@@ -36,7 +36,7 @@ npm install --platform=win32 electron
 
 If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Troubleshooting
+## Penyelesaian masalah
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
@@ -46,13 +46,13 @@ You can also attempt to download Electron directly from [electron/electron/relea
 
 If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Jika kesalahan di atas terus berlanjut, flag [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) mungkin perlu disetel ke true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Pada jaringan yang lebih lambat, disarankan untuk menggunakan flag `--verbose` untuk menunjukkan kemajuan download:
 
 ```sh
 npm install --verbose electron

@@ -1,37 +1,35 @@
-# ipcMain
+# ipc Main
 
-> Communicate asynchronously from the main process to renderer processes.
+> Berkomunikasi asynchronous dari proses utama ke proses renderer.
 
 Proses:  Utama </ 0></p> 
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+` ipc Main </ 0> modul adalah turunan dari
+ <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Bila digunakan dalam proses utama, ia menangani pesan asinkron dan sinkron yang dikirim dari proses renderer (halaman web). Pesan yang dikirim dari penyaji akan dipancarkan ke modul ini.</p>
 
-## Sending Messages
+<h2>Mengirim Pesan</h2>
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+<p>Hal ini juga memungkinkan untuk mengirim pesan dari proses utama ke proses renderer, lihat <a href="web-contents.md#webcontentssendchannel-arg1-arg2-"> isi web.kirim</ 0> untuk informasi lebih lanjut.</p>
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+<ul>
+<li>Saat mengirim pesan, nama acara adalah <code> saluran </ 0> .</li>
+<li>Untuk membalas pesan sinkron, Anda perlu mengatur <code> acara.kembali di nilai </ 0> .</li>
+<li>Untuk mengirim pesan asinkron kembali ke pengirim, Anda dapat menggunakan
+ <code> acara.pengirim.kirim (...) </ 0> .</li>
+</ul>
 
-An example of sending and handling messages between the render and main processes:
+<p>Contoh pengiriman dan penanganan pesan antara proses render dan utama:</p>
 
-```javascript
-// In main process.
-const {ipcMain} = require('electron')
-ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
-})
-
-ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
-  event.returnValue = 'pong'
-})
-```
+<pre><code class="javascript">// Dalam proses utama.
+const {ipcMain} = require ('electron') ipcMain.on ('asynchronous_pesan', ( acara , arg) = & gt; {
+   console.log (arg) // mencetak "ping"
+ Acara.pengirim.kirim ('asynchronous -dulain ',' pong ')}) ipcMain.on (' pesan sinkron ', ( scara, arg) = & gt; {
+ Menghibur.log (arg) // mencetak "ping"
+ Acara .kembali di nilai =' pong '})      
+`</pre> 
 
 ```javascript
-// In renderer process (web page).
+// Dalam proses renderer (halaman web).
 const {ipcRenderer} = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
@@ -41,45 +39,48 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Methods
+## Metode
 
-The `ipcMain` module has the following method to listen for events:
+Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 
-### `ipcMain.on(channel, listener)`
+<h3><code>ipcMain.di (saluran, pendengar)`</h3> 
 
-* `channel` String
-* `listener` Function
+* ` saluran </ 0>  String</li>
+<li><code> pendengar </ 0> Fungsi</li>
+</ul>
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+<p>Mendengarkan <code> saluran </ 0> , ketika sebuah pesan baru tiba <code> pendengar </ 0> akan dipanggil dengan
+ <code> pendengar (acara, args ...) </ 0> .</p>
 
-### `ipcMain.once(channel, listener)`
+<h3><code>ipcMain.sekali (saluran, pendengar)`</h3> 
+    * ` saluran </ 0>  String</li>
+<li><code> pendengar </ 0> Fungsi</li>
+</ul>
 
-* `channel` String
-* `listener` Function
+<p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+<h3><code>ipcMain.pendengar menghapus (saluran, pendengar)`</h3> 
+        * `channel` String
+        * ` pendengar </ 0> Fungsi</li>
+</ul>
 
-### `ipcMain.removeListener(channel, listener)`
+<p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
-* `channel` String
-* `listener` Function
+<h3><code>ipcMain.pendengar menghapus semua( [channel] )`</h3> 
+            * ` saluran </ 0>  String</li>
+</ul>
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+<p>Menghapus pendengar yang ditentukan <code> saluran </ 0> .</p>
 
-### `ipcMain.removeAllListeners([channel])`
+<h2>Objek acara</h2>
 
-* `channel` String
+<p><code> acara </ 0> objek diteruskan ke <code> callback </ 0> memiliki metode berikut:</p>
 
-Removes listeners of the specified `channel`.
-
-## Event object
-
-The `event` object passed to the `callback` has the following methods:
-
-### `event.returnValue`
-
-Set this to the value to be returned in a synchronous message.
-
-### `event.sender`
-
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+<h3><code>acara.kembali di nilai`</h3> 
+                Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
+                
+                ### `acara.pengirim`
+                
+                Mengembalikan isi web </ 0> yang mengirim pesan, Anda dapat memanggil
+ <code> acara.pengirim.kirim </ 0> untuk membalas pesan asinkron, lihat
+ <a href="web-contents.md#webcontentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>

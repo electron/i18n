@@ -1,16 +1,16 @@
-# `sandbox` Option
+# Pilihan `sandbox`
 
-> Create a browser window with a renderer that can run inside Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
+> Membuat sebuah peramban dengan perender yang dapat beroperasi di dalam OS sandbox Chromium. Dengan opsi ini diaktifkan, perender harus berkomunikasi melalui IPC ke proses utama untuk mengakses simpul API. Namun, untuk mengaktifkan OS sandbox Chromium, elektron harus dijalankan dengan argumen baris perintah ` - enable-sandbox `.
 
-One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Salah satu fitur keamanan Chromium adalah bahwa semua kode rendering / JavaScript yang berkedip dijalankan di dalam sandbox. Sanbox (Kotak pasir) ini menggunakan fitur khusus OS untuk memastikan bahwa eksploitasi di dalam proses perender tidak dapat membahayakan sistem.
 
-In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) more information about the sandbox.
+Dengan kata lain, ketika sadbox diaktifkan, perender hanya dapat melakukan perubahan pada sistem dengan mendelegasikan tugas ke proses utama melalui IPC. [Berikut](https://www.chromium.org/developers/design-documents/sandbox) adalah informasi lebih lanjut tentang sandbox.
 
-Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+Karena fitur utama dalam elektron adalah kemampuan untuk menjalankan node.js dalam proses perender (membuatnya lebih mudah untuk mengembangkan aplikasi desktop dengan menggunakan teknologi web), sandbox dinonaktifkan oleh elektron. Hal ini karena sebagian besar API node.js memerlukan akses sistem. ` require()` misalnya, tidak mungkin tanpa izin sistem file, yang mana tidak tersedia di dalam sebuah lingkungan yang disandbox.
 
-Usually this is not a problem for desktop applications since the code is always trusted, but it makes electron less secure than chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+Biasanya ini bukan masalah untuk aplikasi desktop karena kode selalu bisa dipercaya, namun ini membuat elektron kurang aman dibanding chromium untuk menampilkan konten web yang tidak tepercaya. Untuk aplikasi yang membutuhkan keamanan lebih, bendera ` sandbox ` akan memaksa elektron memunculkan perender chromium klasik yang kompatibel dengan sandbox.
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
+Perender sandbox tidak memiliki sebuah lingkungan node.js yang berjalan dan tidak mengekspos API node.js JavaScript ke kode klien. Satu-satunya pengecualian adalah skrip yang sudah termuat (preload), yang memiliki akses ke sebuah subset dari API perender elektron.
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 

@@ -1,6 +1,6 @@
-# ProcessMetric Object
+# ProcessMetric オブジェクト
 
-* `pid` Integer - Process id of the process.
-* `type` String - Process type (Browser or Tab or GPU etc).
-* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
-* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `pid` Integer - プロセスのID。
+* `type` String - プロセスタイプ（ブラウザまたはタブ、GPUなど）。
+* `memory` [MemoryInfo](memory-info.md) - プロセスのメモリ情報。
+* `cpu` [CPUUsage](cpu-usage.md) - プロセスのCPU使用率。

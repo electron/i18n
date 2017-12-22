@@ -1,46 +1,46 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Memblokir sistem agar tidak masuk modus daya-rendah (tidur).
 
 Proses:  Utama </ 0></p> 
 
-For example:
+Sebagai contoh:
 
 ```javascript
-const {powerSaveBlocker} = require('electron')
+const {powerSaveBlocker} = require('electron') 
 
-const id = powerSaveBlocker.start('prevent-display-sleep')
-console.log(powerSaveBlocker.isStarted(id))
+const id = powerSaveBlocker.start('mencegah-tampilan-tidur') 
+console.log(powerSaveBlocker.isStarted(id)) 
 
 powerSaveBlocker.stop(id)
 ```
 
 ## Methods
 
-The `powerSaveBlocker` module has the following methods:
+Modul `powerSaveBlocker` mempunyai metods sebagai berikut:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type. 
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+* `type` String - jenis Power save blocker. 
+  * `prevent-app-suspension` Mencegah aplikasi agar tidak ditangguhkan/dibekukan. Menjaga sistem tetap aktif tetapi mengizinkan layar untuk dimatikan. Contoh kasus penggunaannya: mengunduh sebuah file atau memainkan audio.
+  * `prevent-display-sleep` - Mencegah tampilan agar tidak tidur (gelap). Menjaga sitem dan layar tetap aktif. Contoh kasus penggunaannya: memainkan video.
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker
+Returns `Integer` - ID bloker yang ditetapkan untuk pemblokir daya ini
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+Mulai mencegah sistem agar tidak memasuki mode daya-rendah. Mengembalikan sebuah integer yang mengidentifikasi pemblokir hemat daya.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
+**Catatan:** `prevent-display-sleep` mempunyai prioritas lebih tinggi dari `prevent-app-suspension`. Hanya jenis prioritas tertinggi yang akan berpengaruh. Dengan kata lain, `prevent-display-sleep` selalu mengambil prioritas lebih tinggi dari `prevent-app-suspension`.
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
+Sebagai contoh, sebuah API memanggil A untuk meminta `prevent-app-suspension`, dan yang lainnya memanggil B untuk meminta `prevent-display-sleep`. `prevent-display-sleep` akan digunakan sampai B menghentikan permintaannya. Setelah itu, `prevent-app-suspension` digunakan.
 
 ### `powerSaveBlocker.stop(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Id pemblokir hemat daya dikembalikan dengan `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Menghentikan pemblokir hemat daya yang ditetapkan.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Id pemblokir hemat daya dikembalikan dengan `powerSaveBlocker.start`.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+Returns `Boolean` - Yang mana sesuai dengan `powerSaveBlocker` pada saat dimulai.

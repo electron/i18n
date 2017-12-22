@@ -2,7 +2,7 @@
 
 > Configure local and global keyboard shortcuts
 
-## Local Shortcuts
+## Yerel kısayollar
 
 You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
@@ -25,9 +25,9 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## Genel kısayollar
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Uygulama klavye odaklanmadığında bile sen [globalShortcut](../api/global-shortcut.md) modülünü klavye olaylarını araştırmak için kullanabilirsin.
 
 ```js
 const {app, globalShortcut} = require('electron')

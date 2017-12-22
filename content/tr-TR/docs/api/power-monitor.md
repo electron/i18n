@@ -19,21 +19,21 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Olaylar
 
 The `powerMonitor` module emits the following events:
 
-### Event: 'suspend'
+### Olay: 'askıya alındı'
 
-Emitted when the system is suspending.
+Sistem askıya alındığında yayıldı.
 
-### Event: 'resume'
+### Olay: 'devam'
 
-Emitted when system is resuming.
+Sistem devam ettiğinde yayılan.
 
 ### Event: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+Sistem AC güç değiştiğinde yayılan.
 
 ### Event: 'on-battery' *Windows*
 

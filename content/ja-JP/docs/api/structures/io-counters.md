@@ -1,8 +1,8 @@
-# IOCounters Object
+# IOCounters オブジェクト
 
-* `readOperationCount` Number - The number of I/O read operations.
-* `writeOperationCount` Number - The number of I/O write operations.
+* `readOperationCount` Number - I/O読み取り操作の数。
+* `writeOperationCount` Number - I/O書き込み操作の数。
 * `otherOperationCount` Number - Then number of I/O other operations.
-* `readTransferCount` Number - The number of I/O read transfers.
-* `writeTransferCount` Number - The number of I/O write transfers.
+* `readTransferCount` Number - I/Oリード転送数。
+* `writeTransferCount` Number - I/O書き込み転送の回数。
 * `otherTransferCount` Number - Then number of I/O other transfers.

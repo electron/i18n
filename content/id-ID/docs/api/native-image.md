@@ -1,64 +1,60 @@
-# nativeImage
+# asli
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Buat ikon nampan, dok , dan aplikasi menggunakan file PNG atau JPG.
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Di Elektron , untuk API yang mengambil gambar, Anda dapat melewati jalur file atau ` NativeImage </ 0> . Gambar kosong akan digunakan saat <code> null </ 0> dilewatkan.</p>
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+<p>Misalnya, saat membuat baki atau mengatur ikon jendela, Anda dapat melewati jalur file gambar sebagai <code> String </ 0> :</p>
 
-```javascript
-const {BrowserWindow, Tray} = require('electron')
+<pre><code class="javascript">const {BrowserWindow, Tray} = require ('electron') const appIcon = Baki baru ('/ Users / someone / images / icon.png') biarkan menang = new BrowserWindow ({icon: '/ Users / someone / images / window .png '}) console.log (appIcon, win)
+`</pre> 
 
-const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
-console.log(appIcon, win)
-```
+Atau baca gambar dari clipboard yang mengembalikan ` NativeImage </ 0> :</p>
 
-Or read the image from the clipboard which returns a `NativeImage`:
+<pre><code class="javascript">const {clipboard, Tray} = require ('electron') const image = clipboard.readImage () const appIcon = Baki baru (gambar) console.log (appIcon)
+`</pre> 
 
-```javascript
-const {clipboard, Tray} = require('electron')
-const image = clipboard.readImage()
-const appIcon = new Tray(image)
-console.log(appIcon)
-```
+## Format yang Didukung
 
-## Supported Formats
+Saat ` PNG </ 0> dan <code> JPEG </ 0> format gambar yang didukung. <code> PNG </ 0> direkomendasikan karena dukungannya terhadap transparansi dan kompresi tanpa rugi.</p>
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+<p>Pada Windows , Anda juga dapat memuat ikon <code> ICO </ 0> dari jalur file. Untuk kualitas visual terbaik, disarankan untuk menyertakan setidaknya ukuran berikut di:</p>
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+<ul>
+<li>Small icon
 
-* Small icon 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
-* Large icon 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
-* 256x256
+<ul>
+<li>16x16 (skala DPI 100%)</li>
+<li>20x20 (skala DPI 125%)</li>
+<li>24x24 (skala DPI 150%)</li>
+<li>32x32 (skala DPI 200%)</li>
+</ul></li>
+<li>Ikon besar
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+<ul>
+<li>32x32 (skala DPI 100%)</li>
+<li>40x40 (skala DPI 125%)</li>
+<li>48x48 (skala DPI 150%)</li>
+<li>64x64 (skala DPI 200%)</li>
+</ul></li>
+<li>256x256</li>
+</ul>
 
-## High Resolution Image
+<p>Periksa <em> persyaratan Ukuran </ 0> di <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx"> artikel ini </ 1> .</p>
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+<h2>Gambar Resolusi Tinggi</h2>
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+<p>Pada platform yang memiliki dukungan DPI tinggi seperti display Apple Retina, Anda dapat menambahkan <code> @ 2x </ 0> setelah nama file dasar gambar untuk menandainya sebagai gambar beresolusi tinggi.</p>
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+<p>Misalnya jika <code> icon.png </ 0> adalah gambar normal yang memiliki resolusi standar, maka
+ <code> icon@2x.png </ 0> akan diperlakukan sebagai gambar beresolusi tinggi yang memiliki densitas DPI ganda .</p>
 
-```text
-images/
-├── icon.png
-├── icon@2x.png
-└── icon@3x.png
-```
+<p>Jika Anda ingin mendukung display dengan kepadatan DPI yang berbeda pada saat bersamaan, Anda dapat meletakkan gambar dengan ukuran berbeda di folder yang sama dan menggunakan nama file tanpa sufiks DPI. Sebagai contoh:</p>
+
+<pre><code class="text">gambar / ├── icon.png ├── icon@2x.png └── icon@3x.png
+`</pre> 
 
 ```javascript
 const {Tray} = require('electron')
@@ -66,10 +62,10 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+Menyusul sufiks DPI juga didukung:
 
 * `@1x`
-* `@1.25x`
+* `@ 1.25x`
 * `@1.33x`
 * `@1.4x`
 * `@1.5x`
@@ -80,37 +76,39 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## Gambar Template
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Gambar template terdiri dari warna hitam dan bening (dan alpha channel). Gambar template tidak dimaksudkan untuk dijadikan gambar standalone dan biasanya dicampur dengan konten lain untuk menciptakan tampilan akhir yang diinginkan.
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+Kasus yang paling umum adalah dengan menggunakan gambar template untuk ikon menu bar sehingga bisa menyesuaikan dengan menu bar terang dan gelap.
 
-**Note:** Template image is only supported on macOS.
+** Catatan: </ 0> Gambar template hanya didukung pada macOS .</p> 
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+Untuk menandai gambar sebagai gambar template, nama filenya harus diakhiri dengan kata ` Template </ 0> . Sebagai contoh:</p>
 
-* `xxxTemplate.png`
-* `xxxTemplate@2x.png`
+<ul>
+<li><code>xxxTemplate.png`</li> 
 
-## Methods
+* `xxxTemplate@2x.png`</ul> 
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+## Metode
 
-### `nativeImage.createEmpty()`
+Itu ` gambar asli </ 0> modul memiliki metode berikut, yang semuanya mengembalikan instance dari <code> NativeImage </ 0> kelas:</p>
 
-Returns `NativeImage`
+<h3><code>gambar asli.membuat kosong()`</h3> 
 
-Creates an empty `NativeImage` instance.
+Mengembalikan ` gambar asli </ 0></p>
+
+<p>Creates an empty <code>NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
 * ` path </ 0>  String</li>
 </ul>
 
-<p>Returns <code>NativeImage`</p> 
- Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
- 
+<p>Mengembalikan <code> gambar asli </ 0></p>
+
+<p>Creates a new <code>NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.</p> 
  ```javascript
 const nativeImage = require('electron').nativeImage
 
@@ -123,17 +121,17 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Mengembalikan ` gambar asli </ 0></p>
 
-Creates a new `NativeImage` instance from `buffer`.
+<p>Creates a new <code>NativeImage` instance from `buffer`.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
 * `dataURL` String
 
-Returns `NativeImage`
+Mengembalikan ` gambar asli </ 0></p>
 
-Creates a new `NativeImage` instance from `dataURL`.
+<p>Creates a new <code>NativeImage` instance from `dataURL`.
 
 ## Class: NativeImage
 
@@ -207,20 +205,28 @@ Returns `Boolean` - Whether the image is a template image.
 
 Returns `NativeImage` - The cropped image.
 
-#### `image.resize(options)`
+#### `gambar.mengubah ukuran (pilihan)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* ` pilihan </ 0> Objek
+  * <code> lebar </ 0>  Integer (opsional) - Default ke lebar gambar.
+ * <code> tinggi </ 0>  bilangan bulat (opsional) - Default ke tinggi gambar
+  * <code> kualitas </ 0>  String (opsional) - Kualitas gambar mengubah ukuran yang diinginkan.
+   Nilai yang mungkin <code> bagus </ 0> , <code> lebih baik </ 0> atau <code> terbaik </ 0> . Defaultnya adalah <code> terbaik </ 0> .
+   Nilai ini mengekspresikan kualitas / kecepatan tradeoff yang diinginkan. Mereka diterjemahkan
+    ke dalam metode algoritma khusus yang bergantung pada kemampuan
+    (CPU, GPU) dari platform yang mendasarinya. Ada kemungkinan ketiga metode
+    dipetakan ke algoritma yang sama pada platform tertentu.</li>
+</ul>
 
-Returns `NativeImage` - The resized image.
+<p>Mengembalikan <code> gambar asli </ 0> - gambar ukurannya.</p>
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+<p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
-#### `image.getAspectRatio()`
+<h4><code>image.getAspectRatio()`</h4> 
+ Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
-Returns `Float` - The image's aspect ratio.
-
-#### `image.addRepresentation(options)`
-
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
-
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+<h4><code>image.addRepresentation(options)`</h4> 
+ 
+ * `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+ 
+ Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.

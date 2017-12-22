@@ -1,8 +1,8 @@
 # `File` Nesne
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+> HTML5 `File` API kullanarak dosya sistemi içerisindeki dosyalarla çalışın.
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+DOM'un File arayüzü, HTML5'in dosya API'i ile işletim sistemi seviyesinde dosyalarla iş yapmak için soyutlama sağlar. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
 
 Example of getting a real path from a dragged-onto-the-app file:
 

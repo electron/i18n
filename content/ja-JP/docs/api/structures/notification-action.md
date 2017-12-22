@@ -1,7 +1,7 @@
-# NotificationAction Object
+# NotificationAction オブジェクト
 
 * `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* `text` String - (optional) 指定されたアクションのラベル。
 
 ## Platform / Action Support
 

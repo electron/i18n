@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# Objeto PrinterInfo
 
 * `name` String
 * `description` String
-* `status` Number
-* `isDefault` Boolean
+* `status` Número
+* `isDefault` Buleano
 
-## Example
+## Ejemplo
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+A continuación está un ejemplo de algunas de las opciones adicionales que pueden ser establecidas que pueden ser diferentes en cada plataforma.
 
 ```javascript
 {

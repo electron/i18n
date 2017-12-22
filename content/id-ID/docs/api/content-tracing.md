@@ -1,129 +1,129 @@
-# contentTracing
+# pelacakan konten
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Kumpulkan data pelacakan dari modul konten Chromium untuk menemukan kemacetan kinerja dan operasi yang lambat.
 
 Proses:  Utama </ 0></p> 
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Modul ini tidak menyertakan antarmuka web sehingga Anda perlu membuka `chrome://tracing/` di browser Chrome dan muat file yang dihasilkan untuk melihat hasil.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Catatan:** Anda tidak boleh menggunakan modul ini sampai acara ` siap` dari aplikasi modul dipancarkan.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const {app, contentTracing} = require ('elektron')
 
-app.on('ready', () => {
-  const options = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full,enable-sampling'
-  }
+app.on ('siap', () = > {
+  pilihan const = {
+    categoryFilter: '*',
+    traceOptions: 'record-until-full, enable-sampling'
+  }
 
-  contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+  contentTracing.startRecording (pilihan, () = > {
+    console.log ('penelusuran dimulai')
 
-    setTimeout(() => {
-      contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
-      })
-    }, 5000)
-  })
+    setTimeout (() => {
+      contentTracing.stopRecording ('', (path) = > {
+        console.log ('Tracing data direkam ke' + path)
+      })
+    }, 5000)
+  })
 })
 ```
 
 ## Methods
 
-The `contentTracing` module has the following methods:
+Modul ` contentTracing ` memiliki metode berikut:
 
-### `contentTracing.getCategories(callback)`
+### `contentTracing.getCategories (callback)`
 
 * `callback` Fungsi 
-  * `categories` String[]
+  * `kategori ` String []
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Dapatkan satu kelompok kategori. Kelompok kategori dapat berubah sebagai jalur kode baru tercapai.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Setelah semua proses anak mengakui permintaan`getCategories` `callback` dipanggil dengan sekelompok grup kategori.
 
-### `contentTracing.startRecording(options, callback)`
+### `contentTracing.startRecording (pilihan,callback)`
 
-* `pilihan` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+* `pilihan` Objek 
+  * `kategori Filter ` String
+  * `traceOptions ` String
+* `callback ` Fungsi
 
-Start recording on all processes.
+Mulai rekaman pada semua proses.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman. The `callback ` akan menjadi dipanggil sekali semua proses anak telah mengakui permintaan ` startRecording `.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter ` adalah filter untuk mengontrol grup kategori apa yang seharusnya ditelusuri. Filter dapat memiliki awalan `-` opsional untuk mengecualikan grup kategori yang berisi kategori yang cocok. Memiliki keduanya termasuk dan dikecualikan pola kategori dalam daftar yang sama tidak didukung.
 
 Contoh:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1,-excluded_category2`
+* `"-excluded_category1, -kategori yang dikecualikan 2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions ` mengontrol jenis pelacakan yang diaktifkan, ini adalah koma-delimited daftar. Pilihan yang mungkin adalah:
 
-* `record-until-full`
-* `record-continuously`
+* `record-sampai-penuh`
+* `rekam terus menerus`
 * `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
+* `mengaktifkan-contoh`
+* `mengaktifkan-systrace`
 
-The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+3 pilihan pertama adalah mode perekaman jejak dan karenanya saling eksklusif. Jika lebih dari satu mode perekaman jejak muncul di string ` traceOptions ` yang terakhir diutamakan. Jika tidak ada mode perekaman jejak ditentukan, mode perekaman `record-until-full`.
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+Pilihan jejak pertama akan diatur ulang ke opsi default (`record_mode` diatur ke `record-until-full `, `enable_sampling `dan` enable_systrace ` set ke `false`) sebelum pilihan yang diuraikan dari `traceOptions` diterapkan di dalamnya.
 
-### `contentTracing.stopRecording(resultFilePath, callback)`
+### `isi Tracing.stop Recording (hasil File Path, callback)`
 
-* `resultFilePath` String
+* `resultFilePath ` String
 * `callback` Fungsi 
-  * `resultFilePath` String
+  * `resultFilePath ` String
 
-Stop recording on all processes.
+Berhenti merekam pada semua proses.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini membantu meminimalkan overhead runtime Dari penelusuran sejak mengirim data jejak melalui IPC bisa menjadi operasi yang mahal. Begitu, Untuk mengakhiri penelusuran, kita harus secara asinkron meminta semua proses anak untuk menyiram apapun tertunda jejak data.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Setelah semua proses anak mengakui permintaan `stopRecording` `callback ` akan dipanggil dengan file yang berisi data yang dilacak.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sementara Path file yang sebenarnya akan dilewatkan ke `callback` jika tidak `null`.
 
-### `contentTracing.startMonitoring(options, callback)`
+### `isi Tracing.startMonitoring (pilihan, callback)`
 
-* `pilihan` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+* `pilihan` Objek 
+  * `kategori Filter ` String
+  * `traceOptions ` String
+* `callback ` Fungsi
 
-Start monitoring on all processes.
+Mulai memonitor semua proses.
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+Pemantauan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan `startMonitoring`.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+Setelah semua proses anak telah mengakui permintaan `startMonitoring` `callback` akan dipanggil.
 
-### `contentTracing.stopMonitoring(callback)`
+### `isi Tracing.stop Monitoring (callback)`
 
-* `callback` Function
+* `callback ` Fungsi
 
-Stop monitoring on all processes.
+Hentikan pemantauan pada semua proses.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Setelah semua proses anak telah mengakui `stopMonitoring` meminta `callback` dipanggil.
 
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `isi Tracing.capture Monitoring Snapshot (hasil File Path, callback)`
 
-* `resultFilePath` String
+* `resultFilePath ` String
 * `callback` Fungsi 
-  * `resultFilePath` String
+  * `resultFilePath ` String
 
-Get the current monitoring traced data.
+Dapatkan data jejak pemantauan saat ini.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini karena mungkin harganya mahal operasi untuk mengirim jejak data melalui IPC dan kami ingin menghindari yang tidak dibutuhkan runtime overhead dari penelusuran. Jadi, untuk mengakhiri penelusuran, kita harus secara asinkron bertanya semua proses anak untuk menyiram data jejak yang tertunda.
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Setelah semua proses anak mengenali `captureMonitoringSnapshot` minta `callback` akan dipanggil dengan file yang berisi data yang dilacak.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Fungsi 
-  * `value` Number
-  * `percentage` Number
+  * `nilai` Nomor
+  * `persentase` Nomor
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+Dapatkan penggunaan maksimum di seluruh proses buffer jejak sebagai persentase dari penuh negara. Bila nilai TraceBufferUsage ditentukan, maka `callback` adalah bernama.

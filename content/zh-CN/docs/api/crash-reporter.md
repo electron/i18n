@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
-The following is an example of automatically submitting a crash report to a remote server:
+以下是一个自动提交崩溃日志到服务器的示例
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,7 +17,7 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+构建一个用于接受和处理崩溃日志的服务，你需要以下工程
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)

@@ -1,7 +1,7 @@
-# UploadFile Object
+# UploadFile オブジェクト
 
 * `type` String - `file`.
-* `filePath` String - Path of file to be uploaded.
-* `offset` Integer - Defaults to ``.
-* `length` Integer - Number of bytes to read from `offset`. Defaults to ``.
-* `modificationTime` Double - Last Modification time in number of seconds sine the UNIX epoch.
+* `filePath` String - アップロードするファイルのパス。
+* `offset` Integer - デフォルトは``です。
+* `length` Integer - `offset`から読み取るバイト数。 デフォルトは``です。
+* `modificationTime` Double - UNIX時間を秒数で表した最終変更時刻。

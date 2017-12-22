@@ -1,10 +1,10 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> 访问可用于从桌面上使用 [` navigator.mediaDevices.getUserMedia `] API 捕获的音频和视频的媒体源信息。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+下面的示例演示如何从标题为 ` Electron ` 的桌面窗口捕获视频:
 
 ```javascript
 // In the renderer process.
@@ -41,9 +41,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+若要从 ` desktopCapturer ` 提供的源捕获视频, 则传递给 [` navigator.mediaDevices.getUserMedia `] 的约束必须包括 ` chromeMediaSource: "desktop" ` 和 ` audio: false `。
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+要从整个桌面同时捕获音频和视频, 传递给 [` navigator.mediaDevices.getUserMedia `] 的约束必须包括 ` chromeMediaSource: ' desktop ' `, 同时用于 ` audio ` 和 ` video `, 但不应包括 `chromeMediaSourceId ` 约束。
 
 ```javascript
 const constraints = {
@@ -62,17 +62,17 @@ const constraints = {
 
 ## 方法
 
-The `desktopCapturer` module has the following methods:
+` desktopCapturer ` 模块有以下方法:
 
 ### `desktopCapturer.getSources(options, callback)`
 
 * `options` Object 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
+  * ` types `String[]-列出要捕获的桌面源类型的字符串数组, 可用类型为 ` screen ` 和 ` window `。
+  * ` thumbnailSize `[ Size ](structures/size.md)(可选)-媒体源缩略图应缩放到的大小。默认值为 ` 150 ` x ` 150 `。
 * `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
-Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
+开始收集所有有效桌面媒体源的信息，当结束时将调用 `callback(error, sources)`
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+`sources` 是 [`DesktopCapturerSource`](structures/desktop-capturer-source.md)对象数组, 每个`DesktopCapturerSource` 代表一个屏幕或一个可捕获的独立窗口。

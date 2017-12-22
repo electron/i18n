@@ -34,7 +34,7 @@ view.webContents.loadURL('https://electron.atom.io')
 * `options` Object (optional) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
-### Static Methods
+### 静的メソッド
 
 #### `BrowserView.fromId(id)`
 

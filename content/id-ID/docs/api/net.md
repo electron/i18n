@@ -1,24 +1,27 @@
-# net
+# bersih
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Masalahkan permintaan HTTP / HTTPS menggunakan perpustakaan jaringan asli Chromium
 
 Proses:  Utama </ 0></p> 
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+The `` net </ 0> modul adalah client-side API untuk mengeluarkan HTTP (S) permintaan. Hal ini mirip dengan modul < N > HTTP </ 0> dan
+ <a href="https://nodejs.org/api/https.html"> HTTPS </ 1> dari Node.js namun menggunakan library jaringan asli Chromium dan bukan implementasi Node.js, yang menawarkan dukungan yang lebih baik untuk proxy web.</p>
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+<p>Berikut ini adalah daftar yang tidak lengkap mengapa Anda dapat mempertimbangkan untuk menggunakan 
+modul <code> net </ 0> daripada modul Node.js asli:</p>
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+<ul>
+<li>Manajemen otomatis konfigurasi sistem proxy, dukungan protokol wpad dan file konfigurasi proxy pac.</li>
+<li>Terowongan otomatis permintaan HTTPS.</li>
+<li>Dukungan untuk otentikasi proxy menggunakan skema dasar, ringkasan, NTLM, Kerberos atau negosiasi otentikasi.</li>
+<li>Dukungan untuk proxy pemantauan lalu lintas: Proxy seperti fiddler yang digunakan untuk kontrol akses dan pemantauan.</li>
+</ul>
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+<p>The <code> net </ 0> modul API telah secara khusus dirancang untuk meniru, sedekat mungkin, akrab Node.js API . Komponen API termasuk kelas, metode, dan nama-nama acara yang mirip dengan yang sering digunakan dalam Node.js.</p>
 
-For instance, the following example quickly shows how the `net` API might be used:
+<p>Misalnya, contoh berikut dengan cepat menunjukkan bagaimana <code> net </ 0>  API dapat digunakan:</p>
 
-```javascript
-const {app} = require('electron')
+<pre><code class="javascript">const {app} = require('electron')
 app.on('ready', () => {
   const {net} = require('electron')
   const request = net.request('https://github.com')
@@ -34,20 +37,22 @@ app.on('ready', () => {
   })
   request.end()
 })
-```
+``</pre> 
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+Omong-omong, hampir sama dengan bagaimana Anda biasa menggunakan modul  HTTP </ 0> /  HTTPS </ 1> dari Node.js</p> 
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+Itu` net </ 0>  API hanya dapat digunakan setelah aplikasi memancarkan <code> siap </ 0>  acara . Mencoba untuk menggunakan modul sebelum <code> siap </ 0>  acara akan melemparkan kesalahan.</p>
 
-## Methods
+<h2>Metode</h2>
 
-The `net` module has the following methods:
+<p>Itu <code> net </ 0> modul memiliki metode berikut:</p>
 
-### `net.request(options)`
+<h3><code>net.pilihan (pilihan)`</h3> 
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
-Returns [`ClientRequest`](./client-request.md)
+Mengembalikan  permintaan clien</ 0></p>
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+<p>Menciptakan <a href="./client-request.md"><code> permintaan klien </ 0> misalnya menggunakan disediakan
+ <code> Pilihan </ 1> yang langsung diteruskan ke <code> permintaan klien </ 1> konstruktor.
+Metode <code> net.request </ 0> akan digunakan untuk mengeluarkan permintaan HTTP yang aman dan tidak aman sesuai dengan skema protokol yang ditentukan di objek <code> options </ 0> .</p>

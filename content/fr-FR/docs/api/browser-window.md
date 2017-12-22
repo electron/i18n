@@ -43,11 +43,11 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Cet événement est généralement émis après l’événement `did-finish-load`, mais pour les pages avec beaucoup de ressources distantes, il peut être émis avant l’événement `did-finish-load`.
 
 ### Setting `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Pour une application complexe, l’événement `ready-to-show` pourrait être émis trop tard, donnant une impression de lenteur. Dans ce cas, il est recommandé d'afficher la fenêtre immédiatement et d'utiliser un `backgroundColor` proche de la couleur de fond de votre application :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,7 +56,7 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Notez que même pour les applications qui utilisent l'évènement `ready-to-show`, il est toujours recommandé de définir `backgroundColor` pour avoir un rendu plus naturel.
 
 ## Fenêtres parent et enfant
 

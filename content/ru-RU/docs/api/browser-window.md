@@ -56,7 +56,7 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Обратите внимание, что даже для приложений, использующих `ready-to-show` события, по-прежнему рекомендуется установить `backgroundColor` чтобы сделать приложение более нативным.
 
 ## Родительские и дочерние окна
 

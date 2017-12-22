@@ -10,7 +10,7 @@ To load an extension in Electron, you need to download it in Chrome browser, loc
 
 Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
 
-1. Install it in Chrome browser.
+1. Chrome tarayıcısna yükle.
 2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
 3. Find out filesystem location used by Chrome for storing extensions: 
     * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
@@ -26,7 +26,7 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 
 The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
 
-## Supported DevTools Extensions
+## Desteklenen DevTools Eklentileri
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
@@ -40,7 +40,7 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### DevTools Eklentisi çalışmıyorsa ne yap malıyım?
 
 First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
 

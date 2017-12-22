@@ -1,4 +1,4 @@
-# MemoryUsageDetails Object
+# MemoryUsageDetails オブジェクト
 
 * `count` Number
 * `size` Number

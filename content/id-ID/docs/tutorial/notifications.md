@@ -1,6 +1,6 @@
 # Notifications (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Ketiga sistem operasi tersebut menyediakan sarana bagi aplikasi untuk mengirim pemberitahuan ke pengguna. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
 
 **Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
 
@@ -19,10 +19,10 @@ While code and user experience across operating systems are similar, there are s
 ## Windows
 
 * On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Namun perlu dicatat bahwa itu tidak perlu disematkan ke layar Start.
+* Pada Windows 7, notifikasi bekerja melalui penerapan khusus yang secara visual menyerupai yang asli pada sistem yang lebih baru.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+Selanjutnya, pada Windows 8, panjang maksimum untuk badan notifikasi adalah 250 karakter, dengan tim Windows merekomendasikan agar pemberitahuan harus disimpan hingga 200 karakter. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
 ### Advanced Notifications
 

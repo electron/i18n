@@ -1,75 +1,75 @@
 # Ortam Değişkenleri
 
-> Control application configuration and behavior without changing code.
+> Uygulama ayarlarını ve davranışını koda dokunmadan kontrol edin.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Bazı Electron davranışları, komut satırı parametreleri ve uygulamanın kendisinin kodundan daha önce başladığı için ortam değişkenleri tarafından kontrol edilir.
 
-POSIX shell example:
+POSIX kabuk örneği:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windows konsol örneği:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## Production Variables
+## Canlı ortam değışkenleri
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+Aşağıdaki ortam değişkenleri, Electron uygulamalarının çalışma anında kulllanılır.
 
 ### `GOOGLE_API_KEY`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Electron Google'ın geocoding servisine istek atarken kullanmak üzere kodun içine gömülmüş bir API anahtarı kullanır. Bu API anahtarı Electron'un her versiyonunda olduğu için, bu anahtara ait kota genelde aşılır. Bu durumdan kurtulmak için, Google API anahtarınızı ortam değişkeni olarak sağlayabilirsiniz. Tarayıcı geocoding istekleri atmadan önce ana sürece aşağıdakı kodu yerleştirin:
 
 ```javascript
-process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
+process.env.GOOGLE_API_KEY = 'API_ANAHTARINIZI_BURAYA_YAZIN'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
+Google API anahtarını nasıl elde edeceğinizi öğrenmek için [bu](https://www.chromium.org/developers/how-tos/api-keys) sayfayı ziyaret edin.
 
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+Varsayılan olarak, yeni yaratılmış bir Google API anahtarı geocoding istekleri yapmaya müsait olmayabilir. Geocoding isteklerini açmak içinse [bu](https://console.developers.google.com/apis/api/geolocation/overview) sayfayı ziyaret edebilirsiniz.
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+ASAR desteğini iptal eder. Bu değişken sadece `ELECTRON_RUN_AS_NODE`'u kullanan çoklanmış alt (çocuk) süreçlerde veya yavrulayan çocuk süreçlerde desteklenir.
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+Süreçi normal bir Node.js süreci olarak başlat.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+O anki konsol oturumuna kendini bağlama.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+Linux'taki global menu bar'ını kullanma.
 
-## Development Variables
+## Geliştirme değişkenleri
 
-The following environment variables are intended primarily for development and debugging purposes.
+Aşağıdaki ortam değişkenleri birincil olarak geliştirme ve hata ayıklama niyetiyle kullanılır.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Chrome'un kendi içindeki kayıtlarını konsola basar.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Electron ASAR dosyasından okuduğunda, okunanları `tmpdir` altına kaydeder. Ortaya çıkan dosya ASAR modülüne optimizasyon için sağlanabilir.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Electron çöktüğünde yığıt izlerini konsola basar.
 
-This environment variable will not work if the `crashReporter` is started.
+Bu ortam değişkeni `crashReporter` başlamış durumdaysa çalışmaz.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Electron çöktüğünde windows'un çökme diyaloğunu gösterir.
 
-This environment variable will not work if the `crashReporter` is started.
+Bu ortam değişkeni `crashReporter` başlamış durumdaysa çalışmaz.

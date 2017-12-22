@@ -1,40 +1,40 @@
-## Class: MenuItem
+## Sınıf: MenuItem
 
-> Add items to native application menus and context menus.
+> Yerel uygulama menülerine ve bağlam menülerine öğeler ekleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+[`Menu`](menu.md) örnekleri için bkz.
 
 ### `new MenuItem(options)`
 
-* `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+* `options` Nesnesi 
+  * `click` Function (isteğe bağlı) - menuye basıldığı zaman `fonksiyon click(menuItem, browserWindow, event) ile birlikte` çağırılmış olacak. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * `role` String (isteğe bağlı) - `click` özelliğinin yok sayılacağı belirtildiği zaman menu öğesinin eylemini belirtir. [roles](#roles) bkz.
+  * `type` String (isteğe bağlı) - `normal`, `separator`, `submenu`, `checkbox` veya `radio` olabilir.
+  * `label` String - (isteğe bağlı)
+  * `sublabel` String - (isteğe bağlı)
+  * `accelerator` [Accelerator](accelerator.md) (isteğe bağlı)
+  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı)
+  * `enabled` Boolean (isteğe bağlı) - Eğer değer false ise, menü öğesi soluk ve tıklanamaz olacaktır.
+  * `visible` Boolean (optional) - Eğer değer false ise, menü öğesi tamamen görünmez olacaktır.
+  * `checked` Boolean (isteğe bağlı) - Yalnızca `checkbox` veya `radio` türü menü öğeleri için belirtilmiş olmalıdır.
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (isteğe bağlı) - `submenu` türü menu öğeleri için tanımlanmalıdır. Eğer `submenu` belirtilmişse `type: 'submenu'` atlanmış olabilir. Eğer değer bir `menü` değilse o zaman bu otomatik olarak `Menu.buildFromTemplate` kullanarak birine dönüştürülür.
+  * `id` String (isteğe bağlı) - Tek bir menu içinde benzersiz. Eğer tanımlanmışsa o zaman öğe pozisyon özelliğiyle bu öğeye referans gibi kullanılabilir.
+  * `position` String (isteğe bağlı) - Bu alan iyi ayarlanmış belirli bir menü içinde özel bir konum sağlamakta.
 
-### Roles
+### Roller
 
-Roles allow menu items to have predefined behaviors.
+Roller, menü öğelerinin önceden tanımlanmış davranışlara sahip olmalarını sağlar.
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktansa standart rolle eşleşen herhangi bir menü öğesi için `role` belirtmek en iyisidir. Yerleşik `role` davranışı en iyi doğal deneyimini verecektir.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+`label` ve `accelerator` değerleri bir `rol` kullanırken isteğe bağlıdır ve her platform için uygun değerleri varsayılan olur.
 
-The `role` property can have following values:
+`role` özelliği aşağıdaki değerlere sahiptir:
 
 * `undo`
 * `redo`
@@ -44,61 +44,61 @@ The `role` property can have following values:
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* ` minimize ` - Geçerli pencereyi simge durumuna küçültme
+* `close` - Geçerli pencereyi kapatma
+* ` quit ` - Uygulamadan çıkma
+* `reload` - Geçerli pencereyi yeniden yükleme
+* `forcereload` - Önbelleği yok sayarak geçerli pencereyi yeniden yükleme.
+* `toggledevtools` - Geliştirici araçlarını geçerli pencerede aç / kapat
+* `togglefullscreen` - Geçerli pencerede tam ekran modunu aç / kapat
+* `resetzoom` - Odaklanmış sayfanın yakınlaştırma düzeyini orijinal boyutuna sıfırlayın
+* `zoomin` - Odaklanmış sayfayı % 10 yakınlaştırma
+* `zoomout` - Odaklanmış sayfayı% 10 oranında uzaklaştırma
+* `editMenu` - Tüm varsayılan "Düzenle" menüsü (Geri alma, Kopyalama, vb.)
+* `windowMenu` - Tüm varsayılan "Pencere" menüsü (Simge durumuna küçült, kapat, vb.)
 
-The following additional roles are available on macOS:
+Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `about` - `orderFrontStandardAboutPanel` eylemine eşleme
+* `hide` - `hide` eylemine eşleme
+* `hideothers` - `hideOtherApplications` eylemine eşleme
+* `unhide` - `unhideAllApplications` eylemine eşleme
+* `startspeaking` - `startSpeaking` eylemine eşleme
+* `stopspeaking` - `stopSpeaking` eylemine eşleme
+* `front` - `arrangeInFront` eylemine eşleme
+* `zoom` - `performZoom` eylemine eşleme
+* ` window ` - Alt menü bir "Pencere" menüsüdür
+* `help` - Alt menü bir "Yardım" menüsüdür
+* `services` - Alt menü bir "Servisler" menüsüdür
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+MacOS'ta bir `role` belirtirken, menü öğesini etkileyecek seçenekler yalnızca `label` ve `accelerator`'dür. Diğer tüm seçenekler yok sayılır.
 
-### Instance Properties
+### Örnek özellikleri
 
-The following properties are available on instances of `MenuItem`:
+Aşağıdaki özellikler `MenuItem` örneklerinde mevcuttur:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Öğenin etkin olup olmadığını gösteren bir `Boolean` vardır, bu özellik dinamik olarak değiştirilebilir.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Öğenin görünür olup olmadığını gösteren bir `Boolean` vardır, bu özellik dinamik olarak değiştirilebilir.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Öğenin işaretli olup olmadığını gösteren bir `Boolean` vardır, bu özellik dinamik olarak değiştirilebilir.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Bir `checkbox` menü öğesi seçildiğinde `checked` özelliği etkinleştirip devre dışı bırakacaktır.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Bir `radio` menü öğesi tıklandığında `checked` özelliğini açar ve bu özelliğin aynı menüdeki tüm bitişik öğeler için kapatılmasına neden olur.
 
-You can add a `click` function for additional behavior.
+Ek davranış için bir `click` işlevi ekleyebilirsiniz.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+Görünen menü öğelerini bir `String` temsil eder
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+MenuItem bir tıklama olayı aldığında tetiklenen bir `Function`'dır

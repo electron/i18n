@@ -1,69 +1,72 @@
-# ipcRenderer
+# ipc Renderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Berkomunikasi secara asynchronous dari proses renderer ke proses utama.
 
 Proses:  Renderer </ 0></p> 
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+The ` ipcRenderer </ 0> modul adalah turunan dari
+ <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Ini menyediakan beberapa metode sehingga Anda dapat mengirim pesan sinkron dan asinkron dari proses render (halaman web) ke proses utama.  Anda juga bisa menerima balasan dari proses utama.</p>
 
-See [ipcMain](ipc-main.md) for code examples.
+<p>Lihat <a href="ipc-main.md"> ipcMain </ 0> untuk contoh kode.</p>
 
-## Methods
+<h2>Metode</h2>
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+<p>The <code> ipcRenderer </ 0> modul memiliki metode berikut untuk mendengarkan acara dan mengirim pesan:</p>
 
-### `ipcRenderer.on(channel, listener)`
+<h3><code>ipcRenderer.on (saluran, pendengar)`</h3> 
 
-* `channel` String
-* `listener` Function
+* ` saluran </ 0>  String</li>
+<li><code> pendengar </ 0> Fungsi</li>
+</ul>
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+<p>Mendengarkan <code> saluran </ 0> , ketika sebuah pesan baru tiba <code> pendengar </ 0> akan dipanggil dengan
+ <code> pendengar (acara, args ...) </ 0> .</p>
 
-### `ipcRenderer.once(channel, listener)`
+<h3><code>ipcRenderer.sekali (saluran, pendengar)`</h3> 
+    * ` saluran </ 0>  String</li>
+<li><code> pendengar </ 0> Fungsi</li>
+</ul>
 
-* `channel` String
-* `listener` Function
+<p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+<h3><code>ipcRenderer.pendengar menghapus (saluran, pendengar)`</h3> 
+        * ` saluran </ 0>  String</li>
+<li><code> pendengar </ 0> Fungsi</li>
+</ul>
 
-### `ipcRenderer.removeListener(channel, listener)`
+<p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
-* `channel` String
-* `listener` Function
+<h3><code>ipcRenderer.pendengar menghapus semua ( [saluran] )`</h3> 
+            * ` saluran </ 0>  String (opsional)</li>
+</ul>
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+<p>Menghapus semua pendengar, atau orang-orang dari yang ditentukan <code> saluran </ 0> .</p>
 
-### `ipcRenderer.removeAllListeners([channel])`
+<h3><code>ipcRenderer.kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
+                * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
 
-* `channel` String (optional)
+<p>Kirim pesan ke proses utama secara asinkron melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
 
-Removes all listeners, or those of the specified `channel`.
+<p>Proses utama menangani dengan mendengarkan modul <code> saluran </ 0> dengan <code> ipcMain </ 0> .</p>
 
-### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
+<h3><code>ipcRenderer.sikron di kirim (saluran [, arg1] [, arg2] [, ...])`</h3> 
+                    * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
 
-* `channel` String
-* `...args` any[]
+<p>Mengembalikan <code> sembarang </ 0> - Nilai dikirim kembali oleh handler <a href="ipc-main.md"><code> ipcMain </ 1> .</p>
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+<p>Kirim pesan ke proses utama secara serentak melalui <code> saluran </ 0> , Anda juga dapat mengirim argumen yang sewenang-wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p>
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+<p>Proses utama mengatasinya dengan mendengarkan modul <code> channel </ 0> dengan <code> ipcMain </ 0> , dan balasannya dengan menyetel <code> acara.kembali di nilai </ 0> .</p>
 
-### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+<p><strong> Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p>
 
-* `channel` String
-* `...args` any[]
+<h3><code>ipcRenderer.kirim ke tuan rumah(saluran [, arg1] [, arg2] [, ...])`</h3> 
+                        * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
-
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
-
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
-
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
-
-### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
-
-* `channel` String
-* `...args` any[]
-
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
