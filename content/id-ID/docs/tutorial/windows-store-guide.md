@@ -1,14 +1,14 @@
 # Panduan Toko Windows
 
-With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+Dengan Windows 10, execut32 win32 tua yang baik mendapat saudara baru: Platform Windows Universal. Yang baru `.appx` format tidak hanya memungkinkan sejumlah API kuat baru seperti Cortana atau Push Notifications, namun melalui Windows Store, juga mempermudah pemasangan dan pemutakhiran.
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft [ mengembangkan alat yang mengkompilasi aplikasi Elektron sebagai paket `.appx`](https://github.com/catalystcode/electron-windows-store), yang memungkinkan pengembang menggunakan beberapa barang yang ada di model aplikasi baru. Panduan ini menjelaskan cara menggunakannya - dan apa kemampuan dan keterbatasan paket Electron AppX.
 
-## Background and Requirements
+## Latar Belakang dan Persyaratan
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+Windows 10 "Update Ulang Ulang" mampu menjalankan win32 `.exe` binari dengan meluncurkannya bersama dengan filesystem dan registri virtual. dibuat saat kompilasi dengan menjalankan aplikasi dan installer di dalam Windows Container, yang memungkinkan Windows untuk mengidentifikasi secara pasti modifikasi mana terhadap sistem operasi yang dilakukan saat instalasi. Memasangkan executable dengan filesystem virtual dan virtual registry memungkinkan Windows untuk mengaktifkan satu klik instalasi dan penghapusan instalasi.
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Selain itu, exe diluncurkan di dalam model appx - yang berarti dapat menggunakan banyak API yang tersedia untuk Platform Windows Universal. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
