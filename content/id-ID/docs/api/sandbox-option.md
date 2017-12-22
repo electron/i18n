@@ -8,7 +8,7 @@ Dengan kata lain, ketika sadbox diaktifkan, perender hanya dapat melakukan perub
 
 Karena fitur utama dalam elektron adalah kemampuan untuk menjalankan node.js dalam proses perender (membuatnya lebih mudah untuk mengembangkan aplikasi desktop dengan menggunakan teknologi web), sandbox dinonaktifkan oleh elektron. Hal ini karena sebagian besar API node.js memerlukan akses sistem. ` require()` misalnya, tidak mungkin tanpa izin sistem file, yang mana tidak tersedia di dalam sebuah lingkungan yang disandbox.
 
-Usually this is not a problem for desktop applications since the code is always trusted, but it makes electron less secure than chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+Biasanya ini bukan masalah untuk aplikasi desktop karena kode selalu bisa dipercaya, namun ini membuat elektron kurang aman dibanding chromium untuk menampilkan konten web yang tidak tepercaya. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
 
 A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
 
