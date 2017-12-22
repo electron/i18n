@@ -36,7 +36,7 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Ini juga mengelola elemen asli seperti Menu, Menu Bar, Dock , Tray, dll. Proses utama bertanggung jawab untuk membuat setiap proses renderer baru di aplikasi. API Node penuh dibangun di dalamnya.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
@@ -50,9 +50,9 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 ### native modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. Mereka digunakan terutama untuk menyediakan antarmuka antara JavaScript yang berjalan di perpustakaan Node.js dan C/c++.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Modul Node Asli didukung oleh Elektron , namun karena Elektron sangat mungkin menggunakan versi V8 yang berbeda dari biner Node yang terpasang di sistem Anda, Anda harus secara manual menentukan lokasi header Elektron saat membuat modul asli.
 
 See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
@@ -62,9 +62,9 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen rendering) dapat digunakan untuk memuat halaman berat di latar belakang dan kemudian menampilkannya setelah (akan jauh lebih cepat). Ini memungkinkan Anda membuat halaman tanpa menampilkannya di layar.
 
-### process
+### proses
 
 Proses adalah turunan dari sebuah program komputer yang sedang dijalankan. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
