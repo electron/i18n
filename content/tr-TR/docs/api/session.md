@@ -344,7 +344,7 @@ Bu oturum için [Webistek](web-request.md) nesnesi.
 
 #### `ses.protocol`
 
-Bu oturum için bir [Protokol ](protocol.md) nesnesi.
+Bu oturum için bir [Protokol](protocol.md) nesnesi.
 
 ```javascript
 const {app, session} = require('electron')
