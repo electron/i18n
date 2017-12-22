@@ -56,155 +56,155 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
+</ul>
 
-Creates a new tray icon associated with the `image`.
-
-### Instance Events
-
-The `Tray` module emits the following events:
-
-#### Acara : 'klik'
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-
-Emitted when the tray icon is clicked.
-
-#### Event: 'right-click' *macOS* *Windows*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-
-Dibunyikan ketika ikon tray benar diklik.
-
-#### Event: 'double-click' *macOS* *Windows*
-
-* `peristiwa` Peristiwa 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-
-Emitted when the tray icon is double clicked.
-
-#### Event: 'balloon-show' *Windows*
-
-Emitted when the tray balloon shows.
-
-#### Event: 'balloon-click' *Windows*
-
-Emitted when the tray balloon is clicked.
-
-#### Event: 'balloon-closed' *Windows*
-
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
-
-#### Event: 'drop' *macOS*
-
-Emitted when any dragged items are dropped on the tray icon.
-
-#### Event: 'drop-files' *macOS*
-
-* ` event </ 0>  Acara</li>
+<p>Creates a new tray icon associated with the <code>image`.</p> 
+  ### Instance Events
+  
+  The `Tray` module emits the following events:
+  
+  #### Acara : 'klik'
+  
+  * `event` Event 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+  
+  Emitted when the tray icon is clicked.
+  
+  #### Event: 'right-click' *macOS* *Windows*
+  
+  * `event` Event 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+  
+  Dibunyikan ketika ikon tray benar diklik.
+  
+  #### Event: 'double-click' *macOS* *Windows*
+  
+  * `peristiwa` Peristiwa 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+  
+  Emitted when the tray icon is double clicked.
+  
+  #### Event: 'balloon-show' *Windows*
+  
+  Emitted when the tray balloon shows.
+  
+  #### Event: 'balloon-click' *Windows*
+  
+  Emitted when the tray balloon is clicked.
+  
+  #### Event: 'balloon-closed' *Windows*
+  
+  Emitted when the tray balloon is closed because of timeout or user manually closes it.
+  
+  #### Event: 'drop' *macOS*
+  
+  Emitted when any dragged items are dropped on the tray icon.
+  
+  #### Event: 'drop-files' *macOS*
+  
+  * ` event </ 0>  Acara</li>
 <li><code>files` String[] - The paths of the dropped files.
-
-Disuarakan saat file terseret dijatuhkan di ikon baki.
-
-#### Event: 'drop-text' *macOS*
-
-* ` event </ 0>  Acara</li>
+  
+  Disuarakan saat file terseret dijatuhkan di ikon baki.
+  
+  #### Event: 'drop-text' *macOS*
+  
+  * ` event </ 0>  Acara</li>
 <li><code>text` String - the dropped text string
+  
+  Emitted when dragged text is dropped in the tray icon.
+  
+  #### Event: 'drag-enter' *macOS*
+  
+  Emitted when a drag operation enters the tray icon.
+  
+  #### Event: 'drag-leave' *macOS*
+  
+  Emitted when a drag operation exits the tray icon.
+  
+  #### Event: 'drag-end' *macOS*
+  
+  Emitted when a drag operation ends on the tray or ends at another location.
+  
+  #### Event: 'mouse-enter' *macOS*
+  
+  * `event` Event 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `position` [Point](structures/point.md) - The position of the event
+  
+  Emitted when the mouse enters the tray icon.
+  
+  #### Event: 'mouse-leave' *macOS*
+  
+  * `event` Event 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `position` [Point](structures/point.md) - The position of the event
+  
+  Emitted when the mouse exits the tray icon.
+  
+  ### Metode Instance
+  
+  The `Tray` class has the following methods:
+  
+  #### `tray.destroy()`
+  
+  Destroys the tray icon immediately.
+  
+  #### `tray.setImage(image)`
+  
+  * ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
+</ul>
 
-Emitted when dragged text is dropped in the tray icon.
-
-#### Event: 'drag-enter' *macOS*
-
-Emitted when a drag operation enters the tray icon.
-
-#### Event: 'drag-leave' *macOS*
-
-Emitted when a drag operation exits the tray icon.
-
-#### Event: 'drag-end' *macOS*
-
-Emitted when a drag operation ends on the tray or ends at another location.
-
-#### Event: 'mouse-enter' *macOS*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse enters the tray icon.
-
-#### Event: 'mouse-leave' *macOS*
-
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse exits the tray icon.
-
-### Metode Instance
-
-The `Tray` class has the following methods:
-
-#### `tray.destroy()`
-
-Destroys the tray icon immediately.
-
-#### `tray.setImage(image)`
-
-* `image` ([NativeImage](native-image.md) | String)
-
-Sets the `image` associated with this tray icon.
-
-#### `tray.setPressedImage(image)` *macOS*
-
-* ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+<p>Sets the <code>image` associated with this tray icon.</p> 
+    #### `tray.setPressedImage(image)` *macOS*
+    
+    * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul>
 
 <p>Sets the <code>image` associated with this tray icon when pressed on macOS.</p> 
-  #### `tray.setToolTip(toolTip)`
-  
-  * `toolTip` String
-  
-  Sets the hover text for this tray icon.
-  
-  #### `tray.setTitle(title)` *macOS*
-  
-  * `title` String
-  
-  Sets the title displayed aside of the tray icon in the status bar.
-  
-  #### `tray.setHighlightMode(mode)` *macOS*
-  
-  * `mode` String - Highlight mode with one of the following values: 
-    * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-    * `always` - Always highlight the tray icon.
-    * `never` - Never highlight the tray icon.
-  
-  Sets when the tray's icon background becomes highlighted (in blue).
-  
-  **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-  
-  ```javascript
+      #### `tray.setToolTip(toolTip)`
+      
+      * `toolTip` String
+      
+      Sets the hover text for this tray icon.
+      
+      #### `tray.setTitle(title)` *macOS*
+      
+      * `title` String
+      
+      Sets the title displayed aside of the tray icon in the status bar.
+      
+      #### `tray.setHighlightMode(mode)` *macOS*
+      
+      * `mode` String - Highlight mode with one of the following values: 
+        * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+        * `always` - Always highlight the tray icon.
+        * `never` - Never highlight the tray icon.
+      
+      Sets when the tray's icon background becomes highlighted (in blue).
+      
+      **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+      
+      ```javascript
 const {BrowserWindow, Tray} = require('electron')
 
 const win = new BrowserWindow({width: 800, height: 600})
@@ -220,37 +220,37 @@ win.on('hide', () => {
   tray.setHighlightMode('never')
 })
 ```
-
-#### `tray.displayBalloon(options)` *Windows*
-
-* `pilihan` Object 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
-
-Displays a tray balloon.
-
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
-
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
-
-The `position` is only available on Windows, and it is (0, 0) by default.
-
-#### `tray.setContextMenu(menu)`
-
-* ` menu </ 0> Menu</li>
+  
+  #### `tray.displayBalloon(options)` *Windows*
+  
+  * `pilihan` Object 
+    * `icon` ([NativeImage](native-image.md) | String) - (optional)
+    * `title` String - (optional)
+    * `content` String - (optional)
+  
+  Displays a tray balloon.
+  
+  #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+  
+  * `menu` Menu (optional)
+  * `position` [Point](structures/point.md) (optional) - The pop up position.
+  
+  Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+  
+  The `position` is only available on Windows, and it is (0, 0) by default.
+  
+  #### `tray.setContextMenu(menu)`
+  
+  * ` menu </ 0> Menu</li>
 </ul>
 
 <p>Sets the context menu for this icon.</p>
 
 <h4><code>tray.getBounds()` *macOS* *Windows*</h4> 
-  Returns [`Rectangle`](structures/rectangle.md)
-  
-  The `bounds` of this tray icon as `Object`.
-  
-  #### `tray.isDestroyed()`
-  
-  Returns `Boolean` - Whether the tray icon is destroyed.
+    Returns [`Rectangle`](structures/rectangle.md)
+    
+    The `bounds` of this tray icon as `Object`.
+    
+    #### `tray.isDestroyed()`
+    
+    Returns `Boolean` - Whether the tray icon is destroyed.
