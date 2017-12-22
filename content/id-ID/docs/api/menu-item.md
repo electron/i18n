@@ -90,11 +90,11 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     #### `menuItem.enabled`
     
-    A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+    A`Boolean` menunjukkan apakah item tersebut diaktifkan, properti ini dapat diubah secara dinamis.
     
     #### `menuItem.visible`
     
-    A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+    A `Boolean` menunjukkan apakah item tersebut terlihat, properti ini dapat diubah secara dinamis.
     
     #### `menuItem.checked`
     
