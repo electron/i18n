@@ -1,24 +1,23 @@
 # Kemasan Aplikasi
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Untuk mengurangi  masalah </ 0> di sekitar nama path yang panjang di Windows , sedikit mempercepat ` require </ 1> dan menyembunyikan kode sumber Anda dari pemeriksaan sepintas, Anda dapat memilih untuk mengemas aplikasi Anda menjadi <a href="https://github.com/electron/asar"> asar </ 2> 
+arsipkan dengan sedikit perubahan pada kode sumber Anda.</p>
 
-## Generating `asar` Archive
+<h2>Membangkitkan <code> asar </ 0> Arsip</h2>
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+<p>Sebuah <a href="https://github.com/electron/asar"> asar </ 0> arsip adalah tar-seperti format yang sederhana yang concatenates file ke dalam satu file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.</p>
 
-Steps to package your app into an `asar` archive:
+<p>Langkah-langkah untuk mengemas aplikasi Anda ke arsip <code> asar </ 0> :</p>
 
-### 1. Install the asar Utility
+<h3>1. Instal Asar Utility</h3>
 
-```sh
-$ npm install -g asar
-```
+<pre><code class="sh">$ npm install -g asar
+`</pre> 
 
-### 2. Package with `asar pack`
+### 2. Paket dengan ` asar pack </ 0></h3>
 
-```sh
-$ asar pack your-app app.asar
-```
+<pre><code class="sh">$ asar pack your-app app.asar
+`</pre> 
 
 ## Using `asar` Archives
 
