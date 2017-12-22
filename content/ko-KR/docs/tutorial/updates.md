@@ -22,7 +22,7 @@ Once you've deployed your update server, continue with importing the required mo
 **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
 
 ```js
-const {app, autoUpdater, dialog} = require('electron')
+onst {app, autoUpdater, dialog} = require('electron')
 ```
 
 Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
