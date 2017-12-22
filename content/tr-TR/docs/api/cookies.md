@@ -45,7 +45,7 @@ Aşağıdaki olaylar `Cookies` sınıfından türeyen objelerde mevcuttur:
   * `expired-overwrite` - Zaten zamanı dolmuş çerez tarafından üzerine yazma işlemi yapıldı.
 * `removed` Boolean - Çerez silinmişse `true`, aksi halde `false` döner.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Herhangi bir çerez eklenmiş, silinmiş, düzenlenmiş veya süresi bitmiş olduğunda gönderilir.
 
 ### Sınıf örneği metodları
 
