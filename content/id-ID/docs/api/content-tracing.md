@@ -1,31 +1,31 @@
-# contentTracing
+# pelacakan konten
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Kumpulkan data pelacakan dari modul konten Chromium untuk menemukan kemacetan kinerja dan operasi yang lambat.
 
 Proses:  Utama </ 0></p> 
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Modul ini tidak menyertakan antarmuka web sehingga Anda perlu membuka `chrome://tracing/` di browser Chrome dan muat file yang dihasilkan untuk melihat hasil.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Catatan:** Anda tidak boleh menggunakan modul ini sampai acara ` siap` dari aplikasi modul dipancarkan.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const {app, contentTracing} = require ('elektron')
 
-app.on('ready', () => {
-  const options = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full,enable-sampling'
-  }
+app.on ('siap', () = > {
+  pilihan const = {
+    categoryFilter: '*',
+    traceOptions: 'record-until-full, enable-sampling'
+  }
 
-  contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+  contentTracing.startRecording (pilihan, () = > {
+    console.log ('penelusuran dimulai')
 
-    setTimeout(() => {
-      contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
-      })
-    }, 5000)
-  })
+    setTimeout (() => {
+      contentTracing.stopRecording ('', (path) = > {
+        console.log ('Tracing data direkam ke' + path)
+      })
+    }, 5000)
+  })
 })
 ```
 
