@@ -12,7 +12,7 @@ El objeto en `proceso` de Electron está comprendido entre [Node.js `proceso` ob
 
 Emitido cuando Electron ha cargado su script de inicialización y está empezando a carga la página web o el script principal.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados del nodo de nuevo a el alcance cuando la integración de nodos está desactivada:
 
 ```javascript
 // preload.js
@@ -26,15 +26,15 @@ process.once('loaded', () => {
 
 ## Propiedades
 
-### `process.defaultApp`
+### `aplicación.proceso.pordefecto`
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Un `Booleano`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `verdad` en el proceso principal, de otra manera está `indefinidad`.
 
-### `process.mas`
+### `procesos.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`, para otros edificios está `indefinidad`.
 
-### `process.noAsar`
+### `proceso.noAsar`
 
 A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
