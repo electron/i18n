@@ -1,8 +1,8 @@
 # powerMonitor
 
-> Monitor power state changes.
+> Memantau perubahan status daya.
 
-Proses:  Utama </ 0></p> 
+Proses: [Utama](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
