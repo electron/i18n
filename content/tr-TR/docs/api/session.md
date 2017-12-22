@@ -40,7 +40,7 @@ To create a `Session` with `options`, you have to ensure the `Session` with the 
 
 ### `session.defaultSession`
 
-Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesi.
+Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
 ## Class: Session
 
@@ -58,7 +58,7 @@ console.log(ses.getUserAgent())
 
 ### Örnek Olaylar
 
-Aşağıdaki olaylar `Session` örneğinde kullanılabilir:
+Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 #### Event: 'will-download'
 
