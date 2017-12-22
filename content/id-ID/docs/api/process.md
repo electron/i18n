@@ -1,18 +1,18 @@
-# process
+# proses
 
-> Extensions to process object.
+> Ekstensi untuk memproses objek.
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
-## Events
+## Acara
 
-### Event: 'loaded'
+### Acara: 'dimuat'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Emitted ketika Elektron telah memuat inisialisasi internal script dan mulai memuat halaman web atau script utama.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Ini dapat digunakan oleh skrip preload untuk menambahkan simbol global Node yang dihapus ke lingkup global saat integrasi simpul dimatikan:
 
 ```javascript
 // preload.js
