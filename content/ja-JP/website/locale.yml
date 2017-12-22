@@ -15,6 +15,11 @@ docs:
   guides: ガイド
   api_reference: API リファレンス
   advanced: 発展的なドキュメント
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: 言語選択
   translation_progress: 翻訳状態
@@ -54,11 +59,7 @@ get_started:
   description: Electronでの開発を始めるには、こちらの情報をチェックしてください。Electronを用いたWebアプリのパッケージ化、APIへのアクセス、インストーラの作成方法などが解説されています。
 explore:
   title: ElectronのAPIに触れる
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">Electron APIのデモアプリ</a>
-    - はElectron APIの中でも特に重要な機能をインタラクティブに紹介します。
-    - サンプルコードや親切な Tips とともに、Electron を使うと何ができるのかをご確認ください。
-    - あなたのアプリ開発にきっと役立つはずです。
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "翻訳する"
 footer:
-  see_something: このドキュメントに誤りが含まれていますか？
-  propose_change: こちらからデータの修正を提案できます。
-  need_different_version: 別のバージョンの Electron に関するドキュメントが必要ですか？
-  see_available_versions: 利用可能な他のバージョンのものを見る。
-  want_something_searchable: 複数のドキュメントを横断して検索したいことがありますか？
-  view_all_docs: すべてのドキュメントをまとめて表示
   see_the_faq: よくある質問（FAQ）
 apps:
   title: Electronで開発されたアプリ
