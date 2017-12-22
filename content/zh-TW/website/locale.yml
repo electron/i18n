@@ -15,6 +15,11 @@ docs:
   guides: 導引
   api_reference: API 參考
   advanced: 進階
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: 選擇網站語言
   translation_progress: 翻譯進度
@@ -54,11 +59,7 @@ get_started:
   description: 想要開始用 Electron 了嗎? 可以參考下列資源，學會怎麼透過 Electron 包裝你的網頁應用程式、存取 API，並產出安裝程式。
 explore:
   title: 探索 Electron API
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">Electron API 展示應用程式</a>
-    - 以互動的方式展示 Electron API 中最重要的功能。
-    - 透過範例程式及提示說明，看看 Electron 有什麼能耐
-    - 幫你打造應用程式。
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: 從 GitHub 下載
 view_all_releases_on_github: 查看 GitHub 上的<a href="https://github.com/electron/electron-api-demos/releases">所有發行版本</a>
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: 由我們強大的全球開發者社群提供的在地化內容。
 help_translate: "幫忙翻譯"
 footer:
-  see_something: 發現有東西欠修理嗎?
-  propose_change: 在原始碼上改好再提出來。
-  need_different_version: 在找其他版本的文件嗎?
-  see_available_versions: 瀏覽可用的版本。
-  want_something_searchable: 想來點好搜尋的東西嗎?
-  view_all_docs: 查看文件大全
   see_the_faq: 看看常見問題集
 apps:
   title: 用 Electron 打造的應用程式
