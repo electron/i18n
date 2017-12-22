@@ -130,7 +130,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 <li><code>pilihan` Object 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
-* `callback` Function
+* `callback ` Fungsi
 
 Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
 
