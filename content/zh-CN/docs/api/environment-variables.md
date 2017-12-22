@@ -18,7 +18,7 @@ Windows 控制台示例:
 > electron
 ```
 
-## 生产环境支持的变量
+## 生产环境相关变量
 
 以下环境变量主要用于在打包后的Electron应用运行时使用。
 
@@ -36,7 +36,7 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+禁用 ASAR 支持。仅在设置了 ` ELECTRON_RUN_AS_NODE `变量的fork或spawn的子进程中支持此变量。
 
 ### `ELECTRON_RUN_AS_NODE`
 
@@ -50,26 +50,26 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 不使用 Linux 的全局菜单栏。
 
-## 开发相关环境变量
+## 开发环境相关变量
 
-The following environment variables are intended primarily for development and debugging purposes.
+以下环境变量主要用于开发和调试目的。
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+将 Chrome 的内部日志打印到控制台。
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+当Electron读取ASAR 文件时, 将读取偏移量和文件路径记录到系统 ` tmpdir `。生成的文件可以提供给 ASAR 模块以优化文件排序。
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+当Electron崩溃时, 将跟踪堆栈输出到控制台。
 
-This environment variable will not work if the `crashReporter` is started.
+如果 ` crashReporter `已经启动了, 则此环境变量将不起作用。
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+### ` ELECTRON_DEFAULT_ERROR_MODE `* Windows *
 
-Shows the Windows's crash dialog when Electron crashes.
+当Electron崩溃时显示 Windows 的崩溃对话框。
 
-This environment variable will not work if the `crashReporter` is started.
+如果 ` crashReporter `已经启动了, 则此环境变量将不起作用。
