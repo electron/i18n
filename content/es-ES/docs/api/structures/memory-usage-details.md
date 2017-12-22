@@ -1,5 +1,5 @@
-# MemoryUsageDetails Object
+# Objeto MemoryUsageDetails
 
-* `count` Number
-* `size` Number
-* `liveSize` Number
+* `cuenta` Número
+* `tamaño` Número
+* `tamañoVivo` Número
