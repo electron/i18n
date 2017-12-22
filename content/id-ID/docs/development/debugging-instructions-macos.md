@@ -19,72 +19,61 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
         
         LLDB adalah alat yang ampuh dan mendukung beberapa strategi untuk pemeriksaan kode. Untuk pengenalan dasar ini, mari kita asumsikan bahwa Anda menelepon perintah dari JavaScript yang tidak berperilaku dengan benar - sehingga Anda ingin istirahat pada bahwa perintah ini C ++ rekan dalam Elektron sumber.
         
-        File kode yang relevan dapat ditemukan di ` ./ atom / </ 0> serta dalam Brightray, ditemukan di
+        File kode yang relevan dapat ditemukan di `` ./ atom / </ 0> serta dalam Brightray, ditemukan di
  <code> ./brightray/browser </ 0> dan <code> ./brightray/common </ 0 > . Jika Anda hardcore, Anda juga dapat men-debug Chromium langsung, yang jelas ditemukan dalam <code> kromium _src </ 0> .</p>
 
-<p>Let's assume that you want to debug <code>app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+<p>Mari kita berasumsi bahwa Anda ingin debug <code> app.setName () </ 0> , yang didefinisikan dalam <code> browser.cc </ 0> 
+sebagai <code> Browser :: setName () </ 0> . Mengatur breakpoint menggunakan <code> breakpoint </ 0> perintah, menentukan berkas dan garis untuk istirahat pada:</p>
+
+<pre><code class="sh">(lldb) breakpoint ditetapkan browser.cc --file --line 117 Breakpoint 1: mana = Electron Framework`atom: : Browser: : setName (std: : __ 1: : basic_string <char, std::__1::char_traits<char> , std: : __ 1: : pengalokasi < 1>  & gt; const & amp; ) + 20 di browser.cc:118, alamat = 0x000000000015fdb4
+``</pre> 
+        
+        Kemudian, mulai Electron :
         
         ```sh
-(lldb) breakpoint set --file browser.cc --line 117
-Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
+(Lldb) run
 ```
     
-    Then, start Electron:
+    Aplikasi ini akan segera dihentikan sementara, karena Electron menetapkan nama aplikasi pada peluncuran:
     
     ```sh
-(lldb) run
+(lldb) Proses run 25.244 diluncurkan: '/ Users / fr / Kode / elektron / keluar / D / Elektron App / Isi / MacOS / Electron ' (x86_64) Proses 25.244 berhenti * benang # 1: tid = 0x839a4c, 0x0000000100162db4 Electron Kerangka `atom: : Browser: : setName (ini = 0x0000000108b14f20, nama = " Electron ") + 20 di browser.cc:118, antrian = 'com.apple.main-benang', berhenti alasan = breakpoint 1.1
+     bingkai # 0: 0x0000000100162db4 elektron Framework`atom: : Browser: : setName (ini = 0x0000000108b14f20, nama = " elektron ") + 20 di browser.cc:118
+    115}
+    116
+    117 kekosongan Browser :: setName (const std :: string& amp; nama) {- & gt; 118 name_override_ = nama;
+   119}
+    120
+    121 int Browser :: GetBadgeCount () {(lldb)
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Untuk menunjukkan argumen dan lokal variabel untuk frame, menjalankan ` variabel bingkai </ 0> (atau <code> fr v </ 0> ), yang akan menunjukkan bahwa aplikasi saat ini pengaturan nama untuk " Elektron ".</p>
 
-```sh
-(lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115  }
-   116
-   117  void Browser::SetName(const std::string& name) {
--> 118    name_override_ = name;
-   119  }
-   120
-   121  int Browser::GetBadgeCount() {
-(lldb)
-```
+<pre><code class="sh">(lldb) bingkai variabel (atom :: Browser *) ini = 0x0000000108b14f20 (const string yang  & amp; ) name = " Elektron ": {
+ [...] 
+}    
+`</pre> 
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+Untuk melakukan satu langkah tingkat sumber di thread yang sedang dipilih, mengeksekusi `` langkah </ 0> (atau <code> s </ 0> ).
+Hal ini akan membawa Anda ke <code> name_override_.empty () </ 0> . Untuk melanjutkan dan melakukan langkah lebih, jalankan <code> berikutnya </ 0> (atau <code> n </ 0> ).</p>
 
-```sh
-(lldb) frame variable
-(atom::Browser *) this = 0x0000000108b14f20
-(const string &) name = "Electron": {
-    [...]
-}
-```
+<pre><code class="sh">(lldb) Langkah Proses 25.244 berhenti * benang # 1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom: : Browser: : setName (ini = 0x0000000108b14f20, nama = " Electron ") + 44 di browser.cc:119, antrian = ' com.apple.main-benang', berhenti alasan = langkah dalam
+     bingkai # 0: 0x0000000100162dcc Electron Framework`atom: : Browser: : setName (ini = 0x0000000108b14f20, nama = " Electron ") + 44 di browser.cc:119
+    116
+    117 kekosongan Browser :: setName (std :: string const & amp; nama) {
+    118 name_override_ = nama; - & gt; 119}
+    120
+    121 int Browser :: GetBadgeCount () {
+   122 badge_count_ kembali;
+``</pre> 
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Untuk menyelesaikan debugging pada titik ini, jalankan  proses terus </ 0> . Anda juga dapat berlanjut sampai garis tertentu terkena di thread ini ( <code> benang sampai 100 </ 0> ). Perintah ini akan menjalankan thread di frame sampai mencapai garis 100 dalam bingkai ini atau berhenti jika ia meninggalkan frame.</p>
 
-```sh
-(lldb) step
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
-    frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119
-   116
-   117  void Browser::SetName(const std::string& name) {
-   118    name_override_ = name;
--> 119  }
-   120
-   121  int Browser::GetBadgeCount() {
-   122    return badge_count_;
-```
+<p>Sekarang, jika Anda membuka alat pengembang Electron dan memanggil <code> setName </ 0> , Anda akan sekali lagi memukul breakpoint.</p>
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+<h3>Bacaan lebih lanjut</h3>
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+<p>LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2"> LLDB Command Struktur Referensi </ 0> 
+atau pengantar <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html"> Menggunakan LLDB sebagai Standalone Debugger </ 1> .</p>
 
-### Further Reading
-
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
-
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+<p>Anda juga dapat memeriksa LLDB ini fantastis <a href="http://lldb.llvm.org/tutorial.html"> tutorial manual dan </ 0> , yang akan menjelaskan skenario debugging lebih kompleks.</p>
