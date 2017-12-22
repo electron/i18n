@@ -87,12 +87,12 @@ Sends a request to get all cookies matching `details`, `callback` will be called
     
     * `url` String - The URL associated with the cookie.
     * `name` String - The name of cookie to remove.
-    * `callback` Function
+    * `callback ` Fungsi
     
     Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
     
     #### `cookies.flushStore(callback)`
     
-    * `callback` Function
+    * `callback ` Fungsi
     
     Tulis data cookie yang tidak tertulis ke disk.
