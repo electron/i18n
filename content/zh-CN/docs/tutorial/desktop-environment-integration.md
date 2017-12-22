@@ -255,7 +255,7 @@ win.setDocumentEdited(true)
 </script>
 ```
 
-在主进程：
+在主进程中:
 
 ```javascript
 const {ipcMain} = require('electron')
