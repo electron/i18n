@@ -10,7 +10,7 @@ Karena fitur utama dalam elektron adalah kemampuan untuk menjalankan node.js dal
 
 Biasanya ini bukan masalah untuk aplikasi desktop karena kode selalu bisa dipercaya, namun ini membuat elektron kurang aman dibanding chromium untuk menampilkan konten web yang tidak tepercaya. Untuk aplikasi yang membutuhkan keamanan lebih, bendera ` sandbox ` akan memaksa elektron memunculkan perender chromium klasik yang kompatibel dengan sandbox.
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
+Perender sandbox tidak memiliki sebuah lingkungan node.js yang berjalan dan tidak mengekspos API node.js JavaScript ke kode klien. The only exception is the preload script, which has access to a subset of the electron renderer API.
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
