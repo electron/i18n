@@ -33,10 +33,8 @@ Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi un
 
 <p>Untuk aplikasi yang kompleks, <code> siap-show </ 0>  acara bisa dipancarkan terlambat, membuat aplikasi merasa lambat. Dalam kasus ini, sebaiknya segera tampilkan jendela, dan gunakan latar belakang < 0> warna latar belakang </ 0> ke latar belakang aplikasi Anda:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require ('electron') biarkan menang = new BrowserWindow ( {backgroundColor: '# 2e2c29'} ) win.loadURL ('https://github.com')
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
-win.loadURL('https://github.com')
 `</pre> 
 
 Preview untuk aplikasi yang menggunakan ` siap-untuk-menunjukkan </ 0> peristiwa, masih disarankan untuk melakukan <code> backgroundColor </ 0> untuk aplikasi yang lebih asli.</p>
