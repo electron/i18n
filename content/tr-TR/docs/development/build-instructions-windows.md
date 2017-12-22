@@ -84,7 +84,7 @@ $ npm run clean-build
 
 ## Testler
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
 
 ## Arıza giderme
 
