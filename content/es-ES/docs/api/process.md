@@ -53,33 +53,33 @@ Un `Booleano` que controla si las advertencias de degradación son consideradas 
 
 ### `proceso.ubicarDegradación`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
-### `process.traceProcessWarnings`
+### `proceso.ubicarAdvertenciasdeProcesos`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la linea de comando `--trace-warnings`.
 
-### `process.type`
+### `proceso.tipo`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+Una `Cadena` que representa el tipo de proceso, puede ser `"buscador"` (es decir, proceso principal) o `"renderer"`.
 
-### `process.versions.chrome`
+### `proceso.vesiones.chrome`
 
-A `String` representing Chrome's version string.
+Una `cadena` representando la versión de cadena de Chrome.
 
-### `process.versions.electron`
+### `proceso.versiones.electron`
 
-A `String` representing Electron's version string.
+Una `cadena` representando la versión de cadena de Electron.
 
-### `process.windowsStore`
+### `proceso.tiendaWindows`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Un `Booleano`. si la aplicación está siendo ejecutada como una aplicación de la tienda Windows (appx), esta propiedad es `verdad`, de otra manera es `indefinida`.
 
-## Methods
+## Métodos
 
-The `process` object has the following methods:
+El objeto `proceso` tiene los siguientes métodos:
 
-### `process.crash()`
+### `proceso.crash()`
 
 Causes the main thread of the current process crash.
 
