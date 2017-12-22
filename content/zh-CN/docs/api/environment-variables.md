@@ -18,21 +18,21 @@ Windows 控制台示例:
 > electron
 ```
 
-## Production Variables
+## 生产环境支持的变量
 
 以下环境变量主要用于在打包后的Electron应用运行时使用。
 
 ### `GOOGLE_API_KEY`
 
-Electron包含一个硬编码的 API key用于请求谷歌的地理编码服务。 Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Electron包含一个硬编码的 API key用于请求谷歌的地理编码服务。 由于此 API key包含在每个版本的电子中, 因此它通常超过其使用限额。 为了应对这一情况，您可以在环境中提供自己的 Google API key。 在打开将进行地理编码请求的任何Browser窗口之前, 请在主进程文件中放置以下代码:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
+有关如何获取 Google API key的说明, 请访问 [ 这里 ](https://www.chromium.org/developers/how-tos/api-keys)。
 
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+默认情况下, 可能不允许新生成的 Google API key进行地理编码请求。 若要启用地理编码请求, 请访问 [ 这里 ](https://console.developers.google.com/apis/api/geolocation/overview)。
 
 ### `ELECTRON_NO_ASAR`
 
@@ -40,17 +40,17 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+当做普通Node.js进程启动。
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+不附加到当前控制台会话。
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### ` ELECTRON_FORCE_WINDOW_MENU_BAR `* Linux *
 
-Don't use the global menu bar on Linux.
+不使用 Linux 的全局菜单栏。
 
-## Development Variables
+## 开发相关环境变量
 
 The following environment variables are intended primarily for development and debugging purposes.
 
