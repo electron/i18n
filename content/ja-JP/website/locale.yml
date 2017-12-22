@@ -126,7 +126,7 @@ pages:
   '/languages':
     title: 言語
   '/userland':
-    title: ユーザーランド (userland)
+    title: Userland
   '/devtron':
     title: Devtron
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
