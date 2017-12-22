@@ -7,7 +7,6 @@ set -o nounset    # fail on unset variables
 
 git checkout -b release
 npm run collect
-npm run stats
 npm run build
 mocha
 standard --fix
