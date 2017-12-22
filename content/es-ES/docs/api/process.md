@@ -41,11 +41,11 @@ Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando est
 ### `proceso.noDepreación`
 
 Un `Booleano` que controla si las advertencias de degradación son enviadas a `stderr`.  
-Ajustar este como `verdad` silenciará advertencias de degradación. This property is used instead of the `--no-deprecation` command line flag.
+Ajustar este como `verdad` silenciará advertencias de degradación. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
-### `process.resourcesPath`
+### `proceso.Rutaderecursos`
 
-A `String` representing the path to the resources directory.
+Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.throwDeprecation`
 
