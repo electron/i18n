@@ -6,7 +6,7 @@ Salah satu fitur keamanan Chromium adalah bahwa semua kode rendering / JavaScrip
 
 Dengan kata lain, ketika sadbox diaktifkan, perender hanya dapat melakukan perubahan pada sistem dengan mendelegasikan tugas ke proses utama melalui IPC. [Berikut](https://www.chromium.org/developers/design-documents/sandbox) adalah informasi lebih lanjut tentang sandbox.
 
-Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+Karena fitur utama dalam elektron adalah kemampuan untuk menjalankan node.js dalam proses perender (membuatnya lebih mudah untuk mengembangkan aplikasi desktop dengan menggunakan teknologi web), sandbox dinonaktifkan oleh elektron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
 
 Usually this is not a problem for desktop applications since the code is always trusted, but it makes electron less secure than chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
 
