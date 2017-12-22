@@ -754,23 +754,25 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 </ul></li>
 </ul>
 
-<p>If you provided <code>path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.</p> 
-                                                Mengembalikan ` Objek </ 0> :</p>
+<p>Jika Anda memberikan <code> path </ 0> dan <code> args </ 0> pilihan untuk <code> app.setLoginItemSettings </ 0> maka Anda harus melewati argumen yang sama di sini untuk <code> openAtLogin </ 0> untuk diatur dengan benar</p>
+
+<p>Mengembalikan <code> Objek </ 0> :</p>
 
 <ul>
-<li><code>openAtLogin` Boolean - `true` if the app is set to open at login.</li> 
-                                                
-                                                * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-                                                * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-                                                * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-                                                * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.</ul> 
-                                                
-                                                **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-                                                
-                                                ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
-                                                
-                                                * `settings` Object 
-                                                  * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
+<li><code>openAtLogin` Boolean - `true` if the app is set to open at login.
+                                              * ` openAsHidden </ 0>  Boolean - <code> true </ 0> jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macos .</li>
+<li><code> isOpenedAtLogin </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka saat masuk secara otomatis. Pengaturan ini hanya didukung pada macos .</li>
+<li><code>wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. Pengaturan ini hanya didukung pada macos .
+                                              * ` restoreState </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macos .</li>
+</ul>
+
+<p><strong>Note:</strong> This API has no effect on <a href="../tutorial/mac-app-store-submission-guide.md">MAS builds</a>.</p>
+
+<h3><code> app.setLoginItemSettings (pengaturan) </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
+
+<ul>
+<li><code>settings` Object 
+                                                * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
 <li><code> openAsHidden </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi sebagai tersembunyi. Default ke
  <code> false </ 0> . Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi
  <code> app.getLoginItemStatus (). BeenOpenedAsHidden </ 0> harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada
@@ -792,9 +794,9 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
      '--process-start-args', `" --hidden "`
    ]})
 ``</pre> 
-                                                    ** Catatan: </ 0> ini API tidak berpengaruh pada  MAS membangun </ 1> .</p> 
-                                                    
-                                                    ### ` app.isAccessibilitySupportEnabled () </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
+                                                  ** Catatan: </ 0> ini API tidak berpengaruh pada  MAS membangun </ 1> .</p> 
+                                                  
+                                                  ### ` app.isAccessibilitySupportEnabled () </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
 
 <p>Mengembalikan <code> Boolean </ 0> - <code> true </ 0> jika dukungan aksesibilitas Chrome diaktifkan,
  <code> salah </ 0> sebaliknya. API ini akan mengembalikan <code> true </ 0> jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.</p>
@@ -803,8 +805,8 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <ul>
 <li><code>pilihan` Obyek 
-                                                    
-                                                    * ` applicationName </ 0>  String (opsional) - Nama aplikasi.</li>
+                                                  
+                                                  * ` applicationName </ 0>  String (opsional) - Nama aplikasi.</li>
 <li><code> applicationVersion </ 0>  String (opsional) - Versi aplikasi.</li>
 <li><code> hak cipta </ 0>  String (opsional) - Informasi hak cipta.</li>
 <li><code> kredit </ 0>  String (opsional) - Informasi kredit.</li>
@@ -816,74 +818,74 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
  . Lihat <a href="https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc"> dokumentasi Apple </ 0> untuk detail lebih lanjut.</p>
 
 <h3><code>app.commandLine.appendSwitch (beralih [, nilai])`</h3> 
-                                                      * ` switch </ 0>  String - Sakelar baris perintah</li>
+                                                    * ` switch </ 0>  String - Sakelar baris perintah</li>
 <li><code> value </ 0>  String (opsional) - Nilai untuk saklar yang diberikan</li>
 </ul>
 
-<p>Append a switch (with optional <code>value`) to Chromium's command line.</p> 
-                                                        **Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
-                                                        
-                                                        ### `app.commandLine.appendArgument(value)`
-                                                        
-                                                        * `value` String - The argument to append to the command line
-                                                        
-                                                        Append an argument to Chromium's command line. The argument will be quoted correctly.
-                                                        
-                                                        **Note:** This will not affect `process.argv`.
-                                                        
-                                                        ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-                                                        
-                                                        Enables mixed sandbox mode on the app.
-                                                        
-                                                        Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
-                                                        
-                                                        ### `app.dock.bounce([type])` *macOS*
-                                                        
-                                                        * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
-                                                        
-                                                        When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
-                                                        
-                                                        When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
-                                                        
-                                                        Returns `Integer` an ID representing the request.
-                                                        
-                                                        ### `app.dock.cancelBounce(id)` *macOS*
-                                                        
-                                                        * `id` Integer
-                                                        
-                                                        Cancel the bounce of `id`.
-                                                        
-                                                        ### `app.dock.downloadFinished(filePath)` *macOS*
-                                                        
-                                                        * `filePath` String
-                                                        
-                                                        Bounces the Downloads stack if the filePath is inside the Downloads folder.
-                                                        
-                                                        ### `app.dock.setBadge(text)` *macOS*
-                                                        
-                                                        * `text` String
-                                                        
-                                                        Sets the string to be displayed in the dock’s badging area.
-                                                        
-                                                        ### `app.dock.getBadge()` *macOS*
-                                                        
-                                                        Returns `String` - The badge string of the dock.
-                                                        
-                                                        ### `app.dock.hide()` *macOS*
-                                                        
-                                                        Sembunyikan ikon dok.
-                                                        
-                                                        ### `app.dock.show()` *macOS*
-                                                        
-                                                        Tampilkan ikon dok.
-                                                        
-                                                        ### `app.dock.isVisible()` *macOS*
-                                                        
-                                                        Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
-                                                        
-                                                        ### `app.dock.setMenu(menu)` *macOS*
-                                                        
-                                                        * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
+<p>Tambahkan peralihan (dengan <code> nilai opsional </ 0> ) ke baris perintah Chromium.</p>
+
+<p><strong>Note:</strong> This will not affect <code>process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.</p> 
+                                                      ### `app.commandLine.appendArgument(value)`
+                                                      
+                                                      * `value` String - The argument to append to the command line
+                                                      
+                                                      Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
+                                                      
+                                                      **Note:** This will not affect `process.argv`.
+                                                      
+                                                      ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+                                                      
+                                                      Mengaktifkan mode kotak pasir campuran di aplikasi.
+                                                      
+                                                      Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
+                                                      
+                                                      ### `app.dock.bounce([type])` *macOS*
+                                                      
+                                                      * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+                                                      
+                                                      When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+                                                      
+                                                      When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+                                                      
+                                                      Returns `Integer` an ID representing the request.
+                                                      
+                                                      ### `app.dock.cancelBounce(id)` *macOS*
+                                                      
+                                                      * `id` Integer
+                                                      
+                                                      Cancel the bounce of `id`.
+                                                      
+                                                      ### `app.dock.downloadFinished(filePath)` *macOS*
+                                                      
+                                                      * `filePath` String
+                                                      
+                                                      Memantapkan Download stack jika filePath ada di dalam folder Downloads.
+                                                      
+                                                      ### `app.dock.setBadge(text)` *macOS*
+                                                      
+                                                      * `text` String
+                                                      
+                                                      Menetapkan string yang akan ditampilkan di area badging dermaga.
+                                                      
+                                                      ### `app.dock.getBadge()` *macOS*
+                                                      
+                                                      Returns `String` - The badge string of the dock.
+                                                      
+                                                      ### `app.dock.hide()` *macOS*
+                                                      
+                                                      Sembunyikan ikon dok.
+                                                      
+                                                      ### `app.dock.show()` *macOS*
+                                                      
+                                                      Tampilkan ikon dok.
+                                                      
+                                                      ### `app.dock.isVisible()` *macOS*
+                                                      
+                                                      Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+                                                      
+                                                      ### `app.dock.setMenu(menu)` *macOS*
+                                                      
+                                                      * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
 </ul>
 
 <p>Mengatur aplikasi <a href="https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103"> dock menu </ 0>.</p>
