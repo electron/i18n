@@ -90,7 +90,7 @@ clipboard:
   copy: Kopírovat
   copy_to_clipboard: Kopírovat do schránky
   copied: Zkopírováno
-or: nebo
+or: or
 pages:
   '/':
     title: Electron | Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.
