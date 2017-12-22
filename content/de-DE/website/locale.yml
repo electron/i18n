@@ -15,6 +15,11 @@ docs:
   guides: Anleitungen
   api_reference: API-Referenz
   advanced: Erweitert
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: Wählen Sie Ihre Sprache
   translation_progress: Übersetzungsfortschritt
@@ -54,11 +59,7 @@ get_started:
   description: Schau dir die unten aufgelisteten Ressourcen für einen Einstieg mit Electron an. Lerne, wie du deine Web-App mit Electron wrapst, alle APIs ansprechen kannst und letztlich Installer für deine Anwendung generieren kannst.
 explore:
   title: Erkunde die Electron-APIs
-  description:
-    - Die <a href="https://github.com/electron/electron-api-demos">Electron API Demo App</a>
-    - zeigt interaktiv die wichtigsten Funktionalitäten der Electron API.
-    - Schau was mit Electron alles möglich ist anhand von Code-Beispielen und hilfreichen Tipps für
-    - die Erstellung deiner App.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen anzeigen</a> auf GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Übersetzte Inhalte von unserer tollen weltweiten Entwickler-Community.
 help_translate: "Hilf bei der Übersetzung"
 footer:
-  see_something: Gibt es etwas zu beheben?
-  propose_change: Schlage eine Änderung einer Source-Datei vor.
-  need_different_version: Benötigst du eine andere Version der Dokumentation?
-  see_available_versions: Alle verfügbaren Versionen.
-  want_something_searchable: Möchtest du eine suchbare Dokumentation?
-  view_all_docs: Komplette Dokumentation auf einer Seite ansehen
   see_the_faq: Sieh dir häufig gestellte Fragen an
 apps:
   title: Mit Electron entwickelte Apps
