@@ -734,7 +734,7 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
                                               
                                               Di macos itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
                                               
-                                              **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+                                              **Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca[Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
                                               
                                               ### `app.getBadgeCount()` *Linux* *macOS*
                                               
