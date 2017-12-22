@@ -62,15 +62,15 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
   * `session` Boolean (opsiyonel) - Oturumu ya da kalıcı çerezleri filtreler.
 * `callback` Fonksiyon 
   * `error` Hata
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - Çerez objeleri dizisi.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+`details` ile eşleşen tüm çerezlere istek gönderir, istek tamamlandığında `callback`, `callback(error, cookies)` ile çağırılır.
 
 #### `cookies.set(details, callback)`
 
 * `details` Nesne 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+  * `url` Katar - Çerezin ilişkilendirileceği url.
+  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
   * `path` String (optional) - The path of the cookie. Empty by default if omitted.
