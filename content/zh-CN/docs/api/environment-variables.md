@@ -1,17 +1,17 @@
 # 环境变量
 
-> Control application configuration and behavior without changing code.
+> 在不更改代码的情况下控制应用程序配置和行为。
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Electrond的某些行为受环境变量的控制, 因为它们比命令行标志和应用程序的代码更早初始化。
 
-POSIX shell example:
+POSIX shell示例:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windows 控制台示例:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
@@ -20,11 +20,11 @@ Windows console example:
 
 ## Production Variables
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+以下环境变量主要用于在打包后的Electron应用运行时使用。
 
 ### `GOOGLE_API_KEY`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Electron包含一个硬编码的 API key用于请求谷歌的地理编码服务。 Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
