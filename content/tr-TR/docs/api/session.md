@@ -299,7 +299,7 @@ Bu mevcut `WebContents` etkilemez ve her `WebContents` `webContents.setUserAgent
 
 #### `ses.getUserAgent()`
 
-`String` döndürür - Bu oturum için kullanıcı aracısı.
+`Dize` döndürür - Bu oturum için kullanıcı aracısı.
 
 #### `ses.getBlobData(identifier, callback)`
 
@@ -336,15 +336,15 @@ The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Bu oturum için [çerezleri](cookies.md) nesnesi.
+Bu oturum için [çerezler](cookies.md) nesnesi.
 
 #### `ses.webRequest`
 
-Bu oturum için [WebRequest](web-request.md) nesnesi.
+Bu oturum için [Webistek](web-request.md) nesnesi.
 
 #### `ses.protocol`
 
-Bu oturum için bir [Protocol](protocol.md) nesnesi.
+Bu oturum için bir [Protokol ](protocol.md) nesnesi.
 
 ```javascript
 const {app, session} = require('electron')
