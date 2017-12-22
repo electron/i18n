@@ -47,11 +47,11 @@ Ajustar este como `verdad` silenciará advertencias de degradación. Esta propie
 
 Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
-### `process.throwDeprecation`
+### `proceso.desechoDegradación`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
-### `process.traceDeprecation`
+### `proceso.ubicarDegradación`
 
 A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
 
