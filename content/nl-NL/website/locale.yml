@@ -15,6 +15,11 @@ docs:
   guides: Gidsen
   api_reference: API Reference
   advanced: Geavanceerd
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: Kies de taal van de site
   translation_progress: Vooruitgang vertaling
@@ -54,11 +59,7 @@ get_started:
   description: Om te beginnen met Electron, bekijk de onderstaande bronnen. Leer hoe je je wep app met Electron inwikkelt, toegang hebt tot al de API's, en installaties genereert.
 explore:
   title: Verken de Electron API's
-  description:
-    - De <a href="https://github.com/electron/electron-api-demos">Electron API demos app</a>
-    - demonstreert interactief de belangrijkste features van de Electron API.
-    - Bekijk wat mogelijk is met Electron met voorbeeldcode en nuttige tips voor
-    - het opbouwen van je app.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Downloaden van GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Toon alle releases</a> op GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help met vertalen"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: Propose a change to the source file.
-  need_different_version: Need a different version of the docs?
-  see_available_versions: Bekijk beschikbare versies.
-  want_something_searchable: Want something searchable?
-  view_all_docs: Bekijk alle documenten op één pagina
   see_the_faq: Bekijk de veelgestelde vragen
 apps:
   title: Apps gebouwd op Electron
