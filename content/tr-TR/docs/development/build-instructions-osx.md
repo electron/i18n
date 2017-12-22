@@ -1,36 +1,36 @@
 # İnşaa Talimatları (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Electron'u macOS üzerinde kurmak için aşağıdaki yönergeleri takip edin.
 
 ## Ön gereklilikler
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](http://nodejs.org) (harici)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Eğer, Homebrew üzerinden kurduğunuz Python'u kullanıyorsanız, aşağıdaki Python modüllerini de kurmanız gerekiyor:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Eğer basitçe Electron geliştiriyorsanız ve kendinize özel bir Electron inşaası dağıtmayacaksanız, bu kısmı atlayabilirsiniz.
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+Bazı özellikler için (pinch-zoom vb.) macOS 10.10 SDK'sını hedef almalısınız.
 
-Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+Resmi Electron inşaaları varsayılan olarak 10.10 SDK'yı içermeyen [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip) ile inşaa edilmekte. 10.10 SDK'ya sahip olmak için [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG'yi indirip, diskinize bağlayın.
 
-Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
+Xcode 6.4'un diskinize `/Volumes/Xcode` üzerinde bağlandığını, Xcode 8.2.1 kurulumunun ise `/Applications/Xcode.app` üzerinde olduğunu varsayarak:
 
 ```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+Aynı zamanda Xcode'un 10.10 SDK ile inşaa hizmetini de aktifleştirmeniz gerekir:
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Açın `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- `MinimumSDKVersion` değerini `10.10`'a çekin
+- Dosyayı kaydedin
 
 ## Kodu almak
 
@@ -40,7 +40,7 @@ $ git clone https://github.com/electron/electron
 
 ## İlk işleri halletmek
 
-Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Electron'u inşaa etmek içın [ninja](https://ninja-build.org/) kullaniyoruz, böylece Xcode projesi yaratmaya gerek yok.
 
 ```sh
 $ cd electron
@@ -49,7 +49,7 @@ $ ./script/bootstrap.py -v
 
 ## İnşaa
 
-Build both `Release` and `Debug` targets:
+Hem `Dağıtım` hem `Hata Ayıklama` hedefleri:
 
 ```sh
 $ ./script/build.py
@@ -85,4 +85,4 @@ $ npm run clean-build
 
 ## Testler
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
