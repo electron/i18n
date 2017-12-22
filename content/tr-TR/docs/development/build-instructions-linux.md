@@ -109,13 +109,13 @@ $ ./script/build.py -c D
 $ npm run clean
 ```
 
-Sadece `out` ve `dist` dizinlerini temizlemek için:
+Sadece `out` and `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Not:** Her iki clean komutu `bootstrap` betiğinin inşaa öncesi çalıştırılmasını şart koşar.
+**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
 ## Arıza giderme
 
@@ -129,7 +129,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Testler
 
-[İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests) sayfasını ziyaret edin
+Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
 
 ## İleri düzey başlıklar
 
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Ortam Değişkenleri
 
-`CC` ve `CXX` dışında, aşağıdaki ortam değişkenlerini de özel inşaa konfigurasyonları için ayarlayabilirsiniz:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
