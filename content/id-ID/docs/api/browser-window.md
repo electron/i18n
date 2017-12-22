@@ -1,12 +1,14 @@
-# Jendela browser
+# Jendela Browser
 
-> Buat dan kendalikan jendela browser.
+> Membuat dan mengendalikan jendela browser.
 
-Proses:  Utama </ 0></p> 
+Proses: [Utama](../glossary.md#main-process)
 
 ```javascript
 // Dalam proses utamanya.
-const {jendela Browser} = memerlukan ('electron') // Atau gunakan `remote` dari proses renderer.
+const {Jendela Browser} = memerlukan ('electron')
+
+// Atau gunakan `remote` dari proses renderer.
 // const {jendela Browser} = memerlukan ('electron').terpencil biarkan menang=jendela baru Browser ( {lebar: 800, tinggi: 600} ) menang.di ('tutup', () = & gt; {menang = batal}) //beban sebuah remote URL win.loadURL ('https://github.com') // Atau muat file HTML lokal win.loadURL (`file: // $ {__ dirname} / app / index.html`)
 ```
 
@@ -88,7 +90,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Buat dan kendalikan jendela browser.
+> Membuat dan mengendalikan jendela browser.
 
 Proses:  Utama </ 0></p> 
 
