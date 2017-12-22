@@ -36,7 +36,7 @@ Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`,
 
 ### `proceso.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando este a `verdad` se deshabilitará el apoyo por parte de archivos `asar` en modulos integrados del nodo.
 
 ### `process.noDeprecation`
 
