@@ -8,25 +8,25 @@ Microsoft [ mengembangkan alat yang mengkompilasi aplikasi Elektron sebagai pake
 
 Windows 10 "Update Ulang Ulang" mampu menjalankan win32 `.exe` binari dengan meluncurkannya bersama dengan filesystem dan registri virtual. dibuat saat kompilasi dengan menjalankan aplikasi dan installer di dalam Windows Container, yang memungkinkan Windows untuk mengidentifikasi secara pasti modifikasi mana terhadap sistem operasi yang dilakukan saat instalasi. Memasangkan executable dengan filesystem virtual dan virtual registry memungkinkan Windows untuk mengaktifkan satu klik instalasi dan penghapusan instalasi.
 
-Selain itu, exe diluncurkan di dalam model appx - yang berarti dapat menggunakan banyak API yang tersedia untuk Platform Windows Universal. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Selain itu, exe diluncurkan di dalam model appx - yang berarti dapat menggunakan banyak API yang tersedia untuk Platform Windows Universal. Untuk mendapatkan kemampuan lebih, aplikasi Elektron dapat dipasangkan dengan tugas latar belakang UWP yang tak terlihat yang diluncurkan bersamaan dengan `exe` Semacam diluncurkan sebagai sidekick untuk menjalankan tugas di latar belakang, menerima notifikasi push, atau untuk berkomunikasi dengan aplikasi UWP lainnya.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+Untuk mengkompilasi aplikasi Elektron yang ada, pastikan bahwa Anda memiliki persyaratan berikut:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10 dengan Update Ulang Tahun (dirilis 2 Agustus 2016)
+* Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Setidaknya Node 4 (untuk mengecek, jalankan `node -v`)
 
-Then, go and install the `electron-windows-store` CLI:
+Lalu, pergi dan instal `electron-windows-store` CLI:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## Langkah 1: Kemas Aplikasi Elektron Anda
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Kemas aplikasi dengan menggunakan [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Pastikan untuk menghapus `node_modules` yang tidak Anda butuhkan dalam aplikasi akhir Anda, karena modul yang sebenarnya tidak Anda perlukan hanya akan meningkatkan ukuran aplikasi Anda.
 
-The output should look roughly like this:
+Outputnya harus terlihat kira-kira seperti ini:
 
 ```text
 ├── Ghost.exe
@@ -39,20 +39,22 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   ├── app
+│   └── atom.asar
 ├── snapshot_blob.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
+ 
+
 ```
 
-## Step 2: Running electron-windows-store
+## Langkah 2: Menjalankan electron-windows-store
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
@@ -83,11 +85,11 @@ You can pair your Electron app up with an invisible UWP background task that get
 
 To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## Opsional: Mengkonversi menggunakan Virtualization Penampung
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+Opsional: Tambahkan Fitur UWP menggunakan BackgroundTask Namun, jika Anda menggunakan installer kustom, atau jika Anda mengalami masalah dengan paket yang dihasilkan, Anda dapat mencoba membuat paket menggunakan kompilasi dengan Windows Container - dalam mode itu, CLI akan menginstal dan menjalankan aplikasi Anda di Windows kosong. Wadah untuk menentukan modifikasi apa yang sebenarnya dilakukan aplikasi Anda terhadap sistem operasi.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Sebelum menjalankan CLI untuk pertama kalinya, Anda harus menyiapkan "Windows Desktop App Converter". Ini akan memakan waktu beberapa menit, tapi jangan khawatir - Anda hanya perlu melakukan ini satu kali. Download dan Desktop App Converter dari [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
 1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
