@@ -81,19 +81,19 @@ El objeto `proceso` tiene los siguientes métodos:
 
 ### `proceso.crash()`
 
-Causes the main thread of the current process crash.
+Hace que el hilo principal del proceso actual se detenga.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Devuelve [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Devuelve [`IOCounters`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Object`:
+Devuelve `Object`:
 
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
