@@ -55,33 +55,32 @@ Hem `Dağıtım` hem `Hata Ayıklama` hedefleri:
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Aynı zamanda sadece `Hata Ayiklama<0> hedefleyebilirsiniz:</p>
 
-```sh
-$ ./script/build.py -c D
-```
+<pre><code class="sh">$ ./script/build.py -c D
+`</pre> 
 
-After building is done, you can find `Electron.app` under `out/D`.
+İnşaa tamalandığında, `Electron.app` dosyasını `out/D`. altında bulabilirsiniz.
 
-## 32bit Support
+## 32bit Desteği
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron sadece 64bit hedefleme ile macOS'a kurulabilir ve 32bit üzerinde de inşaa edilebilmesi için herhangi bir plan yoktur.
 
 ## Temizlik
 
-To clean the build files:
+İnşaa dosyalarını temizlemek için:
 
 ```sh
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Sadece `out` and `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
 ## Testler
 
