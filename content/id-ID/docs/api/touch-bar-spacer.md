@@ -6,7 +6,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSpacer(options)` *Experimental*
 
-* `pilihan` Object 
+* `pilihan` Obyek 
   * `ukuran` String (optional) - Size of spacer, possible values are: 
     * `small` - Small space between items.
     * `large` - Large space between items.
