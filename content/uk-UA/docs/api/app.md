@@ -53,27 +53,27 @@ app.on('window-all-closed', () => {
 
 * `event` Подія
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Відбувається коли всі вікна закрилися і застосунок припинить свою роботу. Виклик `event.preventDefault()` запобігає поведінці за замовчуванням: завершенню роботи застосунку.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Дивіться опис події `window-all-closed` для різниці між рлжіями `will-quit` і `window-all-closed`.
 
 ### Подія: 'quit'
 
 Повертає:
 
 * `event` Подія
-* `exitCode` Integer
+* `exitCode` Ціле число
 
-Emitted when the application is quitting.
+Відбувається коли застосунок припиняє роботу.
 
 ### Подія: 'open-file' *macOS*
 
 Повертає:
 
 * `event` Подія
-* `path` String
+* `path` Рядок
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Відбувається коли користувач хоче відкрити файл за допомогою застосунку. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
@@ -348,7 +348,7 @@ You can request the following paths by the name:
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` String
+* `path` Рядок
 * `options` Object (optional) 
   * `size` String 
     * `small` - 16x16
@@ -370,7 +370,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.setPath(name, path)`
 
 * `name` String
-* `path` String
+* `path` Рядок
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
@@ -404,7 +404,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` String
+* `path` Рядок
 
 Adds `path` to the recent documents list.
 
