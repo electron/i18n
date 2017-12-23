@@ -38,24 +38,24 @@ MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [Kakao İşleme 
 
 #### `Menü.yapılandırŞablondan(şablon)`
 
-* `template` MenuItemConstructorOptions[]
+* `şablon` MenüÖğesiOluşturucuSeçenekleri[]
 
-Returns `Menu`
+`Menüye` Dön
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Genellikle `şablon` yalnızca bir [MenüÖğesi](menu-item.md) oluşturmak için bir dizi `seçenektir`. Kullanım, yukarıdaki referanslar olabilir.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Ayrıca, `şablonun` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar oluşturulan menü öğelerinin özellikleri olacaktır.
 
-### Instance Methods
+### Örnek Yöntemleri
 
-The `menu` object has the following instance methods:
+`Menü` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
-#### `menu.popup([browserWindow, options])`
+#### `menu.popup([tarayıcıPenceresi, seçenekler])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (optional) 
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+* `tarayıcıPenceresi` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
+* `seçenekler` Hedef (isteğe bağlı) 
+  * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
+  * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 
@@ -63,7 +63,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `tarayıcıPenceresi` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
 
 Closes the context menu in the `browserWindow`.
 
