@@ -67,12 +67,12 @@ Jika Anda menginstal modul asli dan merasa tidak berfungsi, Anda perlu memeriksa
 
 [`prebuild`](https://github.com/mafintosh/prebuild) menyediakan cara mudah mempublikasikan modul Node asli dengan binari prebuilt untuk beberapa versi Node dan Elektron.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Jika modul menyediakan binari untuk penggunaan di Elektron, pastikan untuk menghilangkan `--build-from-source` dan lingkungan `npm_config_build_from_source` variabel untuk memanfaatkan sepenuhnya binari prebuilt.
 
-## Modules that rely on `node-pre-gyp`
+## Modul yang mengandalkan `node-pre-gyp`
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+[`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp)menyediakan cara untuk menyebarkan Node asli modul dengan binari prebuilt, dan banyak modul populer menggunakannya.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+Biasanya modul tersebut bekerja dengan baik di bawah Elektron, tapi terkadang saat Elektron menggunakan versi V8 yang lebih baru daripada Node, dan ada perubahan ABI, hal buruk mungkin terjadi terjadi. Jadi secara umum dianjurkan untuk selalu membangun modul asli dari Kode sumber.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Jika Anda mengikuti cara menginstal modul `npm`, maka hal ini dilakukan Secara default, jika tidak, Anda harus melewati `--build-from-source` ke `npm`, atau atur `npm_config_build_from_source` variabel lingkungan.
