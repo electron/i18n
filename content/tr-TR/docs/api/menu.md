@@ -56,10 +56,10 @@ Ayrıca, `şablonun` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar 
 * `seçenekler` Hedef (isteğe bağlı) 
   * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
   * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `doğru`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `yanlış` olarak ayarlayın. Varsayılan değer `yanlış`.
+  * `konumlandırmaÖğesi` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Bu menüyü `tarayıcıPenceresi` 'nde bir bağlam menüsü olarak açar.
 
 #### `menu.closePopup([browserWindow])`
 
