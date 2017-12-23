@@ -4,9 +4,9 @@ To mitigate [issues](https://github.com/joyent/node/issues/6960) around long pat
 
 ## 產生 `asar` 封存檔
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+[asar](https://github.com/electron/asar)壓縮檔類似 tar 格式，將多個檔案串接成單一檔案。 Electron 可以讀取當中的任意檔案，而不用整包解開。
 
-Steps to package your app into an `asar` archive:
+將應用程式打包進 `asar` 封存檔的步驟:
 
 ### 1. 安裝 asar 工具
 
@@ -28,7 +28,7 @@ In Electron there are two sets of APIs: Node APIs provided by Node.js and Web AP
 
 With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+舉例來說，假設在 `/path/to` 目錄下有一個 `example.asar` 封存檔:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+由 `asar` 封存檔中讀取檔案:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+列出封存檔根目錄下的所有檔案:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+使用封存檔中的模組:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+你也可以在 `BrowserWindow` 中顯示 `asar` 封存檔中的網頁:
 
 ```javascript
 const {BrowserWindow} = require('electron')
