@@ -124,15 +124,15 @@ fs.readFileSync('/path/to/example.asar')
 * `fs.openSync`
 * `process.dlopen` - 用來 `require` 原生模組
 
-### `fs.stat` 的假 Stat 資訊
+### `fs.stat` 的假資訊
 
 由 `fs.stat` 那一掛 API 回傳的 `asar` 封存檔中的檔案 `Stats` 物件是用猜的，因為那些檔案並不在檔案系統中。 因此，除了取得檔案大小和檢查檔案類型之外，不要相信 `Stats` 物件裡的資訊。
 
 ### 執行 `asar` 封存檔中的二進位檔
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+有的 Node API 能執行二進位檔，例如 `child_process.exec`, `child_process.spawn` 及 `child_process.execFile`，但只有 `execFile` 支援執行 `asar` 封存檔中的二進位檔。
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+這是因為 `exec` 和 `spawn` 收的參數是`指令`而不是 `檔案`，而且`指令`是在 shell 下執行的。 沒有萬無一失的方法判斷指令是否有用到 asar 封存檔中的檔案，就算我們真的做到了，也無法保證能毫無副作用的代換指令中的路徑。
 
 ## 將無法封存的檔案與 `asar` 封存檔整合
 
