@@ -73,22 +73,22 @@ app.on('window-all-closed', () => {
 * `event` Подія
 * `path` Рядок
 
-Відбувається коли користувач хоче відкрити файл за допомогою застосунку. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Відбувається коли користувач хоче відкрити файл за допомогою застосунку. Подія `open-file` зазвичай відбувається коли застосунок вже відкритий і ОС хоче повторно повторно використати його для відкриття файлу. `open-file` також відбуваєтсья коли файл закидається на панель, а застосунок ще не запущено. Слухайте подію `open-file` дуже рано при завантаженні застосунку щоб обробляти ці випадки (навіть перед викликом події `ready`).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Слід викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+На Windows, ви маєте витягувати шлях до файлу з `process.argv` (в головному процесі).
 
 ### Подія: 'open-url' *macOS*
 
 Повертає:
 
 * `event` Подія
-* `url` String
+* `url` Рядок
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Відбувається коли користувач хоче відкрити посилання за допомогою застосунку. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Слід викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
 ### Подія: 'activate' *macOS*
 
@@ -161,7 +161,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 * `event` Подія
 * `webContents` [WebContents](web-contents.md)
-* `url` String
+* `url` Рядок
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
