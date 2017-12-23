@@ -873,7 +873,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
+* `url` Рядок
 * `options` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
