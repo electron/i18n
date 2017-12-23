@@ -157,31 +157,31 @@ Sebagai contoh, metode dari `Session` kelas bawah `session` modul harus mengguna
 Argumen opsional dinotasikan oleh tanda kurung `[]` sekitarnya argumen opsional serta koma diperlukan jika argumen opsional ini berikut argumen lain:
 
 ```sh
-required[, optional]
+diperlukan [, opsional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Berikut metode ini informasi lebih rinci tentang masing-masing argumen. Jenis argumen dinotasikan oleh salah satu jenis umum:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* [`Deretan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Jumlah`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Obyek`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`susunan`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* Atau jenis kustom seperti Electron [`webcontent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Jika argumen atau metode unik untuk platform tertentu, platform tersebut dilambangkan menggunakan daftar dicetak miring ruang-delimited berikut datatype. Nilai bisa saja `MacOS`, `Windows`, atau `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Susunan` ketik argumen harus menentukan elemen susunan yang mungkin termasuk dalam deskripsi di bawah ini.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Deskripsi untuk `Fungsi` ketik argumen harus menjelaskan bagaimana hal itu dapat disebut dan daftar jenis parameter yang akan dikirimkan ke sana.
 
-### Events
+### Acara
 
-The events chapter must be in following form:
+Peristiwa Bab harus dalam bentuk berikut:
 
 ```markdown
 ### Event: 'wake-up'
@@ -193,13 +193,13 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah acara dari modul atau kelas.
 
-The arguments of an event follow the same rules as methods.
+Argumen dari suatu acara mengikuti aturan yang sama seperti metode.
 
-### Properties
+### properti
 
-The properties chapter must be in following form:
+Sifat Bab harus dalam bentuk berikut:
 
 ```markdown
 ### session.defaultSession
@@ -207,8 +207,8 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah properti dari modul atau kelas.
 
-## Documentation Translations
+## Dokumentasi Penerjemahan
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Lihat [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
