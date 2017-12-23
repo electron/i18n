@@ -41,7 +41,7 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Methods
+## Métodos
 
 The `ipcMain` module has the following method to listen for events:
 
