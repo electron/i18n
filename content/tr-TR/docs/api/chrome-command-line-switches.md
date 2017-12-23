@@ -63,7 +63,7 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+Local adreslerde (`localhost`, `127.0.0.1` etc.), `google.com` alt alan adları ile yer alan tüm ana bilgisayarlar dışında kullanılacak proxy sunucuları `foo.com` suffix içermeli ve `1.2.3.4:5678` içinde bulundurmalı.
 
 ## --proxy-pac-url=`url`
 
