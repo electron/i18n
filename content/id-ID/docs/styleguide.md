@@ -60,9 +60,9 @@ Aturan berikut hanya berlaku untuk dokumentasi API.
 
 Setiap halaman harus menggunakan nama objek yang sebenarnya dikembalikan oleh `membutuhkan('elektron')` sebagai judul, seperti `BrowserWindow`, `AutoUpdater`, dan `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Di bawah judul halaman harus menjadi deskripsi satu baris dimulai dengan `>`.
 
-Using `session` as example:
+Menggunakan `session` sebagai contoh:
 
 ```markdown
 # session
@@ -70,11 +70,11 @@ Using `session` as example:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### Metode modul dan acara
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Untuk modul yang tidak berkelas, metode, dan acara mereka harus terdaftar di bawah `## Metode` dan `## Events` bagian.
 
-Using `autoUpdater` as an example:
+Menggunakan `AutoUpdater` sebagai contoh:
 
 ```markdown
 # autoUpdater
@@ -88,12 +88,12 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Kelas-kelas
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* API kelas atau kelas yang merupakan bagian dari modul harus terdaftar di bawah `## Class: TheClassName` bagian.
+* Satu halaman dapat memiliki beberapa kelas.
+* Konstruktor harus terdaftar dengan `###`-tingkat judul.
+* [Metode Statis](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) harus terdaftar di bawah `### Static Methods` bagian.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
