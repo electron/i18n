@@ -169,7 +169,7 @@ required[, optional]
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * 或自訂類別，例如 Electron 的 [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. 可用的值有 `macOS`, `Windows` 及 `Linux`。
+如果某個參數或方法只適用某些平臺，請將這些平臺以空格分隔的斜體清單標註在資料型別之後。 可用的值有 `macOS`, `Windows` 及 `Linux`。
 
 ```markdown
 * `animate` Boolean (選用) _macOS_ _Windows_ - 使用動畫。
