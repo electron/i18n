@@ -20,12 +20,12 @@ Untuk menghindari kompleksitas membangun semua Chromium, Elektron menggunakan [`
 
 **3. Integrasi Node**
 
-Di NW.js, integrasi Node di halaman web memerlukan kromium patch untuk bekerja, sementara di Elektron kita memilih cara yang berbeda untuk mengintegrasikan loop libuv dengan lingkaran pesan masing-masing platform untuk menghindari peretasan kromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+Di NW.js, integrasi Node di halaman web memerlukan kromium patch untuk bekerja, sementara di Elektron kita memilih cara yang berbeda untuk mengintegrasikan loop libuv dengan lingkaran pesan masing-masing platform untuk menghindari peretasan kromium. Lihat kode [` node_bindings `](https://github.com/electron/electron/tree/master/atom/common) untuk bagaimana hal itu dilakukan.
 
-**4. Multi-context**
+**4. Multi-konteks**
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+Jika Anda pengguna NW.js berpengalaman, Anda harus terbiasa dengan konsep konteks Node dan konteks web. Konsep ini ditemukan karena bagaimana NW.js diterapkan.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Dengan menggunakan [ multi-context ](https://github.com/nodejs/node-v0.x-archive/commit/756b622) Fitur Node, Electron tidak mengenalkan konteks JavaScript baru di halaman web.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Catatan: NW.js secara opsional mendukung multi-konteks sejak 0,13.
