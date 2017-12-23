@@ -7,7 +7,7 @@
 
 ## 例
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+以下は、設定可能な追加オプションの例です。各オプションは、プラットフォームごとに異なる場合があります。
 
 ```javascript
 {
