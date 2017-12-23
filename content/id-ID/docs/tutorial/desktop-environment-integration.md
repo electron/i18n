@@ -23,13 +23,15 @@ Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dib
 Untuk menambahkan file ke dokumen baru-baru ini, Anda dapat menggunakan  app.addRecentDocument </ 0> API :</p> 
 
 ```javascript
-const {app} = require ( 'elektron') app.addRecentDocument ('/ Users/USERNAME/Desktop/work.type')
+const {app} = require('electron')
+app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-Dan Anda dapat menggunakan  app.clearRecentDocuments </ 0> API untuk mengosongkan daftar dokumen baru-baru:</p> 
+Dan Anda dapat menggunakan [app.clearRecentDocuments ](../api/app.md#appclearrecentdocuments-os-x-windows) API untuk mengosongkan daftar dokumen baru-baru:
 
 ```javascript
-const {app} = memerlukan app.clearRecentDocuments('elektron')()
+onst {app} = require('electron')
+app.clearRecentDocuments()
 ```
 
 ### catatan Windows
@@ -40,18 +42,17 @@ Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan
 
 ### Catatan macOS
 
-Ketika sebuah file yang diminta dari menu dokumen terakhir, ` open-file yang </ 0>  acara 
-dari <code> aplikasi </ 0> modul akan dipancarkan untuk itu.</p>
+Ketika sebuah file yang diminta dari menu dokumen terakhir, ` open-file yang ` acara dari `aplikasi` modul akan dipancarkan untuk itu.
 
-<h2>Dock Menu kustom (macOS)</h2>
+## Dock Menu kustom (macOS)
 
-<p>MacOS memungkinkan pengembang untuk menentukan menu kustom untuk dock , yang biasanya berisi beberapa cara pintas untuk fitur yang umum digunakan dari aplikasi Anda:</p>
+MacOS memungkinkan pengembang untuk menentukan menu kustom untuk dock , yang biasanya berisi beberapa cara pintas untuk fitur yang umum digunakan dari aplikasi Anda:
 
-<p><strong>Menu dermaga Terminal.app:</strong></p>
+**Menu dermaga Terminal.app:**
 
-<p><img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341"></p>
+<img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-<p>Untuk mengatur kustom Anda dock menu, Anda dapat menggunakan <code> aplikasi. dermaga .setMenu </ 0>  API , yang hanya tersedia di MacOS :</p>
+Untuk mengatur kustom Anda dock menu, Anda dapat menggunakan ` aplikasi. dermaga .setMenu </ 0>  API , yang hanya tersedia di MacOS :</p>
 
 <pre><code class="javascript">const {app, Menu} = require('electron')
 
