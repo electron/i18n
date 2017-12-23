@@ -29,7 +29,7 @@ To share data between web pages (the renderer processes) the simplest way is to 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
-// In the main process.
+// En el proceso principal.
 global.sharedObject = {
   someProperty: 'default value'
 }
@@ -41,7 +41,7 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// En la página 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -82,7 +82,7 @@ Debido a la integración de Node.js de Electron, hay algunos símbolos extras in
 Para solucionar esto, puede desactivar la integración del nodo en Electron:
 
 ```javascript
-// In the main process.
+// En el proceso principal.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -106,7 +106,7 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` no está definido.
 
 Cuando se utiliza el módulo de Electron puede encontrar un error como este:
 
