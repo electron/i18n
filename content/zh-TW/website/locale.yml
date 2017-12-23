@@ -11,7 +11,7 @@ nav:
   code_of_conduct: 行為準則
 docs:
   title: Electron 文件
-  description: 到<a href="/docs/all">文件大全</a>一次看全部的文件內容; 也可以看看<a href="/docs/faq">常見問題集</a>。
+  description: 也可以一次<a href="/docs/all">單頁顯示所有文件</a>，或到<a href="/docs/faq">常見問題集</a>看看。
   guides: 導引
   api_reference: API 參考
   advanced: 進階
@@ -19,7 +19,7 @@ docs:
     propose_change: 改善這份文件
     version_history: 版本歷程記錄
     translate: 翻譯這份文件
-    view_all_docs: All Docs on One Page
+    view_all_docs: 單頁顯示所有文件
 languages:
   choose_language: 選擇網站語言
   translation_progress: 翻譯進度
@@ -59,7 +59,7 @@ get_started:
   description: 想要開始用 Electron 了嗎? 可以參考下列資源，學會怎麼透過 Electron 包裝你的網頁應用程式、存取 API，並產出安裝程式。
 explore:
   title: 探索 Electron API
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示範應用程式</a>以互動的方式展示 Electron API 中最重要的功能。經由範例程式碼及提示說明，看看 Electron 有什麼能耐幫你打造應用程式。"
 download_from_github: 從 GitHub 下載
 view_all_releases_on_github: 查看 GitHub 上的<a href="https://github.com/electron/electron-api-demos/releases">所有發行版本</a>
 quick_start:
