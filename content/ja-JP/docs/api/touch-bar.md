@@ -16,7 +16,7 @@ Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar
 
 **Tip:** Touch Bar 付きの MacBook をお持ちでない場合は、Touch Bar を使用するアプリの検証に [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) をご利用になれます。
 
-### Instance Properties
+### インスタンスプロパティ
 
 The following properties are available on instances of `TouchBar`:
 
