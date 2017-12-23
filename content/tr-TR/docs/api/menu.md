@@ -2,7 +2,7 @@
 
 > Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
 ### `yeni Menü()`
 
@@ -10,21 +10,21 @@ Yeni bir menü oluşturun.
 
 ### Statik Yöntemler
 
-`Menü` sınıfı aşağıdaki statik yöntemlere sahiptir:
+`Menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
-#### `Menü.ayarlaUygulamaMenü(menü)`
+#### `Menu.setApplicationMenu(menu)`
 
-* `menü` Menü
+* `menu` Menü
 
-MacOS'ta uygulama `menüsünü` ayarlar. Windows ve Linux'ta `menü`, her pencerenin üst menüsü olarak ayarlanır.
+MacOS'ta uygulama `menüsünü` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
 
-`Boş` geçilmesi, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
+`null` yazılması, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
 
-**Not:** Bu API `uygulama` modülü `hazır` olduktan sonra çağrılmalıdır.
+**Not:** Bu API `app` modülü `ready` olduktan sonra çağrılmalıdır.
 
-#### `Menü.alUygulamaMenüsü()`
+#### `Menu.getApplicationMenu()`
 
-`Menü` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `boşsa`, ayarlanmamışsa.
+`Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `null` ise, ayarlanmamışsa.
 
 **Not:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Örnek özellikleri](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
@@ -61,17 +61,17 @@ Ayrıca, `şablonun` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar 
 
 Bu menüyü `tarayıcıPenceresi` 'nde bir bağlam menüsü olarak açar.
 
-#### `menu.closePopup([browserWindow])`
+#### `menü.kapatAçılanpencereyi([browserWindow])`
 
 * `tarayıcıPenceresi` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
 
-Closes the context menu in the `browserWindow`.
+`tarayıcıPenceresi` 'nde bağlam menüsünü kapatır.
 
-#### `menu.append(menuItem)`
+#### `menü.ekle(menüÖğesi)`
 
-* `menuItem` MenuItem
+* `menüÖğesi` MenüÖğesi
 
-Appends the `menuItem` to the menu.
+Menüye `menüÖğesi` ekler.
 
 #### `menu.insert(pos, menuItem)`
 
