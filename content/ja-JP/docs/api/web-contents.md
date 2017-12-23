@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 プロセス: [Main](../glossary.md#main-process)
 
-### Instance Events
+### インスタンスイベント
 
 #### Event: 'did-finish-load'
 
