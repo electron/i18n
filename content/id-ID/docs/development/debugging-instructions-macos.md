@@ -73,7 +73,7 @@ Untuk menyelesaikan debugging pada titik ini, jalankan  proses terus </ 0> . And
 
 <h3>Bacaan lebih lanjut</h3>
 
-<p>LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2"> LLDB Command Struktur Referensi </ 0> 
-atau pengantar <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html"> Menggunakan LLDB sebagai Standalone Debugger </ 1> .</p>
+<p>LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2"> LLDB Command Struktur Referensi</a> 
+atau pengantar <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html">Menggunakan LLDB sebagai Standalone Debugger</a> .</p>
 
-<p>Anda juga dapat memeriksa LLDB ini fantastis <a href="http://lldb.llvm.org/tutorial.html"> tutorial manual dan </ 0> , yang akan menjelaskan skenario debugging lebih kompleks.</p>
+<p>Anda juga dapat memeriksa LLDB ini fantastis <a href="http://lldb.llvm.org/tutorial.html">tutorial manual dan</a>, yang akan menjelaskan skenario debugging lebih kompleks.</p>
