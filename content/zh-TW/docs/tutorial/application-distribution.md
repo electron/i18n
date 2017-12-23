@@ -119,7 +119,7 @@ MyApp.app/Contents
 
 3. 設定以下環境變數:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
+* `ELECTRON_GITHUB_TOKEN` - 能在 GitHub 建立 Release 的 Token。
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
