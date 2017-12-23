@@ -18,7 +18,7 @@ Electron is maintained by a team at GitHub as well as a group of [active contrib
 
 ### Updating Dependencies
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron'un Chromium sürümü, yeni bir kararlı Chromium sürümünün piyasaya sürülmesinden sonra bir iki hafta içinde güncellenir.
 
 Node.js'nin yeni bir sürümü piyasaya çıktığında, Electron genellikle daha kararlı bir sürümü getirmek için yükseltmeden önce yaklaşık bir ay bekler.
 
@@ -32,9 +32,9 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 
 ### LTS
 
-Elektron'un eski sürümlerinin uzun vadeli desteği şu anda mevcut değildir. Mevcut Elektron sürümünüz sizde çalışıyorsa, istediğiniz süre boyunca kullanabilirsiniz. If you want to make use of new features as they come in you should upgrade to a newer version.
+Elektron'un eski sürümlerinin uzun vadeli desteği şu anda mevcut değildir. Mevcut Elektron sürümünüz sizde çalışıyorsa, istediğiniz süre boyunca kullanabilirsiniz. Kullandıkça yeni özelliklerden yararlanmak isterseniz daha yeni bir sürüme geçmelisiniz.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Büyük güncelleme sürümü `v1.0.0` ile geldi. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
 ## Temel felsefe
 
