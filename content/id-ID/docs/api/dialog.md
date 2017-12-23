@@ -108,11 +108,11 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
 
 Mengembalikan `Integer`, indeks tombol yang diklik, jika callback diberikan, ia akan kembali terdefinisi.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Menunjukkan kotak pesan, akan memblokir proses sampai kotak pesan ditutup. Ini mengembalikan indeks tombol yang diklik.
 
 Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+Jika `callback` dilewati, dialog tidak akan memblokir prosesnya. Panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui `callback (respon)`.
 
 ### `dialog.showErrorBox(judul, konten)`
 
@@ -131,15 +131,15 @@ API ini dapat dipanggil dengan aman sebelum `siap` acara yang digunakan aplikasi
   * `message` String - The message to display to the user.
 * `callback ` Fungsi
 
-Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. Jika Anda memberikan argumen `browserWindow`, dialog akan dilampirkan ke jendela induk, membuatnya menjadi modal.
 
 Pada Windows pilihannya lebih terbatas, karena API Win32 digunakan:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Argumen `pesan` tidak digunakan, karena OS menyediakan dialog konfirmasinya sendiri.
+* Argumen `browserWindow` diabaikan karena tidak mungkin membuat modal dialog konfirmasi ini.
 
-## Sheets
+## Lembar
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+Pada macos, dialog disajikan sebagai lembaran yang dilekatkan pada jendela jika Anda memberikan referensi `BrowserWindow` pada parameter `browserWindow`, atau modalnya jika tidak ada jendela yang disediakan.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Anda dapat memanggil `BrowserWindow.getCurrentWindow (). SetSheetOffset (offset)` untuk mengubah offset dari bingkai jendela tempat lembaran dilekatkan.
