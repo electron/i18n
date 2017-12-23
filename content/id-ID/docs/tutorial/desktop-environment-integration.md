@@ -42,7 +42,7 @@ Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan
 
 ### Catatan macOS
 
-Ketika sebuah file yang diminta dari menu dokumen terakhir, `open-file` acara dari `aplikasi` modul akan dipancarkan untuk itu.
+Ketika sebuah file yang diminta dari menu dokumen terakhir, `open-file` acara dari `app` modul akan dipancarkan untuk itu.
 
 ## Dock Menu kustom (macOS)
 
