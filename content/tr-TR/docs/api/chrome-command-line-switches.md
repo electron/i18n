@@ -141,8 +141,8 @@ Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 
 ## -vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Modül başına `--v` tarafından verilen değeri geçersiz kılmak için maksimal V-logging düzeylerini verir. Örneğin `my_module.*` ve `foo*.*` kaynak dosyaları içindeki tüm kodlar için `my_module=2,foo*=3` logging seviyelerini değiştirebilir.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+İleri veya geri eğik çizgi içeren herhangi bir desen sadece modüle karşı değil aynı zamanda bütün yol adına karşı test edilir. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
