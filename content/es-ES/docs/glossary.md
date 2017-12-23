@@ -10,7 +10,7 @@ El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [fue](https://github.com/electron-archive/brightray) una biblioteca estática que hizo a [libchromiumcontent](#libchromiumcontent) más fácil de usar en aplicaciones. Ahora es obsoleta y se ha fusionado de la base de código de Electron.
 
 ### CRT
 
@@ -44,11 +44,11 @@ In Chromium, this process is referred to as the "browser process". It is renamed
 
 See also: [process](#process), [renderer process](#renderer-process)
 
-### MAS
+### MAC
 
 Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### módulos nativos
 
 Los módulos nativos (también llamados [addons](https://nodejs.org/api/addons.html) en Node.js) son módulos escritos en C o C++ que puede ser cargado en Node.js o Electron mediante la función include() y utilizado como si fueran un módulo ordinario de Node.js. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
@@ -80,7 +80,7 @@ In normal browsers, web pages usually run in a sandboxed environment and are not
 
 See also: [process](#process), [main process](#main-process)
 
-### Squirrel
+### Ardilla
 
 Ardilla es un marco de código abierto que permite a aplicaciones de Electron actualizar automáticamente como se liberan nuevas versiones. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
 
@@ -102,6 +102,6 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
-### webview
+### vistaweb
 
 `webview` etiquetas se utilizan para incrustar contenido de 'guest' (como páginas web externas) en su aplicación Electron. Son similares a `iframe`s, pero se diferencian en que cada vista Web se ejecuta en un proceso separado. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
