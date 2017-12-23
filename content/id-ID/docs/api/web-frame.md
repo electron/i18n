@@ -57,19 +57,19 @@ Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
 Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
 
-### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
+### `webBingkai.setPenyediaPeriksaEjaan(bahasa, otomatisBenarkanKata, penyedia)`
 
-* `language` String
-* `autoCorrectWord` Boolean
-* `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
-    * `text` String
+* `bahasa` String
+* `otomatisBenarkanKata` Boolean
+* `penyedia` Objek 
+  * `cekEjaan` Fungsi - kembali `Boolean` 
+    * `teks` String
 
-Sets a provider for spell checking in input fields and text areas.
+Menetapkan penyedia pemeriksaan ejaan di bidang masukan dan area teks.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+Dengan `penyedia` harus menjadi objek yang memiliki metode `cekEjaan`yang kembali apakah kata yang dilewati benar dieja.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Contoh menggunakan [node-cekEjaan](https://github.com/atom/node-spellchecker) sebagai penyedia:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -82,33 +82,33 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* ` skema </ 0>  String</li>
-</ul>
+* `skema` String
 
-<p>Registers the <code>scheme` as secure scheme.</p> 
-  Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
-  
-  ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
-  
-  * ` skema </ 0>  String</li>
-</ul>
+Register `skema` sebagai skema aman.
 
-<p>Resources will be loaded from this <code>scheme` regardless of the current page's Content Security Policy.</p> 
-    ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
-    
-    * ` skema </ 0>  String</li>
-<li><code>pilihan` Objek (opsional) 
-      * `secure` Boolean - (optional) Default true.
-      * `bypassCSP` Boolean - (optional) Default true.
-      * `allowServiceWorkers` Boolean - (optional) Default true.
-      * `supportFetchAPI` Boolean - (optional) Default true.
-      * `corsEnabled` Boolean - (optional) Default true.
-    
-    Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
-    
-    Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
-    
-    ```javascript
+Skema yang aman tidak memicu peringatan konten campuran. Misalnya, `https` dan `data` adalah skema aman karena tidak dapat rusak oleh jaringan aktif penyerang.
+
+### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
+
+* `skema` String
+
+Sumber daya akan dimuat dari skema `ini` terlepas dari halaman sekarang Kebijakan Keamanan Konten.
+
+### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
+
+* `skema` String
+* `pilihan` Objek (opsional) 
+  * `aman` Boolean - (opsional) Default benar.
+  * `bypassCSP` Boolean - (optional) Default true.
+  * `allowServiceWorkers` Boolean - (optional) Default true.
+  * `supportFetchAPI` Boolean - (optional) Default true.
+  * `corsEnabled` Boolean - (optional) Default true.
+
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+
+```javascript
 const {webFrame} = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
