@@ -240,19 +240,19 @@ Tarayıcı pencerelerinin [`ayarlanmışMenü` yöntemi](https://github.com/elec
 
 ## Menü Öğesi Konumu
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+`Menü.yapılandırŞablondan` ile bir menü oluştururken öğenin nasıl yerleştirileceğini kontrol etmek için `konum` ve `kimliği` kullanabilirsiniz.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+`MenüÖğesinin` `konum` özniteliği `[placement]=[id]` formundadır; burada `atama`, `önce`, `sonra` veya `sonu` ve `id` 'den biridir, menüdeki mevcut bir öğenin benzersiz kimliğidir:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `önce` - Bu öğeyi kimliği belirtilen maddeden önce ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
+* `sonra` - Bu öğeyi, kimliği belirtilen öğenin üzerine ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
+* `sonu` - Bu öğeyi kimliği referanslı öğeyi içeren mantıksal grubun sonuna ekler (gruplar ayırıcı öğeler tarafından oluşturulur). Başvurulan öğe yoksa, verilen bir kimliği kullanarak yeni bir ayırıcı grubu oluşturulur ve bu öğe bu ayırıcıdan sonra eklenir.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni bir öğe yerleştirilene kadar arkaya eklenir. Dolayısıyla, bir grup menü öğesini aynı konuma yerleştirmek istiyorsanız, yalnızca ilk öğe için bir konum belirtmeniz yeterlidir.
 
 ### Örnekler
 
-Template:
+Şablon:
 
 ```javascript
 [
@@ -264,7 +264,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- 1
     - 2
@@ -273,7 +273,7 @@ Menu:
     - 5
     
 
-Template:
+Şablon:
 
 ```javascript
 [
@@ -286,7 +286,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- ---
     - a
