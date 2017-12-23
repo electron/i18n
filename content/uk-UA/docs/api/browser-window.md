@@ -415,7 +415,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` Рядок
+* `path` Стрічка
 
 Adds Chrome extension located at `path`, and returns extension's name.
 
@@ -439,7 +439,7 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `path` Рядок
+* `path` Стрічка
 
 Adds DevTools extension located at `path`, and returns extension's name.
 
@@ -873,7 +873,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` Рядок
+* `url` Стрічка
 * `options` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
