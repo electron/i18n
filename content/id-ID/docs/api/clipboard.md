@@ -162,7 +162,7 @@ console.log(clipboard.has('<p>selection</p>'))
 <p>Writes the <code>buffer` into the clipboard as `format`.</p> 
                 ### `clipboard.write(data[, type])`
                 
-                * `data` Object 
+                * `data` Obyek 
                   * `text` String (optional)
                   * `html` String (optional)
                   * `image` [NativeImage](native-image.md) (optional)
