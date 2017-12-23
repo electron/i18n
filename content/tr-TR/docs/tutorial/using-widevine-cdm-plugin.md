@@ -1,6 +1,6 @@
 # Widevine CDM Eklentisini Kullanma
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+Electron'da Chrome tarayıcısına yüklenmiş Widevine CDM eklentisini kullanabilirsiniz.
 
 ## Getting the plugin
 
