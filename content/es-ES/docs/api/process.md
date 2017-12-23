@@ -108,14 +108,14 @@ Devuelve `Objecto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `swapTotal` Entero - La cantidad total de memoria swap en Kilobytes disponible en el sistema. *Windows* *Linux* Context | Request Context
+* `swapLibre` Entero - La cantidad de memoria swap libre en Kilobytes que dispone el sistema *Windows* *Linux*
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Hace que el hilo principal del proceso actual se caiga.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
