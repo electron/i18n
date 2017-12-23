@@ -26,9 +26,9 @@ Sonra Visual Studio'da açın. Elektron Visual Studio ile oluşturulmaz ve bu ne
 
 ### Ekleme yapma
 
-You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+Visual Studio hata ayıklayıcısına yerel olarak veya bilgisayara uzaktan erişerek ekleme yapabilirsiniz. İşlem çalıştıktan sonra Debug / Attach to Process'e tıklayın. (veya ` CTRL + ALT + P ` tuşlarına basarak) "İşleme Ekle" iletişim kutusunu açın. Bu özelliği yerel veya uzak bir bilgisayarda çalışan uygulamaları ayıklamak için, birden fazla aynı anda hata ayıklama işlemi için kullanabilirsiniz.
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Elektron farklı bir kullanıcı hesabı altında çalışıyorsa, ` Tüm kullanıcılardaki işlemleri göster ` onay kutusunu işaretleyin. BrowserWindows uygulamanızı açtığınızda Kaç kişiye bağlı olduğuna dikkat edin., birden fazla işlemi göreceksiniz. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
 
 ### Which Process Should I Attach to?
 
