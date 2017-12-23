@@ -1,19 +1,19 @@
-# Build System Overview
+# Membangun Sistem Tinjauan
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Menggunakan Electron [gyp](https://gyp.gsrc.io/) proyek generasi dan [ninja](https://ninja-build.org/) untuk bangunan. Proyek konfigurasi dapat ditemukan di `.gyp` dan `.gypi` file.
 
-## Gyp Files
+## File Gyp
 
-Following `gyp` files contain the main rules for building Electron:
+Setelah `gyp` file berisi aturan utama untuk membangun Electron:
 
-* `electron.gyp` defines how Electron itself is built.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `brightray/brightray.gypi` includes general build configurations about building.
+* `electron.gyp` Definisikan bagaimana Electron itu sendiri dibangun.
+* `common.gypi` menyesuaikan konfigurasi membangun Node untuk membuatnya dibangun bersama dengan Chromium.
+* `brightray/brightray.gyp` mendefinisikan bagaimana `brightray` dibuat dan mencakup konfigurasi default untuk menghubungkan dengan Chromium.
+* `brightray/brightray.gypi` termasuk konfigurasi umum membangun tentang bangunan.
 
-## Component Build
+## Membangun Komponen
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Karena Chromium cukup merupakan proyek besar, tahap penghubung terakhir bisa terjadi cukup beberapa menit, yang membuat sulit untuk pembangunan. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
 
 In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
