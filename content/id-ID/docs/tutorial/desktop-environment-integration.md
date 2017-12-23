@@ -138,7 +138,7 @@ Dari MSDN, itu bergambar:
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-Anda dapat menggunakan  BrowserWindow.setThumbarButtons </ 0> untuk mengatur toolbar thumbnail dalam aplikasi Anda:</p> 
+Anda dapat menggunakan [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) untuk mengatur toolbar thumbnail dalam aplikasi Anda:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -164,13 +164,13 @@ win.setThumbarButtons([
 ])
 ```
 
-Untuk membersihkan tombol toolbar thumbnail, sebut saja ` BrowserWindow.setThumbarButtons </ 0> 
-dengan kosong array yang :</p>
+Untuk membersihkan tombol thumbnail toolbar, hanya memanggil `BrowserWindow.setThumbarButtons` dengan array kosong:
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
+```javascript
+const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.setThumbarButtons([])
-`</pre> 
+```
 
 ## Kesatuan Launcher pintas (Linux)
 
