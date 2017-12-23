@@ -123,7 +123,7 @@ Kaydedilecek net günlük olaylarını etkinleştirir ve bunları `yoluna` yazar
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Chromium görünmez sayfa oluşturucu işlemlerinin önceliğinin düşürülmesini engeller.
 
 This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
