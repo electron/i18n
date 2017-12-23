@@ -6,9 +6,9 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python phiên bản 2.7.x. Một số bản phân phối như CentOS 6.x vẫn sử dụng Python 2.6.x vì vậy bạn có thể cần phải kiểm tra phiên bản Python của bạn với `python -V`.
-* Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Bộ phát triển tiên đề GTK+ và libnotify.
+* Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](http://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.
+* Header của GTK+ và libnotify.
 
 Trên Ubuntu, cài đặt các thư viện sau đây:
 
@@ -40,15 +40,15 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Trên các bản phân phối khác có thể cung cấp cá gói tương tự cho việc cài đặt thông qua các phần mềm quản lý gói như pacman. Hoặc cũng có thể biên dịch từ mã nguồn của các gói đó.
 
-## Getting the Code
+## Lấy mã nguồn
 
 ```sh
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Khởi tạo dự án
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Mã khởi tạo dự án sẽ tải tất cả các file phụ thuộc cần thiết và tạo các file dự án. Bạn phải có Python 2.7.x để chạy được mã khởi tạo. Quá trình tải một số file có thể mất nhiều thời gian. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
 ```sh
 $ cd electron
