@@ -2,7 +2,7 @@
 
 > Elektron tarafından desteklenen komut satırı anahtarları.
 
-[app](app.md) modülünün [ready](app.md#event-ready) olayı yayılmadan önce [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kullanarak uygulamanızın ana komut dosyalarına ekleyebilirsiniz:
+[Uygulama](app.md) modülünün [hazır](app.md#event-ready) olayı yayılmadan önce [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kullanarak uygulamanızın ana komut dosyalarına ekleyebilirsiniz:
 
 ```javascript
 const {app} = require('electron')
@@ -16,7 +16,7 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-`,` Ile ayrılmış `domains` listesi için bağlantı limitini yoksay.
+`,` Ile ayrılmış `alan adları` listesi için bağlantı limitini yoksay.
 
 ## --disable-http-cache
 
@@ -40,7 +40,7 @@ Disk önbelleği tarafından kullanılacak maksimum disk alanını bayt cinsinde
 
 ## --js-flags=`flags`
 
-Node JS motoruna geçirilen bayrakları belirtir. Ana işlemde `flags` etkinleştirmek isterseniz, Elektron başlatırken değerlerin geçmiş olması gerekir.
+Node JS motoruna geçirilen bayrakları belirtir. Ana işlemdeki `bayrakları` etkinleştirmek isterseniz, Elektron başlatırken değerlerin geçmiş olması gerekir.
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
@@ -54,7 +54,7 @@ Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. Bu anaht
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Verilen yarı-kolonla ayrılmış ana bilgisayarların listesi için Electron talimatları proxy sunucusunu atlar. Bu bayrak yalnızca tandem içerisinde `--proxy-server` ile kullanılmışsa etki eder.
 
 Örneğin:
 
@@ -75,7 +75,7 @@ Bir proxy sunucusu kullanmayın ve daima doğrudan bağlantılar kurun. Geçen p
 
 ## --host-rules=`rules`
 
-Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayrılmış `rules`.
+Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayrılmış `kurallar`.
 
 Örneğin:
 
@@ -88,7 +88,7 @@ Bu eşlemeler, net istekli bitiş noktası sunucusu için geçerlidir (TCP bağl
 
 ## --host-resolver-rules=`rules`
 
-Gibi `--host-rules` ama bu `rules` sadece ana çözümleyici için geçerlidir.
+Gibi `--host-rules` ama bu `kurallar` sadece ana çözümleyici için geçerlidir.
 
 ## --auth-server-whitelist=`url`
 
