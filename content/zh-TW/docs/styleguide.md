@@ -90,12 +90,12 @@ Electron 說明文件撰寫指導方針。
 
 ### 類別
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* API 類別或屬於該模組的類別，必須條列在 `## 類別: 類別名稱` 章節下。
+* 同一頁裡可以有多個類別。
+* 建構式必須用 `###` 級別的標題列出。
+* [靜態方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)必須列在 `### 靜態方法` 章節下。
+* [物件方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)必須列在 `### 物件方法` 章節下。
+* 具有回傳值的方法第一行描述必須是 "回傳 `[TYPE]` - 回傳內容描述" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### 物件屬性` chapter. 
