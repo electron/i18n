@@ -135,11 +135,11 @@ Dönüşler:
 * `olay` Olay
 * `url` Dize
 * `çerçeveAdı` Dize
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `kural` Dize - `varsayılan`, `önplan-sekmesi`, `arkaplan-sekmesi`, `yeni-pencere`, `diske-kaydet` ve `diğer` olabilir.
+* `seçenekler` Nesne - Yeni `TarayıcıPenceresi` oluşturmak için kullanılacak seçenekler.
+* `ekÖzellikler` Dize[] - `Pencere.açma()` için verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmayan özellikler).
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Sayfa, bir `url` için yeni bir pencere açmayı istediğinde ortaya çıkar. `Pencere.açma` veya `<a target='_blank'>` gibi harici bir bağlantıyla istenebilir.
 
 By default a new `BrowserWindow` will be created for the `url`.
 
