@@ -1,4 +1,4 @@
-# Accelerator
+# Acelerador
 
 > Define keyboard shortcuts.
 
@@ -30,27 +30,27 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Available modifiers
+## Modificadores disponibles
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Comando` (o `Cmd` resumido)
+* `Control` (o `Ctrl` resumido)
+* `ComandoOControl` (o `CmdOrCtrl` resumido)
 * `Alt`
-* `Option`
-* `AltGr`
+* `Opción`
+* `Alt derecha`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Códigos claves disponibles
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* `` a `9`
+* `A` a `Z`
+* `F1` a `F24`
+* Signos de puntuación como `~`, `!`, `@`, `#`, `` $, etcétera.
+* `Más`
+* `Espacio`
 * `Tab`
-* `Backspace`
+* `Retroceso`
 * `Delete`
 * `Insert`
 * `Return` (or `Enter` as alias)
