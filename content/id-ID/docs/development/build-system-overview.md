@@ -32,25 +32,25 @@ $ ./script/build.py -c D
 
 ## Generasi Proyek Dua Tahap
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+Electron link dengan berbagai tetapan perpustakaan di `Pelepasan` dan `Debug` membangun. `gyp`, bagaimanapun, tidak mendukung konfigurasi pengaturan tautan yang berbeda konfigurasi yang berbeda.
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+Untuk mengolah Electron ini menggunakan `gyp` variabel `libchromiumcontent_component` untuk mengontrol pengaturan link yang akan digunakan dan hanya menghasilkan satu target saat menjalankan `gyp`.
 
-## Target Names
+## Target Nama
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+Tidak seperti kebanyakan proyek yang menggunakan `Melepaskan` dan `Debug` sebagai nama target, Electron menggunakan `R` dan `D` sebagai gantinya. Ini karena `gyp` secara tabrakan jika ada hanya satu `Melepaskan` atau `Debug` membangun konfigurasi yang ditentukan, dan hanya Electron untuk menghasilkan satu target pada satu waktu seperti yang dinyatakan di atas.
 
-This only affects developers, if you are just building Electron for rebranding you are not affected.
+Ini hanya mempengaruhi pengembang, jika Anda hanya membangun Electron untuk rebranding Anda tidak terpengaruh.
 
 ## Pengujian
 
-Test your changes conform to the project coding style using:
+Menguji perubahan sesuai dengan proyek gaya pengkodean menggunakan:
 
 ```sh
 $ npm run lint
 ```
 
-Test functionality using:
+Menguji fungsionalitas menggunakan:
 
 ```sh
 $ npm test
