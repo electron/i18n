@@ -1,6 +1,6 @@
-# webContents
+# webİçeriği
 
-> Render and control web pages.
+> Web sayfalarını oluşturun ve kontrol edin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
