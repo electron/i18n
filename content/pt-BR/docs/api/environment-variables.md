@@ -4,14 +4,14 @@
 
 Certos comportamentos do Electron são controlados por variáveis de ambientes porque são inicializados antes que as flags da linha de comando e o código da aplicação.
 
-POSIX shell example:
+Exemplo de shell POSIX:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Exemplo de console do Windows:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
@@ -50,13 +50,13 @@ Don't attach to the current console session.
 
 Don't use the global menu bar on Linux.
 
-## Development Variables
+## Variáveis de desenvolvimento
 
-The following environment variables are intended primarily for development and debugging purposes.
+As seguintes variáveis de ambiente são destinadas principalmente para fins de depuração e desenvolvimento.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Imprime o log interno do Chrome para o console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
