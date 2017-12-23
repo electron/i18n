@@ -90,7 +90,7 @@ Electron 說明文件撰寫指導方針。
 
 ### 類別
 
-* API 類別或屬於該模組的類別，必須條列在 `## 類別: 類別名稱` 章節下。
+* API 類別或屬於該模組的類別，必須條列在 `## Class: 類別名稱` 章節下。
 * 同一頁裡可以有多個類別。
 * 建構式必須用 `###` 級別的標題列出。
 * [靜態方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)必須列在 `### 靜態方法` 章節下。
@@ -148,11 +148,11 @@ Electron 說明文件撰寫指導方針。
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+標題可以是 `###` 或 `####` 級別，取決於它是屬於模組還是類別的方法。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+對於模組而言，`objectName` 是模組的名稱。對於類別，則必須是類別物件的名稱，而且並且不得與模組名稱相同。
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+例如 `session` 模組下的 `Session` 類別方法必須使用 `ses` 作為 `objectName`。
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
@@ -175,9 +175,9 @@ If an argument or a method is unique to certain platforms, those platforms are d
 * `animate` Boolean (選用) _macOS_ _Windows_ - 使用動畫。
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` 型別的參數必須在描述中說明陣列中可能出現的元素型別。
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` 型別的參數說明應清楚說明使用方式，並列出需送進去的參數型別。
 
 ### 事件
 
