@@ -39,25 +39,24 @@ Ini bukan peluru, tapi setidaknya, Anda harus mencoba yang berikut ini:
 * Tampilan Web: Jangan tambahkan `nodeintegration` atribut.
 * Tampilan Web: Jangan gunakan ` disablewebsecurity </ 0></li>
 <li>Tampilan Web: Jangan gunakan <code>allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
-* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+* TampilanWeb: Jangan gunakan `insertCSS` or `executeJavaScript` with remote CSS/JS.
+* Tampilan Web: Verifikasi pilihan dan params dari semua `<webview>` tag sebelum mereka terikat menggunakan `akan melampirkan tampilan web` acara :
 
 ```js
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+app.on ( 'web-isi-dibuat', ( acara , isi) = & gt; {
+   contents.on ( 'akan melampirkan tampilan web', ( acara , webPreferences, params) = & gt; {
+     // Strip pergi script preload jika tidak digunakan atau memverifikasi lokasi mereka adalah sah
+     webPreferences.preload delete
+     hapus webPreferences.preloadURL
 
-    // Disable node integration
-    webPreferences.nodeIntegration = false
+     // Disable simpul integrasi
+     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
-      event.preventDefault()
-    }
-  })
-})
+     // Verifikasi URL yang dimuat
+     if (! params.src.startsWith ( 'https://yourapp.com/ ')) {
+ event .preventDefault ()
+ }
+ })})            
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan .
