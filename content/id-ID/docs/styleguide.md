@@ -45,20 +45,20 @@ Untuk API referensi, ada pengecualian untuk aturan ini.
 * Gunakan `sh` dari pada `cmd` di blok kode (karena stabilo sintaks).
 * Garis harus dibungkus pada 80 kolom.
 * Tidak ada daftar nesting lebih dari 2 tingkat (karena penyajian penurunan harga).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Semua `js` dan `javascript` blok kode yang dibatasi dengan [standar-penurunan harga](http://npm.im/standard-markdown).
 
-## Picking words
+## Pemetikan kata-kata
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Gunakan "will" lebih "would" ketika menggambarkan hasil.
+* Memilih "in the ___ process" lebih "on".
 
-## API references
+## API referensi
 
-The following rules only apply to the documentation of APIs.
+Aturan berikut hanya berlaku untuk dokumentasi API.
 
-### Page title
+### Judul halaman
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Setiap halaman harus menggunakan nama objek yang sebenarnya dikembalikan oleh `membutuhkan('elektron')` sebagai judul, seperti `BrowserWindow`, `AutoUpdater`, dan `session`.
 
 Under the page title must be a one-line description starting with `>`.
 
