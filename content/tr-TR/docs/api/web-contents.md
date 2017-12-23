@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webİçeriği` bir [EtkinlikÇıkarıcı](https://nodejs.org/api/events.html#events_class_eventemitter) 'dır. Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`TarayıcıPenceresi`](browser-window.md) nesnesinin bir öğesidir. `webİçerik` nesnesine erişmenin bir örneği:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,18 +18,18 @@ console.log(contents)
 
 ## Metodlar
 
-These methods can be accessed from the `webContents` module:
+Bu yöntemlere `webİçeriği` modülünden erişilebilir:
 
 ```javascript
 const {webContents} = require('electron')
 console.log(webContents)
 ```
 
-### `webContents.getAllWebContents()`
+### `webİçeriği.alTümWebiçerikleri()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+`Webİçerikleri[]` 'ne döndürür - Tüm `Webİçerikleri` örneklerinin bir dizisi. Bu, tüm pencereler, web görüntüleri, açılan devtools eklentileri ve devtools uzantısı arka plan sayfaları için web içeriğini içerecektir.
 
-### `webContents.getFocusedWebContents()`
+### `webİçerikleri.alOdaklanmışWebİçerikleri()`
 
 Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
 
