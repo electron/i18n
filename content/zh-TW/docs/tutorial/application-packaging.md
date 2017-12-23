@@ -1,6 +1,6 @@
 # 應用程式打包
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+為了避開 Windows 處理長路徑名稱的[問題](https://github.com/joyent/node/issues/6960)，並稍微加快 `require` 效能，防止原始程式碼一眼就被看到。只需要一點點修改，就能把你的應用程式打包進 [asar](https://github.com/electron/asar) 封存檔。
 
 ## 產生 `asar` 封存檔
 
@@ -22,11 +22,11 @@ $ asar pack your-app app.asar
 
 ## 使用 `asar` 封存檔
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electron 中有兩大塊 API: 由 Node.js 提供的 Node API，以及 Chromium 提供的 Web API。兩種 API 都能由 `asar` 封存檔中讀取檔案。
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+透過 Electron 的特別修改，`fs. readFile` 和 `require` 等 Node API 會將 `asar` 封存檔視為虛擬目錄，裡面的檔案就像是檔案系統中的一般檔案。
 
 舉例來說，假設在 `/path/to` 目錄下有一個 `example.asar` 封存檔:
 
