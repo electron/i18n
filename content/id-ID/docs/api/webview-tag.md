@@ -466,7 +466,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `pilihan` Object 
+* `pilihan` Obyek 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -646,7 +646,7 @@ webview.addEventListener('console-message', (e) => {
   
   Pengembalian:
   
-  * `result` Object 
+  * `result` Obyek 
     * `requestId` Integer
     * `activeMatchOrdinal` Integer - Position of the active match.
     * `matches` Integer - Number of Matches.
