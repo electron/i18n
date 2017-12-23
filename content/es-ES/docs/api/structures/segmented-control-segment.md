@@ -1,4 +1,4 @@
-# SegmentedControlSegment Object
+# Objeto SegmentedControlSegment
 
 * `label` String - (optional) The text to appear in this segment
 * `icon` NativeImage - (optional) The image to appear in this segment
