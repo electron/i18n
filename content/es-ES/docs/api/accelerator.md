@@ -1,13 +1,13 @@
 # Acelerador
 
-> Define keyboard shortcuts.
+> Definir atajos del teclado.
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Examples:
+Ejemplos:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `CommandOControl+A`
+* `CommandOControl+Shift+Z`
 
 Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
 
@@ -15,14 +15,14 @@ Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module 
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // Registrar un grabador de atajo 'CommandOControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // Hacer cosas cuando Y o tanto Command como Control sean presionados.
   })
 })
 ```
 
-## Platform notice
+## Noticia de plataforma
 
 On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
 
@@ -32,7 +32,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Modificadores disponibles
 
-* `Comando` (o `Cmd` resumido)
+* `Command` (o `Cmd` resumido)
 * `Control` (o `Ctrl` resumido)
 * `ComandoOControl` (o `CmdOrCtrl` resumido)
 * `Alt`
