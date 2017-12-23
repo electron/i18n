@@ -670,7 +670,7 @@ Returns:
 
 * `url` String
 * `çerçeveAdı` Dize
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `kural` Dize - `varsayılan`, `önplan-sekmesi`, `arkaplan-sekmesi`, `yeni-pencere`, `diske-kaydet` ve `diğer` olabilir.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
