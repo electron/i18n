@@ -4,9 +4,9 @@
 
 При выполнении команды `npm install electron`, некоторые пользователи сталкиваются с проблемами установки.
 
-В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. Лучшим решением в данном случае будет попытка подключения к другой сети или просто немного подождите, возможно это временное явление.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Также вы можете попытаться скачать электронов непосредственно из [электронов/электронный/релизы](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
 
 ## Когда Electron получает последнее обновление Chrome?
 
@@ -111,21 +111,22 @@ delete window.module;
 При использовании встроенного модуля Electron может возникнуть подобная ошибка:
 
 ```sh
-> require('electron').webFrame.setZoomFactor(1.0) Uncaught TypeError: не удается прочитать свойство «setZoomLevel» из неопределенного
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefinedсвойство
 ```
 
 Это происходит потому что [npm `electron` module](https://www.npmjs.com/package/electron) установлен локально и глобально и переопределяет встроенный модуль Electron.
 
-Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете вывести путь Electron модуля:модульмодуль:
+Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете печатать на пути `электронного` модуля:
 
 ```javascript
-console.log(require.resolve('electron'))
+На странице console.log(require.resolve('electron'))
 ```
 
-и затем проверьте, в такой ли он форме:
+а затем проверить, если это в следующем виде:
 
 ```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+"/electron/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
 Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, или переименовать его.
