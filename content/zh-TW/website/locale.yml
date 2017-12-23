@@ -16,9 +16,9 @@ docs:
   api_reference: API 參考
   advanced: 進階
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
+    propose_change: 改善這份文件
+    version_history: 版本歷程記錄
+    translate: 翻譯這份文件
     view_all_docs: All Docs on One Page
 languages:
   choose_language: 選擇網站語言
