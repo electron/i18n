@@ -111,22 +111,21 @@ delete window.module;
 При использовании встроенного модуля Electron может возникнуть подобная ошибка:
 
 ```sh
-> require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefinedсвойство
+> require('electron').webFrame.setZoomFactor(1.0) Uncaught TypeError: не удается прочитать свойство «setZoomLevel» из неопределенного
 ```
 
 Это происходит потому что [npm `electron` module](https://www.npmjs.com/package/electron) установлен локально и глобально и переопределяет встроенный модуль Electron.
 
-Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете печатать на пути `электронного` модуля:
+Чтобы проверить, используете ли вы правильный встроенный модуль, вы можете вывести путь Electron модуля:модульмодуль:
 
 ```javascript
-На странице console.log(require.resolve('electron'))
+console.log(require.resolve('electron'))
 ```
 
-а затем проверить, если это в следующем виде:
+и затем проверьте, в такой ли он форме:
 
 ```sh
-"/electron/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
 Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, или переименовать его.
