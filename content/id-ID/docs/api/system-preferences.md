@@ -35,7 +35,7 @@ Pengembalian:
 <li><code> event </ 0>  Acara</li>
 <li><code>invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
-## Methods
+## Metode
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
