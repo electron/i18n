@@ -1,16 +1,16 @@
-## Class: Menu
+## Bölüm: Menü
 
-> Create native application menus and context menus.
+> Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-### `new Menu()`
+### `yeni Menü()`
 
-Creates a new menu.
+Yeni bir menü oluşturun.
 
-### Static Methods
+### Statik Yöntemler
 
-The `menu` class has the following static methods:
+`Menü` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
 #### `Menu.setApplicationMenu(menu)`
 
