@@ -1,8 +1,8 @@
 # Menggunakan Modul Node Asli
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Modul Node asli didukung oleh Elektron, namun karena Elektron sangat Kemungkinan menggunakan versi V8 yang berbeda dari biner Node yang terpasang di komputer Anda sistem, Anda harus secara manual menentukan lokasi header Elektron saat membangun modul asli.
 
-## How to install native modules
+## Cara menginstal modul asli
 
 Three ways to install native modules:
 
