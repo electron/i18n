@@ -70,9 +70,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+在網頁方面，可以使用 `file:` 通訊協定讀取封存檔中的檔案。與 Node API 相同，`asar` 封存檔將被視為目錄。
 
-For example, to get a file with `$.get`:
+例如，使用 `$.get` 取得檔案:
 
 ```html
 <script>
