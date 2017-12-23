@@ -47,7 +47,7 @@ Returns:
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-### Event: 'will-quit'
+### 이벤트: 'will-quit'
 
 Returns:
 
