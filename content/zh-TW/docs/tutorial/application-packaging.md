@@ -136,12 +136,12 @@ fs.readFileSync('/path/to/example.asar')
 
 ## 將無法封存的檔案與 `asar` 封存檔整合
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+如上所述，使用某些 Node API 時會將檔案解回檔案系統，除了效能問題外，有的防毒軟體也會誤判。
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+要避開這些問題，你可以在建立封存檔時使用 `--unpack` 選項，將部分檔案「解開」，排除與原生模組共用的程式庫的例子長這樣:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+執行完這個指令後，除了 `app.asar` 以外，還會產生 `app.asar.unpacked` 目錄，存放那些解開的檔案。交給使用者的時候，應該將這個目錄與 `app.asar` 一起複製過去。
