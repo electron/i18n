@@ -17,34 +17,34 @@ Menggunakan `Quick Start` sebagai contoh:
 
 ...
 
-## Main process
+## Proses Utama
 
 ...
 
-## Renderer process
+## Proses renderer
 
 ...
 
-## Run your app
+## Jalankan app anda
 
 ...
 
-### Run as a distribution
+### Jalankan sebagai distribusi
 
 ...
 
-### Manually downloaded Electron binary
+### Download binary secara manual
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Untuk API referensi, ada pengecualian untuk aturan ini.
 
-## Markdown rules
+## aturan penurunan harga
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* Gunakan `sh` dari pada `cmd` di blok kode (karena stabilo sintaks).
+* Garis harus dibungkus pada 80 kolom.
+* Tidak ada daftar nesting lebih dari 2 tingkat (karena penyajian penurunan harga).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
 ## Picking words
