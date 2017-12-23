@@ -79,27 +79,27 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Build
 
-Nếu bạn muốn build cả hai phiên bản là `Bản Release` và `Bản debug`:
+Nếu bạn muốn build cả hai phiên bản là `Release` và `Debug`, hãy chạy:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Sau khi chạy file code này sẽ tạo ra file thực thi Electron rất lớn trong thư mục `out/R`. Kích thước file vượt 1,3 GB. Đó là do file thực thi Release cũng chứa thông tin debug. Để giảm kích thước file, hãy chạy `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Nó sẽ giúp đặt các file phụ thuộc có kích thước nhỏ hơn nhiều vào thư mục `dist`. Sau khi chạy `create-dist.py`, bạn có thể xóa file thực thi nặng hơn 1,3GB vẫn còn nằm trong thư mục `out/R`.
 
-You can also build the `Debug` target only:
+Bạn cũng có thể chỉ build `bản Debug` như sau:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Sau khi build xong, bạn sẽ tìm thấy file thực thi debug `electron` trong `out/D`.
 
 ## Dọn dẹp
 
@@ -109,7 +109,7 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Để chỉ dọn thư mục `out` và `dist`:
 
 ```sh
 $ npm run clean-build
