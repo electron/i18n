@@ -4,7 +4,7 @@ Electron'un kendisinden kaynaklanmadığını düşündüğünüz sizin JavaScri
 
 ## Gereksinimler
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
 
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
