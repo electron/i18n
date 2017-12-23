@@ -10,7 +10,7 @@ Follow the guidelines below for building Electron on Linux.
 * [clang](https://clang.llvm.org/get_started.html) 3.4 或之後的版本。
 * Development headers of GTK+ and libnotify.
 
-On Ubuntu, install the following libraries:
+在 Ubuntu 中，安將下列程式庫:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
