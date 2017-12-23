@@ -81,7 +81,7 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` Рядок
+* `url` Стрічка
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
 Sets the `url` and initialize the auto updater.
