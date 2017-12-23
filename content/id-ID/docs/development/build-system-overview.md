@@ -56,13 +56,13 @@ Menguji fungsionalitas menggunakan:
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Kapan pun Anda membuat perubahan pada kode sumber Electron, Anda harus menjalankan kembali membangun sebelum tes:
 
 ```sh
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. Tambahkan saja `.hanya` untuk setiap `menjelaskan`atau`itu` fungsi panggilan:
 
 ```js
 describe.only('some feature', function () {
@@ -70,15 +70,15 @@ describe.only('some feature', function () {
 })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Sebagai alternatif, Anda bisa menggunakan opsi mocha's `grep` untuk hanya menjalankan tes yang sesuai dengan memberi ekspresi pola reguler:
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Pengujian yang menyertakan modul asli (misalnya `runas`) tidak dapat dijalankan dengan membangun debug (lihat [#2558](https://github.com/electron/electron/issues/2558) untuk rincian), tapi mereka akan bekerja dengan membangun rilis.
 
-To run the tests with the release build use:
+Untuk menjalankan tes dengan menggunakan membangun rilis:
 
 ```sh
 $ npm test -- -R
