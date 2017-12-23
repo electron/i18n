@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-  * `permintaan` Object 
+  * `permintaan` Obyek 
     * ` url </ 0>  String</li>
 <li><code>referrer` String
     * ` method </ 0>  String</li>
@@ -90,7 +90,7 @@ app.on('ready', () => {
     
     * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-      * `permintaan` Object 
+      * `permintaan` Obyek 
         * ` url </ 0>  String</li>
 <li><code>referrer` String
         * ` method </ 0>  String</li>
@@ -121,7 +121,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     
     * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-      * `permintaan` Object 
+      * `permintaan` Obyek 
         * ` url </ 0>  String</li>
 <li><code>referrer` String
         * ` method </ 0>  String</li>
@@ -140,13 +140,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
         
         * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-          * `permintaan` Object 
+          * `permintaan` Obyek 
             * ` url </ 0>  String</li>
 <li><code>referrer` String
             * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
           * `callback` Fungsi 
-            * `redirectRequest` Object 
+            * `redirectRequest` Obyek 
               * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>session` Object (optional)
@@ -187,7 +187,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
                     
                     * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-                      * `permintaan` Object 
+                      * `permintaan` Obyek 
                         * ` url </ 0>  String</li>
 <li><code>referrer` String
                         * ` method </ 0>  String</li>
@@ -204,7 +204,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
                         
                         * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-                          * `permintaan` Object 
+                          * `permintaan` Obyek 
                             * ` url </ 0>  String</li>
 <li><code>referrer` String
                             * ` method </ 0>  String</li>
@@ -221,7 +221,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
                             
                             * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-                              * `permintaan` Object 
+                              * `permintaan` Obyek 
                                 * ` url </ 0>  String</li>
 <li><code>referrer` String
                                 * ` method </ 0>  String</li>
@@ -238,13 +238,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
                                 
                                 * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
-                                  * `permintaan` Object 
+                                  * `permintaan` Obyek 
                                     * ` url </ 0>  String</li>
 <li><code>referrer` String
                                     * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                                   * `callback` Fungsi 
-                                    * `redirectRequest` Object 
+                                    * `redirectRequest` Obyek 
                                       * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>session` Object (optional)
