@@ -12,17 +12,17 @@ Yeni bir menü oluşturun.
 
 `Menü` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
-#### `Menu.setApplicationMenu(menu)`
+#### `Menü.ayarlaUygulamaMenü(menü)`
 
-* `menu` Menu
+* `menü` Menü
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+MacOS'ta uygulama `menüsünü` ayarlar. Windows ve Linux'ta `menü`, her pencerenin üst menüsü olarak ayarlanır.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+`Boş` geçilmesi, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Not:** Bu API `uygulama` modülü `hazır` olduktan sonra çağrılmalıdır.
 
-#### `Menu.getApplicationMenu()`
+#### `Menü.alUygulamaMenüsü()`
 
 Returns `Menu` - The application menu, if set, or `null`, if not set.
 
