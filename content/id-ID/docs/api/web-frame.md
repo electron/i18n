@@ -1,10 +1,10 @@
-# webFrame
+# webBingkai
 
-> Customize the rendering of the current web page.
+> Sesuaikan render halaman web saat ini.
 
-Proses:  Renderer </ 0></p> 
+Proses: [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Contoh dari halaman saat ini pembesaran 200%.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -12,33 +12,33 @@ const {webFrame} = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Methods
+## Metode
 
-The `webFrame` module has the following methods:
+Modul `webBingkai` memiliki metode berikut:
 
-### `webFrame.setZoomFactor(factor)`
+### `webBingkai.tetapkanFaktorZoom(faktor)`
 
-* `factor` Number - Zoom factor.
+* `faktor` Angka - Faktor zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
 
-### `webFrame.getZoomFactor()`
+### `webBingkai.tetapkanFaktorZoom()`
 
-Returns `Number` - The current zoom factor.
+Kembali `nomor` - faktor zoom saat ini.
 
-### `webFrame.setZoomLevel(level)`
+### `webBingkai.tetapkanFaktorZoom(level)`
 
-* `level` Number - Zoom level
+* `level` Angka - level zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
 
-### `webFrame.getZoomLevel()`
+### `webBingkai.dapatkanLevelZoom()`
 
-Returns `Number` - The current zoom level.
+Kembali `nomor` - tingkat zoom saat ini.
 
-### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webBingkai.tetapkanBatasLevelZoom(minimalLevel, maksimalLevel)`
 
-* `minimumLevel` Number
+* `minimumLevel` Nomor
 * `maximumLevel` Number
 
 **Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
