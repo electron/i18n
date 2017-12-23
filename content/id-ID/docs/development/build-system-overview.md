@@ -13,24 +13,24 @@ Setelah `gyp` file berisi aturan utama untuk membangun Electron:
 
 ## Membangun Komponen
 
-Karena Chromium cukup merupakan proyek besar, tahap penghubung terakhir bisa terjadi cukup beberapa menit, yang membuat sulit untuk pembangunan. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Karena Chromium cukup merupakan proyek besar, tahap penghubung terakhir bisa terjadi cukup beberapa menit, yang membuat sulit untuk pembangunan. Untuk memecahkannya Ini, Chromium memperkenalkan "komponen bangunan", yang membangun setiap komponen sebagai perpustakaan bersama yang terpisah, membuat hubungan sangat cepat namun mengorbankan ukuran file dan kinerja.
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Di Electron kami mengambil pendekatan yang sangat mirip: untuk `Debug` membangun, binari akan dikaitkan dengan versi komponen Chromium bersama untuk dikembangkan bersama waktu menghubungkan cepat; untuk `melepaskan` membangun, binari akan dihubungkan ke static versi perpustakaan, jadi kita bisa memiliki ukuran dan kinerja bineri sebaik mungkin.
 
 ## Minimal Bootstrapping
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+Semua binari masa membangun Chromium (`libchromiumcontent`) diunduh saat menjalankan skrip bootstrap. Secara sederhana kedua perpustakaan statis dan pembagian perpustakaan akan didownload dan ukuran akhirnya harus antara 800MB dan 2GB tergantung pada platform.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+Secara sederhana, `libchromiumcontent` diunduh dari Amazon Web Services. Jika `LIBCHROMIUMCONTENT_MIRROR` variabel lingkungan disetel, bootstrap script akan mendownload dari itu. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) adalah kaca untuk `libchromiumcontent`. Jika Anda kesulitan mengakses AWS, Anda bisa ganti alamat downloadnya via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
+Jika Anda hanya ingin membangun Electron dengan cepat untuk pengujian atau pengembangan, Anda dapat mendownload hanya versi pembagian pustaka dengan melewatkan `--dev` parameter:
 
 ```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## Generasi Proyek Dua Tahap
 
 Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
 
