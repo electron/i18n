@@ -144,11 +144,17 @@ The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p>
     * `thickFrame` Boolean (opsional) - Gunakan `WS_THICKFRAME` untuk jendela buram tanpa bingkai Windows, yang menambahkan bingkai jendela standar. Menyetelnya ke ` false </ 0> akan menghapus window shadow dan animasi jendela. Defaultnya adalah <code>true`.
     * ` getar </ 0> String (opsional) - Tambahkan jenis efek getar ke jendela, hanya di macos. Dapat <code> tampilan berbasis </ 0>, <code> cahaya </ 0>, <code> gelap </ 0>, <code> titlebar </ 0>, <code> pilihan </ 0>, < 0> menu </ 0>, <code> popover </ 0>, <code> sidebar </ 0>, <code> medium-light </ 0> atau <code> ultra-dark </ 0>.</li>
 <li><code> zoomToPageWidth </ 0> Boolean (opsional) - Mengontrol perilaku pada macOS saat opsi-klik tombol stoplight hijau pada toolbar atau dengan mengklik item menu Window> Zoom. Jika <code> benar </ 0>, jendela akan tumbuh ke lebar yang disarankan dari halaman web saat diperbesar, <code> false </ 0> akan menyebabkannya memperbesar lebar layar. Ini juga akan mempengaruhi perilaku saat memanggil <code> maximize () </ 0> secara langsung. Defaultnya adalah <code> false </ 0> .</li>
-<li><code>tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-    * `webPreferences` Object (optional) - Settings of web page's features. 
-      * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Defaultnya adalah `true`.
-      * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
-      * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Defaultnya adalah ` false </ 0> . More about this can be found
+<li><code> tabbingIdentifier </ 0> String (opsional) - Nama grup tab, memungkinkan untuk membuka
+jendela sebagai tab asli di macos 10.12+. Windows dengan tabbing yang sama
+Pengenal akan dikelompokkan bersama. Windows dengan tabbing yang sama
+Pengenal akan dikelompokkan bersama.</li>
+<li><code>webpreferences` Objek (opsional) - Pengaturan fitur halaman web. 
+      * ` devTools </ 0> Boolean (opsional) - Baik untuk mengaktifkan DevTools.
+
+Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat menggunakan <code> BrowserWindow.webContents.openDevTools () </ 0> untuk membuka DevTools. Defaultnya adalah <code>true`.
+      * ` nodeIntegration </ 0> Boolean (opsional) - Apakah integrasi node diaktifkan Default
+<code> benar </ 0>.</li>
+<li><code>nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Defaultnya adalah ` false </ 0> . More about this can be found
 in <a href="../tutorial/multithreading.md">Multithreading</a>.</li>
 <li><code>preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
       * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
