@@ -39,23 +39,23 @@ Kembali `nomor` - tingkat zoom saat ini.
 ### `webBingkai.tetapkanBatasLevelZoom(minimalLevel, maksimalLevel)`
 
 * `minimumLevel` Nomor
-* `maximumLevel` Number
+* `minimumLevel` Nomor
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Tidak berlaku lagi:**Panggil`setVisualZoomLevelLimits` untuk mengatur zoom visual batas tingkat Metode ini akan dihapus di Electron 2.0.
 
-### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webBingkai.setBatasLevelVisualZoom(minimalLevel, maksimalLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Nomor
+* `minimumLevel` Nomor
 
-Sets the maximum and minimum pinch-to-zoom level.
+Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webBingkai.tetapkanBatasLevelZoomTataletak(minimalLevel, maksimaLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimalLevel` Nomor
+* `maksimalLevel` Nomor
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
