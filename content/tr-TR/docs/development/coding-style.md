@@ -6,11 +6,11 @@ Electron için kodlama stili rehberleri.
 
 ## C++ and Python
 
-C++ ve Python için krom'ın [Kodlama stili](http://www.chromium.org/developers/coding-style)'ni takip ediyoruz. C+++ kodlarını otomatik olarak formatlamak için clang-format</0 kullanabilirsiniz. Aynı zamanda `script/cpplint.py` betiği de tüm dosyalar buna uyuyuyor mu kontrol eder.</p> 
+C++ ve Python için Chromium'un [Kodlama stili](http://www.chromium.org/developers/coding-style)'ni takip ediyoruz. C+++ kodlarını otomatik olarak formatlamak için clang-format</0 kullanabilirsiniz. Aynı zamanda `script/cpplint.py` betiği de tüm dosyalar buna uyuyuyor mu kontrol eder.</p> 
 
 Şu an kullandığımız Python versiyonu 2.7.
 
-C+++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara hakim olmanız tavsiye edilir. Başlangıç için [Önemli soyutlamalar ve Veri Yapıları](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) dökumanına bakabilirsiniz. Bu belge bazı özel tipleri, scope'lanmış tipleri (scope dışına çıkınca otomatik olarak salınırlar.), kayıt etme mekanizmalarını anlatır.
+C++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara hakim olmanız tavsiye edilir. Başlangıç için [Önemli soyutlamalar ve Veri Yapıları](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) dökumanına bakabilirsiniz. Bu belge bazı özel tipleri, scope'lanmış tipleri (scope dışına çıkınca otomatik olarak salınırlar.), kayıt etme mekanizmalarını anlatır.
 
 ## JavaScript
 
@@ -26,9 +26,9 @@ C+++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara ha
 
 Electron API'leri Node.js ile aynı büyük/küçük harf düzenini kullanır:
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Modülün kendisi `BrowserWindow` gibi bir sınıfsa `CamelCase`.
+* Modül birkaç API'den oluşuyorsa, `globalShortcut` gibi, `mixedCase` kullanın.
+* API bir objenin bir mülkü ise, ve ayrı bir bölüme sahip olacak kadar karmaşık ise, `win.webContents` gibi, `mixedCase` kullanın.
+* Modül olmayan API'lar için, `<webview> Tag` veya `Process Object` gibi doğal başlıklar kullanın.
 
-Yeni bir API oluştururken, jQuery'nin tek-fonksiyon stili yerine getter ve setter kullanarak erişim yapmak tercih edilir. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Yeni bir API oluştururken, jQuery'nin tek-fonksiyon stili yerine getter ve setter kullanarak erişim yapmak tercih edilir. Örneğin, `.getText()` and `.setText(text)`, `.text([text])` yerine tercih edilir. Bununla ilgili bir [tartışma](https://github.com/electron/electron/issues/46) mevcut.
