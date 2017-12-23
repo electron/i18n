@@ -20,25 +20,25 @@ MacOS'ta uygulama `menüsünü` ayarlar. Windows ve Linux'ta `menu`, her pencere
 
 `boş` bırakılması, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
 
-**Not:** Bu API `app` modülü `ready` olduktan sonra çağrılmalıdır.
+**Not:** Bu API `uygulama` modülü `hazır` olduktan sonra çağrılmalıdır.
 
-#### `Menu.getApplicationMenu()`
+#### `Menü.alUygulamaMenüsü()`
 
-`Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `null` ise, ayarlanmamışsa.
+`Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `boş` ise, ayarlanmamışsa.
 
-**Not:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
+**Not:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Örnek Özellikler](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.gönderİlkYanıtlayıcıyaEylem(eylem)` *macOS*
 
-* `action` Dizisi
+* `eylem` Dizisi
 
-`action` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenuItem`](menu-item.md) [`role`](menu-item.md#roles) özelliğini kullanırsınız.
+`eylem` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenuÖğesi`](menu-item.md) [`rol`](menu-item.md#roles) özelliğini kullanırsınız.
 
 MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) bakın.
 
-#### `Menu.buildFromTemplate(şablon)`
+#### `Menü.yapılandırŞablondan(şablon)`
 
-* `template` MenüÖğesiOluşturucuSeçenekleri[]
+* `şablon` MenüÖğesiOluşturucuSeçenekleri[]
 
 `Menüye` Dön
 
@@ -232,13 +232,13 @@ macOS, `Hakkında xxx`, `Gizle xxx` ve `Diğerlerini Gizle` gibi bazı menü ö�
 
 ### Ana Menünün Adı
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinizi değiştirin. `Info.plist` dosyası. [Emlak Listesi Dosyaları Hakkında Bilgi](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) daha fazla bilgi için.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Belirli Tarayıcı Penceresi için Menü Ayarlama (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+Tarayıcı pencerelerinin [`ayarlanmışMenü` yöntemi](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows), belirli tarayıcı pencerelerinin menüsünü ayarlayabilir.
 
-## Menu Item Position
+## Menü Öğesi Konumu
 
 You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
