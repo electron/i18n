@@ -85,41 +85,41 @@ Penyebab benang utama dari proses crash saat ini.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Mengembalikan[`Penggunaan CPU`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Mengembalikan [`IO Penghitung`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 
 Mengembalikan ` Objek </ 0> :</p>
 
 <ul>
-<li><code>workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.</li> 
+<li><code>workingSetSize` Integer - Jumlah memori yang saat ini disematkan pada fisik sebenarnya RAM.</li> 
 
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself</ul> 
+* `peakWorkingSetSize` Integer - Jumlah maksimum memori yang pernah disematkan ke RAM fisik yang sebenarnya.
+* `privateBytes` Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti Tumpukan JS atau konten HTML.
+* `sharedBytes `Integer - Jumlah memori dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri</ul> 
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
+Mengembalikan objek yang memberikan statistik penggunaan memori tentang proses saat ini. Catatan bahwa semua statistik dilaporkan di Kilo byte.
 
 ### `process.getSystemMemoryInfo()`
 
 Mengembalikan ` Objek </ 0> :</p>
 
 <ul>
-<li><code>total` Integer - The total amount of physical memory in Kilobytes available to the system.</li> 
+<li><code>total`Integer - Jumlah total memori fisik di Kilobyte tersedia untuk sistem.</li> 
 
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*</ul> 
+* `gratis` Integer - Jumlah total memori yang tidak digunakan oleh aplikasi atau disk cache.
+* `swapTotal` Integer - Jumlah total memori swap di Kilobyte tersedia untuk sistem. *Windows* *Linux*
+* `swapFree` Integer - Jumlah memori swap gratis di Kilobyne tersedia untuk sistem. *Windows * *Linux*</ul> 
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Mengembalikan objek yang memberikan statistik penggunaan memori tentang keseluruhan sistem. Catatan bahwa semua statistik dilaporkan di Kilobytes.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Penyebab benang utama dari proses saat ini hang.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
