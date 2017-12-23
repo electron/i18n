@@ -71,7 +71,7 @@ app.on('window-all-closed', () => {
 Повертає:
 
 * `event` Подія
-* `path` Рядок
+* `path` Стрічка
 
 Відбувається коли користувач хоче відкрити файл за допомогою застосунку. Подія `open-file` зазвичай відбувається коли застосунок вже відкритий і ОС хоче повторно повторно використати його для відкриття файлу. `open-file` також відбуваєтсья коли файл закидається на панель, а застосунок ще не запущено. Слухайте подію `open-file` дуже рано при завантаженні застосунку щоб обробляти ці випадки (навіть перед викликом події `ready`).
 
@@ -84,9 +84,9 @@ app.on('window-all-closed', () => {
 Повертає:
 
 * `event` Подія
-* `url` Рядок
+* `url` Стрічка
 
-Відбувається коли користувач хоче відкрити посилання за допомогою застосунку. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Відбувається коли користувач хоче відкрити посилання за допомогою застосунку. Файл `Info.plist` має визначати схеми посилань за допомогою `CFBundleURLTypes` ключа, і встановлювати `NSPrincipalClass` в `AtomApplication`.
 
 Слід викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
@@ -95,19 +95,19 @@ app.on('window-all-closed', () => {
 Повертає:
 
 * `event` Подія
-* `hasVisibleWindows` Boolean
+* `hasVisibleWindows` Булевий тип
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Відбувається при активації застосунку. Різні дії можуть викликати цю подію, такі як перший запуск застосунку, спроба перезапустити застосунок коли він працює, чи натискання на панель застосунку чи на піктограму на панель задач.
 
 ### Подія: 'continue-activity' *macOS*
 
 Повертає:
 
 * `event` Подія
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `type` Рядок - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Об'єкт - Містить стан застосунку, збережений діяльністю на іншому пристрої.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), коли діяльність з іншого пристрою має бути продовжена. Потрібно викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
@@ -161,7 +161,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 * `event` Подія
 * `webContents` [WebContents](web-contents.md)
-* `url` Рядок
+* `url` Стрічка
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -348,7 +348,7 @@ You can request the following paths by the name:
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` Рядок
+* `path` Стрічка
 * `options` Object (optional) 
   * `size` String 
     * `small` - 16x16
@@ -370,7 +370,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.setPath(name, path)`
 
 * `name` String
-* `path` Рядок
+* `path` Стрічка
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
@@ -404,7 +404,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` Рядок
+* `path` Стрічка
 
 Adds `path` to the recent documents list.
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
