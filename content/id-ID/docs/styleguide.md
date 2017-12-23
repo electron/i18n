@@ -4,13 +4,13 @@ Ini adalah pedoman untuk menulis dokumentasi Elektron.
 
 ## judul
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Setiap halaman harus memiliki satu ` # ` judul-tingkat di bagian atas.
+* Bab dalam halaman yang sama harus memiliki ` ## ` judul-tingkat.
+* Sub-bab perlu meningkatkan jumlah dari `#` pada judul sesuai kedalaman nesting mereka.
+* Semua kata-kata dalam judul halaman harus dikapitalisasi, kecuali konjungsi seperti "dari" dan "dan".
+* Hanya kata pertama dari judul bab harus dikapitalisasi.
 
-Using `Quick Start` as example:
+Menggunakan `Quick Start` sebagai contoh:
 
 ```markdown
 # Quick Start
