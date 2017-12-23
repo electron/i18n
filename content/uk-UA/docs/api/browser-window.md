@@ -415,7 +415,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` String
+* `path` Рядок
 
 Adds Chrome extension located at `path`, and returns extension's name.
 
@@ -439,7 +439,7 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `path` String
+* `path` Рядок
 
 Adds DevTools extension located at `path`, and returns extension's name.
 
