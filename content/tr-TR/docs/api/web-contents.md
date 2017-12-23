@@ -65,32 +65,32 @@ Bu etkinlik, `yüklenme-bitmedi-mi` gibidir ancak yük başarısız olduğunda v
 
 #### Olay: 'çerçeve-yüklenmeyi-bitirmedi-mi'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `AnaÇerçeve` Boolean
 
-Emitted when a frame has done navigation.
+Bir çerçeve aramayı bitirdiğinde ortaya çıkar.
 
-#### Event: 'did-start-loading'
+#### Olay: 'yükleme-başlamadı-mı'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
-#### Event: 'did-stop-loading'
+#### Olay: 'yükleme-durdu-mu'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
-#### Event: 'did-get-response-details'
+#### Olay: 'yanıt-ayrıntılarını-aldın-mı'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
+* `olay` Olay
+* `durum` Boolean
+* `yeniURL` Dize
+* `orjinalURL` Dize
+* `httpYanıtKodu` Tamsayı
+* `gerekliMetod` Dize
+* `yönlendirme` Dize
 * `headers` Object
 * `resourceType` String
 
@@ -102,10 +102,10 @@ Returns:
 
 * `event` Event
 * `oldURL` String
-* `newURL` String
+* `yeniURL` Dize
 * `AnaÇerçeve` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
+* `httpYanıtKodu` Tamsayı
+* `gerekliMetod` Dize
 * `referrer` String
 * `headers` Object
 
