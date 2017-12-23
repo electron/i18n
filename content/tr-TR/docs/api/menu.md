@@ -73,30 +73,30 @@ Bu menüyü `tarayıcıPenceresi` 'nde bir bağlam menüsü olarak açar.
 
 Menüye `menüÖğesi` ekler.
 
-#### `menu.insert(pos, menuItem)`
+#### `menü.ekleme(pos, menüÖğesi)`
 
-* `pos` Integer
-* `menuItem` MenuItem
+* `pos` Tamsayı
+* `menüÖğesi` MenüÖğesi
 
-Inserts the `menuItem` to the `pos` position of the menu.
+`menüÖğesini` menünün `pos` konumuna yerleştirir.
 
-### Instance Properties
+### Örnek Özellikleri
 
-`menu` objects also have the following properties:
+`menü` nesneleri aşağıdaki özelliklere de sahiptir:
 
-#### `menu.items`
+#### `menü.öğeleri`
 
-A `MenuItem[]` array containing the menu's items.
+`menünÖğeleri[]` Menünün Öğelerini içeren bir dizidir.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Her `Menü` birden fazla [`MenüÖğesin`](menu-item.md) den oluşur ve her `MenüÖğesi` bir alt menüye sahip olabilir.
 
-## Examples
+## Örnekler
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+`Menü` sınıfı yalnızca ana işlemde kullanılabilir, ancak [`uzak`](remote.md) modül vasıtasıyla oluşturma işleminde de kullanabilirsiniz.
 
-### Main process
+### Ana süreç
 
-An example of creating the application menu in the main process with the simple template API:
+Ana süreçte uygulama menüsünü basit şablon API'si ile oluşturmak için bir örnek:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -248,7 +248,7 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
-### Examples
+### Örnekler
 
 Template:
 
