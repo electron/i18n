@@ -6,7 +6,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 
-* `pilihan` Object 
+* `pilihan` Obyek 
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
