@@ -4,7 +4,7 @@
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Objek `proses` Elektron diperpanjang dari [Node.js `proses` objek](https://nodejs.org/api/process.html). Ini menambahkan peristiwa, properti, dan metode berikut:
 
 ## Acara
 
@@ -24,28 +24,28 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Properti
 
 ### `process.defaultApp`
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+A `Boolean`. Saat aplikasi dimulai dengan diteruskan sebagai parameter ke aplikasi default, ini properti `benar` dalam proses utama, jika tidak `tidak terdefinisi`.
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+A `Boolean`. Untuk pembuatan Mac App Store, properti ini `benar`, untuk bangunan lainnya `tidak terdefinisi`.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+A `Boolean` yang mengontrol dukungan ASAR di dalam aplikasi Anda. Setting ini ke `benar` akan menonaktifkan dukungan untuk arsip` asar` di modul built-in Node.
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+A `Boolean` yang mengontrol apakah peringatan pencabutan atau tidak diinginkan dicetak ke `stderr`.   
+Menetapkan ini ke `benar` akan membungkam peringatan penolakan. Properti ini digunakan bukan flag baris perintah `--no-deprecation `.
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+A `String` mewakili jalur ke direktori sumber daya.
 
 ### `process.throwDeprecation`
 
