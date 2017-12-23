@@ -45,30 +45,30 @@ console.log(webContents)
 
 Süreç: [Ana](../glossary.md#main-process)
 
-### Örnek Etkinlik
+### Örnek Olaylar
 
-#### Etkinlik: 'did-finish-load'
+#### Olay: 'yüklenme-bitmedi-mi'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Gezinme yapılırken, yani sekmenin döner kısmı dönmeyi durduğunda ortaya çıkar ve `yüklendiğinde` olayı gönderilir.
 
-#### Event: 'did-fail-load'
+#### Olay: 'yüklenme-başarısız-mı'
+
+Dönüşler:
+
+* `olay` Olay
+* `hataKodu` Tamsayı
+* `hataAçıklaması` Koşul
+* `geçerliURL` Koşul
+* `AnaÇerçeve` Boolean
+
+Bu etkinlik, `yüklenme-bitmedi-mi` gibidir ancak yük başarısız olduğunda veya iptal edildiğinde yayınlanır, örneğin; `pencere.durdurma()` çağrılır. Hata kodlarının tam listesi ve anlamları [burada](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
+
+#### Olay: 'çerçeve-yüklenmeyi-bitirmedi-mi'
 
 Returns:
 
 * `event` Event
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
-
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
-
-#### Event: 'did-frame-finish-load'
-
-Returns:
-
-* `event` Event
-* `isMainFrame` Boolean
+* `AnaÇerçeve` Boolean
 
 Emitted when a frame has done navigation.
 
@@ -103,7 +103,7 @@ Returns:
 * `event` Event
 * `oldURL` String
 * `newURL` String
-* `isMainFrame` Boolean
+* `AnaÇerçeve` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
 * `referrer` String
@@ -187,7 +187,7 @@ Returns:
 
 * `event` Event
 * `url` String
-* `isMainFrame` Boolean
+* `AnaÇerçeve` Boolean
 
 Emitted when an in-page navigation happened.
 
