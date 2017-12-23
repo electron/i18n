@@ -2,7 +2,7 @@
 
 > Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
-Süreç: [Main](../glossary.md#main-process)
+Süreç: [Ana](../glossary.md#main-process)
 
 ### `yeni Menü()`
 
@@ -12,13 +12,13 @@ Yeni bir menü oluşturun.
 
 `Menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
-#### `Menu.setApplicationMenu(menu)`
+#### `Menü.ayarlaUygulamaMenüsü(menü)`
 
 * `menu` Menü
 
 MacOS'ta uygulama `menüsünü` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
 
-`null` yazılması, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
+`boş` bırakılması, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
 
 **Not:** Bu API `app` modülü `ready` olduktan sonra çağrılmalıdır.
 
@@ -188,11 +188,13 @@ if (process.platform === 'darwin') {
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
+ 
+Context | Request Context
 ```
 
-### Render process
+### İşleme süreci
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Aşağıda, [`uzak`](remote.md) modülü kullanarak bir web sayfasında (işleme süreci) dinamik olarak bir menü oluşturmak ve kullanıcı sayfayı sağ tıklattığında oluşturmak için bir örnek görünmektedir:
 
 ```html
 <!-- index.html -->
@@ -212,23 +214,23 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## MacOS Uygulama Menüleri Hakkında Notlar
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahiptir. İşte, uygulamanızın menüsünü daha yerli yapmaya ilişkin bazı notlar.
 
-### Standard Menus
+### Standart Menüler
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+MacOS'da, `Servisler` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `rolünü` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
 
-* `window`
-* `help`
-* `services`
+* `pencere`
+* `yardım`
+* `hizmetler`
 
-### Standard Menu Item Actions
+### Standart Menü Öğesi İşlemleri
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS, `Hakkında xxx`, `Gizle xxx` ve `Diğerlerini Gizle` gibi bazı menü öğeleri için standart eylemler önermiştir. Bir menü öğesinin eylemini standart bir eylem olarak ayarlamak için, menü öğesinin `rol` özniteliğini ayarlamanız gerekir.
 
-### Main Menu's Name
+### Ana Menünün Adı
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
