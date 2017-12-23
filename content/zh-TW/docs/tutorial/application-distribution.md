@@ -103,13 +103,13 @@ MyApp.app/Contents
 
 建立客製的 Electron 分支 87% 不是你該做的事，就算你的應用程式是「上線水準」的也不例外。 使用 `electron-packager` 或 `electron-forge` 這些工具，讓你省下這些步驟也能對 Electron 「客製品牌」。
 
-如果你直接修改了 Electron 中的 C++ 程式碼，而且不能回饋回上游，或是被官方版本拒絕了，就需要建立 Electron 分支。 As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+如果你直接修改了 Electron 中的 C++ 程式碼，而且不能回饋回上游，或是被官方版本拒絕了，就需要建立 Electron 分支。 身為 Electron 的維護團隊，我們殷切期望能符合你的使用情境，希望你能盡可能將修改的地方回饋進 Electron 官方版，對你而言也會更容易維護。衷心感謝你的幫忙。
 
 #### 以 surf-build 建立客製化發行版
 
 1. 透過 npm 安裝 [Surf](https://github.com/surf-build/surf): `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. 建立新的 S3 Bucket，並建立以下空目錄:
     
     ```sh
 - atom-shell/
