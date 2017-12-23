@@ -42,7 +42,7 @@ Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan
 
 ### Catatan macOS
 
-Ketika sebuah file yang diminta dari menu dokumen terakhir, ` open-file yang ` acara dari `aplikasi` modul akan dipancarkan untuk itu.
+Ketika sebuah file yang diminta dari menu dokumen terakhir, `open-file` acara dari `aplikasi` modul akan dipancarkan untuk itu.
 
 ## Dock Menu kustom (macOS)
 
@@ -174,7 +174,7 @@ win.setThumbarButtons([])
 
 ## Kesatuan Launcher pintas (Linux)
 
-Dalam Unity, Anda dapat menambahkan entri kustom untuk peluncur nya melalui memodifikasi ` .desktop ` file, lihat [ Menambahkan Shortcut ke Launcher ](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) .
+Dalam Unity, Anda dapat menambahkan entri kustom untuk peluncur nya melalui memodifikasi `.desktop` file, lihat [Menambahkan Shortcut ke Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) .
 
 **pintas peluncur dari Audacious:**
 
