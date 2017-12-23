@@ -7,8 +7,7 @@ Proses:  Utama </ 0></p>
 Contoh menampilkan dialog untuk memilih beberapa file dan direktori:
 
 ```javascript
-const {dialog} = require('electron')
-console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
+const {dialog} = require ('electron') console.log (dialog.showOpenDialog ({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
 Dialog dibuka dari thread utama Elektron. Jika Anda ingin menggunakan objek dialog dari proses renderer, ingatlah untuk mengaksesnya dengan menggunakan remote:
@@ -33,10 +32,10 @@ The ` dialog </ 0> modul memiliki metode berikut:</p>
     * ` buka file </ 0> - Memungkinkan file dipilih.</li>
 <li><code> buka direktorat </ 0> - Biarkan direktori dipilih.</li>
 <li><code> multi pilihan</ 0> - Memungkinkan beberapa jalur untuk dipilih.</li>
-<li><code>showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. Ini tidak benar-benar membuat file di jalan tapi memungkinkan jalur yang tidak ada untuk dikembalikan yang harus dibuat oleh aplikasi. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
+<li><code>showHiddenFiles` - Tampilkan file tersembunyi dalam dialog.
+    * `createDirectory` - Biarkan membuat direktori baru dari dialog. *macOS*
+    * `promptToCreate` - Prompt untuk pembuatan jika path file yang dimasukkan dalam dialog tidak ada. Ini tidak benar-benar membuat file di jalan tapi memungkinkan jalur yang tidak ada untuk dikembalikan yang harus dibuat oleh aplikasi. *Windows*
+    * `noResolveAliases` - Nonaktifkan jalur alias otomatis (symlink) resolusi. Alias yang dipilih sekarang akan mengembalikan jalur alias alih-alih jalan sasaran mereka *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
 * `callback` Function (optional) 
