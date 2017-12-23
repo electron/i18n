@@ -53,15 +53,19 @@ dari <code> aplikasi </ 0> modul akan dipancarkan untuk itu.</p>
 
 <p>Untuk mengatur kustom Anda dock menu, Anda dapat menggunakan <code> aplikasi. dermaga .setMenu </ 0>  API , yang hanya tersedia di MacOS :</p>
 
-<pre><code class="javascript">const {app, Menu} = require ( 'elektron') const dockMenu = Menu.buildFromTemplate([
-   {label: 'Jendela Baru', klik () {console.log ('New Window') }},
-   {label: 'New jendela dengan Pengaturan,
-     submenu: [
- {label: 'Dasar'} ,
- {label: 'Pro'} ]
- },
- {label: 'New Command ...'} 
-]) app.dock.setMenu(dockMenu)            
+<pre><code class="javascript">const {app, Menu} = require('electron')
+
+const dockMenu = Menu.buildFromTemplate([
+  {label: 'New Window', click () { console.log('New Window') }},
+  {label: 'New Window with Settings',
+    submenu: [
+      {label: 'Basic'},
+      {label: 'Pro'}
+    ]
+  },
+  {label: 'New Command...'}
+])
+app.dock.setMenu(dockMenu)         
         
 `</pre> 
 
@@ -97,21 +101,24 @@ Pada Windows Anda dapat menentukan tindakan kustom dalam ` Tugas </ 0> kategori 
 <p>Untuk mengatur tugas-tugas pengguna untuk aplikasi Anda, Anda dapat menggunakan
  <a href="../api/app.md#appsetusertaskstasks-windows"> app.setUserTasks </ 0>  API :</p>
 
-<pre><code class="javascript">const {app} = require('elektron') app.setUserTasks([
-   {
-     Program: process.execPath,
-     argumen: '--jendela-baru',
-     iconPath: process.execPath,
-     iconIndex: 0,
-     judul: 'Jendela Baru',
-     deskripsi: 'Buat jendela baru'
-   }])
+<pre><code class="javascript">const {app} = require('electron')
+app.setUserTasks([
+  {
+    program: process.execPath,
+    arguments: '--new-window',
+    iconPath: process.execPath,
+    iconIndex: 0,
+    title: 'New Window',
+    description: 'Create a new window'
+  }
+])
 `</pre> 
 
 Untuk membersihkan daftar tugas Anda, silahkan hubungi `app.setUserTasks` dengan array kosong:
 
 ```javascript
-const {app} = require ( 'elektron') app.setUserTasks ([])
+const {app} = require('electron')
+app.setUserTasks([])
 ```
 
 Tugas pengguna masih akan menunjukkan bahkan setelah aplikasi Anda menutup, sehingga ikon dan program jalan yang ditentukan untuk suatu tugas harus ada sampai aplikasi Anda dihapus.
@@ -133,49 +140,58 @@ Dari MSDN, itu bergambar:
 Anda dapat menggunakan  BrowserWindow.setThumbarButtons </ 0> untuk mengatur toolbar thumbnail dalam aplikasi Anda:</p> 
 
 ```javascript
-const {BrowserWindow} = require ( 'elektron') jalur const = require ( 'path') biarkan menang = baru BrowserWindow ({
-   width: 800,
-   height: 600}) win.setThumbarButtons ([
-   {
-     tooltip: 'button1',
-     ikon: path.join (__ dirname, 'button1.png'),
-     klik () {console.log ( 'button1 diklik')}
-   },
-   {
-     tooltip: 'button2',
-     icon: path.join (__ dirname, 'button2.png') ,
-     bendera: [ 'diaktifkan', 'dismissonclick'],
-     klik () {console.log ( 'button2 diklik.')}
-   }])
+const {BrowserWindow} = require('electron')
+const path = require('path')
+
+let win = new BrowserWindow({
+  width: 800,
+  height: 600
+})
+
+win.setThumbarButtons([
+  {
+    tooltip: 'button1',
+    icon: path.join(__dirname, 'button1.png'),
+    click () { console.log('button1 clicked') }
+  },
+  {
+    tooltip: 'button2',
+    icon: path.join(__dirname, 'button2.png'),
+    flags: ['enabled', 'dismissonclick'],
+    click () { console.log('button2 clicked.') }
+  }
+])
 ```
 
 Untuk membersihkan tombol toolbar thumbnail, sebut saja ` BrowserWindow.setThumbarButtons </ 0> 
 dengan kosong array yang :</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ( 'elektron') biarkan menang = baru BrowserWindow () win.setThumbarButtons ([])
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
+let win = new BrowserWindow()
+win.setThumbarButtons([])
 `</pre> 
 
 ## Kesatuan Launcher pintas (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Dalam Unity, Anda dapat menambahkan entri kustom untuk peluncur nya melalui memodifikasi ` .desktop ` file, lihat [ Menambahkan Shortcut ke Launcher ](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) .
 
-**Launcher shortcuts of Audacious:**
+**pintas peluncur dari Audacious:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Progress Bar di Taskbar ( Windows , MacOS , Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Pada Windows tombol taskbar bisa digunakan untuk menampilkan progress bar. Hal ini memungkinkan sebuah jendela untuk memberikan informasi kemajuan kepada pengguna tanpa pengguna harus beralih ke jendela itu sendiri.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Pada MacOS progress bar akan ditampilkan sebagai bagian dari dermaga ikon.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Kesatuan DE juga memiliki fitur serupa yang memungkinkan Anda untuk menentukan progress bar di peluncur.
 
-**Progress bar in taskbar button:**
+**Kemajuan bar di taskbar tombol:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Untuk mengatur progress bar untuk Window, Anda dapat menggunakan [BrowserWindow.setProgressBar ](../api/browser-window.md#winsetprogressbarprogress) API :
 
 ```javascript
 const {BrowserWindow} = require('electron')
