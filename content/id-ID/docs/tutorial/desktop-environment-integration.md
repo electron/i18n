@@ -1,123 +1,130 @@
 # Integrasi Lingkungan Desktop
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+sistem operasi yang berbeda menyediakan fitur yang berbeda untuk mengintegrasikan aplikasi desktop ke dalam lingkungan desktop mereka. Sebagai contoh, pada Windows , aplikasi dapat menempatkan shortcut di jumplist dari task bar, dan di Mac, aplikasi dapat menempatkan sebuah menu kustom di dermaga menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Panduan ini menjelaskan cara untuk mengintegrasikan aplikasi Anda ke orang-orang lingkungan desktop dengan Electron API.
 
-## Notifications
+## pemberitahuan
 
-See [Notifications](notifications.md)
+Lihat  Pemberitahuan </ 0></p> 
 
-## Recent documents (Windows & macOS)
+## Dokumen terbaru (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dibuka oleh aplikasi melalui jumplist atau dermaga menu, masing-masing.
 
-**JumpList:**
+**jumplist:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Menu dermaga aplikasi:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Untuk menambahkan file ke dokumen baru-baru ini, Anda dapat menggunakan  app.addRecentDocument </ 0> API :</p> 
 
 ```javascript
-const {app} = require('electron')
-app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
+const {app} = require ( 'elektron') app.addRecentDocument ( '/ Users / USERNAME / Desktop / work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+Dan Anda dapat menggunakan  app.clearRecentDocuments </ 0> API untuk mengosongkan daftar dokumen baru-baru:</p> 
 
 ```javascript
-const {app} = require('electron')
-app.clearRecentDocuments()
+const {app} = memerlukan app.clearRecentDocuments ( 'elektron') ()
 ```
 
-### Windows Notes
+### catatan Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Agar dapat menggunakan fitur ini pada Windows , aplikasi Anda harus terdaftar sebagai handler dari jenis file dokumen, jika file tersebut tidak akan muncul di jumplist bahkan setelah Anda telah menambahkan. Anda dapat menemukan semuanya di mendaftarkan aplikasi Anda di  Aplikasi Pendaftaran </ 0> .</p> 
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan mulai dengan path dari file ditambahkan sebagai argumen baris perintah.
 
-### macOS Notes
+### Catatan macOS
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Ketika sebuah file yang diminta dari menu dokumen terakhir, ` open-file yang </ 0>  acara 
+dari <code> aplikasi </ 0> modul akan dipancarkan untuk itu.</p>
 
-## Custom Dock Menu (macOS)
+<h2>Dock Menu kustom (macOS)</h2>
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+<p>MacOS memungkinkan pengembang untuk menentukan menu kustom untuk dock , yang biasanya berisi beberapa cara pintas untuk fitur yang umum digunakan dari aplikasi Anda:</p>
 
-**Dock menu of Terminal.app:**
+<p><strong>Menu dermaga Terminal.app:</strong></p>
 
-<img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
+<p><img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341"></p>
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+<p>Untuk mengatur kustom Anda dock menu, Anda dapat menggunakan <code> aplikasi. dermaga .setMenu </ 0>  API , yang hanya tersedia di MacOS :</p>
+
+<pre><code class="javascript">const {app, Menu} = require ( 'elektron') const dockMenu = Menu.buildFromTemplate ([
+   {label: 'Jendela Baru', klik () {console.log ( 'New Window')}},
+   {label: 'New jendela dengan Pengaturan,
+     submenu: [
+ {label: 'Dasar'} ,
+ {label: 'Pro'} ]
+ },
+ {label: 'New Command ...'} 
+]) app.dock.setMenu (dockMenu)            
+        
+`</pre> 
+
+## Pengguna Tugas ( Windows )
+
+Pada Windows Anda dapat menentukan tindakan kustom dalam ` Tugas </ 0> kategori jumplist, seperti dikutip dari MSDN:</p>
+
+<blockquote>
+  <p>Aplikasi mendefinisikan tugas berdasarkan kedua fitur program dan kunci
+   hal pengguna diharapkan untuk melakukan dengan mereka. Tugas harus bebas konteks, dalam
+   bahwa aplikasi tidak perlu berjalan bagi mereka untuk bekerja. Mereka
+   juga harus menjadi tindakan statistik yang paling umum bahwa pengguna normal akan
+   tampil di aplikasi, seperti menulis pesan email atau membuka
+   kalender dalam program mail, membuat dokumen baru dalam pengolah kata, meluncurkan
+   aplikasi dalam mode tertentu , atau meluncurkan salah satu subcommands nya. Sebuah
+   aplikasi tidak harus kekacauan menu dengan fitur-fitur canggih yang standar
+   pengguna tidak perlu atau tindakan satu kali seperti pendaftaran. Jangan gunakan tugas
+   untuk barang-barang promosi seperti upgrade atau penawaran khusus.</p>
+  
+  <p>Hal ini sangat dianjurkan bahwa daftar tugas statis. Ini harus tetap
+   sama terlepas dari keadaan atau status aplikasi. Meskipun
+   mungkin untuk beragam daftar dinamis, Anda harus mempertimbangkan bahwa ini bisa
+   membingungkan pengguna yang tidak mengharapkan bahwa sebagian dari daftar tujuan untuk
+   mengubah.</p>
+</blockquote>
+
+<p><strong>Tugas dari Internet Explorer:</strong></p>
+
+<p><img src="https://msdn.microsoft.com/dynimg/IC420539.png" alt="IE" /></p>
+
+<p>Berbeda dengan menu dock di MacOS yang merupakan menu yang nyata, tugas-tugas pengguna di Windows bekerja seperti shortcut aplikasi tersebut bahwa ketika pengguna mengklik tugas, program akan dieksekusi dengan argumen tertentu.</p>
+
+<p>Untuk mengatur tugas-tugas pengguna untuk aplikasi Anda, Anda dapat menggunakan
+ <a href="../api/app.md#appsetusertaskstasks-windows"> app.setUserTasks </ 0>  API :</p>
+
+<pre><code class="javascript">const {app} = require ( 'elektron') app.setUserTasks ([
+   {
+     Program: process.execPath,
+     argumen: '-new-jendela',
+     iconPath: process.execPath,
+     iconIndex: 0,
+     judul: 'Jendela Baru',
+     deskripsi: 'Buat jendela baru'
+   }])
+`</pre> 
+
+Untuk membersihkan daftar tugas Anda, silahkan hubungi `app.setUserTasks` dengan array kosong:
 
 ```javascript
-const {app, Menu} = require('electron')
-
-const dockMenu = Menu.buildFromTemplate([
-  {label: 'New Window', click () { console.log('New Window') }},
-  {label: 'New Window with Settings',
-    submenu: [
-      {label: 'Basic'},
-      {label: 'Pro'}
-    ]
-  },
-  {label: 'New Command...'}
-])
-app.dock.setMenu(dockMenu)
+const {app} = require ( 'elektron') app.setUserTasks ([])
 ```
 
-## User Tasks (Windows)
+Tugas pengguna masih akan menunjukkan bahkan setelah aplikasi Anda menutup, sehingga ikon dan program jalan yang ditentukan untuk suatu tugas harus ada sampai aplikasi Anda dihapus.
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+## thumbnail Toolbars
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+Pada Windows Anda dapat menambahkan toolbar thumbnail dengan tombol yang ditetapkan dalam tata letak taskbar dari jendela aplikasi. Ini memberikan pengguna cara untuk mengakses perintah jendela tertentu tanpa memulihkan atau mengaktifkan jendela.
+
+Dari MSDN, itu bergambar:
+
+> toolbar ini adalah cukup akrab toolbar standar kontrol umum. Ia memiliki maksimal tujuh tombol. Masing-masing tombol ini ID, gambar, tooltip, dan negara didefinisikan dalam struktur, yang kemudian diteruskan ke taskbar. Aplikasi ini dapat menunjukkan, mengaktifkan, menonaktifkan, atau menyembunyikan tombol dari toolbar thumbnail seperti yang dipersyaratkan oleh perusahaan negara saat ini.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
-
-**Tasks of Internet Explorer:**
-
-![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
-
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
-
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
-
-```javascript
-const {app} = require('electron')
-app.setUserTasks([
-  {
-    program: process.execPath,
-    arguments: '--new-window',
-    iconPath: process.execPath,
-    iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
-  }
-])
-```
-
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
-
-```javascript
-const {app} = require('electron')
-app.setUserTasks([])
-```
-
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
-
-## Thumbnail Toolbars
-
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
-
-From MSDN, it's illustrated:
-
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
-> 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Sebagai contoh, Windows Media Player mungkin menawarkan kontrol media transportasi standar seperti play, pause, mute, dan berhenti.
 
 **Thumbnail toolbar of Windows Media Player:**
 
