@@ -532,30 +532,30 @@ The following DOM events are available to the `webview` tag:
 Returns:
 
 * `url` String
-* `isMainFrame` Boolean
+* `AnaÇerçeve` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Etkinlik: 'did-finish-load'
+### Olay: 'yüklenme-bitmedi-mi'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### Olay: 'yüklenme-başarısız-mı'
 
 Returns:
 
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
+* `hataKodu` Tamsayı
+* `hataAçıklaması` Koşul
+* `geçerliURL` Koşul
+* `AnaÇerçeve` Boolean
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### Olay: 'çerçeve-yüklenmeyi-bitirmedi-mi'
 
 Returns:
 
-* `isMainFrame` Boolean
+* `AnaÇerçeve` Boolean
 
 Fired when a frame has done navigation.
 
@@ -588,7 +588,7 @@ Returns:
 
 * `oldURL` String
 * `newURL` String
-* `isMainFrame` Boolean
+* `AnaÇerçeve` Boolean
 
 Fired when a redirect was received while requesting a resource.
 
@@ -717,7 +717,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Returns:
 
-* `isMainFrame` Boolean
+* `AnaÇerçeve` Boolean
 * `url` String
 
 Emitted when an in-page navigation happened.
