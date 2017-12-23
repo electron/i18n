@@ -559,23 +559,23 @@ Returns:
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Olay: 'yükleme-başlamadı-mı'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Olay: 'yükleme-durdu-mu'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Olay: 'yanıt-ayrıntılarını-aldın-mı'
 
 Returns:
 
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
+* `durum` Boolean
+* `yeniURL` Dize
+* `orjinalURL` Dize
+* `httpYanıtKodu` Tamsayı
+* `gerekliMetod` Dize
 * `referrer` String
 * `headers` Object
 * `resourceType` String
@@ -587,7 +587,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 Returns:
 
 * `oldURL` String
-* `newURL` String
+* `yeniURL` Dize
 * `AnaÇerçeve` Boolean
 
 Fired when a redirect was received while requesting a resource.
