@@ -23,13 +23,13 @@ Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dib
 Untuk menambahkan file ke dokumen baru-baru ini, Anda dapat menggunakan  app.addRecentDocument </ 0> API :</p> 
 
 ```javascript
-const {app} = require ( 'elektron') app.addRecentDocument ( '/ Users / USERNAME / Desktop / work.type')
+const {app} = require ( 'elektron') app.addRecentDocument ('/ Users/USERNAME/Desktop/work.type')
 ```
 
 Dan Anda dapat menggunakan  app.clearRecentDocuments </ 0> API untuk mengosongkan daftar dokumen baru-baru:</p> 
 
 ```javascript
-const {app} = memerlukan app.clearRecentDocuments ( 'elektron') ()
+const {app} = memerlukan app.clearRecentDocuments('elektron')()
 ```
 
 ### catatan Windows
@@ -53,15 +53,15 @@ dari <code> aplikasi </ 0> modul akan dipancarkan untuk itu.</p>
 
 <p>Untuk mengatur kustom Anda dock menu, Anda dapat menggunakan <code> aplikasi. dermaga .setMenu </ 0>  API , yang hanya tersedia di MacOS :</p>
 
-<pre><code class="javascript">const {app, Menu} = require ( 'elektron') const dockMenu = Menu.buildFromTemplate ([
-   {label: 'Jendela Baru', klik () {console.log ( 'New Window')}},
+<pre><code class="javascript">const {app, Menu} = require ( 'elektron') const dockMenu = Menu.buildFromTemplate([
+   {label: 'Jendela Baru', klik () {console.log ('New Window') }},
    {label: 'New jendela dengan Pengaturan,
      submenu: [
  {label: 'Dasar'} ,
  {label: 'Pro'} ]
  },
  {label: 'New Command ...'} 
-]) app.dock.setMenu (dockMenu)            
+]) app.dock.setMenu(dockMenu)            
         
 `</pre> 
 
@@ -97,10 +97,10 @@ Pada Windows Anda dapat menentukan tindakan kustom dalam ` Tugas </ 0> kategori 
 <p>Untuk mengatur tugas-tugas pengguna untuk aplikasi Anda, Anda dapat menggunakan
  <a href="../api/app.md#appsetusertaskstasks-windows"> app.setUserTasks </ 0>  API :</p>
 
-<pre><code class="javascript">const {app} = require ( 'elektron') app.setUserTasks ([
+<pre><code class="javascript">const {app} = require('elektron') app.setUserTasks([
    {
      Program: process.execPath,
-     argumen: '-new-jendela',
+     argumen: '--jendela-baru',
      iconPath: process.execPath,
      iconIndex: 0,
      judul: 'Jendela Baru',
@@ -126,45 +126,36 @@ Dari MSDN, itu bergambar:
 > 
 > Sebagai contoh, Windows Media Player mungkin menawarkan kontrol media transportasi standar seperti play, pause, mute, dan berhenti.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Toolbar thumbnail Windows Media Player:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+Anda dapat menggunakan  BrowserWindow.setThumbarButtons </ 0> untuk mengatur toolbar thumbnail dalam aplikasi Anda:</p> 
 
 ```javascript
-const {BrowserWindow} = require('electron')
-const path = require('path')
-
-let win = new BrowserWindow({
-  width: 800,
-  height: 600
-})
-
-win.setThumbarButtons([
-  {
-    tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
-  },
-  {
-    tooltip: 'button2',
-    icon: path.join(__dirname, 'button2.png'),
-    flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
-  }
-])
+const {BrowserWindow} = require ( 'elektron') jalur const = require ( 'path') biarkan menang = baru BrowserWindow ({
+   width: 800,
+   height: 600}) win.setThumbarButtons ([
+   {
+     tooltip: 'button1',
+     ikon: path.join (__ dirname, 'button1.png'),
+     klik () {console.log ( 'button1 diklik')}
+   },
+   {
+     tooltip: 'button2',
+     icon: path.join (__ dirname, 'button2.png') ,
+     bendera: [ 'diaktifkan', 'dismissonclick'],
+     klik () {console.log ( 'button2 diklik.')}
+   }])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Untuk membersihkan tombol toolbar thumbnail, sebut saja ` BrowserWindow.setThumbarButtons </ 0> 
+dengan kosong array yang :</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.setThumbarButtons([])
-```
+<pre><code class="javascript">const {BrowserWindow} = require ( 'elektron') biarkan menang = baru BrowserWindow () win.setThumbarButtons ([])
+`</pre> 
 
-## Unity Launcher Shortcuts (Linux)
+## Kesatuan Launcher pintas (Linux)
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
