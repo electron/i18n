@@ -98,40 +98,40 @@ driver.quit()
 Context | Request Context
 ```
 
-## Setting up with WebdriverIO
+## Menyiapkan dengan WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) menyediakan paket Node untuk pengujian dengan web sopir.
 
 ### 1. Mulai ChromeDriver
 
 Pertama, Anda perlu mendownload `chromedriver` biner, dan jalankan:
 
 ```sh
-$ npm install electron-chromedriver
-$ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+$ npm memasang chromedriver elektron
+$ ./node_modules/.bin/chromedriver --url-base = wd / hub --port = 9515
+Mulai ChromeDriver (v2.10.291558) di port 9515
+Hanya koneksi lokal yang diizinkan.
 ```
 
 Ingat nomor port `9515`, yang akan digunakan nanti
 
-### 2. Install WebdriverIO
+### 2. Instal Webdriverio
 
 ```sh
-$ npm install webdriverio
+$ npm pasang webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Sambungkan ke driver krom
 
 ```javascript
-const webdriverio = require('webdriverio')
-const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
-  desiredCapabilities: {
-    browserName: 'chrome',
-    chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+const webdriverio = require ('webdriverio')
+pilihan const = {
+   host: 'localhost', // Gunakan localhost sebagai server driver chrome
+   port: 9515, // "9515" adalah port yang dibuka oleh pengemudi krom.
+  yang dikehendakiKetentuan: {
+     browserName: 'chrome',
+     chromeOptions: {
+       biner: '/ Path-to-Your-App / elektron', // Path ke biner Elektron Anda.
       args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
@@ -148,10 +148,12 @@ client
     console.log('Title was: ' + title)
   })
   .end()
+ 
+Context | Request Context
 ```
 
-## Workflow
+## Alur kerja
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Untuk menguji aplikasi Anda tanpa membangun kembali Electron, cukup [tempat](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) sumber aplikasi Anda ke direktori sumber Elektron.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Sebagai alternatif, berikan argumen untuk dijalankan dengan biner elektron Anda yang ditunjukkan folder aplikasi Anda Ini menghilangkan kebutuhan untuk menyalin-tempel aplikasi Anda Direktori sumber elektron.
