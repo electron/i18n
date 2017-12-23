@@ -81,10 +81,10 @@ Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayr�
 
 * `MAP * 127.0.0.1` Tüm ana makine adlarını 127.0.0.1 ile eşleşmesi için zorlar
 * `MAP *.google.com proxy` Tüm google.com alt etki alanları "proxy" çözülmesi için zorlar.
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP test.com [::1]:77` "test.com" u IPv6 loopback için çözülmesini zorlar. Elde edilen soket adresinin bağlantı noktasını da 77 olacak şekilde zorlar.
+* `MAP * baz, EXCLUDE www.google.com` "www.google.com" dışında her şeyi "baz" a yeniden eşler.
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Bu eşlemeler, net istekli bitiş noktası sunucusu için geçerlidir (TCP bağlantısı ve ana çözümleyici doğrudan bir bağlantıda ve `CONNECT` Http proxy bağlantısında ve `SOCKS` proxy bağlantısı bitiş noktası sunucusu içerisinde).
 
 ## --host-resolver-rules=`rules`
 
@@ -143,6 +143,6 @@ Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 
 Modül başına `--v` tarafından verilen değeri geçersiz kılmak için maksimal V-logging düzeylerini verir. Örneğin `my_module.*` ve `foo*.*` kaynak dosyaları içindeki tüm kodlar için `my_module=2,foo*=3` logging seviyelerini değiştirebilir.
 
-İleri veya geri eğik çizgi içeren herhangi bir desen sadece modüle karşı değil aynı zamanda bütün yol adına karşı test edilir. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+İleri veya geri eğik çizgi içeren herhangi bir desen sadece modüle karşı değil aynı zamanda bütün yol adına karşı test edilir. Örneğin `foo/bar` dizini altındaki kaynak dosyaları tüm kodlar için `*/foo/bar/*=2` ile logging seviyeleri değiştirilebilir.
 
 Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
