@@ -74,7 +74,7 @@ app.on('ready', () => {
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Fungsi 
     * `filePath` String (optional)
-* `completion` Function (optional) 
+* `completion` Fungsi (opsional) 
   * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -97,7 +97,7 @@ app.on('ready', () => {
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
       * `callback` Fungsi 
         * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
-    * `completion` Function (optional) 
+    * `completion` Fungsi (opsional) 
       * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -128,7 +128,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
       * `callback` Fungsi 
         * `data` String (optional)
-    * `completion` Function (optional) 
+    * `completion` Fungsi (opsional) 
       * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -153,7 +153,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
               * `uploadData` Objek (opsional) 
                 * `contentType` String - MIME type of the content.
                 * `data` String - Content to be sent.
-        * `completion` Function (optional) 
+        * `completion` Fungsi (opsional) 
           * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -168,7 +168,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
             ### `protocol.unregisterProtocol(scheme[, completion])`
             
             * ` skema </ 0>  String</li>
-<li><code>completion` Function (optional) 
+<li><code>completion` Fungsi (opsional) 
               * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -194,7 +194,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                       * `callback` Fungsi 
                         * `filePath` String
-                    * `completion` Function (optional) 
+                    * `completion` Fungsi (opsional) 
                       * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -211,7 +211,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                           * `callback` Fungsi 
                             * `data` String (optional)
-                        * `completion` Function (optional) 
+                        * `completion` Fungsi (opsional) 
                           * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -228,7 +228,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                               * `callback` Fungsi 
                                 * `buffer` Buffer (optional)
-                            * `completion` Function (optional) 
+                            * `completion` Fungsi (opsional) 
                               * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -251,7 +251,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
                                       * `uploadData` Objek (opsional) 
                                         * `contentType` String - MIME type of the content.
                                         * `data` String - Content to be sent.
-                                * `completion` Function (optional) 
+                                * `completion` Fungsi (opsional) 
                                   * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -260,7 +260,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
                                     ### `protocol.uninterceptProtocol(scheme[, completion])`
                                     
                                     * ` skema </ 0>  String</li>
-<li><code>completion` Function (optional) 
+<li><code>completion` Fungsi (opsional) 
                                       * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
