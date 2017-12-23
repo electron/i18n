@@ -91,50 +91,50 @@ Dönüşler:
 * `httpYanıtKodu` Tamsayı
 * `gerekliMetod` Dize
 * `yönlendirme` Dize
-* `headers` Object
-* `resourceType` String
+* `Başlıklar` Nesne
+* `kaynekTipi` Dize
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+İstenen bir kaynakla ilgili ayrıntılar mevcut olduğunda yayımlanır. `durum` kaynağı indirmek için soket bağlantısını gösterir.
 
-#### Event: 'did-get-redirect-request'
+#### Olay: 'yönlendirme-isteği-almadın-mı'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `oldURL` String
+* `olay` Olay
+* `eskiURL` Dize
 * `yeniURL` Dize
 * `AnaÇerçeve` Boolean
 * `httpYanıtKodu` Tamsayı
 * `gerekliMetod` Dize
-* `referrer` String
-* `headers` Object
+* `yönlendirme` Dize
+* `Başlıklar` Nesne
 
-Emitted when a redirect is received while requesting a resource.
+Bir kaynak talep ederken yönlendirme alındığında yayınlanır.
 
-#### Event: 'dom-ready'
+#### Olay: 'dom-hazır'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
-Emitted when the document in the given frame is loaded.
+Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 
-#### Event: 'page-favicon-updated'
+#### Olay: 'page-favicon-updated'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `favicons` String[] - Array of URLs
+* `event` Olay
+* `sık kullanılan simgeler` Dize[] - URL dizisi
 
-Emitted when page receives favicon urls.
+Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
-#### Event: 'new-window'
+#### Olay: 'yeni-pencere'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
-* `frameName` String
+* `olay` Olay
+* `url` Dize
+* `çerçeveAdı` Dize
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
