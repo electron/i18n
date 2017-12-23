@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Instance Events
+### インスタンスイベント
 
 次のイベントは、`クッキー` のインスタンス。
 
