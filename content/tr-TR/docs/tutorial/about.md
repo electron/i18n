@@ -2,15 +2,15 @@
 
 [Electron](https://electronjs.org), HTML, CSS ve JavaScript ile çok platformlu masaüstü uygulamaları oluşturmak için GitHub tarafından geliştirilen bir açık kaynak kütüphanesidir. Electron bunu, [Chromium](https://www.chromium.org/Home) ve [Node.js](https://nodejs.org)'yi tek bir çalışma zamanında birleştirerek gerçekleştirir ve uygulamalar Mac, Windows ve Linux için paketlenebilir.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Elektron 2013'te, GitHub'ın değiştirilebilir metin editörü olan  Atom </ 0> 'ın kurulacağı çerçeve olarak başladı. İkisi de 2014 baharında açık kaynaklıydı.</p> 
 
 It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 
-## Core Team and Contributors
+## Çekirdek Takımı ve katkıda bulunanlar
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. Sık sık katkıda bulunan geliştiricileri projeye eklemekten mutluyuz. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Sürümler
 
@@ -32,7 +32,7 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Elektron'un eski sürümlerinin uzun vadeli desteği şu anda mevcut değildir. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
@@ -42,7 +42,7 @@ In order to keep Electron small (file size) and sustainable (the spread of depen
 
 For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
 ## Tarihçe
 
