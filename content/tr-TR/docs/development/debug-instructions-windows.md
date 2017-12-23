@@ -8,23 +8,23 @@ Electron'un kendisinden kaynaklanmadığını düşündüğünüz sizin JavaScri
 
 * **Visual Studio with C++ Tools**: Visual'in ücretsiz topluluk sürümleri Studio 2013 ve Visual Studio 2015 her ikisi de çalışır. Kurulduktan sonra, [ Visual Studio'yu GitHub Elektron Sembolü sunucusunu kullanacak şekilde yapılandırın ](setting-up-symbol-server.md). Visual Studio Electron'un içinde ne olacağı hakkında daha iyi bilgi sahibi olmasını sağlayacaktır, değişkenlerin insan tarafından okunabilir bir şekilde sunulmasını kolaylaştırır.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* ** ProcMon ** The [ free SysInternals tool ](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) süreç parametrelerini, dosya tutamaçlarını ve kayıt işlemlerini incelemenize olanak tanır.
 
-## Attaching to and Debugging Electron
+## Electron'da ekleme yapma ve hata ayıklama
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Bir hata ayıklama oturumu başlatmak için, Elektron yapımı, uygulamayı bir parametre olarak kullanarak, PowerShell / CMD'yi açın ve hata ayıklamasını çalıştırın.
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
 ```
 
-### Setting Breakpoints
+### Kesme noktalarını ayarlama
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Sonra Visual Studio'da açın. Elektron Visual Studio ile oluşturulmaz ve bu nedenle bir proje dosyası içermez - ancak kaynak kod dosyalarını açabilirsiniz "As File", yani Visual Studio kendiliğinden açılacaktır. Hala kesme noktalarını ayarlayabilirsiniz - Visual Studio otomatik olarak kaynak kodu, ekteki işlemde çalışan kodla eşleşir ve buna göre keser.
 
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
+İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `. Eğer kararlı iseniz, Açıkçası ` chromium_src ` 'da bulunan Chromium'u doğrudan hata ayıklayabilirsiniz.
 
-### Attaching
+### Ekleme yapma
 
 You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
 
