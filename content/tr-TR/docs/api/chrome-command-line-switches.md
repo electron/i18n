@@ -1,8 +1,8 @@
 # Desteklenen Chrome Komut Satırı Anahtarları
 
-> Command line switches supported by Electron.
+> Elektron tarafından desteklenen komut satırı anahtarları.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+[app](app.md) modülünün [ready](app.md#event-ready) olayı yayılmadan önce [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kullanarak uygulamanızın ana scriptlerine ekleyebilirsiniz:
 
 ```javascript
 const {app} = require('electron')
@@ -10,21 +10,21 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Kodlarınızı buraya yazın
 })
 ```
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+`,` Ile ayrılmış `domains` listesi için bağlantı limitini yoksay.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+HTTP istekleri için disk önbelleği devre dışı bırakır.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+HTTP/2 ve SPDY/3.1 protokollerini devre dışı bırakın.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
