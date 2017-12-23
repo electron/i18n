@@ -14,7 +14,7 @@ Brightray [была](https://github.com/electron-archive/brightray) статич
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Библиотека C времени выполнения (CRT) является частью стандартной библиотеки C ++, которая включает стандартную библиотеку ISO C99. Библиотеки Visual C++, которые реализуют CRT поддерживают развитие машинного кода и смешанного собственного и управляемого кода и чисто управляемого кода для разработки .NET.
 
 ### DMG
 
@@ -22,7 +22,7 @@ Apple Disk Image (DMG) это пакетный формат, который ис
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. Например это позволяет пользователям Латинской клавиатуры для ввода символов китайского, японского, корейского и хинди.
 
 ### IPC
 
@@ -40,7 +40,7 @@ IPC стенды для взаимодействия между процесса
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+В хром этот процесс называется «процесс браузера». Он переименовывается в электрон, чтобы избежать путаницы с визуализации процессов.
 
 См. также: [process](#process), [renderer process](#renderer-process)
 
