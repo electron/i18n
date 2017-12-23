@@ -26,19 +26,19 @@ MacOS'ta uygulama `menüsünü` ayarlar. Windows ve Linux'ta `menu`, her pencere
 
 `Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `null` ise, ayarlanmamışsa.
 
-**Not:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Örnek özellikleri](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
+**Not:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
-#### `Menü.gönderİlkYanıtlayıcıEylemi(eylem)`*macOS*
+#### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `eylem` Dizisi
+* `action` Dizisi
 
-`Eylemi` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenüÖğesinin`](menu-item.md) [`rol`](menu-item.md#roles) özelliğini kullanırsınız.
+`action` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenuItem`](menu-item.md) [`role`](menu-item.md#roles) özelliğini kullanırsınız.
 
-MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [Kakao İşleme Kılavuzu'na](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) bakın.
+MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) bakın.
 
-#### `Menü.yapılandırŞablondan(şablon)`
+#### `Menu.buildFromTemplate(şablon)`
 
-* `şablon` MenüÖğesiOluşturucuSeçenekleri[]
+* `template` MenüÖğesiOluşturucuSeçenekleri[]
 
 `Menüye` Dön
 
