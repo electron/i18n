@@ -115,13 +115,13 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Chú ý:** Cả hai lệnh dọn dẹp trên yêu cầu chạy `khởi tạo dự án` lại trước khi build.
 
 ## Xử lý sự cố
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Bản build sẵn của `clang` sẽ tìm cách link tới `libtinfo.so.5`. Phụ thuộc vào kiến trúc của máy chủ, symlink tới `libncurses` tương ứng:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
