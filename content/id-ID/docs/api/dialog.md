@@ -122,9 +122,9 @@ If a `callback` is passed, the dialog will not block the process. The API call w
 
 Menampilkan dialog modal yang menunjukkan pesan kesalahan.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+API ini dapat dipanggil dengan aman sebelum `siap` acara yang digunakan aplikasi `app`, biasanya digunakan untuk melaporkan kesalahan pada tahap awal startup. Jika dipanggil sebelum acara aplikasi `siap` di Linux, pesan akan dipancarkan ke stderr, dan tidak ada dialog GUI yang akan muncul.
 
-### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
+### `dialog.showCertificateTrustDialog ([browserWindow,] options, callback)` * macos * * Windows *
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
 <li><code>pilihan` Obyek 
@@ -134,7 +134,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Pada Windows pilihannya lebih terbatas, karena API Win32 digunakan:
 
 * The `message` argument is not used, as the OS provides its own confirmation dialog.
 * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
