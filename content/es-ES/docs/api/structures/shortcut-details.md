@@ -1,4 +1,4 @@
-# ShortcutDetails Object
+# Objeto ShortcutDetails
 
 * `target` String - The target to launch from this shortcut.
 * `cwd` String (optional) - The working directory. Default is empty.
