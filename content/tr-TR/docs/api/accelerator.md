@@ -6,8 +6,8 @@ Accelerators are Strings that can contain multiple modifiers and key codes, comb
 
 Örnekler:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `CommandOrControl + A`
+* `CommandOrControl + Üst Krkt + Z`
 
 Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
 
@@ -18,8 +18,7 @@ app.on('ready', () => {
   // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
-  })
-})
+  }) })
 ```
 
 ## Platform bildirimi
