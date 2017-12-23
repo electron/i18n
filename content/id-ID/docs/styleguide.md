@@ -1,8 +1,8 @@
-# Electron Documentation Styleguide
+# Elektron Dokumentasi Styleguide
 
-These are the guidelines for writing Electron documentation.
+Ini adalah pedoman untuk menulis dokumentasi Elektron.
 
-## Titles
+## judul
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
