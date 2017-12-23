@@ -101,9 +101,9 @@ MyApp.app/Contents
 
 ### 建立客製化的 Electron 分支
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+建立客製的 Electron 分支 87% 不是你該做的事，就算你的應用程式是「上線水準」的也不例外。 使用 `electron-packager` 或 `electron-forge` 這些工具，讓你省下這些步驟也能對 Electron 「客製品牌」。
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+如果你直接修改了 Electron 中的 C++ 程式碼，而且不能回饋回上游，或是被官方版本拒絕了，就需要建立 Electron 分支。 As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
 #### 以 surf-build 建立客製化發行版
 
