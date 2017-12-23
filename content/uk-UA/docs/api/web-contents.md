@@ -133,7 +133,7 @@ Emitted when page receives favicon urls.
 Повертає:
 
 * `event` Подія
-* `url` String
+* `url` Рядок
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
@@ -160,7 +160,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 Повертає:
 
 * `event` Подія
-* `url` String
+* `url` Рядок
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -175,7 +175,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 Повертає:
 
 * `event` Подія
-* `url` String
+* `url` Рядок
 
 Emitted when a navigation is done.
 
@@ -186,7 +186,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 Повертає:
 
 * `event` Подія
-* `url` String
+* `url` Рядок
 * `isMainFrame` Boolean
 
 Emitted when an in-page navigation happened.
@@ -293,7 +293,7 @@ Emitted when DevTools is focused / opened.
 Повертає:
 
 * `event` Подія
-* `url` String
+* `url` Рядок
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -375,7 +375,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 Повертає:
 
 * `event` Подія
-* `url` String
+* `url` Рядок
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
@@ -508,7 +508,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
+* `url` Рядок
 * `options` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
@@ -526,7 +526,7 @@ webContents.loadURL('https://github.com', options)
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* `url` Рядок
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
