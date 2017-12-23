@@ -170,11 +170,11 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <li><code> html </ 0>  String (opsional)</li>
 <li><code> gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code> rtf </ 0>  String (opsional)</li>
-<li><code>bookmark` String (optional) - The title of the url at `text`.
-                      * ` ketik </ 0>  String (opsional)</li>
+<li><code> bookmark </ 0>  String (opsional) - Judul url di <code> teks </ 0> .</li>
+</ul></li>
+<li><code> ketik </ 0>  String (opsional)</li>
 </ul>
 
-<pre><code class="javascript">const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+<pre><code class="javascript">const {clipboard} = require ('electron') clipboard.write ({text: 'test', html: ' &lt;b&gt; test </ 0> '})
 `</pre> 
-                        Writes `data` to the clipboard.
+                          Menulis  data </ 0> ke clipboard.</p>
