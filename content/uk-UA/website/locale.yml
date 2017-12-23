@@ -16,10 +16,10 @@ docs:
   api_reference: Довідник API
   advanced: Додатково
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: Поліпшити цю документацію
+    version_history: Історія версій
+    translate: Перекласти цю документацію
+    view_all_docs: Вся документація на одній сторінці
 languages:
   choose_language: Оберіть мову
   translation_progress: Прогрес перекладу
@@ -59,7 +59,7 @@ get_started:
   description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати встановники.
 explore:
   title: Дослідіть API Electron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Дивіться що можливо завдяки Electron з прикладами коду та корисними підказками для створення вашого додатку."
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
 quick_start:
@@ -87,9 +87,9 @@ apps:
   something_missing: Чогось не вистачає?
   edit_this_app: Відредагувати цю программу.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Копіювати
+  copy_to_clipboard: Копіювати до буферу обміну
+  copied: Скопійовано
 or: чи
 pages:
   '/':
