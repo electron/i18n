@@ -58,9 +58,9 @@ Electron 說明文件撰寫指導方針。
 
 ### 頁面標題
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+每一頁的標題都必須是 `require('electron')` 回傳的實際物件名稱，例如 `BrowserWindow`、`autoUpdater` 和 `session`。
 
-Under the page title must be a one-line description starting with `>`.
+頁標題後必須使用單行來描述，並以 `>` 開頭。
 
 以 `session` 為例:
 
@@ -72,7 +72,7 @@ Under the page title must be a one-line description starting with `>`.
 
 ### 模組方法和事件
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+對於類別以外的模組，其方法及事件必須條列在 `## 方法` 及 `## 事件` 章節下。
 
 以 `autoUpdater` 為例:
 
