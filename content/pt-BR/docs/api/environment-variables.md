@@ -1,8 +1,8 @@
 # Variáveis de Ambiente
 
-> Control application configuration and behavior without changing code.
+> Controle configurações e comportamento de aplicações sem mudar o código.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Certos comportamentos do Electron são controlados por variáveis de ambientes porque são inicializados antes que as flags da linha de comando e o código da aplicação.
 
 POSIX shell example:
 
