@@ -26,9 +26,9 @@ Trong Electron, Node.js và Chromium chia sẻ một engine V8 duy nhất — th
 
 ### Phiên bản
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Đối với phiên bản Electron 2.0 [theo `semver`](http://semver.org). Cho hầu hết các ứng dụng, với bất kỳ phiên bản gần đây của npm, chạy `$ npm install electron` là đúng.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Bản cập nhật của quá trình nâng cấp phiên bản được viết chi tiết tại [Versioning Doc](electron-versioning.md).
 
 ### LTS
 
