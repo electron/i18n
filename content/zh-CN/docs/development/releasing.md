@@ -2,7 +2,7 @@
 
 本文档描述了发布 Electron 版本的过程。
 
-## Determine which branch to release from
+## 决定从哪个版本发布
 
 - **If releasing beta,** run the scripts below from `master`.
 - **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
