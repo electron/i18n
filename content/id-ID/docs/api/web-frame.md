@@ -99,14 +99,14 @@ Sumber daya akan dimuat dari skema `ini` terlepas dari halaman sekarang Kebijaka
 * `skema` String
 * `pilihan` Objek (opsional) 
   * `aman` Boolean - (opsional) Default benar.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+  * `bypassCSP` Boolean - (opsional) Default benar.
+  * `allowServiceWorkers` Boolean - (opsional) Default benar.
+  * `supportFetchAPI` Boolean - (opsional) Default benar.
+  * `corsEnabled` Boolean - (opsional) Default benar.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Mendaftarkan `skema` sebagai aman, bypass kebijakan keamanan konten untuk sumber daya, memungkinkan mendaftarkan ServiceWorker dan mendukung pengambilan API.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Tentukan pilihan dengan nilai `palsu` untuk menghilangkan itu dari pendaftaran. Contoh mendaftar skema istimewa, tanpa melewati Kebijakan Keamanan Konten:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -115,34 +115,32 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(text)`
 
-* `text` String
+* `teks` String
 
-Inserts `text` to the focused element.
+Sisipan `teks` ke elemen yang terfokus.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* ` kode </ 0> String</li>
-<li><code>userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
-  * `result` Any
+* `kode` String
+* `userGesture` Boolean (opsional) - Default adalah `false`.
+* `panggilkembali` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+  * `hasil` Ada
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Mengembalikan `Janji` - Janji yang diselesaikan dengan hasil kode yang dijalankan atau ditolak jika hasil dari kode tersebut adalah janji yang ditolak.
 
-Evaluates `code` in page.
+Evaluasi `kode` di halaman.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
 
 ### `webFrame.getResourceUsage()`
 
-Mengembalikan ` Objek </ 0> :</p>
+Mengembalikan `Boolean`:
 
-<ul>
-<li><code>images` [MemoryUsageDetails](structures/memory-usage-details.md)</li> 
-
-* `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
-* `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
-* `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
-* `other` [MemoryUsageDetails](structures/memory-usage-details.md)</ul> 
+* `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
+* `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+* `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+* `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
+* `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
 Returns an object describing usage information of Blink's internal memory caches.
 
