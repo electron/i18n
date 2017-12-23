@@ -140,16 +140,16 @@ Mengembalikan `Boolean`:
 * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
 * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
 * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
-* `other` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Ini akan menghasilkan:
 
 ```javascript
 {
@@ -167,6 +167,6 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
