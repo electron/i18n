@@ -8,7 +8,7 @@ Electron'un kendisinden kaynaklanmadığını düşündüğünüz sizin JavaScri
 
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
-## Attaching to and Debugging Electron
+## Electron'da ekleme yapma ve hata ayıklama
 
 To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
 
@@ -18,11 +18,11 @@ $ lldb ./out/D/Electron.app
 Current executable set to './out/D/Electron.app' (x86_64).
 ```
 
-### Setting Breakpoints
+### Kesme noktalarını ayarlama
 
 LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
 
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
+İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `. Eğer kararlı iseniz, Açıkçası ` chromium_src ` 'da bulunan Chromium'u doğrudan hata ayıklayabilirsiniz.
 
 Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
 
