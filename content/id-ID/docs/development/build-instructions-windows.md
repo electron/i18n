@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## Prasyarat
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
@@ -17,22 +17,22 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## Mendapatkan kode
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## Bootstrap
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## Membangun
 
 Build both Release and Debug targets:
 
@@ -66,7 +66,7 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## Pembersihan
 
 To clean the build files:
 
@@ -82,7 +82,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## Pengujian
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
