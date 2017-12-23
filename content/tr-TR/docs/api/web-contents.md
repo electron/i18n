@@ -141,9 +141,9 @@ Dönüşler:
 
 Sayfa, bir `url` için yeni bir pencere açmayı istediğinde ortaya çıkar. `Pencere.açma` veya `<a target='_blank'>` gibi harici bir bağlantıyla istenebilir.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Varsayılan olarak `url` için yeni bir `TarayıcıPenceresi` oluşturulacaktır.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+`Olay.varsayılanıEngelle()` öğesinin çağrılması, Electron'un otomatik olarak yeni bir `TarayıcıPenceresi` oluşturmasını önleyecektir. `olay.varsayılanıEngelle()` öğesini çağırıp manuel olarak yeni bir `TarayıcıPenceresi` oluşturursanız, `olay.yeniKonuk` öğesini yeni `TarayıcıPenceresi` örneğine referans yapacak şekilde ayarlamanız gerekir; aksi halde beklenmeyen davranışlara neden olabilir. Örneğin:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -155,14 +155,14 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### Olay: 'will-navigate'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `olay` Olay
+* `url` Dize
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Bir kullanıcı veya sayfa arama başlatmak istediğinde ortaya çıkar. `Pencere.yeri` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
 This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
 
