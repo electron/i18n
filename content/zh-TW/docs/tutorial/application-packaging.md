@@ -110,13 +110,13 @@ fs.readFileSync('/path/to/example.asar')
 
 ### 不能將封存檔中的目錄設為工作目錄
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+雖然我們將 `asar` 封存檔視為目錄，但在檔案系統中並不存在這些目錄，因此你無法將工作目錄設為 `asar` 封存檔中的目錄。 將它們作為某些 API 的 `cwd` 參數將會出錯。
 
 ### 針對某些 API 額外解開
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+大多數 `fs` API 都可以直接從 `asar` 封存檔中讀取檔案或取得檔案資訊，無需解開。不過某些 API 需要將實際檔路徑傳給底層的系統呼叫，Electron 會把所需的檔案解到暫存目錄中，並將暫存檔路徑傳給 API，使其能正常運作。 這會對這些 API 增加額外負荷。
 
-APIs that requires extra unpacking are:
+需要額外解開的 API 有:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
