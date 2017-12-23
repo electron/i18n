@@ -95,11 +95,11 @@ Electron 說明文件撰寫指導方針。
 * 建構式必須用 `###` 級別的標題列出。
 * [靜態方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)必須列在 `### 靜態方法` 章節下。
 * [物件方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)必須列在 `### 物件方法` 章節下。
-* 具有回傳值的方法第一行描述必須是 "回傳 `[TYPE]` - 回傳內容描述" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### 物件屬性` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* 具有回傳值的方法第一行描述必須是「回傳 `[TYPE]` - 回傳內容描述」 
+  * 如果方法回傳的是 `Object`，其結構可以在冒號及分行符號後以無序的屬性清單描述，格式與函數參數相同。
+* 物件事件必須列在 `### 物件事件` 章節下。
+* 物件屬性必須列在 `### 物件屬性` 章節下。 
+  * 物件屬性必須以「一個 [屬性型別] ...」開頭。
 
 以 `Session` 及 `Cookies` 類別為例:
 
@@ -193,9 +193,9 @@ The description for `Function` type arguments should make it clear how it may be
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+標題可以是 `###` 或 `####` 級別，取決於它是屬於模組還是類別的屬性。
 
-The arguments of an event follow the same rules as methods.
+事件的參數遵循跟方法相同的規則。
 
 ### 屬性
 
