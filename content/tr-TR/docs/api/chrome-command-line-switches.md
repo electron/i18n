@@ -28,29 +28,29 @@ HTTP/2 ve SPDY/3.1 protokollerini devre dışı bırakın.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Hata ayıklama ile ilgili bayrakları, ayrıntılar için [Debugging the Main Process](../tutorial/debugging-main-process.md) kılavuzuna bakın.
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Belirtilen `port` noktasında HTTP üzerinden uzaktan hata ayıklamayı etkinleştirir.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Disk önbelleği tarafından kullanılacak maksimum disk alanını bayt cinsinden ifade etmeye zorlar.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Node JS motoruna geçirilen bayrakları belirtir. Ana işlemde `flags` etkinleştirmek isterseniz, Elektron başlatırken değerlerin geçmiş olması gerekir.
 
 ```bash
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+$ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+[Node documentation](https://nodejs.org/api/cli.html) bakın veya kullanılabilir bayrakların bir listesi için terminalde `node --help` çalıştırın. Ayrıca, özellikle Node'un V8 JavaScript motoruna atıfta bulunan bayrakların listesini görmek için `node --v8-options`'ni çalıştırın.
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
