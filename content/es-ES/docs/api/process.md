@@ -119,6 +119,6 @@ Hace que el hilo principal del proceso actual se caiga.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
-* `maxDescriptors` Integer
+* `maxDescriptors` Entero
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Ajusta el limite suave del descriptor del documento a `maxDescriptors` o el límite duro OS, cual sea menor para el proceso actual.
