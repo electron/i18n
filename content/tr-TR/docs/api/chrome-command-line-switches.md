@@ -107,19 +107,19 @@ Kullanıcı kimlik bilgilerinin temsilciliğinin gerekli olduğu, virgülle ayr�
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Sertifika ile ilgili hataları yok sayar.
 
 ## --ppapi-flash-path=`path`
 
-Sets the `path` of the pepper flash plugin.
+Pepper flash eklentisi `yolunu` belirler.
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+Pepper flash eklentisi `sürümünü` ayarlar.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Kaydedilecek net günlük olaylarını etkinleştirir ve bunları `yoluna` yazar.
 
 ## --disable-renderer-backgrounding
 
