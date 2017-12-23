@@ -6,7 +6,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 - Make Electron code compatible with the new libcc
 - Update Electron dependencies (crashpad, NodeJS, etc.) if needed
 - Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- Gerekirse Electron dokümanlarını güncelleyin
 
 ## Upgrade `libcc` to a new Chromium version
 
