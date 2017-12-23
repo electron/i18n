@@ -328,12 +328,12 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code>permintaan` Object 
+<li><code>permintaan` Obyek 
   * ` method </ 0>  String</li>
 <li><code> url </ 0> URL</li>
 <li><code> perujuk </ 0> URL</li>
 </ul></li>
-<li><code>authInfo` Object 
+<li><code>authInfo` Obyek 
     * ` isProxy </ 0>  Boolean</li>
 <li><code> skema </ 0>  String</li>
 <li><code> host </ 0>  String</li>
@@ -354,7 +354,7 @@ Pengembalian:
         Pengembalian:
         
         * ` event </ 0>  Acara</li>
-<li><code>result` Object 
+<li><code>result` Obyek 
           * `requestId` Integer
           * `activeMatchOrdinal` Integer - Position of the active match.
           * `matches` Integer - Number of Matches.
@@ -410,7 +410,7 @@ Pengembalian:
     Pengembalian:
     
     * ` event </ 0>  Acara</li>
-<li><code>params` Object 
+<li><code>params` Obyek 
       * `x` Integer - x coordinate
       * `y` Integer - y coordinate
       * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -873,7 +873,7 @@ console.log(requestId)
     
     #### `contents.printToPDF(options, callback)`
     
-    * `pilihan` Object 
+    * `pilihan` Obyek 
       * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
       * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
       * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -1017,7 +1017,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parameters` Obyek 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
@@ -1037,7 +1037,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `event` Obyek 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1087,7 +1087,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Obyek 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1127,7 +1127,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `pilihan` Object 
+* `pilihan` Obyek 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
