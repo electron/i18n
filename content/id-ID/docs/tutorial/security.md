@@ -20,33 +20,29 @@ Kami merasa bahwa sistem kami saat memperbarui Chromium komponen menyerang kesei
 
 Masalah keamanan ada setiap kali Anda menerima kode dari tujuan remote dan mengeksekusi secara lokal. Sebagai contoh, pertimbangkan sebuah situs web terpencil yang ditampilkan di dalam jendela browser. Jika penyerang entah bagaimana berhasil mengubah konten kata (baik dengan menyerang sumber langsung, atau dengan duduk di antara aplikasi dan tujuan yang sebenarnya), mereka akan dapat mengeksekusi kode asli pada mesin pengguna.
 
-> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten jauh, gunakan ` tampilan web </ 0> tag dan pastikan untuk menonaktifkan <code> nodeIntegration </ 0> .  </p>
-</blockquote>
+> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten jauh, gunakan `tampilan web` tag dan pastikan untuk menonaktifkan `nodeIntegrasi` . 
 
-<h4>daftar pembanding</h4>
+#### daftar pembanding
 
-<p>Ini bukan peluru, tapi setidaknya, Anda harus mencoba yang berikut ini:</p>
+Ini bukan peluru, tapi setidaknya, Anda harus mencoba yang berikut ini:
 
-<ul>
-<li>Hanya menampilkan aman (https) konten</li>
-<li>Nonaktifkan Node integrasi dalam semua penyaji yang menampilkan konten jauh (pengaturan <code> nodeintergrasi </ 0> ke <code> palsu </ 0> di <code> Preperensi Web </ 0> )</li>
-<li>Enable context isolation in all renderers that display remote content
-(setting <code>contextIsolation` to `true` in `webPreferences`)</li> 
-> 
-> * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-> * Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-> * Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-> * [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-> * Do not set `allowRunningInsecureContent` to true.
-> * Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-> * Do not use `blinkFeatures` unless you know what you're doing.
-> * WebViews: Do not add the `nodeintegration` attribute.
-> * WebViews: Do not use `disablewebsecurity`
-> * WebViews: Do not use `allowpopups`
-> * WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
-> * WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:</ul> 
-> 
-> ```js
+* Hanya menampilkan aman (https) konten
+* Nonaktifkan Node integrasi dalam semua penyaji yang menampilkan konten jauh (pengaturan ` nodeintergrasi </ 0> ke <code> palsu </ 0> di <code> Preperensi Web </ 0> )</li>
+<li>Aktifkan isolasi konteks dalam semua penyaji yang menampilkan konten jauh (pengaturan <code> isolasiconteks </ 0> ke <code> benar </ 0> di <code> preperensiweb </ 0> )</li>
+<li>Gunakan <code>ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</li>
+<li>Jangan menonaktifkan <code>keamananweb` . Nonaktifkan akan menonaktifkan kebijakan yang sama-asal.
+* Tentukan [`Content-Security-Kebijakan`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , dan menggunakan aturan ketat (yaitu `naskah-src 'diri'` )
+* [Selama Perjalanan dan menonaktifkan ` eval `](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , yang memungkinkan string akan dieksekusi sebagai kode.
+* Jangan mengatur `allowRunningInsecureContent ` true.
+* Jangan aktifkan `experimentalFeatures` atau `experimentalCanvasFeatures ` kecuali Anda tahu apa yang Anda lakukan.
+* Jangan gunakan `blinkFeatures` kecuali Anda tahu apa yang Anda lakukan.
+* Tampilan Web: Jangan tambahkan `nodeintegration` atribut.
+* Tampilan Web: Jangan gunakan ` disablewebsecurity </ 0></li>
+<li>Tampilan Web: Jangan gunakan <code>allowpopups`
+* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
+* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+
+```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
     // Strip away preload scripts if unused or verify their location is legitimate
