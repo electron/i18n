@@ -31,23 +31,23 @@ console.log(webContents)
 
 ### `webİçerikleri.alOdaklanmışWebİçerikleri()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+`Webİçerikleri` 'ne dödürür - Bu uygulamaya odaklanmış web içeriği aksi takdirde `boş` değerini döndürür.
 
-### `webContents.fromId(id)`
+### `webİçeriği.kimlikten(id)`
 
-* `id` Integer
+* `kimlik` Tamsayı
 
-Returns `WebContents` - A WebContents instance with the given ID.
+`Webİçerikleri` 'ne döndürür - Belirli bir kimliği olan bir Web İçeriği örneği.
 
-## Class: WebContents
+## Tür: Webİçerikleri
 
-> Render and control the contents of a BrowserWindow instance.
+> Bir TarayıcıPenceresi örneğinin içeriğini oluşturun ve denetleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-### Instance Events
+### Örnek Etkinlik
 
-#### Event: 'did-finish-load'
+#### Etkinlik: 'did-finish-load'
 
 Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
 
