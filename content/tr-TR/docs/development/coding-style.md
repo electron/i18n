@@ -16,7 +16,7 @@ C+++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara ha
 
 * [Standart](http://npm.im/standard) Javascript stilinde yazın.
 * Dosya isimleri `_` ile değil `-` ile birleştirilmeli, örneğin: `dosya_adi.js` yerine `dosya-adi.js`. Bunun sebebi [github/atom](https://github.com/github/atom) modül isimlerinin genelde `module-name` formunda olmasıdır. Bu kural sadece `.js` dosyalarında uygulanır.
-* Use newer ES6/ES2015 syntax where appropriate 
+* Uygun olan yerlerde ES6/ES2015 sözdizimini kullanın 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
