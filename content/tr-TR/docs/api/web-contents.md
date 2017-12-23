@@ -162,22 +162,22 @@ Dönüşler:
 * `olay` Olay
 * `url` Dize
 
-Bir kullanıcı veya sayfa arama başlatmak istediğinde ortaya çıkar. `Pencere.yeri` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
+Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `Pencere.yeri` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+Gezinme programlı olarak `webİçerikleri.yüklemeURL` ve `webİçerikleri.geri` gibi API'lerle başlatıldığında, bu olay yayınlanmaz.
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Ayrıca, bağlı linkleri tıklama veya `pencere.konumu.karması` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `sayfa-içi-gezinme-mi` etkinliğini kullanın.
 
-Calling `event.preventDefault()` will prevent the navigation.
+`olay.varsayılanıEngelleme()` öğesinin çağırılması gezinmeyi engeller.
 
-#### Event: 'did-navigate'
+#### Olay: 'did-navigate'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `olay` Olay
+* `url` Dize
 
-Emitted when a navigation is done.
+Bir gezinme yapıldığında ortaya çıkar.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
