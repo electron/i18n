@@ -42,7 +42,7 @@ Every app's main process file is specified in the `main` property in `package.js
 
 In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Véase también: [proceso](#process), [proceso de renderizado](#renderer-process)
 
 ### MAC
 
@@ -54,7 +54,7 @@ Los módulos nativos (también llamados [addons](https://nodejs.org/api/addons.h
 
 Nativo nodo módulos están soportados por el Electron, pero puesto que el Electron es muy probable que utilice una versión V8 del nodo binario instalada en su sistema, usted tiene que especificar manualmente la ubicación de cabeceras del Electron al compilar los módulos nativos.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Véase también [Usando Módulos de Nodo Nativos](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -70,19 +70,19 @@ A process is an instance of a computer program that is being executed. Aplicacio
 
 En Node.js y Electron, cada proceso en ejecución tiene un objeto de `process`. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Véase también: [proceso principal](#main-process), [proceso de renderizado](#renderer-process)
 
-### renderer process
+### proceso de renderizado
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
-See also: [process](#process), [main process](#main-process)
+Véase también: [proceso](#process), [proceso principal](#main-process)
 
-### Ardilla
+### Squirrel
 
-Ardilla es un marco de código abierto que permite a aplicaciones de Electron actualizar automáticamente como se liberan nuevas versiones. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel es un marco de código abierto que permite a aplicaciones de Electron actualizar automáticamente como se liberan nuevas versiones. Ver el [autoUpdater](api/auto-updater.md) API para información sobre cómo empezar con Squirrel.
 
 ### entorno
 
