@@ -2,7 +2,7 @@
 
 > Elektron tarafından desteklenen komut satırı anahtarları.
 
-[app](app.md) modülünün [ready](app.md#event-ready) olayı yayılmadan önce [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kullanarak uygulamanızın ana scriptlerine ekleyebilirsiniz:
+[app](app.md) modülünün [ready](app.md#event-ready) olayı yayılmadan önce [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kullanarak uygulamanızın ana komut dosyalarına ekleyebilirsiniz:
 
 ```javascript
 const {app} = require('electron')
@@ -50,13 +50,13 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
 
 ## --proxy-server=`address:port`
 
-Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Sistem ayarını geçersiz kılan belirli bir proxy sunucusu kullanın. Bu anahtar HTTPS ve WebSocket istekleri dahil olmak üzere yalnızca HTTP protokollü istekleri etkiler. Ayrıca, tüm proxy sunucuların HTTPS'yi ve WebSocket isteklerini desteklemediği de dikkat çeken bir noktadır.
 
 ## --proxy-bypass-list=`hosts`
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-For example:
+Örneğin:
 
 ```javascript
 const {app} = require('electron')
@@ -67,20 +67,20 @@ Will use the proxy server for all hosts except for local addresses (`localhost`,
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+PAC komut dosyasını belirtilen `url`'de kullanır.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+Bir proxy sunucusu kullanmayın ve daima doğrudan bağlantılar kurun. Geçen proxy sunucu bayrakları diğerlerini geçersiz kılar.
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Ana bilgisayar adlarının nasıl eşleştirileceğini denetleyen virgülle ayrılmış `rules`.
 
-For example:
+Örneğin:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
+* `MAP * 127.0.0.1` Tüm ana makine adlarını 127.0.0.1 ile eşleşmesi için zorlar
+* `MAP *.google.com proxy` Tüm google.com alt etki alanları "proxy" çözülmesi için zorlar.
 * `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
 
