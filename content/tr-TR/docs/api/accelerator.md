@@ -1,10 +1,10 @@
-# Accelerator
+# Hızlandırıcı
 
-> Define keyboard shortcuts.
+> Klavye kısayolları tanımlamak.
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Examples:
+Örnekler:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
@@ -22,24 +22,24 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## Platform bildirimi
 
 On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+`Alt` `seçeneği` yerine kullanın. `Alt` anahtar tüm platformlarda mevcut ise `seçme hakkı` anahtarı sadece macOS üzerinde bulunmaktadır.
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Available modifiers
+## Kullanılabilir düzenleyiciler
 
 * `Command` (or `Cmd` for short)
 * `Control` (or `Ctrl` for short)
 * `CommandOrControl` (or `CmdOrCtrl` for short)
 * `Alt`
-* `Option`
+* `Seçenek`
 * `AltGr`
 * `Shift`
-* `Super`
+* `Süper`
 
 ## Available key codes
 
@@ -47,17 +47,17 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `A` to `Z`
 * `F1` to `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
-* `Tab`
-* `Backspace`
-* `Delete`
-* `Insert`
+* `Artı`
+* `Boşluk`
+* `Sekme`
+* `Geri silme`
+* `Sil`
+* `Ekleme`
 * `Return` (or `Enter` as alias)
 * `Up`, `Down`, `Left` and `Right`
 * `Home` and `End`
 * `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
+* `Çıkış` (veya `Esc` kısaca)
+* `Sesi Aç`, `Sesi Kıs` ve `Sesi Kapat`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
-* `PrintScreen`
+* `Ekran Görüntüsü`
