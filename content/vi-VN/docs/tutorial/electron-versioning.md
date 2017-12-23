@@ -1,22 +1,22 @@
 # Phiên bản Electron
 
-> A detailed look at our versioning policy and implementation.
+> Chi tiết về cách đặt phiên bản Electron.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Với phiên bản 2.0.0, Electron theo [semver](#semver). Lệnh sau sẽ cài phiên bản ổn định mới nhất của Electron:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Để nâng cấp dự án lên phiên bản ổn định mới nhất:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Phiên bản 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron các phiên bản *< 2.0* không theo [semver](http://semver.org). Số của phiên bản chính được đặt theo các thay đổi trong API của người dùng đầu cuối. Số của phiên bản phụ được đặt theo phiên bản chính của Chromium được sử dụng. Và số của phiên bản vá sẽ tương ứng với chức năng mới và vá lỗi. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
