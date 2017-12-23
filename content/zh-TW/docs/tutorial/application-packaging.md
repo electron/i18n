@@ -126,7 +126,7 @@ fs.readFileSync('/path/to/example.asar')
 
 ### `fs.stat` 的假 Stat 資訊
 
-由 `fs.stat` 那一掛 API 回傳的 `asar` 封存檔中的檔案 `Stats` 物件是用猜的，因為那些檔案並不在檔案系統中。 So you should not trust the `Stats` object except for getting file size and checking file type.
+由 `fs.stat` 那一掛 API 回傳的 `asar` 封存檔中的檔案 `Stats` 物件是用猜的，因為那些檔案並不在檔案系統中。 因此，除了取得檔案大小和檢查檔案類型之外，不要相信 `Stats` 物件裡的資訊。
 
 ### 執行 `asar` 封存檔中的二進位檔
 
