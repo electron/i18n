@@ -46,7 +46,7 @@ Pengembalian:
 
 Pengembalian:
 
-* `authInfo` Object 
+* `authInfo` Obyek 
   * ` isProxy </ 0>  Boolean</li>
 <li><code> skema </ 0>  String</li>
 <li><code> host </ 0>  String</li>
