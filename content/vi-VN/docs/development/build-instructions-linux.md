@@ -48,38 +48,38 @@ $ git clone https://github.com/electron/electron
 
 ## Khởi tạo dự án
 
-Mã khởi tạo dự án sẽ tải tất cả các file phụ thuộc cần thiết và tạo các file dự án. Bạn phải có Python 2.7.x để chạy được mã khởi tạo. Quá trình tải một số file có thể mất nhiều thời gian. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Mã khởi tạo dự án sẽ tải tất cả các file phụ thuộc cần thiết và tạo các file dự án. Bạn phải có Python 2.7.x để chạy được mã khởi tạo. Quá trình tải một số file có thể mất nhiều thời gian. Chú ý, chúng tôi sử dụng `ninja` để build Electron, do đó không có `Makefile` được tạo ra.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Biên soạn đa nền tảng
+### Compile đa nền tảng
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Nếu bạn muốn build cho nền tảng `arm` bạn cần cài thêm những phần phụ thuộc sau:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Tương tự cho `arm64`, cài thêm như sau:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+Đồng thời để compile cho `arm` hoặc `ia32`, bạn nên thêm `--target_arch` cho `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Xây dựng
+## Build
 
-Nếu bạn nhắm tới mong muốn xây dựng cả hai phiên bản là `Bản phát hành chính thức` và `Bản debug`:
+Nếu bạn muốn build cả hai phiên bản là `Bản Release` và `Bản debug`:
 
 ```sh
 $ ./script/build.py
