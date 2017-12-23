@@ -577,22 +577,22 @@ Returns:
 * `httpYanıtKodu` Tamsayı
 * `gerekliMetod` Dize
 * `referrer` String
-* `headers` Object
-* `resourceType` String
+* `Başlıklar` Nesne
+* `kaynekTipi` Dize
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Olay: 'yönlendirme-isteği-almadın-mı'
 
 Returns:
 
-* `oldURL` String
+* `eskiURL` Dize
 * `yeniURL` Dize
 * `AnaÇerçeve` Boolean
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### Olay: 'dom-hazır'
 
 Fired when document in the given frame is loaded.
 
@@ -605,7 +605,7 @@ Returns:
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### Olay: 'page-favicon-updated'
 
 Returns:
 
@@ -664,12 +664,12 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Olay: 'yeni-pencere'
 
 Returns:
 
 * `url` String
-* `frameName` String
+* `çerçeveAdı` Dize
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
