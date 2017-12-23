@@ -94,14 +94,14 @@ Menggunakan `AutoUpdater` sebagai contoh:
 * Satu halaman dapat memiliki beberapa kelas.
 * Konstruktor harus terdaftar dengan `###`-tingkat judul.
 * [Metode Statis](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) harus terdaftar di bawah `### Static Methods` bagian.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* [Metode Instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) harus terdaftar di bawah `### Instance Methods` bagian.
+* Semua metode yang memiliki nilai kembali harus mulai deskripsi mereka dengan "Pengembalian `[TYPE]` - Return description" 
+  * Jika metode mengembalikan sebuah `Object`, struktur dapat ditentukan dengan menggunakan titik dua diikuti dengan baris baru kemudian daftar unordered properti dalam gaya yang sama sebagai parameter fungsi.
+* Misalnya Acara harus terdaftar di bawah `### Instance Events` bagian.
+* Misalnya Properti harus terdaftar di bawah `### Instance Properties` bagian. 
+  * Sifat misalnya harus dimulai dengan "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Menggunakan `Session` dan `Cookies` kelas sebagai contoh:
 
 ```markdown
 # session
@@ -135,9 +135,9 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Metode
 
-The methods chapter must be in the following form:
+Metode Bab harus dalam bentuk berikut:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,13 +148,13 @@ The methods chapter must be in the following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Judul bisa `###` atau `####`-levels tergantung pada apakah itu adalah metode modul atau kelas.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Untuk modul, `objectName` adalah nama modul. Untuk kelas, itu harus nama instance dari kelas, dan tidak harus sama dengan nama modul.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Sebagai contoh, metode dari `Session` kelas bawah `session` modul harus menggunakan `ses` sebagai `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Argumen opsional dinotasikan oleh tanda kurung `[]` sekitarnya argumen opsional serta koma diperlukan jika argumen opsional ini berikut argumen lain:
 
 ```sh
 required[, optional]
