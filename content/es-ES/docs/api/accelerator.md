@@ -53,11 +53,11 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Retroceso`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (o `Enter` como alias)
+* `Arriba`, `Abajo`, `Izquierda` y `Derecha`
+* `Home` y `End`
+* `PageUp` y `PageDown`
+* `Escape` (o `Esc` resumido)
+* `VolumeUp`, `VolumeDown` y `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` y `MediaPlayPause`
 * `PrintScreen`
