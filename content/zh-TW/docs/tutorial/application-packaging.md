@@ -85,7 +85,7 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### 將 `asar` 封存檔視為一般檔案
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+在某些情況下，例如驗證 `asar` 封存檔的總和檢查碼，我們需要將整個 `asar` 封存檔的內容當做一般檔案讀取。 For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
 
 ```javascript
 const originalFs = require('original-fs')
