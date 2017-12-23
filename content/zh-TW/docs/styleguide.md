@@ -154,13 +154,13 @@ Electron 說明文件撰寫指導方針。
 
 例如 `session` 模組下的 `Session` 類別方法必須使用 `ses` 作為 `objectName`。
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+選用的參數以方括號 `[]` 包住，如果這個選用參數跟在其他參數後面，也必須包進對應的逗號:
 
 ```sh
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+方法後接每個參數的詳細資訊。參數的類型可使用一般型別:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
