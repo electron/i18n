@@ -97,7 +97,7 @@ MyApp.app/Contents
 
 ## 由原始碼開始客製品牌
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+也可以從原始碼修改 Electron 產品名稱再建置，達到品牌客製化的目的。為此，你需要修改 `atom.gyp` 檔，清楚先前建置產出的檔案後再重新建置。
 
 ### 建立客製化的 Electron 分支
 
