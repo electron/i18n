@@ -40,9 +40,9 @@ Ana işlem, yaygın olarak `main.js` adlı bir dosya, her Electron uygulamasına
 
 Her uygulamanın ana işlem dosyası ` package.json` 'daki `ana` özelliğinde belirtilir. ` electron. ` başlangıçta hangi dosyanın nasıl yürütüleceğini bilir.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+Chromium'da bu işleme "tarayıcı süreci" denir. İşleyici süreçleriyle karıştırılmamak için Electron'da yeniden adlandırılır.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Ayrıca bkz: [işlem](#process), [işleyici işlemi](#renderer-process)
 
 ### MAS
 
@@ -58,7 +58,7 @@ See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [elektron oluşturucu](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
 
 ### OSR
 
