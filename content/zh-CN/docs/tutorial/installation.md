@@ -8,7 +8,7 @@
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+查看[Electron 版本管理](electron-versioning.md)查看如何在你的应用中管理Electron版本。
 
 ## 全局安装
 
