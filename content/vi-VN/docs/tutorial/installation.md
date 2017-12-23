@@ -20,7 +20,7 @@ npm install electron -g
 
 ## Tùy biến cài đặt
 
-Nếu bạn muốn thay đổi kiến trúc hệ thống của bản electron đc tải về (ví dụ `ia32` trên hệ `x64`), bạn có thể sử dụng `--arch` trong lệnh npm hoặc đặt biến môi trường `npm_config_arch`:
+Nếu bạn muốn thay đổi kiểu kiến trúc hệ thống cho bản electron được tải về (ví dụ `ia32` trên hệ `x64`), bạn có thể sử dụng `--arch` trong lệnh npm hoặc đặt biến môi trường `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
