@@ -95,19 +95,19 @@ Devuelve [`IOCounters`](structures/io-counters.md)
 
 Devuelve `Object`:
 
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `workingSetSize` entero - La cantidad de memoria actualmente cubierta por la RAM física real.
+* `peakWorkingSetSize` Entero - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
+* `privateBytes` Entero - la cantidad de memoria no compartida por otros procesos, como JS heap o contenido HTML.
+* `sharedBytes` Entero - La cantidad de memoria que ha sido compartida entre procesos, típicamente memoria consumida por el código propio de Electron
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
+Devuelve un objeto que contiene las estadísticas del uso de la memoria del proceso en curso. Note que todas las estadísticas son reportadas en Kilobytes.
 
 ### `process.getSystemMemoryInfo()`
 
-Returns `Object`:
+Devuelve `Objecto`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
+* `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
 * `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
 * `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
 
