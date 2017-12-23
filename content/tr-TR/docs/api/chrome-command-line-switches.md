@@ -125,24 +125,24 @@ Kaydedilecek net günlük olaylarını etkinleştirir ve bunları `yoluna` yazar
 
 Chromium görünmez sayfa oluşturucu işlemlerinin önceliğinin düşürülmesini engeller.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+Eğer sadece bir pencere içindeki daralmaları devre dışı bırakmak istiyorsanız, tüm global render işlemlerinde bu bayrak ile [playing silent audio](https://github.com/atom/atom/pull/9485/files)'i alabilirsiniz.
 
 ## --enable-logging
 
-Prints Chromium's logging into console.
+Chromium loglarını konsol içerisine yazdırır.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+Kullanıcının uygulaması yüklenene kadar bu anahtar `app.commandLine.appendSwitch` içerisinde kullanılamaz fakat aynı etkiyi yaratması için `ELECTRON_ENABLE_LOGGING` ortam değişkenini ayarlayabilirsiniz.
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Varsayılan maximum aktif V-logging seviyesini verir, varsayılan 0'dır. Normalde V-logging seviyeleri için pozitif değerler kullanılır.
 
-This switch only works when `--enable-logging` is also passed.
+Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 
-## --vmodule=`pattern`
+## -vmodule=`pattern`
 
 Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-This switch only works when `--enable-logging` is also passed.
+Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
