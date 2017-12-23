@@ -68,7 +68,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Object 
+<li><code>pilihan` Obyek 
   * ` judul </ 0>  String (opsional)</li>
 <li><code>defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
   * ` buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Object 
+<li><code>pilihan` Obyek 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
@@ -127,7 +127,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Object 
+<li><code>pilihan` Obyek 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
 * `callback ` Fungsi
