@@ -85,14 +85,14 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### 將 `asar` 封存檔視為一般檔案
 
-在某些情況下，例如驗證 `asar` 封存檔的總和檢查碼，我們需要將整個 `asar` 封存檔的內容當做一般檔案讀取。 For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+在某些情況下，例如驗證 `asar` 封存檔的總和檢查碼，我們需要將整個 `asar` 封存檔的內容當做一般檔案讀取。 為此，你可以使用內建的 `original-fs` 模組，它提供不支援 `asar` 的原始 `fs` API:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+你也可以將 `process.noAsar` 設為 `true`，停用 `fs` 模組中的 `asar` 功能:
 
 ```javascript
 const fs = require('fs')
@@ -102,11 +102,11 @@ fs.readFileSync('/path/to/example.asar')
 
 ## Node API 的限制
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+雖然我們盡可能讓 `asar` 封存檔在 Node API 中像個目錄，但受限於 Node API 的低階特性，仍會有些限制。
 
 ### 封存檔是唯讀的
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+無法修改封存檔的內容。因此，所有可以修改檔案的 Node API 在 `asar` 封檔案中都無法使用。
 
 ### 不能將封存檔中的目錄設為工作目錄
 
