@@ -96,7 +96,7 @@ Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sem
 
 Mulai memonitor semua proses.
 
-Pemantauan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan `startMonitoring`.
+Pemantauan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan ` startMonitoring `.
 
 Setelah semua proses anak telah mengakui permintaan `startMonitoring` `callback` akan dipanggil.
 
