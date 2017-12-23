@@ -60,16 +60,16 @@ Imprime o log interno do Chrome para o console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Quando o Electron lê de um arquivo ASAR, o offset de leitura e o caminho para o `tmpdir` do sistema será registrado. O arquivo resultante pode ser fornecido para o módulo ASAR para otimização da ordenação de arquivos.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Imprime o rastreamento da pilha para o console quando o Electron trava.
 
-This environment variable will not work if the `crashReporter` is started.
+Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Mostra a caixa de diálogo de travamento do Windows quando o Electron trava.
 
-This environment variable will not work if the `crashReporter` is started.
+Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
