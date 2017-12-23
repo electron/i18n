@@ -28,13 +28,13 @@ Sonra Visual Studio'da açın. Elektron Visual Studio ile oluşturulmaz ve bu ne
 
 Visual Studio hata ayıklayıcısına yerel olarak veya bilgisayara uzaktan erişerek ekleme yapabilirsiniz. İşlem çalıştıktan sonra Debug / Attach to Process'e tıklayın. (veya ` CTRL + ALT + P ` tuşlarına basarak) "İşleme Ekle" iletişim kutusunu açın. Bu özelliği yerel veya uzak bir bilgisayarda çalışan uygulamaları ayıklamak için, birden fazla aynı anda hata ayıklama işlemi için kullanabilirsiniz.
 
-Elektron farklı bir kullanıcı hesabı altında çalışıyorsa, ` Tüm kullanıcılardaki işlemleri göster ` onay kutusunu işaretleyin. BrowserWindows uygulamanızı açtığınızda Kaç kişiye bağlı olduğuna dikkat edin., birden fazla işlemi göreceksiniz. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Elektron farklı bir kullanıcı hesabı altında çalışıyorsa, ` Tüm kullanıcılardaki işlemleri göster ` onay kutusunu işaretleyin. BrowserWindows uygulamanızı açtığınızda Kaç kişiye bağlı olduğuna dikkat edin., birden fazla işlemi göreceksiniz. Tipik Tek pencere uygulaması, Visual Studio'nun size iki ` Electron.exe ` girdileri ile sunmasına neden olacaktır - birincisi ana işlem için ve bir tane de oluşturucu süreci için. Liste size sadece isimler verdiğinden, şimdilik hangisinin hangisi olduğunu anlamanın bir yolu yok.
 
-### Which Process Should I Attach to?
+### Hangi işlemi eklemeliyim?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Ana süreç içinde çalıştırılan kod (yani, ana JavaScript dosyanız tarafından bulunan veya sonuçta çalışan kod) yanı sıra uzaktan kumanda kullanılarak (` require ('electron'). Remote `) ana işlemin içinde çalışırken, diğer kodu ilgili oluşturucu işleminde yürütülecektir.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Hata ayıklarken birden çok program eklenebilir, ancak yalnızca bir program aynı anda etkin olabilir. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 
 ## Using ProcMon to Observe a Process
 
