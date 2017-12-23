@@ -140,50 +140,50 @@ Konfigurasi bangunan default ditargetkan untuk distribusi desktop desktop utama.
 Untuk menghindari penggunaan binari prebuilt dari ` libchromiumcontent `, Anda dapat membangun ` libchromiumcontent ` secara lokal. Untuk melakukannya, ikuti langkah-langkah ini:
 
 1. Menginstal [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+2. Install [ tambahan build dependencies ](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+3. Ambil submodul git:
 
 ```sh
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. Pass ` - build_release_libcc ` beralih ke script ` bootstrap.py `:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Perhatikan bahwa secara default konfigurasi ` shared_library ` tidak dibangun, jadi Anda hanya bisa membuat versi Elemen ` Release ` dari Elektron jika Anda menggunakan mode ini:
 
 ```sh
 $ ./script/build.py -c R
 ```
 
-### Using system `clang` instead of downloaded `clang` binaries
+### Menggunakan sistem ` clang ` daripada download ` clang ` binari
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Secara default Elektron dibangun dengan prebuilt [` clang `](https://clang.llvm.org/get_started.html) binari yang disediakan oleh proyek Chromium. Jika karena alasan tertentu Anda ingin membangun dengan ` clang ` terinstal di sistem Anda, Anda dapat memanggil ` bootstrap.py ` dengan ` - clang_dir = <path> `. Dengan melewatkannya, skrip build akan mengasumsikan biner ` berdentang ` berada di ` <path> / bin / `.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Sebagai contoh jika Anda menginstal ` clang ` di bawah ` / user / local / bin / clang `:
 
 ```sh
-$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
+$ ./script/bootstrap.py -v --build_release_libcc --clang_dir / usr / local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Menggunakan kompiler selain ` clang `
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Untuk membangun Elektron dengan kompiler seperti ` g ++ `, Anda harus menonaktifkan ` clang ` dengan ` - disable_clang ` terlebih dulu, lalu set ` CC ` dan ` CXX ` variabel lingkungan ke yang Anda inginkan.
 
-For example building with GCC toolchain:
+Misalnya bangunan dengan GCC toolchain:
 
 ```sh
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
+$ env CC = gcc CXX = g ++ ./script/bootstrap.py -v --build_release_libcc --disable_clang 
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Variabel Lingkungan
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+Selain ` CC ` dan ` CXX `, Anda juga dapat mengatur variabel lingkungan berikut untuk menyesuaikan konfigurasi pembuatan:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +199,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Variabel lingkungan harus ditetapkan saat menjalankan script ` bootstrap.py `, variabel tidak akan bekerja di script ` build.py `.
