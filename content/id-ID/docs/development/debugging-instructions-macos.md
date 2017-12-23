@@ -54,26 +54,29 @@ Untuk menunjukkan argumen dan lokal variabel untuk frame, menjalankan ` variabel
 }    
 `</pre> 
 
-Untuk melakukan satu langkah tingkat sumber di thread yang sedang dipilih, mengeksekusi `` langkah </ 0> (atau <code> s </ 0> ).
-Hal ini akan membawa Anda ke <code> name_override_.empty () </ 0> . Untuk melanjutkan dan melakukan langkah lebih, jalankan <code> berikutnya </ 0> (atau <code> n </ 0> ).</p>
+Untuk melakukan satu langkah tingkat sumber di thread yang sedang dipilih, mengeksekusi ` langkah </ 0> (atau <code> s </ 0> ).
+Hal ini akan membawa Anda ke <code>name_override_.empty()`. Untuk melanjutkan dan melakukan langkah lebih, jalankan `berikutnya` (atau `n` ).
 
-<pre><code class="sh">(lldb) Langkah Proses 25.244 berhenti * benang # 1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom: : Browser: : setName (ini = 0x0000000108b14f20, nama = " Electron ") + 44 di browser.cc:119, antrian = ' com.apple.main-benang', berhenti alasan = langkah dalam
-     bingkai # 0: 0x0000000100162dcc Electron Framework`atom: : Browser: : setName (ini = 0x0000000108b14f20, nama = " Electron ") + 44 di browser.cc:119
-    116
-    117 kekosongan Browser :: setName (std :: string const & amp; nama) {
-    118 name_override_ = nama; - & gt; 119}
-    120
-    121 int Browser :: GetBadgeCount () {
-   122 badge_count_ kembali;
-``</pre> 
+```sh
+(lldb) step
+Process 25244 stopped
+* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
+    frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119
+   116
+   117  void Browser::SetName(const std::string& name) {
+   118    name_override_ = name;
+-> 119  }
+   120
+   121  int Browser::GetBadgeCount() {
+   122    return badge_count_;
+```
 
-Untuk menyelesaikan debugging pada titik ini, jalankan  proses terus </ 0> . Anda juga dapat berlanjut sampai garis tertentu terkena di thread ini ( <code> benang sampai 100 </ 0> ). Perintah ini akan menjalankan thread di frame sampai mencapai garis 100 dalam bingkai ini atau berhenti jika ia meninggalkan frame.</p>
+Untuk menyelesaikan debugging pada titik ini, jalankan `proses terus`. Anda juga dapat berlanjut sampai garis tertentu terkena di thread ini (`benang sampai 100`). Perintah ini akan menjalankan thread di frame sampai mencapai garis 100 dalam bingkai ini atau berhenti jika ia meninggalkan frame.
 
-<p>Sekarang, jika Anda membuka alat pengembang Electron dan memanggil <code> setName </ 0> , Anda akan sekali lagi memukul breakpoint.</p>
+Sekarang, jika Anda membuka alat pengembang Electron dan memanggil `setName` , Anda akan sekali lagi memukul breakpoint.
 
-<h3>Bacaan lebih lanjut</h3>
+### Bacaan lebih lanjut
 
-<p>LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2"> LLDB Command Struktur Referensi</a> 
-atau pengantar <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html">Menggunakan LLDB sebagai Standalone Debugger</a> .</p>
+LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya [ LLDB Command Struktur Referensi](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) atau pengantar [Menggunakan LLDB sebagai Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) .
 
-<p>Anda juga dapat memeriksa LLDB ini fantastis <a href="http://lldb.llvm.org/tutorial.html">tutorial manual dan</a>, yang akan menjelaskan skenario debugging lebih kompleks.</p>
+Anda juga dapat memeriksa LLDB ini fantastis [tutorial manual dan](http://lldb.llvm.org/tutorial.html), yang akan menjelaskan skenario debugging lebih kompleks.
