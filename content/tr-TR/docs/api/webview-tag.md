@@ -695,7 +695,7 @@ Returns:
 
 * `url` String
 
-Bir kullanıcı veya sayfa arama başlatmak istediğinde ortaya çıkar. `Pencere.yeri` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
+Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `Pencere.yeri` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -703,13 +703,13 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### Olay: 'did-navigate'
 
 Returns:
 
 * `url` String
 
-Emitted when a navigation is done.
+Bir gezinme yapıldığında ortaya çıkar.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
