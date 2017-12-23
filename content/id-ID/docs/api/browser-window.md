@@ -120,13 +120,13 @@ The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p>
     * `skipTaskbar` Boolean (opsional) - Apakah akan menampilkan jendela di taskbar. Default adalah `false`.
     * `kios` Boolean (opsional) - Mode kios. Defaultnya adalah `false`.
     * `title` String (opsional) - Judul jendela default. Defaultnya adalah `"Elektron"`.
-    * `ikon` ([NativeImage](native-image.md) | String) (opsional) - Ikon jendela. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-    * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-    * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-    * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-    * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-    * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-    * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
+    * `ikon` ([NativeImage](native-image.md) | String) (opsional) - Ikon jendela. Pada Windows itu disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik, Anda juga bisa biarkan tidak terdefinisi sehingga ikon executable akan digunakan.
+    * `tampilkan` Boolean (opsional) - Apakah jendela harus ditampilkan saat dibuat. Default adalah `benar`.
+    * `frame` Boolean (opsional) - Tentukan ` false ` untuk membuat a [Jendela Frameless](frameless-window.md). Defaultnya adalah `Benar`.
+    * `induk` BrowserWindow (opsional) - Tentukan jendela induk. Defaultnya adalah `null`.
+    * `modal` Boolean (opsional) - Apakah ini adalah jendela modal. Ini hanya bekerja bila Jendela adalah jendela anak. Defaultnya adalah `palsu`.
+    * `acceptFirstMouse` Boolean (opsional) - Apakah tampilan web menerima satu mouse-down event yang sekaligus mengaktifkan jendela. Default adalah `palsu`.
+    * `disableAutoHideCursor` Boolean (opsional) - Apakah akan menyembunyikan kursor saat mengetik. Defaultnya adalah `palsu`.
     * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
     * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
     * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
