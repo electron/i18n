@@ -28,19 +28,19 @@ In the example above, both `BrowserWindow` and `win` were remote objects and `ne
 
 ## Lifetime dari Remote Objects
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Elektron memastikan bahwa selama objek remote dalam proses renderer Hidup (dengan kata lain, belum ada sampah yang dikumpulkan), objek yang sesuai dalam proses utama tidak akan dilepaskan. Bila objek remote sudah ada Sampah dikumpulkan, objek yang sesuai dalam proses utamanya adalah dereferenced.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Jika objek jauh bocor dalam proses renderer (misalnya disimpan di peta tapi tidak pernah dibebaskan), objek yang sesuai dalam proses utama juga akan bocor, jadi Anda harus sangat berhati-hati untuk tidak membocorkan benda-benda remote.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Jenis nilai primer seperti senar dan angka, bagaimanapun, dikirim melalui salinan.
 
-## Passing callbacks to the main process
+## Melewati callback ke proses utama
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Kode dalam proses utama dapat menerima callback dari renderer - misalnya itu `remote` modul - tapi Anda harus sangat berhati-hati saat menggunakan ini fitur.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Pertama, untuk menghindari kebuntuan, callback masuk ke proses utama disebut asynchronous. Anda seharusnya tidak mengharapkan proses utama dapatkan nilai kembalian dari callback yang lewat.
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Misalnya Anda tidak dapat menggunakan fungsi dari proses renderer di a `Array.map` disebut dalam proses utama:
 
 ```javascript
 // main process mapNumbers.js
@@ -63,11 +63,11 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Seperti yang Anda lihat, nilai pengembalian sinkron caller caller tidak seperti diharapkan, dan tidak sesuai dengan nilai kembalian dari callback identik yang hidup dalam proses utamanya.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+Kedua, callback yang lolos ke proses utama akan bertahan sampai Proses utama sampah-mengumpulkan mereka.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Misalnya, kode berikut sepertinya tidak bersalah pada pandangan pertama. Ini menginstal a callback untuk `close` acara pada objek remote:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -75,13 +75,13 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Tapi ingat callback ini direferensikan dengan proses utama sampai Anda secara eksplisit mencopot pemasangannya. Jika tidak, setiap kali Anda me-reload jendela Anda callback akan dipasang lagi, bocor satu callback untuk setiap restart.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+Untuk memperburuk keadaan, karena konteks callback yang sebelumnya telah diinstal Telah dilepaskan, pengecualian akan dinaikkan dalam proses utama saat `close` acara dipancarkan.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+Untuk menghindari masalah ini, pastikan Anda membersihkan rujukan ke callback renderer diteruskan ke proses utama. Ini melibatkan pembersihan penangan acara, atau memastikan proses utama secara eksplisit diceritakan kepada penghormatan callback yang datang dari proses renderer yang keluar.
 
-## Accessing built-in modules in the main process
+## Mengakses modul built-in dalam proses utama
 
 The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
 
