@@ -184,9 +184,10 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `defaultMonospaceFontSize` Integer (opsional) - Default ke `13`.
       * `minimumFontSize` Integer (opsional) - Default ke ``.
       * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
-      * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. Hal ini juga mempengaruhi \[API Visibilitas Laman\]\[#page-visibility\]. Defaults to `true`.
-      * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
-      * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. Konteks script ` preload </ 0> berjalan masih akan memiliki akses penuh ke jendela <code> document </ 0> dan <code> window </ 0> namun akan menggunakan set sendiri JavaScript builtins ( <code> Array </ 0> , <code> Objek </ 0> , <code> JSON </ 0> , dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron  API hanya akan tersedia di
+      * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. Hal ini juga mempengaruhi \[API Visibilitas Laman\]\[#page-visibility\]. Default ke ` true </ 0> .</li>
+<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0> . Lihat
+ tutorial rendering <a href="../tutorial/offscreen-rendering.md"> offscreen </ 0> untuk lebih jelasnya.</li>
+<li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload </ 0> berjalan masih akan memiliki akses penuh ke jendela <code> document </ 0> dan <code> window </ 0> namun akan menggunakan set sendiri JavaScript builtins ( <code> Array </ 0> , <code> Objek </ 0> , <code> JSON </ 0> , dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron  API hanya akan tersedia di
  <code> preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
 Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol. <strong> Catatan: </ 0> Ini pilihan saat ini eksperimental dan dapat berubah atau dihapus di masa Elektron rilis.</li>
@@ -206,8 +207,8 @@ untuk mengupas dengan <code> preload </ 0> naskah dan untuk memvalidasi atau men
  <code> notifikasi </ 0> .</li>
 <li>Di macos , jenis yang mungkin ada <code>Desktop`, `bertekstur`. 
         
-        * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-        * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Perhatikan bahwa jendela desktop tidak akan menerima acara fokus, keyboard atau mouse, namun Anda dapat menggunakan ` globalShortcut </ 0> untuk menerima masukan secara hemat.</li>
+        * Tipe ` bertekstur </ 0> menambahkan tampilan gradien logam ( <code> NSTexturedBackgroundWindowMask </ 0> ).</li>
+<li>Tipe <code> desktop </ 0> menempatkan jendela pada tingkat jendela latar belakang desktop ( <code> kCGDesktopWindowLevel - 1 </ 0> ). Perhatikan bahwa jendela desktop tidak akan menerima acara fokus, keyboard atau mouse, namun Anda dapat menggunakan <code> globalShortcut </ 0> untuk menerima masukan secara hemat.</li>
 </ul></li>
 <li>Pada Windows , jenis yang mungkin adalah <code> toolbar </ 0> .</li>
 </ul>
