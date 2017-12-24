@@ -1,10 +1,10 @@
-# Releasing
+# Yayınlanma
 
-This document describes the process for releasing a new version of Electron.
+Bu belgede, Electron'un yeni bir sürümünün yayınlanma süreci açıklanmaktadır.
 
-## Determine which branch to release from
+## Hangi dalın yayınlanacağını belirleyin
 
-- **If releasing beta,** run the scripts below from `master`.
+- **Beta sürümünü yayımlarsanız,** aşağıdaki komut dosyalarını `ana sunucudan` çalıştırın.
 - **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
 
 ## Find out what version change is needed
