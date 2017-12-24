@@ -4,25 +4,25 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 
 ## Persyaratan
 
-* ** Sebuah membangun debug Elektron </ 0> : Cara termudah biasanya membangun sendiri, menggunakan alat dan prasyarat yang tercantum dalam  membangun petunjuk untuk Windows </ 1> . Meskipun Anda dapat dengan mudah menempel dan debug Electron karena Anda dapat men-download secara langsung, Anda akan menemukan bahwa itu sangat dioptimalkan, membuat debugging secara substansial lebih sulit: debugger tidak akan dapat menunjukkan isi semua variabel dan jalur eksekusi bisa tampak aneh karena inlining, panggilan ekor, dan optimasi compiler lainnya.</p></li> 
+* **Sebuah membangun debug Elektron**: Cara termudah biasanya membangun sendiri, menggunakan alat dan prasyarat yang tercantum dalam [membangun petunjuk untuk Windows](build-instructions-windows.md). Meskipun Anda dapat dengan mudah menempel dan debug Electron karena Anda dapat men-download secara langsung, Anda akan menemukan bahwa itu sangat dioptimalkan, membuat debugging secara substansial lebih sulit: debugger tidak akan dapat menunjukkan isi semua variabel dan jalur eksekusi bisa tampak aneh karena inlining, panggilan ekor, dan optimasi compiler lainnya.
+
+* ** Visual Studio dengan C ++ Alat </ 0> : Edisi masyarakat bebas dari Visual Studio 2013 dan Visual Studio 2015 keduanya bekerja. Setelah terinstal,  mengkonfigurasi Visual Studio untuk menggunakan GitHub ini Electron Simbol Server </ 0> . Ini akan memungkinkan Visual Studio untuk mendapatkan pemahaman yang lebih baik dari apa yang terjadi di dalam Electron , sehingga lebih mudah untuk menyajikan variabel dalam format yang dapat dibaca manusia.</p></li> 
     
-    * ** Visual Studio dengan C ++ Alat </ 0> : Edisi masyarakat bebas dari Visual Studio 2013 dan Visual Studio 2015 keduanya bekerja. Setelah terinstal,  mengkonfigurasi Visual Studio untuk menggunakan GitHub ini Electron Simbol Server </ 0> . Ini akan memungkinkan Visual Studio untuk mendapatkan pemahaman yang lebih baik dari apa yang terjadi di dalam Electron , sehingga lebih mudah untuk menyajikan variabel dalam format yang dapat dibaca manusia.</p></li> 
+    * ** ProcMon </ 0> : The  alat SysInternals bebas </ 1> memungkinkan Anda untuk memeriksa sebuah proses parameter, file menangani, dan operasi registry.</p></li> </ul> 
         
-        * ** ProcMon </ 0> : The  alat SysInternals bebas </ 1> memungkinkan Anda untuk memeriksa sebuah proses parameter, file menangani, dan operasi registry.</p></li> </ul> 
-            
-            ## Menempelkan dan Debugging Electron
-            
-            Untuk memulai sesi debugging, membuka PowerShell / CMD dan melaksanakan debug membangun Anda Elektron , menggunakan aplikasi untuk membuka sebagai parameter.
-            
-            ```powershell
+        ## Menempelkan dan Debugging Electron
+        
+        Untuk memulai sesi debugging, membuka PowerShell / CMD dan melaksanakan debug membangun Anda Elektron , menggunakan aplikasi untuk membuka sebagai parameter.
+        
+        ```powershell
 $ ./out/D/electron.exe ~ / my-elektron-app /
 ```
-        
-        ### pengaturan Breakpoints
-        
-        Kemudian, membuka Visual Studio. Elektron tidak dibangun dengan Visual Studio dan karenanya tidak berisi file project - namun Anda dapat membuka file kode sumber "Sebagai File", yang berarti bahwa Visual Studio akan membuka mereka sendiri. Anda masih dapat mengatur breakpoints - Visual Studio secara otomatis akan mengetahui bahwa kode sumber sesuai dengan kode yang berjalan dalam proses melekat dan istirahat sesuai.
-        
-        File kode yang relevan dapat ditemukan di  ./ atom / </ 0> serta dalam Brightray, ditemukan di
+    
+    ### pengaturan Breakpoints
+    
+    Kemudian, membuka Visual Studio. Elektron tidak dibangun dengan Visual Studio dan karenanya tidak berisi file project - namun Anda dapat membuka file kode sumber "Sebagai File", yang berarti bahwa Visual Studio akan membuka mereka sendiri. Anda masih dapat mengatur breakpoints - Visual Studio secara otomatis akan mengetahui bahwa kode sumber sesuai dengan kode yang berjalan dalam proses melekat dan istirahat sesuai.
+    
+    File kode yang relevan dapat ditemukan di  ./ atom / </ 0> serta dalam Brightray, ditemukan di
  <code> ./brightray/browser </ 0> dan <code> ./brightray/common </ 0 > . Jika Anda hardcore, Anda juga dapat men-debug Chromium langsung, yang jelas ditemukan dalam <code> kromium _src </ 0> .</p>
 
 <h3>melampirkan</h3>
