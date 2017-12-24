@@ -53,11 +53,11 @@ Emitted when there is an error while updating.
 
 Emitted when checking if an update has started.
 
-### Event: 'update-available'
+### Evento: 'update-available'
 
 Emitted when there is an available update. The update is downloaded automatically.
 
-### Event: 'update-not-available'
+### Evento: 'update-not-available'
 
 Emitted when there is no available update.
 
