@@ -286,13 +286,13 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Перезавантажує застосуонк, якщо поточний екземпляр існує.
 
-За замовчуванням новий екземпляр буде використовувати ті самі робочу директорію і аргументи командного рядку. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+За замовчуванням новий екземпляр буде використовувати ті самі робочу директорію і аргументи командного рядку. Якщо визначені `args`, вони будуть передані як аргументи командного рядку замість поточних. Якщо визначений `execPath`, він буде використаний для запуску застосунку.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Зауважте, даний метод не зупиняє застосунок, потрібно викликати `app.quit` чи `app.exit` після виклику `app.relaunch`, щоб застосунок перезапустився.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Якщо `app.relaunch` викликається декілька разів, така кількість екземплярів буде запущена після закриття поточного.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Приклад негайного перезапуску поточного екземпляру і додання нового аргументу командного рядка в новий екземпляр:
 
 ```javascript
 const {app} = require('electron')
@@ -303,11 +303,11 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Повертає `Boolean` - `true` якщо Electron завершив ініціалізацію, `false` в іншому випадку.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+На Linux, фокусується на першому видимому вікні. На macOS, робить застосунок активним. На Windows, фокусується на пешому вікні застосунку.
 
 ### `app.hide()` *macOS*
 
