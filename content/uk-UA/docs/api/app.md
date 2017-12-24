@@ -229,7 +229,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Відбуваєтся коли `webContents` робить базову автентифікацію.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Поведінка за замовчуванням: скасувати всі автентифікації, щоб перевизначити її потрібно використати `event.preventDefault()` і викликати `callback(username, password)` з обліковими даними.
 
 ```javascript
 const {app} = require('electron')
@@ -240,33 +240,33 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Подія: 'gpu-process-crashed'
 
 Повертає:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Відбувається коли процес gpu ламається або припиняється примусово.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Подія: 'accessibility-support-changed' *macOS* *Windows*
 
 Повертає:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` коли ввімкнуто підтримку спеціальних можливостей Chrome, `false` в іншому випадку.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Відбуваєтсья коли змінюється підтримка спеціальних можливостей Chrome. Ця подія викликається коли допоміжні технології, такі як читач екрану, вмикаються або вимикаються. Дивись https://www.chromium.org/developers/design-documents/accessibility для більш детедбної інформації.
 
 ## Методи
 
-The `app` object has the following methods:
+Об'єкт `app` має наступні методи:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Примітка:** Деякі методи доступні тільки на певних операціїних системах і позначені як такі.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Намагається закрити всі вікна. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
