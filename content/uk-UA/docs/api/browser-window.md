@@ -497,7 +497,7 @@ A `Integer` representing the unique ID of the window.
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Примітка:** Деякі методи доступні тільки на певних операціїних системах і позначені як такі.
 
 #### `win.destroy()`
 
