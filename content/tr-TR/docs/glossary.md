@@ -104,4 +104,4 @@ V8'in sürüm numaraları her zaman Google Chrome'un sürüm numaralarına karş
 
 ### web görünümü
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`web görünümü` etiketler, 'misafir' içeriğini (harici web sayfaları gibi) Electron uygulamanıza gömmek için kullanır. `iframe`'lerine benzer, ancak her web görünümü ayrı bir süreçte çalıştığı için farklıdır. Web sayfanızla aynı izinlere ve uygulamanız arasındaki tüm etkileşimlere sahip değil ve gömülmüş içerik eş zamansız olacak. Bu uygulamanızı gömülmüş içerikten korur.
