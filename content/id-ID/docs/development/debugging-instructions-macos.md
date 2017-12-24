@@ -55,15 +55,17 @@ Process 25244 stopped
 (lldb)
 ```
 
-Untuk menunjukkan argumen dan lokal variabel untuk frame, menjalankan ` variabel bingkai </ 0> (atau <code> fr v </ 0> ), yang akan menunjukkan bahwa aplikasi saat ini pengaturan nama untuk " Elektron ".</p>
+Untuk menunjukkan argumen dan lokal variabel untuk frame, menjalankan `variabel frame` (atau `fr v`), yang akan menunjukkan bahwa aplikasi saat ini pengaturan nama untuk " Elektron ".
 
-<pre><code class="sh">(lldb) bingkai variabel (atom :: Browser *) ini = 0x0000000108b14f20 (const string yang  & amp; ) name = " Elektron ": {
- [...] 
-}    
-`</pre> 
+```sh
+(lldb) frame variable
+(atom::Browser *) this = 0x0000000108b14f20
+(const string &) name = "Electron": {
+    [...]
+}
+```
 
-Untuk melakukan satu langkah tingkat sumber di thread yang sedang dipilih, mengeksekusi ` langkah </ 0> (atau <code> s </ 0> ).
-Hal ini akan membawa Anda ke <code>name_override_.empty()`. Untuk melanjutkan dan melakukan langkah lebih, jalankan `berikutnya` (atau `n` ).
+Untuk melakukan satu langkah tingkat sumber di thread yang sedang dipilih, lakukan `langkah` (atau `s`). Hal ini akan membawa Anda ke `name_override_.empty()`. Untuk melanjutkan dan melakukan langkah lebih, jalankan `berikutnya` (atau `n`).
 
 ```sh
 (lldb) step
@@ -79,12 +81,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-Untuk menyelesaikan debugging pada titik ini, jalankan `proses terus`. Anda juga dapat berlanjut sampai garis tertentu terkena di thread ini (`benang sampai 100`). Perintah ini akan menjalankan thread di frame sampai mencapai garis 100 dalam bingkai ini atau berhenti jika ia meninggalkan frame.
+Untuk menyelesaikan debugging pada titik ini, jalankan `process continue`. Anda juga dapat berlanjut sampai garis tertentu terkena di thread ini (`thread until 100`). Perintah ini akan menjalankan thread di frame sampai mencapai garis 100 dalam bingkai ini atau berhenti jika ia meninggalkan frame.
 
-Sekarang, jika Anda membuka alat pengembang Electron dan memanggil `setName` , Anda akan sekali lagi memukul breakpoint.
+Sekarang, jika Anda membuka alat pengembang Electron dan memanggil `setName`, Anda akan sekali lagi memukul breakpoint.
 
 ### Bacaan lebih lanjut
 
-LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya [ LLDB Command Struktur Referensi](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) atau pengantar [Menggunakan LLDB sebagai Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) .
+LLDB adalah alat yang ampuh dengan dokumentasi yang bagus. Untuk mempelajari lebih lanjut tentang hal itu, mempertimbangkan Apple dokumentasi debugging, misalnya [LLDB Command Struktur Referensi](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) atau pengantar [Menggunakan LLDB sebagai Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-Anda juga dapat memeriksa LLDB ini fantastis [tutorial manual dan](http://lldb.llvm.org/tutorial.html), yang akan menjelaskan skenario debugging lebih kompleks.
+Anda juga dapat memeriksa LLDB ini fantastis [manual dan tutorial](http://lldb.llvm.org/tutorial.html), yang akan menjelaskan skenario debugging lebih kompleks.
