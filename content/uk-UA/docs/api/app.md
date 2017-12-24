@@ -109,7 +109,7 @@ app.on('window-all-closed', () => {
 
 Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), коли діяльність з іншого пристрою має бути продовжена. Потрібно викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Діяльність користувача може бути продовжена тільки в застосунку, що має такий самий ідентифікатор групи розробників, як і застосунок-джерело і який підтримує тип діяльності. Підтримувані типу діяльності визначені в `Info.plist` під ключем `NSUserActivityTypes`.
 
 ### Подія: 'new-window-for-tab' *macOS*
 
@@ -117,7 +117,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 * `event` Подія
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Відбувається коли користувач натискає на нативні macOS кнопки створення нових вкладок. Кнопка створення нової вкладки видима тільки якщо якщо поточне `BrowserWindow` має `tabbingIdentifier`
 
 ### Подія: 'browser-window-blur'
 
@@ -126,7 +126,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 * `event` Подія
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Відбувається коли [browserWindow](browser-window.md) втрачає фокус.
 
 ### Подія: 'browser-window-focus'
 
@@ -135,7 +135,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 * `event` Подія
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Відбувається коли [browserWindow](browser-window.md) отримує фокус.
 
 ### Подія: 'browser-window-created'
 
@@ -144,7 +144,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 * `event` Подія
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Відбувається коли створено [browserWindow](browser-window.md).
 
 ### Подія: 'web-contents-created'
 
@@ -153,16 +153,16 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 * `event` Подія
 * `webContents` WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+Відбувається коли створено [webContents](web-contents.md).
 
-### Event: 'certificate-error'
+### Подія: 'certificate-error'
 
 Повертає:
 
 * `event` Подія
 * `webContents` [WebContents](web-contents.md)
 * `url` Стрічка
-* `error` String - The error code
+* `error` Стрічка - Код помилки
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
