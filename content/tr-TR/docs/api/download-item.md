@@ -1,17 +1,17 @@
-## Class: DownloadItem
+## Sınıf: DownloadItem
 
-> Control file downloads from remote sources.
+> Kontrol dosyası uzak kaynaklardan yükleme yapar.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` elektron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// In the main process.
+// Ana işlem içinde.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+Kaydetme yolunu ayarlayın ve Electron'un bir kaydetme istememesi için yol gösterin.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Events
+### Örnek Events
 
 #### Event: 'updated'
 
@@ -44,12 +44,12 @@ Returns:
 * `event` Event
 * `state` String
 
-Emitted when the download has been updated and is not done.
+İndirme güncellendiğinde ve bitmediğinde yayınlanır.
 
-The `state` can be one of following:
+`Durum` aşağıdakilerden biri olabilir:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - İndirme devam ediyor.
+* `interrupted` - İndirme kesildi ama devam edilebilir.
 
 #### Event: 'done'
 
@@ -60,7 +60,7 @@ Returns:
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
-The `state` can be one of following:
+`Durum` aşağıdakilerden biri olabilir:
 
 * `completed` - The download completed successfully.
 * `cancelled` - The download has been cancelled.
