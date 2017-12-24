@@ -172,11 +172,11 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `experimentalCanvasFeatures` Boolean (tangan) - Memungkinkan eksperimental Chromium fitur kanvas Defaultnya adalah `false`.
       * `scrollBounce` Boolean (opsional) - Mengaktifkan efek gulir gips (karet banding) macos Defaultnya adalah `false`.
       * `blinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti `CSSVariables, KeyboardEventKey` untuk mengaktifkannya. Daftar lengkap fitur yang didukung string dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) mengajukan.
-      * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
-      * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-        * `standard` String (optional) - Defaults to `Times New Roman`.
-        * `serif` String (optional) - Defaults to `Times New Roman`.
-        * `sansSerif` String (optional) - Defaults to `Arial`.
+      * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+      * `defaultFontFamily` Object (optional) - Menetapkan font default untuk font-family. 
+        * `standar` String (opsional) - Default ke `Times New Roman`.
+        * `serif` String (opsional) - Default ke `Times New Roman`.
+        * `sansSerif` String (opsional) - Default ke `Arial`.
         * `monospace` String (optional) - Defaults to `Courier New`.
         * `cursive` String (optional) - Defaults to `Script`.
         * `fantasy` String (optional) - Defaults to `Impact`.
