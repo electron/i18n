@@ -40,18 +40,18 @@ Hal ini memungkinkan Anda untuk menentukan sebelumnya apakah Windows diam-diam a
 
 Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Perhatikan bahwa notifikasi dibatasi hingga 256 byte dan akan terpotong jika melebihi batas tersebut.
 
 ### Pemberitahuan Lanjutan
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Versi macOS nanti memungkinkan pemberitahuan dengan bidang masukan, yang memungkinkan pengguna membalas dengan cepat ke pemberitahuan. Untuk mengirim notifikasi dengan field masukan, gunakan modul userland [node-mac-notifier ](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Jangan ganggu / Sesi Negara
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Untuk mendeteksi apakah Anda diizinkan mengirim pemberitahuan atau tidak, gunakan modul [pemberitahuan modul elektronika](https://github.com/felixrieseberg/electron-notification-state).
 
 Ini akan memungkinkan Anda mendeteksi sebelumnya apakah pemberitahuan akan ditampilkan atau tidak.
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Notifikasi dikirim menggunakan `libnotify` yang dapat menampilkan pemberitahuan di lingkungan desktop mana pun yang mengikuti [Spesifikasi Pemberitahuan Desktop](https://developer.gnome.org/notification-spec/), termasuk Cinnamon, Enlightenment, Unity, GNOME, KDE.
