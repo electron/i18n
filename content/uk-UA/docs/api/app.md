@@ -311,34 +311,34 @@ app.exit(0)
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Ховає всі вікна застосунку без згортання їх.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Показує всі вікна застосунку після того як вони були сховані. Не фокусується на них автоматично.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Повертає `String` - Поточна директорія застосунку.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Повертає `String` - Шлях до спеціальної директорії чи файлу, що відповідає `name`. При невдачі викидається `Error`.
 
-You can request the following paths by the name:
+Ви можете запитувати наступні шляхи по name:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
+* `home` Домашня директорія користувача.
+* `appData` Директорія даних застосунку, яка за замовчуванням вказує на: 
+  * `%APPDATA%` на Windows
+  * `$XDG_CONFIG_HOME` чи `~/.config` на Linux
+  * `~/Library/Application Support` на macOS
+* `userData` Директорія для збереження конфігураційних фалів вашого застосунку, яка за замовчуванням є директорією `appData` та назвою вашого застосунку.
+* `temp` Тимчасова директорія.
+* `exe` Поточний виконуваний файл.
+* `module` Бібліотека `libchromiumcontent`.
+* `desktop` Директорія робочого столу поточного користувача.
 * `documents` Directory for a user's "My Documents".
 * `downloads` Directory for a user's downloads.
 * `music` Directory for a user's music.
