@@ -728,38 +728,38 @@ app.setLoginItemSettings({
   * `credits` String (опціонально) - Інформація про оплату.
   * `version` String (опціонально) - Версія збірки застосунку.
 
-Встановлює інформацію про застосунок. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Встановлює інформацію про застосунок. Це перевизначить значення визначені в файлі `.plist` застосунку. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - Перемикач командного рядка
+* `value` String (опціонально) - Значення для перемикача
 
-Append a switch (with optional `value`) to Chromium's command line.
+Додає перемикач (з опціональним `value`) до командного рядка Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Примітка:** Це не вплине на `process.argv`, і використовується для контролю розробником деяких низькорівневих поведінок Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* `value` String - Аргумент для додання до командного рядку
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Додає аргумент до командного рядка Chromium. Аргумент буде правильно заекрановано.
 
-**Note:** This will not affect `process.argv`.
+**Примітка:** Це не впливає на `process.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Експериментальний* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Вмикає змішаний режим пісочниці для застосунку.
 
 Цей метод може викликатися лише до готовності застосунку.
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (опціонально) - Може бути `critical` чи `informational`. За замовчуванням `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Коли передано `critical`, піктограма в панелі завдань буде стрибати поки застосунок не стане активним чи поки запит не скасується.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Якщо передано `informational`, піктограма в панелі завданьбуде стрибати одну секунду. Однак, запит буде активним поки користувач не перейде в застосунок, або він не скасуєтсья.
 
 Returns `Integer` an ID representing the request.
 
