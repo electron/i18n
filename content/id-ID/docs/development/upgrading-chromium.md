@@ -1,36 +1,36 @@
-# Upgrading Chromium
+# Mengupgrade Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium di Elektron.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- Tingkatkan versi beta ke versi Chromium baru
+- Buat kode Elektron yang kompatibel dengan libcc baru
+- Update Elektron dependensi (crashpad, NodeJS, dll) jika diperlukan
+- Buatlah build internal dari libcc dan elektron
+- Update Electron docs jika perlu
 
 ## Upgrade `libcc` to a new Chromium version
 
-1. Get the code and initialize the project: 
+1. Dapatkan kode dan inisialisasi proyek: 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
+2. Perbarui snapshot Chromium 
+  - Pilih nomor versi dari [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
+    - Ini bisa dilakukan secara manual dengan mengunjungi OmahaProxy di browser, atau secara otomatis:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - run `$ ./script/update` 
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
+4. (Optional) `script/update` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` calls: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
+  - Jika beberapa tambalan tidak lagi kompatibel dengan kode Chromium, perbaiki kesalahan kompilasi.
+6. Saat build berhasil, buat a `dist` for Electron 
   - `$ ./script/create-dist  --no_zip` 
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
