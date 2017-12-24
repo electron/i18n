@@ -50,7 +50,7 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 ### native modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. Mereka digunakan terutama untuk menyediakan antarmuka antara JavaScript yang berjalan di perpustakaan Node.js dan C/c++.
+Modul asli (juga disebut [addons](https://nodejs.org/api/addons.html) di Node.js) adalah modul yang ditulis dalam C atau C++ yang dapat dimuat ke Node.js atau Elektron menggunakan fungsi require (), dan digunakan seolah-olah mereka adalah sebuah modul Node.js biasa. Mereka digunakan terutama untuk menyediakan antarmuka antara JavaScript yang berjalan di perpustakaan Node.js dan C/c++.
 
 Modul Node Asli didukung oleh Elektron , namun karena Elektron sangat mungkin menggunakan versi V8 yang berbeda dari biner Node yang terpasang di sistem Anda, Anda harus secara manual menentukan lokasi header Elektron saat membuat modul asli.
 
