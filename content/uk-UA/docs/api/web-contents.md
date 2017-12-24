@@ -303,7 +303,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Подія: 'select-client-certificate'
 
 Повертає:
 
@@ -313,11 +313,11 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Відбувається коли запитується сертифікат клієнта.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Подія: 'login'
 
 Повертає:
 
@@ -336,7 +336,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Відбуваєтся коли `webContents` робить базову автентифікацію.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
