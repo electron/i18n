@@ -656,17 +656,17 @@ app.on('ready', () => {
 
 Встановлює бейдж лічильника для поточного застосунку. Встановлення count в `` приховає бейдж.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+На macOS показує на піктограмі в панелі задач. На Linux працює тільки для з Unity,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Повертає `Integer` - Поточне значення, відображене на бейджі лічильника.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Повертає `Boolean` - Чи поточне середовище робочого столу є Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
@@ -787,11 +787,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Ховає піктограму з панелі задач.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Показує піктограму на панелі задач.
 
 ### `app.dock.isVisible()` *macOS*
 
@@ -801,10 +801,10 @@ Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Встановлює [меню панелі задач](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) застосунку.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Встановлює `image`, що відповідає панелі задач.
