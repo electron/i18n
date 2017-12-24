@@ -65,16 +65,15 @@ Sayfa başlığı altında `>` ile başlayan tek satırlık bir açıklama olmal
 Örnek olarak `oturum` kullanma:
 
 ```markdown
-# session
-
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+#oturum
+> Tarayıcı oturumlarını, çerezleri, önbelleği, proxy ayarlarını vb. Yönetin.
 ```
 
-### Module methods and events
+### Modül yöntem ve etkinlikleri
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` ve `##Olaylar` bölümlerinin altında listelenmelidir.
 
-Using `autoUpdater` as an example:
+`otomatikGüncelleme` ögesini örnek olarak kullanmak:
 
 ```markdown
 # autoUpdater
