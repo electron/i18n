@@ -7,7 +7,7 @@ Proceso: [Renderizador](../glossary.md#renderer-process)
 The following example shows how to capture video from a desktop window whose title is `Electron`:
 
 ```javascript
-// In the renderer process.
+// Proceso de renderizado.
 const {desktopCapturer} = require('electron')
 
 desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
