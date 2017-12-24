@@ -26,15 +26,16 @@ Di Electron, Node.js dan Chromium berbagi satu contoh V8 — biasanya versi yang
 
 ### Versi
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Seperti versi 2.0 Elektron  berikut ` semver </ 1> </ 0> .
+Untuk sebagian besar aplikasi, dan menggunakan versi npm terbaru , menjalankan <code> $ npm menginstal elektron </ 0> akan melakukan hal yang benar.</p>
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+<p>Proses update versi rinci secara eksplisit di <a href="electron-versioning.md"> Versioning Doc </ 0> kami .</p>
 
-### LTS
+<h3>LTS</h3>
 
-Dukungan jangka panjang dari versi elektron tidak saat ini ada. Jika versi elektron anda saat ini bekerja dengan baik, Anda dapat tinggal di atasnya untuk sepanjang seperti yang Anda inginkan. Jika Anda ingin membuat menggunakan fitur-fitur baru anda harus meng-upgrade ke versi terbaru.
+<p>Dukungan jangka panjang dari versi elektron tidak saat ini ada. Jika versi elektron anda saat ini bekerja dengan baik, Anda dapat tinggal di atasnya untuk sepanjang seperti yang Anda inginkan. Jika Anda ingin membuat menggunakan fitur-fitur baru anda harus meng-upgrade ke versi terbaru.</p>
 
-Update besar datang pada versi `v1.0.0`. Jika Anda belum menggunakan versi ini, Anda harus [Baca lebih lanjut tentang perubahan `v1.0.0`](https://electronjs.org/blog/electron-1-0).
+<p>Update besar datang pada versi <code>v1.0.0`. Jika Anda belum menggunakan versi ini, Anda harus [Baca lebih lanjut tentang perubahan `v1.0.0`](https://electronjs.org/blog/electron-1-0).</p> 
 
 ## Filosofi inti
 
@@ -48,11 +49,4 @@ Fitur baru yang ditambahkan ke elektron terutama harus API asli. Jika fitur beru
 
 Berikut adalah tonggak dalam sejarah Electron.
 
-| :calendar:       | :tada:                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **April 2013**   | [Atom Shell dimulai](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).               |
-| **Mei 2014**     | [Atom Shell merupakan open source](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                          |
-| **April 2015**   | [Atom Shell menjadi Electron](https://github.com/electron/electron/pull/1389).                                            |
-| **Mei 2016**     | [Elektron rilis `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                      |
-| **Mei 2016**     | [Aplikasi Electron kompatibel dengan Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **Agustus 2016** | [Windows Store mendukungan aplikasi Electron](https://electronjs.org/docs/tutorial/windows-store-guide).                  |
+ Dukungan Windows Store untuk aplikasi Elektron </ 0> .</td> </tr> </tbody> </table>
