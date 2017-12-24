@@ -505,8 +505,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // tiene un nombre por lo que `type` se asume tener nombre "custom": 'Tools',
     items: [
       {
         type: 'task',
@@ -529,7 +528,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // no tiene nombre ni tipo por lo que `type` se asume ser "tasks"
     items: [
       {
         type: 'task',
@@ -576,7 +575,7 @@ const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // Alguien ha intentado correr a segunda instancia, deberíamos enfocarnos en nuestra ventana.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -587,7 +586,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// Crear myWindow, cargar el resto de la aplicación, etc...
 app.on('ready', () => {
 })
 ```
