@@ -82,45 +82,45 @@ Electron usa la librería `l10n_util` de Chromium para conseguir el local. Los p
 | mk                | Macedonio               |
 | ml                | Malabarí                |
 | mn                | Mongol                  |
-| mo                | Moldavian               |
-| mr                | Marathi                 |
-| ms                | Malay                   |
-| mt                | Maltese                 |
-| nb                | Norwegian (Bokmal)      |
-| ne                | Nepali                  |
-| nl                | Dutch                   |
-| nn                | Norwegian (Nynorsk)     |
-| no                | Norwegian               |
-| oc                | Occitan                 |
+| mo                | Moldavo                 |
+| mr                | Maratí                  |
+| ms                | Malayo                  |
+| mt                | Maltés                  |
+| nb                | Noruego (Bokmal)        |
+| ne                | Nepalí                  |
+| nl                | Holandés                |
+| nn                | Noruego (Nynorsk)       |
+| no                | Noruego                 |
+| oc                | Occitano                |
 | om                | Oromo                   |
 | o                 | Oriya                   |
-| pa                | Punjabi                 |
-| pl                | Polish                  |
+| pa                | Punjabí                 |
+| pl                | Polaco                  |
 | ps                | Pashto                  |
-| pt                | Portuguese              |
-| pt-BR             | Portuguese (Brazil)     |
-| pt-PT             | Portuguese (Portugal)   |
+| pt                | Portugués               |
+| pt-BR             | Portugués (Brasil)      |
+| pt-PT             | Portugués (Portugal)    |
 | qu                | Quechua                 |
-| rm                | Romansh                 |
-| ro                | Romanian                |
-| ru                | Russian                 |
+| rm                | Romanche                |
+| ro                | Rumano                  |
+| ru                | Ruso                    |
 | sd                | Sindhi                  |
-| sh                | Serbo-Croatian          |
-| si                | Sinhalese               |
-| sk                | Slovak                  |
-| sl                | Slovenian               |
+| sh                | Serbocroata             |
+| si                | Cingalés                |
+| sk                | Eslovaco                |
+| sl                | Eslovenio               |
 | sn                | Shona                   |
-| so                | Somali                  |
-| sq                | Albanian                |
-| sr                | Serbian                 |
+| so                | Somalí                  |
+| sq                | Albanés                 |
+| sr                | Serbio                  |
 | st                | Sesotho                 |
-| su                | Sundanese               |
-| sv                | Swedish                 |
+| su                | Sundanés                |
+| sv                | Sueco                   |
 | sw                | Swahili                 |
 | ta                | Tamil                   |
 | te                | Telugu                  |
-| tg                | Tajik                   |
-| th                | Thai                    |
+| tg                | Tayiko                  |
+| th                | Tailandés               |
 | ti                | Tigrinya                |
 | tk                | Turkmen                 |
 | to                | Tonga                   |
