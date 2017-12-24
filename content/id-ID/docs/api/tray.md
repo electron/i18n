@@ -189,22 +189,22 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
       
       #### `tray.setTitle(title)` *macOS*
       
-      * `title` String
-      
-      Sets the title displayed aside of the tray icon in the status bar.
-      
-      #### `tray.setHighlightMode(mode)` *macOS*
-      
-      * `mode` String - Highlight mode with one of the following values: 
-        * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-        * `always` - Always highlight the tray icon.
-        * `never` - Never highlight the tray icon.
-      
-      Sets when the tray's icon background becomes highlighted (in blue).
-      
-      **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-      
-      ```javascript
+      * ` title </ 0>  String</li>
+</ul>
+
+<p>Sets the title displayed aside of the tray icon in the status bar.</p>
+
+<h4><code>tray.setHighlightMode(mode)` *macOS*</h4> 
+        * `mode` String - Highlight mode with one of the following values: 
+          * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+          * `always` - Always highlight the tray icon.
+          * `never` - Never highlight the tray icon.
+        
+        Sets when the tray's icon background becomes highlighted (in blue).
+        
+        **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+        
+        ```javascript
 const {BrowserWindow, Tray} = require('electron')
 
 const win = new BrowserWindow({width: 800, height: 600})
@@ -220,37 +220,37 @@ win.on('hide', () => {
   tray.setHighlightMode('never')
 })
 ```
-  
-  #### `tray.displayBalloon(options)` *Windows*
-  
-  * `pilihan` Obyek 
-    * `icon` ([NativeImage](native-image.md) | String) - (optional)
-    * `title` String - (optional)
-    * `content` String - (optional)
-  
-  Displays a tray balloon.
-  
-  #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-  
-  * `menu` Menu (optional)
-  * `position` [Point](structures/point.md) (optional) - The pop up position.
-  
-  Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
-  
-  The `position` is only available on Windows, and it is (0, 0) by default.
-  
-  #### `tray.setContextMenu(menu)`
-  
-  * ` menu </ 0> Menu</li>
+    
+    #### `tray.displayBalloon(options)` *Windows*
+    
+    * `pilihan` Obyek 
+      * `icon` ([NativeImage](native-image.md) | String) - (optional)
+      * `title` String - (optional)
+      * `content` String - (optional)
+    
+    Displays a tray balloon.
+    
+    #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+    
+    * `menu` Menu (optional)
+    * `position` [Point](structures/point.md) (optional) - The pop up position.
+    
+    Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+    
+    The `position` is only available on Windows, and it is (0, 0) by default.
+    
+    #### `tray.setContextMenu(menu)`
+    
+    * ` menu </ 0> Menu</li>
 </ul>
 
 <p>Sets the context menu for this icon.</p>
 
 <h4><code>tray.getBounds()` *macOS* *Windows*</h4> 
-    Returns [`Rectangle`](structures/rectangle.md)
-    
-    The `bounds` of this tray icon as `Object`.
-    
-    #### `tray.isDestroyed()`
-    
-    Returns `Boolean` - Whether the tray icon is destroyed.
+      Returns [`Rectangle`](structures/rectangle.md)
+      
+      The `bounds` of this tray icon as `Object`.
+      
+      #### `tray.isDestroyed()`
+      
+      Returns `Boolean` - Whether the tray icon is destroyed.
