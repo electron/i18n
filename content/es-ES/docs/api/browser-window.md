@@ -569,7 +569,7 @@ Returns `Boolean` - Whether the window is minimized.
 
 #### `win.setFullScreen(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
 Sets whether the window should be in fullscreen mode.
 
@@ -713,7 +713,7 @@ En Linux siempre devuelve `verdadero`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
-* `fullscreenable` Boolean
+* `fullscreenable` Booleano
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
@@ -723,7 +723,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
-* `closable` Boolean
+* `closable` Booleano
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
@@ -735,7 +735,7 @@ En Linux siempre devuelve `verdadero`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
-* `flag` Boolean
+* `flag` Booleano
 * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
 * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
@@ -743,7 +743,7 @@ Sets whether the window should show always on top of other windows. After settin
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Devuelve `Booleano` - Si la ventana siempre está sobre de otras ventanas.
 
 #### `win.center()`
 
@@ -751,11 +751,11 @@ Moves window to the center of the screen.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Integer
-* `y` Integer
+* `x` Íntegro
+* `y` Íntegro
 * `animate` Booleano (optional) *macOS*
 
-Moves window to `x` and `y`.
+Mueve la ventana a `x` y `y`.
 
 #### `win.getPosition()`
 
@@ -776,7 +776,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (opcional)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -790,19 +790,19 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.flashFrame(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
 Starts or stops flashing the window to attract user's attention.
 
 #### `win.setSkipTaskbar(skip)`
 
-* `skip` Boolean
+* `skip` Booleano
 
 Makes the window not show in the taskbar.
 
 #### `win.setKiosk(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
 Enters or leaves the kiosk mode.
 
@@ -818,26 +818,26 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
-* `message` Integer
-* `callback` Function
+* `message` Íntegro
+* `callback` Función
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
-* `message` Integer
+* `message` Íntegro
 
 Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
-* `message` Integer
+* `message` Íntegro
 
 Unhook the window message.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Desbloquea todos los mensajes de la venta.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
@@ -851,7 +851,7 @@ Returns `String` - The pathname of the file the window represents.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
-* `edited` Boolean
+* `edited` Booleano
 
 Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
 
@@ -942,7 +942,7 @@ Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to conv
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
-* `hasShadow` Boolean
+* `hasShadow` Booleano
 
 Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
@@ -1006,13 +1006,13 @@ Sets the properties for the window's taskbar button.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+Igual como `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Cambia ícono de la ventana.
 
 #### `win.setAutoHideMenuBar(hide)`
 
