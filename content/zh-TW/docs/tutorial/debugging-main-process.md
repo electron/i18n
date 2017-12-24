@@ -1,6 +1,6 @@
 # Debug 主處理序
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+Electron 瀏覽器視窗中的 DevTools 只能用來 debug 在該視窗中的 JavaScript (就是網頁)。 要 debug 主處理序裡執行的 JavaScript，得使用外部 debugger，並在啟動 Electron 時透過 `--inspect` 或 `--inspect-brk` 參數啟用相關功能。
 
 ## 命令列參數
 
