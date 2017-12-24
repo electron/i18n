@@ -149,22 +149,22 @@ Modüller için `nesneİsmi` modülün adıdır. Sınıflar için, sınıf örne
 
 Örneğin, `Oturum`modülü altındaki `Oturum` oturum sınıfının yöntemleri `nesneAdı` olarak `ses` kullanmalıdır.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+İsteğe bağlı bağımsız değişkenler isteğe bağlı bağımsız değişkeni çevreleyen köşeli parantezler `[]` ile ve isteğe bağlı bağımsız değişkenin başka bir bağımsız değişkeni izlemesi durumunda gerekli virgülle gösterilir:
 
 ```sh
-required[, optional]
+gerekli[, isteğe bağlı]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Yöntemin altında her değişken hakkında daha ayrıntılı bilgi var. Bağımsız değişken türü, ortak türlerle belirtilir:
 
 * [`Dize`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Sayı`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Nesne`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Dizi`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boole değeri`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Ya da Electron'un [`WebContent`](api/web-contents.md) gibi özel bir tür
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Values can be `macOS`, `Windows`, or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
