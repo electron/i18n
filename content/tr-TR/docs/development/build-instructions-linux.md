@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. Eğer bir sebepten dolayı `clang` ile inşa etmek isterseniz, sisteminize kurulu, `bootstrap.py` ögesini `--clang_dir=<path>` ile arayabilirsiniz geçin. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
 For example if you installed `clang` under `/user/local/bin/clang`:
 
