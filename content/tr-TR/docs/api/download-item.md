@@ -116,13 +116,13 @@ Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+İndirilen öğenin ismini `String` olarak döndürür.
 
 **Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+İndirilen öğenin toplam byte boyutunu `Integer` olarak döndürür.
 
 If the size is unknown, it returns 0.
 
