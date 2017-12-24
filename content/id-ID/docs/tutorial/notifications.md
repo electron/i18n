@@ -50,7 +50,7 @@ Later versions of macOS allow for notifications with an input field, allowing th
 
 To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Ini akan memungkinkan Anda mendeteksi sebelumnya apakah pemberitahuan akan ditampilkan atau tidak.
 
 ## Linux
 
