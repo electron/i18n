@@ -5,34 +5,34 @@
 Anda dapat menggunakan [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) untuk menambahkan mereka di app's script utama sebelum acara [siap](app.md#event-ready) modul [app](app.md) dibunyikan:
 
 ```javascript
-const {app} = require('electron')
-app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+const {app} = require ('electron')
+app.commandLine.appendSwitch ('remote-debugging-port', '8315')
+app.commandLine.appendSwitch ('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // Your code here
+app.on ('siap', () = > {
+   // kode kamu disini
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## --ignore-connections-limit = ` domain `
 
-Ignore the connections limit for `domains` list separated by `,`.
+Abaikan batas koneksi untuk ` domain ` yang dipisahkan oleh `, `.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Menonaktifkan cache disk untuk permintaan HTTP.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Nonaktifkan protokol HTTP / 2 dan SPDY / 3.1.
 
-## --inspect=`port` and --inspect-brk=`port`
+## periksa =` port ` dan --inspect-brk =` port `</0>
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Bendera yang terkait dengan Debug, lihat panduan [ Debugging Main Process ](../tutorial/debugging-main-process.md) untuk rinciannya.
 
-## --remote-debugging-port=`port`
+## --remote-debugging-port = ` port `
 
-Enables remote debugging over HTTP on the specified `port`.
+Mengaktifkan debugging jarak jauh melalui HTTP pada port ` yang ditentukan `.
 
 ## --disk-cache-size=`size`
 
@@ -50,17 +50,17 @@ See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --hel
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Gunakan server proxy tertentu, yang menggantikan pengaturan sistem. Saklar ini hanya memengaruhi permintaan dengan protokol HTTP, termasuk HTTPS dan WebSocket permintaan. Perlu dicatat juga bahwa tidak semua server proxy mendukung HTTPS dan Permintaan WebSocket.
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Instruksikan Elektron untuk memotong server proxy untuk semi-colon-separated yang diberikan daftar host Bendera ini hanya memiliki efek jika digunakan bersamaan ` - proxy-server `.
 
 For example:
 
 ```javascript
-const {app} = require('electron')
-app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
+const {app} = require ('electron')
+app.commandLine.appendSwitch ('proxy-bypass-list', '<local>; * google.com; * foo.com; 1.2.3.4: 5678')
 ```
 
 Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
