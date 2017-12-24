@@ -13,52 +13,52 @@ Otomatik olarak oluşturulan sürüm notlarını görüntülemek için `npm run 
 
 ## Hazırlama-yayımlama komut dosyasını çalıştırın
 
-Hazırlama betiği aşağıdakileri yapar. 1. Sürümün halihazırda işlemde olup olmadığını kontrol eder ve işlemdeyse durur. 2. Serbest dal oluşturun. 3. Sürüm numarasını birkaç dosyaya atayın. Bir örnek için [bu atama işine](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bakın. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+Hazırlama betiği aşağıdakileri yapar. 1. Sürümün halihazırda işlemde olup olmadığını kontrol eder ve işlemdeyse durur. 2. Serbest dal oluşturun. 3. Sürüm numarasını birkaç dosyaya atayın. Bir örnek için [bu atama işine](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bakın. 4. Otomatik oluşturulmuş sürüm notlarıyla GitHub'da bir taslak sürüm oluşturun. 5. Yayınlama koluna tıklayın. 6. Sürüm yapılarını çalıştırmak için API'ları çağırın.
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+Hangi sürüm değişikliğinin gerektiğini belirledikten sonra, ihtiyaçlarınıza göre bağımsız değişkenlerle birlikte `hazırlama sürümünü` çalıştırın: bunun istikrarlı bir sürüm olduğunu belirtmek için - `[major | minor | patch beta]` sürüm numaralarından birini artırın veya - `--sabit`
 
 Örneğin:
 
-### Major version change
+### Ana sürüm değişikliği
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### Alt sürüm değişikliği
 
 ```sh
 npm run prepare-release -- minor
 ```
 
-### Patch version change
+### Yama sürümü değişikliği
 
 ```sh
 npm run prepare-release -- patch
 ```
 
-### Beta version change
+### Beta sürümü değişikliği
 
 ```sh
 npm run prepare-release -- beta
 ```
 
-### Promote beta to stable
+### Beta sürümünü sabit hale getirin
 
 ```sh
 npm run prepare-release -- --stable
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## Yapılanmalar için bekle :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+`hazırlama-sürümü` betiği, API çağrıları yoluyla yapıları tetikleyecektir. Yapı ilerlemesini izlemek için, aşağıdaki sayfalara bakın:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
-- [circleci.com/gh/electron](https://circleci.com/gh/electron) for Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- Mac App Store için [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity)
+- OS X için [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity)
+- Linux için [circleci.com/gh/electron](https://circleci.com/gh/electron)
+- Windows için [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron)
 
-## Compile release notes
+## Sürüm notlarını derleyin
 
 Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
