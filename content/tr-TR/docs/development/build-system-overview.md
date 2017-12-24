@@ -8,8 +8,8 @@ Aşağıdaki `gyp` dosyaları Electron oluşturmanın ana kurallarını içerir:
 
 * `electron.gyp` Electron 'un kendisinin nasıl inşa edildiğini tanımlar.
 * `common.gypi` Node yapılandırmalarının oluşumunu Chromium ile birlikte oluşmasını ayarlar.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `brightray/brightray.gypi` includes general build configurations about building.
+* `brightray/brightray.gyp` `brightray` 'nin nasıl oluştuğunu ve Chromium ile bağlanmak için varsayılan yapılandırmaları nasıl içerdiğini tanımlar.
+* `brightray/brightray.gypi` inşa etmekle ilgili genel yapı konfigürasyonlarını içerir.
 
 ## Component Build
 
