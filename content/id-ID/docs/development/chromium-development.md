@@ -54,12 +54,12 @@ Jika script bootstrap terganggu saat menggunakan cache git, itu akan pergi cache
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 ```
 
-It is possible to share this directory with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+Adalah mungkin untuk berbagi direktori ini dengan mesin lain dengan mengekspornya sebagai Bagian SMB di linux, tapi hanya satu proses / mesin yang bisa menggunakan cache di a waktu. Kunci yang dibuat dengan skrip git-cache akan mencoba untuk mencegah hal ini, tapi mungkin saja tidak bekerja sempurna dalam jaringan.
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+Pada Windows, SMBv2 memiliki cache direktori yang akan menimbulkan masalah dengan git Script cache, jadi perlu untuk menonaktifkannya dengan mengatur kunci registry
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+ke 0. Informasi lebih lanjut: https://stackoverflow.com/a/9935126
