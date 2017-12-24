@@ -2,7 +2,7 @@
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -62,7 +62,7 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-* `event` Event
+* `evento` Evento
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
