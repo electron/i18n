@@ -606,7 +606,7 @@ Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Devuelve [`Rectángulo`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
