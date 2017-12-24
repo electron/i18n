@@ -94,9 +94,9 @@ Like Node, Electron çoklu platform masaüstü uygulamaları geliştirmek için 
 
 V8 Google'ın açık kaynak kodlu JavaScript motorudur. C++'da yazılmış ve Google Chrome'da kullanılmıştır. V8 tek başına çalışabilir veya herhangi bir C++ uygulamasına eklenebilir.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron V8'i Chromium'un bir parçası olarak oluşturur ve arkasından devreyi oluştururken V8'i işaret eder.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8'in sürüm numaraları her zaman Google Chrome'un sürüm numaralarına karşılık gelir. Chrome 59'un V8'i 5.9'u, Chrome 58'in V8'i 5.8'i vb. içerir.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [modejs.org/api/v8.htm](https://nodejs.org/api/v8.html)
