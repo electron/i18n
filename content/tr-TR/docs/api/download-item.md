@@ -92,7 +92,7 @@ API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. K
 
 Durdurulmuş indirmeyi devam ettirir.
 
-**Not:** Devamlı indirmeleri etkinleştirmek için, indirdiğiniz sunucunun aralık isteklerini desteklemesi gerekir ve `Last-Modified` and `ETag` başlık değerlerinin ikisini de sağlamalı. Aksi takdirde, `resume()`, daha önce alınan baytları atlayacak ve indirmeyi baştan başlatacaktır.
+**Not:** Devamlı indirmeleri etkinleştirmek için, indirdiğiniz sunucunun aralık isteklerini desteklemesi gerekir ve `Last-Modified` ve `ETag` başlık değerlerinin ikisini de sağlamalıdir. Aksi takdirde, `resume()`, daha önce alınan baytları atlayacak ve indirmeyi baştan başlatacaktır.
 
 #### `downloadItem.canResume()`
 
@@ -138,7 +138,7 @@ Cevabın başlığından İçerik-Hazırlama alanını `String` türünde dönd�
 
 Geçerli durumu `String` türünde döndürür. `progressing`, `completed`, `cancelled` veya `interrupted` olabilir.
 
-**Not:** Aşağıdaki metodlar oturup yeniden başlatıldığı zaman `iptal edilmiş` öğelerin devamı için oldukça kullanışlıdır.
+**Not:** Aşağıdaki metodlar oturum yeniden başlatıldığı zaman `iptal edilmiş` öğelerin devamı için oldukça kullanışlıdır.
 
 #### `downloadItem.getURLChain()`
 
