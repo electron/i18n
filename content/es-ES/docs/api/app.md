@@ -764,7 +764,7 @@ Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
-* `id` Integer
+* `id` Íntegro
 
 Cancel the bounce of `id`.
 
@@ -776,7 +776,7 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
-* `text` String
+* `texto` String
 
 Sets the string to be displayed in the dock’s badging area.
 
