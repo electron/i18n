@@ -597,12 +597,12 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       Fired when document in the given frame is loaded.
       
-      ### Event: 'page-title-updated'
+      ### Acara : 'halaman-judul-diperbarui'
       
       Pengembalian:
       
-      * `title` String
-      * `explicitSet` Boolean
+      * ` title </ 0>  String</li>
+<li><code>explicitSet` Boolean
       
       Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
       
@@ -614,11 +614,11 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       Fired when page receives favicon urls.
       
-      ### Event: 'enter-html-full-screen'
+      ### Acara : 'enter-html-full-screen'
       
       Fired when page enters fullscreen triggered by HTML API.
       
-      ### Event: 'leave-html-full-screen'
+      ### Acara : 'leave-html-full-screen'
       
       Fired when page leaves fullscreen triggered by HTML API.
       
@@ -729,7 +729,7 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
 <p>When in-page navigation happens, the page URL changes but does not cause
 navigation outside of the page. Examples of this occurring are when anchor links
 are clicked or when the DOM <code>hashchange` event is triggered.</p> 
-      ### Event: 'close'
+      ### Acara : 'dekat'
       
       Fired when the guest page attempts to close itself.
       
