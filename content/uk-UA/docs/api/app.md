@@ -559,11 +559,11 @@ app.setJumpList([
 
 Повертає `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Цей метод робить ваш застосунок "Застосунком Єдиного Екземпляру" - на відміну від дозволу запуску декількох екземплярів вашого застосунку, це буде гарантувати, що запущено тільки один екземпляр, а інші передають інформацію та припиняють роботу.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` буде викликано першим екзкмпляром з `callback(argv, workingDirectory)` після закінчення роботи другого екземпяру. `argv` це масив з аргументами командного рядку другого екземпляру, а `workingDirectory` ця поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+`callback` гарантовано виконується після потго як відбудеться подія `ready` застосунку.
 
 This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
