@@ -36,15 +36,14 @@ Mengaktifkan debugging jarak jauh melalui HTTP pada port ` yang ditentukan `.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Memaksa ruang disk maksimum yang akan digunakan oleh cache disk, dalam bytes.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Menentukan bendera yang dilewatkan ke mesin Node JS. Itu harus berlalu ketika mulai Electron jika Anda ingin mengaktifkan ` bendera </ 0> dalam proses utama.</p>
 
-```bash
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
-```
+<pre><code class="bash">$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+`</pre> 
 
 See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
@@ -107,7 +106,7 @@ Daftar server yang dipisahkan koma yang diperlukan oleh pendelegasian mandat pen
 
 ## -- kesalahan sertifikat-kesalahan
 
-Ignores certificate related errors.
+Mengabaikan kesalahan terkait sertifikat
 
 ## --ppapi-flash-path=`path`
 
@@ -119,23 +118,25 @@ Sets the `version` of the pepper flash plugin.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Mengaktifkan aktivitas log bersih untuk disimpan dan menuliskannya ke ` path </ 0> .</p>
 
-## --disable-renderer-backgrounding
+<h2>--disable-renderer-backgrounding</h2>
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+<p>Mencegah Chromium menurunkan prioritas proses perender halaman yang tak terlihat.</p>
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+<p>Flag ini bersifat global untuk semua proses renderer, jika Anda hanya ingin menonaktifkan throttling dalam satu jendela, Anda bisa melakukan hack
+ <a href="https://github.com/atom/atom/pull/9485/files"> bermain audio sunyi </ 0> .</p>
 
-## --enable-logging
+<h2>--enable-logging</h2>
 
-Prints Chromium's logging into console.
+<p>Mencetak Chrome masuk ke konsol.</p>
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+<p>Peralihan ini tidak dapat digunakan di <code> app.commandLine.appendSwitch </ 0> karena diurai lebih awal dari aplikasi pengguna yang dimuat, namun Anda dapat mengatur 
+variabel lingkungan <code> ELECTRON_ENABLE_LOGGING </ 0> untuk mencapai efek yang sama. .</p>
 
-## --v=`log_level`
+<h2>--v=<code>log_level`</h2> 
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Memberikan level maximum V-logging default maksimal; 0 adalah default Biasanya nilai positif digunakan untuk tingkat V-logging.
 
 This switch only works when `--enable-logging` is also passed.
 
