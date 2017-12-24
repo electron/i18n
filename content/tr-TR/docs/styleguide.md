@@ -58,11 +58,11 @@ Aşağıdaki kurallar yalnızca API'ların belge işlemi için geçerlidir.
 
 ### Sayfa başlığı
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Her sayfa başlık olarak `('electron') gerektirir`, tarafından döndürülen gerçek nesne adını kullanmalıdır `TarayıcıPenceresi`, `otomatikGüncelleyici` ve `oturum` gibi.
 
-Under the page title must be a one-line description starting with `>`.
+Sayfa başlığı altında `>` ile başlayan tek satırlık bir açıklama olmalıdır.
 
-Using `session` as example:
+Örnek olarak `oturum` kullanma:
 
 ```markdown
 # session
