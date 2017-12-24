@@ -671,18 +671,18 @@ app.on('ready', () => {
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (опціонально) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (опціонально) *Windows* - Виконуваний шлях для порівняння. За замовчуванням `process.execPath`.
+  * `args` String[] (optional) *Windows* - Аргументи командного рядка для порівняння. За замовчуванням пустий масив.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Якщо ви надаєте `path` та `args` в `app.setLoginItemSettings` тоді вам потрібно надати иакі самі параметри для `openAtLogin` для правильного налаштування.
 
 Повертає `Object`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `openAtLogin` Boolean - `true` якщо застосунок налаштовано на відкиття при вході в систему.
+* `openAsHidden` Boolean - `true` якщо застоуснок налаштовано на приховане відкриття під час входу в систему. Ця опція доступна тільки на macOS.
+* `wasOpenedAtLogin` Boolean - `true` якщо застосунок було відкрито автоматично при вході в систему. Ця опція доступна тільки на macOS.
+* `wasOpenedAsHidden` Boolean - `true` якщо застосунок було відкрито приховано при вході в систему. Це показує, що застосунок не має відкривати ніяких вікон під час запуску. Ця опція доступна тільки на macOS.
+* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. Ця опція доступна тільки на macOS.
 
 **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
