@@ -1,4 +1,4 @@
-# Jendela Browser
+# JendelaBrowser
 
 > Membuat dan mengendalikan jendela browser.
 
