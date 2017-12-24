@@ -7,38 +7,31 @@ Cortana veya Push Bildirimleri gibi güçlü API'ler, ancak Windows Mağazası a
 
 <h2>Arka plan ve Gereksinimler</h2>
 
-<p>Windows 10 "Yıldönümü Güncellemesi", sanal bir dosya sistemi ve kayıt defteri ile başlatarak win32 <code> .exe </ 0> ikili dosyalarını çalıştırabilir . Both are
-created during compilation by running app and installer inside a Windows
-Container, allowing Windows to identify exactly which modifications to the
-operating system are done during installation. Pairing the executable with a
-virtual filesystem and a virtual registry allows Windows to enable one-click
-installation and uninstallation.</p>
+<p>Windows 10 "Yıldönümü Güncellemesi", sanal bir dosya sistemi ve kayıt defteri ile başlatarak win32 <code> .exe </ 0> ikili dosyalarını çalıştırabilir . Her ikiside derleme sırasında Windows içinde uygulama ve yükleyiciyi çalıştırarak oluşturulan Konteyner, Windows'un hangi modifikasyonları işletim sistemi kurulum sırasında yapılır. Çalıştırılabilir dosyayı bir sanal dosya sistemi ve bir sanal kayıt defteri ile eşleştirme, Windows'un tek tıklamayla yükleme ve kaldırmayı etkinleştirmesini sağlar.</p>
 
-<p>In addition, the exe is launched inside the appx model - meaning that it can use
-many of the APIs available to the Universal Windows Platform. To gain even more
-capabilities, an Electron app can pair up with an invisible UWP background task
-launched together with the <code>exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+<p>Buna ek olarak, exe, appx modelinde başlatıldı - Universal Windows Platform'un sunduğu API'ların çoğunu kullanabileceği anlamına geliyor. Daha fazla yetenek kazanmak için, bir Electron uygulaması, görevleri arka planda çalıştırmak, push bildirimleri almak ya da işlehat duyurularını almak için bir yardımcı olarak başlatılan <code> exe </ 0> ile birlikte başlatılan görünmez bir UWP arka plan göreviyle eşleşebilir . Diğer UWP uygulamaları ile iletişim kurun.</p>
 
-To compile any existing Electron app, ensure that you have the following requirements:
+<p>Mevcut herhangi bir Electron uygulamasını derlemek için aşağıdaki gereksinimlere sahip olduğunuzdan emin olun:</p>
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+<ul>
+<li>Yıldönümü Güncellemesi ile Windows 10 (2 Ağustos 2016'da piyasaya sürülmüştür)</li>
+<li>Windows 10 SDK <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk"> indirilebilir burada </ 0></li>
+<li>En azından Düğüm 4 (kontrol etmek için, <code> düğümünü çalıştırın-v </ 0>)</li>
+</ul>
 
-Then, go and install the `electron-windows-store` CLI:
+<p>Ardından gidip <code> electron-windows-store ` CLI'yi yükleyin:
 
 ```sh
-npm install -g electron-windows-store
+npm yükleme -g elektron-windows-mağaza
 ```
 
-## Step 1: Package Your Electron Application
+## 1. Adım: Elektron Uygulamasını Paketleyin
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketleyin . Aslında ihtiyaç duymadığınız herhangi bir modül uygulamanızın boyutunu artıracağından, son uygulamanızda ihtiyacınız olmayan ` node_modules </ 0> ' i kaldırdığınızdan emin olun.</p>
 
-The output should look roughly like this:
+<p>Çıktı kabaca şöyle olmalıdır:</p>
 
-```text
-├── Ghost.exe
+<pre><code class="text">├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
 ├── content_shell.pak
@@ -48,20 +41,20 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   ├── app
+│   └── atom.asar
 ├── snapshot_blob.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
-```
+`</pre> 
 
-## Step 2: Running electron-windows-store
+## 2. Adım: Elektron windows mağazasını çalıştırma
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
