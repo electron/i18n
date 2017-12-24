@@ -3,7 +3,7 @@
 > Akses informasi tentang sumber media yang dapat digunakan untuk menangkap audio dan video dari desktop menggunakan API [ ` navigator.mediaDevices.getUserMedia </ 0> ] .</p>
 </blockquote>
 
-<p>Proses: <a href="../glossary.md#renderer-process"> Renderer </ 0></p>
+<p>Process: <a href="../glossary.md#renderer-process">Renderer</a></p>
 
 <p>Contoh berikut menunjukkan bagaimana menangkap video dari jendela desktop yang judulnya adalah <code> Elektron </ 0> :</p>
 
