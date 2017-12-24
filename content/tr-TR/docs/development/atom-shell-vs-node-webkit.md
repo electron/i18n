@@ -18,14 +18,14 @@ Electron daha çok Node.js çalışma zamanı gibi çalışır. Electron API'ler
 
 Tüm Chromium'u oluşturma karmaşıklığından kaçınmak için, Electron [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) kullanır Chromium'un İçerik API'sı. `libchromiumcontent` Chromium içerik modülünü ve tüm bağımlılıklarını içeren tek olarak paylaşılmış kütüphanedir. Kullanıcıların Electron oluşturmak için güçlü bir makineye ihtiyacı yoktur.
 
-**3. Node Integration**
+**3. Ağ Entegrasyonu**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+NW.js'de web sayfalarında ki ağ entegrasyonu, çalışmak için Chromium'u yamalamayı gerektirir, bizim seçtiğimiz Electron'da ise libuv döngüsüne ekleyerek Chromium'un hacklenmesini önleriz. [`ağ_bağlantıları`](https://github.com/electron/electron/tree/master/atom/common) kodunun nasıl yapılacağına bakın.
 
-**4. Multi-context**
+**4. Çoklu bağlam**
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+Deneyimli bir NW.js kullanıcıysanız, ağ bağlamı ve web bağlamı kavramlarına tanıdık olamalısınız. Bu kavramlar NW.js'in nasıl uygulandığından dolayı icat edildi.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Ağın [çoklu_bağlamsal](https://github.com/nodejs/node-v0.x-archive/commit/756b622) özelliğini kullanarak, Electron web sayfalarında yeni bir JavaScript içeriği sunmaz.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Not: NW.js isteğe bağlı olarak 0.13'ten beri çoklu bağlamı desteklenmiştir.
