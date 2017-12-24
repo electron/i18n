@@ -6,7 +6,7 @@ Electron belgeleri yazmak için rehberler.
 
 * Her sayfa en yukarıda `#` seviyesinde bir başlığa sahip olmalıdır.
 * Aynı sayfadaki bölümler `##` seviyesinde başlığa sahip olmalıdır.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
+* Alt bölümler başlığın iç içe derinliğine göre `#` sayısını arttırmak zorundadır.
 * "ve", "ile" gibi bağlaçlar dışında sayfanın başlığındaki tüm kelimeler büyük harfle başlamalıdır.
 * Bölüm başlıklarının sadece ilk harfi büyük harfli olmalıdır.
 
@@ -44,17 +44,17 @@ API referansları için bazı istisnalar mevcut.
 
 * Kod bloklarında `sh` yerine `cmd` kullanın. (Sözdizimi işaretleyicisinden dolayı).
 * Satırlar 80. karakterde bitmelidir.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* İç içe listeleri 2'den fazla kademeyi listelemez (indirim işleyici nedeniyle).
 * Tüm `js` ve `javascript` kod blokları [standard-markdown](http://npm.im/standard-markdown) ile kontrol edilir.
 
 ## Kelime seçimi
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Çıktıları tanımlarken "would" yerine "will" kullanın.
+* "in the process" yerine "on" 'u tercih edin.
 
-## API references
+## API başvuruları
 
-The following rules only apply to the documentation of APIs.
+Aşağıdaki kurallar yalnızca API'ların belge işlemi için geçerlidir.
 
 ### Sayfa başlığı
 
