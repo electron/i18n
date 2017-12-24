@@ -63,7 +63,7 @@ const {app} = require ('electron')
 app.commandLine.appendSwitch ('proxy-bypass-list', '<local>; * google.com; * foo.com; 1.2.3.4: 5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+Akan menggunakan server proxy untuk semua host kecuali untuk alamat lokal (` localhost `, ` 127.0.0.1` dll.), ` google.com` subdomain, host yang berisi akhiran ` foo.com ` dan apa saja di `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
@@ -92,20 +92,20 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Daftar server yang dipisahkan koma yang otentikasinya telah diaktifkan.
 
-For example:
+Sebagai contoh:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    --auth-server-whitelist = '* example.com, * foobar.com, * baz'
     
 
 then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Daftar server yang dipisahkan koma yang diperlukan oleh pendelegasian mandat pengguna. Tanpa awalan `*` url harus sesuai persis.
 
-## --ignore-certificate-errors
+## -- kesalahan sertifikat-kesalahan
 
 Ignores certificate related errors.
 
