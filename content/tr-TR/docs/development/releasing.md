@@ -60,35 +60,35 @@ npm run prepare-release -- --stable
 
 ## Sürüm notlarını derleyin
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Sürüm notları yazmak, yapılar çalışırken kendinizi meşgul etmek için iyi bir yoldur. Önceki oluşturulanlar için [bülten sayfasında](https://github.com/electron/electron/releases) mevcut sürümlere bakın.
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+İpuçları: - Listelenen her madde, elektron / elektron hakkında bir PR'ye, bir sorun değil, başka bir repo'ya, yani libcc gibi bir PR'ye atıfta bulunmalıdır. - PR'leri referans alırken bağlantı işaretlemesini kullanmanıza gerek yok. `# 123` gibi dizeler, otomatik olarak github.com'daki bağlantılara dönüştürülecektir. Electron'un her sürümünde Chromium, V8 ve Düğüm sürümlerini görmek için,[atom.io/download/electron/index.json](https://atom.io/download/electron/index.json) adresini ziyaret edin.
 
-### Patch releases
+### Yama sürümleri
 
-For a `patch` release, use the following format:
+Bir `yama` sürümü için aşağıdaki biçimi kullanın:
 
 ```sh
-## Bug Fixes
+## Hata düzeltmeleri
 
-* Fixed a cross-platform thing. #123
+*Platformlar arası bir olay düzeltildi. #123
 
-### Linux
+###Linux
 
-* Fixed a Linux thing. #123
+*Bir Linux olayı düzeltildi. #123
 
-### macOS
+###macOS
 
-* Fixed a macOS thing. #123
+*Bir macOS olayı düzeltildi. #123
 
-### Windows
+###Windows
 
-* Fixed a Windows thing. #1234
+*Bir Windows olayı düzeltildi. #1234
 ```
 
-### Minor releases
+### Alt sürümler
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+`Alt` sürümler için, örn. `1.8.0`, bu biçimi kullanın:
 
 ```sh
 ## Upgrades
