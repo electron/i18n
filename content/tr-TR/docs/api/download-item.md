@@ -58,21 +58,21 @@ Returns:
 * `event` Event
 * `state` String
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+İndirme işlemi terminal durumundayken yayımlanır. Bu bitmiş indirme, (via `downloadItem.cancel()`) ile iptal edilmiş bir indirme ve devam edilemeyen kesmeye uğramış indirme içerir.
 
 `Durum` aşağıdakilerden biri olabilir:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - İndirme başarıyla tamamlandı.
+* `cancelled` - İndirme iptal edildi.
+* `interrupted` - İndirme kesildi ve devam edemez.
 
-### Instance Methods
+### Örnek yöntemler
 
-The `downloadItem` object has the following methods:
+`downloadItem` nesnesi aşağıdaki yöntemleri içerir:
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - indirme öğesinin dosya kaydetme yolunu ayarlayın.
 
 The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
 
@@ -82,33 +82,33 @@ Returns `String` - The save path of the download item. This will be either the p
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+İndirmeyi duraklatır.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+İndirilmenin durdurulup durdurulmadığına dair `Boolean` döndürür.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Durdurulmuş indirmeyi devam ettirir.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+İndirmenin devam edip edemeyeceğine dair `Boolean` döndürür.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+İndirme işlemini iptal eder.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Öğenin nereden indirildiğine dair orjinal url'sini `String` olarak döndürür.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Dosyaların Mime türünü `String` olarak döndürür.
 
 #### `downloadItem.hasUserGesture()`
 
