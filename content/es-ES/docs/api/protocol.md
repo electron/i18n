@@ -103,7 +103,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Ejemplo:
 
 ```javascript
 const {protocol} = require('electron')
