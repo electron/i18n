@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`DownloadItem` elektron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` elektron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
 
 ```javascript
 // Ana işlem içinde.
@@ -74,7 +74,7 @@ Returns:
 
 * `path` String - indirme öğesinin dosya kaydetme yolunu ayarlayın.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
 
 #### `downloadItem.getSavePath()`
 
@@ -112,13 +112,13 @@ Dosyaların Mime türünü `String` olarak döndürür.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+İndirme işleminin kullanıcı hareketi olup olmadığına dair `Boolean` döndürür.
 
 #### `downloadItem.getFilename()`
 
 İndirilen öğenin ismini `String` olarak döndürür.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Not:** Dosya adı her zaman yerel diskte kaydedilen dosya adıyla aynı değildir. Kullanıcı, istenen bir indirme kaydetme iletişim kutusunda dosya adını değiştirirse, kaydedilen dosyanın gerçek adı farklı olacaktır.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -138,7 +138,7 @@ Cevabın başlığından İçerik-Hazırlama alanını `String` türünde dönd�
 
 Geçerli durumu `String` türünde döndürür. `progressing`, `completed`, `cancelled` veya `interrupted` olabilir.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Not:** Aşağıdaki metodlar oturup yeniden başlatıldığı zaman `iptal edilmiş` öğelerin devamı için oldukça kullanışlıdır.
 
 #### `downloadItem.getURLChain()`
 
@@ -154,4 +154,4 @@ ETag başlık değerini `String` olarak döndürür.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+UNIX zaman başlangıcından indirmenin başlatıldığı zamana kadar geçen saniye sayısını `Double` türünde döndürür.
