@@ -412,17 +412,17 @@ app.exit(0)
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Очищує список останніх документів.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Назва вашого протоколу, без `://`. Якщо ви хочете, щоб ваш застосунок обробляв посилання `electron://`, викличте цей метод з параметром `electron`.
+* `path` String (опціонально) *Windows* - За замовчіванням `process.execPath`
+* `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
 
-Returns `Boolean` - Whether the call succeeded.
+Повертає `Boolean` - Чи виклик закінчився успішно.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Цей метод встановлює поточний виконуваний файл як обробник за замовчуванням для протоколу (він же URI схема). Це дозволяє глибше інтегрувати ваш застосунок в операційну систему. Після реєстрації, всі посилання з `your-protocol://` будуть відкриватися поточним виконуваним файлом. Повне посилання, включаючи протокол, буде передаватися до вашого застосунку як параметр.
 
 On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
@@ -432,19 +432,19 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Назва вашого протоколу, без `://`.
+* `path` String (опціонально) *Windows* - За замовчіванням `process.execPath`
+* `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
 
-Returns `Boolean` - Whether the call succeeded.
+Повертає `Boolean` - Чи виклик закінчився успішно.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Назва вашого протоколу, без `://`.
+* `path` String (опціонально) *Windows* - За замовчіванням `process.execPath`
+* `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
 
 Returns `Boolean`
 
@@ -462,7 +462,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Повертає `Boolean` - Чи виклик закінчився успішно.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
@@ -652,7 +652,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Повертає `Boolean` - Чи виклик закінчився успішно.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
