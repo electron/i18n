@@ -56,26 +56,33 @@ Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketl
 
 ## 2. Adım: Elektron windows mağazasını çalıştırma
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Yüksek bir PowerShell'den ("Yönetici olarak çalıştırın") gerekli parametrelerle `` electron-windows-store </ 0> 'i çalıştırın ; hem giriş ve çıkış dizinlerini, uygulamanın adını ve sürümünü ve
+ <0 > node_modules </ 0> düzleştirilmelidir.</p>
 
-```powershell
-electron-windows-store `
+<pre><code class="powershell">electron-windows-store `
     --input-directory C:\myelectronapp `
     --output-directory C:\output\myelectronapp `
     --flatten true `
     --package-version 1.0.0.0 `
     --package-name myelectronapp
-```
+``</pre> 
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Bu araç idam edildikten sonra çalışmaya başlar: Electron uygulamanızı bir giriş olarak kabul eder , ` node_modules </ 0> 'i düzleştirir. Ardından uygulamanızı <code> app.zip </ 0> olarak arşivler.
+Araç, bir yükleyici ve bir Windows Konteyner kullanarak , Windows Uygulama Bildirisi'ni ( <code> AppXManifest.xml </ 0> ) ve çıktı dosyanızın sanal dosya sistemini ve sanal kayıt defterini içeren "genişletilmiş" bir AppX paketi oluşturur.</p>
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+<p>Genişletilmiş AppX dosyaları oluşturulduktan sonra araç , disk üzerindeki bu dosyalardan tek bir dosya AppX paketi oluşturmak için Windows Uygulama Paketleyiciyi ( <code> MakeAppx.exe </ 0> ) kullanır.
+Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenilir bir sertifika oluşturmak için kullanılabilir. İmzalı AppX paketi ile CLI, otomatik olarak paketi makinenize yükleyebilir.</p>
 
-## Step 3: Using the AppX Package
+<h2>3. Adım: AppX Paketini Kullanma</h2>
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+<p>Paketinizi çalıştırmak için, kullanıcıların gerekir Windows'u sözde "Yıldönümü Güncellemesi" ile 10 - Windows'un nasıl güncelleştirileceği ile ilgili ayrıntılar bulunabilir <a href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update">Burada</a>.</p>
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+<p>In opposition to traditional UWP apps, packaged apps currently need to undergo a
+manual verification process, for which you can apply <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">here</a>.
+In the meantime, all users will be able to just install your package by double-clicking it,
+so a submission to the store might not be necessary if you're simply looking for an
+easier installation method. In managed environments (usually enterprises), the
+<code>Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 
