@@ -1,8 +1,8 @@
 # Sistem Genel Bakışı Oluşturma
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron proje üretimi için [gyp](https://gyp.gsrc.io/) ve inşa etmek için [ninja](https://ninja-build.org/) kullanır. Proje yapılandırmaları `.gyp` ve `.gypi` dosyaları içinde bulunabilir.
 
-## Gyp Files
+## Gyp Dosyaları
 
 Following `gyp` files contain the main rules for building Electron:
 
