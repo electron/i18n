@@ -22,13 +22,13 @@ console.log(ses.getUserAgent())
 
 The `session` module has the following methods:
 
-### `session.fromPartition(partition[, options])`
+### `session.fromPartition(partisi[, pilihan])`
 
-* `partition` String
+* `partisi` String
 * `pilihan` Obyek 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - Apakah akan mengaktifkan cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Kembali `Sesi` - Contoh sesi dari string `partisi`. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
@@ -67,7 +67,7 @@ The following events are available on instances of `Session`:
 * ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
 </ul>
 
-<p>Emitted when Electron is about to download <code>item` in `webContents`.</p> 
+<p>Emitted ketika Elektron akan mendownload <code>item` di `webContents`.</p> 
   Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
   
   ```javascript
