@@ -91,62 +91,62 @@ Bir `yama` sürümü için aşağıdaki biçimi kullanın:
 `Alt` sürümler için, örn. `1.8.0`, bu biçimi kullanın:
 
 ```sh
-## Upgrades
+##Yükseltmeler
 
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+-'eskiSürüm' Node 'dan 'yeniSürüm' e yükseltildi. #123
 
-## API Changes
+## API Değişiklikleri
 
-* Changed a thing. #123
+*Bir şey değiştirildi. #123
 
-### Linux
+## Linux
 
-* Changed a Linux thing. #123
-
-### macOS
-
-* Changed a macOS thing. #123
-
-### Windows
-
-* Changed a Windows thing. #123
-```
-
-### Major releases
-
-```sh
-## Upgrades
-
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
-
-## Breaking API changes
-
-* Changed a thing. #123
-
-### Linux
-
-* Changed a Linux thing. #123
+* Bir Linux olayı değiştirildi. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* Bir macOS olayı değiştirildi. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
-
-## Other Changes
-
-- Some other change. #123
+* Bir Windows olayı değiştirildi. #123
 ```
 
-### Beta releases
-
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+### Üst sürümler
 
 ```sh
-**Note:** This is a beta release and most likely will have have some instability and/or regressions.
+## Yükseltmeler
+
+-'eskiSürüm' Chromium 'dan 'yeniSürüm' e yükseltildi. #123
+-'eskiSürüm' Node 'dan 'yeniSürüm' e yükseltildi. #123
+
+## API değişiklikleri kırılıyor
+
+* Bir şey değiştirildi. #123
+
+## Linux
+
+* Bir Linux olayı değiştirildi. #123
+
+### macOS
+
+* Bir macOS olayı değiştirildi. #123
+
+### Windows
+
+* Bir Windows olayı değiştirildi. #123
+
+## Diğer Değişiklikler
+
+- Başka bir değişiklik daha var. #123
+```
+
+### Beta sürümleri
+
+Yukarıda önerilenlerle aynı biçimleri kullanın, ancak değişiklik notunun başına aşağıdaki notu ekleyin:
+
+```sh
+**Not:** Bu bir beta sürümüdür ve muhtemelen biraz istikrarsızlık ve/veya gerileme yaşayacaktır.
 
 Please file new issues for any bugs you find in it.
 
