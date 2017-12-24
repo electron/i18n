@@ -6,12 +6,12 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`BrowserView`, `BrowserWindow`'a ek ağ içeriği gömmek için kullanılır. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView`, `BrowserWindow`'a ek ağ içeriği gömmek için kullanılır. It is like a child window, except that it is positioned relative to its owning window. `webview` etiketine bir alternatif olarak düşünülebilir.
 
-## Example
+## Örnek
 
 ```javascript
-// In the main process.
+// Ana süreçte.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,36 +29,36 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *Deneysel*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `options` Obje (opsiyonel) 
+  * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
-### Static Methods
+### Statik Metodlar
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Tamsayı
 
-Returns `BrowserView` - The view with the given `id`.
+`BrowserView` döner - `id` ile birlikte girilen view.
 
-### Instance Properties
+### Örnek Özellikleri
 
-Objects created with `new BrowserView` have the following properties:
+`new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Deneysel*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
 
-#### `view.id` *Experimental*
+#### `view.id` *Deneysel*
 
-A `Integer` representing the unique ID of the view.
+View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
-### Instance Methods
+### Sınıf örneği metodları
 
-Objects created with `new BrowserView` have the following instance methods:
+`new BrowserView` ile yaratılan objeler aşağıdaki metodlara sahiptir:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Deneysel*
 
 * `options` Nesne 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
