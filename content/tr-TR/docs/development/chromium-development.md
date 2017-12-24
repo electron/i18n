@@ -6,7 +6,7 @@
 - [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
 - [@googlechrome](https://twitter.com/googlechrome) on Twitter
 - [Blog](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
+- [Kod Arama](https://cs.chromium.org/)
 - [Kaynak Kodu](https://cs.chromium.org/chromium/src/)
 - [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
 - [Tartışma grupları](http://www.chromium.org/developers/discussion-groups)
