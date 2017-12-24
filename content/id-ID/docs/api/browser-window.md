@@ -348,15 +348,15 @@ win.on('app-command', (e, cmd) => {
   
   #### Event: 'scroll-touch-begin' *macOS*
   
-  Emitted when scroll wheel event phase has begun.
+  Emitted saat scroll wheel event phase sudah dimulai.
   
   #### Event: 'scroll-touch-end' *macOS*
   
-  Emitted when scroll wheel event phase has ended.
+  Emitted saat scroll wheel event phase sudah berakhir.
   
   #### Event: 'scroll-touch-edge' *macOS*
   
-  Emitted when scroll wheel event phase filed upon reaching the edge of element.
+  Emitted saat menggulirkan event wheel drive yang diajukan saat mencapai tepi elemen.
   
   #### Event: 'swipe' *macOS*
   
@@ -369,17 +369,17 @@ win.on('app-command', (e, cmd) => {
   
   #### Event: 'sheet-begin' *macOS*
   
-  Emitted when the window opens a sheet.
+  Emitted saat jendela membuka selembar kertas.
   
   #### Event: 'sheet-end' *macOS*
   
-  Emitted when the window has closed a sheet.
+  Emitted ketika jendela telah ditutup lembar.
   
   #### Event : 'new-window-for-tab' * macOS </ 0></h4> 
   
-  Emitted when the native new tab button is clicked.
+  Emitted ketika tombol tab asli baru diklik.
   
-  ### Static Methods
+  ### Metode Statis
   
   The `BrowserWindow` class has the following static methods:
   
@@ -409,7 +409,7 @@ win.on('app-command', (e, cmd) => {
 </ul>
 
 <p>Adds Chrome extension located at <code>path`, and returns extension's name.</p> 
-      The method will also not return if the extension's manifest is missing or incomplete.
+      Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
       
       **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
       
@@ -418,7 +418,7 @@ win.on('app-command', (e, cmd) => {
       * ` nama </ 0>  String</li>
 </ul>
 
-<p>Remove a Chrome extension by name.</p>
+<p>Hapus ekstensi Chrome dengan nama.</p>
 
 <p><strong>Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
         #### `BrowserWindow.getExtensions()`
@@ -433,9 +433,9 @@ win.on('app-command', (e, cmd) => {
 </ul>
 
 <p>Adds DevTools extension located at <code>path`, and returns extension's name.</p> 
-          The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+          Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
           
-          The method will also not return if the extension's manifest is missing or incomplete.
+          Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
           
           **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
           
@@ -499,11 +499,11 @@ win.loadURL('https://github.com')
     
     #### `win.focus ()`
     
-    Focuses on the window.
+    Berfokus pada jendela.
     
     #### `win.blur ()`
     
-    Removes focus from the window.
+    Berfokus pada jendela.
     
     #### `win.isFocused()`
     
@@ -551,7 +551,7 @@ win.loadURL('https://github.com')
     
     #### `win.restore()`
     
-    Restores the window from minimized state to its previous state.
+    Mengembalikan jendela dari keadaan diminimalkan ke keadaan sebelumnya.
     
     #### `win.isMinimized()`
     
@@ -561,7 +561,7 @@ win.loadURL('https://github.com')
     
     * `flag` Boolean
     
-    Sets whether the window should be in fullscreen mode.
+    Menetapkan apakah jendela harus dalam mode fullscreen.
     
     #### `win.isFullScreen()`
     
@@ -572,9 +572,9 @@ win.loadURL('https://github.com')
     * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
     * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
     
-    This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+    Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengembang memiliki ruang, ditentukan dalam piksel, tidak termasuk dalam perhitungan rasio aspek. API ini sudah memperhitungkan perbedaan antara ukuran jendela dan ukuran isinya.
     
-    Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+    Pertimbangkan jendela normal dengan pemutar video HD dan kontrol yang terkait. Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Tentukan area lebar dan tinggi ekstra yang Anda miliki dalam keseluruhan tampilan konten.
     
     #### `win.previewFile(path[, displayName])` *macOS*
     
