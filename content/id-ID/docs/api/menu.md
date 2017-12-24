@@ -61,8 +61,8 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   * `pilihan` Objek (opsional) 
     * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
     * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-    * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-    * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+    * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Default ke ` false </ 0> .</li>
+<li><code>positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   
   Pops up this menu as a context menu in the `browserWindow`.
   
