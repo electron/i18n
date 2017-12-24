@@ -99,35 +99,35 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` 
 Örnek olarak `Oturum` ve `Çerezler` sınıflarını kullanmak:
 
 ```markdown
-# session
+# oturum
 
-## Methods
+## Yöntemler
 
-### session.fromPartition(partition)
+### oturum.bölmeden(bölme)
 
-## Properties
+## Özellikler
 
-### session.defaultSession
+### oturum.varsayılanOturum
 
-## Class: Session
+## Sınıf: Oturum
 
-### Instance Events
+### Örnek Erkinlikler
 
-#### Event: 'will-download'
+#### Etkinlik: 'indirilecek'
 
-### Instance Methods
+### Örnek Yöntemler
 
-#### `ses.getCacheSize(callback)`
+#### ses.ÖnbellekBoyutu(geri arama) almak
 
-### Instance Properties
+### Örnek Özellikler
 
-#### `ses.cookies`
+#### 'ses.çerezleri'
 
-## Class: Cookies
+## Sınıf: Çerezler
 
-### Instance Methods
+### Örnek Yöntemler
 
-#### `cookies.get(filter, callback)`
+#### 'çerezler.(filtre, geri alma)'
 ```
 
 ### Metodlar
@@ -135,17 +135,17 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` 
 Metodların bölümü aşağıdaki formda olmak zorundadır:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+###'nesneİsmi.yöntemİsmi(gerekli[, opsiyonel]))'
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `gerekli` dizilim- Parametre açıklaması
+*`isteğe bağlı 'Tamsayı (isteğe bağlı) - Başka bir parametre açıklaması
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Bir modülün veya bir sınıfın bir metodu olup olmadığına bağlı olarak başlık `###` veya `####` olabilir.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Modüller için `nesneİsmi` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
