@@ -386,29 +386,29 @@ app.exit(0)
 
 Повертає `String` - Назва поточного застосунку, що є назвою в файлі `package.json`.
 
-Зазвичай поле `name` `package.json` є короткою назвою в нижньому регістрі, відповідно до специфікації модулів npm. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Зазвичай поле `name` `package.json` є короткою назвою в нижньому регістрі, відповідно до специфікації модулів npm. Вам також зазвичай доведеться визначати поле `productName`, яке є назвою вашого додатку у верхньому регістрі і якому буде Electron надавати перевагу перед `name`.
 
 ### `app.setName(name)`
 
 * `name` String
 
-Overrides the current application's name.
+Перевизнає поточну назву застосунку.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Повертає `String` - Поточна локаль застосунку. Можливі значення перелічені [тут](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Примітка:** При пощиренні пакету застосунку, ви повинні також надати папку `locales`.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Примітка:** На Windows ви маєте викликати його після події `ready`.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Додає `path` до списку недавніх документів.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+Цей список керується ОС. На Windows ви можете перглянути список з панелі завдань, а на macOS ви можете переглянути його з dock меню.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
