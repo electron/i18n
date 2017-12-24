@@ -28,25 +28,25 @@ Electron
 |       └── api/ - Pelaksanaan API umum, dan yayasan
 |           Modul built-in Electron.
 ├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
-├── default_app/ - The default page to show when Electron is started without
-|   providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
-└── common.gypi - Compiler specific settings and building rules for other
-    components like `node` and `breakpad`.
+├── default_app / - Halaman default untuk ditampilkan saat Electron dimulai tanpa
+|   menyediakan sebuah aplikasi.
+├── docs/ - Dokumentasi.
+├── lib/ - Sumber kode JavaScript.
+|   ├── browser/ - kode inisialisasi proses utama javascript.
+|   |   └── api/ - Implementasi API Javascript.
+|   ├── common/ - JavaScript digunakan oleh proses utama dan renderer
+|   |   └── api/ - Implementasi API Javascript.
+|   └── renderer/ - Kode inisialisasi proses renderer utama javascript.
+|       └── api/ - Implementasi API Javascript.
+├── spec / - tes otomatis.
+├── electron.gyp - Aturan pembangunan electron.
+└── common.gypi - Pengaturan spesifik Compiler dan aturan bangunan untuk lainnya
+     komponen seperti `node` dan` breakpad`.
 ```
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+File di `/chromium_src` cenderung menjadi potongan Chromium yang bukan bagian dari lapisan konten. Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan sumber sebagai bagian dari [libcc](../glossary.md#libchromiumcontent) tapi kebanyakan Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik, barang analisis) jadi kami hanya mengambil bagian dari kode. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Structure of Other Directories
 
