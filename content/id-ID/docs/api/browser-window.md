@@ -253,71 +253,71 @@ Emitted when the web page becomes unresponsive.
 
 Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
 
-#### Event: 'blur'
+#### Acara: 'blur'
 
-Emitted when the window loses focus.
+Emitted saat jendela kehilangan fokus.
 
-#### Event: 'focus'
+#### Acara: 'fokus'
 
-Emitted when the window gains focus.
+Emitted saat window gain fokus.
 
-#### Event: 'show'
+#### Acara: 'show'
 
-Emitted when the window is shown.
+Emitted saat jendela ditunjukkan.
 
-#### Event: 'hide'
+#### Acara: 'sembunyikan'
 
-Emitted when the window is hidden.
+Emitted saat jendela tersembunyi.
 
-#### Event: 'ready-to-show'
+#### Acara: 'siap tampil'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Emitted ketika halaman web telah diberikan (sementara tidak ditampilkan) dan jendela dapat ditampilkan tanpa lampu kilat visual.
 
-#### Event: 'maximize'
+#### Acara: 'maksimalkan'
 
-Emitted when window is maximized.
+Emitted saat jendela dimaksimalkan.
 
 #### Event: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Emitted saat jendela keluar dari keadaan maksimal.
 
 #### Event: 'minimize'
 
-Emitted when the window is minimized.
+Emitted saat jendela diminimalkan.
 
 #### Event: 'restore'
 
-Emitted when the window is restored from a minimized state.
+Emitted saat jendela dipulihkan dari keadaan diminimalkan.
 
 #### Event: 'resize'
 
-Emitted when the window is being resized.
+Dipancarkan saat jendela diubah ukurannya.
 
 #### Event: 'move'
 
-Emitted when the window is being moved to a new position.
+Emitted saat jendela sedang dipindahkan ke posisi baru.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
 #### Event: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Emitted sekali saat jendela dipindahkan ke posisi baru.
 
 #### Event: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Emitted saat jendela memasuki keadaan layar penuh.
 
 #### Event: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Emitted saat jendela meninggalkan keadaan layar-penuh.
 
 #### Event: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Emitted saat jendela memasuki status layar-penuh yang dipicu oleh HTML API.
 
 #### Event: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
 
 #### Event: 'app-command' *Windows*
 
