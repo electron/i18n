@@ -162,10 +162,10 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `zoomFactor` Nomor (opsional) - Faktor pembesaran default halaman, `3.0` mewakili `300%`. Defaultnya adalah `1.0`.
       * `javascript` Boolean (opsional) - Mengaktifkan dukungan JavaScript. Defaultnya adalah `true`.
       * `webSecurity` Boolean (opsional) - Bila `false`, itu akan menonaktifkan Kebijakan asal yang sama (biasanya menggunakan situs pengujian oleh orang), dan tetapkan ` allowRunningInsecureContent ` ke `true` jika opsi ini belum ditetapkan oleh pengguna. Defaultnya adalah `true`.
-      * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-      * `images` Boolean (optional) - Enables image support. Default is `true`.
-      * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-      * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
+      * `allowRunningInsecureContent` Boolean (opsional) - Mengizinkan sebuah halaman https untuk dijalankan JavaScript, CSS atau plugin dari URL http. Defaultnya adalah `false`.
+      * `gambar` Boolean (opsional) - Mengaktifkan dukungan gambar. Defaultnya adalah `true`.
+      * `textAreasAreResizable` Boolean (opsional) - Buat elemen TextArea resizable. Default `true`.
+      * `webgl` Boolean (opsional) - Mengaktifkan dukungan WebGL. Defaultnya adalah `true`.
       * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
       * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
       * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
