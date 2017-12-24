@@ -12,11 +12,11 @@ NW.js'de bir uygulamanın ana giriş noktası bir web sayfası veya bir JS komut
 
 Electron'da giriş noktası bir JavaScript komut dizisi dosyasıdır. Doğrudan bir URL sağlıyorsanız, manuel olarak bir tarayıcı penceresi oluşturun ve API'yi kullanan bir HTML dosyası yükleyin. Uygulamadan ne zaman çıkılacağına karar vermek için aynı zamanda pencereyi dinlemeniz gerekiyor.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron daha çok Node.js çalışma zamanı gibi çalışır. Electron API'leri daha düşük seviyededir, böylece tarayıcı testi için [PhantomJS](http://phantomjs.org/) yerine kullanabilirsiniz.
 
 **2. Sistem Oluşturun**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Tüm Chromium'u oluşturma karmaşıklığından kaçınmak için, Electron [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) kullanır Chromium'un İçerik API'sı. `libchromiumcontent` Chromium içerik modülünü ve tüm bağımlılıklarını içeren tek olarak paylaşılmış kütüphanedir. Kullanıcıların Electron oluşturmak için güçlü bir makineye ihtiyacı yoktur.
 
 **3. Node Integration**
 
