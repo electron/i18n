@@ -288,13 +288,13 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Подія: 'certificate-error'
 
 Повертає:
 
 * `event` Подія
 * `url` Стрічка
-* `error` String - The error code
+* `error` Стрічка - Код помилки
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
