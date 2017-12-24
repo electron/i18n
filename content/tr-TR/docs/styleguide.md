@@ -90,13 +90,13 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` 
 * Kurucular `###` düzeyinde başlıklarla listelenmelidir.
 * [Statik Yöntemler](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) `### Statik Yöntemler` bölümünün altında listelenmelidir.
 * [Örnek Yöntemler](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) bir `### Örnek Yöntemler` bölümünün altında listelenmelidir.
-* Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` bölüm. 
-  * Instance properties must start with "A [Property Type] ..."
+* Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` -Getiri tanımı" 
+  * Eğer yöntem `Nesne`'ye dönerse, yapısı iki noktadan sonra bir satır sonu karakteriyle, ardından da işlev parametreleriyle aynı tarzda sırasız bir özellik listesi kullanarak belirlenebilir.
+* Örnek Olayları `###Örnek Olaylar` bölümünün altında listelenmelidir.
+* Örnek Özellikler aşağısında listelenmelidir `### Örnek Özellikleri` bölüm. 
+  * Örnek özellikleri "Bir [Özellik Türü]..." ile başlamalıdır
 
-Using the `Session` and `Cookies` classes as an example:
+Örnek olarak `Oturum` ve `Çerezler` sınıflarını kullanmak:
 
 ```markdown
 # session
