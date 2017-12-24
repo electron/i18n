@@ -13,7 +13,7 @@ You can quickly launch a multi-platform release server for distributing your app
 * [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
 * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
-## Platform notices
+## Noticias de plataforma
 
 Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
 
@@ -41,7 +41,7 @@ There is no built-in support for auto-updater on Linux, so it is recommended to 
 
 The `autoUpdater` object emits the following events:
 
-### Event: 'error'
+### Evento: 'error'
 
 Devuelve:
 
@@ -49,7 +49,7 @@ Devuelve:
 
 Emitted when there is an error while updating.
 
-### Event: 'checking-for-update'
+### Evento: 'checking-for-update'
 
 Emitted when checking if an update has started.
 
@@ -61,14 +61,14 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 Emitted when there is no available update.
 
-### Event: 'update-downloaded'
+### Evento: 'update-downloaded'
 
 Devuelve:
 
 * `evento` Evento
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Date
+* `releaseDate` Fecha
 * `updateURL` String
 
 Emitted when an update has been downloaded.
