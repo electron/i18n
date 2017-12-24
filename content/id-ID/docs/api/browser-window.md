@@ -166,13 +166,13 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `gambar` Boolean (opsional) - Mengaktifkan dukungan gambar. Defaultnya adalah `true`.
       * `textAreasAreResizable` Boolean (opsional) - Buat elemen TextArea resizable. Default `true`.
       * `webgl` Boolean (opsional) - Mengaktifkan dukungan WebGL. Defaultnya adalah `true`.
-      * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
-      * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
-      * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
-      * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
-      * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-      * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
-      * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+      * `webaudio` Boolean (opsional) - Mengaktifkan dukungan WebAudio. Defaultnya adalah `true`.
+      * `plugin` Boolean (opsional) - Apakah plugin harus diaktifkan Defaultnya adalah `false`.
+      * `experimentalFeatures` Boolean (opsional) - Mengaktifkan fitur eksperimental Chromium. Defaultnya adalah `false`.
+      * `experimentalCanvasFeatures` Boolean (tangan) - Memungkinkan eksperimental Chromium fitur kanvas Defaultnya adalah `false`.
+      * `scrollBounce` Boolean (opsional) - Mengaktifkan efek gulir gips (karet banding) macos Defaultnya adalah `false`.
+      * `blinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti `CSSVariables, KeyboardEventKey` untuk mengaktifkannya. Daftar lengkap fitur yang didukung string dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) mengajukan.
+      * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
       * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
         * `standard` String (optional) - Defaults to `Times New Roman`.
         * `serif` String (optional) - Defaults to `Times New Roman`.
