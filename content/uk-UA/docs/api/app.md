@@ -622,31 +622,31 @@ app.on('ready', () => {
 * `callback` Function 
   * `result` Integer - Результат імпорту.
 
-Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` викликається з `result` операції імпорту, значення `` показує успіх, тоді як будь-яке інше значення показує невдачу відповідно до [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) chromium.
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Вимикає апаратне прискорення для поточної програми.
 
-This method can only be called before app is ready.
+Цей метод може викликатися лише до готовності застосунку.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+За замовчуванням, Chromium вимикає 3D APIs (наприклад WebGL) до презавантаження на основі домену, якщо GPU процеси ламаються занадто часто. Ця функція вимикає цю поведінку.
 
-This method can only be called before app is ready.
+Цей метод може викликатися лише до готовності застосунку.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *Не підтримується*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Повертає [`ProcessMetric[]`](structures/process-metric.md): масив об'єктів `ProcessMetric`, який відповідає статистиці використання пам'яті та ресурсів центрального процесора всіма процесами застосунку. **Примітка:** Цей метод не підтримується, використовуйте `app.getAppMetrics()` натомість.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Повертає [`ProcessMetric[]`](structures/process-metric.md): масив об'єктів `ProcessMetric`, який відповідає статистиці використання пам'яті та ресурсів центрального процесора всіма процесами застосунку.
 
 ### `app.getGpuFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Повертає [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Статус функції графіки з `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -654,7 +654,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 Повертає `Boolean` - Чи виклик закінчився успішно.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Встановлює бейдж лічильника для поточного застосунку. Встановлення count в `` приховає бейдж.
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
@@ -751,7 +751,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Цей метод може викликатися лише до готовності застосунку.
 
 ### `app.dock.bounce([type])` *macOS*
 
