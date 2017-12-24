@@ -9,23 +9,23 @@ Ikuti panduan di bawah ini untuk membangun Electron pada Windows.
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Debugging Tools untuk Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) jika Anda berencana untuk membuat distribusi penuh sejak `symstore.exe` digunakan untuk membuat simbol dari `.pdb` file.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Jika saat ini Anda tidak memiliki instalasi Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) memiliki versi Windows yang timebombed yang dapat anda gunakan untuk membangun Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Bangunan Electron dilakukan sepenuhnya dengan script baris perintah dan tidak dapat dilakukan dengan Visual Studio. Anda bisa mengembangkan electron dengan editor tapi dukungan untuk bangunan dengan Visual Studio akan datang di masa depan.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Catatan:** Walaupun Visual Studio tidak digunakan untuk membangun, hal ini masih **diperlukan** karena kita perlu membangun toolchains yang menyediakan.
 
-## Mendapatkan kode
+## Dapatkan kode
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrap
+## Bootstrapping
 
-Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Perhatikan bahwa kita menggunakan `ninja` untuk membangun Electron sehingga tidak ada proyek Visual Studio yang dihasilkan.
 
 ```powershell
 $ cd electron
@@ -34,23 +34,23 @@ $ python script\bootstrap.py -v
 
 ## Membangun
 
-Build both Release and Debug targets:
+Membangun kedua rilis dan Debug target:
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Anda juga hanya dapat membangun Debug target:
 
 ```powershell
-$ python script\build.py -c D
+$ python script\build.py - c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Setelah pembangunan selesai, Anda dapat menemukan `electron.exe` dibawah `out\D` (debug target) atau di bawah `out\R` (rilis target).
 
-## 32bit Build
+## Membangun 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Untuk membangun target 32bit, Anda harus melewati `--target_arch=ia32`kapan menjalankan script bootstrap:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
