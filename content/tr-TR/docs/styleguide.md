@@ -76,25 +76,21 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` 
 `otomatikGüncelleme` ögesini örnek olarak kullanmak:
 
 ```markdown
-# autoUpdater
-
-## Events
-
-### Event: 'error'
-
-## Methods
-
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+#otomatikGüncelleyici
+##Etkinlikler
+###Etkinlik: 'hatası'
+#Yöntemler
+#otomatikGüncelleyici.BeslemeUrl'sini ayarla(url[,istekBaşlıkları])
 ```
 
 ### Sınıflar
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* API sınıfları veya modüllerin bir parçası olan sınıflar bir `## Sınıf altında listelenmelidir; Sınıf İsmi` bölümü.
+* Bir sayfa birden fazla sınıfa sahip olabilir.
+* Kurucular `###` düzeyinde başlıklarla listelenmelidir.
+* [Statik Yöntemler](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) `### Statik Yöntemler` bölümünün altında listelenmelidir.
+* [Örnek Yöntemler](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) bir `### Örnek Yöntemler` bölümünün altında listelenmelidir.
+* Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` bölüm. 
