@@ -164,31 +164,31 @@ Yöntemin altında her değişken hakkında daha ayrıntılı bilgi var. Bağım
 * [`Boole değeri`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Ya da Electron'un [`WebContent`](api/web-contents.md) gibi özel bir tür
 
-Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Values can be `macOS`, `Windows`, or `Linux`.
+Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Değer `macOS`, `Windows` veya `Linux` olabilir.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+*'animasyon ekle' Boole (isteğe bağlı) _macOS_ _Windows_ - Animasyon.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Dizilim` tür bağımsız değişkenleri, dizilimin hangi açıklayıcı öğeye dahil edilebileceğini belirtmelidir.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`İşlev` tür bağımsız değişkenleri için açıklamanın, nasıl çağrılabileceğini açıklığa kavuşturması ve ona iletilecek parametrelerin türlerini listelemesi gerekir.
 
 ### Olaylar
 
 Olaylar bölümü aşşağıdaki form da olmak zorundadır:
 
 ```markdown
-### Event: 'wake-up'
+###Olay: 'uyandırma
 
-Returns:
+Döndürme:
 
-* `time` String
+* 'zaman' Dizi
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Başlık bir modülün veya bir sınıfın bir etkinliğinin olup olmadığına bağlı olan `###` `####` düzeyleri olabilir.
 
 Bir olayda ki argümanlar metodların takip ettiği kurallar ile aynıdır.
 
@@ -197,12 +197,12 @@ Bir olayda ki argümanlar metodların takip ettiği kurallar ile aynıdır.
 Metodların bölümü aşağıdaki formda olmak zorundadır:
 
 ```markdown
-### session.defaultSession
+### oturum.varsayılanOturum
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Başlığın bir modülün veya bir sınıfın özelliği olup olmadığına bağlı olan `###` `####` düzeyleri olabilir.
 
 ## Belge Çevirileri
 
