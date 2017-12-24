@@ -147,7 +147,7 @@ Bir modülün veya bir sınıfın bir metodu olup olmadığına bağlı olarak b
 
 Modüller için `nesneİsmi` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Örneğin, `Oturum`modülü altındaki `Oturum` oturum sınıfının yöntemleri `nesneAdı` olarak `ses` kullanmalıdır.
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
