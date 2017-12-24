@@ -5,7 +5,7 @@
 Süreç: [Ana](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// Ana süreçte.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
