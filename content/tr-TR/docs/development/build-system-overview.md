@@ -4,9 +4,9 @@ Electron proje üretimi için [gyp](https://gyp.gsrc.io/) ve inşa etmek için [
 
 ## Gyp Dosyaları
 
-Following `gyp` files contain the main rules for building Electron:
+Aşağıdaki `gyp` dosyaları Electron oluşturmanın ana kurallarını içerir:
 
-* `electron.gyp` defines how Electron itself is built.
+* `electron.gyp` Electron 'un kendisinin nasıl inşa edildiğini tanımlar.
 * `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
 * `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
 * `brightray/brightray.gypi` includes general build configurations about building.
