@@ -46,21 +46,21 @@ Electron
 
 ## `/chromium_src`
 
-File di `/chromium_src` cenderung menjadi potongan Chromium yang bukan bagian dari lapisan konten. Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan sumber sebagai bagian dari [libcc](../glossary.md#libchromiumcontent) tapi kebanyakan Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik, barang analisis) jadi kami hanya mengambil bagian dari kode. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+File di `/chromium_src` cenderung menjadi potongan Chromium yang bukan bagian dari lapisan konten. Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan sumber sebagai bagian dari [libcc](../glossary.md#libchromiumcontent) tapi kebanyakan Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik, barang analisis) jadi kami hanya mengambil bagian dari kode. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan chromium_src cenderung menjadi yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa ditingkatkan seperti yang lainnya patch libcc yang kita pertahankan sekarang.
 
-## Structure of Other Directories
+## Struktur Direktori Lain
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **skrip** - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan, pengujian, dll.
+* **alat** - Skrip pembantu yang digunakan oleh file gyp, tidak seperti `skrip`, skrip diletakkan disini jangan pernah dipanggil oleh pengguna secara langsung.
+* **vendor** - sumber kode dari dependensi pihak ketiga, kami tidak menggunakannya `third_party` sebagai nama karena akan membingungkannya dengan direktori yang sama di Pohon sumber kode Chromium.
+* **node_modules** - Modul simpul pihak ketiga digunakan untuk bangunan.
+* **keluar** - Direktori keluaran sementara `ninja`.
+* **dist** - Direktori sementara dibuat oleh skrip `script/create-dist.py` saat membuat distribusi.
+* **external_binaries** - Download binari kerangka pihak ketiga yang jangan mendukung bangunan dengan `gyp`.
 
-## Keeping Git Submodules Up to Date
+## Menjaga Git Submodul Up to Date
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Repositori Electron memiliki beberapa dependensi yang dipesan, ditemukan di [/vendor](https://github.com/electron/electron/tree/master/vendor). Terkadang Anda mungkin melihat pesan seperti ini saat menjalankan `status git`:
 
 ```sh
 $ git status
@@ -69,13 +69,13 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Untuk memperbarui dependensi ini, jalankan perintah berikut:
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Jika Anda sering menjalankan perintah ini, Anda bisa membuat alias untuk itu di berkas `~/.gitconfig` Anda:
 
 ```sh
 [alias]
