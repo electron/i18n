@@ -603,7 +603,7 @@ win.loadURL('https://github.com')
     * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
 <li><code>animate` Boolean (optional) *macOS*
     
-    Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+    Mengubah ukuran dan memindahkan area klien jendela (misalnya halaman web) ke batas yang tersedia.
     
     #### `win.getContentBounds()`
     
@@ -659,7 +659,7 @@ win.loadURL('https://github.com')
     
     * `resizable` Boolean
     
-    Sets whether the window can be manually resized by user.
+    Menetapkan apakah jendela dapat diubah ukurannya secara manual oleh pengguna.
     
     #### `win.isResizable()`
     
@@ -669,7 +669,7 @@ win.loadURL('https://github.com')
     
     * `movable` Boolean
     
-    Sets whether the window can be moved by user. On Linux does nothing.
+    Menetapkan apakah jendela dapat dipindahkan oleh pengguna. Di Linux tidak melakukan apapun.
     
     #### `win.isMovable()` *macOS* *Windows*
     
@@ -705,7 +705,7 @@ win.loadURL('https://github.com')
     
     * `fullscreenable` Boolean
     
-    Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+    Menetapkan apakah tombol perbesar/zoom window toggles fullscreen mode atau memaksimalkan jendela.
     
     #### `win.isFullScreenable()`
     
@@ -715,7 +715,7 @@ win.loadURL('https://github.com')
     
     * `closable` Boolean
     
-    Sets whether the window can be manually closed by user. On Linux does nothing.
+    Menetapkan apakah jendela dapat ditutup secara manual oleh pengguna. Di Linux tidak melakukan apapun.
     
     #### `win.isClosable()` *macOS* *Windows*
     
@@ -729,7 +729,7 @@ win.loadURL('https://github.com')
     * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
     * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
     
-    Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+    Menetapkan apakah jendela harus selalu tampil di atas jendela lain. Setelah pengaturan ini, jendela masih merupakan jendela normal, bukan jendela toolbox yang tidak bisa difokuskan.
     
     #### `win.isAlwaysOnTop()`
     
@@ -737,7 +737,7 @@ win.loadURL('https://github.com')
     
     #### `win.center()`
     
-    Moves window to the center of the screen.
+    Memindahkan jendela ke bagian tengah layar.
     
     #### `win.setPosition(x, y[, animate])`
     
@@ -782,7 +782,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+Mulai atau berhenti berkedip kedip jendela untuk menarik perhatian pengguna.
 
 #### `win.setSkipTaskbar(skip)`
 
@@ -827,7 +827,7 @@ Unhook the window message.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Lepaskan semua pesan di jendela.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
@@ -935,7 +935,7 @@ Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to conv
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Menetapkan apakah jendela harus memiliki bayangan. Pada Windows dan Linux tidak melakukan apapun.
 
 #### `win.hasShadow()` *macOS*
 
@@ -951,7 +951,7 @@ Returns `Boolean` - Whether the buttons were added successfully
 
 Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena terbatasnya ruang. Setelah Anda menyiapkan toolbar thumbnail, toolbar tidak dapat dihapus karena keterbatasan platform. Tapi Anda bisa memanggil API dengan array kosong untuk membersihkan tombol.
 
 The `buttons` is an array of `Button` objects:
 
@@ -988,13 +988,13 @@ The `buttons` is an array of `Button` objects:
     #### `win.setAppDetails(options)` *Windows*
     
     * `pilihan` Obyek 
-      * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
+      * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Itu harus diatur, jika tidak pilihan lain tidak akan berpengaruh.
       * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
       * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
       * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
       * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
     
-    Sets the properties for the window's taskbar button.
+    Mengatur properti untuk tombol taskbar jendela.
     
     **Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
     
