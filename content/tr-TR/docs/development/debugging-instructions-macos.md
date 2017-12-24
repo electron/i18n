@@ -1,4 +1,4 @@
-# Debugging on macOS
+# macOs'da Hata Ayıklama
 
 Electron'un kendisinden kaynaklanmadığını düşündüğünüz sizin JavaScript uygulamanızdan kaynaklandığını düşündüğünüz hatalarla karşılaşabilirsiniz fakat buna Electron sebep olmaktadır, hata ayıklama biraz can sıkıcı olabilir, özellikle yerel / C ++ için kullanılmayan geliştiriciler için hata ayıklama biraz zor olabilir. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
 
@@ -34,7 +34,7 @@ Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_
 Then, start Electron:
 
 ```sh
-(lldb) run
+(lldb) Çalıştır
 ```
 
 The app will immediately be paused, since Electron sets the app's name on launch:
