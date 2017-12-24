@@ -12,7 +12,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `change` Function (optional) - Function to call when a color is selected. 
     * `color` String - The color that the user selected from the picker
 
-### Instance Properties
+### Propiedades de Instancia
 
 The following properties are available on instances of `TouchBarColorPicker`:
 
