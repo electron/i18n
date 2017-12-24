@@ -600,7 +600,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Booleano (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
@@ -611,21 +611,21 @@ Devuelve [`Rectángulo`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Booleano (optional) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Devuelve [`Rectángulo`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
-* `width` Integer
-* `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `ancho` Íntegro
+* `alto` Íntegro
+* `animate` Booleano (optional) *macOS*
 
-Resizes the window to `width` and `height`.
+Cambia el tamaño de la ventana a `ancho` y `altura`.
 
 #### `win.getSize()`
 
@@ -633,9 +633,9 @@ Returns `Integer[]` - Contains the window's width and height.
 
 #### `win.setContentSize(width, height[, animate])`
 
-* `width` Integer
-* `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `ancho` Íntegro
+* `alto` Íntegro
+* `animate` Booleano (optional) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -645,8 +645,8 @@ Returns `Integer[]` - Contains the window's client area's width and height.
 
 #### `win.setMinimumSize(width, height)`
 
-* `width` Integer
-* `height` Integer
+* `ancho` Íntegro
+* `alto` Íntegro
 
 Sets the minimum size of window to `width` and `height`.
 
@@ -656,8 +656,8 @@ Returns `Integer[]` - Contains the window's minimum width and height.
 
 #### `win.setMaximumSize(width, height)`
 
-* `width` Integer
-* `height` Integer
+* `ancho` Íntegro
+* `alto` Íntegro
 
 Sets the maximum size of window to `width` and `height`.
 
@@ -667,7 +667,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 #### `win.setResizable(resizable)`
 
-* `resizable` Boolean
+* `resizable` Booleano
 
 Sets whether the window can be manually resized by user.
 
@@ -677,7 +677,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
-* `movable` Boolean
+* `movable` Booleano
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
@@ -753,7 +753,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Booleano (optional) *macOS*
 
 Moves window to `x` and `y`.
 
