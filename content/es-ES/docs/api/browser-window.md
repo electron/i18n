@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### Noticias de plataforma
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -409,7 +409,7 @@ Returns `BrowserWindow` - The window that owns the given `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Íntegro
 
 Returns `BrowserWindow` - The window with the given `id`.
 
