@@ -1,12 +1,12 @@
 # remot
 
-> Use main process modules from the renderer process.
+> Gunakan modul proses utama dari proses renderer.
 
-Proses:  Renderer </ 0></p> 
+Proses: [Renderer](../glossary.md#renderer-process)
 
-The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
+The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
@@ -14,11 +14,11 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** Untuk kebalikannya (akses proses renderer dari proses utama), Kamu dapat memakai [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
-## Remote Objects
+## Objek Jarak Jauh
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Setiap objek (termasuk fungsi) dikembalikan oleh `remote` modul mewakili sebuah Objek dalam proses utama (kita menyebutnya remote object atau remote function). Saat Anda memanggil metode objek jarak jauh, panggil fungsi remote, atau buat Sebuah objek baru dengan konstruktor jarak jauh (fungsi), sebenarnya Anda mengirim pesan inter-proses sinkron.
 
 In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
@@ -26,7 +26,7 @@ In the example above, both `BrowserWindow` and `win` were remote objects and `ne
 
 **Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
 
-## Lifetime of Remote Objects
+## Lifetime dari Remote Objects
 
 Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
