@@ -372,21 +372,21 @@ app.exit(0)
 * `name` String
 * `path` String
 
-Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. Якщо шлях визначає директорію, яка не існує, то метод її створить. On failure an `Error` is thrown.
+Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. Якщо шлях визначає директорію, яка не існує, то метод її створить. При невдачі викидається `Error`.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Ви можете перевизначати шляхи `name` визначені в `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+За замовчуванням, кукі веб-сторінки та кеші будуть збережені під директорією `userData`. Якщо ви хочете змінити це місце, ви маєте перевизначити шлях `userData` перед тим як модуль `app` викличе подію `ready`.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Повертає `String` - Версія запущеного застосунку. Якщо версії не знайдено в файлі `package.json`, повертається версія поточного пакету чи виконуваного файлу.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Повертає `String` - Назва поточного застосунку, що є назвою в файлі `package.json`.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Зазвичай поле `name` `package.json` є короткою назвою в нижньому регістрі, відповідно до специфікації модулів npm. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 ### `app.setName(name)`
 
