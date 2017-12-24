@@ -17,7 +17,7 @@ Chromium oldukça büyük bir proje olduğu için son bağlama aşaması ilerlem
 
 In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
-## Minimal Bootstrapping
+## Kısa Ön yükleme
 
 All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
 
@@ -53,7 +53,7 @@ $ npm run lint
 Test functionality using:
 
 ```sh
-$ npm test
+$ npm testi
 ```
 
 Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
@@ -81,5 +81,5 @@ Tests that include native modules (e.g. `runas`) can't be executed with the debu
 To run the tests with the release build use:
 
 ```sh
-$ npm test -- -R
+$ npm testi -- -R
 ```
