@@ -177,14 +177,14 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
         * `standar` String (opsional) - Default ke `Times New Roman`.
         * `serif` String (opsional) - Default ke `Times New Roman`.
         * `sansSerif` String (opsional) - Default ke `Arial`.
-        * `monospace` String (optional) - Defaults to `Courier New`.
-        * `cursive` String (optional) - Defaults to `Script`.
-        * `fantasy` String (optional) - Defaults to `Impact`.
-      * `defaultFontSize` Integer (optional) - Defaults to `16`.
-      * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-      * `minimumFontSize` Integer (optional) - Defaults to ``.
-      * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-      * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the \[Page Visibility API\]\[#page-visibility\]. Defaults to `true`.
+        * `monospace` String (opsional) - Default ke `Kurir Baru`.
+        * `cursive` String (opsional) - Default ke `Script`.
+        * `fantasy` String (opsional) - Default ke `Impact`.
+      * `defaultFontSize` Integer (opsional) - Default ke `16`.
+      * `defaultMonospaceFontSize` Integer (opsional) - Default ke `13`.
+      * `minimumFontSize` Integer (opsional) - Default ke ``.
+      * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
+      * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. Hal ini juga mempengaruhi \[API Visibilitas Laman\]\[#page-visibility\]. Defaults to `true`.
       * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
       * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
       * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
@@ -249,9 +249,9 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Acara: 'responsif'
 
-Emitted when the unresponsive web page becomes responsive again.
+Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
 
 #### Event: 'blur'
 
