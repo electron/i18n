@@ -2,29 +2,28 @@
 
 > Tip untuk memasang Elektron
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Untuk memasang binari elektron prebuilt , gunakan ` npm </ 0> . Metode yang disukai adalah menginstal Elektron sebagai ketergantungan pengembangan di aplikasi Anda:</p>
 
-```sh
-npm menginstal elektron - menyimpan-dev
-```
+<pre><code class="sh">npm menginstal elektron - menyimpan-dev
+`</pre> 
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Lihat  Dokumentasi versi elektron </ 0> untuk info tentang cara mengelola versi Elektron di aplikasi Anda. </p> 
 
 ## Instalasi global
 
-You can also install the `electron` command globally in your `$PATH`:
+Anda juga dapat menginstal perintah ` elektron </ 0> secara global di <code> $ PATH </ 0> Anda :</p>
 
-```sh
-npm install electron -g
-```
+<pre><code class="sh">npm memasang elektron -g
+`</pre> 
 
-## Customization
+## Kustomisasi
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Jika Anda ingin mengubah arsitektur yang diunduh (misalnya ` ia32 </ 0> pada mesin
+ <code> x64 </ 0> ), Anda dapat menggunakan flag < 0> --arch </ 0> dengan npm pasang atau setel
+ variabel lingkungan <code> npm _config_arch </ 0> :</p>
 
-```shell
-npm install --arch=ia32 electron
-```
+<pre><code class="shell">npm install --arch=ia32 electron
+`</pre> 
 
 In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
 
@@ -34,7 +33,7 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+Jika Anda perlu menggunakan proxy HTTP, Anda dapat  menetapkan variabel lingkungan ini </ 0> .</p> 
 
 ## Penyelesaian masalah
 
