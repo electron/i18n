@@ -186,51 +186,58 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
       * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. Hal ini juga mempengaruhi \[API Visibilitas Laman\]\[#page-visibility\]. Defaults to `true`.
       * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
-      * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip ` preload </ 0> dan setiap API Elektron yang digunakan.
+      * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. Konteks script ` preload </ 0> berjalan masih akan memiliki akses penuh ke jendela <code> document </ 0> dan <code> window </ 0> namun akan menggunakan set sendiri JavaScript builtins ( <code> Array </ 0> , <code> Objek </ 0> , <code> JSON </ 0> , dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron  API hanya akan tersedia di
+ <code> preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
 Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol. <strong> Catatan: </ 0> Ini pilihan saat ini eksperimental dan dapat berubah atau dihapus di masa Elektron rilis.</li>
 <li><code> nativeWindowOpen </ 0>  Boolean (opsional) - Apakah akan menggunakan native
  <code> window.open () </ 0> . Default ke <code> false </ 0> .  <strong> Catatan: </ 1> Ini pilihan saat eksperimental.</li>
 <li><code> webviewTag </ 0>  Boolean (opsional) - Apakah untuk mengaktifkan <a href="webview-tag.md"> <code><webview>` tag </ 1> . Default untuk nilai ` nodeIntegration ` option . ** Catatan: </ 0> The ` preload </ 1> Script dikonfigurasi untuk <code><webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan <2 > tag dengan script ` preload </ 1> yang mungkin berbahaya 
-. You can use the <code>will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.</li> </ul></li> </ul></li> </ul> 
+. Anda dapat menggunakan <code> akan melampirkan tampilan web </ 0>  acara di <a href="web-contents.md"> webContents </ 1> 
+untuk mengupas dengan <code> preload </ 0> naskah dan untuk memvalidasi atau mengubah
+ <code><webview>` 's pengaturan awal</li> </ul></li> </ul></li> </ul> 
         
-        When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+        When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds </ 0> / <code> setSize </ 0> atau ke konstruktor <code> BrowserWindow </ 0> .</p>
+
+<p>Kemungkinan nilai dan perilaku dari <code> jenis </ 0>  option yang tergantung platform. Nilai yang mungkin adalah:</p>
+
+<ul>
+<li>Di Linux, jenis yang mungkin adalah <code> desktop </ 0> , <code> dermaga </ 0> , <code> toolbar </ 0> , <code> splash </ 0> ,
+ <code> notifikasi </ 0> .</li>
+<li>Di macos , jenis yang mungkin ada <code>Desktop`, `bertekstur`. 
         
-        The possible values and behaviors of the `type` option are platform dependent. Possible values are:
-        
-        * On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-        * On macOS, possible types are `desktop`, `textured`. 
-          * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-          * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-        * On Windows, possible type is `toolbar`.
-        
-        ### Instance Events
-        
-        Objects created with `new BrowserWindow` emit the following events:
-        
-        **Note:** Some events are only available on specific operating systems and are labeled as such.
-        
-        #### Event: 'page-title-updated'
-        
-        Pengembalian:
-        
-        * ` event </ 0>  Acara</li>
+        * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
+        * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Perhatikan bahwa jendela desktop tidak akan menerima acara fokus, keyboard atau mouse, namun Anda dapat menggunakan ` globalShortcut </ 0> untuk menerima masukan secara hemat.</li>
+</ul></li>
+<li>Pada Windows , jenis yang mungkin adalah <code> toolbar </ 0> .</li>
+</ul>
+
+<h3>Instance Events</h3>
+
+<p>Objects created with <code>new BrowserWindow` emit the following events:</p> 
+          **Note:** Some events are only available on specific operating systems and are labeled as such.
+          
+          #### Event: 'page-title-updated'
+          
+          Pengembalian:
+          
+          * ` event </ 0>  Acara</li>
 <li><code>title` String
-        
-        Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
-        
-        #### Event: 'close'
-        
-        Pengembalian:
-        
-        * ` event </ 0>  Acara</li>
+          
+          Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+          
+          #### Event: 'close'
+          
+          Pengembalian:
+          
+          * ` event </ 0>  Acara</li>
 </ul>
 
 <p>Emitted when the window is going to be closed. It's emitted before the
 <code>beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.</p> 
-          Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
-          
-          ```javascript
+            Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+            
+            ```javascript
 window.onbeforeunload = (e) => {
   console.log('I do not want to be closed')
 
@@ -241,101 +248,101 @@ window.onbeforeunload = (e) => {
   e.returnValue = false
 }
 ```
-      
-      #### Event: 'closed'
-      
-      Emitted saat jendela tertutup. Setelah menerima acara ini, Anda harus menghapus referensi ke jendela dan tidak menggunakannya lagi.
-      
-      #### Event: 'session-end' *Windows*
-      
-      Emitted when window session is going to end due to force shutdown or machine restart or session log off.
-      
-      #### Event: 'unresponsive'
-      
-      Emitted saat halaman web menjadi tidak responsif.
-      
-      #### Acara: 'responsif'
-      
-      Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
-      
-      #### Acara: 'blur'
-      
-      Emitted saat jendela kehilangan fokus.
-      
-      #### Acara: 'fokus'
-      
-      Emitted saat window gain fokus.
-      
-      #### Acara: 'show'
-      
-      Emitted saat jendela ditunjukkan.
-      
-      #### Acara: 'sembunyikan'
-      
-      Emitted saat jendela tersembunyi.
-      
-      #### Acara: 'siap tampil'
-      
-      Emitted ketika halaman web telah diberikan (sementara tidak ditampilkan) dan jendela dapat ditampilkan tanpa lampu kilat visual.
-      
-      #### Acara: 'maksimalkan'
-      
-      Emitted saat jendela dimaksimalkan.
-      
-      #### Event: 'unmaximize'
-      
-      Emitted saat jendela keluar dari keadaan maksimal.
-      
-      #### Event: 'minimize'
-      
-      Emitted saat jendela diminimalkan.
-      
-      #### Event: 'restore'
-      
-      Emitted saat jendela dipulihkan dari keadaan diminimalkan.
-      
-      #### Event: 'resize'
-      
-      Dipancarkan saat jendela diubah ukurannya.
-      
-      #### Event: 'move'
-      
-      Emitted saat jendela sedang dipindahkan ke posisi baru.
-      
-      **Note**: On macOS this event is just an alias of `moved`.
-      
-      #### Event: 'moved' *macOS*
-      
-      Emitted sekali saat jendela dipindahkan ke posisi baru.
-      
-      #### Event: 'enter-full-screen'
-      
-      Emitted saat jendela memasuki keadaan layar penuh.
-      
-      #### Event: 'leave-full-screen'
-      
-      Emitted saat jendela meninggalkan keadaan layar-penuh.
-      
-      #### Event: 'enter-html-full-screen'
-      
-      Emitted saat jendela memasuki status layar-penuh yang dipicu oleh HTML API.
-      
-      #### Event: 'leave-html-full-screen'
-      
-      Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
-      
-      #### Event: 'app-command' *Windows*
-      
-      Pengembalian:
-      
-      * ` event </ 0>  Acara</li>
+        
+        #### Event: 'closed'
+        
+        Emitted saat jendela tertutup. Setelah menerima acara ini, Anda harus menghapus referensi ke jendela dan tidak menggunakannya lagi.
+        
+        #### Event: 'session-end' *Windows*
+        
+        Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+        
+        #### Event: 'unresponsive'
+        
+        Emitted saat halaman web menjadi tidak responsif.
+        
+        #### Acara: 'responsif'
+        
+        Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
+        
+        #### Acara: 'blur'
+        
+        Emitted saat jendela kehilangan fokus.
+        
+        #### Acara: 'fokus'
+        
+        Emitted saat window gain fokus.
+        
+        #### Acara: 'show'
+        
+        Emitted saat jendela ditunjukkan.
+        
+        #### Acara: 'sembunyikan'
+        
+        Emitted saat jendela tersembunyi.
+        
+        #### Acara: 'siap tampil'
+        
+        Emitted ketika halaman web telah diberikan (sementara tidak ditampilkan) dan jendela dapat ditampilkan tanpa lampu kilat visual.
+        
+        #### Acara: 'maksimalkan'
+        
+        Emitted saat jendela dimaksimalkan.
+        
+        #### Event: 'unmaximize'
+        
+        Emitted saat jendela keluar dari keadaan maksimal.
+        
+        #### Event: 'minimize'
+        
+        Emitted saat jendela diminimalkan.
+        
+        #### Event: 'restore'
+        
+        Emitted saat jendela dipulihkan dari keadaan diminimalkan.
+        
+        #### Event: 'resize'
+        
+        Dipancarkan saat jendela diubah ukurannya.
+        
+        #### Event: 'move'
+        
+        Emitted saat jendela sedang dipindahkan ke posisi baru.
+        
+        **Note**: On macOS this event is just an alias of `moved`.
+        
+        #### Event: 'moved' *macOS*
+        
+        Emitted sekali saat jendela dipindahkan ke posisi baru.
+        
+        #### Event: 'enter-full-screen'
+        
+        Emitted saat jendela memasuki keadaan layar penuh.
+        
+        #### Event: 'leave-full-screen'
+        
+        Emitted saat jendela meninggalkan keadaan layar-penuh.
+        
+        #### Event: 'enter-html-full-screen'
+        
+        Emitted saat jendela memasuki status layar-penuh yang dipicu oleh HTML API.
+        
+        #### Event: 'leave-html-full-screen'
+        
+        Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
+        
+        #### Event: 'app-command' *Windows*
+        
+        Pengembalian:
+        
+        * ` event </ 0>  Acara</li>
 <li><code>command` String
-      
-      Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
-      
-      Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
-      
-      ```javascript
+        
+        Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+        
+        Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+        
+        ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
@@ -345,540 +352,540 @@ win.on('app-command', (e, cmd) => {
   }
 })
 ```
-  
-  #### Event: 'scroll-touch-begin' *macOS*
-  
-  Emitted saat scroll wheel event phase sudah dimulai.
-  
-  #### Event: 'scroll-touch-end' *macOS*
-  
-  Emitted saat scroll wheel event phase sudah berakhir.
-  
-  #### Event: 'scroll-touch-edge' *macOS*
-  
-  Emitted saat menggulirkan event wheel drive yang diajukan saat mencapai tepi elemen.
-  
-  #### Event: 'swipe' *macOS*
-  
-  Pengembalian:
-  
-  * ` event </ 0>  Acara</li>
+    
+    #### Event: 'scroll-touch-begin' *macOS*
+    
+    Emitted saat scroll wheel event phase sudah dimulai.
+    
+    #### Event: 'scroll-touch-end' *macOS*
+    
+    Emitted saat scroll wheel event phase sudah berakhir.
+    
+    #### Event: 'scroll-touch-edge' *macOS*
+    
+    Emitted saat menggulirkan event wheel drive yang diajukan saat mencapai tepi elemen.
+    
+    #### Event: 'swipe' *macOS*
+    
+    Pengembalian:
+    
+    * ` event </ 0>  Acara</li>
 <li><code>direction` String
-  
-  Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
-  
-  #### Event: 'sheet-begin' *macOS*
-  
-  Emitted saat jendela membuka selembar kertas.
-  
-  #### Event: 'sheet-end' *macOS*
-  
-  Emitted ketika jendela telah ditutup lembar.
-  
-  #### Event : 'new-window-for-tab' * macOS </ 0></h4> 
-  
-  Emitted ketika tombol tab asli baru diklik.
-  
-  ### Metode Statis
-  
-  The `BrowserWindow` class has the following static methods:
-  
-  #### `BrowserWindow.getAllWindows()`
-  
-  Returns `BrowserWindow[]` - An array of all opened browser windows.
-  
-  #### `BrowserWindow.getFocusedWindow()`
-  
-  Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
-  
-  #### `BrowserWindow.fromWebContents(webContents)`
-  
-  * ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
+    
+    Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+    
+    #### Event: 'sheet-begin' *macOS*
+    
+    Emitted saat jendela membuka selembar kertas.
+    
+    #### Event: 'sheet-end' *macOS*
+    
+    Emitted ketika jendela telah ditutup lembar.
+    
+    #### Event : 'new-window-for-tab' * macOS </ 0></h4> 
+    
+    Emitted ketika tombol tab asli baru diklik.
+    
+    ### Metode Statis
+    
+    The `BrowserWindow` class has the following static methods:
+    
+    #### `BrowserWindow.getAllWindows()`
+    
+    Returns `BrowserWindow[]` - An array of all opened browser windows.
+    
+    #### `BrowserWindow.getFocusedWindow()`
+    
+    Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+    
+    #### `BrowserWindow.fromWebContents(webContents)`
+    
+    * ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
 </ul>
 
 <p>Returns <code>BrowserWindow` - The window that owns the given `webContents`.</p> 
-    #### `BrowserWindow.fromId(id)`
-    
-    * `id` Integer
-    
-    Returns `BrowserWindow` - The window with the given `id`.
-    
-    #### `BrowserWindow.addExtension(path)`
-    
-    * ` path </ 0>  String</li>
+      #### `BrowserWindow.fromId(id)`
+      
+      * `id` Integer
+      
+      Returns `BrowserWindow` - The window with the given `id`.
+      
+      #### `BrowserWindow.addExtension(path)`
+      
+      * ` path </ 0>  String</li>
 </ul>
 
 <p>Adds Chrome extension located at <code>path`, and returns extension's name.</p> 
-      Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-      
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-      
-      #### `BrowserWindow.removeExtension(name)`
-      
-      * ` nama </ 0>  String</li>
+        Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+        
+        **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+        
+        #### `BrowserWindow.removeExtension(name)`
+        
+        * ` nama </ 0>  String</li>
 </ul>
 
 <p>Hapus ekstensi Chrome dengan nama.</p>
 
 <p><strong>Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
-        #### `BrowserWindow.getExtensions()`
-        
-        Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
-        
-        **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-        
-        #### `BrowserWindow.addDevToolsExtension(path)`
-        
-        * ` path </ 0>  String</li>
-</ul>
-
-<p>Adds DevTools extension located at <code>path`, and returns extension's name.</p> 
-          Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
+          #### `BrowserWindow.getExtensions()`
           
-          Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+          Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
           
           **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
           
-          #### `BrowserWindow.removeDevToolsExtension(name)`
+          #### `BrowserWindow.addDevToolsExtension(path)`
           
-          * ` nama </ 0>  String</li>
+          * ` path </ 0>  String</li>
+</ul>
+
+<p>Adds DevTools extension located at <code>path`, and returns extension's name.</p> 
+            Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
+            
+            Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+            
+            **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+            
+            #### `BrowserWindow.removeDevToolsExtension(name)`
+            
+            * ` nama </ 0>  String</li>
 </ul>
 
 <p>Remove a DevTools extension by name.</p>
 
 <p><strong>Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
-            #### `BrowserWindow.getDevToolsExtensions()`
-            
-            Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
-            
-            To check if a DevTools extension is installed you can run the following:
-            
-            ```javascript
+              #### `BrowserWindow.getDevToolsExtensions()`
+              
+              Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+              
+              To check if a DevTools extension is installed you can run the following:
+              
+              ```javascript
 const {BrowserWindow} = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
-        
-        **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-        
-        ### Instance Properties
-        
-        Objects created with `new BrowserWindow` have the following properties:
-        
-        ```javascript
+          
+          **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+          
+          ### Instance Properties
+          
+          Objects created with `new BrowserWindow` have the following properties:
+          
+          ```javascript
 const {BrowserWindow} = require('electron')
 // In this example `win` is our instance
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
-    
-    #### `win.webContents`
-    
-    A `WebContents` object this window owns. All web page related events and operations will be done via it.
-    
-    See the [`webContents` documentation](web-contents.md) for its methods and events.
-    
-    #### `win.id`
-    
-    A `Integer` representing the unique ID of the window.
-    
-    ### Metode Instance
-    
-    Objects created with `new BrowserWindow` have the following instance methods:
-    
-    ** Catatan: </ 0> Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p> 
-    
-    #### `win.destroy()`
-    
-    Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
-    
-    #### `win.close ()`
-    
-    Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
-    
-    #### `win.focus ()`
-    
-    Berfokus pada jendela.
-    
-    #### `win.blur ()`
-    
-    Berfokus pada jendela.
-    
-    #### `win.isFocused()`
-    
-    Returns `Boolean` - Whether the window is focused.
-    
-    #### `win.isDestroyed()`
-    
-    Returns `Boolean` - Whether the window is destroyed.
-    
-    #### `win.show()`
-    
-    Shows and gives focus to the window.
-    
-    #### `win.showInactive()`
-    
-    Shows the window but doesn't focus on it.
-    
-    #### `win.hide()`
-    
-    Sembunyikan jendela.
-    
-    #### `win.isVisible()`
-    
-    Returns `Boolean` - Whether the window is visible to the user.
-    
-    #### `win.isModal()`
-    
-    Returns `Boolean` - Whether current window is a modal window.
-    
-    #### `win.maximize()`
-    
-    Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
-    
-    #### `win.unmaximize()`
-    
-    Unmaximizes the window.
-    
-    #### `win.isMaximized()`
-    
-    Returns `Boolean` - Whether the window is maximized.
-    
-    #### `win.minimize()`
-    
-    Minimizes the window. On some platforms the minimized window will be shown in the Dock.
-    
-    #### `win.restore()`
-    
-    Mengembalikan jendela dari keadaan diminimalkan ke keadaan sebelumnya.
-    
-    #### `win.isMinimized()`
-    
-    Returns `Boolean` - Whether the window is minimized.
-    
-    #### `win.setFullScreen(flag)`
-    
-    * `flag` Boolean
-    
-    Menetapkan apakah jendela harus dalam mode fullscreen.
-    
-    #### `win.isFullScreen()`
-    
-    Returns `Boolean` - Whether the window is in fullscreen mode.
-    
-    #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
-    
-    * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-    * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
-    
-    Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengembang memiliki ruang, ditentukan dalam piksel, tidak termasuk dalam perhitungan rasio aspek. API ini sudah memperhitungkan perbedaan antara ukuran jendela dan ukuran isinya.
-    
-    Pertimbangkan jendela normal dengan pemutar video HD dan kontrol yang terkait. Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Tentukan area lebar dan tinggi ekstra yang Anda miliki dalam keseluruhan tampilan konten.
-    
-    #### `win.previewFile(path[, displayName])` *macOS*
-    
-    * `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-    * `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
-    
-    Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
-    
-    #### `win.closeFilePreview()` *macOS*
-    
-    Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
-    
-    #### `win.setBounds(bounds[, animate])`
-    
-    * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+      
+      #### `win.webContents`
+      
+      A `WebContents` object this window owns. All web page related events and operations will be done via it.
+      
+      See the [`webContents` documentation](web-contents.md) for its methods and events.
+      
+      #### `win.id`
+      
+      A `Integer` representing the unique ID of the window.
+      
+      ### Metode Instance
+      
+      Objects created with `new BrowserWindow` have the following instance methods:
+      
+      ** Catatan: </ 0> Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p> 
+      
+      #### `win.destroy()`
+      
+      Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+      
+      #### `win.close ()`
+      
+      Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+      
+      #### `win.focus ()`
+      
+      Berfokus pada jendela.
+      
+      #### `win.blur ()`
+      
+      Berfokus pada jendela.
+      
+      #### `win.isFocused()`
+      
+      Returns `Boolean` - Whether the window is focused.
+      
+      #### `win.isDestroyed()`
+      
+      Returns `Boolean` - Whether the window is destroyed.
+      
+      #### `win.show()`
+      
+      Shows and gives focus to the window.
+      
+      #### `win.showInactive()`
+      
+      Shows the window but doesn't focus on it.
+      
+      #### `win.hide()`
+      
+      Sembunyikan jendela.
+      
+      #### `win.isVisible()`
+      
+      Returns `Boolean` - Whether the window is visible to the user.
+      
+      #### `win.isModal()`
+      
+      Returns `Boolean` - Whether current window is a modal window.
+      
+      #### `win.maximize()`
+      
+      Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+      
+      #### `win.unmaximize()`
+      
+      Unmaximizes the window.
+      
+      #### `win.isMaximized()`
+      
+      Returns `Boolean` - Whether the window is maximized.
+      
+      #### `win.minimize()`
+      
+      Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+      
+      #### `win.restore()`
+      
+      Mengembalikan jendela dari keadaan diminimalkan ke keadaan sebelumnya.
+      
+      #### `win.isMinimized()`
+      
+      Returns `Boolean` - Whether the window is minimized.
+      
+      #### `win.setFullScreen(flag)`
+      
+      * `flag` Boolean
+      
+      Menetapkan apakah jendela harus dalam mode fullscreen.
+      
+      #### `win.isFullScreen()`
+      
+      Returns `Boolean` - Whether the window is in fullscreen mode.
+      
+      #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
+      
+      * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
+      * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+      
+      Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengembang memiliki ruang, ditentukan dalam piksel, tidak termasuk dalam perhitungan rasio aspek. API ini sudah memperhitungkan perbedaan antara ukuran jendela dan ukuran isinya.
+      
+      Pertimbangkan jendela normal dengan pemutar video HD dan kontrol yang terkait. Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Tentukan area lebar dan tinggi ekstra yang Anda miliki dalam keseluruhan tampilan konten.
+      
+      #### `win.previewFile(path[, displayName])` *macOS*
+      
+      * `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
+      * `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+      
+      Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+      
+      #### `win.closeFilePreview()` *macOS*
+      
+      Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+      
+      #### `win.setBounds(bounds[, animate])`
+      
+      * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
 <li><code>animate` Boolean (optional) *macOS*
-    
-    Resizes and moves the window to the supplied bounds
-    
-    #### `win.getBounds()`
-    
-    Returns [`Rectangle`](structures/rectangle.md)
-    
-    #### `win.setContentBounds(bounds[, animate])`
-    
-    * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
+      
+      Resizes and moves the window to the supplied bounds
+      
+      #### `win.getBounds()`
+      
+      Returns [`Rectangle`](structures/rectangle.md)
+      
+      #### `win.setContentBounds(bounds[, animate])`
+      
+      * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
 <li><code>animate` Boolean (optional) *macOS*
-    
-    Mengubah ukuran dan memindahkan area klien jendela (misalnya halaman web) ke batas yang tersedia.
-    
-    #### `win.getContentBounds()`
-    
-    Returns [`Rectangle`](structures/rectangle.md)
-    
-    #### `win.setSize(width, height[, animate])`
-    
-    * `width` Integer
-    * `height` Integer
-    * `animate` Boolean (optional) *macOS*
-    
-    Resizes the window to `width` and `height`.
-    
-    #### `win.getSize()`
-    
-    Returns `Integer[]` - Contains the window's width and height.
-    
-    #### `win.setContentSize(width, height[, animate])`
-    
-    * `width` Integer
-    * `height` Integer
-    * `animate` Boolean (optional) *macOS*
-    
-    Resizes the window's client area (e.g. the web page) to `width` and `height`.
-    
-    #### `win.getContentSize()`
-    
-    Returns `Integer[]` - Contains the window's client area's width and height.
-    
-    #### `win.setMinimumSize(width, height)`
-    
-    * `width` Integer
-    * `height` Integer
-    
-    Sets the minimum size of window to `width` and `height`.
-    
-    #### `win.getMinimumSize()`
-    
-    Returns `Integer[]` - Contains the window's minimum width and height.
-    
-    #### `win.setMaximumSize(width, height)`
-    
-    * `width` Integer
-    * `height` Integer
-    
-    Sets the maximum size of window to `width` and `height`.
-    
-    #### `win.getMaximumSize()`
-    
-    Returns `Integer[]` - Contains the window's maximum width and height.
-    
-    #### `win.setResizable(resizable)`
-    
-    * `resizable` Boolean
-    
-    Menetapkan apakah jendela dapat diubah ukurannya secara manual oleh pengguna.
-    
-    #### `win.isResizable()`
-    
-    Returns `Boolean` - Whether the window can be manually resized by user.
-    
-    #### `win.setMovable(movable)` *macOS* *Windows*
-    
-    * `movable` Boolean
-    
-    Menetapkan apakah jendela dapat dipindahkan oleh pengguna. Di Linux tidak melakukan apapun.
-    
-    #### `win.isMovable()` *macOS* *Windows*
-    
-    Returns `Boolean` - Whether the window can be moved by user.
-    
-    On Linux always returns `true`.
-    
-    #### `win.setMinimizable(minimizable)` *macOS* *Windows*
-    
-    * `minimizable` Boolean
-    
-    Sets whether the window can be manually minimized by user. On Linux does nothing.
-    
-    #### `win.isMinimizable()` *macOS* *Windows*
-    
-    Returns `Boolean` - Whether the window can be manually minimized by user
-    
-    On Linux always returns `true`.
-    
-    #### `win.setMaximizable(maximizable)` *macOS* *Windows*
-    
-    * `maximizable` Boolean
-    
-    Sets whether the window can be manually maximized by user. On Linux does nothing.
-    
-    #### `win.isMaximizable()` *macOS* *Windows*
-    
-    Returns `Boolean` - Whether the window can be manually maximized by user.
-    
-    On Linux always returns `true`.
-    
-    #### `win.setFullScreenable(fullscreenable)`
-    
-    * `fullscreenable` Boolean
-    
-    Menetapkan apakah tombol perbesar/zoom window toggles fullscreen mode atau memaksimalkan jendela.
-    
-    #### `win.isFullScreenable()`
-    
-    Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
-    
-    #### `win.setClosable(closable)` *macOS* *Windows*
-    
-    * `closable` Boolean
-    
-    Menetapkan apakah jendela dapat ditutup secara manual oleh pengguna. Di Linux tidak melakukan apapun.
-    
-    #### `win.isClosable()` *macOS* *Windows*
-    
-    Returns `Boolean` - Whether the window can be manually closed by user.
-    
-    On Linux always returns `true`.
-    
-    #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
-    
-    * `flag` Boolean
-    * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-    * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
-    
-    Menetapkan apakah jendela harus selalu tampil di atas jendela lain. Setelah pengaturan ini, jendela masih merupakan jendela normal, bukan jendela toolbox yang tidak bisa difokuskan.
-    
-    #### `win.isAlwaysOnTop()`
-    
-    Returns `Boolean` - Whether the window is always on top of other windows.
-    
-    #### `win.center()`
-    
-    Memindahkan jendela ke bagian tengah layar.
-    
-    #### `win.setPosition(x, y[, animate])`
-    
-    * `x` Integer
-    * `y` Integer
-    * `animate` Boolean (optional) *macOS*
-    
-    Moves window to `x` and `y`.
-    
-    #### `win.getPosition()`
-    
-    Returns `Integer[]` - Contains the window's current position.
-    
-    #### `win.setTitle(title)`
-    
-    * `title` String
-    
-    Changes the title of native window to `title`.
-    
-    #### `win.getTitle()`
-    
-    Returns `String` - The title of the native window.
-    
-    **Note:** The title of web page can be different from the title of the native window.
-    
-    #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
-    
-    * `offsetY` Float
-    * `offsetX` Float (optional)
-    
-    Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
-    
-    ```javascript
+      
+      Mengubah ukuran dan memindahkan area klien jendela (misalnya halaman web) ke batas yang tersedia.
+      
+      #### `win.getContentBounds()`
+      
+      Returns [`Rectangle`](structures/rectangle.md)
+      
+      #### `win.setSize(width, height[, animate])`
+      
+      * `width` Integer
+      * `height` Integer
+      * `animate` Boolean (optional) *macOS*
+      
+      Resizes the window to `width` and `height`.
+      
+      #### `win.getSize()`
+      
+      Returns `Integer[]` - Contains the window's width and height.
+      
+      #### `win.setContentSize(width, height[, animate])`
+      
+      * `width` Integer
+      * `height` Integer
+      * `animate` Boolean (optional) *macOS*
+      
+      Resizes the window's client area (e.g. the web page) to `width` and `height`.
+      
+      #### `win.getContentSize()`
+      
+      Returns `Integer[]` - Contains the window's client area's width and height.
+      
+      #### `win.setMinimumSize(width, height)`
+      
+      * `width` Integer
+      * `height` Integer
+      
+      Sets the minimum size of window to `width` and `height`.
+      
+      #### `win.getMinimumSize()`
+      
+      Returns `Integer[]` - Contains the window's minimum width and height.
+      
+      #### `win.setMaximumSize(width, height)`
+      
+      * `width` Integer
+      * `height` Integer
+      
+      Sets the maximum size of window to `width` and `height`.
+      
+      #### `win.getMaximumSize()`
+      
+      Returns `Integer[]` - Contains the window's maximum width and height.
+      
+      #### `win.setResizable(resizable)`
+      
+      * `resizable` Boolean
+      
+      Menetapkan apakah jendela dapat diubah ukurannya secara manual oleh pengguna.
+      
+      #### `win.isResizable()`
+      
+      Returns `Boolean` - Whether the window can be manually resized by user.
+      
+      #### `win.setMovable(movable)` *macOS* *Windows*
+      
+      * `movable` Boolean
+      
+      Menetapkan apakah jendela dapat dipindahkan oleh pengguna. Di Linux tidak melakukan apapun.
+      
+      #### `win.isMovable()` *macOS* *Windows*
+      
+      Returns `Boolean` - Whether the window can be moved by user.
+      
+      On Linux always returns `true`.
+      
+      #### `win.setMinimizable(minimizable)` *macOS* *Windows*
+      
+      * `minimizable` Boolean
+      
+      Sets whether the window can be manually minimized by user. On Linux does nothing.
+      
+      #### `win.isMinimizable()` *macOS* *Windows*
+      
+      Returns `Boolean` - Whether the window can be manually minimized by user
+      
+      On Linux always returns `true`.
+      
+      #### `win.setMaximizable(maximizable)` *macOS* *Windows*
+      
+      * `maximizable` Boolean
+      
+      Sets whether the window can be manually maximized by user. On Linux does nothing.
+      
+      #### `win.isMaximizable()` *macOS* *Windows*
+      
+      Returns `Boolean` - Whether the window can be manually maximized by user.
+      
+      On Linux always returns `true`.
+      
+      #### `win.setFullScreenable(fullscreenable)`
+      
+      * `fullscreenable` Boolean
+      
+      Menetapkan apakah tombol perbesar/zoom window toggles fullscreen mode atau memaksimalkan jendela.
+      
+      #### `win.isFullScreenable()`
+      
+      Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+      
+      #### `win.setClosable(closable)` *macOS* *Windows*
+      
+      * `closable` Boolean
+      
+      Menetapkan apakah jendela dapat ditutup secara manual oleh pengguna. Di Linux tidak melakukan apapun.
+      
+      #### `win.isClosable()` *macOS* *Windows*
+      
+      Returns `Boolean` - Whether the window can be manually closed by user.
+      
+      On Linux always returns `true`.
+      
+      #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
+      
+      * `flag` Boolean
+      * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
+      * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+      
+      Menetapkan apakah jendela harus selalu tampil di atas jendela lain. Setelah pengaturan ini, jendela masih merupakan jendela normal, bukan jendela toolbox yang tidak bisa difokuskan.
+      
+      #### `win.isAlwaysOnTop()`
+      
+      Returns `Boolean` - Whether the window is always on top of other windows.
+      
+      #### `win.center()`
+      
+      Memindahkan jendela ke bagian tengah layar.
+      
+      #### `win.setPosition(x, y[, animate])`
+      
+      * `x` Integer
+      * `y` Integer
+      * `animate` Boolean (optional) *macOS*
+      
+      Moves window to `x` and `y`.
+      
+      #### `win.getPosition()`
+      
+      Returns `Integer[]` - Contains the window's current position.
+      
+      #### `win.setTitle(title)`
+      
+      * `title` String
+      
+      Changes the title of native window to `title`.
+      
+      #### `win.getTitle()`
+      
+      Returns `String` - The title of the native window.
+      
+      **Note:** The title of web page can be different from the title of the native window.
+      
+      #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+      
+      * `offsetY` Float
+      * `offsetX` Float (optional)
+      
+      Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+      
+      ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
 let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
-
-#### `win.flashFrame(flag)`
-
-* `flag` Boolean
-
-Mulai atau berhenti berkedip kedip jendela untuk menarik perhatian pengguna.
-
-#### `win.setSkipTaskbar(skip)`
-
-* `skip` Boolean
-
-Makes the window not show in the taskbar.
-
-#### `win.setKiosk(flag)`
-
-* `flag` Boolean
-
-Masuk atau keluar dari mode kiosk.
-
-#### `win.isKiosk()`
-
-Returns `Boolean` - Whether the window is in kiosk mode.
-
-#### `win.getNativeWindowHandle()`
-
-Returns `Buffer` - The platform-specific handle of the window.
-
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
-
-#### `win.hookWindowMessage(message, callback)` *Windows*
-
-* `message` Integer
-* `callback ` Fungsi
-
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
-
-#### `win.isWindowMessageHooked(message)` *Windows*
-
-* `message` Integer
-
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
-
-#### `win.unhookWindowMessage(message)` *Windows*
-
-* `message` Integer
-
-Unhook the window message.
-
-#### `win.unhookAllWindowMessages()` *Windows*
-
-Lepaskan semua pesan di jendela.
-
-#### `win.setRepresentedFilename(filename)` *macOS*
-
-* `filename` String
-
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
-
-#### `win.getRepresentedFilename()` *macOS*
-
-Returns `String` - The pathname of the file the window represents.
-
-#### `win.setDocumentEdited(edited)` *macOS*
-
-* `edited` Boolean
-
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
-
-#### `win.isDocumentEdited()` *macOS*
-
-Returns `Boolean` - Whether the window's document has been edited.
-
-#### `win.focusOnWebView()`
-
-#### `win.blurWebView()`
-
-#### `win.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Fungsi 
-  * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+  
+  #### `win.flashFrame(flag)`
+  
+  * `flag` Boolean
+  
+  Mulai atau berhenti berkedip kedip jendela untuk menarik perhatian pengguna.
+  
+  #### `win.setSkipTaskbar(skip)`
+  
+  * `skip` Boolean
+  
+  Makes the window not show in the taskbar.
+  
+  #### `win.setKiosk(flag)`
+  
+  * `flag` Boolean
+  
+  Masuk atau keluar dari mode kiosk.
+  
+  #### `win.isKiosk()`
+  
+  Returns `Boolean` - Whether the window is in kiosk mode.
+  
+  #### `win.getNativeWindowHandle()`
+  
+  Returns `Buffer` - The platform-specific handle of the window.
+  
+  The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+  
+  #### `win.hookWindowMessage(message, callback)` *Windows*
+  
+  * `message` Integer
+  * `callback ` Fungsi
+  
+  Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+  
+  #### `win.isWindowMessageHooked(message)` *Windows*
+  
+  * `message` Integer
+  
+  Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+  
+  #### `win.unhookWindowMessage(message)` *Windows*
+  
+  * `message` Integer
+  
+  Unhook the window message.
+  
+  #### `win.unhookAllWindowMessages()` *Windows*
+  
+  Lepaskan semua pesan di jendela.
+  
+  #### `win.setRepresentedFilename(filename)` *macOS*
+  
+  * `filename` String
+  
+  Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+  
+  #### `win.getRepresentedFilename()` *macOS*
+  
+  Returns `String` - The pathname of the file the window represents.
+  
+  #### `win.setDocumentEdited(edited)` *macOS*
+  
+  * `edited` Boolean
+  
+  Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+  
+  #### `win.isDocumentEdited()` *macOS*
+  
+  Returns `Boolean` - Whether the window's document has been edited.
+  
+  #### `win.focusOnWebView()`
+  
+  #### `win.blurWebView()`
+  
+  #### `win.capturePage([rect, ]callback)`
+  
+  * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+  * `callback` Fungsi 
+    * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
 <p>Same as <code>webContents.capturePage([rect, ]callback)`.</p> 
-    #### `win.loadURL(url[, options])`
-    
-    * ` url </ 0>  String</li>
+      #### `win.loadURL(url[, options])`
+      
+      * ` url </ 0>  String</li>
 <li><code>pilihan` Objek (opsional) 
-      * `httpReferrer` String (optional) - A HTTP Referrer url.
-      * `userAgent` String (optional) - A user agent originating the request.
-      * `extraHeaders` String (optional) - Extra headers separated by "\n"
-      * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-      * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
-    
-    Same as `webContents.loadURL(url[, options])`.
-    
-    The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
-    
-    To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
-    
-    ```javascript
+        * `httpReferrer` String (optional) - A HTTP Referrer url.
+        * `userAgent` String (optional) - A user agent originating the request.
+        * `extraHeaders` String (optional) - Extra headers separated by "\n"
+        * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+        * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+      
+      Same as `webContents.loadURL(url[, options])`.
+      
+      The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+      
+      To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+      
+      ```javascript
 let url = require('url').format({
   protocol: 'file',
   slashes: true,
@@ -887,10 +894,10 @@ let url = require('url').format({
 
 win.loadURL(url)
 ```
-
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
-
-```javascript
+  
+  You can load a URL using a `POST` request with URL-encoded data by doing the following:
+  
+  ```javascript
 win.loadURL('http://localhost:8000/post', {
   postData: [{
     type: 'rawData',
