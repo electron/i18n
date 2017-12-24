@@ -1,6 +1,6 @@
-## Class: BrowserView
+## Клас: BrowserView
 
-> Create and control views.
+> Створюйте та керуйте виглядами.
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
@@ -11,7 +11,7 @@ A `BrowserView` can be used to embed additional web content into a `BrowserWindo
 ## Приклад
 
 ```javascript
-// In the main process.
+// В головному процесі.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,18 +29,18 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *Експериментальний*
 
 * `options` Object (опціонально) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Статичні Методи
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Повертає `BrowserView` - Вигляд з отриманим `id`.
 
 ### Instance Properties
 
