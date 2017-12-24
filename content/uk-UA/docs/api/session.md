@@ -63,7 +63,7 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-* `event` Подія
+* `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
