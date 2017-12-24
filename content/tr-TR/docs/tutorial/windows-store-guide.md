@@ -77,8 +77,7 @@ Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenil
 
 <p>Paketinizi çalıştırmak için, kullanıcıların gerekir Windows'u sözde "Yıldönümü Güncellemesi" ile 10 - Windows'un nasıl güncelleştirileceği ile ilgili ayrıntılar bulunabilir <a href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update">Burada</a>.</p>
 
-<p>In opposition to traditional UWP apps, packaged apps currently need to undergo a
-manual verification process, for which you can apply <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">here</a>.
+<p>Geleneksel UWP uygulamalarına karşı olarak, paketlenmiş uygulamaların şu anda bir elle doğrulama işlemi uygulayabilirsiniz. <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">burada</a>.
 In the meantime, all users will be able to just install your package by double-clicking it,
 so a submission to the store might not be necessary if you're simply looking for an
 easier installation method. In managed environments (usually enterprises), the
