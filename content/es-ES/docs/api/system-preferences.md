@@ -2,7 +2,7 @@
 
 > Get system preferences.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
@@ -15,22 +15,22 @@ The `systemPreferences` object emits the following events:
 
 ### Event: 'accent-color-changed' *Windows*
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
 ## Métodos
