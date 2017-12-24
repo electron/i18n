@@ -565,18 +565,18 @@ app.setJumpList([
 
 `callback` гарантовано виконується після потго як відбудеться подія `ready` застосунку.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Цей метод повертає `false` якщо ваш процес це головний екземпляр застосунку і він повинен продовжувати завантаження. І повертає `true` якщо ваш процес переслав свої переметри іншому екземпляру, і має негайно припинити роботу.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+На macOS система застосовує єдиний екземпляр автоматично, коли користувач намагається відкрити інший екземпляр вашого застосунку в Finder, і події `open-file` та `open-url` викличуться для цього. Однак коли користувач запускає ваш застосунок з командного рядка система уникне механізму єдиного екземпляру і вам доведеться використовувати цей метод для його забезпечення.
 
-An example of activating the window of primary instance when a second instance starts:
+Приклад активації вікна головного екземпляру коли стартує другий:
 
 ```javascript
 const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
+  // Хтось пробує запустити другий єкземпляр, ми маємо надати фокус нашому вікну.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -587,7 +587,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// Створюємо myWindow, завантажуємо решту застосунку, тощо...
 app.on('ready', () => {
 })
 ```
