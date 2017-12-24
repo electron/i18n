@@ -683,13 +683,13 @@ Sets whether the window can be moved by user. On Linux does nothing.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Devuelve `Booleano` - Si la ventana puede ser movida por el usuario.
 
-On Linux always returns `true`.
+En Linux siempre devuelve `verdadero`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
-* `minimizable` Boolean
+* `minimizable` Booleano
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
@@ -697,11 +697,11 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
-On Linux always returns `true`.
+En Linux siempre devuelve `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
-* `maximizable` Boolean
+* `maximizable` Booleano
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
@@ -709,7 +709,7 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+En Linux siempre devuelve `verdadero`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -731,7 +731,7 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+En Linux siempre devuelve `verdadero`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
