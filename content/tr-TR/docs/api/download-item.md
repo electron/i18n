@@ -124,19 +124,19 @@ Returns `Boolean` - Whether the download has user gesture.
 
 İndirilen öğenin toplam byte boyutunu `Integer` olarak döndürür.
 
-If the size is unknown, it returns 0.
+Eğer boyutu bilinmiyorsa 0 değerini döndürür.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+İndirilen öğenin indirilen byte kadarını `Integer` türünde döndürür.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Cevabın başlığından İçerik-Hazırlama alanını `String` türünde döndürür.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Geçerli durumu `String` türünde döndürür. `progressing`, `completed`, `cancelled` veya `interrupted` olabilir.
 
 **Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
