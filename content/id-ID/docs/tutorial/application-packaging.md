@@ -116,13 +116,11 @@ Meskipun kami berusaha keras membuat arsip ` asar </ 0> di API Node  bekerja sep
     Ada API Node yang dapat menjalankan binari seperti ` child_process.exec </ 0> ,
  <code> child_process.spawn </ 0> dan <code> child_process.execFile </ 0> , namun hanya <code> execFile </ 0> didukung untuk menjalankan binari di dalam arsip <code> asar </ 0> .</p>
 
-<p>Ini karena <code> exec </ 0> dan <code> menelurkan </ 0> menerima <code> perintah </ 0> daripada <code> file </ 0> sebagai masukan, dan <code> perintah </ 0 > dieksekusi di bawah shell There is no reliable way to determine
-whether a command uses a file in asar archive, and even if we do, we can not be
-sure whether we can replace the path in command without side effects.</p>
+<p>Ini karena <code> exec </ 0> dan <code> menelurkan </ 0> menerima <code> perintah </ 0> daripada <code> file </ 0> sebagai masukan, dan <code> perintah </ 0 > dieksekusi di bawah shell Tidak ada cara yang dapat diandalkan untuk menentukan apakah sebuah perintah menggunakan file dalam arsip asar , dan bahkan jika kita melakukannya, kita tidak dapat memastikan apakah kita dapat mengganti jalan di perintah tanpa efek samping.</p>
 
 <h2>Adding Unpacked Files in <code>asar` Archive</h2> 
     
-    As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+    Seperti yang dinyatakan di atas, beberapa API Node akan membongkar file ke filesystem saat menelepon, terlepas dari masalah kinerja, hal itu juga dapat menyebabkan peringatan palsu pemindai virus.
     
     To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
     
