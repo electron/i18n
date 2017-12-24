@@ -65,20 +65,20 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
       * `name` String (optional) - The name of the cookie. Empty by default if omitted.
       * `value` String (optional) - The value of the cookie. Empty by default if omitted.
       * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-      * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-      * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-      * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-      * ` kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. If omitted then the cookie becomes a session
-cookie and will not be retained between sessions.</li>
+      * ` path </ 0> String (opsional) - Jalur cookie. Kosongkan secara default jika dihilangkan.</li>
+<li><code> aman </ 0>  Boolean (opsional) - Apakah cookie harus ditandai sebagai Secure. Default ke false</li>
+<li><code> httpOnly </ 0>  Boolean (opsional) - Apakah kuki tersebut hanya ditandai sebagai HTTP saja. Default ke false</li>
+<li><code> kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. Jika dihilangkan maka cookie menjadi cookie sesi dan tidak akan disimpan di antara sesi.</li>
 </ul></li>
 <li><code>callback` Fungsi 
         * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Sets a cookie with <code>details`, `callback` will be called with `callback(error)` on complete.</p> 
-          #### `cookies.remove(url, name, callback)`
-          
+<p>Menetapkan cookie dengan <code> detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error) </ 0> secara 
+lengkap.</p>
+
+<h4><code>cookies.remove (url, nama, callback)`</h4> 
           * `url` String - The URL associated with the cookie.
           * `name` String - The name of cookie to remove.
           * `callback ` Fungsi
