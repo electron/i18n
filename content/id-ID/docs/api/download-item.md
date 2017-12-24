@@ -116,21 +116,21 @@ disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta
         
         Returns `Integer` - The received bytes of the download item.
         
-        #### `downloadItem.getContentDisposition()`
+        #### `downloadItem.getContentDisposition ()`
         
-        Returns `String` - The Content-Disposition field from the response header.
-        
-        #### `downloadItem.getState()`
+        Mengembalikan ` String </ 0> - Bidang Content-Disposition dari header tanggapan.</p>
+
+<h4><code>downloadItem.getState ()`</h4> 
         
         Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
         
         **Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
         
-        #### `downloadItem.getURLChain()`
+        #### `downloadItem.getURLChain ()`
         
-        Returns `String[]` - The complete url chain of the item including any redirects.
-        
-        #### `downloadItem.getLastModifiedTime()`
+        Mengembalikan ` String [] </ 0> - Rantai url lengkap item termasuk pengalihan apa pun.</p>
+
+<h4><code>downloadItem.getLastModifiedTime()`</h4> 
         
         Returns `String` - Last-Modified header value.
         
