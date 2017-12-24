@@ -1,10 +1,10 @@
-# session
+# sidang
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Mengelola sesi browser, cookies, cache, pengaturan proxy, dll.
 
 Proses:  Utama </ 0></p> 
 
-The `session` module can be used to create new `Session` objects.
+Modul `sesi` dapat digunakan untuk membuat objek `Sesi` baru.
 
 You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
