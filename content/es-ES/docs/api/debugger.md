@@ -1,4 +1,4 @@
-## Class: Debugger
+## Clase: Debugger
 
 > An alternate transport for Chrome's remote debugging protocol.
 
@@ -57,7 +57,7 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
-### Instance Events
+### Eventos de Instancia
 
 #### Event: 'detach'
 
