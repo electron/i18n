@@ -1,8 +1,8 @@
-## Class: BrowserView
+## Sınıf: BrowserView
 
-> Create and control views.
+> Görünüm yaratın ve kontrol edin.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 
 Süreç: [Ana](../glossary.md#main-process)
 
