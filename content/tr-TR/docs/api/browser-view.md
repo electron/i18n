@@ -60,11 +60,11 @@ View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
 #### `view.setAutoResize(options)` *Deneysel*
 
-* `options` Nesne 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+* `options` Obje 
+  * `width` Boolean - `true` ise, view'in uzunluğu pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
+  * `height` Boolean - `true` ise, view'in yüksekliği pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Deneysel*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
