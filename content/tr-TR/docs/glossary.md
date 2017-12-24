@@ -92,7 +92,7 @@ Like Node, Electron çoklu platform masaüstü uygulamaları geliştirmek için 
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 Google'ın açık kaynak kodlu JavaScript motorudur. C++'da yazılmış ve Google Chrome'da kullanılmıştır. V8 tek başına çalışabilir veya herhangi bir C++ uygulamasına eklenebilir.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
