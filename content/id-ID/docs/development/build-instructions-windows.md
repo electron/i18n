@@ -56,49 +56,49 @@ Untuk membangun target 32bit, Anda harus melewati `--target_arch=ia32`kapan menj
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Langkah lain membangun tentu sama persis.
 
-## Visual Studio project
+## Proyek Visual Studio
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Untuk menghasilkan proyek Visual Studio, Anda bisa melewati `--msvs` parameter:
 
 ```powershell
 $ python script\bootstrap.py --msvs
 ```
 
-## Pembersihan
+## Membersihkan
 
-To clean the build files:
+Untuk membersihkan bangunan file:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
 
 ## Pengujian
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
 
-## Penyelesaian masalah
+## Pemecahan masalah
 
-### Command xxxx not found
+### Perintah xxxx tidak ditemukan
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Jika Anda mengalami kesalahan seperti `Command xxxx tidak ditemukan`, Anda dapat mencoba menggunakannya `VS2015 Command Prompt` konsol untuk menjalankan bangunan skrip.
 
-### Fatal internal compiler error: C1001
+### Kesalahan fatal kompilator internal: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Pastikan Anda menginstal pembaruan Visual Studio terbaru.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Jika membangun di bawah Cygwin, Anda mungkin melihat `bootstrap.py` gagal mengikuti perintah berikut kesalahan:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Hal ini disebabkan oleh bug saat menggunakan Cygwin Python dan Win32 Node bersamaan. Sebuah Solusinya adalah menggunakan Win32 Python untuk mengeksekusi script bootstrap (dengan asumsi Anda telah menginstal Python di bawah `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
