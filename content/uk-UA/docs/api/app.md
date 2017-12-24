@@ -417,7 +417,7 @@ app.exit(0)
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Назва вашого протоколу, без `://`. Якщо ви хочете, щоб ваш застосунок обробляв посилання `electron://`, викличте цей метод з параметром `electron`.
-* `path` String (опціонально) *Windows* - За замовчіванням `process.execPath`
+* `path` String (опціонально) *Windows* - За замовчуванням `process.execPath`
 * `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
 
 Повертає `Boolean` - Чи виклик закінчився успішно.
@@ -426,33 +426,33 @@ app.exit(0)
 
 На Windows ви можете надати опціональні параметри `path`, шлях до вашого виконуваного файлу, та `args`, масив аргументів для передачі при запуску виконуваного файлу.
 
-**Примітка:** На macOS, ви можете зареєструвати тільки ті протоколи, які додані до вашого `info.plist`, який не може модифікуватися під час роботи застосунку. Однак, ви можете міняти файл за допомогою звичайного текстового редактора чи скрипта під час збирання. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Примітка:** На macOS, ви можете зареєструвати тільки ті протоколи, які додані до вашого `info.plist`, який не може модифікуватися під час роботи застосунку. Однак, ви можете міняти файл за допомогою звичайного текстового редактора чи скрипта під час збирання. Перегляньте [документацію Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) для деталей.
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+API всередині використовує реєстр Windows та LSSetDefaultHandlerForURLScheme.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Назва вашого протоколу, без `://`.
-* `path` String (опціонально) *Windows* - За замовчіванням `process.execPath`
+* `path` String (опціонально) *Windows* - За замовчуванням `process.execPath`
 * `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
 
 Повертає `Boolean` - Чи виклик закінчився успішно.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Цей метод перевіряє чи поточний виконуваний файл є обробником для протоколу (він же URI схема). Якщо так, він видалить застосунок як обробник за замовчуванням.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Назва вашого протоколу, без `://`.
-* `path` String (опціонально) *Windows* - За замовчіванням `process.execPath`
+* `path` String (опціонально) *Windows* - За замовчуванням `process.execPath`
 * `args` String[] (опціонально) *Windows* - За замовчуванням пустий масив
 
-Returns `Boolean`
+Повертає `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Цей метод перевіряє чи поточний виконуваний файл є обробником для протоколу (він же URI схема). Якщо так, він поверне true. В іншому випадку, він поверне false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Примітка:** На macOS, ви можете використовувати цей метод для перевірки чи застосунок зареєструвався як обробник за замовчуванням для протоколу. Це також можна перевірити, переглянувши `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS. Перегляньте [документацію Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) для деталей.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+API всередині використовує реєстр Windows та LSCopyDefaultHandlerForURLScheme.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
