@@ -148,12 +148,12 @@ Yukarıda önerilenlerle aynı biçimleri kullanın, ancak değişiklik notunun 
 ```sh
 **Not:** Bu bir beta sürümüdür ve muhtemelen biraz istikrarsızlık ve/veya gerileme yaşayacaktır.
 
-Please file new issues for any bugs you find in it.
+Lütfen bulduğunuz hatalar için yeni sorunları dosyalayın.
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elec ron) burada yayınlanmıştır ve `npm install electron @beta` vasıtasıyla kurulabilir.
 ```
 
-## Edit the release draft
+## Yayın taslağını düzenleme
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Edit the release and add release notes.
