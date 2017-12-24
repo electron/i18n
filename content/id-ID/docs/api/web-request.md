@@ -34,7 +34,7 @@ The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Obyek 
+* `menyaring` Obyek 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fungsi 
   * `details` Obyek 
@@ -57,7 +57,7 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Obyek 
+* `menyaring` Obyek 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * ` pendengar </ 0> Fungsi</li>
 </ul>
@@ -79,7 +79,7 @@ The `callback` has to be called with an `response` object.
   
   #### `webRequest.onSendHeaders([filter, ]listener)`
   
-  * `filter` Obyek 
+  * `menyaring` Obyek 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
   * `listener` Fungsi 
     * `details` Obyek 
@@ -94,7 +94,7 @@ The `callback` has to be called with an `response` object.
   
   #### `webRequest.onHeadersReceived([filter, ]listener)`
   
-  * `filter` Obyek 
+  * `menyaring` Obyek 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
   * ` pendengar </ 0> Fungsi</li>
 </ul>
@@ -119,7 +119,7 @@ The `callback` has to be called with an `response` object.
     
     #### `webRequest.onResponseStarted([filter, ]listener)`
     
-    * `filter` Obyek 
+    * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
       * `details` Obyek 
@@ -137,7 +137,7 @@ The `callback` has to be called with an `response` object.
     
     #### `webRequest.onBeforeRedirect([filter, ]listener)`
     
-    * `filter` Obyek 
+    * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
       * `details` Obyek 
@@ -156,7 +156,7 @@ The `callback` has to be called with an `response` object.
     
     #### `webRequest.onCompleted([filter, ]listener)`
     
-    * `filter` Obyek 
+    * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
       * `details` Obyek 
@@ -174,7 +174,7 @@ The `callback` has to be called with an `response` object.
     
     #### `webRequest.onErrorOccurred([filter, ]listener)`
     
-    * `filter` Obyek 
+    * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
       * `details` Obyek 
