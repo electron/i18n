@@ -225,7 +225,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
@@ -234,7 +234,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -338,7 +338,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -372,7 +372,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -415,7 +415,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` Стрічка
+* `path` String
 
 Adds Chrome extension located at `path`, and returns extension's name.
 
@@ -439,7 +439,7 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `path` Стрічка
+* `path` String
 
 Adds DevTools extension located at `path`, and returns extension's name.
 
@@ -873,7 +873,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` Стрічка
+* `url` String
 * `options` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
