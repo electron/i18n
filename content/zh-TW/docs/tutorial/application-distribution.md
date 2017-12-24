@@ -120,14 +120,14 @@ MyApp.app/Contents
 3. 設定以下環境變數:
 
 * `ELECTRON_GITHUB_TOKEN` - 能在 GitHub 建立 Release 的 Token。
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 要上傳 Node.js 標頭檔及符號檔的地方
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64`
+* `CI` - 設為 `true`，否則會失敗
+* `GITHUB_TOKEN` - 設成跟 `ELECTRON_GITHUB_TOKEN` 一樣
+* `SURF_TEMP` - 在 Windows 下設為 `C:\Temp`，防止碰到路徑過長問題
+* `TARGET_ARCH` - 設為 `ia32` 或 `x64`
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. 在 `script/upload.py` 中，你*必須*將 `ELECTRON_REPO` 設為你的分支 (`MYORG/electron`)，如果你同時也是原版 Electron 的貢獻者時更要特別注意。
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
