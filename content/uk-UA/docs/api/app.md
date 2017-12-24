@@ -339,12 +339,12 @@ app.exit(0)
 * `exe` Поточний виконуваний файл.
 * `module` Бібліотека `libchromiumcontent`.
 * `desktop` Директорія робочого столу поточного користувача.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `documents` Директорія "My Documents" користувача.
+* `downloads` Директорія для завантажень користувача.
+* `music` Дректорія для музики користувача.
+* `pictures` Директорія для зображень користувача.
+* `videos` Директорія для відео користувача.
+* `pepperFlashSystemPlugin` Повний шлях до системної версії плагіну Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -353,26 +353,26 @@ app.exit(0)
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не підтримується на *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Витягує піктограму, що відповідає шляху.
 
-On *Windows*, there a 2 kinds of icons:
+На *Windows*, є 2 види піктограм:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
+* Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. Якщо шлях визначає директорію, яка не існує, то метод її створить. On failure an `Error` is thrown.
 
 You can only override paths of a `name` defined in `app.getPath`.
 
