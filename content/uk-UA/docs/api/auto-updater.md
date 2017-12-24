@@ -8,14 +8,14 @@
 
 Ви можете швидко запускати мультиплатформенні релізи для поширення вашого застосунку з використанням одного з цих проектів:
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [nuts](https://github.com/GitbookIO/nuts): *Розумний реліз сервер для ваших застосунків, використовує GitHub як серверну частину. Автооновлюння за допомогою Squirrel (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Повнофункціональний, резидентний реліз сервер для застосунків electron, сумісний з auto-updater*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простий сервер node.js для Squirrel.Mac та Squirrel.Windows, який використовує GitHub релізи*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Простий PHP застосунок для Squirrel.Windows, який читає оновлення з папки. Підтримка дельта оновлень.*
 
-## Platform notices
+## Зауваження
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+Хоча `autoUpdater` надає однозначне API для різних платформ, є деякі тонкі відмінності на різних платформах.
 
 ### macOS
 
@@ -39,25 +39,25 @@ There is no built-in support for auto-updater on Linux, so it is recommended to 
 
 ## Події (Events)
 
-The `autoUpdater` object emits the following events:
+Об'єкт `autoUpdater` викликає наступні події:
 
-### Event: 'error'
+### Подія: 'error'
 
 Повертає:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Відбувається коли виникає помилка при оновленні.
 
-### Event: 'checking-for-update'
+### Подія: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Відбувається при перевірці чи стартувало оновлення.
 
-### Event: 'update-available'
+### Подія: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Відбуваєтсья коли доступне оновлення. Воно завантажується автоматично.
 
-### Event: 'update-not-available'
+### Подія: 'update-not-available'
 
 Emitted when there is no available update.
 
