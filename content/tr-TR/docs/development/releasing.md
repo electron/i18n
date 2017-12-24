@@ -5,15 +5,15 @@ Bu belgede, Electron'un yeni bir sürümünün yayınlanma süreci açıklanmakt
 ## Hangi dalın yayınlanacağını belirleyin
 
 - **Beta sürümünü yayımlarsanız,** aşağıdaki komut dosyalarını `ana sunucudan` çalıştırın.
-- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
+- **Sabit bir sürümü yayınlarsanız,** hangi sürüm için yayınladığınıza bağlı olarak `1-7 x` veya `1-6-x` arasındaki komut dosyalarını çalıştırın.
 
-## Find out what version change is needed
+## Hangi sürüm değişikliğine ihtiyaç olduğunu bulun
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+Otomatik olarak oluşturulan sürüm notlarını görüntülemek için `npm run prepare-release -- --notesOnly` 'i çalıştırın. Oluşturulan notlar bunun büyük, küçük, düzeltme eki veya beta sürümü değişikliği olup olmadığını belirlemenize yardımcı olmalı. Daha fazla bilgi için [Sürüm Değiştirme Kuralları](../tutorial/electron-versioning.md#semver) 'nı okuyun.
 
-## Run the prepare-release script
+## Hazırlama-yayımlama komut dosyasını çalıştırın
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+Hazırlama betiği aşağıdakileri yapar. 1. Sürümün halihazırda işlemde olup olmadığını kontrol eder ve işlemdeyse durur. 2. Serbest dal oluşturun. 3. Sürüm numarasını birkaç dosyaya atayın. Bir örnek için [bu atama işine](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bakın. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
 
 Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
