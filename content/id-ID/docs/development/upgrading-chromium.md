@@ -35,7 +35,7 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
 
-## Update Electron's code
+## Perbarui kode Elektron
 
 1. Get the code: 
       sh
@@ -75,18 +75,18 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
 
 - Fix build config errors first
 - Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Cobalah untuk mengidentifikasi kesalahan kompleks sesegera mungkin. 
+  - Mintalah bantuan jika Anda tidak yakin bagaimana memperbaikinya
+- Nonaktifkan semua fitur Elektron, perbaiki build, lalu aktifkan satu per satu
+- Tambahkan lebih banyak flag untuk menonaktifkan fitur build-time.
 
 When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform yang didukung.
 
 ## Updating Crashpad
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
+Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
 
 ## Updating NodeJS
 
