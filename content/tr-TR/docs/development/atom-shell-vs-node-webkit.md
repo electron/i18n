@@ -8,9 +8,9 @@ Ancak Electron'u NW.js'den tamamen ayrı bir ürün haline getiren iki proje ara
 
 **1. Uygulama Girişi**
 
-NW.js'de bir uygulamanın ana giriş noktası bir web sayfası veya bir JS komut dosyasıdır. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+NW.js'de bir uygulamanın ana giriş noktası bir web sayfası veya bir JS komut dosyasıdır. `package.json`'da bir html veya js dosyası belirlersiniz, uygulamanın ana penceresi (bir html giriş noktası olması durumunda) olarak bir tarayıcı penceresinde açılır veya komut dosyası yürütülür.
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+Electron'da giriş noktası bir JavaScript komut dizisi dosyasıdır. Doğrudan bir URL sağlıyorsanız, manuel olarak bir tarayıcı penceresi oluşturun ve API'yi kullanan bir HTML dosyası yükleyin. Uygulamadan ne zaman çıkılacağına karar vermek için aynı zamanda pencereyi dinlemeniz gerekiyor.
 
 Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
