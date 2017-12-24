@@ -35,53 +35,53 @@ Electron usa la librería `l10n_util` de Chromium para conseguir el local. Los p
 | en-ZA             | Inglés (Sudáfrica)      |
 | eo                | Esperanto               |
 | es                | Español                 |
-| es-419            | Spanish (Latin America) |
-| et                | Estonian                |
-| eu                | Basque                  |
-| fa                | Persian                 |
-| fi                | Finnish                 |
+| es-419            | Español (Latinoamérica) |
+| et                | Estonia                 |
+| eu                | Euskera                 |
+| fa                | Persa                   |
+| fi                | Finlandés               |
 | fil               | Filipino                |
-| fo                | Faroese                 |
-| fr                | French                  |
-| fr-CA             | French (Canada)         |
-| fr-CH             | French (Switzerland)    |
-| fr-FR             | French (France)         |
-| fy                | Frisian                 |
-| ga                | Irish                   |
-| gd                | Scots Gaelic            |
-| gl                | Galician                |
-| gn                | Guarani                 |
-| gu                | Gujarati                |
+| fo                | Feroés                  |
+| fr                | Francés                 |
+| fr-CA             | Francés (Canadá)        |
+| fr-CH             | Francés (Suiza)         |
+| fr-FR             | Francés (Francia)       |
+| fy                | Frisón                  |
+| ga                | Gaélico irlandés        |
+| gd                | Gaélico escocés         |
+| gl                | Gallego                 |
+| gn                | Guaraní                 |
+| gu                | Gujaratí                |
 | ha                | Hausa                   |
-| haw               | Hawaiian                |
-| he                | Hebrew                  |
-| hi                | Hindi                   |
-| hr                | Croatian                |
-| hu                | Hungarian               |
-| hy                | Armenian                |
+| haw               | Hawaiano                |
+| he                | Hebreo                  |
+| hi                | Hindú                   |
+| hr                | Croata                  |
+| hu                | Húngaro                 |
+| hy                | Armenio                 |
 | ia                | Interlingua             |
-| id                | Indonesian              |
-| is                | Icelandic               |
-| it                | Italian                 |
-| it-CH             | Italian (Switzerland)   |
-| it-IT             | Italian (Italy)         |
-| ja                | Japanese                |
-| jw                | Javanese                |
-| ka                | Georgian                |
-| kk                | Kazakh                  |
-| km                | Cambodian               |
-| kn                | Kannada                 |
-| ko                | Korean                  |
-| ku                | Kurdish                 |
-| ky                | Kyrgyz                  |
-| la                | Latin                   |
+| id                | Indonesio               |
+| is                | Islandés                |
+| it                | Italiano                |
+| it-CH             | Italiano (Suiza)        |
+| it-IT             | Italiano (Italia)       |
+| ja                | Japonés                 |
+| jw                | Javanés                 |
+| ka                | Georgiano               |
+| kk                | Kazajo                  |
+| km                | Camboyano               |
+| kn                | Canarés                 |
+| ko                | Coreano                 |
+| ku                | Kurdo                   |
+| ky                | Kirguizo                |
+| la                | Latín                   |
 | ln                | Lingala                 |
-| lo                | Laothian                |
-| lt                | Lithuanian              |
-| lv                | Latvian                 |
-| mk                | Macedonian              |
-| ml                | Malayalam               |
-| mn                | Mongolian               |
+| lo                | Laotiano                |
+| lt                | Lituano                 |
+| lv                | Letón                   |
+| mk                | Macedonio               |
+| ml                | Malabarí                |
+| mn                | Mongol                  |
 | mo                | Moldavian               |
 | mr                | Marathi                 |
 | ms                | Malay                   |
