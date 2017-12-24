@@ -130,14 +130,14 @@ disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta
         
         Mengembalikan ` String [] </ 0> - Rantai url lengkap item termasuk pengalihan apa pun.</p>
 
-<h4><code>downloadItem.getLastModifiedTime()`</h4> 
+<h4><code>downloadItem.getLastModifiedTime ()`</h4> 
         
-        Returns `String` - Last-Modified header value.
+        Mengembalikan ` String </ 0> - Nilai header Terakhir-Diubah.</p>
+
+<h4><code>downloadItem.getETag ()`</h4> 
         
-        #### `downloadItem.getETag()`
+        Mengembalikan ` String </ 0> - nilai header ETag.</p>
+
+<h4><code>downloadItem.getStartTime ()`</h4> 
         
-        Returns `String` - ETag header value.
-        
-        #### `downloadItem.getStartTime()`
-        
-        Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+        Mengembalikan  Ganda </ 0> - Jumlah detik sejak zaman UNIX saat unduhan dimulai.</p>
