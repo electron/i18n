@@ -63,7 +63,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `autoCorrectWord` Boolean
 * `provider` Object 
   * `spellCheck` Function - Returns `Boolean` 
-    * `text` String
+    * `texto` String
 
 Sets a provider for spell checking in input fields and text areas.
 
@@ -115,7 +115,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(text)`
 
-* `text` String
+* `texto` String
 
 Inserts `text` to the focused element.
 
