@@ -44,20 +44,21 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <p>Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
 <h4><code>cookies.get(filter, callback)`</h4> 
-    * `filter` Obyek 
-      * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-      * `name` String (optional) - Filters cookies by name.
-      * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-      * `path` String (optional) - Retrieves cookies whose path matches `path`.
-      * `secure` Boolean (optional) - Filters cookies by their Secure property.
+    * `menyaring` Obyek 
+      * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
+ <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
+<li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
+<li><code> domain </ 0>  String (opsional) - Mengambil cookie yang domainnya cocok atau merupakan subdomain dari <code> domain </ 0></li>
+<li><code> path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
+<li><code>secure` Boolean (optional) - Filters cookies by their Secure property.
       * `session` Boolean (optional) - Filters out session or persistent cookies.
     * `callback` Fungsi 
       * ` error </ 0> Kesalahan</li>
 <li><code>cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
     
-    Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
-    
-    #### `cookies.set(details, callback)`
+    Mengirimkan permintaan agar semua cookie yang cocok dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error, cookies) </ 0> secara lengkap.</p>
+
+<h4><code>cookies.set(details, callback)`</h4> 
     
     * `details` Obyek 
       * `url` String - The url to associate the cookie with.
@@ -67,23 +68,25 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
       * `path` String (optional) - The path of the cookie. Empty by default if omitted.
       * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
       * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-      * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-    * `callback` Fungsi 
-      * ` error </ 0> Kesalahan</li>
+      * ` kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. If omitted then the cookie becomes a session
+cookie and will not be retained between sessions.</li>
+</ul></li>
+<li><code>callback` Fungsi 
+        * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
 <p>Sets a cookie with <code>details`, `callback` will be called with `callback(error)` on complete.</p> 
-        #### `cookies.remove(url, name, callback)`
-        
-        * `url` String - The URL associated with the cookie.
-        * `name` String - The name of cookie to remove.
-        * `callback ` Fungsi
-        
-        Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
-        
-        #### `cookies.flushStore(callback)`
-        
-        * `callback ` Fungsi
-        
-        Tulis data cookie yang tidak tertulis ke disk.
+          #### `cookies.remove(url, name, callback)`
+          
+          * `url` String - The URL associated with the cookie.
+          * `name` String - The name of cookie to remove.
+          * `callback ` Fungsi
+          
+          Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+          
+          #### `cookies.flushStore(callback)`
+          
+          * `callback ` Fungsi
+          
+          Tulis data cookie yang tidak tertulis ke disk.
