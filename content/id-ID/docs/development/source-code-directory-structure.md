@@ -4,30 +4,30 @@ Kode sumber dari electron dipisahkan menjadi beberapa bagian, sebagian besar men
 
 Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](http://dev.chromium.org/developers/design-documents/multi-process-architecture) untuk memahami kode sumber yang lebih baik.
 
-## Structure of Source Code
+## Struktur Sumber Kode
 
 ```sh
 Electron
-├── atom/ - C++ source code.
-|   ├── app/ - System entry code.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   main process things. This talks to the renderer to manage web pages.
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       including some utility functions and code to integrate node's message
-|       loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── atom/ - C++ sumber kode.
+|   ├── app / - Sistem daftar kode.
+|   ├── browser/ -  Frontend termasuk jendela utama, UI, dan semua
+|   |   hal proses utama. Ini berbicara kepada renderer untuk mengelola halaman web.
+|   |   ├── ui/ - Implementasi barang UI untuk platform yang berbeda.
+|   |   |   ├── cocoa/ - Kode sumber spesifik kakao.
+|   |   |   ├── win/ - Windows GUI sumber kode spesifik.
+|   |   |   └── x/ - X11 sumber kode spesifik.
+|   |   ├── api/ - Implementasi dari proses utama APIs.
+|   |   ├── net/ - kode jaringan terkait.
+|   |   ├── mac/ - Sumber kode Objective-C Mac tertentu.
+|   |   └── resources/ - Ikon, file yang bergantung pada platform, dll.
+|   ├── renderer/ - Kode yang berjalan dalam proses renderer.
+|   |   └── api/ - Implementasi proses renderer APIs.
+|   └── common/ - Kode yang digunakan oleh proses utama dan renderer,
+|       termasuk beberapa fungsi utilitas dan kode untuk mengintegrasikan pesan node
+|       loop ke loop pesan Chromium.
+|       └── api/ - Pelaksanaan API umum, dan yayasan
+|           Modul built-in Electron.
+├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
 ├── default_app/ - The default page to show when Electron is started without
 |   providing an app.
 ├── docs/ - Documentations.
