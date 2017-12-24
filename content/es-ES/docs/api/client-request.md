@@ -1,6 +1,6 @@
-## Class: ClientRequest
+## Clase: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Hace solicitudes HTTP/HTTPS.
 
 Proceso: [Principal](../glossary.md#main-process)
 
@@ -34,15 +34,15 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Eventos de Instancia
 
-#### Event: 'response'
+#### Evento: 'response'
 
 Devuelve:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Evento: 'login'
 
 Devuelve:
 
