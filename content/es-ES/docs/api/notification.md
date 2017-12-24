@@ -1,10 +1,10 @@
-# Notification
+# Notificación
 
 > Create OS desktop notifications
 
 Proceso: [Principal](../glossary.md#main-process)
 
-## Using in the renderer process
+## Usando el proceso de renderizado
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
@@ -18,7 +18,7 @@ Proceso: [Principal](../glossary.md#main-process)
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Métodos Estáticos
 
 The `Notification` class has the following static methods:
 
@@ -39,7 +39,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
 
-### Instance Events
+### Eventos de Instancia
 
 Objects created with `new Notification` emit the following events:
 
