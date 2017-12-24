@@ -1,11 +1,11 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Crea y controla ventanas del navegador.
 
 Proceso: [Principal](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// En el proceso principal.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Crea y controla ventanas del navegador.
 
 Proceso: [Principal](../glossary.md#main-process)
 
@@ -349,7 +349,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // Navega la ventana hasta cuando el usuario hag clic sobre el botón de atrás
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -427,7 +427,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a Chrome extension by name.
+Remueve una extensión de Chrome por nombre.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -472,13 +472,13 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Propiedades de Instancia
 
 Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// En este ejemplo `win` es nuestra instancia
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Métodos de Instancia
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
