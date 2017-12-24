@@ -761,29 +761,29 @@ app.setLoginItemSettings({
 
 Якщо передано `informational`, піктограма в панелі завданьбуде стрибати одну секунду. Однак, запит буде активним поки користувач не перейде в застосунок, або він не скасуєтсья.
 
-Returns `Integer` an ID representing the request.
+Повертає `Integer` ID представлення запиту.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Скасувати стрибання `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Примусити стрибати піктограму Downloads якщо filePath всередині директорії Downloads.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Встановлює для показу в зоні бейжда піктограми на панелі завдань.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Повертає `String` - Стрічка з бейджа піктограми на панелі завдань.
 
 ### `app.dock.hide()` *macOS*
 
@@ -795,7 +795,7 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Повертає `Boolean` - Показує чи видимий значок на панелі завдань. Запит `app.dock.show()` є асинхронним, тому метод може не повертати true негайно після виклику.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
