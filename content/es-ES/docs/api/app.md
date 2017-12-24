@@ -83,7 +83,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Devuelve:
 
-* `event` Evento
+* `evento` Evento
 * `url` String
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
@@ -111,7 +111,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
-### Event: 'new-window-for-tab' *macOS*
+### Evento: 'new-window-for-tab' *macOS*
 
 Devuelve:
 
@@ -174,7 +174,7 @@ const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // Lógica de verificación.
     event.preventDefault()
     callback(true)
   } else {
@@ -351,9 +351,9 @@ You can request the following paths by the name:
 * `path` String
 * `options` Object (optional) 
   * `size` String 
-    * `small` - 16x16
+    * `pequeño` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
 * `callback` Función 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -412,7 +412,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Borra la lista de documentos recientes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
