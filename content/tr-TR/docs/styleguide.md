@@ -206,4 +206,4 @@ Başlığın bir modülün veya bir sınıfın özelliği olup olmadığına ba�
 
 ## Belge Çevirileri
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Bakınız [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
