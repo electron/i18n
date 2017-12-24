@@ -11,7 +11,7 @@ Aşağıdaki `gyp` dosyaları Electron oluşturmanın ana kurallarını içerir:
 * `brightray/brightray.gyp` `brightray` 'nin nasıl oluştuğunu ve Chromium ile bağlanmak için varsayılan yapılandırmaları nasıl içerdiğini tanımlar.
 * `brightray/brightray.gypi` inşa etmekle ilgili genel yapı konfigürasyonlarını içerir.
 
-## Component Build
+## Yapı Elemanları
 
 Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
 
