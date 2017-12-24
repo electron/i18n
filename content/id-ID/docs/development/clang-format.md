@@ -13,15 +13,15 @@ Alur kerja untuk memformat kode yang Anda ubah:
 1. Buat perubahan kode pada repositori Electron.
 2. Jalankan `git tambahkan your_changed_file.cc`.
 3. Jalankan `git-clang-format`, dan Anda mungkin akan melihat modifikasi masuk `your_changed_file.cc`, modifikasi ini dihasilkan dari `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
-5. Now the branch is ready to be opened as a pull request.
+4. Run `git add your_changed_file.cc`, dan lakukan perubahan Anda.
+5. Kini cabang tersebut siap dibuka sebagai permintaan tarik.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Jika Anda ingin memformat kode yang diubah pada komit git terakhir Anda (HEAD), Anda bisa jalankan `git-clang-format HEAD~1`. Lihat `git-clang-format -h` untuk lebih jelasnya.
 
-## Editor Integration
+## Integrasi Editor
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+Anda juga bisa mengintegrasikan `clang-format` langsung ke editor favorit Anda. Untuk panduan lebih lanjut tentang menyiapkan integrasi editor, lihat halaman ini:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+- [Kode Visual Studio](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
