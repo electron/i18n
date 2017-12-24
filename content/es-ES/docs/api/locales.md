@@ -122,20 +122,20 @@ Electron usa la librería `l10n_util` de Chromium para conseguir el local. Los p
 | tg                | Tayiko                  |
 | th                | Tailandés               |
 | ti                | Tigrinya                |
-| tk                | Turkmen                 |
+| tk                | Turcomano               |
 | to                | Tonga                   |
-| tr                | Turkish                 |
-| tt                | Tatar                   |
+| tr                | Turco                   |
+| tt                | Tártaro                 |
 | tw                | Twi                     |
-| ug                | Uighur                  |
-| uk                | Ukrainian               |
+| ug                | Uigur                   |
+| uk                | Ucraniano               |
 | ur                | Urdu                    |
-| uz                | Uzbek                   |
-| vi                | Vietnamese              |
+| uz                | Uzbeko                  |
+| vi                | Vietnamita              |
 | xh                | Xhosa                   |
 | yi                | Yiddish                 |
 | yo                | Yoruba                  |
-| zh                | Chinese                 |
-| zh-CN             | Chinese (Simplified)    |
-| zh-TW             | Chinese (Traditional)   |
-| zu                | Zulu                    |
+| zh                | Chino                   |
+| zh-CN             | Chino (Simplificado)    |
+| zh-TW             | Chino (Tradicional)     |
+| zu                | Zulú                    |
