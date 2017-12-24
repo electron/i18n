@@ -489,9 +489,9 @@ API всередині використовує реєстр Windows та LSCopy
 
 **Примітка:** Якщо `JumpListCategory` об'єкт не має ні `type` ні `name` властивостей, то його `type` вважаєтсья `tasks`. Якщо встановлена властивість `name` але властивість `type` пропущено, то `type` вважається `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Примітка:** Користувачі можуть видаляти елементи з налаштовуваних категорій, і Windows не дозволить видаленим елементам додатися назад в категорії **до** наступного успішного виклику `app.setJumpList(categories)`. Буль-яка спроба повторно додати видалений елемент до налаштовуваних категорій буде ігноруватися Jump List. Список видалених елементів може бути отриманий за допомогою `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Ось дуже простий приклад створення налаштовуваного Jump List:
 
 ```javascript
 const {app} = require('electron')
@@ -505,7 +505,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // має назву тому `type` вважається "custom"
     name: 'Tools',
     items: [
       {
@@ -529,7 +529,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // немає назви тому`type` вважається "tasks"
     items: [
       {
         type: 'task',
@@ -554,10 +554,10 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` String[] - Масив параметрів командного рядка другого екземпляру
+  * `workingDirectory` String - Робоча директорія другого екземпляру
 
-Returns `Boolean`.
+Повертає `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
