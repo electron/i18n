@@ -142,15 +142,15 @@ Geçerli durumu `String` türünde döndürür. `progressing`, `completed`, `can
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Herhangi bir yeniden yönlendirme de dahil olmak üzere öğenin tam url zincirini `String[]` döndürür.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Son değiştirilen başlık değerini `String` olarak döndürür.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+ETag başlık değerini `String` olarak döndürür.
 
 #### `downloadItem.getStartTime()`
 
