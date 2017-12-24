@@ -1048,15 +1048,15 @@ The `buttons` is an array of `Button` objects:
       
       * `ignore` Boolean
       
-      Makes the window ignore all mouse events.
+      Membuat jendela mengabaikan semua kejadian mouse.
       
-      All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+      Semua kejadian mouse yang terjadi di jendela ini akan diteruskan ke jendela di bawah jendela ini, namun jika jendela ini fokus, masih akan ada acara keyboard.
       
       #### `win.setContentProtection(enable)` *macOS* *Windows*
       
       * `enable` Boolean
       
-      Prevents the window contents from being captured by other apps.
+      Mencegah isi jendela ditangkap oleh aplikasi lain.
       
       On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
       
@@ -1064,7 +1064,7 @@ The `buttons` is an array of `Button` objects:
       
       * `focusable` Boolean
       
-      Changes whether the window can be focused.
+      Perubahan apakah jendela bisa difokuskan.
       
       #### `win.setParentWindow(parent)` *Linux* *macOS*
       
@@ -1084,7 +1084,7 @@ The `buttons` is an array of `Button` objects:
       
       * `autoHide` Boolean
       
-      Controls whether to hide cursor when typing.
+      Mengontrol apakah akan menyembunyikan kursor saat mengetik.
       
       #### `win.setVibrancy(type)` *macOS*
       
@@ -1096,7 +1096,7 @@ The `buttons` is an array of `Button` objects:
       
       * `touchBar` TouchBar
       
-      Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+      Mengatur tata letak touchBar untuk jendela aktif. Specifying `null` or `undefined` clears the touch bar. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
       
       **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
       
