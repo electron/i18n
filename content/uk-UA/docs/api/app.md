@@ -27,7 +27,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `launchInfo` об'єкт *macOS*
+* `launchInfo` Object *macOS*
 
 Відбувається коли Electron завершує ініціалізацію. На macOS, `launchInfo` тримає `userInfo` `NSUserNotification`, яка використовувалася для відкриття застосунку, якщо він був запущений з Центру Сповіщень. Ви можете викликати `app.isReady()` щоб перевірити чи відбулася дана подія.
 
@@ -41,7 +41,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Відбувається перед закриттям вікон. Виклик `event.preventDefault()` запобігає поведінці за замовчуванням: завершенню роботи застосунку.
 
@@ -51,7 +51,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Відбувається коли всі вікна закрилися і застосунок припинить свою роботу. Виклик `event.preventDefault()` запобігає поведінці за замовчуванням: завершенню роботи застосунку.
 
@@ -61,8 +61,8 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
-* `exitCode` Ціле число
+* `event` Event
+* `exitCode` Integer
 
 Відбувається коли застосунок припиняє роботу.
 
@@ -70,8 +70,8 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
-* `path` Стрічка
+* `event` Event
+* `path` String
 
 Відбувається коли користувач хоче відкрити файл за допомогою застосунку. Подія `open-file` зазвичай відбувається коли застосунок вже відкритий і ОС хоче повторно повторно використати його для відкриття файлу. `open-file` також відбуваєтсья коли файл закидається на панель, а застосунок ще не запущено. Слухайте подію `open-file` дуже рано при завантаженні застосунку щоб обробляти ці випадки (навіть перед викликом події `ready`).
 
@@ -83,8 +83,8 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
-* `url` Стрічка
+* `event` Event
+* `url` String
 
 Відбувається коли користувач хоче відкрити посилання за допомогою застосунку. Файл `Info.plist` має визначати схеми посилань за допомогою `CFBundleURLTypes` ключа, і встановлювати `NSPrincipalClass` в `AtomApplication`.
 
@@ -94,8 +94,8 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
-* `hasVisibleWindows` Булевий тип
+* `event` Event
+* `hasVisibleWindows` Boolean
 
 Відбувається при активації застосунку. Різні дії можуть викликати цю подію, такі як перший запуск застосунку, спроба перезапустити застосунок коли він працює, чи натискання на панель застосунку чи на піктограму на панель задач.
 
@@ -103,9 +103,9 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
-* `type` Рядок - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Об'єкт - Містить стан застосунку, збережений діяльністю на іншому пристрої.
+* `event` Event
+* `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Містить стан застосунку, збережений діяльністю на іншому пристрої.
 
 Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), коли діяльність з іншого пристрою має бути продовжена. Потрібно викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
@@ -115,7 +115,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Відбувається коли користувач натискає на нативні macOS кнопки створення нових вкладок. Кнопка створення нової вкладки видима тільки якщо якщо поточне `BrowserWindow` має `tabbingIdentifier`
 
@@ -123,7 +123,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `window` BrowserWindow
 
 Відбувається коли [browserWindow](browser-window.md) втрачає фокус.
@@ -132,7 +132,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `window` BrowserWindow
 
 Відбувається коли [browserWindow](browser-window.md) отримує фокус.
@@ -141,7 +141,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `window` BrowserWindow
 
 Відбувається коли створено [browserWindow](browser-window.md).
@@ -150,7 +150,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `webContents` WebContents
 
 Відбувається коли створено [webContents](web-contents.md).
@@ -159,13 +159,13 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `url` Стрічка
-* `error` Стрічка - Код помилки
+* `url` String
+* `error` String - Код помилки
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Враховувати сетрифікат як надійний
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
@@ -187,7 +187,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -211,7 +211,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
@@ -244,7 +244,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
@@ -253,7 +253,7 @@ Emitted when the gpu process crashes or is killed.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
@@ -348,7 +348,7 @@ You can request the following paths by the name:
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` Стрічка
+* `path` String
 * `options` Object (optional) 
   * `size` String 
     * `small` - 16x16
@@ -370,7 +370,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.setPath(name, path)`
 
 * `name` String
-* `path` Стрічка
+* `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
@@ -404,7 +404,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` Стрічка
+* `path` String
 
 Adds `path` to the recent documents list.
 
