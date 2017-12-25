@@ -69,7 +69,7 @@ Returns:
 
 Emitted when the notification is closed by manual intervention from the user.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilmez.
 
 #### Event: 'reply' *macOS*
 
