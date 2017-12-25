@@ -1,6 +1,6 @@
-# Model coding
+# Gaya coding
 
-These are the style guidelines for coding in Electron.
+Berikut adalah pedoman gaya untuk penulisan coding di Electron.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
