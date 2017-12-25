@@ -101,7 +101,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `details` Nesne 
-  * `id` String
+  * `kimlik` dizesi
   * `url` String
   * `method` String
   * `resourceType` Dize
@@ -141,7 +141,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
-    * `id` String
+    * `kimlik` dizesi
     * `url` String
     * `method` String
     * `resourceType` Dize
