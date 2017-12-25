@@ -109,7 +109,7 @@ app.setUserTasks([])
 
 The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
 
-## Thumbnail Toolbars
+## Küçük resim araç çubukları
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
 
