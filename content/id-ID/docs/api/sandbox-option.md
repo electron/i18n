@@ -111,13 +111,13 @@ Untuk membuat bundel browserify dan menggunakannya sebagai skrip pramuat, sesuat
 
 Bendera `-x` harus digunakan bersama modul yang dibutuhkan yang sudah terekspos dalam lingkup pramuat, dan memberitahukan browserify untuk menggunakan fungsi `require` terlampir, untuknya. `--insert-global-vars` akan memastikan bahwa `proses`, `Buffer` dan `setImmediate` juga diambil dari lingkup yang melekat (biasanya browserify menyuntikkan kode untuk mereka).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Saat ini fungsi `require` yang disediakan dalam lingkup pramuat memaparkan modul sebagai berikut:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `elektron` (crashReporter, remote dan ipcRenderer)
 - `fs`
 - `os`
-- `timers`
+- `timer`
 - `url`
 
 More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
