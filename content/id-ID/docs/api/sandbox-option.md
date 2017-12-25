@@ -39,7 +39,7 @@ Untuk mengaktifkan sandbox yang dipaksa oleh OS pada `BrowserWindow` atau `webvi
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // tidak perlu untuk melewatkan `sandbox: true` karena `--enable-sandbox` diaktifkan.
   win = new BrowserWindow()
   w.loadURL('http://google.com')
 })
