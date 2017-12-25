@@ -20,7 +20,7 @@ On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.d
 
 On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## Eklenti kullanılıyor
 
 After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
 
