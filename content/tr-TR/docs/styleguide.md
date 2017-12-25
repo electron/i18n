@@ -99,35 +99,35 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` 
 Örnek olarak `Oturum` ve `Çerezler` sınıflarını kullanmak:
 
 ```markdown
-# oturum
+# session
 
-## Yöntemler
+## Methods
 
-### oturum.bölmeden(bölme)
+### session.fromPartition(partition)
 
-## Özellikler
+## Properties
 
-### oturum.varsayılanOturum
+### session.defaultSession
 
-## Sınıf: Oturum
+## Class: Session
 
-### Örnek Erkinlikler
+### Instance Events
 
-#### Etkinlik: 'indirilecek'
+#### Event: 'will-download'
 
-### Örnek Yöntemler
+### Instance Methods
 
-#### ses.ÖnbellekBoyutu(geri arama) almak
+#### `ses.getCacheSize(callback)`
 
-### Örnek Özellikler
+### Instance Properties
 
-#### 'ses.çerezleri'
+#### `ses.cookies`
 
-## Sınıf: Çerezler
+## Class: Cookies
 
-### Örnek Yöntemler
+### Instance Methods
 
-#### 'çerezler.(filtre, geri alma)'
+#### `cookies.get(filter, callback)`
 ```
 
 ### Metodlar
@@ -179,11 +179,11 @@ Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu plat
 Olaylar bölümü aşşağıdaki form da olmak zorundadır:
 
 ```markdown
-###Olay: 'uyandırma
+### Event: 'wake-up'
 
-Döndürme:
+Returns:
 
-* 'zaman' Dizi
+* `time` String
 
 ...
 ```
@@ -197,7 +197,7 @@ Bir olayda ki argümanlar metodların takip ettiği kurallar ile aynıdır.
 Metodların bölümü aşağıdaki formda olmak zorundadır:
 
 ```markdown
-### oturum.varsayılanOturum
+### session.defaultSession
 
 ...
 ```
