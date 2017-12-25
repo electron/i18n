@@ -20,13 +20,13 @@ npm install electron -g
 
 ## Individuelle Anpassung
 
-Falls Sie die herunterzuladende Architektur ändern möchten (z.B. `ia32` auf einem `x64`-Rechner), dann können Sie den `--arch` -Flag verwenden oder die Umgebungsvariable `npm_config_arch` setzen:
+Falls Sie die herunterzuladende Architektur ändern möchten (z.B. `ia32` auf einem `x64`-Rechner), dann können Sie den `--arch`-Flag verwenden oder die Umgebungsvariable `npm_config_arch` setzen:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-Zusätzlich zur Änderung der Architektur können Sie auch die Plattform (z.B. `win32`, `linux`, usw.) mittels des `--platform` -Flags spezifizieren:
+Zusätzlich zur Änderung der Architektur können Sie auch die Plattform (z.B. `win32`, `linux`, usw.) mittels des `--platform`-Flags spezifizieren:
 
 ```shell
 npm install --platform=win32 electron
@@ -44,15 +44,15 @@ In beinahe allen Fällen entstehen diese Fehler durch Netzwerkprobleme und nicht
 
 Sie können versuchen, Electron direkt von [electron/electron/releases](https://github.com/electron/electron/releases) herunterzuladen, falls die Installation mit `npm` fehlschlägt.
 
-Sollte die Installation durch einen `EACCESS` -Fehler fehlschlagen, dann gibt es möglicherweise Probleme mit Ihren [npm-Berechtigungen](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Sollte die Installation durch einen `EACCESS`-Fehler fehlschlagen, dann gibt es möglicherweise Probleme mit Ihren [npm-Berechtigungen](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Falls dieser Fehler dennoch bestehen bleibt, könnte es Abhilfe schaffen, den [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm)-Flag auf "true" zu setzen:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+In langsameren Netzwerken ist es ratsam den `--verbose`-Flag zu benutzen um den Downloadfortschritt anzuzeigen:
 
 ```sh
 npm install --verbose electron
