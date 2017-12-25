@@ -10,11 +10,11 @@ Untuk C ++ dan Python, kita mengikuti [Gaya coding](http://www.chromium.org/deve
 
 Versi Python yang kita gunakan sekarang adalah Python 2.7.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Kode C ++ menggunakan banyak abstraksi dan tipe Chromium, jadi disarankan untuk berkenalan dengan mereka. Tempat yang baik untuk memulai adalah dokumen Chromium 's [Struktur Data dan Abstraksi penting ](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures). Dokumen tersebut menyebutkan beberapa jenis khusus, lingkup jenis-jenis (yang secara otomatis melepaskan ingatan mereka saat berada diluar lingkup), mekanisme logging dll.
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
+* Menulis [standar](http://npm.im/standard) gaya JavaScript.
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
