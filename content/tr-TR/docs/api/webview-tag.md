@@ -578,21 +578,21 @@ Returns:
 * `requestMethod` Dize
 * `referrer` String
 * `headers` Nesne
-* `kaynekTipi` Dize
+* `resourceType` Dize
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Olay: 'yönlendirme-isteği-almadın-mı'
+### Olay: 'did-get-redirect-request'
 
 Returns:
 
-* `eskiURL` Dize
+* `oldURL` Dize
 * `newURL` Dize
 * `isMainFrame` Boolean
 
 Fired when a redirect was received while requesting a resource.
 
-### Olay: 'dom-hazır'
+### Olay: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -664,13 +664,13 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Olay: 'yeni-pencere'
+### Olay: 'new-window'
 
 Returns:
 
 * `url` String
-* `çerçeveAdı` Dize
-* `kural` Dize - `varsayılan`, `önplan-sekmesi`, `arkaplan-sekmesi`, `yeni-pencere`, `diske-kaydet` ve `diğer` olabilir.
+* `frameName` Dize
+* `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
@@ -695,7 +695,7 @@ Returns:
 
 * `url` String
 
-Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `Pencere.yeri` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
+Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -711,9 +711,9 @@ Returns:
 
 Bir gezinme yapıldığında ortaya çıkar.
 
-Ayrıca, bağlı linkleri tıklama veya `pencere.konumu.karması` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `sayfa-içi-gezinme-mi` etkinliğini kullanın.
+Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
-### Olay: 'sayfa-içi-gezinme-mi'
+### Olay: 'did-navigate-in-page'
 
 Returns:
 
@@ -722,7 +722,7 @@ Returns:
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
-Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `karmadeğişiklik` olayı tetiklendiğinde görülür.
+Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
 ### Etkinlik: 'kapat'
 
