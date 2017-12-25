@@ -75,17 +75,17 @@ Para ejecutar su paquete, sus usuarios necesitarán Windows 10 con la llamada "A
 
 En oposición a las aplicaciones UWP tradicionales, las aplicaciones empaquetadas actualmente necesitan someterse a un proceso de verificación manual, para lo cual puede aplicar [aquí](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Mientras tanto, todos los usuarios podrán simplemente instalar su paquete haciendo doble clic en él, por lo que un envío a la tienda no sería necesario si simplemente está buscando un método de instalación más sencillo. En entornos administrados (generalmente empresas), se puede usar el `Add-AppxPackage` [PowerShell Cmdlet se puede utilizar para instalarlo de forma automática](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Otra limitación importante es que el paquete AppX compilado todavía contiene un ejecutable Win32 - y por lo tanto, no se ejecutará en Xbox, HoloLens o teléfonos.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Opcional: Añadir características UWP usando un BackgroundTask
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Puede asociar su aplicación Electron con una tarea de fondo UWP invisible que haga uso completo de las características de Windows 10, como notificaciones push, integración Cortana o Live Tiles.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Para comprobar cómo una aplicación de Electron que es utilizada por una tarea en segundo plano envía notificaciones Toast y Lives Tiles, [dale una mirada al ejemplo proporcionado por Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## Opcional: Convertir utilizando la Virtualización de Contenedores
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+Para generar el paquete AppX, la CLI `electron-windows-store` usa una plantilla que debería funcionar para la mayoría de las aplicaciones Electron. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
 
 Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
