@@ -150,7 +150,7 @@ Yukarıda önerilenlerle aynı biçimleri kullanın, ancak değişiklik notunun 
 
 Lütfen bulduğunuz hatalar için yeni sorunları dosyalayın.
 
-Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elec ron) burada yayınlanmıştır ve `npm install electron @beta` vasıtasıyla kurulabilir.
+Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/electron) burada yayınlanmıştır ve `npm install electron@beta` vasıtasıyla kurulabilir.
 ```
 
 ## Yayın taslağını düzenleme
