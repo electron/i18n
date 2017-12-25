@@ -26,6 +26,6 @@ NW.js'de web sayfalarında ki ağ entegrasyonu, çalışmak için Chromium'u yam
 
 Deneyimli bir NW.js kullanıcıysanız, ağ bağlamı ve web bağlamı kavramlarına tanıdık olamalısınız. Bu kavramlar NW.js'in nasıl uygulandığından dolayı icat edildi.
 
-Ağın [çoklu_bağlamsal](https://github.com/nodejs/node-v0.x-archive/commit/756b622) özelliğini kullanarak, Electron web sayfalarında yeni bir JavaScript içeriği sunmaz.
+Ağın [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) özelliğini kullanarak, Electron web sayfalarında yeni bir JavaScript içeriği sunmaz.
 
 Not: NW.js isteğe bağlı olarak 0.13'ten beri çoklu bağlamı desteklenmiştir.
