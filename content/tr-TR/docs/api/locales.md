@@ -30,7 +30,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | en-AU    | English (Australia)             |
 | en-CA    | İngilizce (Kanada)              |
 | en-GB    | İngilizce (Birleşik Krallık)    |
-| en-NZ    | English (New Zealand)           |
+| en-NZ    | İngilizce (Yeni Zelanda)        |
 | en-US    | İngilizce (Birleşmiş Devletler) |
 | en-ZA    | English (South Africa)          |
 | eo       | Esperanto                       |
@@ -63,7 +63,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | id       | Indonesian                      |
 | is       | Icelandic                       |
 | it       | Italian                         |
-| it-CH    | Italian (Switzerland)           |
+| it-CH    | İtalyanca (İsviçre)             |
 | it-IT    | İtalyanca (İtalya)              |
 | ja       | Japanese                        |
 | jw       | Javanese                        |
@@ -99,7 +99,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ps       | Pashto                          |
 | pt       | Portuguese                      |
 | pt-BR    | Portuguese (Brazil)             |
-| pt-PT    | Portuguese (Portugal)           |
+| pt-PT    | Portekizce (Portekiz)           |
 | qu       | Quechua                         |
 | rm       | Romansh                         |
 | ro       | Romanian                        |
@@ -137,5 +137,5 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | yo       | Yoruba                          |
 | zh       | Chinese                         |
 | zh-CN    | Chinese (Simplified)            |
-| zh-TW    | Chinese (Traditional)           |
+| zh-TW    | Çince (Geleneksel)              |
 | zu       | Zulu                            |
