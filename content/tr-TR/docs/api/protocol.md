@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -137,7 +137,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -181,7 +181,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -197,7 +197,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -213,7 +213,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -229,7 +229,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
