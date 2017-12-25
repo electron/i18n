@@ -127,7 +127,7 @@ Lebih lanjut boleh ditambahkan lagi sesuai dengan kebutuhan untuk mengekspos leb
 Silahkan gunakan opsi `sandbox` dengan hati-hati, karena fitur ini masih fitur percobaan. Kami masih belum mengetahui implikasi keamanan dari pengeksposan beberapa API perender electron terhadap skrip pramuat, namun berikut ini beberapa hal yang perlu dipertimbangkan sebelum melakukan render terhadap konten yang tidak terpercaya:
 
 - Skrip pramuat dapat secara tidak sengaja membocorkan API istimewa ke kode yang tidak terpercaya.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
+- Beberapa bug pada mesin V8 memungkinkan kode berbahaya mengakses API pramuat perender, yang secara efektif memberikan akses penuh ke sistem melalui modul `remote`.
 
 Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
 
