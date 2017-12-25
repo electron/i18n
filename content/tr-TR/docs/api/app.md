@@ -787,11 +787,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Dock simgesini gizler.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Dock simgesini gösterir.
 
 ### `app.dock.isVisible()` *macOS*
 
