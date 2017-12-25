@@ -1,16 +1,16 @@
 # Panduan Pengiriman Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Sejak v0.34.0, Electron mengizinkan pengiriman aplikasi yang dikemas ke Mac App Store (MAS). Panduan ini memberikan informasi tentang: bagaimana cara mengirimkan aplikasi Anda dan keterbatasan MAS membangun.
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**Note:** Mengirimkan aplikasi ke Mac App Store memerlukan pendaftaran [ Apple Developer Program ](https://developer.apple.com/support/compare-memberships/), yang membutuhkan biaya.
 
-## How to Submit Your App
+## Cara Mengirimkan Aplikasi Anda
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+Langkah-langkah berikut mengenalkan cara mudah untuk mengirimkan aplikasi Anda ke Mac App Store. Namun, langkah-langkah ini tidak memastikan aplikasi Anda akan disetujui oleh Apple; kamu Masih perlu membaca Apple [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) panduan di bagaimana cara memenuhi persyaratan Mac App Store.
 
-### Get Certificate
+### Dapatkan Sertifikat
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Untuk mengirimkan aplikasi Anda ke Mac App Store, pertama Anda harus mendapatkan sertifikat dari Apel. Anda bisa mengikuti ini [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) di web.
 
 ### Get Team ID
 
