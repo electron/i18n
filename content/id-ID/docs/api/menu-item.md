@@ -76,9 +76,9 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
 <li><code>unhide` - Map to the `unhideAllApplications` action
     * `startspeaking` - Map to the `startSpeaking` action
     * `stopspeaking` - Map to the `stopSpeaking` action
-    * `front` - Map to the `arrangeInFront` action
-    * `zoom` - Map to the `performZoom` action
-    * `window` - The submenu is a "Window" menu
+    * ` depan </ 0> - Peta ke <code> arrangeInFront </ 0> tindakan</li>
+<li><code> zoom </ 0> - Peta ke <code> performZoom </ 0> tindakan</li>
+<li><code>window` - The submenu is a "Window" menu
     * `help` - The submenu is a "Help" menu
     * `services` - The submenu is a "Services" menu
     
@@ -86,9 +86,9 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     ### Instance Properties
     
-    The following properties are available on instances of `MenuItem`:
-    
-    #### `menuItem.enabled`
+    Properti berikut tersedia pada contoh ` MenuItem </ 0> :</p>
+
+<h4><code>menuItem.enabled`</h4> 
     
     A`Boolean` menunjukkan apakah item tersebut diaktifkan, properti ini dapat diubah secara dinamis.
     
@@ -100,13 +100,13 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
     
-    A `checkbox` menu item will toggle the `checked` property on and off when selected.
-    
-    A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
-    
-    You can add a `click` function for additional behavior.
-    
-    #### `menuItem.label`
+    Sebuah ` centang </ 0> item menu akan beralih <code> diperiksa </ 0> properti dan mematikan saat dipilih.</p>
+
+<p>Sebuah <code> radio </ 0> item menu akan menyala nya <code> diperiksa </ 0> properti saat diklik, dan akan mematikan bahwa properti untuk semua item yang berdekatan di menu yang sama.</p>
+
+<p>Anda dapat menambahkan fungsi <code> klik </ 0> untuk perilaku tambahan.</p>
+
+<h4><code>menuItem.label`</h4> 
     
     A `String` representing the menu items visible label
     
