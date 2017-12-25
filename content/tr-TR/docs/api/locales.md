@@ -32,7 +32,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | en-GB    | İngilizce (Birleşik Krallık)    |
 | en-NZ    | İngilizce (Yeni Zelanda)        |
 | en-US    | İngilizce (Birleşmiş Devletler) |
-| en-ZA    | English (South Africa)          |
+| en-ZA    | İngilizce (Güney Afrika)        |
 | eo       | Esperanto                       |
 | es       | Spanish                         |
 | es-419   | Spanish (Latin America)         |
