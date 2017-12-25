@@ -18,15 +18,15 @@ Electron'un bağımlılıklarının tamamı V8'in aynı kopyasını oluşturup k
 
 1. Elektron 'un Node fork sürümünü istediğiniz sürüme güncelleyin
 2. Backport Node 'un V8 yamalarını kendi V8 'inize kopyalayın
-3. Update Electron to use new version of Node 
-  - Alt modülleri güncelleştirme
-  - Update Node.js build configuration
+3. Node 'un yeni sürümünü kullanmak için Electron 'u güncelleyin 
+  - Alt modülleri güncelleştirin
+  - Node.js yapılandırmasını güncelleyin
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Electron Node' unu [fork](https://github.com/electron/node) güncelleme
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
-  - `vX.X.X` Must use a version of node compatible with our current version of chromium
+1. `electron/node` üzerindeki `master` öğesinin `nodejs/node` adresindeki yayın etiketlerinin güncellendiğinden emin olun
+2. Https://github.com/electron/node 'da bir dal oluşturun: `electron-node-vX.X.X` burada oluşturduğunuz dal tabanı, istenen güncelleme için etikettir 
+  - `vX.X.X` Mevcut chromium versiyonuyla uyumlu bir node sürümünü kullanmalısınız
 3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
   - Cherry-pick commit range: 
