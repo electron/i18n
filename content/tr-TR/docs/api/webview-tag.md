@@ -374,7 +374,7 @@ Opens the DevTools for the service worker context present in the guest page.
 
 * `muted` Boolean
 
-Set guest page muted.
+Misafir sayfası sessiz.
 
 ### `<webview>.isAudioMuted()`
 
