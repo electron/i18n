@@ -40,33 +40,33 @@ npm menjalankan mempersiapkan-release -- patch
 ### Perubahan versi beta
 
 ```sh
-npm run prepare-release -- beta
+npm menjalankan mempersiapkan-release -- beta
 ```
 
-### Promote beta to stable
+### Promosikan beta untuk stabil
 
 ```sh
-npm run prepare-release -- --stable
+npm menjalankan mempersiapkan-release -- -- stabil
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## Tunggu untuk membangun :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+Itu `persiapan-release` akan memicu pembuatan melalui panggilan API. Untuk memantau kemajuan pembuatan, lihat halaman berikut:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
-- [circleci.com/gh/electron](https://circleci.com/gh/electron) for Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) untuk Mac App Store
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) untuk OS X
+- [circleci.com/gh/electron](https://circleci.com/gh/electron) untuk Linux
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) untuk Windows
 
-## Compile release notes
+## Kompilasi catatan rilis
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Menulis catatan rilis adalah cara yang baik untuk membuat diri Anda sibuk sementara membangun berjalan. Untuk prior art, lihat rilis yang ada di [halaman rilis](https://github.com/electron/electron/releases).
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Setiap item yang terdaftar harus merujuk PR pada elektron / elektron, bukan masalah, atau PR dari repo lain seperti libcc. - Tidak perlu menggunakan markup tautan saat mereferensikan PRs. String seperti `#123` akan otomatis dikonversi menjadi tautan di github.com. - Untuk melihat versi Chromium, V8, dan Node di setiap versi Elektron, kunjungi [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Rilis patch
 
-For a `patch` release, use the following format:
+Untuk rilis `patch`, gunakan format berikut:
 
 ```sh
 ## Bug Fixes
@@ -186,11 +186,11 @@ Once the merge has finished successfully, run the `release` script via `npm run 
 
 Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
 
-## Fix missing binaries of a release manually
+## Perbaiki binari yang hilang dari pelepasan secara manual
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+Dalam kasus pelepasan yang rusak dengan mesin CI rusak, mungkin kita harus melakukannya upload ulang binari untuk rilis yang sudah diterbitkan.
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+Langkah pertama adalah pergi ke [Rilis](https://github.com/electron/electron/releases) halaman dan hapus binari yang rusak dengan berkas checksum `SHASUMS256.txt`.
 
 Then manually create distributions for each platform and upload them:
 
