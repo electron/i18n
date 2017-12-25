@@ -37,7 +37,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 
 ## Update Electron's code
 
-1. Get the code: 
+1. Kod al: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
