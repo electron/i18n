@@ -45,14 +45,14 @@ app.on('ready', () => {
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+Perhatikan bahwa tidak cukup untuk memanggil `app.commandLine.appendSwitch('--enable-sandbox')`, karena kode startup elektron/node yang berjalan setelahnya memungkinkan untuk melakukan perubahan pada pengaturan kotak sandbox chromium. Pergantian harus dilewatkan ke elektron pada baris-perintah:
 
     electron --enable-sandbox app.js
     
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
+Adalah tidak mungkin untuk memiliki OS sandbox yang aktif hanya untuk beberapa perender, jika `--enable-sandbox` diaktifkan, jendela elektron normal tidak dapat dibuat.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+Jika Anda perlu mencampur peranti yang disandbox dan yang tidak-disandboxed dalam satu aplikasi, cukup hilangkan argumen `--enable-sandbox`. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## Preload
 
