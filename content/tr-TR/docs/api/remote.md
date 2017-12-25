@@ -38,9 +38,9 @@ Birincil değer türleri dizeler ve satırlar gibidir oysa metin halinde gönder
 
 Ana süreçteki kod, oluşturucudan geri bildirimleri kabul edebilir - örneğin ` remote ` modülü - ancak bu özelliği kullanırken son derece dikkatli olmalısınız.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+İlk olarak, kilitlenmelerden kaçınmak için, ana işleme iletilen geridönüşler eşzamansız olarak çağrılır. Ana süreçten, geçen geridönüşlerin dönüş değerini öğrenmesini bekleyemezsiniz.
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Örneğin ana işlemde `Array.map` olarak adlandırılan bir fonksiyonu işlev işleyici işleminde kullanamazsınız:
 
 ```javascript
 // main process mapNumbers.js
