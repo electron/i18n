@@ -12,39 +12,39 @@
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Забирає фокус з дочірнього вікна.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Негайно закриває вікно дочірнє вікно не викликаючи його подій.
 
 #### `win.eval(code)`
 
 * `code` String
 
-Evaluates the code in the child window.
+Обчислює code в дочірньому вікні.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Надає фокус дочірньому вікну (виносить вікно наперед).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Викликає діалог друку дочірнього вікна.
 
 #### `win.postMessage(message, targetOrigin)`
 
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Надсилає повідомлення дочірньому вікну з визначеним джерелом чи `*`, якщо його нема.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+На додаток до цих методів, дочірнє вікно реалізує об'єкт `window.opener` без властивостей та з одним методом.
 
 ### Властивості Екземпляра
 
-The `BrowserWindowProxy` object has the following instance properties:
+Об'єкт `BrowserWindowProxy` має наступні властивості:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+`Boolean` встановлюється в true після закриття дочірнього вікна.
