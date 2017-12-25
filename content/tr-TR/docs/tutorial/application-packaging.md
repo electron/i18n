@@ -11,7 +11,7 @@ Steps to package your app into an `asar` archive:
 ### 1. Install the asar Utility
 
 ```sh
-$ npm install -g asar
+$ npm kurma -g asar
 ```
 
 ### 2. Package with `asar pack`
