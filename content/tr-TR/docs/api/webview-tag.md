@@ -380,11 +380,11 @@ Misafir sayfası sessiz.
 
 Returns `Boolean` - Whether guest page has been muted.
 
-### `<webview>.undo()`
+### `<webview>.geri almak()`
 
 Executes editing command `undo` in page.
 
-### `<webview>.redo()`
+### `<webview>.yeniden yapmak()`
 
 Executes editing command `redo` in page.
 
@@ -392,7 +392,7 @@ Executes editing command `redo` in page.
 
 Executes editing command `cut` in page.
 
-### `<webview>.copy()`
+### `<webview>.kopyala()`
 
 Executes editing command `copy` in page.
 
