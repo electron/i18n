@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> Sistem tercihlerini al.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -9,16 +9,16 @@ const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Olaylar
+## Events
 
-The `systemPreferences` object emits the following events:
+`systemPreferences` nesnesi aşağıdaki olayları yayar:
 
 ### Event: 'accent-color-changed' *Windows*
 
 Returns:
 
 * `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* `newColor` String - Kullanıcının sistemine atadığı yeni RGBA vurgu rengi.
 
 ### Event: 'color-changed' *Windows*
 
