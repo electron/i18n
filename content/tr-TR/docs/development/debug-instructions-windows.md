@@ -38,6 +38,6 @@ Hata ayıklarken birden çok program eklenebilir, ancak yalnızca bir program ay
 
 ## Using ProcMon to Observe a Process
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Visual Studio spesifik kod yollarını incelemek için harika olsa da, ProcMon'un gücü gerçekten uygulamanızın işletim sistemi ile yaptıklarını gözlemlemektir - süreçlerinizin Dosya, Kayıt Defteri, Ağ, İ şlem, ve Profil detaylarını yakalar. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
 For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
