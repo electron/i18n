@@ -162,7 +162,7 @@ Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elec 
 5. Wait for all builds to pass before proceeding.
 6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
 
-## Merge temporary branch
+## Geçici şube birleştirme
 
 Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
 
