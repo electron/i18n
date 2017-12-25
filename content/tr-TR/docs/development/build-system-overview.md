@@ -19,20 +19,20 @@ Electron'da çok benzer bir yaklaşım izledik: `Debug` için, ikili hızlı ba�
 
 ## Kısa Ön yükleme
 
-Chromium'un önceden oluşturulmuş ikili dosyalarıbıb tümü (`libchromiumcontent`) önyükleme komut dosyası çalışıyorken indirilir. Varsayılan olarak, Statik kitaplık ve paylaşılan kitaplığın ikisi de yüklenir, ve son boyut platforma bağlı olarak 800 Mb ve 2 Gb arasında olmalı.
+Chromium'un önceden oluşturulmuş ikili dosyalarının tümü (`libchromiumcontent`) önyükleme komut dosyası çalışıyorken indirilir. Varsayılan olarak, Statik kitaplık ve paylaşılan kitaplığın ikisi de yüklenir, ve son boyut platforma bağlı olarak 800 Mb ve 2 Gb arasında olmalı.
 
 Varsayılan olarak, `libchromiumcontent` Amazon Web Servisleri'nden yüklenir. Eğer `LIBCHROMIUMCONTENT_MIRROR` ortamı değişken olarak ayarlanırsa, önyükleme komut dosyası oradan yüklenir. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) `libchromiumcontent` için bir yansımadır. Eğer AWS erişiminde sorun yaşıyorsanız, indirme adresini `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/` üzerinden değiştirebilisiniz
 
-If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
+Eğer sadece Electron'u sadece hızlıca denemek veya geliştirmek için oluşturuyorsanız, sadece paylaşılan kitaplık versiyonunu `--dev` parametresini atlayarak indirebilirsiniz:
 
 ```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## İki Aşamalı Proje Üretimi
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+Electron `Release` ve `Debug` yapılarındaki farklı kitaplık kurulumları ile bağlantı sağlar. `gyp`, however, doesn't support configuring different link settings for different configurations.
 
 To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
 
