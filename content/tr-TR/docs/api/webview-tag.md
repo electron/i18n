@@ -264,7 +264,7 @@ Returns `Boolean` - Whether guest page is still loading resources.
 
 Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
 
-### `<webview>.stop()`
+### `<webview>.dur()`
 
 Stops any pending navigation.
 
