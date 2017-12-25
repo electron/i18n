@@ -68,9 +68,9 @@ OSR (Ekran dışı görüntü işleme) ağır sayfayı arka planda yüklemek ve 
 
 Bir işlem çalıştırılmakta olan bir bilgisayar programının bir örneğidir. [Ana](#main-process) ve bir veya daha fazla [işleyici](#renderer-process) işlemini kullanan electron uygulamaları aslında aynı anda birden fazla programı çalıştırıyor.
 
-Node.js ve Electron'da, çalışan her işlem bir `işlem` nesnesine sahiptir. Bu nesne, mevcut süreç hakkında bilgi sağlayan ve bu işlemi kontrol eden bir globaldir. Küresel olarak, bu() kullanmayı gerektirmeyen uygulamalar için daima mevcuttur.
+Node.js ve Electron'da, çalışan her işlem bir `process` nesnesine sahiptir. Bu nesne, mevcut süreç hakkında bilgi sağlayan ve bu işlemi kontrol eden bir globaldir. Küresel olarak, bu() kullanmayı gerektirmeyen uygulamalar için daima mevcuttur.
 
-Ayrıca bkz: [ana işlem](#main-process), [işleyici süreç](#renderer-process)
+Ayrıca bkz: [main process](#main-process), [renderer process](#renderer-process)
 
 ### oluşturma süreci
 
