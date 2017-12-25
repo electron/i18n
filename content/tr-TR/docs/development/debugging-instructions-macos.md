@@ -1,6 +1,6 @@
 # macOs'da Hata Ayıklama
 
-Electron'un kendisinden kaynaklanmadığını düşündüğünüz sizin JavaScript uygulamanızdan kaynaklandığını düşündüğünüz hatalarla karşılaşabilirsiniz fakat buna Electron sebep olmaktadır, hata ayıklama biraz can sıkıcı olabilir, özellikle yerel / C ++ için kullanılmayan geliştiriciler için hata ayıklama biraz zor olabilir. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electronun neden olduğu hatalarla karşılaşırsanız, hata ayıklama biraz can sıkıcı olabilir, özellikle yerel / C ++ için kullanılmayan geliştiriciler için hata ayıklama biraz zor olabilir. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
 
 ## Gereksinimler
 
