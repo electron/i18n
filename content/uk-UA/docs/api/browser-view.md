@@ -2,11 +2,11 @@
 
 > Створюйте та керуйте виглядами.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Примітка:** BrowserView API наразі є експериментальним і може бути зміненим чи видаленим з майбутніх версій Electron.
 
 Процес: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` може бути використаний для вбудовування додаткового веб-контенту в `BrowserWindow`. По муті він є дочірнім вікном, за винятком того, що позиціонується відносно батьківського вікна. Він покликаний бути альтернативою тегу `webview`.
 
 ## Приклад
 
@@ -32,7 +32,7 @@ view.webContents.loadURL('https://electron.atom.io')
 ### `new BrowserView([options])` *Експериментальний*
 
 * `options` Object (опціонально) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Object (опціонально) - Дивись [BrowserWindow](browser-window.md).
 
 ### Статичні Методи
 
@@ -42,19 +42,19 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Повертає `BrowserView` - Вигляд з отриманим `id`.
 
-### Instance Properties
+### Властивості Екземпляра
 
-Objects created with `new BrowserView` have the following properties:
+Об'єкт створений за допомогою `new BrowserView` має наступні властивості:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Експериментальний*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Об'єкт [`WebContents`](web-contents.md), яким володіє цей вигляд.
 
-#### `view.id` *Experimental*
+#### `view.id` *Експериментальний*
 
-A `Integer` representing the unique ID of the view.
+`Integer`, яке представляє унікальний ID вигляду.
 
-### Instance Methods
+### Методи Екземпляра
 
 Objects created with `new BrowserView` have the following instance methods:
 
