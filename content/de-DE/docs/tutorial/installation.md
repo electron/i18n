@@ -40,7 +40,7 @@ Sofern Sie einen HTTP-Proxy nutzen müssen, können Sie [diese Umgebungsvariable
 
 Während der Installation mittels `npm install electron` stoßen einige Nutzer gelegentlich auf Fehler.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+In beinahe allen Fällen entstehen diese Fehler durch Netzwerkprobleme und nicht durch tatsächliche Fehler mit dem `electron` npm-Paket. Fehler wie `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` und `ETIMEDOUT` weisen alle auf ein Problem mit dem Netzwerk hin. Die beste Lösung besteht oftmals darin, das Netzwerk zu wechseln oder nach kurzer Zeit die Installation erneut zu versuchen.
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
