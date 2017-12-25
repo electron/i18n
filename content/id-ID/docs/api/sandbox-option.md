@@ -71,10 +71,10 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+dan preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
+// File ini dimuat kapanpun sebuah konteks javascript diciptakan. It runs in a
 // private scope that can access a subset of electron renderer APIs. We must be
 // careful to not leak any objects into the global scope!
 const fs = require('fs')
