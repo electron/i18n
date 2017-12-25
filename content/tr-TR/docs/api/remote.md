@@ -24,11 +24,11 @@ Yukarıdaki örnekte, hem ` BrowserWindow ` hem de ` win ` uzak nesnelerdir ve `
 
 ** Not: ** Yalnızca [ numaralandırılabilir özellikler ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) mevcut Uzak nesneye ilk başvurulduğunda uzaktan erişilebilir.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+** Not: ** ` remote ` modülü üzerinden erişildiğinde, Diziler ve Tamponlar IPC üzerinden kopyalanır. Onları oluşturucu işleminde değiştirmek, onları ana işlemde değiştirmez yada tam tersi ana işlemde değiştirmek, oluşturucu işleminde değiştirmez.
 
-## Lifetime of Remote Objects
+## Uzak Nesnelerin Ömrü
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Elektron, oluşturucu işlemindeki uzak nesne işlem süresince yaşar (başka bir deyişle, çöp toplanmamıştır), karşılık gelen nesne ana süreçte serbest bırakılmayacaktır. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
 If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
 
