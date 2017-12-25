@@ -69,11 +69,11 @@ Una vez ejecutada, la herramienta comienza a funcionar: acepta su aplicación El
 
 Una vez que se crean los archivos de AppX expandidos, la herramienta usa el Empaquetador de Aplicaciones de Windows (`MakeAppx.exe`) para crear un paquete de AppX de un solo archivo a partir de esos archivos en el disco. Finalmente, la herramienta se puede usar para crear un certificado de confianza en su computadora para firmar el nuevo paquete AppX. Con el paquete AppX firmado, la CLI también puede instalar automáticamente el paquete en su máquina.
 
-## Step 3: Using the AppX Package
+## Paso 3: Usando el Paquete AppX
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+Para ejecutar su paquete, sus usuarios necesitarán Windows 10 con la llamada "Actualización Aniversario". Se pueden encontrar detalles sobre cómo actualizar Windows [aquí](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+En oposición a las aplicaciones UWP tradicionales, las aplicaciones empaquetadas actualmente necesitan someterse a un proceso de verificación manual, para lo cual puede aplicar [aquí](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Mientras tanto, todos los usuarios podrán simplemente instalar su paquete haciendo doble clic en él, por lo que un envío a la tienda no sería necesario si simplemente está buscando un método de instalación más sencillo. En entornos administrados (generalmente empresas), se puede usar el `Add-AppxPackage` [PowerShell Cmdlet se puede utilizar para instalarlo de forma automática](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 
