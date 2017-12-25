@@ -47,15 +47,15 @@ Menentukan bendera yang dilewatkan ke mesin Node JS. Itu harus berlalu ketika mu
 
 Lihat dokumentasi[Node](https://nodejs.org/api/cli.html)atau jalankan`node --help `di terminal Anda untuk daftar flag yang tersedia. Selain itu, jalan `node --v8-options`untuk melihat daftar flag yang secara khusus merujuk ke mesin JavaScript Vtp Node.
 
-## --proxy-server=`address:port`
+## --proxy-server =`alamat: port`
 
 Gunakan server proxy tertentu, yang menggantikan pengaturan sistem. Saklar ini hanya memengaruhi permintaan dengan protokol HTTP, termasuk HTTPS dan WebSocket permintaan. Perlu dicatat juga bahwa tidak semua server proxy mendukung HTTPS dan Permintaan WebSocket.
 
-## --proxy-bypass-list=`hosts`
+## --proxy-bypass-list =`host`
 
 Instruksikan Elektron untuk memotong server proxy untuk semi-colon-separated yang diberikan daftar host Bendera ini hanya memiliki efek jika digunakan bersamaan ` - proxy-server `.
 
-For example:
+Sebagai contoh:
 
 ```javascript
 const {app} = require ('electron')
