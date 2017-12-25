@@ -59,12 +59,7 @@ Outputnya harus terlihat kira-kira seperti ini:
 Dari PowerShell yang ditinggikan (jalankan sebagai "Administrator"), jalankan `electron-windows-store ` dengan parameter yang dibutuhkan, berikan kedua input tersebut dan direktori output, nama dan versi aplikasi, dan konfirmasi itu `node_modules ` harus diratakan.
 
 ```powershell
-electron-windows-store `
-    --input-directory C:\myelectronapp `
-    --output-directory C:\output\myelectronapp `
-    --flatten true `
-    --package-version 1.0.0.0 `
-    --package-name myelectronapp
+direktori-direktori-direktori-masukkan-direktori-C: \myelectronapp `--output-directory C:\output \ myelectronapp` --flatten true `--package-version 1.0.0.0` --package-name myelectronapp
 ```
 
 Setelah dijalankan, alat bekerja: Ini menerima aplikasi Elektron Anda sebagai masukan, meratakan `node_modules`. Kemudian, arsipkan aplikasi Anda sebagai `app.zip`. Dengan menggunakan installer dan Windows Container, alat ini menciptakan AppX yang "diperluas" paket - termasuk Windows Application Manifest (` AppXManifest.xml `) sebagai serta sistem file virtual dan virtual registry di dalam output Anda map.
@@ -75,7 +70,7 @@ Setelah file AppX yang diperluas dibuat, alat ini menggunakan Windows App Packag
 
 Untuk menjalankan paket Anda, pengguna Anda memerlukan Windows 10 dengan apa yang disebutnya "Update Ulang Tahun" - rincian tentang cara memperbarui Windows dapat ditemukan [di sini](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-Sebagai lawan dari aplikasi UWP tradisional, aplikasi terpaket saat ini perlu menjalani proses verifikasi manual, yang bisa Anda terapkan [disini](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. Di lingkungan yang dikelola (biasanya perusahaan), `Add-AppxPackage` [PowerShell Cmdlet dapat digunakan untuk menginstalnya secara otomatis](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Sebagai lawan dari aplikasi UWP tradisional, aplikasi terpaket saat ini perlu menjalani proses verifikasi manual, yang bisa Anda terapkan [disini](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Sementara itu, semua pengguna hanya bisa menginstal paket Anda dengan mengklik dua kali, jadi pengiriman ke toko mungkin tidak diperlukan jika Anda hanya mencari metode pemasangan yang lebih mudah. Di lingkungan yang dikelola (biasanya perusahaan), `Add-AppxPackage` [PowerShell Cmdlet dapat digunakan untuk menginstalnya secara otomatis](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Keterbatasan penting lainnya adalah paket AppX yang dikompilasi masih berisi win32 executable - dan karena itu tidak akan berjalan di Xbox, HoloLens, atau Phones.
 
