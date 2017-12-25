@@ -2,17 +2,17 @@
 
 Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will simply fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
 
-## Configuring the Virtual Display Server
+## Mengkonfigurasi Server Tampilan Virtual
 
-First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
+First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Ini adalah framebuffer virtual, menerapkan protokol server tampilan X11 - itu melakukan semua operasi grafis di memori tanpa menunjukkan output layar, itulah yang kita butuhkan.
 
-Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will simply do nothing.
+Kemudian, buat layar virtual xvfb dan ekspor variabel lingkungan disebut DISPLAY yang menunjukkan hal itu. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. Pada Windows atau macos, itu akan sederhana tidak melakukan apapun.
 
 ```sh
-## On Windows or macOS, this just invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
-xvfb-maybe electron-mocha ./test/*.js
+## Pada Windows atau macos, ini hanya memanggil electron-mocha
+## Di Linux, jika kita berada dalam lingkungan tanpa kepala, ini akan sama
+## ke xvfb-run electron-mocha ./test/*.js
+xvfb-mungkin elektron-mocha ./test/*.js
 ```
 
 ### Travis CI
@@ -36,8 +36,8 @@ For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JE
 
 ### Circle CI
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI is awesome dan memiliki xvfb dan `$DISPLAY` [sudah disiapkan, jadi tidak ada konfigurasi lebih lanjut yang diperlukan](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+AppVeyor berjalan di Windows, mendukung Selenium, Chromium, Electron dan sejenisnya alat di luar kotak - tidak diperlukan konfigurasi.
