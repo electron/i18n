@@ -34,7 +34,7 @@ $ ./script/build.py -c D
 
 Electron `Release` ve `Debug` yapılarındaki farklı kitaplık kurulumları ile bağlantı sağlar. Ancak, `gyp`, farklı yapılandırmalar için farklı bağlantı kurulumlarının yapılandırmalarını desteklemez.
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+Bunun etrafında çalışmak amacıyla Electron hangi bağlantı ayarlarını kullanacağını kontrol etmek için `libchromiumcontent_component` değişkeni bir `gyp` kullanır ve `gyp`'i çalıştırırken sadece bir hedef üretir.
 
 ## Hedef İsimler
 
