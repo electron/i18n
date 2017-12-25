@@ -186,13 +186,13 @@ Pada Windows tombol taskbar bisa digunakan untuk menampilkan progress bar. Ini m
 
 Pada MacOS progress bar akan ditampilkan sebagai bagian dari dermaga ikon.
 
-Kesatuan DE juga memiliki fitur serupa yang memungkinkan Anda untuk menentukan progress bar di peluncur.
+Pada Unity DE juga memiliki fitur serupa yang memungkinkan Anda untuk menentukan kemajuan bar di peluncur.
 
-**Kemajuan bar di taskbar tombol:**
+**Progres bar di tombol taskbar:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-Untuk mengatur progress bar untuk Window, Anda dapat menggunakan [BrowserWindow.setProgressBar ](../api/browser-window.md#winsetprogressbarprogress) API :
+Untuk mengatur progress bar untuk Window, Anda bisa menggunakan [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -200,11 +200,11 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Ikon Hamparan di Taskbar (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan aplikasi status, seperti dikutip dari MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Ikon hamparan berfungsi sebagai pemberitahuan status kontekstual, dan dimaksudkan untuk meniadakan kebutuhan akan ikon status area pemberitahuan terpisah untuk berkomunikasi informasi itu kepada pengguna. Misalnya, status mail baru di Microsoft Pandangan, yang saat ini ditampilkan di area notifikasi, sekarang dapat ditunjukkan melalui overlay pada tombol taskbar. Sekali lagi, Anda harus memutuskan selama Anda siklus pengembangan yang metode yang terbaik untuk aplikasi Anda. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
 **Overlay on taskbar button:**
 
