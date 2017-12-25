@@ -20,7 +20,7 @@ Tüm Chromium'u oluşturma karmaşıklığından kaçınmak için, Electron [`li
 
 **3. Ağ Entegrasyonu**
 
-NW.js'de web sayfalarında ki ağ entegrasyonu, çalışmak için Chromium'u yamalamayı gerektirir, bizim seçtiğimiz Electron'da ise libuv döngüsüne ekleyerek Chromium'un hacklenmesini önleriz. [`ağ_bağlantıları`](https://github.com/electron/electron/tree/master/atom/common) kodunun nasıl yapılacağına bakın.
+NW.js'de web sayfalarında ki ağ entegrasyonu, çalışmak için Chromium'u yamalamayı gerektirir, bizim seçtiğimiz Electron'da ise libuv döngüsüne ekleyerek Chromium'un hacklenmesini önleriz. [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) kodunun nasıl yapılacağına bakın.
 
 **4. Çoklu bağlam**
 
