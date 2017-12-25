@@ -36,7 +36,7 @@ const request = net.request({
 
 ### Örnek etkinlikler
 
-#### Event: 'response'
+#### Etkinlik: 'tepki'
 
 Returns:
 
@@ -103,7 +103,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### Etkinlik: 'yönlendirme'
 
 Returns:
 
