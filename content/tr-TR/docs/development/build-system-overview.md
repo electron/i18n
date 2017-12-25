@@ -44,19 +44,19 @@ Bu sadece geliştiricileri etkiler, eğer Electron'u sadece tekrar işlemek içi
 
 ## Testler
 
-Test your changes conform to the project coding style using:
+Değişikliklerinizin proje kodlama stiline uyumunu test etmek için kullandığı:
 
 ```sh
 $ npm run lint
 ```
 
-Test functionality using:
+İşlevselleği test etmek için:
 
 ```sh
 $ npm testi
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Electron kaynak kodunda ne zaman değişiklik yaparsanız, şu testten önce inşa etmeyi yeniden çalıştırmalısınız:
 
 ```sh
 $ npm run build && npm test
