@@ -12,7 +12,7 @@ Yeni bir menü oluşturun.
 
 `menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
-#### `Menü.setUygulamaMenüsü(menü)`
+#### `Menu.setApplicationMenu(menu)`
 
 * `menu` Menü
 
@@ -38,7 +38,7 @@ MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [macOS Cocoa Eve
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenüÖğesiOluşturucuSeçenekleri[]
+* `template` MenuItemConstructorOptions[]
 
 `Menu` 'ye Dön
 
@@ -50,10 +50,10 @@ Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar o
 
 `menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
-#### `menu.popup([browserWindow, seçenekler])`
+#### `menu.popup([browserWindow, options])`
 
 * `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
-* `seçenekler` Hedef (isteğe bağlı) 
+* `options` Hedef (isteğe bağlı) 
   * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
   * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
   * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `true`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `false` olarak ayarlayın. Varsayılan değer `false`.
