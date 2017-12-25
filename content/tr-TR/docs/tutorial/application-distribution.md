@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Windows ve Linux üzerinde:
 
 ```text
 electron/resources/app
@@ -35,7 +35,7 @@ electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Windows ve Linux üzerinde:
 
 ```text
 electron/resources/
