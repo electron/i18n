@@ -268,7 +268,7 @@ Emitted when the web page becomes unresponsive.
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Etkinlik: 'bulanık'
 
 Emitted when the window loses focus.
 
@@ -276,11 +276,11 @@ Emitted when the window loses focus.
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Etkinlik: 'göster'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Etkinlik: 'gizle'
 
 Emitted when the window is hidden.
 
@@ -308,7 +308,7 @@ Emitted when the window is restored from a minimized state.
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Etkinlik: 'hareket ettir'
 
 Emitted when the window is being moved to a new position.
 
