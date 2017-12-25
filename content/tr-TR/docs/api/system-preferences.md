@@ -179,20 +179,20 @@ const alpha = color.substr(6, 2) // "dd"
   * `active-caption` - Etkin pencere başlık çubuğu. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
   * `active-caption-gradient` - Aktif pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
   * `app-workspace` Çoklu dosya arayürüz (MDI) uygulamlarının arkaplan rengi.
-  * `button-text` - Text on push buttons.
-  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-  * `desktop` - Desktop background color.
-  * `disabled-text` - Grayed (disabled) text.
-  * `highlight` - Item(s) selected in a control.
-  * `highlight-text` - Text of item(s) selected in a control.
-  * `hotlight` - Color for a hyperlink or hot-tracked item.
-  * `inactive-border` - Inactive window border.
-  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-  * `inactive-caption-text` - Color of text in an inactive caption.
-  * `info-background` - Background color for tooltip controls.
-  * `info-text` - Text color for tooltip controls.
-  * `menu` - Menu background.
+  * `button-text` - Push butonlarındaki yazı.
+  * `caption-text` - Başlığın içindeki yazı, boyut kutusu ve kaydırma çubuğu ok kutusu.
+  * `desktop` - Masaüstü arkaplan rengi.
+  * `disabled-text` - Gri (devre dışı) metin.
+  * `highlight` - Bir kontrolde seçilen öğe(ler).
+  * `highlight-text` - Bir kontrol içindeki seçilen öğe(ler)'nin yazısı.
+  * `hotlight` - Bir hot-tracked öğe veya hyperlink için renk.
+  * `inactive-border` - Aktif olmayan pencere kenarı.
+  * `inactive-caption` - Aktif olmayan pencere başlığı. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
+  * `inactive-caption-gradient` - Aktif olmayan pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
+  * `inactive-caption-text` - Aktif olmayan bir altyazıdaki metin rengi.
+  * `info-background` - Araç ipucu denetimleri için arka plan rengi.
+  * `info-text` - Araç ipucu denetimleri için yazı rengi.
+  * `menu` - Menü arkaplanı.
   * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
   * `menubar` - The background color for the menu bar when menus appear as flat menus.
   * `menu-text` - Text in menus.
