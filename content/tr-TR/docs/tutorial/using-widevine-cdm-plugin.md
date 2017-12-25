@@ -53,7 +53,7 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## Eklenti doğrulanıyor
 
 To verify whether the plugin works, you can use following ways:
 
