@@ -18,7 +18,7 @@
     
     - Or view http://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. Her yama için:
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum 
     - `git cherry-pick <checksum>`
