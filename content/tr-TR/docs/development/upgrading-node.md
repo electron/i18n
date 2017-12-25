@@ -37,9 +37,9 @@ Electron'un bağımlılıklarının tamamı V8'in aynı kopyasını oluşturup k
     2. `git cherry-pick --continue`
     3. Bitene kadar tekrarlayın
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## [V8](https://github.com/electron/node/src/V8) Yamalarını Güncelleştirme
 
-We need to generate a patch file from each patch applied to V8.
+V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
 
 1. Get a copy of Electron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
