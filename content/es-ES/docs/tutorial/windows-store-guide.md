@@ -93,4 +93,4 @@ Antes de ejecutar la CLI por primera vez, deberá configurar el "Windows Desktop
 2. A continuación, ejecute la instalación del Desktop App Converter, pasando la ubicación de la imagen base de Windows (descargada como `BaseImage-14316.wim`), llamando a `.\DesktopAppConverter.ps1 -Setup -BaseImage.\BaseImage-14316.wim`.
 3. Si ejecuta el comando anterior para reiniciar, reinicie su máquina y vuelva a ejecutar el comando anterior luego de un reinicio exitoso.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Una vez que la instalación haya tenido éxito, puede pasar a la compilación de su aplicación Electron.
