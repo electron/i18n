@@ -111,6 +111,6 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 }
 ```
 
-## Context menu
+## Kaynak menüsü
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
