@@ -193,16 +193,16 @@ const alpha = color.substr(6, 2) // "dd"
   * `info-background` - Araç ipucu denetimleri için arka plan rengi.
   * `info-text` - Araç ipucu denetimleri için yazı rengi.
   * `menu` - Menü arkaplanı.
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+  * `menu-highlight` - Menü öğelerini vurgulamak için kullanılan renk düz bir menü olarak görünür.
+  * `menubar` - Menüler düz olarak göründüğünde menü çubuğunun arkaplan rengi.
+  * `menu-text` - Menüdeki yazılar.
+  * `scrollbar` - Kaydırma çubuğu gri alanı.
+  * `window` - Pencere arkaplanı.
+  * `window-frame` - Pencere çerçevesi.
+  * `window-text` - Pencerelerdeki yazılar.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+RGB onaltılık form (`#ABCDEF`) içindeki sistem renk ayarlarını `String` olarak döndürür. Daha fazla bilgi için [Windows Dokümanlarına](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) bakın.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Eğer ters kontrastlı bir renk şeması yüksek kontrast tema gibi ve etkin ise `true` aksi halde `false` `Boolean` değerini döndürecektir.
