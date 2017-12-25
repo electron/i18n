@@ -33,7 +33,7 @@ When loading a page in the window directly, users may see the page load incremen
 
 ### Using `ready-to-show` event
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -679,7 +679,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Linux'ta önemi yok.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -1018,7 +1018,7 @@ Pencere simgesi değiştirme.
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Set penceresinin menü çubuğu otomatik olarak gizlenir. Ayar yaptıktan sonra, menü çubuğu yalnızca kullanıcı ` Alt` tuşu bastığında görüntülenir.
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
