@@ -4,7 +4,7 @@ Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electr
 
 ## Gereksinimler
 
-* ** Electron'un hata ayıklama yapısı **: En kolay yol genellikle listelenen araçları ve önkoşulları kullanarak onu inşa etmektir [ Windows için talimatları oluşturma ](build-instructions-windows.md). Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
+* ** A debug build of Electron **: En kolay yol genellikle listelenen araçları ve önkoşulları kullanarak onu inşa etmektir [ build instructions for Windows](build-instructions-windows.md). Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
 
 * **Visual Studio with C++ Tools**: Visual'in ücretsiz topluluk sürümleri Studio 2013 ve Visual Studio 2015 her ikisi de çalışır. Kurulduktan sonra, [ Visual Studio'yu GitHub Elektron Sembolü sunucusunu kullanacak şekilde yapılandırın ](setting-up-symbol-server.md). Visual Studio Electron'un içinde ne olacağı hakkında daha iyi bilgi sahibi olmasını sağlayacaktır, değişkenlerin insan tarafından okunabilir bir şekilde sunulmasını kolaylaştırır.
 
@@ -28,7 +28,7 @@ Sonra Visual Studio'da açın. Elektron Visual Studio ile oluşturulmaz ve bu ne
 
 Visual Studio hata ayıklayıcısına yerel olarak veya bilgisayara uzaktan erişerek ekleme yapabilirsiniz. İşlem çalıştıktan sonra Debug / Attach to Process'e tıklayın. (veya ` CTRL + ALT + P ` tuşlarına basarak) "İşleme Ekle" iletişim kutusunu açın. Bu özelliği yerel veya uzak bir bilgisayarda çalışan uygulamaları ayıklamak için, birden fazla aynı anda hata ayıklama işlemi için kullanabilirsiniz.
 
-Elektron farklı bir kullanıcı hesabı altında çalışıyorsa, ` Tüm kullanıcılardaki işlemleri göster ` onay kutusunu işaretleyin. BrowserWindows uygulamanızı açtığınızda Kaç kişiye bağlı olduğuna dikkat edin., birden fazla işlemi göreceksiniz. Tipik Tek pencere uygulaması, Visual Studio'nun size iki ` Electron.exe ` girdileri ile sunmasına neden olacaktır - birincisi ana işlem için ve bir tane de oluşturucu süreci için. Liste size sadece isimler verdiğinden, şimdilik hangisinin hangisi olduğunu anlamanın bir yolu yok.
+Elektron farklı bir kullanıcı hesabı altında çalışıyorsa, ` Tüm kullanıcılardaki işlemleri göster ` onay kutusunu işaretleyin. BrowserWindows uygulamanızı açtığınızda Kaç kişiye bağlı olduğuna dikkat edin, birden fazla işlemi göreceksiniz. Tipik Tek pencere uygulaması, Visual Studio'nun size iki ` Electron.exe ` girdileri ile sunmasına neden olacaktır - birincisi ana işlem için ve bir tane de oluşturucu süreci için. Liste size sadece isimler verdiğinden, şimdilik hangisinin hangisi olduğunu anlamanın bir yolu yok.
 
 ### Hangi işlemi eklemeliyim?
 
