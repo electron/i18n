@@ -110,7 +110,7 @@ A few examples of how various semver ranges will pick up new releases:
 
 # Missing Features: Alphas, and Nightly
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Strategi kami memiliki beberapa pengorbanan, yang untuk saat ini kami merasa sesuai. Yang paling penting bahwa fitur baru di master mungkin memerlukan beberapa saat sebelum mencapai garis rilis yang stabil. If you want to try a new feature immediately, you will have to build Electron yourself.
 
 As a future consideration, we may introduce one or both of the following:
 
