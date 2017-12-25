@@ -22,13 +22,13 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | cy       | Welsh                           |
 | da       | Danish                          |
 | de       | German                          |
-| de-AT    | German (Austria)                |
+| de-AT    | Almanca (Avusturya)             |
 | de-CH    | German (Switzerland)            |
-| de-DE    | German (Germany)                |
+| de-DE    | Almanca (Almanya)               |
 | el       | Greek                           |
 | en       | English                         |
 | en-AU    | English (Australia)             |
-| en-CA    | English (Canada)                |
+| en-CA    | İngilizce (Kanada)              |
 | en-GB    | İngilizce (Birleşik Krallık)    |
 | en-NZ    | English (New Zealand)           |
 | en-US    | İngilizce (Birleşmiş Devletler) |
@@ -86,7 +86,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | mr       | Marathi                         |
 | ms       | Malay                           |
 | mt       | Maltese                         |
-| nb       | Norwegian (Bokmal)              |
+| nb       | Norveççe (Bokmal)               |
 | ne       | Nepali                          |
 | nl       | Dutch                           |
 | nn       | Norwegian (Nynorsk)             |
