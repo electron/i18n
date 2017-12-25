@@ -70,7 +70,7 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Kullanıcı görevleri (windows)
 
 On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
 
