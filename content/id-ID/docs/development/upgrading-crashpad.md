@@ -30,12 +30,12 @@
     
     - `cd vendor/crashpad`
     - `git fetch`
-    - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
-    - From Electron root's root, run `script/update.py`
+    - `git checkout elektron-crashpad-v62.0.3202.94`
+5. Regenerasi file Ninja terhadap kedua target 
+    - Dari akar akar elektron, jalankan `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
-6. Push changes to submodule reference 
+    - Keduanya harus membangun tanpa kesalahan
+6. Dorong perubahan ke referensi submodule 
     - (From electron root) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
