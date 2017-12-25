@@ -64,7 +64,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 `traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
 
 * `record-until-full`
-* `record-continuously`
+* `Kayıt-sürekli`
 * `trace-to-console`
 * `enable-sampling`
 * `enable-systrace`
