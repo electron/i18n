@@ -260,7 +260,7 @@ Emitted when the window is closed. After you have received this event you should
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Etkinlik: 'tepkisiz'
 
 Emitted when the web page becomes unresponsive.
 
