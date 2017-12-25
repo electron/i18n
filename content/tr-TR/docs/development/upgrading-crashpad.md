@@ -1,4 +1,4 @@
-# Upgrading Crashpad
+# Crashpad güncelleniyor
 
 1. Kullanacağınız carshpad sürümünü edinin.
     
