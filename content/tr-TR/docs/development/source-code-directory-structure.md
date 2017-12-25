@@ -24,35 +24,33 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](http://dev.c
 |       └── API / - ortak API'leri ve temelleri |           Elektron'ın dahili modülleri.
 ├── chromium_src / - kaynak kodu krom kopyalanır. Aşağıya bakınız.
 ├── default_app / - varsayılan sayfa olmadan elektron başladığında göstermek için |   bir app-mek şartıyla.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
-└── common.gypi - Compiler specific settings and building rules for other
-    components like `node` and `breakpad`.
+├── Dokümanlar / - belgeleri.
+├── lib / - JavaScript kaynak kodu.
+|   ├── tarayıcı / - Javascript ana süreç başlatma kodu.
+|   |   └── API / - Javascript API uygulama.
+|   ├── ortak / - JavaScript kullanılan ana ve işleyici işlemler tarafından |   |   └── API / - Javascript API uygulama.
+|   └── Oluşturucu / - Javascript işleyici işlemi başlatma kodu.
+|       └── API / - Javascript API uygulama.
+├── spec / - otomatik testler.
+├── electron.gyp - elektron yapı kuralları.
+└── common.gypi - derleyici belirli ayarları ve diğer bileşenlerle 'düğümü' ve 'breakpad' gibi binanın kuralları.
 ```
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+Belgili tanımlık eğe içinde `/ chromium_src` içerik katman yer almayan adet krom olma eğilimindedirler. Örneğin, biber API uygulamak için bazı kablolama benzer resmi krom ne için ihtiyacımız var. Biz [libcc](../glossary.md#libchromiumcontent) bir parçası olarak ilgili kaynaklar inşa ancak en sık tüm özellikleri gerektirmeyen (bazı özel mülk, olma eğilimi analytics in) sadece kod parçaları aldım. Bunlar kolay libcc, yamalarındaki olabilirdi ama bunlar ne zaman yazılmıştı zaman libcc amacı çok az yamalar korumak için ve chromium_src değişiklikleri büyük olanlar olma eğilimindedirler. Ayrıca, bu düzeltme ekleri upstreamed biz şimdi korumak diğer libcc yamalar aksine hiç olabileceğine dikkat edin.
 
-## Structure of Other Directories
+## Diğer Dizinlerin Yapısı
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **komut dosyası** - komut bina, ambalaj, test, vb gibi geliştirme amaç için kullanılır.
+* **araçlar** - Gyp dosyaları tarafından kullanılan yardımcı komut dosyaları aksine `script`, komut dosyaları koy burada asla doğrudan kullanıcılar tarafından çağrılmamalıdır.
+* **satıcı** - Üçüncü kişi bağımlılıklarının kaynak kodu, biz kullanmadık `üçüncü_party` çünkü aynı dizinde onu şaşırtacak Chromium'un kaynak kodu ağacı.
+* **düğüm_modülleri** - Bina için kullanılan üçüncü taraf düğüm modülleri.
+* **dışarı** - Geçici çıktı dizini `ninja`.
+* **dist** - Tarafından oluşturulan geçici dizin `script/create-dist.py` bir dağıtım oluştururken komut dosyası.
+* **harici_ikili** - Üçüncü parti çerçevelerin indirilen ikili dosyaları ile bina desteklemez `gyp`.
 
-## Keeping Git Submodules Up to Date
+## Git Submodules güncel tutma
 
 The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
 
