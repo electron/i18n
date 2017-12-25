@@ -215,7 +215,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Verification result from chromium.
