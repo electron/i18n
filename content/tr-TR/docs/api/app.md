@@ -213,7 +213,7 @@ Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Nesne 
+* `istek` Nesne 
   * `method` String
   * `url` URL
   * `referrer` URL
