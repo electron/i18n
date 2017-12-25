@@ -1,9 +1,9 @@
-# Upgrading Crashpad
+# Upgrade Crashpad
 
-1. Get the version of crashpad that we're going to use.
+1. Dapatkan versi crashpad yang akan kita gunakan.
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the correponding branch.
+    - `libcc/src/third_party/crashpad/README.chromium` akan memiliki garis `Revisi:` dengan checksum
+    - Kita perlu memeriksa cabang yang sesuai.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
     - Check out the branch with the revision checksum: 
