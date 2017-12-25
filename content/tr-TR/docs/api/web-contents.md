@@ -322,7 +322,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Returns:
 
 * `event` Event
-* `request` Nesne 
+* `istek` Nesne 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -345,7 +345,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Returns:
 
 * `event` Event
-* `result` Nesne 
+* `sonuç` Nesne 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
