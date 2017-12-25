@@ -74,9 +74,7 @@ app.on('ready', () => {
 dan preload.js:
 
 ```js
-// File ini dimuat kapanpun sebuah konteks javascript diciptakan. It runs in a
-// private scope that can access a subset of electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// File ini dimuat kapanpun sebuah konteks javascript diciptakan. Ini dijalankan dalam sebuah // lingkup privat yang dapat mengakses sebuah subset API perender electron. Kita harus // berhati-hati untuk tidak membocorkan obyek apapun ke dalam lingkup global!
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
