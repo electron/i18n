@@ -54,7 +54,7 @@ Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada katego
     * memperbaiki kromium terkait patch
     * electron bug fixes
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Perhatikan bahwa kebanyakan update kromium akan dianggap melanggar. Perbaikan yang bisa di-backport kemungkinan akan dipilih ceri sebagai tambalan.
 
 # Stabilization Branches
 
@@ -108,31 +108,31 @@ A few examples of how various semver ranges will pick up new releases:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# Fitur yang Hilang: Alphas, dan Nightly
 
-Strategi kami memiliki beberapa pengorbanan, yang untuk saat ini kami merasa sesuai. Yang paling penting bahwa fitur baru di master mungkin memerlukan beberapa saat sebelum mencapai garis rilis yang stabil. If you want to try a new feature immediately, you will have to build Electron yourself.
+Strategi kami memiliki beberapa pengorbanan, yang untuk saat ini kami merasa sesuai. Yang paling penting bahwa fitur baru di master mungkin memerlukan beberapa saat sebelum mencapai garis rilis yang stabil. Jika Anda ingin segera mencoba fitur baru, Anda harus membangun Elektron sendiri.
 
-As a future consideration, we may introduce one or both of the following:
+Sebagai pertimbangan di masa depan, kami dapat memperkenalkan satu atau kedua hal berikut:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* malam membangun dari tuan; ini akan memungkinkan orang untuk menguji fitur baru dengan cepat dan memberikan umpan balik
+* rilis alpha yang memiliki batasan stabilitas yang lebih longgar pada beta; misalnya akan diizinkan untuk mengakui fitur baru saat saluran stabilitas masuk *alpha*
 
-# Feature Flags
+# Bendera fitur
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembangan web. Dalam konteks Elektron, bendera fitur atau **soft branch** harus memiliki sifat berikut:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* apakah diaktifkan/baik pada saat runtime, atau build-time; kami tidak mendukung konsep bendera fitur yang diberi daftar permintaan
+* itu benar-benar segmen jalur kode baru dan lama; refactoring kode lama untuk mendukung fitur baru *violates* kontrak bendera fitur
+* flag fitur akhirnya dihapus setelah soft-branch digabung
 
-We reconcile flagged code with our versioning strategy as follows:
+Kami mendamaikan kode yang ditandai dengan strategi versi kami sebagai berikut:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. kami tidak mempertimbangkan iterasi pada kode yang diberi tanda bendera di cabang stabilitas; Bahkan penggunaan bendera fitur yang bijaksana bukan tanpa resiko
+2. anda dapat memecahkan kontrak API dalam kode yang diberi tanda bendera tanpa menabrak versi utama. Kode yang ditandai tidak mematuhi semver
 
 # Semantic Commits
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan release. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
 * Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
 * Commits that would result in a semver **minor** bump must start with `feat:`.
