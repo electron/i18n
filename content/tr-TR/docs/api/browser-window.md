@@ -230,7 +230,7 @@ Returns:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### Etkinlik: 'kapalı'
 
 Returns:
 
@@ -272,7 +272,7 @@ Emitted when the unresponsive web page becomes responsive again.
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Etkinlik: 'odak'
 
 Emitted when the window gains focus.
 
@@ -389,7 +389,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Statik yöntemler
 
 The `BrowserWindow` class has the following static methods:
 
