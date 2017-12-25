@@ -17,7 +17,7 @@ Electron'un bağımlılıklarının tamamı V8'in aynı kopyasını oluşturup k
 Özetle, ana adımlar şunlardır:
 
 1. Elektron 'un Node fork sürümünü istediğiniz sürüme güncelleyin
-2. Backport Node's V8 patches to our copy of V8
+2. Backport Node 'un V8 yamalarını kendi V8 'inize kopyalayın
 3. Update Electron to use new version of Node 
   - Alt modülleri güncelleştirme
   - Update Node.js build configuration
