@@ -12,7 +12,7 @@ The `BrowserWindowProxy` object has the following instance methods:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Odağı alt penceresinden kaldır.
 
 #### `win.close()`
 
