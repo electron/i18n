@@ -1,4 +1,4 @@
-# `window.open` fungsi
+# `window.open` Fungsi
 
 > Buka jendela baru dan muat URL.
 
@@ -52,7 +52,5 @@ const mainWindow = new BrowserWindow ({width: 800, height: 600, webPreferences: 
 ```
 
 ```javascript
-// renderer process (mainWindow)
-let modal = window.open('', 'modal')
-modal.document.write('<h1>Hello</h1>')
+// renderer process (mainWindow) biarkan modal = window.open ('', 'modal') modal.document.write('<h1>Halo</h1>')
 ```
