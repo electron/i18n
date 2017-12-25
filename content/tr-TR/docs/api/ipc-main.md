@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Ana işlem tarafından kullanıldığında asenkronizasyon işlemlerini gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Messages sent from a renderer will be emitted to this module.
+The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Messages sent from a renderer will be emitted to this module.
 
 ## Mesaj gönderiliyor
 
