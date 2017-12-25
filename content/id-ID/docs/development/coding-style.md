@@ -27,8 +27,8 @@ Kode C ++ menggunakan banyak abstraksi dan tipe Chromium, jadi disarankan untuk 
 API electron menggunakan skema kapitalisasi yang sama dengan Node.js:
 
 * Ketika modul itu sendiri adalah sebuah kelas seperti `BrowserWindow`, menggunakan `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Ketika modul adalah seperangkat API, seperti `globalShortcut`, menggunakan `mixedCase`.
+* Ketika API adalah sebuah properti dari objek, dan cukup kompleks untuk berada di bab terpisah seperti `win.webContents`, menggunakan `mixedCase`.
+* Untuk API bukan-modul lain, menggunakan judul alami, seperti `<webview>Tag` atau `Objek Proses`.
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Saat membuat API baru, lebih disukai menggunakan getter dan setter daripada gaya satu-fungsi jQuery. Sebagai contoh, `.getText()` dan `.setText(text)` lebih diutamakan untuk `.text([text])`. Demikianlah sebuah [diskusi](https://github.com/electron/electron/issues/46) pada hal ini.
