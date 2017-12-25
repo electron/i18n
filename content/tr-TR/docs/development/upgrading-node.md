@@ -64,20 +64,20 @@ V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
     - Bir fark bölümünde örnek yoksa `deps/V8`, tamamen kaldırın. 
       - Bu yamaları yapmak istemiyoruz çünkü yalnızca V8'e yama yapıyoruz.
     - Örneklerini değiştir `a/deps/v8/filename.ext` ile `a/filename.ext` 
-      - This is needed because upstream Node keeps its V8 files in a subdirectory
-  - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
-  - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Create a new copy of the patch: 
+      - Node upstream, V8 dosyalarını bir alt dizinde tutar, çünkü bu gereklidir
+  - Lokal durumun temiz olduğundan emin olun: aşamasız değişiklikler olmadığından emin olmak için `git status`.
+  - Yamanın `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch` ile düzgün şekilde uygulandığını onaylayın
+  - Düzeltme ekinin yeni bir kopyasını oluşturun: 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - This is needed because the first patch has Node commit checksums that we don't want
-  - Confirm that checksums are the only difference between the two patches: 
+    - İlk yamanın Node 'u istemediğimiz tamamlama sağlama toplamı olmaması için bu gereklidir
+  - Sağlama toplamlarının iki düzeltme eki arasındaki tek fark olduğunu doğrulayın: 
     - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Replace the old patch with the new: 
+  - Eski yamayı yenisiyle değiştirin: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Add the patched code to the index *without* committing: 
+  - Düzeltme eklenmiş kodu dizine ekleyin *işleme* olmadan: 
     - `cd src/v8 && git add . && cd ../..`
-    - We don't want to commit the changes (they're kept in the patchfiles) but need them locally so that they don't show up in subsequent diffs while we iterate through more patches
-  - Add the patch file to the index: 
+    - Değişiklikleri tamamlamak istemiyoruz (patchfile'lerde tutuluyorlar), ancak daha fazla yamayla iterasyon yaparken sonraki diff'lerde görünmemeleri için yerel olarak onlara ihtiyaç duyuyoruz
+  - Düzeltme eklenmiş kodu dizine ekleyin: 
     - `git add a patches/v8/`
   - (Optionally) commit each patch file to ensure you can back up if you mess up a step: 
     - `git commit patches/v8/`
