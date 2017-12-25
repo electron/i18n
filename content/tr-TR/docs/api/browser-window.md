@@ -513,7 +513,7 @@ Pencerenin üzerine odaklanır.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Odak penceresinden kaldırır.
 
 #### `win.isFocused()`
 
