@@ -1,4 +1,4 @@
-# Coding Style
+# Model coding
 
 These are the style guidelines for coding in Electron.
 
