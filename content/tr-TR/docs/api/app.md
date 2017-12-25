@@ -610,7 +610,7 @@ Returns `String` - The type of the currently running activity.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `kimlik` dizesi
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
