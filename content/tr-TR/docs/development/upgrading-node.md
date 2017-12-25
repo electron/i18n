@@ -27,15 +27,15 @@ Electron'un bağımlılıklarının tamamı V8'in aynı kopyasını oluşturup k
 1. `electron/node` üzerindeki `master` öğesinin `nodejs/node` adresindeki yayın etiketlerinin güncellendiğinden emin olun
 2. Https://github.com/electron/node 'da bir dal oluşturun: `electron-node-vX.X.X` burada oluşturduğunuz dal tabanı, istenen güncelleme için etikettir 
   - `vX.X.X` Mevcut chromium versiyonuyla uyumlu bir node sürümünü kullanmalısınız
-3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
+3. Kabullerimizi kullandığımız önceki düğüm sürümünden yeniden uygulayın (`vY.Y.Y`) dan `v.X.X.X` 
+  - Yayın etiketini kontrol edin ve tekrar uygulamak için gereken taahhüt aralığını seçin
+  - Cherry-pick seçme aralığı: 
+    1. İkisine birden bakın `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
+  - Karşılaşılan her dosyada birleştirme çakışmalarını çözmek, şöyle: 
     1. `git add <conflict-file>`
     2. `git cherry-pick --continue`
-    3. Repeat until finished
+    3. Bitene kadar tekrarlayın
 
 ## Updating [V8](https://github.com/electron/node/src/V8) Patches
 
