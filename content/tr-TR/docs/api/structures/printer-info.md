@@ -1,4 +1,4 @@
-# PrinterInfo Object
+# Printerinfo nesnesi
 
 * `name` String
 * `description` String
