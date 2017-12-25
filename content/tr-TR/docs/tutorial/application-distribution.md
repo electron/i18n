@@ -87,7 +87,7 @@ MyApp.app/Contents
 
 You can rename the `electron` executable to any name you like.
 
-## Packaging Tools
+## Paketleme araçları
 
 Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
 
