@@ -1,35 +1,29 @@
 # Kaynak Kodu Dizin Yapısı
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Elektron kaynak kodunu çoğunlukla krom ayrılık kurallarına göre aşağıdaki birkaç parçaya ayrılır.
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](http://dev.chromium.org/developers/design-documents/multi-process-architecture) ile öğrenmeniz gerekebilir.
 
-## Structure of Source Code
+## Kaynak Kod Yapısı
 
 ```sh
-Electron
-├── atom/ - C++ source code.
-|   ├── app/ - System entry code.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   main process things. This talks to the renderer to manage web pages.
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       including some utility functions and code to integrate node's message
-|       loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
-├── default_app/ - The default page to show when Electron is started without
-|   providing an app.
+├── atom/ - C++ kaynak kodu.
+|   ├── app / - Sistem giriş kodu.
+|   ├── tarayıcı / - ana penceresinde, kullanıcı Arabirimi ve tüm dahil önyüz |   |   ana süreç işler. Bu web sayfaları yönetmek için Oluşturucu için görüşmeler.
+|   |   ├── UI / - UI uygulama şeyler farklı platformlar için.
+|   |   |   ├── kakao / - kakao özel kaynak kodu.
+|   |   |   ├── win/ - Windows GUI özel kaynak kodu.
+|   |   |   └── x/ - X11 özel kaynak kodu.
+|   |   ├── API / - ana uygulama süreç API'leri.
+|   |   ├── net / - ilgili kod ağ.
+|   |   ├── mac / - Mac belirli Objective-C kaynak kodu.
+|   |   └── kaynakları / - simgeler, platforma bağımlı dosyaları, vb.
+|   ├── Oluşturucu / - kod Oluşturucu işlemi o çalışır.
+|   |   └── API / - işleyici uygulanması süreç API'leri.
+|   └── ortak / - ana ve işleyici işlemler tarafından kullanılan kod |       bazı yardımcı programı işlevleri ve düğümün mesaj tümleştirmek için kod da dahil olmak üzere |       Krom'ın ileti döngüsü döngüsü.
+|       └── API / - ortak API'leri ve temelleri |           Elektron'ın dahili modülleri.
+├── chromium_src / - kaynak kodu krom kopyalanır. Aşağıya bakınız.
+├── default_app / - varsayılan sayfa olmadan elektron başladığında göstermek için |   bir app-mek şartıyla.
 ├── docs/ - Documentations.
 ├── lib/ - JavaScript source code.
 |   ├── browser/ - Javascript main process initialization code.
