@@ -97,8 +97,8 @@ window.open = customWindowOpen
 
 Hal penting untuk dicatat dalam skrip pramuat:
 
-- Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
+- Meskipun perender yang disandbox tidak memiliki node.js yang berjalan, ia tetap memiliki akses ke lingkungan mirip-node yang terbatas: `Buffer `, `process `, `setImmediate` dan `require` tersedia.
+- Skrip pramuat dapat mengakses secara langsung seluruh API dari proses utama melalui modul `remote` dan `ipcRenderer`. Ini adalah bagaimana `fs` (yang digunakan di atas) dan modul-modul lain diimplementasikan. Mereka adalah proxy-proxy untuk mengendalikan rekanan dalam proses utama.
 - The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
 
 To create a browserify bundle and use it as a preload script, something like the following should be used:
