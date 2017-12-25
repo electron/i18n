@@ -2,7 +2,7 @@
 
 > Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
 ### `yeni Menü()`
 
@@ -10,41 +10,41 @@ Yeni bir menü oluşturun.
 
 ### Statik Yöntemler
 
-`Menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
+`menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
-#### `Menü.ayarlaUygulamaMenüsü(menü)`
+#### `Menü.setUygulamaMenüsü(menü)`
 
 * `menu` Menü
 
-MacOS'ta uygulama `menüsünü` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
+MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
 
-`boş` bırakılması, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
+`null` bırakılması, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
 
-**Not:** Bu API `uygulama` modülü `hazır` olduktan sonra çağrılmalıdır.
+**Note:** Bu API `app` modülü `ready` olduktan sonra çağrılmalıdır.
 
-#### `Menü.alUygulamaMenüsü()`
+#### `Menu.getApplicationMenu()`
 
-`Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `boş` ise, ayarlanmamışsa.
+`Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `null` ise, ayarlanmamışsa.
 
-**Not:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Örnek Özellikler](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
+**Note:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
-#### `Menu.gönderİlkYanıtlayıcıyaEylem(eylem)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `eylem` Dizisi
+* `action` Dizisi
 
-`eylem` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenuÖğesi`](menu-item.md) [`rol`](menu-item.md#roles) özelliğini kullanırsınız.
+`action` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenuItem`](menu-item.md) [`role`](menu-item.md#roles) özelliğini kullanırsınız.
 
 MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) bakın.
 
-#### `Menü.yapılandırŞablondan(şablon)`
+#### `Menu.buildFromTemplate(template)`
 
-* `şablon` MenüÖğesiOluşturucuSeçenekleri[]
+* `template` MenüÖğesiOluşturucuSeçenekleri[]
 
-`Menüye` Dön
+`Menu` 'ye Dön
 
-Genellikle `şablon` yalnızca bir [MenüÖğesi](menu-item.md) oluşturmak için bir dizi `seçenektir`. Kullanım, yukarıdaki referanslar olabilir.
+Genellikle `template` yalnızca bir [MenuItem](menu-item.md) oluşturmak için bir dizi `option` 'dur. Kullanım, yukarıdaki referanslar olabilir.
 
-Ayrıca, `şablonun` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar oluşturulan menü öğelerinin özellikleri olacaktır.
+Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar oluşturulan menü öğelerinin özellikleri olacaktır.
 
 ### Örnek Yöntemleri
 
