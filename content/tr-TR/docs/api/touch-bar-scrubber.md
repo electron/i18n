@@ -18,7 +18,7 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Instance Properties
+### Örnek özellikleri
 
 The following properties are available on instances of `TouchBarScrubber`:
 
