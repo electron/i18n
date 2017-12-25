@@ -90,15 +90,15 @@ Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system
 
 ### Command xxxx not found
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+`Command xxxx not found`, gibi bir hata aldıysanız inşaa betiklerini `VS2015 Command Prompt` kullanarak çalıştırmayı deneyebilirsiniz.
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Visual Studio'nun son sürümüne sahip olduğunuzdan emin olun.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Cygwin altında inşaa deniyorsanız, `bootstrap.py`'nin şöyle bir hata çıkardığını görebilirsiniz:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Bu hatanın sebebi Cygwin Python ve Win32 Node beraber kullanıldığında oluşan bir hatadır. Çözüm, Win32 Python ile boostrap betiğini çalıştırmaktır. (Python'u `C:\Python27` altına yüklediğinizi varsayarak):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -123,11 +123,11 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+32bit Node.js'i tekrardan kurmayı deneyin.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Basitçe aşağıdaki dizini oluşturmak [bu hatayı düzeltmeli](http://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
@@ -135,4 +135,4 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+İnşaa için Git Bash kullanıyorsanız, bu hatayı alabilirsiniz. Yerine Powershell veya VS2015 Komut Satırı'nı kullanmalısınız.
