@@ -135,17 +135,17 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` 
 Metodların bölümü aşağıdaki formda olmak zorundadır:
 
 ```markdown
-###'nesneİsmi.yöntemİsmi(gerekli[, opsiyonel]))'
+### `objectName.methodName(required[, optional]))`
 
-* `gerekli` dizilim- Parametre açıklaması
-*`isteğe bağlı 'Tamsayı (isteğe bağlı) - Başka bir parametre açıklaması
+* `required` String - Parametre açıklaması
+* `optional` Integer (isteğe bağlı) - Başka bir parametre açıklaması
 
 ...
 ```
 
 Bir modülün veya bir sınıfın bir metodu olup olmadığına bağlı olarak başlık `###` veya `####` olabilir.
 
-Modüller için `nesneİsmi` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
+Modüller için `objectName` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
 
 Örneğin, `Oturum`modülü altındaki `Oturum` oturum sınıfının yöntemleri `nesneAdı` olarak `ses` kullanmalıdır.
 
@@ -167,12 +167,12 @@ Yöntemin altında her değişken hakkında daha ayrıntılı bilgi var. Bağım
 Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Değer `macOS`, `Windows` veya `Linux` olabilir.
 
 ```markdown
-*'animasyon ekle' Boole (isteğe bağlı) _macOS_ _Windows_ - Animasyon.
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animasyon ekle.
 ```
 
-`Dizilim` tür bağımsız değişkenleri, dizilimin hangi açıklayıcı öğeye dahil edilebileceğini belirtmelidir.
+`Array` tür bağımsız değişkenleri, dizilimin hangi açıklayıcı öğeye dahil edilebileceğini belirtmelidir.
 
-`İşlev` tür bağımsız değişkenleri için açıklamanın, nasıl çağrılabileceğini açıklığa kavuşturması ve ona iletilecek parametrelerin türlerini listelemesi gerekir.
+`Function` tür bağımsız değişkenleri için açıklamanın, nasıl çağrılabileceğini açıklığa kavuşturması ve ona iletilecek parametrelerin türlerini listelemesi gerekir.
 
 ### Olaylar
 
