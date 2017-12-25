@@ -142,16 +142,16 @@ Mengembalikan ` BrowserWindow </ 0> - Jendela tempat halaman web ini berada.</p>
 
 <h3><code>remote.getCurrentWebContents()`</h3> 
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Mengembalikan ` WebContents </ 0> - Isi web dari halaman web ini.</p>
 
-### `remote.getGlobal(name)`
+<h3><code>remote.getGlobal(name)`</h3> 
 
 * ` nama </ 0>  String</li>
 </ul>
 
-<p>Returns <code>any` - The global variable of `name` (e.g. `global[name]`) in the main process.</p> 
-    ## properti
-    
-    ### `remote.process`
-    
+<p>Mengembalikan <code> sembarang </ 0> - Variabel global <code> nama </ 0> (misalnya <code> global [name] </ 0> ) dalam proses utama.</p>
+
+<h2>properti</h2>
+
+<h3><code>remote.process`</h3> 
     The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
