@@ -94,7 +94,7 @@ Upgrade `vendor/node` to the Node release that corresponds to the v8 version use
 
 See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
 
-## Verify ffmpeg support
+## Ffmpeg desteği doğrulama
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
