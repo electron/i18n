@@ -48,51 +48,51 @@ Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar o
 
 ### Örnek Yöntemleri
 
-`Menü` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
+`menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
-#### `menu.popup([tarayıcıPenceresi, seçenekler])`
+#### `menu.popup([browserWindow, seçenekler])`
 
-* `tarayıcıPenceresi` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
+* `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
 * `seçenekler` Hedef (isteğe bağlı) 
   * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
   * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
-  * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `doğru`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `yanlış` olarak ayarlayın. Varsayılan değer `yanlış`.
-  * `konumlandırmaÖğesi` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
+  * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `true`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `false` olarak ayarlayın. Varsayılan değer `false`.
+  * `positioningItem` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
 
-Bu menüyü `tarayıcıPenceresi` 'nde bir bağlam menüsü olarak açar.
+Bu menüyü `browserWindow` 'nde bir bağlam menüsü olarak açar.
 
-#### `menü.kapatAçılanpencereyi([browserWindow])`
+#### `menu.closePopup([browserWindow])`
 
-* `tarayıcıPenceresi` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
+* `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
 
-`tarayıcıPenceresi` 'nde bağlam menüsünü kapatır.
+`browserWindow` 'nde bağlam menüsünü kapatır.
 
-#### `menü.ekle(menüÖğesi)`
+#### `menu.append(menuItem)`
 
-* `menüÖğesi` MenüÖğesi
+* `menuItem` MenüÖğesi
 
-Menüye `menüÖğesi` ekler.
+Menüye `menuItem` ekler.
 
-#### `menü.ekleme(pos, menüÖğesi)`
+#### `menu.insert(pos, menuItem)`
 
 * `pos` Tamsayı
-* `menüÖğesi` MenüÖğesi
+* `menuItem` MenüÖğesi
 
-`menüÖğesini` menünün `pos` konumuna yerleştirir.
+`menuItem` 'ı menünün `pos` konumuna yerleştirir.
 
 ### Örnek Özellikleri
 
-`menü` nesneleri aşağıdaki özelliklere de sahiptir:
+`menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
 #### `menü.öğeleri`
 
-`menünÖğeleri[]` Menünün Öğelerini içeren bir dizidir.
+`menünItem[]` Menünün Öğelerini içeren bir dizidir.
 
-Her `Menü` birden fazla [`MenüÖğesin`](menu-item.md) den oluşur ve her `MenüÖğesi` bir alt menüye sahip olabilir.
+Her `Menu` birden fazla [`MenuItem`](menu-item.md) den oluşur ve her `MenuItem` bir alt menüye sahip olabilir.
 
 ## Örnekler
 
-`Menü` sınıfı yalnızca ana işlemde kullanılabilir, ancak [`uzak`](remote.md) modül vasıtasıyla oluşturma işleminde de kullanabilirsiniz.
+`Menu` sınıfı yalnızca ana işlemde kullanılabilir, ancak [`remote`](remote.md) modül vasıtasıyla oluşturma işleminde de kullanabilirsiniz.
 
 ### Ana süreç
 
@@ -194,7 +194,7 @@ Context | Request Context
 
 ### İşleme süreci
 
-Aşağıda, [`uzak`](remote.md) modülü kullanarak bir web sayfasında (işleme süreci) dinamik olarak bir menü oluşturmak ve kullanıcı sayfayı sağ tıklattığında oluşturmak için bir örnek görünmektedir:
+Aşağıda, [`remote`](remote.md) modülü kullanarak bir web sayfasında (işleme süreci) dinamik olarak bir menü oluşturmak ve kullanıcı sayfayı sağ tıklattığında oluşturmak için bir örnek görünmektedir:
 
 ```html
 <!-- index.html -->
@@ -220,7 +220,7 @@ macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahipt
 
 ### Standart Menüler
 
-MacOS'da, `Servisler` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `rolünü` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
+MacOS'da, `Services` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `role` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
 
 * `pencere`
 * `yardım`
@@ -228,25 +228,25 @@ MacOS'da, `Servisler` ve `Windows` menüleri gibi birçok sistem tanımlı stand
 
 ### Standart Menü Öğesi İşlemleri
 
-macOS, `Hakkında xxx`, `Gizle xxx` ve `Diğerlerini Gizle` gibi bazı menü öğeleri için standart eylemler önermiştir. Bir menü öğesinin eylemini standart bir eylem olarak ayarlamak için, menü öğesinin `rol` özniteliğini ayarlamanız gerekir.
+macOS, `About xxx`, `Hide xxx` ve `Hide Others` gibi bazı menü öğeleri için standart eylemler önermiştir. Bir menü öğesinin eylemini standart bir eylem olarak ayarlamak için, menü öğesinin `role` özniteliğini ayarlamanız gerekir.
 
 ### Ana Menünün Adı
 
-MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinizi değiştirin. `Info.plist` dosyası. [Emlak Listesi Dosyaları Hakkında Bilgi](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) daha fazla bilgi için.
+MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinizi değiştirin. `Info.plist` dosyası. [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) daha fazla bilgi için.
 
 ## Belirli Tarayıcı Penceresi için Menü Ayarlama (*Linux* *Windows*)
 
-Tarayıcı pencerelerinin [`ayarlanmışMenü` yöntemi](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows), belirli tarayıcı pencerelerinin menüsünü ayarlayabilir.
+Tarayıcı pencerelerinin [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows), belirli tarayıcı pencerelerinin menüsünü ayarlayabilir.
 
 ## Menü Öğesi Konumu
 
-`Menü.yapılandırŞablondan` ile bir menü oluştururken öğenin nasıl yerleştirileceğini kontrol etmek için `konum` ve `kimliği` kullanabilirsiniz.
+`Menu.buildFromTemplate` ile bir menü oluştururken öğenin nasıl yerleştirileceğini kontrol etmek için `position` ve `id` kullanabilirsiniz.
 
-`MenüÖğesinin` `konum` özniteliği `[placement]=[id]` formundadır; burada `atama`, `önce`, `sonra` veya `sonu` ve `id` 'den biridir, menüdeki mevcut bir öğenin benzersiz kimliğidir:
+`MenuItem` `position` özniteliği `[placement]=[id]` formundadır; burada `placement`, `before`, `after` veya `endof` ve `id` 'den biridir, menüdeki mevcut bir öğenin benzersiz kimliğidir:
 
-* `önce` - Bu öğeyi kimliği belirtilen maddeden önce ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
-* `sonra` - Bu öğeyi, kimliği belirtilen öğenin üzerine ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
-* `sonu` - Bu öğeyi kimliği referanslı öğeyi içeren mantıksal grubun sonuna ekler (gruplar ayırıcı öğeler tarafından oluşturulur). Başvurulan öğe yoksa, verilen bir kimliği kullanarak yeni bir ayırıcı grubu oluşturulur ve bu öğe bu ayırıcıdan sonra eklenir.
+* `before` - Bu öğeyi kimliği belirtilen maddeden önce ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
+* `after` - Bu öğeyi, kimliği belirtilen öğenin üzerine ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
+* `endof` - Bu öğeyi kimliği referanslı öğeyi içeren mantıksal grubun sonuna ekler (gruplar ayırıcı öğeler tarafından oluşturulur). Başvurulan öğe yoksa, verilen bir kimliği kullanarak yeni bir ayırıcı grubu oluşturulur ve bu öğe bu ayırıcıdan sonra eklenir.
 
 Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni bir öğe yerleştirilene kadar arkaya eklenir. Dolayısıyla, bir grup menü öğesini aynı konuma yerleştirmek istiyorsanız, yalnızca ilk öğe için bir konum belirtmeniz yeterlidir.
 
