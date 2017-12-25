@@ -464,33 +464,31 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
                     
                     Mengembalikan`Objek ` - Kunci adalah nama ekstensi dan setiap nilai Objek yang berisi`nama ` dan ` versi `propert.
                     
-                    To check if a DevTools extension is installed you can run the following:
+                    Untuk memeriksa apakah ada ekstensi DevTools, Anda dapat menjalankan yang berikut ini:
                     
                     ```javascript
-const {BrowserWindow} = require('electron')
-
-let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
-console.log(installed)
+biarkan diinstal = {BrowserWindow}getDevToolsExtensions () hasOwnProperty ('devtron')
+console.log (terpasang)
 ```
                 
                 ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
                 
                 ### Instance Properties
                 
-                Objects created with `new BrowserWindow` have the following properties:
+                Objek yang dibuat dengan`BrowserWindow baru ` memiliki properti berikut:
                 
                 ```javascript
-const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('https://github.com')
+const {BrowserWindow} = membutuhkan ('elektron')
+// Dalam contoh ini `win` adalah contoh kami
+let win = new BrowserWindow ({width: 800, height: 600})
+win.loadURL ('https://github.com')
 ```
             
             #### `win.webContents`
             
-            A `WebContents` object this window owns. All web page related events and operations will be done via it.
+            Objek ` WebContents ` yang dimiliki jendela ini. Semua acara terkait halaman web dan operasi akan dilakukan lewat itu.
             
-            See the [`webContents` documentation](web-contents.md) for its methods and events.
+            Lihat dokumentasi[ `webContents` ](web-contents.md)untuk metodenya dan acara.
             
             #### `win.id`
             
@@ -660,9 +658,9 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
 <p>Sets the minimum size of window to <code>width` and `height`.</p> 
                   #### `win.getMinimumSize()`
                   
-                  Returns `Integer[]` - Contains the window's minimum width and height.
+                  Mengembalikan`Integer [] ` - Berisi lebar minimum dan tinggi jendela.
                   
-                  #### `win.setMaximumSize(width, height)`
+                  #### `win.setMaximumSize (lebar, tinggi)`
                   
                   * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
