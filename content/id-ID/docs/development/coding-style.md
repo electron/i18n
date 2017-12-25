@@ -18,15 +18,15 @@ Kode C ++ menggunakan banyak abstraksi dan tipe Chromium, jadi disarankan untuk 
 * Nama file harus dihubungkan dengan `-` bukan `_`, misalnya `nama-file.js` bukannya `nama_file.js`, karena di [github/atom](https://github.com/github/atom) nama-nama modul biasanya dalam bentuk berupa `nama-modul`. Aturan ini hanya berlaku untuk file-file `.js`.
 * Gunakan sintaks ES6 / ES2015 yang lebih baru yang tepat 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) untuk persyaratan dan konstanta lainnya
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) untuk mendefinisikan variabel
+  * [Fungsi panah](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) daripada fungsi `() { } `
+  * [Template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) daripada penggabungan string menggunakan `+`
 
-## Naming Things
+## Penamaan Sesuatu
 
-Electron APIs uses the same capitalization scheme as Node.js:
+API electron menggunakan skema kapitalisasi yang sama dengan Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
+* Ketika modul itu sendiri adalah sebuah kelas seperti `BrowserWindow`, menggunakan `CamelCase`.
 * When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
 * When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
