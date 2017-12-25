@@ -1,8 +1,8 @@
 # `window.open` fungsi
 
-> Open a new window and load a URL.
+> Buka jendela baru dan muat URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Ketika ` window.open ` dipanggil untuk membuat jendela baru di halaman web, sebuah instance baru dari ` BrowserWindow ` akan dibuat untuk ` url ` dan sebuah proxy akan dikembalikan ke ` window.open ` untuk membiarkan halaman memiliki kontrol terbatas terhadapnya.
 
 The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
