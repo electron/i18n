@@ -36,11 +36,11 @@ If you know of other great accessibility tools for Electron, add them to the [ac
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
-### Inside Application
+### İç uygulama
 
 By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
-### Assistive Technology
+### Yardımcı teknoloji
 
 Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
 
