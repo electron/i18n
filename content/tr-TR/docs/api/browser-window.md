@@ -509,7 +509,7 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Pencerenin üzerine odaklanır.
 
 #### `win.blur()`
 
