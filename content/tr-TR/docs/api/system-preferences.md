@@ -64,11 +64,11 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
   * `event` String
   * `userInfo` Object
 
-İlgili `event` gerçekleştiğinde MacOS'un yerel bildirimlerine abone olup `callback` `callback(event, userInfo)` ile beraber çağırılmış olacak. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+İlgili `event` gerçekleştiğinde MacOS'un yerel bildirimlerine abone olup `callback` `callback(event, userInfo)` ile beraber çağırılmış olacak. `userInfo` bildirim ile birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir objedir.
 
 The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Bu başlığının altında API `NSDistributedNotificationCenter`'e abone olur, `event`'ın örnek değerleri şöyledir:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -94,16 +94,16 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+`unsubscribeNotification` gibidir fakat aboneyi `NSNotificationCenter`'den çıkarır.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `type` String - `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary` olabilir
 
-Returns `any` - The value of `key` in system preferences.
+Sistem tercihlerindeki `key`'in değerini `any` olarak döndürür.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şöyledir:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -116,14 +116,14 @@ This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] bakın
 * `value` String
 
-Set the value of `key` in system preferences.
+Sistem tercihlerindeki `key`'in değerini ayarlar.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şöyledir:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -137,16 +137,16 @@ An example of using it to determine if you should create a transparent window or
 const {BrowserWindow, systemPreferences} = require('electron')
 let browserOptions = {width: 1000, height: 800}
 
-// Make the window transparent only if the platform supports it.
+// Pencereyi sadece platform destekliyorsa transparan yapın.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// Create the window.
+// Pencere yaratın.
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+// Yönlendirme.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
