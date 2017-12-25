@@ -12,7 +12,7 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
   * `change` Function (optional) - Function to call when a color is selected. 
     * `color` String - The color that the user selected from the picker
 
-### Instance Properties
+### Örnek özellikleri
 
 The following properties are available on instances of `TouchBarColorPicker`:
 
