@@ -37,7 +37,7 @@ The following methods are available on instances of `WebRequest`:
 * `menyaring` Obyek 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Fungsi 
-  * `details` Obyek 
+  * `rincian` Obyek 
     * `id` Integer
     * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
@@ -63,7 +63,7 @@ The `callback` has to be called with an `response` object.
 </ul>
 
 <p>The <code>listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.</p> 
-  * `details` Obyek 
+  * `rincian` Obyek 
     * `id` Integer
     * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
@@ -82,7 +82,7 @@ The `callback` has to be called with an `response` object.
   * `menyaring` Obyek 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
   * `listener` Fungsi 
-    * `details` Obyek 
+    * `rincian` Obyek 
       * `id` Integer
       * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
@@ -100,7 +100,7 @@ The `callback` has to be called with an `response` object.
 </ul>
 
 <p>The <code>listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.</p> 
-    * `details` Obyek 
+    * `rincian` Obyek 
       * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
@@ -122,7 +122,7 @@ The `callback` has to be called with an `response` object.
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
-      * `details` Obyek 
+      * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
@@ -140,7 +140,7 @@ The `callback` has to be called with an `response` object.
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
-      * `details` Obyek 
+      * `rincian` Obyek 
         * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
@@ -159,7 +159,7 @@ The `callback` has to be called with an `response` object.
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
-      * `details` Obyek 
+      * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
@@ -177,7 +177,7 @@ The `callback` has to be called with an `response` object.
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
     * `listener` Fungsi 
-      * `details` Obyek 
+      * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
