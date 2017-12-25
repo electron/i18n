@@ -51,60 +51,66 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 <p>Umumnya, <code> template </ 0> hanyalah sebuah array dari <code> options </ 0> untuk membangun a
 <a href="menu-item.md"> MenuItem </ 1>. Penggunaannya bisa diacu di atas.</p>
 
-<p>You can also attach other fields to the element of the <code>template` and they will become properties of the constructed menu items.</p> 
-    ### Metode Instance
+<p>Anda juga bisa melampirkan bidang lain ke elemen <code> template </ 0> dan mereka
+akan menjadi properti dari item menu yang dibangun.</p>
+
+<h3>Metode Instance</h3>
+
+<p>The <code>menu` object has the following instance methods:</p> 
+    #### `menu.popup ([browserWindow, options])`
     
-    The `menu` object has the following instance methods:
-    
-    #### `menu.popup([browserWindow, options])`
-    
-    * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-    * `pilihan` Objek (opsional) 
-      * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-      * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-      * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Default ke ` false </ 0> .</li>
-<li><code>positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-    
-    Pops up this menu as a context menu in the `browserWindow`.
-    
-    #### `menu.closePopup([browserWindow])`
-    
-    * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-    
-    Closes the context menu in the `browserWindow`.
-    
-    #### `menu.append(menuItem)`
-    
-    * ` menuItem </ 0> MenuItem</li>
+    * ` browserWindow </ 0> BrowserWindow (opsional) - Default adalah jendela yang terfokus.</li>
+<li><code>pilihan` Objek (opsional) 
+      * ` x </ 0> Nomor (opsional) - Default adalah posisi kursor mouse saat ini.
+Harus dinyatakan jika <code> y </ 0> dinyatakan.</li>
+<li><code> y </ 0> Nomor (opsional) - Default adalah posisi kursor mouse saat ini.
+Harus dinyatakan jika <code> x </ 0> dinyatakan.</li>
+<li><code> async </ 0> Boolean (opsional) - Atur ke <code> true </ 0> agar metode ini segera dipanggil, <code> false </ 0> untuk kembali setelah menu dipilih atau ditutup. Default ke <code> false </ 0> .</li>
+<li><code> positioningItem </ 0> Nomor (opsional) <em> macOS </ 1> - Indeks item menu ke
+diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default
+adalah -1.</li>
+</ul></li>
+</ul>
+
+<p>Pops up this menu as a context menu in the <code>browserWindow`.</p> 
+        #### `menu.closePopup([browserWindow])`
+        
+        * ` browserWindow </ 0> BrowserWindow (opsional) - Default adalah jendela yang terfokus.</li>
+</ul>
+
+<p>Closes the context menu in the <code>browserWindow`.</p> 
+          #### `menu.append(menuItem)`
+          
+          * ` menuItem </ 0> MenuItem</li>
 </ul>
 
 <p>Appends the <code>menuItem` to the menu.</p> 
-      #### `menu.insert(pos, menuItem)`
-      
-      * `pos` Integer
-      * ` menuItem </ 0> MenuItem</li>
+            #### `menu.insert(pos, menuItem)`
+            
+            * `pos` Integer
+            * ` menuItem </ 0> MenuItem</li>
 </ul>
 
 <p>Inserts the <code>menuItem` to the `pos` position of the menu.</p> 
-        ### Instance Properties
-        
-        `menu` objects also have the following properties:
-        
-        #### `menu.items`
-        
-        A `MenuItem[]` array containing the menu's items.
-        
-        Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-        
-        ## Examples
-        
-        The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
-        
-        ### Main process
-        
-        An example of creating the application menu in the main process with the simple template API:
-        
-        ```javascript
+              ### Instance Properties
+              
+              `menu` objects also have the following properties:
+              
+              #### `menu.items`
+              
+              A `MenuItem[]` array containing the menu's items.
+              
+              Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+              
+              ## Examples
+              
+              The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+              
+              ### Main process
+              
+              An example of creating the application menu in the main process with the simple template API:
+              
+              ```javascript
 const {app, Menu} = require('electron')
 
 const template = [
@@ -195,12 +201,12 @@ if (process.platform === 'darwin') {
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
-    
-    ### Render process
-    
-    Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
-    
-    ```html
+          
+          ### Render process
+          
+          Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+          
+          ```html
 <!-- index.html -->
 <script>
 const {remote} = require('electron')
@@ -217,26 +223,26 @@ window.addEventListener('contextmenu', (e) => {
 }, false)
 </script>
 ```
-
-## Notes on macOS Application Menu
-
-macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
-
-### Menu Standar
-
-Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
+      
+      ## Notes on macOS Application Menu
+      
+      macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
+      
+      ### Menu Standar
+      
+      Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
  <code> Windows </ 0> . Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
  <code> peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
 
 <ul>
 <li><code>jendela`</li> 
-
-* `membantu`
-* `jasa`</ul> 
-
-### Tindakan Item Menu Standar
-
-macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
+      
+      * `membantu`
+      * `jasa`</ul> 
+      
+      ### Tindakan Item Menu Standar
+      
+      macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
  <code> Sembunyikan xxx </ 0> , dan <code> Sembunyikan Lainnya </ 0> . Untuk mengatur tindakan item menu ke tindakan standar, Anda harus mengatur atribut <code> role </ 0> dari item menu.</p>
 
 <h3>Nama Menu Utama</h3>
@@ -249,24 +255,24 @@ untuk informasi lebih lanjut.</p>
 <h2>Setting Menu for Specific Browser Window (<em>Linux</em> <em>Windows</em>)</h2>
 
 <p>The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code>setMenu` method</a> of browser windows can set the menu of certain browser windows.
-
-## Menu Item Position
-
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
-
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
-
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
-
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
-
-### Examples
-
-Template:
-
-```javascript
+      
+      ## Menu Item Position
+      
+      You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+      
+      The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+      
+      * `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+      * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+      * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+      
+      When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+      
+      ### Examples
+      
+      Template:
+      
+      ```javascript
 [
   {label: '4', id: '4'},
   {label: '5', id: '5'},
@@ -275,19 +281,19 @@ Template:
   {label: '3', id: '3'}
 ]
 ```
-
-Menu:
-
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
-
-Template:
-
-```javascript
+  
+  Menu:
+  
+      <br />- 1
+      - 2
+      - 3
+      - 4
+      - 5
+      
+  
+  Template:
+  
+  ```javascript
 [
   {label: 'a', position: 'endof=letters'},
   {label: '1', position: 'endof=numbers'},
