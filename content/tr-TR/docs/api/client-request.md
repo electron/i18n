@@ -114,7 +114,7 @@ Returns:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Örnek özellikleri
 
 #### `request.chunkedEncoding`
 
