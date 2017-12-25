@@ -40,7 +40,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Shift`
 * `Süper`
 
-## Available key codes
+## Kullanılabilir anahtar kodları
 
 * `` to `9`
 * `A` to `Z`
