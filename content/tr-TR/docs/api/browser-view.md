@@ -6,7 +6,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`BrowserView`, `BrowserWindow`'a ek ağ içeriği gömmek için kullanılır. It is like a child window, except that it is positioned relative to its owning window. `webview` etiketine bir alternatif olarak düşünülebilir.
+`BrowserView`, `BrowserWindow`'a ek ağ içeriği gömmek için kullanılır. Çocuk pencere gibidir ama sahibi pencereye göre göreceli konumlandırılır. `webview` etiketine bir alternatif olarak düşünülebilir.
 
 ## Örnek
 
@@ -66,10 +66,10 @@ View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
 #### `view.setBounds(bounds)` *Deneysel*
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Dikdörtgen](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Verilen sınırlarla görünümü göreceli olarak yeniden şekillendirir ve taşır.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Deneysel*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` Katar - `#aarrggbb` ya da `#argb` formunda renk kodu. Alfa kanalı opsiyonel.
