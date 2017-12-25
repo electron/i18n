@@ -143,19 +143,19 @@
 </tr>
 <tr>
   <td>fa</td>
-  <td>Persian</td>
+  <td>Persia</td>
 </tr>
 <tr>
   <td>fi</td>
-  <td>Finnish</td>
+  <td>Finlandia</td>
 </tr>
 <tr>
   <td>fil</td>
   <td>Orang Filipina</td>
 </tr>
 <tr>
-  <td>fo</td>
-  <td>Faroese</td>
+  <td>untuk</td>
+  <td>Orang Farisi</td>
 </tr>
 <tr>
   <td>fr</td>
