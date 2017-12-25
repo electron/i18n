@@ -48,14 +48,14 @@ Sayfalar arasında kaydırma ayarı açık olup olmadığına dair `Boolean` dö
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+`event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+`event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
@@ -66,7 +66,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 İlgili `event` gerçekleştiğinde MacOS'un yerel bildirimlerine abone olup `callback` `callback(event, userInfo)` ile beraber çağırılmış olacak. `userInfo` bildirim ile birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir objedir.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+`event`'ın aboneliğini iptal etmek için kullanılabilecek abonenin `id`'sini döndürür.
 
 Bu başlığının altında API `NSDistributedNotificationCenter`'e abone olur, `event`'ın örnek değerleri şöyledir:
 
@@ -79,7 +79,7 @@ Bu başlığının altında API `NSDistributedNotificationCenter`'e abone olur, 
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+Aboneyi `id` ile kaldırır.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -88,7 +88,7 @@ Removes the subscriber with `id`.
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+`subscribeNotification` gibidir fakat yerel varsayılanlar için `NSNotificationCenter` kullanır. Bu `NSUserDefaultsDidChangeNotification` gibi eventlar için gereklidir
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -121,7 +121,7 @@ API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şö
 
 Sistem tercihlerindeki `key`'in değerini ayarlar.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+`type`'ın `value`'nin gerçek değeri ile eşleşmesi gerektiğini unutmayın. Eğer uyuşmazlarsa bir hata fırlatılacaktır.
 
 API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şöyledir:
 
@@ -129,9 +129,9 @@ API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şö
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Eğer [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) aktifse `true` aksi takdirde `false` `Boolean` değerini döndürecektir.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Şeffaf bir pencere oluşturmanız gerekip gerekmediğini belirlemek için bunu kullanıp kullanmamanın bir örneği (DWM kompozisyonu devre dışı bırakıldığında şeffaf pencere düzgün çalışmaz):
 
 ```javascript
 const {BrowserWindow, systemPreferences} = require('electron')
