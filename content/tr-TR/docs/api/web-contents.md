@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### Etkinlik: 'çöktü'
 
 Returns:
 
@@ -241,7 +241,7 @@ Returns:
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### Etkinlik: 'yıkıldı'
 
 Emitted when `webContents` is destroyed.
 
@@ -509,7 +509,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -790,7 +790,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -848,7 +848,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -933,7 +933,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
