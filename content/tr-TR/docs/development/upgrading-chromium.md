@@ -33,7 +33,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 6. When the build succeeds, create a `dist` Electron hakkında 
   - `$ ./script/create-dist  --no_zip` 
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. Bunlar gerekmez.)
 
 ## Update Electron's code
 
