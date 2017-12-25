@@ -8,7 +8,7 @@
 // В головному процесі.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Чи використовуйте `remote` з процесу рендеринга.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,10 +16,10 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Завантажити зовнішнє URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Чи завантажити локальний HTML файл
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### Модальні вікна
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -106,7 +106,7 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## Клас: BrowserWindow
 
 > Create and control browser windows.
 
@@ -230,7 +230,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### Подія: 'close'
 
 Повертає:
 
@@ -252,89 +252,89 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### Подія: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' *Windows*
+#### Подія: 'session-end' *Windows*
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Подія: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Подія: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Подія: 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Подія: 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Подія: 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Подія: 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Подія: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Подія: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Подія: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Подія: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Подія: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Подія: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Подія: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### Подія: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Подія: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Подія: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Подія: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Подія: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Подія: 'app-command' *Windows*
 
 Повертає:
 
@@ -356,19 +356,19 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Подія: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Подія: 'scroll-touch-end' *macOS*
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Подія: 'scroll-touch-edge' *macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' *macOS*
+#### Подія: 'swipe' *macOS*
 
 Повертає:
 
@@ -377,11 +377,11 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Подія: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### Подія: 'sheet-end' *macOS*
 
 Emitted when the window has closed a sheet.
 
@@ -389,7 +389,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Статичні Методи
 
 The `BrowserWindow` class has the following static methods:
 
