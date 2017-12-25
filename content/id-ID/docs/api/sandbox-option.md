@@ -32,7 +32,7 @@ app.on('ready', () => {
 
 Dalam kode di atas `BrowserWindow` yang dibuat mempunyai node.js yang tidak aktif dan berkomunikasi hanya melalui IPC. Kegunaan dari opsi ini adalah menghentikan electron dari membuat sebuah runtime node.js di dalam perender. Juga, di jendela baru ini `window.open` mengikuti perilaku asli (secara bawaan electron menciptakan sebuah `BrowserWindow` dan mengembalikan nilai proxy kepadanya melalui `window.open`).
 
-Penting untuk dicatat bahwa opsi ini saja sendiri tidak akan mengaktifkan sanbox yang dipaksa oleh OS. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+Penting untuk dicatat bahwa opsi ini saja sendiri tidak akan mengaktifkan sanbox yang dipaksa oleh OS. Untuk mengaktifkan fitur ini, argumen baris perintah `--enable-sandbox` harus dilewatkan ke electron, yang akan memaksa `sandbox: true` untuk semua kejadian `BrowserWindow`.
 
 To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
 
