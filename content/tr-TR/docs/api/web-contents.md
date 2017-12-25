@@ -2,9 +2,9 @@
 
 > Web sayfalarını oluşturun ve kontrol edin.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
-`webİçeriği` bir [EtkinlikÇıkarıcı](https://nodejs.org/api/events.html#events_class_eventemitter) 'dır. Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`TarayıcıPenceresi`](browser-window.md) nesnesinin bir öğesidir. `webİçerik` nesnesine erişmenin bir örneği:
+`webContents` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 'dır. Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`BrowserWindow`](browser-window.md) nesnesinin bir öğesidir. `webContents` nesnesine erişmenin bir örneği:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,78 +18,78 @@ console.log(contents)
 
 ## Metodlar
 
-Bu yöntemlere `webİçeriği` modülünden erişilebilir:
+Bu yöntemlere `webContents` modülünden erişilebilir:
 
 ```javascript
 const {webContents} = require('electron')
 console.log(webContents)
 ```
 
-### `webİçeriği.alTümWebiçerikleri()`
+### `webContents.getAllWebContents()`
 
-`Webİçerikleri[]` 'ne döndürür - Tüm `Webİçerikleri` örneklerinin bir dizisi. Bu, tüm pencereler, web görüntüleri, açılan devtools eklentileri ve devtools uzantısı arka plan sayfaları için web içeriğini içerecektir.
+`WebContents[]` 'ne döndürür - Tüm `WebContents` örneklerinin bir dizisi. Bu, tüm pencereler, web görüntüleri, açılan devtools eklentileri ve devtools uzantısı arka plan sayfaları için web içeriğini içerecektir.
 
-### `webİçerikleri.alOdaklanmışWebİçerikleri()`
+### `webContents.getFocusedWebContents()`
 
-`Webİçerikleri` 'ne dödürür - Bu uygulamaya odaklanmış web içeriği aksi takdirde `boş` değerini döndürür.
+`WebContents` 'ne dödürür - Bu uygulamaya odaklanmış web içeriği aksi takdirde `null` değerini döndürür.
 
-### `webİçeriği.kimlikten(id)`
+### `webContents.fromId(id)`
 
-* `kimlik` Tamsayı
+* `id` Tamsayı
 
-`Webİçerikleri` 'ne döndürür - Belirli bir kimliği olan bir Web İçeriği örneği.
+`WebContents` 'ne döndürür - Belirli bir kimliği olan bir Web İçeriği örneği.
 
 ## Tür: Webİçerikleri
 
 > Bir TarayıcıPenceresi örneğinin içeriğini oluşturun ve denetleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
 ### Örnek Olaylar
 
-#### Olay: 'yüklenme-bitmedi-mi'
+#### Olay: 'did-finish-load'
 
-Gezinme yapılırken, yani sekmenin döner kısmı dönmeyi durduğunda ortaya çıkar ve `yüklendiğinde` olayı gönderilir.
+Gezinme yapılırken, yani sekmenin döner kısmı dönmeyi durduğunda ortaya çıkar ve `onload` olayı gönderilir.
 
-#### Olay: 'yüklenme-başarısız-mı'
-
-Dönüşler:
-
-* `olay` Olay
-* `hataKodu` Tamsayı
-* `hataAçıklaması` Koşul
-* `geçerliURL` Koşul
-* `AnaÇerçeve` Boolean
-
-Bu etkinlik, `yüklenme-bitmedi-mi` gibidir ancak yük başarısız olduğunda veya iptal edildiğinde yayınlanır, örneğin; `pencere.durdurma()` çağrılır. Hata kodlarının tam listesi ve anlamları [burada](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
-
-#### Olay: 'çerçeve-yüklenmeyi-bitirmedi-mi'
+#### Olay: 'did-fail-load'
 
 Dönüşler:
 
-* `olay` Olay
-* `AnaÇerçeve` Boolean
+* `event` Olay
+* `errorCode` Tamsayı
+* `errorDescription` Koşul
+* `validatedURL` Koşul
+* `isMainFrame` Boolean
+
+Bu etkinlik, `did-finish-load` gibidir ancak yük başarısız olduğunda veya iptal edildiğinde yayınlanır, örneğin; `window.stop()` çağrılır. Hata kodlarının tam listesi ve anlamları [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
+
+#### Olay: 'did-frame-finish-load'
+
+Dönüşler:
+
+* `event` Olay
+* `isMainFrame` Boolean
 
 Bir çerçeve aramayı bitirdiğinde ortaya çıkar.
 
-#### Olay: 'yükleme-başlamadı-mı'
+#### Olay: 'did-start-loading'
 
 Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
-#### Olay: 'yükleme-durdu-mu'
+#### Olay: 'did-stop-loading'
 
 Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
-#### Olay: 'yanıt-ayrıntılarını-aldın-mı'
+#### Olay: 'did-get-response-details'
 
 Dönüşler:
 
-* `olay` Olay
-* `durum` Boolean
-* `yeniURL` Dize
-* `orjinalURL` Dize
-* `httpYanıtKodu` Tamsayı
-* `gerekliMetod` Dize
+* `event` Olay
+* `status` Boolean
+* `newURL` Dize
+* `originalURL` Dize
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
 * `yönlendirme` Dize
 * `Başlıklar` Nesne
 * `kaynekTipi` Dize
@@ -317,7 +317,7 @@ Emitted when a client certificate is requested.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Etkinlik: 'giriş'
 
 Returns:
 
@@ -466,7 +466,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Etkinlik: 'boya'
 
 Returns:
 
