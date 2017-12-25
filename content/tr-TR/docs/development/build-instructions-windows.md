@@ -1,10 +1,10 @@
 # İnşaa Talimatları (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Electron'u windows üzerinde inşaa etmek için aşağıdaki yönlendirmeleri takip edin.
 
 ## Ön gereklilikler
 
-* Windows 7 / Server 2008 R2 or higher
+* Windows 7 / Server 2008 R2 veya üzeri
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
