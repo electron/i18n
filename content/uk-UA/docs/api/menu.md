@@ -8,7 +8,7 @@
 
 Creates a new menu.
 
-### Static Methods
+### Статичні Методи
 
 The `menu` class has the following static methods:
 
