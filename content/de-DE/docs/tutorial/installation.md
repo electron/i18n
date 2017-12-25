@@ -12,15 +12,15 @@ Mehr Informationen zur Versionsverwaltung in ihren Apps entnehmen Sie bitte der 
 
 ## Globale Installation
 
-You can also install the `electron` command globally in your `$PATH`:
+Sie können den `electron`-Befehl auch global in Ihrer `$PATH`-Variable installieren:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Individuelle Anpassung
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Falls Sie die herunterzuladende Architektur ändern möchten (z.B. `ia32` auf einem `x64`-Rechner), dann können Sie den `--arch`-Flag verwenden oder die Umgebungsvariable `npm_config_arch` setzen:
 
 ```shell
 npm install --arch=ia32 electron
