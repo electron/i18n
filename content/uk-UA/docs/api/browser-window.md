@@ -1098,7 +1098,7 @@ Controls whether to hide cursor when typing.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Експериментальний*
 
 * `touchBar` TouchBar
 
@@ -1106,7 +1106,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Експериментальний*
 
 * `browserView` [BrowserView](browser-view.md)
 
