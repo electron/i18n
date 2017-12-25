@@ -156,7 +156,7 @@ $ .\node_modules\.bin\electron .
 #### Node v8.2.0 and later
 
 ```sh
-$ npx electron .
+$ npx electron.
 ```
 
 ### Manually Downloaded Electron Binary
