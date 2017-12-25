@@ -17,7 +17,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
       $ ./script/bootstrap -v
 
 2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` Bu dosya ile 
+  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `VERSION` Bu dosya ile 
     - This can be done manually by visiting OmahaProxy in a browser, or automatically:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
@@ -61,7 +61,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
     - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
+6. Electron kurmak. 
   - Try to build Debug version first: `$ ./script/build.py -c D`
   - You will need it to run tests
 7. Fix compilation and linking errors
@@ -88,7 +88,7 @@ Follow all the steps above to fix Electron code on all supported platforms.
 
 If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
 
-## Updating NodeJS
+## NodeJS güncelleniyor
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
