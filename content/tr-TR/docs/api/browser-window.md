@@ -715,7 +715,7 @@ On Linux always returns `true`.
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Yakınlaştırma düğmesinin tam ekran modunu değiştirip değiştirmeyeceğini veya pencereyi en yükseğe çıkarıp büyütüp büyütmediğini belirtir.
 
 #### `win.isFullScreenable()`
 
@@ -1030,7 +1030,7 @@ Returns `Boolean` - Whether menu bar automatically hides itself.
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Menü çubuğu görünür olarak ayarlanırsa, menü çubuğu otomatik olarak gizlenirken`Alt` tuşuna basarak menü çubuğu görüntülenmeye devam edebilir.
 
 #### `win.isMenuBarVisible()`
 
