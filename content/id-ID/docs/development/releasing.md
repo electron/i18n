@@ -9,35 +9,35 @@ Dokumen ini menjelaskan proses pelepasan versi baru Electron.
 
 ## Cari tahu perubahan versi apa yang dibutuhkan
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+Jalankan `npm run prepare-release -- --notesOnly` untuk melihat rilis yang dihasilkan secara otomatis. catatan. Catatan yang dihasilkan akan membantu Anda menentukan apakah ini adalah masalah besar, kecil, patch, atau versi beta berubah. Membaca [Aturan Perubahan Versi](../tutorial/electron-versioning.md#semver) untuk informasi lebih lanjut.
 
-## Run the prepare-release script
+## Jalankan skrip persiapan-rilis
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+Script persiapan rilis akan melakukan hal berikut: 1. Periksa apakah sebuah pelepasan sudah dalam proses dan jika demikian akan berhenti. 2. Buat cabang rilis. 3. Bump nomor versi di beberapa file. Lihat [benjolan ini komit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) untuk sebuah contoh. 4. Buat draf rilis di GitHub dengan catatan rilis yang dihasilkan secara otomatis. 5. Dorong cabang pelepasan. 6. Panggil APIs untuk menjalankan rilis.
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+Setelah Anda menentukan jenis perubahan versi yang diperlukan, jalankan `siapkan rilis` dengan argumen sesuai kebutuhan Anda: - `[major |minor|patch|beta]` untuk menambah salah satu nomor versi, atau - `--stabil` untuk menunjukkan bahwa ini adalah versi stabil
 
 Sebagai contoh:
 
-### Major version change
+### Perubahan versi mayor
 
 ```sh
-npm run prepare-release -- major
+npm menjalankan mempersiapkan-release -- utama
 ```
 
-### Minor version change
+### Perubahan versi minor
 
 ```sh
-npm run prepare-release -- minor
+npm menjalankan mempersiapkan-release -- kecil
 ```
 
-### Patch version change
+### Perubahan versi patch
 
 ```sh
-npm run prepare-release -- patch
+npm menjalankan mempersiapkan-release -- patch
 ```
 
-### Beta version change
+### Perubahan versi beta
 
 ```sh
 npm run prepare-release -- beta
