@@ -107,8 +107,8 @@ The `callback` has to be called with an `response` object.
 <li><code>resourceType` String
       * `timestamp` Double
       * `statusLine` String
-      * `statusCode` Integer
-      * `responseHeaders` Object
+      * `statusCode` Bilangan bulat
+      * `responseHeaders` Objek
     * `callback` Fungsi 
       * `respon` Obyek 
         * `cancel` Boolean
@@ -128,9 +128,9 @@ The `callback` has to be called with an `response` object.
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
         * `timestamp` Double
-        * `responseHeaders` Object
+        * `responseHeaders` Objek
         * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
-        * `statusCode` Integer
+        * `statusCode` Bilangan bulat
         * `statusLine` String
     
     The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
@@ -147,10 +147,10 @@ The `callback` has to be called with an `response` object.
 <li><code>resourceType` String
         * `timestamp` Double
         * `redirectURL` String
-        * `statusCode` Integer
+        * `statusCode` Bilangan bulat
         * `ip` String (optional) - The server IP address that the request was actually sent to.
         * `fromCache` Boolean
-        * `responseHeaders` Object
+        * `responseHeaders` Objek
     
     The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
     
@@ -165,9 +165,9 @@ The `callback` has to be called with an `response` object.
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
         * `timestamp` Double
-        * `responseHeaders` Object
+        * `responseHeaders` Objek
         * `fromCache` Boolean
-        * `statusCode` Integer
+        * `statusCode` Bilangan bulat
         * `statusLine` String
     
     The `listener` will be called with `listener(details)` when a request is completed.
