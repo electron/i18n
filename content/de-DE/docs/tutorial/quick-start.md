@@ -6,11 +6,11 @@ Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafisch
 
 ### Hauptprozess
 
-Der Prozess, der das `main`-Skript der `package.json`-Datei ausführt, wird in Electron als **Hauptprozess** bezeichnet. The script that runs in the main process can display a GUI by creating web pages.
+Der Prozess, der das `main`-Skript der `package.json`-Datei ausführt, wird in Electron als **Hauptprozess** bezeichnet. Das im Hauptprozess laufende Skript kann durch das Erstellen von Webseiten eine grafische Oberfläche generieren.
 
-### Renderer Process
+### Renderer-Prozess
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Dadurch, dass Electron für die Darstellung der Webseiten Chromium nutzt, wird auch Chromium's Multi-Prozess-Architektur verwendet. Jede Webseite in Electron läuft in ihrem eigenen Prozess, welcher **Renderer-Prozess** genannt wird.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
