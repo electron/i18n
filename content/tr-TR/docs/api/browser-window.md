@@ -29,7 +29,7 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 ## Zarif pencere görüntüsü
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı görür; bu, iyi bir yerel uygulama deneyimi değildir. Daha fazla görüntü için resmi hazır hale getirmek için iki farklı çözüm bulunmaktadır.
 
 ### Using `ready-to-show` event
 
