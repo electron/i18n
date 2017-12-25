@@ -192,10 +192,10 @@ Dalam kasus pelepasan yang rusak dengan mesin CI rusak, mungkin kita harus melak
 
 Langkah pertama adalah pergi ke [Rilis](https://github.com/electron/electron/releases) halaman dan hapus binari yang rusak dengan berkas checksum `SHASUMS256.txt`.
 
-Then manually create distributions for each platform and upload them:
+Kemudian buat distribusi secara manual untuk setiap platform dan unggah:
 
 ```sh
-# Checkout the version to re-upload.
+# Checkout versi untuk diunggah ulang.
 git checkout vTHE.RELEASE.VERSION
 
 # Do release build, specifying one target architecture.
@@ -207,8 +207,8 @@ git checkout vTHE.RELEASE.VERSION
 ./script/upload.py --overwrite
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+Setelah mengunggah ulang semua distro, publikasikan lagi untuk mengupload berkas checksum:
 
 ```sh
-npm run release
+npm menjalankan rilis
 ```
