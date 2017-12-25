@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Örnek etkinlikler
 
 #### Event: 'response'
 
@@ -83,7 +83,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Etkinlik: 'bitiş'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### Örnek yöntemleri
 
 #### `request.setHeader(name, value)`
 
