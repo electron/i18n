@@ -8,7 +8,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## Sınıf: bildirim
 
 > Create OS desktop notifications
 
