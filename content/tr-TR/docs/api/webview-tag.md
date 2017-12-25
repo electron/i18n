@@ -57,7 +57,7 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## Etiket özellikleri
 
 The `webview` tag has the following attributes:
 
@@ -532,52 +532,52 @@ The following DOM events are available to the `webview` tag:
 Returns:
 
 * `url` String
-* `AnaÇerçeve` Boolean
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Olay: 'yüklenme-bitmedi-mi'
+### Olay: 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Olay: 'yüklenme-başarısız-mı'
+### Olay: 'did-fail-load'
 
 Returns:
 
-* `hataKodu` Tamsayı
-* `hataAçıklaması` Koşul
-* `geçerliURL` Koşul
-* `AnaÇerçeve` Boolean
+* `errorCode` Tamsayı
+* `errorDescription` Koşul
+* `validatedURL` Koşul
+* `isMainFrame` Boolean
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Olay: 'çerçeve-yüklenmeyi-bitirmedi-mi'
+### Olay: 'did-frame-finish-load'
 
 Returns:
 
-* `AnaÇerçeve` Boolean
+* `isMainFrame` Boolean
 
 Fired when a frame has done navigation.
 
-### Olay: 'yükleme-başlamadı-mı'
+### Olay: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Olay: 'yükleme-durdu-mu'
+### Olay: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Olay: 'yanıt-ayrıntılarını-aldın-mı'
+### Olay: 'did-get-response-details'
 
 Returns:
 
-* `durum` Boolean
-* `yeniURL` Dize
-* `orjinalURL` Dize
-* `httpYanıtKodu` Tamsayı
-* `gerekliMetod` Dize
+* `status` Boolean
+* `newURL` Dize
+* `originalURL` Dize
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
 * `referrer` String
-* `Başlıklar` Nesne
+* `headers` Nesne
 * `kaynekTipi` Dize
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
@@ -587,8 +587,8 @@ Fired when details regarding a requested resource is available. `status` indicat
 Returns:
 
 * `eskiURL` Dize
-* `yeniURL` Dize
-* `AnaÇerçeve` Boolean
+* `newURL` Dize
+* `isMainFrame` Boolean
 
 Fired when a redirect was received while requesting a resource.
 
@@ -717,14 +717,14 @@ Ayrıca, bağlı linkleri tıklama veya `pencere.konumu.karması` öğesini gün
 
 Returns:
 
-* `AnaÇerçeve` Boolean
+* `isMainFrame` Boolean
 * `url` String
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `karmadeğişiklik` olayı tetiklendiğinde görülür.
 
-### Event: 'close'
+### Etkinlik: 'kapat'
 
 Fired when the guest page attempts to close itself.
 
