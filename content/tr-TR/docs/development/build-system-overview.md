@@ -40,7 +40,7 @@ To work around this Electron uses a `gyp` variable `libchromiumcontent_component
 
 `Release` ve `Debug` 'ı hedef isim olarak kullanan çoğu projenin aksine, Electron hedef isim olarak `R` ve `D` 'ı kullanır. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
-This only affects developers, if you are just building Electron for rebranding you are not affected.
+Bu sadece geliştiricileri etkiler, eğer Electron'u sadece tekrar işlemek için kullanıyorsanız bu durum sizi etkilemez.
 
 ## Testler
 
