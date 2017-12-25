@@ -1,4 +1,4 @@
-# Frameless Window
+# Çerçevesiz pencere
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
@@ -77,7 +77,7 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-## Draggable region
+## Sürüklenebilir bölge
 
 By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
