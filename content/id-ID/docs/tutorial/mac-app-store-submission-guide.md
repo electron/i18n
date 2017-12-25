@@ -14,11 +14,11 @@ Untuk mengirimkan aplikasi Anda ke Mac App Store, pertama Anda harus mendapatkan
 
 ### Get Team ID
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Sebelum menandatangani aplikasi Anda, Anda perlu mengetahui ID Tim akun Anda. Untuk menemukan ID Tim Anda, Masuk ke [Apple Developer Center](https://developer.apple.com/account/), dan klik Membership di sidebar. ID Tim Anda muncul di Keanggotaan Bagian informasi dengan nama tim.
 
 ### Sign Your App
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Setelah menyelesaikan pekerjaan persiapan, Anda dapat mengemas aplikasi Anda dengan mengikuti [ Distribusi Aplikasi ](application-distribution.md), lalu lanjutkan ke menandatangani aplikasi Anda.
 
 First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
 
@@ -124,7 +124,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 
 #### Sign Native Modules
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika menggunakan tanda elektron-osx, pastikan untuk menyertakan jalan ke binari yang dibangun di dalamnya daftar argumen:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
@@ -142,7 +142,7 @@ After these steps, you can [submit your app for review](https://developer.apple.
 
 ## Limitations of MAS Build
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Untuk memenuhi semua persyaratan untuk sandboxing aplikasi, modul berikut telah dinonaktifkan dalam MAS build:
 
 * `kerusakanReporter`
 * `autoUpdater`
@@ -153,7 +153,7 @@ and the following behaviors have been changed:
 * Certain accessibility features may not work.
 * Apps will not be aware of DNS changes.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+Selain itu, karena penggunaan sandboxing aplikasi, sumber daya yang bisa diakses oleh aplikasi ini sangat terbatas; kamu bisa membaca [App Sandboxing](https://developer.apple.com/app-sandboxing/) untuk informasi lebih lanjut.
 
 ### Additional Entitlements
 
