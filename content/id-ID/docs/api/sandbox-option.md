@@ -120,11 +120,11 @@ Saat ini fungsi `require` yang disediakan dalam lingkup pramuat memaparkan modul
 - `timer`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+Lebih lanjut boleh ditambahkan lagi sesuai dengan kebutuhan untuk mengekspos lebih banyak API elektron di sandbox, namun setiap modul dalam proses utama sudah dapat digunakan melalui `electron.remote.require`.
 
 ## Status
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Silahkan gunakan opsi `sandbox` dengan hati-hati, karena fitur ini masih fitur percobaan. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - A preload script can accidentaly leak privileged APIs to untrusted code.
 - Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
