@@ -128,7 +128,7 @@ Returns:
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### olay: 'tarayıcı-pencere-odak'
 
 Returns:
 
