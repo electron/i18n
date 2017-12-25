@@ -18,7 +18,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Статичні Методи
 
 The `Notification` class has the following static methods:
 
@@ -45,7 +45,7 @@ Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### Подія: 'show'
 
 Повертає:
 
@@ -61,7 +61,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Подія: 'close'
 
 Повертає:
 
