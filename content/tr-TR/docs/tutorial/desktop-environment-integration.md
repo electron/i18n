@@ -2,7 +2,7 @@
 
 Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Bu bölüm, uygulamanızı masaüstü ortamınıza entegre etmek için Electron API'lerinin nasıl kullanılacağını açıklayacaktır.
 
 ## Bildirimler
 
