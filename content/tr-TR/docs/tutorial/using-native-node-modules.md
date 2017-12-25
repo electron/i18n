@@ -13,7 +13,7 @@ By setting a few environment variables, you can use `npm` to install modules dir
 An example of installing all dependencies for Electron:
 
 ```sh
-# Electron's version.
+# Electron'un sürümü.
 export npm_config_target=1.2.3
 # The architecture of Electron, can be ia32 or x64.
 export npm_config_arch=x64
