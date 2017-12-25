@@ -770,7 +770,7 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### Etkinlik: 'gpu-çöktü'
 
 Fired when the gpu process is crashed.
 
