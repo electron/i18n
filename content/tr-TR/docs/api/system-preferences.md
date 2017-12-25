@@ -31,17 +31,17 @@ Returns:
 Returns:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+* `invertedColorScheme` Boolean - Ters renk şeması yüksek kontrastlı bir tema gibi kullanılıyorsa `true`, kullanılmıyorsa değer `false` olacaktır.
 
 ## Metodlar
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Sistemin karanlık modda olup olmadığına dair `Boolean` döndürür.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Sayfalar arasında kaydırma ayarı açık olup olmadığına dair `Boolean` döndürür.
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
@@ -64,7 +64,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
   * `event` String
   * `userInfo` Object
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+İlgili `event` gerçekleştiğinde MacOS'un yerel bildirimlerine abone olup `callback` `callback(event, userInfo)` ile beraber çağırılmış olacak. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
