@@ -361,8 +361,8 @@ Returns `Boolean` - Whether DevTools window of guest page is focused.
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 
 Starts inspecting element at position (`x`, `y`) of guest page.
 
@@ -641,7 +641,7 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Etkinlik: 'sayfa içinde kurmak'
 
 Returns:
 
