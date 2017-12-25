@@ -159,7 +159,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
-#### Network Access
+#### Ağ erişimi
 
 Enable outgoing network connections to allow your app to connect to a server:
 
