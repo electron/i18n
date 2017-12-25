@@ -117,7 +117,7 @@ As a future consideration, we may introduce one or both of the following:
 * nightly builds off of master; these would allow folks to test new features quickly and give feedback
 * alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
 
-# Feature Flags
+# Özellik bayrakları
 
 Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
