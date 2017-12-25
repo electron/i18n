@@ -107,9 +107,9 @@ V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
   - Ör. electron, libcc, and node
 - Upstream 'ı biçimsel nedenlerle yakından takip etmiyoruz: 
   - Upstream birden çok repo kullanır ve bu nedenle tek bir repoya dönüştürülürse geçmişin kaybolmasına neden olur. Bu yüzden, sadece electron 'da bir node versiyonu planladığımızda güncelliyoruz.
-- libcc is large and time-consuming to update, so we typically choose the node version based on which of its releases has a version of V8 that’s closest to the version in libcc that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
-  - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - İnşaat düğümü: 
-    - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
+- libcc güncellemesi çok büyük ve zaman alıcıdır, bu nedenle hangi node 'ların hangi libcc 'de en çok kullandığımız sürüm olan V8 sürümüne dayanan node sürümünü kullanıyoruz. 
+  - Yeni libcc'deki V8 sürümüyle daha yakın bir şekilde senkronize olacağından, bazen bir sonraki periyodik Node sürümünü beklemek zorundayız
+  - Elektron, tüm yamalarını libcc'de tutar çünkü her upstream projesi için yamalar için farklı repolar sürdürmekten daha kolaydır. 
+    - Crashpad, node, libcc, vb. Yamalar hepsi aynı yerde saklanır
+  - Node Yapılandırması: 
+    - Yapı değişikliklerimizi, node 'un istediği yapı bayraklarıyla eşleşecek şekilde değiştirmek için bir şansımız var `node/common.gypi`
