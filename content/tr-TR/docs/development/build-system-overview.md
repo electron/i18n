@@ -62,15 +62,14 @@ Electron kaynak kodunda ne zaman değişiklik yaparsanız, şu testten önce in�
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+Test paketini belirli testi izole ederek veya hali hazırda kullandığınız Mocha' nın </a> özellikli  özel testlerini engelleyerek daha hızlı çalıştırabilirsiniz. Herhangi bir `describe` veya `it` işlevini çağırmak için sadece `.only` ekle:</p> 
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
-})
+  // ... sadece bu blok içindeki testler çalıştırılacak })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Alternatif olarak, mocha'nın `grep` seçeneğini sadece verilen normal ifade modeliyle eşleşen testleri çalıştırmak için kullanabilirsiniz:
 
 ```sh
 $ npm test -- --grep child_process
