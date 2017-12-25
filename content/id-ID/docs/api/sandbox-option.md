@@ -106,7 +106,7 @@ Untuk membuat bundel browserify dan menggunakannya sebagai skrip pramuat, sesuat
     browserify preload/index.js \
       -x electron \
       -x fs \
-      --insert-global-vars=__filename,__dirname -o preload.js
+      --insert-global-vars=__filena,__dirname -o preload.js
     
 
 The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
