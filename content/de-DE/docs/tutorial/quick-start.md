@@ -6,7 +6,7 @@ Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafisch
 
 ### Hauptprozess
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Der Prozess, der das `main`-Skript der `package.json`-Datei ausführt, wird in Electron als **Hauptprozess** bezeichnet. The script that runs in the main process can display a GUI by creating web pages.
 
 ### Renderer Process
 
