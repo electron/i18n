@@ -150,37 +150,37 @@ Gunakan format yang sama dengan yang disarankan di atas, tapi tambahkan catatan 
 
 Silakan mengajukan masalah baru untuk bug yang Anda temukan di dalamnya.
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+Rilis ini dipublikasikan ke [npm] (https://www.npmjs.com/package/electron) di bawah tag `beta` dan dapat diinstal melalui` npm install electron @ beta`.
 ```
 
-## Edit the release draft
+## Mengedit rancangan konsep
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Wait for all builds to pass before proceeding.
-6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
+1. Kunjungi [halaman rilis ](https://github.com/electron/electron/releases) dan Anda akan melihat draf rilis baru dengan dengan catatan rilis placeholder.
+2. Edit rilis dan tambahkan catatan rilis.
+3. Hapus tanda centang pada `prerelease` kotak centang jika Anda menerbitkan rilis stabil; biarkan diperiksa untuk rilis beta.
+4. Klik 'Simpan draf'. **Jangan klik 'Publikasikan rilis'!**
+5. Tunggu sampai semua bangunan berlalu sebelum melanjutkan.
+6. Anda dapat menjalankan `npm run release --validateRelease` untuk memverifikasi semua file yang dibutuhkan telah dibuat untuk rilis.
 
-## Merge temporary branch
+## Gabungkan cabang sementara
 
-Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
+Setelah rilis selesai, gabungkan cabang `release` kembali cabang pelepasan sumber menggunakan skrip `merge-release`. Jika cabang tidak berhasil digabung kembali script ini akan otomatis rebase cabang `release` dan dorong perubahan yang akan memicu pelepasan membangun lagi, yang berarti Anda harus menunggu rilis dibangun untuk dijalankan lagi sebelum melanjutkan.
 
-### Merging back into master
+### Bergabung kembali ke master
 
 ```sh
-npm run merge-release -- master
+npm menjalankan mempersiapkan-release -- master
 ```
 
-### Merging back into old release branch
+### Bergabung kembali ke cabang pelepasan lama
 
 ```sh
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## Publikasikan rilisnya
 
-Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+Setelah penggabungan selesai dengan sukses, jalankan skrip `release` via `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
 ## Publish to npm
 
