@@ -22,15 +22,15 @@ Bir Apple Disk Görüntüsü, macOS tarafından kullanılan bir paketleme biçim
 
 ### IME
 
-Giriş yöntemi editörü. Kullanıcıların klavyelerinde bulunmayan karakterleri ve sembolleri girmesini olanaklı kılan bir program. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Giriş yöntemi editörü. Kullanıcıların klavyelerinde bulunmayan karakterleri ve sembolleri girmesini olanaklı kılan bir program. Örneğin, bu, Latin klavye kullanıcılarının klavyelerini kullanarak Çince, Japonca, Korece ve Hint karakterlerini girmelerine olanak verir.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC, Süreçlararası İletişim anlamına gelir. Elektron, [ana](#main-process) ve [oluşturucu](#renderer-process) işlemleri arasındaki seri hale getirilmiş JSON iletileri göndermek için IPC kullanır.
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Ayrıca "libcc" olarak da adlandırılır.
+[ Chromium İçerik modülünü](https://www.chromium.org/developers/content-module) ve tüm paylaşılan bağımlılıklarını (ör. Blink, [V8](#v8)vb.). içeren bir paylaşılan kütüphane. Ayrıca "libcc" olarak da adlandırılır.
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
@@ -46,11 +46,11 @@ Ayrıca bkz: [işlem](#process), [işleyici işlemi](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Apple'ın Mac App Store'un kısaltması. Uygulamanızı, MAS'a gönderme ile ilgili ayrıntılar için, [ Mac App Store Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md) 'na bakın.
 
 ### yerel modüller
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
