@@ -24,7 +24,7 @@ The `shell` module has the following methods:
 
 Returns `Boolean` - Whether the item was successfully shown
 
-Show the given file in a file manager. If possible, select the file.
+Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı seçin.
 
 ### `shell.openItem(fullPath)`
 
