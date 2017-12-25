@@ -931,19 +931,20 @@ win.loadURL(url)
                                 
                                 * `menu` Menu | null
                                 
-                                Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+                                Menetapkan ` menu </ 0> bar menu jendela, pengaturan untuk <code> nol </ 0> akan menghapus menu bar.</p>
+
+<h4><code>win.setProgressBar (kemajuan [, pilihan])`</h4> 
                                 
-                                #### `win.setProgressBar(progress[, options])`
-                                
-                                * `progress` Double
-                                * `pilihan` Objek (opsional) 
+                                * ` kemajuan </ 0>  Double</li>
+<li><code>pilihan` Objek (opsional) 
                                   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
                                 
-                                Sets progress value in progress bar. Valid range is [0, 1.0].
+                                Menetapkan nilai kemajuan di bilah kemajuan. Kisaran valid adalah [0, 1.0].
                                 
-                                Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+                                Hapus bilah kemajuan saat kemajuan <0; Ubah ke mode tak tentu saat mencapai kemajuan> 1.
                                 
-                                On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+                                Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` * .desktop </ 0> ke <code> desktopName </ 0> di <code> package.json </ 0> . By default,
+it will assume <code>app.getName().desktop`.
                                 
                                 On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
                                 
