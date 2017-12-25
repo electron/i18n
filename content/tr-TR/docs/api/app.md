@@ -23,7 +23,7 @@ Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. On Windows and 
 
 In most cases, you should just do everything in the `ready` event handler.
 
-### Event: 'ready'
+### Etkinlik: 'hazır'
 
 Returns:
 
@@ -207,7 +207,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Etkinlik: 'giriş'
 
 Returns:
 
