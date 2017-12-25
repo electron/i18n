@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Tarayıcı pencereleri kontrol etme ve oluşturma.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -23,7 +23,7 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Çerçevesiz pencere
 
 To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Tarayıcı pencereleri kontrol etme ve oluşturma.
 
 Süreç: [Ana](../glossary.md#main-process)
 
