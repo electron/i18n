@@ -1,13 +1,13 @@
-# Releasing
+# Melepaskan
 
-This document describes the process for releasing a new version of Electron.
+Dokumen ini menjelaskan proses pelepasan versi baru Electron.
 
-## Determine which branch to release from
+## Tentukan cabang mana yang akan dilepaskan
 
-- **If releasing beta,** run the scripts below from `master`.
-- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
+- **Jika merilis beta, ** jalankan skrip di bawah ini dari `master`.
+- **Jika merilis versi stabil, ** jalankan skrip di bawah ini dari `1-7-x` atau `1-6-x`, tergantung pada versi yang Anda nyalakan untuk.
 
-## Find out what version change is needed
+## Cari tahu perubahan versi apa yang dibutuhkan
 
 Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
