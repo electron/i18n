@@ -378,9 +378,9 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
           * ` event </ 0>  Acara</li>
 <li><code>direction` String
           
-          Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+          Emitted on 3-finger swipe. Petunjuk yang mungkin ada `atas `,` kanan `, `turun `, ` kiri `.
           
-          #### Event: 'sheet-begin' *macOS*
+          #### Acara: 'sheet-begin' * macOS *
           
           Emitted saat jendela membuka selembar kertas.
           
@@ -394,23 +394,23 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
           
           ### Metode Statis
           
-          The `BrowserWindow` class has the following static methods:
+          Kelas ` BrowserWindow ` memiliki metode statis berikut:
           
-          #### `BrowserWindow.getAllWindows()`
+          #### `BrowserWindow.getAllWindows ()`
           
-          Returns `BrowserWindow[]` - An array of all opened browser windows.
+          Kembali ` BrowserWindow [] ` - Sebuah array dari semua jendela browser yang terbuka.
           
-          #### `BrowserWindow.getFocusedWindow()`
+          #### `BrowserWindow.getFocusedWindow ()`
           
-          Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+          Mengembalikan ` BrowserWindow ` - Jendela yang difokuskan pada aplikasi ini, jika tidak mengembalikan ` null `.
           
-          #### `BrowserWindow.fromWebContents(webContents)`
+          #### `BrowserWindow.fromWebContents (webContents)`
           
           * ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
 </ul>
 
-<p>Returns <code>BrowserWindow` - The window that owns the given `webContents`.</p> 
-            #### `BrowserWindow.fromId(id)`
+<p>Mengembalikan<code>BrowserWindow` - Jendela yang memiliki`contentContents `.</p> 
+            #### `BrowserWindow.fromId (id)`
             
             * `id` Integer
             
