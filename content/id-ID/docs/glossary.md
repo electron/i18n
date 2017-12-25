@@ -14,7 +14,7 @@ Brightray [was](https://github.com/electron-archive/brightray) a static library 
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C Run-time Library (CRT) adalah bagian dari C++ Standard Library itu menggabungkan perpustakaan standar ISO C99. Perpustakaan Visual C++ itu menerapkan pengembangan kode asli dukungan CRT, dan keduanya asli dan campuran kode dikelola, dan kode dikelola murni untuk .NET development.
 
 ### DMG
 
@@ -40,7 +40,7 @@ The main process, commonly a file named `main.js`, is the entry point to every E
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+Di Chromium, proses ini disebut sebagai "proses browser". ini berganti nama menjadi Elektron untuk menghindari kebingungan dengan proses renderer.
 
 See also: [process](#process), [renderer process](#renderer-process)
 
