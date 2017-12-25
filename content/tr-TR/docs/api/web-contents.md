@@ -90,32 +90,32 @@ Dönüşler:
 * `originalURL` Dize
 * `httpResponseCode` Tamsayı
 * `requestMethod` Dize
-* `yönlendirme` Dize
-* `Başlıklar` Nesne
-* `kaynekTipi` Dize
+* `referrer` Dize
+* `headers` Nesne
+* `resourceType` Dize
 
-İstenen bir kaynakla ilgili ayrıntılar mevcut olduğunda yayımlanır. `durum` kaynağı indirmek için soket bağlantısını gösterir.
+İstenen bir kaynakla ilgili ayrıntılar mevcut olduğunda yayımlanır. `status` kaynağı indirmek için soket bağlantısını gösterir.
 
-#### Olay: 'yönlendirme-isteği-almadın-mı'
+#### Olay: 'did-get-redirect-request'
 
 Dönüşler:
 
-* `olay` Olay
-* `eskiURL` Dize
-* `yeniURL` Dize
-* `AnaÇerçeve` Boolean
-* `httpYanıtKodu` Tamsayı
-* `gerekliMetod` Dize
-* `yönlendirme` Dize
-* `Başlıklar` Nesne
+* `event` Olay
+* `oldURL` Dize
+* `newURL` Dize
+* `isMainFrame` Boolean
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
+* `referrer` Dize
+* `headers` Nesne
 
 Bir kaynak talep ederken yönlendirme alındığında yayınlanır.
 
-#### Olay: 'dom-hazır'
+#### Olay: 'dom-ready'
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 
 Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 
@@ -124,26 +124,26 @@ Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 Dönüşler:
 
 * `event` Olay
-* `sık kullanılan simgeler` Dize[] - URL dizisi
+* `favicons` Dize[] - URL dizisi
 
 Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
-#### Olay: 'yeni-pencere'
+#### Olay: 'new-window'
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `url` Dize
-* `çerçeveAdı` Dize
-* `kural` Dize - `varsayılan`, `önplan-sekmesi`, `arkaplan-sekmesi`, `yeni-pencere`, `diske-kaydet` ve `diğer` olabilir.
-* `seçenekler` Nesne - Yeni `TarayıcıPenceresi` oluşturmak için kullanılacak seçenekler.
-* `ekÖzellikler` Dize[] - `Pencere.açma()` için verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmayan özellikler).
+* `frameName` Dize
+* `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
+* `options` Nesne - Yeni `BrowserWindow` oluşturmak için kullanılacak seçenekler.
+* `additionalFeatures` Dize[] - `window.open()` için verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmayan özellikler).
 
-Sayfa, bir `url` için yeni bir pencere açmayı istediğinde ortaya çıkar. `Pencere.açma` veya `<a target='_blank'>` gibi harici bir bağlantıyla istenebilir.
+Sayfa, bir `url` için yeni bir pencere açmayı istediğinde ortaya çıkar. `window.open` veya `<a target='_blank'>` gibi harici bir bağlantıyla istenebilir.
 
-Varsayılan olarak `url` için yeni bir `TarayıcıPenceresi` oluşturulacaktır.
+Varsayılan olarak `url` için yeni bir `BrowserWindow` oluşturulacaktır.
 
-`Olay.varsayılanıEngelle()` öğesinin çağrılması, Electron'un otomatik olarak yeni bir `TarayıcıPenceresi` oluşturmasını önleyecektir. `olay.varsayılanıEngelle()` öğesini çağırıp manuel olarak yeni bir `TarayıcıPenceresi` oluşturursanız, `olay.yeniKonuk` öğesini yeni `TarayıcıPenceresi` örneğine referans yapacak şekilde ayarlamanız gerekir; aksi halde beklenmeyen davranışlara neden olabilir. Örneğin:
+`event.preventDefault()` öğesinin çağrılması, Electron'un otomatik olarak yeni bir `BrowserWindow` oluşturmasını önleyecektir. `event.preventDefault()` öğesini çağırıp manuel olarak yeni bir `BrowserWindow` oluşturursanız, `event.newGuest` öğesini yeni `BrowserWindow` örneğine referans yapacak şekilde ayarlamanız gerekir; aksi halde beklenmeyen davranışlara neden olabilir. Örneğin:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -159,39 +159,39 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `url` Dize
 
-Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `Pencere.yeri` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
+Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-Gezinme programlı olarak `webİçerikleri.yüklemeURL` ve `webİçerikleri.geri` gibi API'lerle başlatıldığında, bu olay yayınlanmaz.
+Gezinme programlı olarak `webContents.loadURL` ve `webContents.back` gibi API'lerle başlatıldığında, bu olay yayınlanmaz.
 
-Ayrıca, bağlı linkleri tıklama veya `pencere.konumu.karması` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `sayfa-içi-gezinme-mi` etkinliğini kullanın.
+Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
-`olay.varsayılanıEngelleme()` öğesinin çağırılması gezinmeyi engeller.
+`event.preventDefault()` öğesinin çağırılması gezinmeyi engeller.
 
 #### Olay: 'did-navigate'
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `url` Dize
 
 Bir gezinme yapıldığında ortaya çıkar.
 
-Ayrıca, bağlı linkleri tıklama veya `pencere.konumu.karması` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `sayfa-içi-gezinme-mi` etkinliğini kullanın.
+Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
-#### Olay: 'sayfa-içi-gezinme-mi'
+#### Olay: 'did-navigate-in-page'
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `url` Dize
-* `AnaÇerçeve` Boolean
+* `isMainFrame` Boolean
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
-Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `karmadeğişiklik` olayı tetiklendiğinde görülür.
+Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
 #### Event: 'will-prevent-unload'
 
@@ -504,7 +504,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Örnek yöntemleri
 
 #### `contents.loadURL(url[, options])`
 
