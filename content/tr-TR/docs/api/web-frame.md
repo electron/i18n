@@ -61,7 +61,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Nesne 
+* `sağlayıcı` Nesne 
   * `spellCheck` İşlev - döner `Boole değeri` 
     * `text` String
 
