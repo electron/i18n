@@ -18,7 +18,7 @@ docs:
   footer:
     propose_change: Improve this doc
     version_history: Version history
-    translate: Translate this doc
+    translate: Bu dökümanı çevir
     view_all_docs: All Docs on One Page
 languages:
   choose_language: Site dilinizi seçin
