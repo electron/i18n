@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 Returns:
 
-* `result` Nesne 
+* `sonuç` Nesne 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
