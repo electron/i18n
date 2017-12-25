@@ -38,11 +38,11 @@ IPC, Süreçlararası İletişim anlamına gelir. Elektron, [ana](#main-process)
 
 Ana işlem, yaygın olarak `main.js` adlı bir dosya, her Electron uygulamasına giriş noktasıdır. Uygulama açıkken kapansa da ömrünü kontrol eder. Ayrıca Menü, Menü Bar, Yuva, Tepsi gibi yerel ögeleri de yönetir. Ana işlem, uygulamada her yeni işleyici sürecini oluşturmaktan sorumludur. Tam Düğüm API'si yerleştirilmiştir.
 
-Her uygulamanın ana işlem dosyası ` package.json` 'daki `ana` özelliğinde belirtilir. ` electron. ` başlangıçta hangi dosyanın nasıl yürütüleceğini bilir.
+Her uygulamanın ana işlem dosyası `package.json` 'daki `ana` özelliğinde belirtilir. `electron .` başlangıçta hangi dosyanın nasıl yürütüleceğini bilir.
 
 Chromium'da bu işleme "tarayıcı süreci" denir. İşleyici süreçleriyle karıştırılmamak için Electron'da yeniden adlandırılır.
 
-Ayrıca bkz: [işlem](#process), [işleyici işlemi](#renderer-process)
+Ayrıca bkz: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
@@ -58,7 +58,7 @@ See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [elektron oluşturucu](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [electron-builder](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
 
 ### OSR
 
@@ -66,7 +66,7 @@ OSR (Ekran dışı görüntü işleme) ağır sayfayı arka planda yüklemek ve 
 
 ### süreç
 
-Bir işlem çalıştırılmakta olan bir bilgisayar programının bir örneğidir. [Ana](#main-process) ve bir veya daha fazla [işleyici](#renderer-process) işlemini kullanan electron uygulamaları aslında aynı anda birden fazla programı çalıştırıyor.
+Bir işlem çalıştırılmakta olan bir bilgisayar programının bir örneğidir. [main](#main-process) ve bir veya daha fazla [renderer](#renderer-process) işlemini kullanan electron uygulamaları aslında aynı anda birden fazla programı çalıştırıyor.
 
 Node.js ve Electron'da, çalışan her işlem bir `process` nesnesine sahiptir. Bu nesne, mevcut süreç hakkında bilgi sağlayan ve bu işlemi kontrol eden bir globaldir. Küresel olarak, bu() kullanmayı gerektirmeyen uygulamalar için daima mevcuttur.
 
@@ -78,7 +78,7 @@ Ayrıca bkz: [main process](#main-process), [renderer process](#renderer-process
 
 Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin verilmez. Bununla birlikte, Electron kullanıcıları, daha düşük seviyedeki işletim sistemi etkileşimlerine izin veren web sayfalarında Node.js API'lerini kullanma gücüne sahiptir.
 
-Ayrıca bkz: [işlem](#process), [ana işlem](#main-process)
+Ayrıca bkz: [process](#process), [main proces](#main-process)
 
 ### Sincap
 
@@ -104,4 +104,4 @@ V8'in sürüm numaraları her zaman Google Chrome'un sürüm numaralarına karş
 
 ### web görünümü
 
-`web görünümü` etiketler, 'misafir' içeriğini (harici web sayfaları gibi) Electron uygulamanıza gömmek için kullanır. `iframe`'lerine benzer, ancak her web görünümü ayrı bir süreçte çalıştığı için farklıdır. Web sayfanızla aynı izinlere ve uygulamanız arasındaki tüm etkileşimlere sahip değil ve gömülmüş içerik eş zamansız olacak. Bu uygulamanızı gömülmüş içerikten korur.
+`webview` etiketler, 'misafir' içeriğini (harici web sayfaları gibi) Electron uygulamanıza gömmek için kullanır. `iframe`'lerine benzer, ancak her web görünümü ayrı bir süreçte çalıştığı için farklıdır. Web sayfanızla aynı izinlere ve uygulamanız arasındaki tüm etkileşimlere sahip değil ve gömülmüş içerik eş zamansız olacak. Bu uygulamanızı gömülmüş içerikten korur.
