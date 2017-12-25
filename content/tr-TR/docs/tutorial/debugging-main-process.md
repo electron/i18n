@@ -18,7 +18,7 @@ electron --inspect=5858 your/app
 
 Like `--inspect` but pauses execution on the first line of JavaScript.
 
-## External Debuggers
+## Harici hata ayıklayıcıları
 
 You will need to use a debugger that supports the V8 inspector protocol.
 
