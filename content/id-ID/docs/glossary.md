@@ -4,7 +4,7 @@ Halaman ini mendefinisikan beberapa terminologi yang umum digunakan dalam pengem
 
 ### ASAR
 
-ASAR singkatan dari Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.
+ASAR singkatan dari Atom Shell Archive Format. Arsip [asar](https://github.com/electron/asar) adalah sederhana `tar`-seperti format yang concatenates file ke satu file. Elektron dapat membaca file-file sewenang-wenang darinya tanpa membongkar seluruh berkas.
 
 The ASAR Format diciptakan terutama untuk meningkatkan kinerja pada Windows ... TODO
 
