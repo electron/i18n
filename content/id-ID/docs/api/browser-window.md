@@ -414,7 +414,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
             
             * `id` Integer
             
-            Returns `BrowserWindow` - The window with the given `id`.
+            Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
             
             #### `BrowserWindow.addExtension(path)`
             
@@ -424,7 +424,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
 <p>Adds Chrome extension located at <code>path`, and returns extension's name.</p> 
               Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
               
-              **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+              ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
               
               #### `BrowserWindow.removeExtension(name)`
               
@@ -433,12 +433,12 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
 
 <p>Hapus ekstensi Chrome dengan nama.</p>
 
-<p><strong>Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
+<p><strong> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
                 #### `BrowserWindow.getExtensions()`
                 
                 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
                 
-                **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+                ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
                 
                 #### `BrowserWindow.addDevToolsExtension(path)`
                 
@@ -450,7 +450,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
                   
                   Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
                   
-                  **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+                  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
                   
                   #### `BrowserWindow.removeDevToolsExtension(name)`
                   
@@ -459,7 +459,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
 
 <p>Remove a DevTools extension by name.</p>
 
-<p><strong>Note:</strong> This API cannot be called before the <code>ready` event of the `app` module is emitted.</p> 
+<p><strong> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
                     #### `BrowserWindow.getDevToolsExtensions()`
                     
                     Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
@@ -473,7 +473,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
                 
-                **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+                ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
                 
                 ### Instance Properties
                 
