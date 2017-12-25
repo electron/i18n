@@ -105,4 +105,4 @@ tombol {
 
 ## Context menu
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+Pada beberapa platform, area draggable akan diperlakukan sebagai frame non-client, jadi saat Anda klik kanan maka akan muncul menu sistem. Untuk membuat menu konteks berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks khusus pada area yang dapat digeser.
