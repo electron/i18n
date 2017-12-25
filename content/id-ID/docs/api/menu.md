@@ -78,9 +78,9 @@ adalah -1.</li>
         * ` browserWindow </ 0> BrowserWindow (opsional) - Default adalah jendela yang terfokus.</li>
 </ul>
 
-<p>Closes the context menu in the <code>browserWindow`.</p> 
-          #### `menu.append(menuItem)`
-          
+<p>Menutup menu konteks di <code> browserWindow </ 0>.</p>
+
+<h4><code>menu.append(menuItem)`</h4> 
           * ` menuItem </ 0> MenuItem</li>
 </ul>
 
@@ -91,122 +91,37 @@ adalah -1.</li>
             * ` menuItem </ 0> MenuItem</li>
 </ul>
 
-<p>Inserts the <code>menuItem` to the `pos` position of the menu.</p> 
-              ### Instance Properties
-              
-              `menu` objects also have the following properties:
-              
-              #### `menu.items`
-              
+<p>Sisipkan <code> menuItem </ 0> ke posisi <code> pos </ 0> pada menu.</p>
+
+<h3>Instance Properties</h3>
+
+<p><code> menu </ 0> objek juga memiliki properti berikut:</p>
+
+<h4><code>menu.items`</h4> 
               A `MenuItem[]` array containing the menu's items.
               
-              Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-              
-              ## Examples
-              
-              The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
-              
-              ### Main process
-              
-              An example of creating the application menu in the main process with the simple template API:
-              
-              ```javascript
-const {app, Menu} = require('electron')
+              Setiap ` Menu </ 0> terdiri dari beberapa <a href="menu-item.md"><code> MenuItem </ 1> s dan masing-masing <code> MenuItem </ 0>
+bisa punya submenu.</p>
 
-const template = [
-  {
-    label: 'Edit',
-    submenu: [
-      {role: 'undo'},
-      {role: 'redo'},
-      {type: 'separator'},
-      {role: 'cut'},
-      {role: 'copy'},
-      {role: 'paste'},
-      {role: 'pasteandmatchstyle'},
-      {role: 'delete'},
-      {role: 'selectall'}
-    ]
-  },
-  {
-    label: 'View',
-    submenu: [
-      {role: 'reload'},
-      {role: 'forcereload'},
-      {role: 'toggledevtools'},
-      {type: 'separator'},
-      {role: 'resetzoom'},
-      {role: 'zoomin'},
-      {role: 'zoomout'},
-      {type: 'separator'},
-      {role: 'togglefullscreen'}
-    ]
-  },
-  {
-    role: 'window',
-    submenu: [
-      {role: 'minimize'},
-      {role: 'close'}
-    ]
-  },
-  {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
-      }
-    ]
-  }
-]
+<h2>Contoh</h2>
 
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      {role: 'about'},
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
-      {role: 'hide'},
-      {role: 'hideothers'},
-      {role: 'unhide'},
-      {type: 'separator'},
-      {role: 'quit'}
-    ]
-  })
+<p>Kelas <code> Menu </ 0> hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya
+dalam proses render melalui modul <a href="remote.md"><code> remote </ 1>.</p>
 
-  // Edit menu
-  template[1].submenu.push(
-    {type: 'separator'},
-    {
-      label: 'Speech',
-      submenu: [
-        {role: 'startspeaking'},
-        {role: 'stopspeaking'}
-      ]
-    }
-  )
+<h3>Proses utama</h3>
 
-  // Window menu
-  template[3].submenu = [
-    {role: 'close'},
-    {role: 'minimize'},
-    {role: 'zoom'},
-    {type: 'separator'},
-    {role: 'front'}
-  ]
-}
+<p>Contoh pembuatan menu aplikasi pada proses utama dengan
+API template sederhana:</p>
 
-const menu = Menu.buildFromTemplate(template)
+<pre><code class="javascript">const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
-```
-          
-          ### Render process
-          
-          Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
-          
-          ```html
+`</pre> 
+              
+              ### Render process
+              
+              Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+              
+              ```html
 <!-- index.html -->
 <script>
 const {remote} = require('electron')
@@ -223,26 +138,26 @@ window.addEventListener('contextmenu', (e) => {
 }, false)
 </script>
 ```
-      
-      ## Notes on macOS Application Menu
-      
-      macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
-      
-      ### Menu Standar
-      
-      Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
+          
+          ## Notes on macOS Application Menu
+          
+          macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
+          
+          ### Menu Standar
+          
+          Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
  <code> Windows </ 0> . Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
  <code> peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
 
 <ul>
 <li><code>jendela`</li> 
-      
-      * `membantu`
-      * `jasa`</ul> 
-      
-      ### Tindakan Item Menu Standar
-      
-      macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
+          
+          * `membantu`
+          * `jasa`</ul> 
+          
+          ### Tindakan Item Menu Standar
+          
+          macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
  <code> Sembunyikan xxx </ 0> , dan <code> Sembunyikan Lainnya </ 0> . Untuk mengatur tindakan item menu ke tindakan standar, Anda harus mengatur atribut <code> role </ 0> dari item menu.</p>
 
 <h3>Nama Menu Utama</h3>
@@ -255,24 +170,24 @@ untuk informasi lebih lanjut.</p>
 <h2>Setting Menu for Specific Browser Window (<em>Linux</em> <em>Windows</em>)</h2>
 
 <p>The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code>setMenu` method</a> of browser windows can set the menu of certain browser windows.
-      
-      ## Menu Item Position
-      
-      You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
-      
-      The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
-      
-      * `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-      * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-      * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
-      
-      When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
-      
-      ### Examples
-      
-      Template:
-      
-      ```javascript
+          
+          ## Menu Item Position
+          
+          You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+          
+          The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+          
+          * `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+          * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+          * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+          
+          When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+          
+          ### Contoh
+          
+          Template:
+          
+          ```javascript
 [
   {label: '4', id: '4'},
   {label: '5', id: '5'},
@@ -281,19 +196,19 @@ untuk informasi lebih lanjut.</p>
   {label: '3', id: '3'}
 ]
 ```
-  
-  Menu:
-  
-      <br />- 1
-      - 2
-      - 3
-      - 4
-      - 5
       
-  
-  Template:
-  
-  ```javascript
+      Menu:
+      
+          <br />- 1
+          - 2
+          - 3
+          - 4
+          - 5
+          
+      
+      Template:
+      
+      ```javascript
 [
   {label: 'a', position: 'endof=letters'},
   {label: '1', position: 'endof=numbers'},
@@ -303,14 +218,14 @@ untuk informasi lebih lanjut.</p>
   {label: '3', position: 'endof=numbers'}
 ]
 ```
-
-Menu:
-
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+  
+  Menu:
+  
+      <br />- ---
+      - a
+      - b
+      - c
+      - ---
+      - 1
+      - 2
+      - 3
