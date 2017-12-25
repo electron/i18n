@@ -1,6 +1,6 @@
 # protokol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Mampu melaksanakan tugas yang diberikan sepenuhnya.
 
 Proses:  Utama </ 0></p> 
 
