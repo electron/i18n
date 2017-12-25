@@ -42,9 +42,9 @@ Während der Installation mittels `npm install electron` stoßen einige Nutzer g
 
 In beinahe allen Fällen entstehen diese Fehler durch Netzwerkprobleme und nicht durch tatsächliche Fehler mit dem `electron` npm-Paket. Fehler wie `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` und `ETIMEDOUT` weisen alle auf ein Problem mit dem Netzwerk hin. Die beste Lösung besteht oftmals darin, das Netzwerk zu wechseln oder nach kurzer Zeit die Installation erneut zu versuchen.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Sie können versuchen, Electron direkt von [electron/electron/releases](https://github.com/electron/electron/releases) herunterzuladen, falls die Installation mit `npm` fehlschlägt.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Sollte die Installation durch einen `EACCESS` -Fehler fehlschlagen, dann gibt es möglicherweise Probleme mit Ihren [npm-Berechtigungen](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
