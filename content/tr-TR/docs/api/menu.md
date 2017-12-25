@@ -84,9 +84,9 @@ Menüye `menuItem` ekler.
 
 `menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
-#### `menü.öğeleri`
+#### `menu.items`
 
-`menünItem[]` Menünün Öğelerini içeren bir dizidir.
+`MenuItem[]` Menünün Öğelerini içeren bir dizidir.
 
 Her `Menu` birden fazla [`MenuItem`](menu-item.md) den oluşur ve her `MenuItem` bir alt menüye sahip olabilir.
 
@@ -222,9 +222,9 @@ macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahipt
 
 MacOS'da, `Services` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `role` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
 
-* `pencere`
-* `yardım`
-* `hizmetler`
+* `window`
+* `help`
+* `services`
 
 ### Standart Menü Öğesi İşlemleri
 
@@ -232,7 +232,7 @@ macOS, `About xxx`, `Hide xxx` ve `Hide Others` gibi bazı menü öğeleri için
 
 ### Ana Menünün Adı
 
-MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinizi değiştirin. `Info.plist` dosyası. [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) daha fazla bilgi için.
+MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinin `Info.plist` dosyasını geliştirin. Daha fazla bilgi için [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) bakın.
 
 ## Belirli Tarayıcı Penceresi için Menü Ayarlama (*Linux* *Windows*)
 
@@ -252,7 +252,7 @@ Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni 
 
 ### Örnekler
 
-Şablon:
+Template:
 
 ```javascript
 [
@@ -264,7 +264,7 @@ Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni 
 ]
 ```
 
-Menü:
+Menu:
 
     <br />- 1
     - 2
@@ -273,7 +273,7 @@ Menü:
     - 5
     
 
-Şablon:
+Template:
 
 ```javascript
 [
@@ -286,7 +286,7 @@ Menü:
 ]
 ```
 
-Menü:
+Menu:
 
     <br />- ---
     - a
