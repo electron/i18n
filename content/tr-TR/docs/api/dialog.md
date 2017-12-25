@@ -77,7 +77,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `callback` Function (optional) 
+* `callback` Fonksiyon (isteğe bağlı) 
   * `filename` String
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
