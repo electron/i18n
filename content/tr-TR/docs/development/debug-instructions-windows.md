@@ -1,6 +1,6 @@
 # Windowsta hata ayıklama
 
-Electron'un kendisinden kaynaklanmadığını düşündüğünüz sizin JavaScript uygulamanızdan kaynaklandığını düşündüğünüz hatalarla karşılaşabilirsiniz fakat buna Electron sebep olmaktadır, hata ayıklama biraz can sıkıcı olabilir, özellikle yerel / C ++ için kullanılmayan geliştiriciler için hata ayıklama biraz zor olabilir. Bununla birlikte, GitHub'ın Barındırdığı Electron Symbol Server olan Visual Studio'yu kullanarak, ve Electron kaynak kodu ile adım adım hata ayıklamayı etkinleştirmek Electron'un kaynak kodundaki kesme noktaları ile oldukça kolaydır.
+Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electronun neden olduğu hatalarla karşılaşırsanız, hata ayıklama biraz can sıkıcı olabilir, özellikle yerel / C ++ için kullanılmayan geliştiriciler için hata ayıklama biraz zor olabilir. Bununla birlikte, Visual Studio, GitHub'ın Barındırdığı Electron Symbol Server ve Electron kaynak kodu ile adım adım hata ayıklamayı etkinleştirmek Electron'un kaynak kodundaki kesme noktaları ile oldukça kolaydır.
 
 ## Gereksinimler
 
