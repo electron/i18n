@@ -64,7 +64,7 @@ app.commandLine.appendSwitch ('proxy-bypass-list', '<local>; * google.com; * foo
 
 Akan menggunakan server proxy untuk semua host kecuali untuk alamat lokal (` localhost `, ` 127.0.0.1` dll.), ` google.com` subdomain, host yang berisi akhiran ` foo.com ` dan apa saja di `1.2.3.4:5678`.
 
-## --proxy-pac-url=`url`
+## --proxy-pac-url =`url`
 
 Menggunakan script PAC di`url`yang ditentukan.
 
@@ -72,16 +72,19 @@ Menggunakan script PAC di`url`yang ditentukan.
 
 Jangan menggunakan server proxy dan selalu melakukan koneksi langsung. Menimpa yang lain flag server proxy yang dilewatkan.
 
-## --host-rules=`rules`
+## --host-rules =` rules `
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Daftar aturan`yang dipisahkan koma yang mengontrol bagaimana nama host dipetakan.
+ .</p>
 
-Sebagai contoh:
+<p>Sebagai contoh:</p>
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+<ul>
+<li><code> MAP * 127.0.0.1`Memaksa semua nama host yang akan dipetakan ke 127.0.0.1</li> 
+
+* `MAP *.google.com proxy ` Memaksa semua subdomain google.com untuk dipecahkan "proxy".
+* `MAP test.com [:: 1]: 77 ` Memaksa "test.com" untuk mengatasi loopback IPv6. Akan Juga paksa port dari alamat soket yang dihasilkan menjadi 77.
+* `MAP * baz, EXCLUDE www.google.com`Kembalikan semuanya ke "baz", kecuali untuk "www.google.com".</ul> 
 
 Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP dan resolver host dalam koneksi langsung, dan ` CONNECT ` di proxy HTTP koneksi, dan host titik akhir dalam koneksi proxy ` SOCKS `).
 
@@ -89,7 +92,7 @@ Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP
 
 Like `--host-rules` but these `rules` only apply to the host resolver.
 
-## --auth-server-whitelist=`url`
+## --auth-server-whitelist =`url`
 
 Daftar server yang dipisahkan koma yang otentikasinya telah diaktifkan.
 
@@ -98,7 +101,7 @@ Sebagai contoh:
     --auth-server-whitelist = '* example.com, * foobar.com, * baz'
     
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+maka setiap`url` yang diakhiri dengan `example.com `,` foobar.com `,` baz`akan dipertimbangkan untuk otentikasi terpadu. Tanpa awalan`*`url harus sesuai persis.  .
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
