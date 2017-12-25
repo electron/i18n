@@ -666,7 +666,7 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
 <li><code> tinggi </ 0>  Integer</li>
 </ul>
 
-<p>Sets the maximum size of window to <code>width` and `height`.</p> 
+<p>Menetapkan ukuran maksimum jendela menjadi <code>lebar ` dan`tinggi `.</p> 
                     #### `win.getMaximumSize()`
                     
                     Returns `Integer[]` - Contains the window's maximum width and height.
