@@ -89,7 +89,7 @@ When this attribute is present the `webview` container will automatically resize
 
 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
-### `plugins`
+### `eklentiler`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
