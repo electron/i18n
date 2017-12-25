@@ -180,9 +180,9 @@ Dalam Unity, Anda dapat menambahkan entri kustom untuk peluncur nya melalui memo
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar di Taskbar ( Windows , MacOS , Unity)
+## Progress Bar di Bar Tugas ( Windows, MacOS, Unity)
 
-Pada Windows tombol taskbar bisa digunakan untuk menampilkan progress bar. Hal ini memungkinkan sebuah jendela untuk memberikan informasi kemajuan kepada pengguna tanpa pengguna harus beralih ke jendela itu sendiri.
+Pada Windows tombol taskbar bisa digunakan untuk menampilkan progress bar. Ini memungkinkan sebuah jendela untuk memberikan informasi kemajuan kepada pengguna tanpa pengguna harus melakukannya beralih ke jendela itu sendiri.
 
 Pada MacOS progress bar akan ditampilkan sebagai bagian dari dermaga ikon.
 
