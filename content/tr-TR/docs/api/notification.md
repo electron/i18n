@@ -1,4 +1,4 @@
-# Notification
+# Bildirim
 
 > Create OS desktop notifications
 
@@ -45,7 +45,7 @@ Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### Etkinlik: 'göster'
 
 Returns:
 
