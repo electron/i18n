@@ -1,6 +1,6 @@
-## Class: Cookies
+## Kelas: Cookie
 
-> Query and modify a session's cookies.
+> Permintaan dan modifikasi cookie sesi.
 
 Proses:  Utama </ 0></p> 
 
@@ -21,13 +21,13 @@ const cookie = {url: 'http://www.github.com', nama: 'dummy_name', nilai: 'dummy'
 
 Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
-<h4>Event: 'changed'</h4>
+<h4>Acara: 'berubah'</h4>
 
 <ul>
 <li><code> event </ 0>  Acara</li>
-<li><code>cookie` [Cookie](structures/cookie.md) - The cookie that was changed</li> 
+<li><code>cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah</li> 
 
-* `cause` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
+* `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
   * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
 <li><code> menimpa </ 0> - Cookie dihapus secara otomatis karena operasi insert yang overwrote itu.</li>
 <li><code> kadaluarsa </ 0> - Kuki dihapus secara otomatis karena kadaluarsa.</li>
@@ -43,28 +43,28 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
 <p>Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
-<h4><code>cookies.get(filter, callback)`</h4> 
+<h4><code>cookies.get (filter, callback)`</h4> 
     * `menyaring` Obyek 
       * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
  <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
 <li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
 <li><code> domain </ 0>  String (opsional) - Mengambil cookie yang domainnya cocok atau merupakan subdomain dari <code> domain </ 0></li>
 <li><code> path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
-<li><code>secure` Boolean (optional) - Filters cookies by their Secure property.
-      * `session` Boolean (optional) - Filters out session or persistent cookies.
+<li><code>aman`Boolean (opsional) - Filter cookie oleh properti Aman mereka.
+      * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
     * `callback` Fungsi 
       * ` error </ 0> Kesalahan</li>
-<li><code>cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+<li><code>cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
     
     Mengirimkan permintaan agar semua cookie yang cocok dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error, cookies) </ 0> secara lengkap.</p>
 
-<h4><code>cookies.set(details, callback)`</h4> 
+<h4><code>cookies.set (rincian, callback)`</h4> 
     
-    * `details` Obyek 
-      * `url` String - The url to associate the cookie with.
-      * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-      * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-      * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
+    * `rincian` Obyek 
+      * `url`String - Url untuk mengaitkan cookie dengan.
+      * `nama` String (opsional) - Nama cookie. Kosongkan secara default jika dihilangkan.
+      * `value ` String (opsional) - Nilai cookie. Kosongkan secara default jika dihilangkan.
+      * `domain`String (opsional) - Domain cookie. Kosongkan secara default jika dihilangkan.
       * ` path </ 0> String (opsional) - Jalur cookie. Kosongkan secara default jika dihilangkan.</li>
 <li><code> aman </ 0>  Boolean (opsional) - Apakah cookie harus ditandai sebagai Secure. Default ke false</li>
 <li><code> httpOnly </ 0>  Boolean (opsional) - Apakah kuki tersebut hanya ditandai sebagai HTTP saja. Default ke false</li>
@@ -79,7 +79,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 lengkap.</p>
 
 <h4><code>cookies.remove (url, nama, callback)`</h4> 
-          * `url` String - The URL associated with the cookie.
+          * `url`String - URL yang terkait dengan cookie.
           * `name` String - The name of cookie to remove.
           * `callback ` Fungsi
           
