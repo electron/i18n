@@ -1,12 +1,12 @@
-# Upgrading Node
+# Upgrade Node
 
-## Discussion
+## Diskusi
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. This is important because upstream Node and [libchromiumcontent](upgrading-chrome.md) both use their own versions of V8.
+Salah satu masalah upgrade adalah membangun semua Elektron dengan satu salinan dari V8 untuk memastikan kompatibilitas. Hal ini penting karena hulu Node dan [libchromiumcontent](upgrading-chrome.md) keduanya menggunakan versi V8 mereka sendiri.
 
-Upgrading Node is much easier than upgrading libchromiumcontent, so fewer conflicts arise if one upgrades libchromiumcontent first, then chooses the upstream Node release whose V8 is closest to it.
+Upgrade Node jauh lebih mudah daripada meng-upgrade libchromiumcontent, jadi lebih sedikit konflik muncul jika seseorang mengupgrade konten libchromium terlebih dahulu, kemudian memilih rilis Node hulu yang V8 terdekat dengannya.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Elektron memiliki garpu [Node sendiri](https://github.com/electron/node) dengan modifikasi untuk detail build V8 yang berisiko di atas dan untuk mengekspos API yang dibutuhkan oleh Elektron. Setelah sebuah Node hulu Pelepasan dipilih, itu ditempatkan di cabang di garpu Node Elektron dan setiap patch Elektron Node diterapkan di sana.
 
 Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
