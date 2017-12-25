@@ -8,9 +8,9 @@ Nutzen Sie [`npm`](https://docs.npmjs.com/) um Electron als vorgefertigtes Archi
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Mehr Informationen zur Versionsverwaltung in ihren Apps entnehmen Sie bitte der Dokumentation zur [Versionierung von Electron](electron-versioning.md).
 
-## Global Installation
+## Globale Installation
 
 You can also install the `electron` command globally in your `$PATH`:
 
