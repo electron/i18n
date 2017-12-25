@@ -37,5 +37,5 @@
     - `script/build.py -c D --target=crashpad_handler`
     - Keduanya harus membangun tanpa kesalahan
 6. Dorong perubahan ke referensi submodule 
-    - (From electron root) `git add vendor/crashpad`
+    - (Dari akar elektron) `git tambahkan vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
