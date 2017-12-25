@@ -52,24 +52,23 @@ Belgili tanımlık eğe içinde `/ chromium_src` içerik katman yer almayan adet
 
 ## Git Submodules güncel tutma
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Electron deposunda birkaç satıcı bağımlılığı vardır. [/satıcı](https://github.com/electron/electron/tree/master/vendor) rehber. Bazen böyle bir mesaj görebilirsiniz. Koşarken `git durumu`:
 
 ```sh
-$ git status
-
-    modified:   vendor/libchromiumcontent (new commits)
-    modified:   vendor/node (new commits)
+$ git durumu
+    değiştirilmiş:   satıcı/libchromium content (yeni taahhütler)
+    değiştirilmiş:   satıcı/düğüm (yeni taahhütler)
 ```
 
-To update these vendored dependencies, run the following command:
+Bu satılan bağımlılıkları güncellemek için aşağıdaki komutu çalıştırın:
 
 ```sh
-git submodule update --init --recursive
+git submodule güncelleme --init - tekrar başlatma
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Kendinizi bu komutu sık sık çalıştırıyorsa, onun için bir takma ad oluşturabilirsiniz senin içinde `~/.gitconfig` dosya:
 
 ```sh
-[alias]
-    su = submodule update --init --recursive
+[takma ad]
+su = alt modül güncelleme - init - tekrar başlatma
 ```
