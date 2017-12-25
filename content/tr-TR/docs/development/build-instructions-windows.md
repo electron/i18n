@@ -9,13 +9,13 @@ Electron'u windows üzerinde inşaa etmek için aşağıdaki yönlendirmeleri ta
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* Tam teşekkül bir dağıtım yaratmayı düşünüyorsanız, `symstore.exe`, `.pdb` dosyalarından sembol pazarı üretmek için kullanılır.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Hali hazırda Windows kurulumunuz mevcut değilse, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) adresinde Windows'un belirli zamanlarda işaretlenmiş versiyonlarını, Electron'u inşaa etmek için kullanabilirsiniz.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Electron'u inşaa etmek tamamen komut satırı betikleri üzerinden yapılır. Visual Studio ile yapmak mümkün değildir. Electron'u herhangi bir editör ile geliştirebilirsiniz ama VisualStudio ile inşaa desteği ileride gelecek.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Not:** Visual Studio inşaa için kullanılmasa da **gerekli** çünkü Visual Studio ile gelen inşaa yardımcılarını kullanıyoruz.
 
 ## Kodu almak
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## İlk işleri halletmek
 
-Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Dikkat ederseniz Electron'u inşaa etmek için `ninja` kullandığımız için herhangi bir Visual Studio projesi yaratılmıyor.
 
 ```powershell
 $ cd electron
@@ -34,33 +34,33 @@ $ python script\bootstrap.py -v
 
 ## İnşaa
 
-Build both Release and Debug targets:
+Hem Dağıtım, hem Hata ayıklama hedefleri için:
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Sadece hata ayıklama hedeflenerek de inşaa mümkün:
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+İnşaa tamamlandıktan sonra, `electron.exe`'yi `out\D` (hata ayıklama hedefi) veya `out\R` (Sürüm hedefi) altında bulabilirsiniz.
 
-## 32bit Yapı
+## 32bit İnşaa
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+32bit hedefleyerek inşaa etmek için, `--target_arch=ia32` parametresini bootstrap betiğine geçmeniz gerekir:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Diğer inşaa adımları aynı bu şekilde.
 
-## Visual Studio project
+## Visual Studio projesi
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Visual Studio projesi yaratmak için `--msvs` parametresini geçin:
 
 ```powershell
 $ python script\bootstrap.py --msvs
