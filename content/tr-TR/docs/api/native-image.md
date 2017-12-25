@@ -32,7 +32,7 @@ Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended bec
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
 * Small icon 
- * 16x16 (100% DPI scale)
+ * 16x16 (100% DPI ölçeği)
  * 20x20 (125% DPI ölçeği)
  * 24x24 (150% DPI ölçeği)
  * 32x32 (200% DPI ölçeği)
