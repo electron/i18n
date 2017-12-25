@@ -34,7 +34,7 @@ There are several major changes from our 1.x strategy outlined below. Each chang
 4. Açıkça tanımlanan stabilizasyon dalları
 5. The `master` branch is versionless; only stability branches contain version information
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Git dallanmasının nasıl çalıştığını, npm etiketinin nasıl çalıştığını, geliştiricilerin neler bekleyebileceğini ve değişikliklerin nasıl geri alınabileceğini ayrıntılı olarak ele alacağız.
 
 # semver
 
@@ -42,19 +42,19 @@ From 2.0 onward, Electron will follow semver.
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
+* **Büyük Sürüm Artışları** 
+    * Chromium sürümü güncellemeleri
+    * node.js ana sürüm güncellemeleri
+    * Elektron API kırma değişiklikleri
+* **Küçük Versiyon Artımları** 
+    * node.js küçük sürüm güncellemeleri
     * Electron non-breaking API changes
-* **Patch Version Increments** 
+* **Yama Sürümü Artımları** 
     * node.js patch version updates
     * fix-related chromium patches
     * Electron hata düzeltmeleri
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Çoğu krom güncellemesinin kırılma olarak değerlendirileceğini unutmayın. Geri gönderilebilecek düzeltmeler muhtemelen kiraz yamalar olarak seçilecek.
 
 # Stabilization Branches
 
