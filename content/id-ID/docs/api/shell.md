@@ -1,4 +1,4 @@
-# shell
+# kulit
 
 > Manage files and URLs using their default applications.
 
