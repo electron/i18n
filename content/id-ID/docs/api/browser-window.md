@@ -421,7 +421,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
             * ` path </ 0>  String</li>
 </ul>
 
-<p>Adds Chrome extension located at <code>path`, and returns extension's name.</p> 
+<p>Menambahkan ekstensi Chrome yang terletak di <code> path `, dan mengembalikan nama ekstensi.</p> 
               Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
               
               ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
@@ -434,35 +434,35 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
 <p>Hapus ekstensi Chrome dengan nama.</p>
 
 <p><strong> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
-                #### `BrowserWindow.getExtensions()`
+                #### `BrowserWindow.getExtensions ()`
                 
-                Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+                Mengembalikan`Objek ` - Kunci adalah nama ekstensi dan setiap nilai Objek yang berisi`nama ` dan ` versi `propert.
                 
                 ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
                 
-                #### `BrowserWindow.addDevToolsExtension(path)`
+                #### `BrowserWindow.addDevToolsExtension (jalur)`
                 
                 * ` path </ 0>  String</li>
 </ul>
 
-<p>Adds DevTools extension located at <code>path`, and returns extension's name.</p> 
+<p>Menambahkan ekstensi DevTools yang terletak di <code> path`, dan mengembalikan nama ekstensi.</p> 
                   Ekstensi akan diingat sehingga Anda hanya perlu memanggil API ini sekali, API ini bukan untuk penggunaan pemrograman. Jika Anda mencoba menambahkan ekstensi yang telah dimuat, metode ini tidak akan kembali dan sebaliknya log peringatan ke konsol.
                   
                   Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
                   
                   ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
                   
-                  #### `BrowserWindow.removeDevToolsExtension(name)`
+                  #### `BrowserWindow.removeDevToolsExtension (nama)`
                   
                   * ` nama </ 0>  String</li>
 </ul>
 
-<p>Remove a DevTools extension by name.</p>
+<p>Hapus ekstensi DevTools dengan nama.</p>
 
 <p><strong> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
-                    #### `BrowserWindow.getDevToolsExtensions()`
+                    #### `BrowserWindow.getDevToolsExtensions ()`
                     
-                    Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+                    Mengembalikan`Objek ` - Kunci adalah nama ekstensi dan setiap nilai Objek yang berisi`nama ` dan ` versi `propert.
                     
                     To check if a DevTools extension is installed you can run the following:
                     
