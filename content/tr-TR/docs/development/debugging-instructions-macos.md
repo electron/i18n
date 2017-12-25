@@ -81,7 +81,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). Bu komut, geçerli karede 100 satıra erişine kadar iş parçacığını çalıştırır veya geçerli kareden çıkmaya çalışır.
 
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
