@@ -19,18 +19,18 @@ Perbedaan lainnya adalah perender yang disanbox tidak memodifikasi API bawaan Ja
 Untuk membuat jendela yang disanbox, secara sederhana saja lewatkan nilai `sandbox: true` ke `webPreferences`:
 
 ```js
-let win
+let win 
 app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      sandbox: true
-    }
-  })
-  w.loadURL('http://google.com')
+   win = new BrowserWindow({     
+     webPreferences: {       
+        sandbox: true     
+      }   
+    })   
+   w.loadURL('http://google.com') 
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+Dalam kode di atas `BrowserWindow` yang dibuat mempunyai node.js yang tidak aktif dan berkomunikasi hanya melalui IPC. Kegunaan dari opsi ini adalah menghentikan electron dari membuat sebuah runtime node.js di dalam perender. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
 
 It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
 
