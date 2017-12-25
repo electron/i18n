@@ -62,4 +62,4 @@ Windows'ta, SMBv2'de git ile ilgili sorunlara neden olacak bir dizin önbellek v
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+0'a. Daha fazla bilgi için: https://stackoverflow.com/a/9935126
