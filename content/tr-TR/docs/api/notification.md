@@ -18,7 +18,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Statik yöntemler
 
 The `Notification` class has the following static methods:
 
@@ -53,7 +53,7 @@ Returns:
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
-#### Event: 'click'
+#### Etkinlik: 'tıkla'
 
 Returns:
 
@@ -61,7 +61,7 @@ Returns:
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Etkinlik: 'kapalı'
 
 Returns:
 
