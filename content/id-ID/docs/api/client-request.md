@@ -134,22 +134,22 @@ request.on ('tanggapan', (respon) = > {console.log ('STATUS: ${response.statusCo
     * `pengkodean` String (opsional) - digunakan untuk mengkonversi string potongan ke Buffer objek. Default untuk 'utf-8'.
     * `callback` Fungsi (opsional) - disebut setelah operasi tulis berakhir.
     
-    `callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+    `callback` adalah pada dasarnya fungsi dummy diperkenalkan dalam tujuan menjaga kesamaan dengan Node.js API. Hal ini disebut asynchronously di kutu berikutnya setelah `potongan` konten sudah diserahkan ke lapisan jaringan kromium. Bertentangan dengan implementasi Node.js, itu tidak dijamin bahwa `potongan` konten telah memerah pada kabel sebelum `panggil balik` disebut.
     
-    Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+    Menambahkan sepotong data permintaan tubuh. Operasi menulis pertama dapat menyebabkan header permintaan yang akan diterbitkan pada kawat. Setelah pertama menulis operasi, hal ini tidak diperbolehkan untuk menambah atau menghapus sebuah header.
     
-    #### `request.end([chunk][, encoding][, callback])`
+    #### `request.end ([chunk] [, encoding] [, callback])`
     
-    * `chunk` (String | Buffer) (optional)
-    * `encoding` String (optional)
-    * `callback` Function (optional)
+    * `potongan` (String | Buffer) (opsional)
+    * `pengkodean` String (opsional)
+    * `callback` Fungsi (opsional)
     
-    Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+    Mengirim sepotong terakhir data permintaan. Operasi berikutnya menulis atau akhir tidak akan diizinkan. Acara `selesai` dibunyikan hanya setelah akhir operasi.
     
-    #### `request.abort()`
+    #### `request.Abort()`
     
-    Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+    Membatalkan transaksi HTTP yang sedang berlangsung. Jika permintaan telah sudah dipancarkan `menutup` acara, operasi abort tidak akan berpengaruh. Sebaliknya acara yang sedang berlangsung akan memancarkan `membatalkan` dan `menutup` acara. Selain itu, jika ada objek tanggapan berkelanjutan, itu akan memancarkan acara `dibatalkan`.
     
     #### `request.followRedirect()`
     
-    Continues any deferred redirection request when the redirection mode is `manual`.
+    Terus ditangguhkan pengalihan permintaan ketika pengalihan modus `manual`.
