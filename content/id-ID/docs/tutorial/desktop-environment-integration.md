@@ -204,18 +204,18 @@ win.setProgressBar(0.5)
 
 Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan aplikasi status, seperti dikutip dari MSDN:
 
-> Ikon hamparan berfungsi sebagai pemberitahuan status kontekstual, dan dimaksudkan untuk meniadakan kebutuhan akan ikon status area pemberitahuan terpisah untuk berkomunikasi informasi itu kepada pengguna. Misalnya, status mail baru di Microsoft Pandangan, yang saat ini ditampilkan di area notifikasi, sekarang dapat ditunjukkan melalui overlay pada tombol taskbar. Sekali lagi, Anda harus memutuskan selama Anda siklus pengembangan yang metode yang terbaik untuk aplikasi Anda. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Ikon hamparan berfungsi sebagai pemberitahuan status kontekstual, dan dimaksudkan untuk meniadakan kebutuhan akan ikon status area pemberitahuan terpisah untuk berkomunikasi informasi itu kepada pengguna. Misalnya, status mail baru di Microsoft Pandangan, yang saat ini ditampilkan di area notifikasi, sekarang dapat ditunjukkan melalui overlay pada tombol taskbar. Sekali lagi, Anda harus memutuskan selama Anda siklus pengembangan yang metode yang terbaik untuk aplikasi Anda. Ikon overlay adalah dimaksudkan untuk memasok status, notifikasi atau status lama yang penting status jaringan, status pesan, atau surat baru. Pengguna seharusnya tidak disajikan dengan hamparan atau animasi yang terus berubah.
 
-**Overlay on taskbar button:**
+**Overlay pada tombol taskbar:**
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+const {BrowserWindow} = membutuhkan ('elektron')
+biarkan menang = new BrowserWindow ()
+win.setOverlayIcon ('path / to / overlay.png', 'Deskripsi untuk overlay')
 ```
 
 ## Flash Frame (Windows)
