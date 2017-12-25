@@ -65,7 +65,7 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Una vez ejecutada, la herramienta comienza a funcionar: acepta su aplicación Electron como entrada, aplanando los `node_modules`. Luego, archiva su aplicación como `app.zip`. Utilizando un instalador y un contenedor de Windows, la herramienta crea un paquete AppX "expandido", incluido el Manifiesto de Aplicación de Windows (`AppXManifest.xml`), así como el sistema de archivos virtual y el registro virtual dentro de su carpeta de salida.
 
 Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
 
