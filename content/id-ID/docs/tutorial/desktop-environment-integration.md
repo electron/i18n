@@ -220,11 +220,11 @@ win.setOverlayIcon ('path / to / overlay.png', 'Deskripsi untuk overlay')
 
 ## Flash Frame (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Pada Windows Anda dapat menyorot tombol taskbar untuk menarik perhatian pengguna. Ini mirip dengan memantulkan ikon dok pada macos. Dari dokumentasi referensi MSDN:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Biasanya, sebuah jendela dilemparkan untuk memberi tahu pengguna bahwa jendela membutuhkan perhatian tapi saat ini tidak memiliki fokus keyboard.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Untuk flash tombol taskbar BrowserWindow, Anda bisa menggunakan [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -233,32 +233,32 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Jangan lupa untuk memanggil metode `flashFrame`dengan`false` untuk mematikan lampu kilat. Di Contoh di atas, itu disebut saat jendela masuk ke fokus, tapi mungkin saja gunakan batas waktu atau acara lain untuk menonaktifkannya.
 
-## Represented File of Window (macOS)
+## Mewakili File of Window (macos)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Pada macOS, sebuah jendela dapat mengatur file yang diwakilinya, sehingga ikon file dapat ditampilkan judul bar dan saat pengguna Command-Click atau Control-Click pada judul path popup akan muncul.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Anda juga dapat mengatur keadaan diedit dari jendela sehingga ikon file dapat menunjukkan apakah dokumen di jendela ini telah dimodifikasi.
 
-**Represented file popup menu:**
+**Mewakili menu data popup:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+Untuk mengatur file jendela yang terwakili, Anda bisa menggunakan [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) dan [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.setRepresentedFilename('/etc/passwd')
-win.setDocumentEdited(true)
+const {BrowserWindow} = membutuhkan ('elektron')
+biarkan menang = new BrowserWindow ()
+win.setRepresentedFilename ('/ etc / passwd')
+win.setDocumentEdited (benar)
 ```
 
-## Dragging files out of the window
+## Menyeret data dari jendela
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Untuk jenis aplikasi tertentu yang memanipulasi data, penting untuk dapat melakukannya untuk menyeret data dari Electron ke aplikasi lain. Untuk menerapkan fitur ini di aplikasi, Anda perlu memanggil `webContents.startDrag(item)`API pada`ondragstart`event.
 
-In web page:
+Di halaman web:
 
 ```html
 <a href="#" id="drag">item</a>
