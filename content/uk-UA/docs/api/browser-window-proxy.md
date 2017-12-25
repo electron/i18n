@@ -1,14 +1,14 @@
-## Class: BrowserWindowProxy
+## Клас: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Маніпулюйте дочірнім вікном браузера
 
-Process: [Renderer](../glossary.md#renderer-process)
+Процес: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+Об'єкт `BrowserWindowProxy` повертається з `window.open` і надає обмежений функціонал керування дочірнім вікном.
 
-### Instance Methods
+### Методи Екземпляра
 
-The `BrowserWindowProxy` object has the following instance methods:
+Об'єкт `BrowserWindowProxy` має наступні методи:
 
 #### `win.blur()`
 
@@ -41,7 +41,7 @@ Sends a message to the child window with the specified origin or `*` for no orig
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instance Properties
+### Властивості Екземпляра
 
 The `BrowserWindowProxy` object has the following instance properties:
 
