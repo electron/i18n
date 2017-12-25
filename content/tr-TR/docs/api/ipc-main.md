@@ -17,7 +17,7 @@ It is also possible to send messages from the main process to the renderer proce
 An example of sending and handling messages between the render and main processes:
 
 ```javascript
-// In main process.
+// Ana süreç içinde.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg)  // prints "ping"
