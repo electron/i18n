@@ -43,67 +43,68 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 
 <h4><code>Menu.membangun dari Template (template)`</h4> 
   
-  * `template` MenuItemConstructorOptions[]
-  
-  Returns `Menu`
-  
-  Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
-  
-  You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
-  
-  ### Metode Instance
-  
-  The `menu` object has the following instance methods:
-  
-  #### `menu.popup([browserWindow, options])`
-  
-  * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-  * `pilihan` Objek (opsional) 
-    * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-    * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-    * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Default ke ` false </ 0> .</li>
-<li><code>positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-  
-  Pops up this menu as a context menu in the `browserWindow`.
-  
-  #### `menu.closePopup([browserWindow])`
-  
-  * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-  
-  Closes the context menu in the `browserWindow`.
-  
-  #### `menu.append(menuItem)`
-  
-  * ` menuItem </ 0> MenuItem</li>
+  * ` template </ 0> MenuItemConstructorOptions []</li>
 </ul>
 
-<p>Appends the <code>menuItem` to the menu.</p> 
-    #### `menu.insert(pos, menuItem)`
+<p>Mengembalikan <code> Menu </ 0></p>
+
+<p>Umumnya, <code> template </ 0> hanyalah sebuah array dari <code> options </ 0> untuk membangun a
+<a href="menu-item.md"> MenuItem </ 1>. Penggunaannya bisa diacu di atas.</p>
+
+<p>You can also attach other fields to the element of the <code>template` and they will become properties of the constructed menu items.</p> 
+    ### Metode Instance
     
-    * `pos` Integer
+    The `menu` object has the following instance methods:
+    
+    #### `menu.popup([browserWindow, options])`
+    
+    * `browserWindow` BrowserWindow (optional) - Default is the focused window.
+    * `pilihan` Objek (opsional) 
+      * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+      * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+      * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Default ke ` false </ 0> .</li>
+<li><code>positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+    
+    Pops up this menu as a context menu in the `browserWindow`.
+    
+    #### `menu.closePopup([browserWindow])`
+    
+    * `browserWindow` BrowserWindow (optional) - Default is the focused window.
+    
+    Closes the context menu in the `browserWindow`.
+    
+    #### `menu.append(menuItem)`
+    
     * ` menuItem </ 0> MenuItem</li>
 </ul>
 
+<p>Appends the <code>menuItem` to the menu.</p> 
+      #### `menu.insert(pos, menuItem)`
+      
+      * `pos` Integer
+      * ` menuItem </ 0> MenuItem</li>
+</ul>
+
 <p>Inserts the <code>menuItem` to the `pos` position of the menu.</p> 
-      ### Instance Properties
-      
-      `menu` objects also have the following properties:
-      
-      #### `menu.items`
-      
-      A `MenuItem[]` array containing the menu's items.
-      
-      Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-      
-      ## Examples
-      
-      The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
-      
-      ### Main process
-      
-      An example of creating the application menu in the main process with the simple template API:
-      
-      ```javascript
+        ### Instance Properties
+        
+        `menu` objects also have the following properties:
+        
+        #### `menu.items`
+        
+        A `MenuItem[]` array containing the menu's items.
+        
+        Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+        
+        ## Examples
+        
+        The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+        
+        ### Main process
+        
+        An example of creating the application menu in the main process with the simple template API:
+        
+        ```javascript
 const {app, Menu} = require('electron')
 
 const template = [
@@ -194,12 +195,12 @@ if (process.platform === 'darwin') {
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
-  
-  ### Render process
-  
-  Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
-  
-  ```html
+    
+    ### Render process
+    
+    Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+    
+    ```html
 <!-- index.html -->
 <script>
 const {remote} = require('electron')
