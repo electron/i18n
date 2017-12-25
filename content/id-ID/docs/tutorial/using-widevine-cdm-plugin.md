@@ -22,41 +22,41 @@ Di Linux binari plugin dikirimkan bersamaan dengan browser Chrome, Anda bisa tem
 
 ## Menggunakan plugin
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+Setelah mendapatkan file plugin, Anda harus melewati jalur `widevinecdmadapter`ke Elektron dengan `-widevine-cdm-path` tombol perintah, dan pluginnya versi dengan `-widevine-cdm-version` switch.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**Catatan:** Meskipun hanya binari `widevinecdmadapter` yang dikirimkan ke Elektron, `widevinecdm` biner harus dikesampingkan.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+Sakelar perintah harus dilewatkan sebelum `siap`acara`aplikasi` modul akan dipancarkan, dan halaman yang menggunakan plugin ini harus memiliki plugin diaktifkan.
 
-Example code:
+Contoh kode:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = membutuhkan('elektron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
-app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
-app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
+// Anda harus melewati nama file `widevinecdmadapter` di sini
+// * `widevinecdmadapter.plugin` di macos,
+// * `libwidevinecdmadapter.so` di Linux,
+// * `widevinecdmadapter.dll` di Windows.
+app.commandLine.appendSwitch ('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
+// Versi plugin bisa didapat dari halaman `chrome://plugins` di Chrome.
+app.commandLine.appendSwitch ('widevine-cdm-version', '1.4.8.8.86')
 
-let win = null
-app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      // The `plugins` have to be enabled.
-      plugins: true
-    }
-  })
-  win.show()
+biarkan menang = nol
+app.on ('siap', () = > {
+  win = new BrowserWindow ({
+    webPreferences: {
+      // Plugin `` harus diaktifkan.
+      plugin: benar
+    }
+  })
+  win.show()
 })
 ```
 
-## Verifying the plugin
+## Memeriksa plugin
 
-To verify whether the plugin works, you can use following ways:
+Untuk memverifikasi apakah plugin berhasil, Anda dapat menggunakan cara berikut:
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Buka devtools dan periksa apakah `navigator.plugins` menyertakan Widevine Plugin CDM.
+* Buka https://shaka-player-demo.appspot.com/ dan muat manifes yang digunakan `Widevine`.
+* Buka http://www.dash-player.com/demo/drm-test-area/, periksa apakah halaman kata `bitdash menggunakan Widevine di browser Anda`, lalu putar video tersebut.
