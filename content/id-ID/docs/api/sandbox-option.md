@@ -34,7 +34,7 @@ Dalam kode di atas `BrowserWindow` yang dibuat mempunyai node.js yang tidak akti
 
 Penting untuk dicatat bahwa opsi ini saja sendiri tidak akan mengaktifkan sanbox yang dipaksa oleh OS. Untuk mengaktifkan fitur ini, argumen baris perintah `--enable-sandbox` harus dilewatkan ke electron, yang akan memaksa `sandbox: true` untuk semua kejadian `BrowserWindow`.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+Untuk mengaktifkan sandbox yang dipaksa oleh OS pada `BrowserWindow` atau `webview` yang diproses dengan `sandbox:true` tanpa menyebabkan keseluruhan aplikasi untuk berada di sandbox, `--enable-mixed-sandbox` argumen baris perintah harus dilewatkan ke electron. Opsi tersebut pada saat sekarang hanya didukung pada platform macOS dan Windows.
 
 ```js
 let win
