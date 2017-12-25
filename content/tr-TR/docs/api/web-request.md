@@ -71,7 +71,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Function 
-  * `response` Nesne 
+  * `cevap` Nesne 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
