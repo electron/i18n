@@ -159,7 +159,7 @@ Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elect
 2. Edit the release and add release notes.
 3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
 4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Devam etmeden önce bütün binalar geçene kadar bekleyin.
+5. Devam etmeden önce bütün yapılar geçene kadar bekleyin.
 6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
 
 ## Geçici şube birleştirme
