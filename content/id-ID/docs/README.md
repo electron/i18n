@@ -1,6 +1,6 @@
 Pastikan Anda menggunakan dokumen yang sesuai dengan versi Elektron Anda . Versi nomor harus menjadi bagian dari halaman URL. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.
 
-## FAQ
+## Pertanyaan Umum
 
 Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
@@ -44,26 +44,26 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
 ### Elemen DOM Khusus:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`File` Objek](api/file-object.md)
+* [`<webview>`Tag](api/webview-tag.md)
+* [`window.open` fungsi](api/window-open.md)
 
 ### Modul untuk Proses Utama:
 
 * [aplikasi](api/app.md)
 * [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
+* [TampilanBrowser](api/browser-view.md)
+* [JendelaBrowser](api/browser-window.md)
+* [pelacakan konten](api/content-tracing.md)
 * [dialog](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
-* [ipcMain](api/ipc-main.md)
+* [jalan pintas global](api/global-shortcut.md)
+* [ipc Utama](api/ipc-main.md)
 * [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
+* [ItemMenu](api/menu-item.md)
 * [bersih](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
+* [protokol](api/protocol.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
