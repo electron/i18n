@@ -19,9 +19,9 @@ Electron'da çok benzer bir yaklaşım izledik: `Debug` için, ikili hızlı ba�
 
 ## Kısa Ön yükleme
 
-Chromium'un önceden oluşturulmuş ikili dosyalarıbıb tümü (`libchromiumcontent`) önyükleme komut dosyası çalışıyorken indirilir. Statik kitaplık ve paylaşılan kitaplığın ikisi de varsayılan olarak yüklenir, ve son boyut platforma bağlı olarak 800 Mb ve 2 Gb arasında olmalı.
+Chromium'un önceden oluşturulmuş ikili dosyalarıbıb tümü (`libchromiumcontent`) önyükleme komut dosyası çalışıyorken indirilir. Varsayılan olarak, Statik kitaplık ve paylaşılan kitaplığın ikisi de yüklenir, ve son boyut platforma bağlı olarak 800 Mb ve 2 Gb arasında olmalı.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+Varsayılan olarak, `libchromiumcontent` Amazon Web Servisleri'nden yüklenir. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
 If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
 
