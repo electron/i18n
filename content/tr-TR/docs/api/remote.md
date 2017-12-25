@@ -2,11 +2,11 @@
 
 > Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
-Süreç: [ İşleyen ](../glossary.md#renderer-process)
+Süreç:[Renderer](../glossary.md#renderer-process)
 
 `remote` modülü ana işlem ve oluşturucu işlem (web sayfası) arasında kolay bir süreçler arası iletişim yolu (IPC) sunar.
 
-Electron'da, GUI ile ilgili modüller (` iletişim kutusu `, ` menü ` vb.) Yalnızca ana süreçte kullanılabilir, oluşturucu işlemi içinde değil. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+Electron'da, GUI ile ilgili modüller (` iletişim kutusu `, ` menü ` vb.) Yalnızca ana süreçte kullanılabilir, oluşturucu işlemi içinde değil. Onları oluşturucu işleminde kullanmak için `ipc` modülü ana işleme işlemler arası iletileri göndermek için gereklidir. ` remote ` modülüyle, ana işlem obje metotlarını açıkça süreçler arası mesaj atmadan çağırabilirsiniz. Tıpkı Java'nın [ RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation)'si gibi. Bir tarayıcı penceresi oluşturmak için bir örnek: Oluşturucu süreci:
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
@@ -14,11 +14,11 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Not:**Tersi durumda (işleyiciye ana işlemden erişin),[webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback) kullanabilirsiniz.
 
 ## Uzak nesneler
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+` remote ` modülü tarafından döndürülen her nesne (işlevler dahil), bir ana işlemdeki nesneyi temsil eder. (Bunu uzaktaki nesne veya uzaktaki fonksiyon olarak adlandırırız). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
 In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
