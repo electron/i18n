@@ -180,11 +180,11 @@ npm run merge-release -- 1-7-x
 
 ## Publikasikan rilisnya
 
-Setelah penggabungan selesai dengan sukses, jalankan skrip `release` via `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+Setelah penggabungan selesai dengan sukses, jalankan skrip `release` via `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download binari dan buat header simpul dan linker .lib yang digunakan pada Windows oleh node-gyp untuk membangun modul asli. 3. Buat dan upload file SHASUMS yang tersimpan di S3 untuk file simpul. 4. Buat dan upload file SHASUMS256.txt yang tersimpan di rilis GitHub. 5. Validasi semua file yang dibutuhkan ada di GitHub dan S3 dan miliki checksum yang benar seperti yang ditentukan dalam file SHASUMS. 6. Publikasikan rilis di GitHub 7. Menghapus `rilis` cabang.
 
-## Publish to npm
+## Publikasikan ke npm
 
-Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
+Setelah mempublikasikan berhasil, jalankan `npm run publish-to-npm` untuk menerbitkan lepaskan ke npm.
 
 ## Perbaiki binari yang hilang dari pelepasan secara manual
 
@@ -196,14 +196,14 @@ Kemudian buat distribusi secara manual untuk setiap platform dan unggah:
 
 ```sh
 # Checkout versi untuk diunggah ulang.
-git checkout vTHE.RELEASE.VERSION
+git checkout THE.RELEASE.VERSION
 
-# Do release build, specifying one target architecture.
-./script/bootstrap.py --target_arch [arm|x64|ia32]
+# Lakukan pelepasan, tetapkan target arsitektur.
+./script/bootstrap.py --target_arch [arm | x64 | ia32]
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+# Secara eksplisit mengizinkan untuk menimpa rilis yang dipublikasikan.
 ./script/upload.py --overwrite
 ```
 
