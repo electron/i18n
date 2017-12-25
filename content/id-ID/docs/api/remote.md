@@ -6,13 +6,12 @@ Proses: [Renderer](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
-Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya dari proses renderer, modul ` ipc </ 0> diperlukan untuk mengirim pesan antar proses ke proses utama. Dengan modul <code> remote </ 0> , Anda dapat meminta metode objek proses utama tanpa mengirim pesan inter-proses secara eksplisit, mirip dengan Java <a href="http://en.wikipedia.org/wiki/Java_remote_method_invocation"> RMI </ 1> . Contoh membuat jendela browser dari proses renderer:</p>
 
-```javascript
-const {BrowserWindow} = require('electron').remote
+<pre><code class="javascript">const {BrowserWindow} = require('electron').remote
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
-```
+`</pre> 
 
 **Note:** Untuk kebalikannya (akses proses renderer dari proses utama), Kamu dapat memakai [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
@@ -20,23 +19,33 @@ win.loadURL('https://github.com')
 
 Setiap objek (termasuk fungsi) dikembalikan oleh `remote` modul mewakili sebuah Objek dalam proses utama (kita menyebutnya remote object atau remote function). Saat Anda memanggil metode objek jarak jauh, panggil fungsi remote, atau buat Sebuah objek baru dengan konstruktor jarak jauh (fungsi), sebenarnya Anda mengirim pesan inter-proses sinkron.
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+Dalam contoh di atas, baik ` BrowserWindow </ 0> dan <code> menang </ 0> adalah objek remote dan
+ <code> BrowserWindow baru </ 0> tidak membuat <code> BrowserWindow </ 0> objek dalam proses renderer Sebagai gantinya, ia menciptakan objek <code> BrowserWindow </ 0> dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu objek
+ <code> win </ 0> .</p>
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+<p><strong> Catatan: </ 0> Hanya <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties"> enumerable properties </ 1> yang hadir saat objek jarak jauh pertama kali direferensikan dapat diakses melalui remote.</p>
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+<p><strong> Catatan: </ 0> Array dan Buffer disalin melalui IPC saat diakses melalui 
+modul <code> remote </ 1> . Memodifikasi mereka dalam proses renderer tidak memodifikasinya dalam proses utama dan sebaliknya.</p>
 
-## Lifetime dari Remote Objects
+<h2>Lifetime dari Remote Objects</h2>
 
-Elektron memastikan bahwa selama objek remote dalam proses renderer Hidup (dengan kata lain, belum ada sampah yang dikumpulkan), objek yang sesuai dalam proses utama tidak akan dilepaskan. Bila objek remote sudah ada Sampah dikumpulkan, objek yang sesuai dalam proses utamanya adalah dereferenced.
+<p>Elektron memastikan bahwa selama objek remote dalam proses renderer
+Hidup (dengan kata lain, belum ada sampah yang dikumpulkan), objek yang sesuai
+dalam proses utama tidak akan dilepaskan. Bila objek remote sudah ada
+Sampah dikumpulkan, objek yang sesuai dalam proses utamanya adalah
+dereferenced.</p>
 
-Jika objek jauh bocor dalam proses renderer (misalnya disimpan di peta tapi tidak pernah dibebaskan), objek yang sesuai dalam proses utama juga akan bocor, jadi Anda harus sangat berhati-hati untuk tidak membocorkan benda-benda remote.
+<p>Jika objek jauh bocor dalam proses renderer (misalnya disimpan di peta tapi
+tidak pernah dibebaskan), objek yang sesuai dalam proses utama juga akan bocor,
+jadi Anda harus sangat berhati-hati untuk tidak membocorkan benda-benda remote.</p>
 
-Jenis nilai primer seperti senar dan angka, bagaimanapun, dikirim melalui salinan.
+<p>Jenis nilai primer seperti senar dan angka, bagaimanapun, dikirim melalui salinan.</p>
 
-## Melewati callback ke proses utama
+<h2>Melewati callback ke proses utama</h2>
 
-Kode dalam proses utama dapat menerima callback dari renderer - misalnya itu `remote` modul - tapi Anda harus sangat berhati-hati saat menggunakan ini fitur.
+<p>Kode dalam proses utama dapat menerima callback dari renderer - misalnya
+itu <code>remote` modul - tapi Anda harus sangat berhati-hati saat menggunakan ini fitur.
 
 Pertama, untuk menghindari kebuntuan, callback masuk ke proses utama disebut asynchronous. Anda seharusnya tidak mengharapkan proses utama dapatkan nilai kembalian dari callback yang lewat.
 
@@ -83,33 +92,33 @@ Untuk menghindari masalah ini, pastikan Anda membersihkan rujukan ke callback re
 
 ## Mengakses modul built-in dalam proses utama
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Modul built-in dalam proses utama ditambahkan sebagai getter di modul ` remote </ 0> , sehingga Anda dapat menggunakannya secara langsung seperti modul <code> elektron </ 0> .</p>
 
-```javascript
-const app = require('electron').remote.app
+<pre><code class="javascript">const app = require('electron').remote.app
 console.log(app)
-```
+`</pre> 
 
 ## Metode
 
-The `remote` module has the following methods:
+The ` jarak jauh </ 0> modul memiliki metode berikut:</p>
 
-### `remote.require(module)`
+<h3><code>remote.require(module)`</h3> 
 
 * `module` String
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Mengembalikan ` sembarang </ 0> - Objek dikembalikan oleh <code> require (module) </ 0> pada proses utama.
+Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk proses utama.</p>
 
-e.g.
+<p>misalnya</p>
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+<pre><code>project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+`</pre> 
 
 ```js
 // main process: main/index.js
@@ -129,9 +138,9 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+Mengembalikan ` BrowserWindow </ 0> - Jendela tempat halaman web ini berada.</p>
 
-### `remote.getCurrentWebContents()`
+<h3><code>remote.getCurrentWebContents()`</h3> 
 
 Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
