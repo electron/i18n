@@ -83,13 +83,13 @@ Keterbatasan penting lainnya adalah paket AppX yang dikompilasi masih berisi win
 
 Anda dapat memasangkan aplikasi Elektron Anda dengan tugas latar belakang UWP yang tak terlihat itu akan memanfaatkan sepenuhnya fitur Windows 10 - seperti pemberitahuan push, Integrasi Cortana, atau ubin hidup.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Untuk mengetahui bagaimana aplikasi Elektron yang menggunakan tugas latar belakang untuk mengirim roti panggang pemberitahuan dan ubin hidup, [periksa sampel yang disediakan Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
 
 ## Opsional: Mengkonversi menggunakan Virtualization Penampung
 
 Opsional: Tambahkan Fitur UWP menggunakan BackgroundTask Namun, jika Anda menggunakan installer kustom, atau jika Anda mengalami masalah dengan paket yang dihasilkan, Anda dapat mencoba membuat paket menggunakan kompilasi dengan Windows Container - dalam mode itu, CLI akan menginstal dan menjalankan aplikasi Anda di Windows kosong. Wadah untuk menentukan modifikasi apa yang sebenarnya dilakukan aplikasi Anda terhadap sistem operasi.
 
-Sebelum menjalankan CLI untuk pertama kalinya, Anda harus menyiapkan "Windows Desktop App Converter". Ini akan memakan waktu beberapa menit, tapi jangan khawatir - Anda hanya perlu melakukan ini satu kali. Download dan Desktop App Converter dari [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Sebelum menjalankan CLI untuk pertama kalinya, Anda harus menyiapkan "Windows Desktop App Converter". Ini akan memakan waktu beberapa menit, tapi jangan khawatir - Anda hanya perlu melakukan ini satu kali. Download dan Desktop App Converter dari [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Anda akan menerima dua file: `DesktopAppConverter.zip ` dan ` BaseImage-14316.wim `.
 
 1. Unzip `DesktopAppConverter.zip`. Dari PowerShell yang ditinggikan (dibuka dengan "jalankan sebagai Administrator", pastikan bahwa kebijakan eksekusi sistem Anda mengizinkan kami melakukannya jalankan semua yang ingin kita jalankan dengan memanggil `Set-ExecutionPolicy bypass`.
 2. Kemudian, jalankan instalasi Desktop App Converter, lewat di lokasi Windows Base Image (diunduh sebagai `BaseImage-14316.wim `), oleh memanggil `.\DesktopAppConverter.ps1 -Setup -BaseImage.\ BaseImage-14316.wim `.
