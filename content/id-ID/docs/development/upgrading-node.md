@@ -26,14 +26,14 @@ Jadi singkatnya, langkah utamanya adalah:
 
 1. Pastikan `master` pada `electron/node` telah memperbarui tag rilis dari `nodejs/node`
 2. Buat cabang di https://github.com/electron/node: `elektron-simpul-vX.X.X` where the base that you're branching from is the tag for the desired update 
-  - `vX.X.X` Must use a version of node compatible with our current version of chromium
-3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) untuk `v.X.X.X` 
+  - `vX.X.X` Harus menggunakan versi node yang kompatibel dengan versi kromium kami saat ini
+3. Lakukan kembali komitmen kami dari versi simpul sebelumnya yang kami gunakan (`vY.Y.Y`) to `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
+  - Rentang komando ceri: 
+    1. Checkout keduanya `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
-    1. `git add <conflict-file>`
+  - Selesaikan gabungan konflik di setiap file yang ditemui, lalu: 
+    1. `git tambahkan <conflict-file>`
     2. `git cherry-pick --continue`
     3. Repeat until finished
 
