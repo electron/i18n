@@ -131,11 +131,11 @@
 </tr>
 <tr>
   <td>es-419</td>
-  <td>Spanish (Latin America)</td>
+  <td>Spanyol (Amerika Latin)</td>
 </tr>
 <tr>
   <td>et</td>
-  <td>Estonian</td>
+  <td>Estonia</td>
 </tr>
 <tr>
   <td>eu</td>
@@ -151,7 +151,7 @@
 </tr>
 <tr>
   <td>fil</td>
-  <td>Filipino</td>
+  <td>Orang Filipina</td>
 </tr>
 <tr>
   <td>fo</td>
@@ -163,15 +163,15 @@
 </tr>
 <tr>
   <td>fr-CA</td>
-  <td>French (Canada)</td>
+  <td>Perancis (Kanada)</td>
 </tr>
 <tr>
   <td>fr-CH</td>
-  <td>French (Switzerland)</td>
+  <td>Perancis (Swiss)</td>
 </tr>
 <tr>
   <td>fr-FR</td>
-  <td>French (France)</td>
+  <td>Perancis (Prancis)</td>
 </tr>
 <tr>
   <td>fy</td>
