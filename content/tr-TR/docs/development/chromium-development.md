@@ -29,7 +29,7 @@ When built like this, you can make changes to files in `vendor/libchromiumconten
 $ ./script/build.py -c D --libcc
 ```
 
-When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. Her bina üzerinde çalıştırılmasına gerek yoktur, ancak en çok paylaşılan kütüphaneleri dizinlemek için bunu en az bir kez yapmak önerilir:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
