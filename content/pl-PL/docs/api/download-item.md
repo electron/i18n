@@ -1,6 +1,6 @@
-## Class: DownloadItem
+## Klasa: PobranyPrzrdmot
 
-> Control file downloads from remote sources.
+> Pliki kontroli programów że źródeł zdalnych.
 
 Proces: [Main](../glossary.md#main-process)
 
