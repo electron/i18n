@@ -99,9 +99,9 @@ Hal penting untuk dicatat dalam skrip pramuat:
 
 - Meskipun perender yang disandbox tidak memiliki node.js yang berjalan, ia tetap memiliki akses ke lingkungan mirip-node yang terbatas: `Buffer `, `process `, `setImmediate` dan `require` tersedia.
 - Skrip pramuat dapat mengakses secara langsung seluruh API dari proses utama melalui modul `remote` dan `ipcRenderer`. Ini adalah bagaimana `fs` (yang digunakan di atas) dan modul-modul lain diimplementasikan. Mereka adalah proxy-proxy untuk mengendalikan rekanan dalam proses utama.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
+- Skrip pramuat harus dimuat dalam satu skrip tunggal, namun memungkinkan untuk memiliki kode pramuat kompleks yang disusun dengan beberapa modul dengan menggunakan alat seperti browserify, seperti yang dijelaskan di bawah ini. Pada kenyataanya, browserify sudah digunakan oleh electron untuk menyediakan lingkungan mirip-node untuk skrip pramuat.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Untuk membuat bundel browserify dan menggunakannya sebagai skrip pramuat, sesuatu seperti berikut ini harus digunakan:
 
     browserify preload/index.js \
       -x electron \
