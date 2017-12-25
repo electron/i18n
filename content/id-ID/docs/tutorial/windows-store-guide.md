@@ -56,7 +56,7 @@ Outputnya harus terlihat kira-kira seperti ini:
 
 ## Langkah 2: Menjalankan electron-windows-store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Dari PowerShell yang ditinggikan (jalankan sebagai "Administrator"), jalankan `electron-windows-store ` dengan parameter yang dibutuhkan, berikan kedua input tersebut dan direktori output, nama dan versi aplikasi, dan konfirmasi itu `node_modules ` harus diratakan.
 
 ```powershell
 electron-windows-store `
@@ -67,11 +67,11 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Setelah dijalankan, alat bekerja: Ini menerima aplikasi Elektron Anda sebagai masukan, meratakan `node_modules`. Kemudian, arsipkan aplikasi Anda sebagai `app.zip`. Dengan menggunakan installer dan Windows Container, alat ini menciptakan AppX yang "diperluas" paket - termasuk Windows Application Manifest (` AppXManifest.xml `) sebagai serta sistem file virtual dan virtual registry di dalam output Anda map.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+Setelah file AppX yang diperluas dibuat, alat ini menggunakan Windows App Packager (`MakeAppx.exe `) untuk membuat paket AppX satu file dari file di disk. Akhirnya, alat ini bisa digunakan untuk membuat sertifikat terpercaya di komputer Anda untuk menandatangani paket AppX baru. Dengan paket AppX yang telah ditandatangani, CLI juga bisa secara otomatis menginstal paket di mesin anda.
 
-## Step 3: Using the AppX Package
+## Langkah 3: Menggunakan Paket AppX
 
 In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
