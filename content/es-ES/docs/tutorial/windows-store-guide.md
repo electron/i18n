@@ -22,11 +22,11 @@ Luego, vaya e instale la CLI `electron-windows-store`:
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## Paso 1: Empaqueta tu aplicación Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Empaque la aplicación usando [electron-packager](https://github.com/electron-userland/electron-packager) (o una herramienta similar). Asegúrese de eliminar `node_modules` que no necesite en su aplicación final, ya que cualquier módulo que realmente no necesite solo aumentará el tamaño de su aplicación.
 
-The output should look roughly like this:
+La salida debería verse más o menos de esta forma:
 
 ```text
 ├── Ghost.exe
@@ -39,22 +39,22 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   ├── app
+│   └── atom.asar
 ├── snapshot_blob.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## Paso 2: Ejecutando electron-windows-store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Desde un PowerShell elevado (ejecútelo como "Administrador"), ejecute `electron-windows-store` con los parámetros requeridos, pasando los directorios de entrada y salida, el nombre y la versión de la aplicación y la confirmación de que `node_modules` debe ser aplanado.
 
 ```powershell
 electron-windows-store `
