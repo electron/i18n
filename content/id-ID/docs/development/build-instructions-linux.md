@@ -6,7 +6,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
 * Sedikitnya ruang disk 25GB dan RAM 8GB.
 * Python 2.7.x. Beberapa distribusi seperti CentOS 6.x masih menggunakan Python 2.6.x jadi Anda mungkin perlu memeriksa versi Python Anda dengan ` python -V `.
-* Node.js Ada berbagai cara untuk menginstal Node. Kamu bisa mengunduh source code dari [ nodejs.org ](http://nodejs.org) dan kompilasi. Melakukan hal tersebut memungkinkan pemasangan Node di direktori home Anda sendiri sebagai pengguna standar. Atau coba repositori seperti [ NodeSource ](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Ada berbagai cara untuk menginstal Node. Anda dapat mendownload kode sumber dari [nodejs.org](http://nodejs.org) dan mengkompilasinya. Melakukan hal tersebut memungkinkan pemasangan Node di direktori home Anda sendiri sebagai pengguna standar. Atau coba repositori seperti [ NodeSource ](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [berdentang](https://clang.llvm.org/get_started.html) 3.4 atau yang lebih baru.
 * Header pengembangan GTK + dan libnotify.
 
