@@ -943,10 +943,9 @@ win.loadURL(url)
                                 
                                 Hapus bilah kemajuan saat kemajuan <0; Ubah ke mode tak tentu saat mencapai kemajuan> 1.
                                 
-                                Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` * .desktop </ 0> ke <code> desktopName </ 0> di <code> package.json </ 0> . By default,
-it will assume <code>app.getName().desktop`.
-                                
-                                On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+                                Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` * .desktop </ 0> ke <code> desktopName </ 0> di <code> package.json </ 0> . Secara default, ini akan mengasumsikan <code> app.getName (). Desktop </ 0> .</p>
+
+<p>Pada Windows , mode bisa dilewati. Accepted values are <code>none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
                                 
                                 #### `win.setOverlayIcon(overlay, description)` *Windows*
                                 
