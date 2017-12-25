@@ -4,13 +4,13 @@ Bu sayfa Electron gelişiminde yaygın olarak kullanılan bazı terminolojileri 
 
 ### ASAR
 
-ASAR, Atom Shell Arşiv Formatı anlamına gelmektedir. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR, Atom Shell Arşiv Formatı anlamına gelmektedir. Bir [ asar ](https://github.com/electron/asar) arşivi basittir ` tar ` benzeri bir format, dosyaları tek bir dosyaya bağlar. Electron bütün dosyayı arşivden çıkarmadan rasgele dosyaları okuyabilir.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+ASAR biçimi öncelikle Windows'daki performansı artırmak için oluşturuldu... TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Şimdi kullanımdan kaldırıldı ve Electron'un kod tablasına birleştirildi.
 
 ### CRT
 
@@ -18,11 +18,11 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Bir Apple Disk Görüntüsü, macOS tarafından kullanılan bir paketleme biçimidir. DMG dosyaları uygulama "kurulumcularını" dağıtmak için yaygın olarak kullanılır. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
-Giriş yöntemi editörü. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Giriş yöntemi editörü. Kullanıcıların klavyelerinde bulunmayan karakterleri ve sembolleri girmesini olanaklı kılan bir program. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IPC
 
