@@ -1,4 +1,4 @@
-# `window.open` Fonksiyon
+# `window.open` Fonksiyonu
 
 > Open a new window and load a URL.
 
@@ -36,9 +36,9 @@ Sends a message to the parent window with the specified origin or `*` for no ori
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+Yerel `window.open()`, açılan pencerelere eşzamanlı erişime izin verir; Bir iletişim kutusu veya tercihler penceresi açmanız gerekiyorsa uygun bir seçim.
 
-This option can also be set on `<webview>` tags as well:
+Bu seçenek aynı zamanda `<webview>` etiketlerinde de ayarlanabilir:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
