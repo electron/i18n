@@ -256,7 +256,7 @@ Returns:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Emitted when Chrome's accessibility support changes. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin açılması veya kapatıldığı zaman patlar. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Metodlar
 
