@@ -57,7 +57,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+## `kerusakanReporter`
 
 ```js
 // Deprecated
@@ -83,7 +83,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
-## `nativeImage`
+## `gambarasli`
 
 ```js
 // Deprecated
@@ -115,7 +115,7 @@ process.versions.electron
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
-## `session`
+## `sesi`
 
 ```js
 // Deprecated
@@ -128,7 +128,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Tray`
+## `Nampan`
 
 ```js
 // Deprecated
@@ -142,7 +142,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+## `kontenWeb`
 
 ```js
 // Deprecated
@@ -158,7 +158,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+## `webBingkai`
 
 ```js
 // Deprecated
