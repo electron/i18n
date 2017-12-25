@@ -571,7 +571,7 @@ Returns `Boolean` - Whether the window is minimized.
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Pencerenin tam ekran modunda olup olmadığını ayarlar.
 
 #### `win.isFullScreen()`
 
@@ -669,7 +669,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Pencerenin kullanıcı tarafından manuel olarak yeniden boyutlandırılacağını tanımlar.
 
 #### `win.isResizable()`
 
@@ -725,7 +725,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Pencerenin kullanıcı tarafından el ile kapatılıp bırakılmayacağını tanımlar. Linux'ta önemi yok.
 
 #### `win.isClosable()` *macOS* *Windows*
 
