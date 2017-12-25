@@ -14,7 +14,7 @@ Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dib
 
 **jumplist:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Daftar Langsung Berkas Terbaru](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **Menu dermaga aplikasi:**
 
@@ -136,7 +136,7 @@ Dari MSDN, itu bergambar:
 
 **Toolbar thumbnail Windows Media Player:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![pemain](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 Anda dapat menggunakan [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) untuk mengatur toolbar thumbnail dalam aplikasi Anda:
 
@@ -178,7 +178,7 @@ Dalam Unity, Anda dapat menambahkan entri kustom untuk peluncur nya melalui memo
 
 **pintas peluncur dari Audacious:**
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![berani](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## Progress Bar di Bar Tugas ( Windows, MacOS, Unity)
 
@@ -208,7 +208,7 @@ Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan ap
 
 **Overlay pada tombol taskbar:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Tampilan tombol taskbar](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
 
