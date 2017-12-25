@@ -46,30 +46,30 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Об'єкт створений за допомогою `new BrowserView` має наступні властивості:
 
-#### `view.webContents` *Експериментальний*
+#### `view.webContents` *Експериментальна*
 
 Об'єкт [`WebContents`](web-contents.md), яким володіє цей вигляд.
 
-#### `view.id` *Експериментальний*
+#### `view.id` *Експериментальна*
 
 `Integer`, яке представляє унікальний ID вигляду.
 
 ### Методи Екземпляра
 
-Objects created with `new BrowserView` have the following instance methods:
+Об'єкт створений за допомогою `new BrowserView` має наступні методи:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Експериментальний*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Якщо `true`, ширина вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
+  * `width` Boolean - Якщо `true`, висота вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Експериментальний*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Змінює розмір і рухає вигляд до переданої межі відносно вікна.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Експериментальний*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Колір у `#aarrggbb` чи `#argb` формі. Альфа канал є опціональним.
