@@ -97,11 +97,11 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` 
 * [nstance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) bir `### Instance Methods` bölümünün altında listelenmelidir.
 * Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` -Getiri tanımı" 
   * Eğer yöntem `Nesne`'ye dönerse, yapısı iki noktadan sonra bir satır sonu karakteriyle, ardından da işlev parametreleriyle aynı tarzda sırasız bir özellik listesi kullanarak belirlenebilir.
-* Örnek Olayları `###Örnek Olaylar` bölümünün altında listelenmelidir.
-* Örnek Özellikler aşağısında listelenmelidir `### Örnek Özellikleri` bölüm. 
+* Örnek Olayları `### Instance Events` bölümünün altında listelenmelidir.
+* Örnek Özellikler aşağısında listelenmelidir `### Instance Properties` bölüm. 
   * Örnek özellikleri "Bir [Özellik Türü]..." ile başlamalıdır
 
-Örnek olarak `Oturum` ve `Çerezler` sınıflarını kullanmak:
+Örnek olarak `Session` ve `Cookies` sınıflarını kullanmak:
 
 ```markdown
 # session
@@ -152,7 +152,7 @@ Bir modülün veya bir sınıfın bir metodu olup olmadığına bağlı olarak b
 
 Modüller için `objectName` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
 
-Örneğin, `Oturum`modülü altındaki `Oturum` oturum sınıfının yöntemleri `nesneAdı` olarak `ses` kullanmalıdır.
+Örneğin, `Session`modülü altındaki `session` oturum sınıfının yöntemleri `objectName` olarak `ses` kullanmalıdır.
 
 İsteğe bağlı bağımsız değişkenler isteğe bağlı bağımsız değişkeni çevreleyen köşeli parantezler `[]` ile ve isteğe bağlı bağımsız değişkenin başka bir bağımsız değişkeni izlemesi durumunda gerekli virgülle gösterilir:
 
