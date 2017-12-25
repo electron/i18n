@@ -81,7 +81,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Методи Екземпляра
 
 The following methods are available on instances of `Session`:
 
