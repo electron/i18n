@@ -2,13 +2,13 @@
 
 Berikut adalah pedoman gaya untuk penulisan coding di Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Anda dapat menjalankan `npm run lint` untuk menunjukkan macam gaya yang terdeteksi oleh `cpplint` dan `eslint`.
 
-## C++ and Python
+## C ++ dan Python
 
-For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Untuk C ++ dan Python, kita mengikuti [Gaya coding](http://www.chromium.org/developers/coding-style) Chromium. Anda dapat menggunakan [clang-format](clang-format.md) untuk memformat kode C ++ secara otomatis. Ada juga script `script/cpplint.py` untuk memeriksa apakah semua file sesuai.
 
-The Python version we are using now is Python 2.7.
+Versi Python yang kita gunakan sekarang adalah Python 2.7.
 
 The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
