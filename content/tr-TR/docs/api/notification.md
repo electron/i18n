@@ -39,7 +39,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
 
-### Instance Events
+### Örnek etkinlikler
 
 Objects created with `new Notification` emit the following events:
 
@@ -87,7 +87,7 @@ Returns:
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Örnek yöntemleri
 
 Objects created with `new Notification` have the following instance methods:
 
@@ -95,7 +95,7 @@ Objects created with `new Notification` have the following instance methods:
 
 Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
 
-### Playing Sounds
+### Çalınan sesler
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
