@@ -53,7 +53,7 @@ app.on('ready', () => {
 
 The `screen` module emits the following events:
 
-### Event: 'display-added'
+### Etkinlik: 'görünüm-eklendi'
 
 Returns:
 
