@@ -24,7 +24,7 @@ While code and user experience across operating systems are similar, there are s
 
 Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
-### Advanced Notifications
+### Gelişmiş bildirimler
 
 Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
@@ -42,7 +42,7 @@ Notifications are straight-forward on macOS, but you should be aware of [Apple's
 
 Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
-### Advanced Notifications
+### Gelişmiş bildirimler
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
