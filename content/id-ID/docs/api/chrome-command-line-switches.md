@@ -34,18 +34,18 @@ Bendera yang terkait dengan Debug, lihat panduan [ Debugging Main Process ](../t
 
 Mengaktifkan debugging jarak jauh melalui HTTP pada port ` yang ditentukan `.
 
-## --disk-cache-size=`size`
+## --disk-cache-size =`ukuran`
 
 Memaksa ruang disk maksimum yang akan digunakan oleh cache disk, dalam bytes.
 
-## --js-flags=`flags`
+## --js-flags =`flags`
 
 Menentukan bendera yang dilewatkan ke mesin Node JS. Itu harus berlalu ketika mulai Electron jika Anda ingin mengaktifkan ` bendera </ 0> dalam proses utama.</p>
 
-<pre><code class="bash">$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+<pre><code class="bash">$ electron --js-flags = "- harmony_proxies --harmony_collections" your-app
 `</pre> 
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Lihat dokumentasi[Node](https://nodejs.org/api/cli.html)atau jalankan`node --help `di terminal Anda untuk daftar flag yang tersedia. Selain itu, jalan `node --v8-options`untuk melihat daftar flag yang secara khusus merujuk ke mesin JavaScript Vtp Node.
 
 ## --proxy-server=`address:port`
 
@@ -66,24 +66,24 @@ Akan menggunakan server proxy untuk semua host kecuali untuk alamat lokal (` loc
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Menggunakan script PAC di`url`yang ditentukan.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+Jangan menggunakan server proxy dan selalu melakukan koneksi langsung. Menimpa yang lain flag server proxy yang dilewatkan.
 
 ## --host-rules=`rules`
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
-For example:
+Sebagai contoh:
 
 * `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
 * `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP dan resolver host dalam koneksi langsung, dan ` CONNECT ` di proxy HTTP koneksi, dan host titik akhir dalam koneksi proxy ` SOCKS `).
 
 ## --host-resolver-rules=`rules`
 
