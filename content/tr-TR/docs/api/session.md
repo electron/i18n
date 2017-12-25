@@ -42,7 +42,7 @@ To create a `Session` with `options`, you have to ensure the `Session` with the 
 
 Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
-## Class: Session
+## Sınıf: oturum
 
 > Get and set properties of a session.
 
