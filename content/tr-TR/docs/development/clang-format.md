@@ -1,6 +1,6 @@
 # C++ Kodunda Clang-Format Kullanma
 
-[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) is a tool to automatically format C/C++/Objective-C code, so that developers don't need to worry about style issues during code reviews.
+[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html), C/C++/Objective-C kodlarını otomatik olarak biçimlendiren bir araçtır, böylelikle kod incelemesi sırasında stil sorunları hakkında endişelenmenize gerek kalmaz.
 
 It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
 
