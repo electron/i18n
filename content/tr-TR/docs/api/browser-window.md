@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Sayfa görünürlüğü
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
@@ -215,7 +215,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### Örnek etkinlikler
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -252,7 +252,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### Etkinlik: 'kapatıldı'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
@@ -300,11 +300,11 @@ Emitted when the window exits from a maximized state.
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Etkinlik: 'onarmak'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Etkinlik: 'yeniden boyutlandırma'
 
 Emitted when the window is being resized.
 
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Örnek yöntemleri
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
