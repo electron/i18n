@@ -28,15 +28,15 @@ Yukarıdaki örnekte, hem ` BrowserWindow ` hem de ` win ` uzak nesnelerdir ve `
 
 ## Uzak Nesnelerin Ömrü
 
-Elektron, oluşturucu işlemindeki uzak nesne işlem süresince yaşar (başka bir deyişle, çöp toplanmamıştır), karşılık gelen nesne ana süreçte serbest bırakılmayacaktır. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Elektron, oluşturucu işlemindeki uzak nesne işlem süresince yaşar (başka bir deyişle, çöp toplanmamıştır), karşılık gelen nesne ana süreçte serbest bırakılmayacaktır. Uzak nesne çöp topladığında, karşılık gelen nesne ana işlemde geri alınacaktır.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Eğer uzak nesne, oluşturucu işleminde sızdırılmışsa (örn. Bir haritada depolanır ancak asla serbest bırakılmaz), ana süreçteki ilgili nesne de sızacaktır, bu nedenle uzak nesneleri sızdırmamaya özen göstermelisiniz.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Birincil değer türleri dizeler ve satırlar gibidir oysa metin halinde gönderilirler.
 
-## Passing callbacks to the main process
+## Geri dönüşleri ana sürece iletme
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Ana süreçteki kod, oluşturucudan geri bildirimleri kabul edebilir - örneğin ` remote ` modülü - ancak bu özelliği kullanırken son derece dikkatli olmalısınız.
 
 First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
