@@ -751,8 +751,8 @@ Moves window to the center of the screen.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 * `animate` Boolean (optional) *macOS*
 
 Moves window to `x` and `y`.
