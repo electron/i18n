@@ -1,6 +1,6 @@
 # Electron sürüm oluşturma
 
-> A detailed look at our versioning policy and implementation.
+> Sürüm oluşturma politikamıza ve uygulamanıza ayrıntılı bir bakış.
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
@@ -14,7 +14,7 @@ To update an existing project to use the latest stable version:
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Sürüm 1.x
 
 Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
@@ -24,11 +24,11 @@ Here is an example of the 1.x strategy:
 
 An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
 
-## Version 2.0 and Beyond
+## Sürüm 2.0 ve Ötesi
 
 There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
 
-1. Strict use of semver
+1. Semver'in sıkı kullanımı
 2. Introduction of semver-compliant `-beta` tags
 3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
 4. Clearly defined stabilization branches
