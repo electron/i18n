@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Örnek özellikleri
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -1012,7 +1012,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Pencere simgesi değiştirme.
 
 #### `win.setAutoHideMenuBar(hide)`
 
