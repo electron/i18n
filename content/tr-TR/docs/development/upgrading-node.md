@@ -19,7 +19,7 @@ So in short, the primary steps are:
 1. Update Electron's Node fork to the desired version
 2. Backport Node's V8 patches to our copy of V8
 3. Update Electron to use new version of Node 
-  - Update submodules
+  - Alt modülleri güncelleştirme
   - Update Node.js build configuration
 
 ## Updating Electron's Node [fork](https://github.com/electron/node)
