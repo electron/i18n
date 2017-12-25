@@ -72,7 +72,7 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 Removes listeners of the specified `channel`.
 
-## Event object
+## Etkinlik objesi
 
 The `event` object passed to the `callback` has the following methods:
 
