@@ -1,6 +1,6 @@
-# process
+# süreç
 
-> Extensions to process object.
+> İşlem nesnesine uzantılar.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
