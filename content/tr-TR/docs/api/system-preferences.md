@@ -64,7 +64,7 @@ Sayfalar arasında kaydırma ayarı açık olup olmadığına dair `Boolean` dö
   * `event` String
   * `userInfo` Object
 
-İlgili `event` gerçekleştiğinde MacOS'un yerel bildirimlerine abone olup `callback` `callback(event, userInfo)` ile beraber çağırılmış olacak. `userInfo` bildirim ile birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir objedir.
+İlgili `event` gerçekleştiğinde MacOS'un yerel bildirimlerine abone olup `callback`, `callback(event, userInfo)` ile beraber çağırılmış olacak. `userInfo` bildirim ile birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir objedir.
 
 `event`'ın aboneliğini iptal etmek için kullanılabilecek abonenin `id`'sini döndürür.
 
@@ -121,7 +121,7 @@ API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şö
 
 Sistem tercihlerindeki `key`'in değerini ayarlar.
 
-`type`'ın `value`'nin gerçek değeri ile eşleşmesi gerektiğini unutmayın. Eğer uyuşmazlarsa bir hata fırlatılacaktır.
+`type`'ın `value`'nin gerçek türü ile eşleşmesi gerektiğini unutmayın. Eğer uyuşmazlarsa bir hata fırlatılacaktır.
 
 API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şöyledir:
 
