@@ -75,10 +75,10 @@ Alternatif olarak, mocha'nın `grep` seçeneğini sadece verilen normal ifade mo
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Yerel modülleri içeren testler ( ör. `runas`) hata ayıklama yapısı ile çalıştırılamaz ( ayrıntılar için bkz. [#2558](https://github.com/electron/electron/issues/2558)), ama sürüm yapılarıyla birlikte çalışacaklardır.
 
-To run the tests with the release build use:
+Sürüm yapısıyla testleri çalıştırmak için kullanacağınız:
 
 ```sh
-$ npm testi -- -R
+$ npm test -- -R
 ```
