@@ -388,7 +388,7 @@ Executes editing command `undo` in page.
 
 Executes editing command `redo` in page.
 
-### `<webview>.cut()`
+### `<webview>.kes()`
 
 Executes editing command `cut` in page.
 
@@ -791,7 +791,7 @@ Fired when the WebContents is destroyed.
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Etkinlik: 'medya-duraklatıldı'
 
 Emitted when media is paused or done playing.
 
