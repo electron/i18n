@@ -12,15 +12,15 @@ Elektron tidak disertakan dengan plugin Widevine CDM karena alasan lisensi, untu
 
 Buka `chrome://components/` di browser Chrome, temukan `WidevineCdm` dan buat yakin itu up to date, maka Anda dapat menemukan semua plugin binari dari `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` direktori.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` adalah lokasi sistem untuk menyimpan data aplikasi, pada Windows itu `%LOCALAPPDATA%`, di macos itu `~/Library/Application Support`. `VERSION` adalah Versi versi plugin plugin Widevine, seperti `1.4.8.866`. `PLATFORM` adalah `mac` atau `menang`. `ARCH`adalah`x86`atau`x64`.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+Pada Windows, binari yang dibutuhkan adalah `widevinecdm.dll` dan `widevinecdmadapter.dll`, di mac Osmereka adalah`libwidevinecdm.dylib` dan `wid vinecdmada ter.plugin`. Anda bisa menyalinnya ke manapun Anda suka, tapi mereka harus disatukan.
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+Di Linux binari plugin dikirimkan bersamaan dengan browser Chrome, Anda bisa temukan di bawah `/opt/google/chrome`, nama filenya adalah`libwidevinecdm.so` dan `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## Menggunakan plugin
 
 After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
 
