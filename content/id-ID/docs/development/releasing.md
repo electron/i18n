@@ -86,69 +86,69 @@ Untuk rilis `patch`, gunakan format berikut:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### Rilis kecil
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+Untuk sebuah `minor` rilis, misalnya. `1.8.0`, gunakan format ini:
 
 ```sh
-## Upgrades
+## Upgrade
 
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Upgrade dari Node `oldVersion` ke` newVersion`. #123
 
 ## API Changes
 
-* Changed a thing. #123
+* Sesuatu yang berubah. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Mengubah Linux. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* Mengubah hal macOS. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Mengubah hal Windows. #123
 ```
 
-### Major releases
+### Rilis utama
 
 ```sh
 ## Upgrades
 
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Diupgrade dari Chromium `oldVersion` ke` newVersion`. #123
+- Diupgrade dari Node `oldVersion` ke` newVersion`. #123
 
-## Breaking API changes
+## Breaking API berubah
 
-* Changed a thing. #123
+* Berubah sesuatu. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Mengubah Linux. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* Mengubah hal macOS. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Mengubah hal Windows. #123
 
-## Other Changes
+## Perubahan lainnya
 
-- Some other change. #123
+- Beberapa perubahan lainnya. #123
 ```
 
-### Beta releases
+### Rilis beta
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+Gunakan format yang sama dengan yang disarankan di atas, tapi tambahkan catatan berikut di awal changelog:
 
 ```sh
-**Note:** This is a beta release and most likely will have have some instability and/or regressions.
+**Catatan:** Ini adalah rilis beta dan kemungkinan besar akan memiliki beberapa ketidakstabilan dan / atau regresi.
 
-Please file new issues for any bugs you find in it.
+Silakan mengajukan masalah baru untuk bug yang Anda temukan di dalamnya.
 
 This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
