@@ -8,24 +8,24 @@ Upgrade Node jauh lebih mudah daripada meng-upgrade libchromiumcontent, jadi leb
 
 Elektron memiliki garpu [Node sendiri](https://github.com/electron/node) dengan modifikasi untuk detail build V8 yang berisiko di atas dan untuk mengekspos API yang dibutuhkan oleh Elektron. Setelah sebuah Node hulu Pelepasan dipilih, itu ditempatkan di cabang di garpu Node Elektron dan setiap patch Elektron Node diterapkan di sana.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+Faktor lain adalah bahwa proyek Node menambal versinya dari V8. Seperti disebutkan di atas, Elektron membangun semuanya dengan satu salinan dari V8, jadi patch V8 Node harus dikirim ke salinan itu.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+Setelah semua dependensi Elektron sedang membangun dan menggunakan yang sama salinan V8, langkah selanjutnya adalah memperbaiki masalah kode Elektron yang ditimbulkan dengan upgrade Node.
 
-[FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
+[FIXME] sesuatu tentang debugger Node di Atom yang kami (misalnya mendalam) Penggunaan dan perlu konfirmasi tidak rusak dengan upgrade Node?
 
-So in short, the primary steps are:
+Jadi singkatnya, langkah utamanya adalah:
 
-1. Update Electron's Node fork to the desired version
+1. Perbarui garpu Node Elektron ke versi yang diinginkan
 2. Backport Node's V8 patches to our copy of V8
-3. Update Electron to use new version of Node 
-  - Update submodules
-  - Update Node.js build configuration
+3. Update Elektron untuk menggunakan versi baru dari Node 
+  - Perbarui submodul
+  - Update Node.js buat konfigurasi
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Memperbarui Node Elektron [garpu](https://github.com/electron/node)
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
+1. Pastikan `master` pada `electron/node` telah memperbarui tag rilis dari `nodejs/node`
+2. Buat cabang di https://github.com/electron/node: `elektron-simpul-vX.X.X` where the base that you're branching from is the tag for the desired update 
   - `vX.X.X` Must use a version of node compatible with our current version of chromium
 3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) untuk `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
