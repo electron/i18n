@@ -340,7 +340,7 @@ Emitted when `webContents` wants to do basic auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Etkinlik: 'sayfa içinde kurmak'
 
 Returns:
 
@@ -744,8 +744,8 @@ Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 
 Copy the image at the given position to the clipboard.
 
@@ -956,8 +956,8 @@ Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 
 Starts inspecting element at position (`x`, `y`).
 
