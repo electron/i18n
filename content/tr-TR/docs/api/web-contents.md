@@ -358,7 +358,7 @@ Emitted when a result is available for [`webContents.findInPage`] request.
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### Etkinlik: 'medya-duraklatıldı'
 
 Emitted when media is paused or done playing.
 
@@ -553,7 +553,7 @@ Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Web sayfası odaklanma.
 
 #### `contents.isFocused()`
 
