@@ -137,7 +137,7 @@ An example of using it to determine if you should create a transparent window or
 const {BrowserWindow, systemPreferences} = require('electron')
 let browserOptions = {width: 1000, height: 800}
 
-// Pencereyi sadece platform destekliyorsa transparan yapın.
+// Pencereyi sadece platform destekliyorsa şeffaf yapın.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
@@ -150,14 +150,14 @@ let win = new BrowserWindow(browserOptions)
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
+  // Şeffaflık yok, bu nedenle temel stilleri kullanan bir geri yükleme yüklüyoruz.
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+RGBA'da onaltılık formda kullanıcıların mevcut sistemindeki geniş vurgulu renk tercihini `String` olarak döndürür.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -169,16 +169,16 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
-  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-  * `3d-highlight` - Highlight color for three-dimensional display elements.
-  * `3d-light` - Light color for three-dimensional display elements.
-  * `3d-shadow` - Shadow color for three-dimensional display elements.
-  * `active-border` - Active window border.
-  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-  * `app-workspace` - Background color of multiple document interface (MDI) applications.
+* `color` String - aşağıdaki değerlerden biri: 
+  * `3d-dark-shadow` - Üç boyutlu görüntüleme öğeleri için koyu renkli gölge.
+  * `3d-face` - Üç boyutlu görüntüleme öğeleri ve diyalog için yüz rengi kutu arka planları.
+  * `3d-highlight` - Üç boyutlu görüntüleme öğeleri için vurgulama rengi.
+  * `3d-light` - Üç boyutlu görüntüleme elemanları için açık renk.
+  * `3d-shadow` - Üç boyutlu görüntüleme öğeleri için gölge rengi.
+  * `active-border` - Etkin pencere kenarı.
+  * `active-caption` - Etkin pencere başlık çubuğu. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
+  * `active-caption-gradient` - Aktif pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
+  * `app-workspace` Çoklu dosya arayürüz (MDI) uygulamlarının arkaplan rengi.
   * `button-text` - Text on push buttons.
   * `caption-text` - Text in caption, size box, and scroll bar arrow box.
   * `desktop` - Desktop background color.
