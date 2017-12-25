@@ -7,6 +7,6 @@
 * `Soggetto`[CeertificatePrincipal](certificate-principal.md)- Emittente principale
 * `Nomesogetto` Striga - nome comune dell'emittente
 * `numerodiserie` Striga - Hex valore rappresentato striga
-* `validStart` Number - Start date of the certificate being valid in seconds
+* `iniziovalido` Numero - data di inizio del certificato valido in secondi
 * `validExpiry` Number - End date of the certificate being valid in seconds
 * `fingerprint` String - Fingerprint of the certificate
