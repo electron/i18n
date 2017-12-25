@@ -42,7 +42,7 @@ Returns:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Etkinlik: 'giriş'
 
 Returns:
 
@@ -87,7 +87,7 @@ request.on('login', (authInfo, callback) => {
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### Etkinlik: 'iptal etmek'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
@@ -99,7 +99,7 @@ Returns:
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
-#### Event: 'close'
+#### Etkinlik: 'kapalı'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
