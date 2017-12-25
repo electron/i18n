@@ -85,7 +85,7 @@ Sebagai contoh:
 
 Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP dan resolver host dalam koneksi langsung, dan ` CONNECT ` di proxy HTTP koneksi, dan host titik akhir dalam koneksi proxy ` SOCKS `).
 
-## --host-resolver-rules=`rules`
+## aturan host-resolver = ``
 
 Like `--host-rules` but these `rules` only apply to the host resolver.
 
@@ -142,8 +142,8 @@ This switch only works when `--enable-logging` is also passed.
 
 ## --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Memberikan level maksimal V-logging per modul untuk mengesampingkan nilai yang diberikan oleh `-v `. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Setiap pola yang mengandung garis miring ke depan atau ke belakang akan diuji terhadap seluruh pathname dan bukan hanya modulnya. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-This switch only works when `--enable-logging` is also passed.
+Peralihan ini hanya berfungsi saat`- enable-logging `juga dilewatkan.
