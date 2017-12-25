@@ -43,9 +43,9 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | fil      | Filipino                        |
 | fo       | Faroese                         |
 | fr       | French                          |
-| fr-CA    | French (Canada)                 |
+| fr-CA    | Fransızca (Kanada)              |
 | fr-CH    | French (Switzerland)            |
-| fr-FR    | French (France)                 |
+| fr-FR    | Fransızca (Fransa)              |
 | fy       | Frisian                         |
 | ga       | Irish                           |
 | gd       | İskoç Galcesi                   |
@@ -64,7 +64,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | is       | Icelandic                       |
 | it       | Italian                         |
 | it-CH    | Italian (Switzerland)           |
-| it-IT    | Italian (Italy)                 |
+| it-IT    | İtalyanca (İtalya)              |
 | ja       | Japanese                        |
 | jw       | Javanese                        |
 | ka       | Georgian                        |
