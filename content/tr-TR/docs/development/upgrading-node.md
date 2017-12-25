@@ -1,8 +1,8 @@
-# Düğüm yükseltme
+# Node Yükseltmesi
 
 ## Tartışma
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. This is important because upstream Node and [libchromiumcontent](upgrading-chrome.md) both use their own versions of V8.
+Bir yükseltme sorunu, uyumluluğu sağlamak için tüm Elektronları V8'in tek bir kopyasıyla oluşturuyor. This is important because upstream Node and [libchromiumcontent](upgrading-chrome.md) both use their own versions of V8.
 
 Upgrading Node is much easier than upgrading libchromiumcontent, so fewer conflicts arise if one upgrades libchromiumcontent first, then chooses the upstream Node release whose V8 is closest to it.
 
