@@ -129,6 +129,6 @@ Silahkan gunakan opsi `sandbox` dengan hati-hati, karena fitur ini masih fitur p
 - Skrip pramuat dapat secara tidak sengaja membocorkan API istimewa ke kode yang tidak terpercaya.
 - Beberapa bug pada mesin V8 memungkinkan kode berbahaya mengakses API pramuat perender, yang secara efektif memberikan akses penuh ke sistem melalui modul `remote`.
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+Karena merender konten yang tidak tepercaya di wilayah elektron masih belum dipetakan, API yang terpapar pada skrip pramuat sandbox harus dianggap lebih tidak stabil daripada API elektron lainnya, dan mungkin telah melanggar perubahan untuk memperbaiki masalah keamanan.
 
 One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
