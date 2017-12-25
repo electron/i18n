@@ -60,7 +60,7 @@ console.log(ses.getUserAgent())
 
 Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
-#### Event: 'will-download'
+#### Etkinlik: 'indirilecek'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
