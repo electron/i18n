@@ -58,38 +58,43 @@ Aşağıdaki kurallar yalnızca API'ların belge işlemi için geçerlidir.
 
 ### Sayfa başlığı
 
-Her sayfa başlık olarak `('electron') gerektirir`, tarafından döndürülen gerçek nesne adını kullanmalıdır `TarayıcıPenceresi`, `otomatikGüncelleyici` ve `oturum` gibi.
+Her sayfa başlık olarak `('electron') gerektirir`, tarafından döndürülen gerçek nesne adını kullanmalıdır `BrowserWindow`, `autoUpdater` ve `session` gibi.
 
 Sayfa başlığı altında `>` ile başlayan tek satırlık bir açıklama olmalıdır.
 
-Örnek olarak `oturum` kullanma:
+Örnek olarak `session` kullanma:
 
 ```markdown
-#oturum
+# session
+
 > Tarayıcı oturumlarını, çerezleri, önbelleği, proxy ayarlarını vb. Yönetin.
 ```
 
 ### Modül yöntem ve etkinlikleri
 
-Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Yöntem` ve `##Olaylar` bölümlerinin altında listelenmelidir.
+Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` ve `##Events` bölümlerinin altında listelenmelidir.
 
-`otomatikGüncelleme` ögesini örnek olarak kullanmak:
+`autoUpdater` ögesini örnek olarak kullanmak:
 
 ```markdown
-#otomatikGüncelleyici
-##Etkinlikler
-###Etkinlik: 'hatası'
-#Yöntemler
-#otomatikGüncelleyici.BeslemeUrl'sini ayarla(url[,istekBaşlıkları])
+# autoUpdater
+
+## Events
+
+### Event: 'error'
+
+## Methods
+
+### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
 ### Sınıflar
 
-* API sınıfları veya modüllerin bir parçası olan sınıflar bir `## Sınıf altında listelenmelidir; Sınıf İsmi` bölümü.
+* API sınıfları veya modüllerin bir parçası olan sınıflar bir `## Class: TheClassName` bölümü.
 * Bir sayfa birden fazla sınıfa sahip olabilir.
 * Kurucular `###` düzeyinde başlıklarla listelenmelidir.
-* [Statik Yöntemler](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) `### Statik Yöntemler` bölümünün altında listelenmelidir.
-* [Örnek Yöntemler](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) bir `### Örnek Yöntemler` bölümünün altında listelenmelidir.
+* [tatic Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) `### Static Methods` bölümünün altında listelenmelidir.
+* [nstance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) bir `### Instance Methods` bölümünün altında listelenmelidir.
 * Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` -Getiri tanımı" 
   * Eğer yöntem `Nesne`'ye dönerse, yapısı iki noktadan sonra bir satır sonu karakteriyle, ardından da işlev parametreleriyle aynı tarzda sırasız bir özellik listesi kullanarak belirlenebilir.
 * Örnek Olayları `###Örnek Olaylar` bölümünün altında listelenmelidir.
