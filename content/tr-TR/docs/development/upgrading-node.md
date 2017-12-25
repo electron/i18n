@@ -1,4 +1,4 @@
-# Upgrading Node
+# Düğüm yükseltme
 
 ## Tartışma
 
@@ -111,5 +111,5 @@ We need to generate a patch file from each patch applied to V8.
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
   - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
     - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
+  - İnşaat düğümü: 
     - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
