@@ -24,7 +24,7 @@ A security issue exists whenever you receive code from a remote destination and 
 
 #### Checklist
 
-This is not bulletproof, but at the least, you should attempt the following:
+Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 
 * Only display secure (https) content
 * Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
