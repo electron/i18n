@@ -4,18 +4,18 @@ Bu belgede, Electron'un yeni bir sürümünün yayınlanma süreci açıklanmakt
 
 ## Hangi dalın yayınlanacağını belirleyin
 
-- **Beta sürümünü yayımlarsanız,** aşağıdaki komut dosyalarını `ana sunucudan` çalıştırın.
-- **Sabit bir sürümü yayınlarsanız,** hangi sürüm için yayınladığınıza bağlı olarak `1-7 x` veya `1-6-x` arasındaki komut dosyalarını çalıştırın.
+- **If releasing beta,** aşağıdaki komut dosyalarını `master` çalıştırın.
+- **If releasing a stable version,** hangi sürüm için yayınladığınıza bağlı olarak `1-7 x` veya `1-6-x` arasındaki komut dosyalarını çalıştırın.
 
 ## Hangi sürüm değişikliğine ihtiyaç olduğunu bulun
 
-Otomatik olarak oluşturulan sürüm notlarını görüntülemek için `npm run prepare-release -- --notesOnly` 'i çalıştırın. Oluşturulan notlar bunun büyük, küçük, düzeltme eki veya beta sürümü değişikliği olup olmadığını belirlemenize yardımcı olmalı. Daha fazla bilgi için [Sürüm Değiştirme Kuralları](../tutorial/electron-versioning.md#semver) 'nı okuyun.
+Otomatik olarak oluşturulan sürüm notlarını görüntülemek için `npm run prepare-release -- --notesOnly` 'i çalıştırın. Oluşturulan notlar bunun büyük, küçük, düzeltme eki veya beta sürümü değişikliği olup olmadığını belirlemenize yardımcı olmalı. Daha fazla bilgi için [Version Change Rules](../tutorial/electron-versioning.md#semver) 'nı okuyun.
 
 ## Hazırlama-yayımlama komut dosyasını çalıştırın
 
-Hazırlama betiği aşağıdakileri yapar. 1. Sürümün halihazırda işlemde olup olmadığını kontrol eder ve işlemdeyse durur. 2. Serbest dal oluşturun. 3. Sürüm numarasını birkaç dosyaya atayın. Bir örnek için [bu atama işine](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bakın. 4. Otomatik oluşturulmuş sürüm notlarıyla GitHub'da bir taslak sürüm oluşturun. 5. Yayınlama koluna tıklayın. 6. Sürüm yapılarını çalıştırmak için API'ları çağırın.
+Hazırlama betiği aşağıdakileri yapar. 1. Sürümün halihazırda işlemde olup olmadığını kontrol eder ve işlemdeyse durur. 2. Serbest dal oluşturun. 3. Sürüm numarasını birkaç dosyaya atayın. Bir örnek için [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bakın. 4. Otomatik oluşturulmuş sürüm notlarıyla GitHub'da bir taslak sürüm oluşturun. 5. Yayınlama koluna tıklayın. 6. Sürüm yapılarını çalıştırmak için API'ları çağırın.
 
-Hangi sürüm değişikliğinin gerektiğini belirledikten sonra, ihtiyaçlarınıza göre bağımsız değişkenlerle birlikte `hazırlama sürümünü` çalıştırın: bunun istikrarlı bir sürüm olduğunu belirtmek için - `[major | minor | patch beta]` sürüm numaralarından birini artırın veya - `--sabit`
+Hangi sürüm değişikliğinin gerektiğini belirledikten sonra, ihtiyaçlarınıza göre bağımsız değişkenlerle birlikte `prepare-release` çalıştırın: bunun istikrarlı bir sürüm olduğunu belirtmek için - `[major | minor | patch beta]` sürüm numaralarından birini artırın veya - `--stable`
 
 Örneğin:
 
@@ -51,7 +51,7 @@ npm run prepare-release -- --stable
 
 ## Yapılanmalar için bekle :hourglass_flowing_sand:
 
-`hazırlama-sürümü` betiği, API çağrıları yoluyla yapıları tetikleyecektir. Yapı ilerlemesini izlemek için, aşağıdaki sayfalara bakın:
+`prepare-release` betiği, API çağrıları yoluyla yapıları tetikleyecektir. Yapı ilerlemesini izlemek için, aşağıdaki sayfalara bakın:
 
 - Mac App Store için [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity)
 - OS X için [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity)
@@ -60,85 +60,85 @@ npm run prepare-release -- --stable
 
 ## Sürüm notlarını derleyin
 
-Sürüm notları yazmak, yapılar çalışırken kendinizi meşgul etmek için iyi bir yoldur. Önceki oluşturulanlar için [bülten sayfasında](https://github.com/electron/electron/releases) mevcut sürümlere bakın.
+Sürüm notları yazmak, yapılar çalışırken kendinizi meşgul etmek için iyi bir yoldur. Önceki oluşturulanlar için [the releases page](https://github.com/electron/electron/releases) mevcut sürümlere bakın.
 
 İpuçları: - Listelenen her madde, elektron / elektron hakkında bir PR'ye, bir sorun değil, başka bir repo'ya, yani libcc gibi bir PR'ye atıfta bulunmalıdır. - PR'leri referans alırken bağlantı işaretlemesini kullanmanıza gerek yok. `# 123` gibi dizeler, otomatik olarak github.com'daki bağlantılara dönüştürülecektir. Electron'un her sürümünde Chromium, V8 ve Düğüm sürümlerini görmek için,[atom.io/download/electron/index.json](https://atom.io/download/electron/index.json) adresini ziyaret edin.
 
 ### Yama sürümleri
 
-Bir `yama` sürümü için aşağıdaki biçimi kullanın:
+Bir `patch` sürümü için aşağıdaki biçimi kullanın:
 
 ```sh
-## Hata düzeltmeleri
+## Bug Fixes
 
-*Platformlar arası bir olay düzeltildi. #123
+* Fixed a cross-platform thing. #123
 
-###Linux
+### Linux
 
-*Bir Linux olayı düzeltildi. #123
+* Fixed a Linux thing. #123
 
-###macOS
+### macOS
 
-*Bir macOS olayı düzeltildi. #123
+* Fixed a macOS thing. #123
 
-###Windows
+### Windows
 
-*Bir Windows olayı düzeltildi. #1234
+* Fixed a Windows thing. #1234
 ```
 
 ### Alt sürümler
 
-`Alt` sürümler için, örn. `1.8.0`, bu biçimi kullanın:
+`minor` sürümler için, örn. `1.8.0`, bu biçimi kullanın:
 
 ```sh
-##Yükseltmeler
+## Upgrades
 
--'eskiSürüm' Node 'dan 'yeniSürüm' e yükseltildi. #123
+- Upgraded from Node `oldVersion` to `newVersion`. #123
 
-## API Değişiklikleri
+## API Changes
 
-*Bir şey değiştirildi. #123
+* Changed a thing. #123
 
-## Linux
+### Linux
 
-* Bir Linux olayı değiştirildi. #123
+* Changed a Linux thing. #123
 
 ### macOS
 
-* Bir macOS olayı değiştirildi. #123
+* Changed a macOS thing. #123
 
 ### Windows
 
-* Bir Windows olayı değiştirildi. #123
+* Changed a Windows thing. #123
 ```
 
 ### Üst sürümler
 
 ```sh
-## Yükseltmeler
+## Upgrades
 
--'eskiSürüm' Chromium 'dan 'yeniSürüm' e yükseltildi. #123
--'eskiSürüm' Node 'dan 'yeniSürüm' e yükseltildi. #123
+- Upgraded from Chromium `oldVersion` to `newVersion`. #123
+- Upgraded from Node `oldVersion` to `newVersion`. #123
 
-## API değişiklikleri kırılıyor
+## Breaking API changes
 
-* Bir şey değiştirildi. #123
+* Changed a thing. #123
 
-## Linux
+### Linux
 
-* Bir Linux olayı değiştirildi. #123
+* Changed a Linux thing. #123
 
 ### macOS
 
-* Bir macOS olayı değiştirildi. #123
+* Changed a macOS thing. #123
 
 ### Windows
 
-* Bir Windows olayı değiştirildi. #123
+* Changed a Windows thing. #123
 
-## Diğer Değişiklikler
+## Other Changes
 
-- Başka bir değişiklik daha var. #123
+- Some other change. #123
 ```
 
 ### Beta sürümleri
