@@ -55,15 +55,15 @@ V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
   - `git log --oneline deps/V8`
 5. Yamalar için bir kontrol listesi oluşturun. Bu, çalışmalarınızı izlemek ve aşağıda kullanılacak `git diff-tree` tamamlama karmalarına hızlı bir referans sağlamak için kullanışlıdır.
 6. Oku `patches/v8/README.md` hangi düzeltme eki dosyalarının V8'in önceki sürümünden geldiğini ve bu nedenle kaldırılması gerektiğini görmek için. 
-  - Delete each patchfile referenced in `patches/v8/README.md`
-7. For each patch, do: 
+  - `patches/v8/README.md` 'de başvurulan her bir düzeltme eki dosyasını silin
+7. Her yama için şunları yapın: 
   - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` is an incremented three-digit number (to force patch order)
-    - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
-  - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
-    - If a diff section has no instances of `deps/V8`, remove it altogether. 
-      - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
+    - `xxx` artan üç haneli bir sayıdır (yama sırasını güçlendirmek için)
+    - `patch_name` taahhüt edilen node iletileriyle biraz olsun eşleşmelidir, Node gönderme iletisi "cherry-pick cc55747" ise Ör. `030-cherry_pick_cc55747,patch`
+  - (libchromium repo'daki adımların geri kalan kısmı) `.patch` upstream V8 'in dosya eşleme rehberi: 
+    - Bir fark bölümünde örnek yoksa `deps/V8`, tamamen kaldırın. 
+      - Bu yamaları yapmak istemiyoruz çünkü yalnızca V8'e yama yapıyoruz.
+    - Örneklerini değiştir `a/deps/v8/filename.ext` ile `a/filename.ext` 
       - This is needed because upstream Node keeps its V8 files in a subdirectory
   - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
   - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
