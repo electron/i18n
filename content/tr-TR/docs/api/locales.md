@@ -27,7 +27,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | de-DE    | Almanca (Almanya)               |
 | el       | Greek                           |
 | en       | English                         |
-| en-AU    | English (Australia)             |
+| en-AU    | İngilizce (Avustralya)          |
 | en-CA    | İngilizce (Kanada)              |
 | en-GB    | İngilizce (Birleşik Krallık)    |
 | en-NZ    | İngilizce (Yeni Zelanda)        |
@@ -98,7 +98,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | pl       | Polish                          |
 | ps       | Pashto                          |
 | pt       | Portuguese                      |
-| pt-BR    | Portuguese (Brazil)             |
+| pt-BR    | Portekizce (Brezilya)           |
 | pt-PT    | Portekizce (Portekiz)           |
 | qu       | Quechua                         |
 | rm       | Romansh                         |
