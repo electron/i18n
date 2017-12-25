@@ -52,7 +52,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 * **Patch Version Increments** 
     * node.js patch version updates
     * fix-related chromium patches
-    * electron bug fixes
+    * Electron hata düzeltmeleri
 
 Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
