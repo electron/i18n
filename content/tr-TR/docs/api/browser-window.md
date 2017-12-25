@@ -155,7 +155,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Olası değerler şunlar: 
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.
@@ -284,7 +284,7 @@ Emitted when the window is shown.
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Etkinlik: 'gösterilmeye-hazır'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
