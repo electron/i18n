@@ -26,7 +26,7 @@ Node.js'in yeni özellikleri genellikle V8 yükseltmeleri tarafından getirilir,
 
 Web sayfaları arasında veri paylaşımının (işleyici işlemleri) en kolay yolu, tarayıcılarda zaten mevcut olan HTML5 API'lerini kullanmaktır. [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), ve [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) iyi adaylardır.
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Veya ana süreçte nesneleri global bir değişken olarak depolamak için Elektron'a özgü IPC sistemini kullanabilirsiniz ve daha sonra bunlara oluşturuculardan `electron` modülünün `uzak` özelliği ile erişmek için:
 
 ```javascript
 // Ana süreç içerisinde.
@@ -77,9 +77,9 @@ app.on('ready', () => {
 
 ## Electron'da jQuery/RequireJS/Meteor/AngularJS kullanamıyorum.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Elektron'un Node.js entegrasyonu nedeniyle bazı fazladan semboller `modül`, `dışa aktarır`, `gerektirir` gibi DOM'a eklenir. Bu, bazı kütüphaneler aynı isimlerdeki sembolleri eklemek istedikleri için sorunlara neden olur.
 
-To solve this, you can turn off node integration in Electron:
+Bunu çözmek için Elektron'daki node entegrasyonunu kapatabilirsiniz:
 
 ```javascript
 // Ana süreç içerisinde.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Ancak, Node.js ve Electron API'lerini kullanma yeteneklerini korumak istiyorsanız, diğer kitaplıkları içermeden önce sayfadaki sembolleri yeniden adlandırmanız gerekir:
 
 ```html
 <head>
@@ -108,7 +108,7 @@ delete window.module;
 
 ## `require('electron').xxx` geçersiz.
 
-When using Electron's built-in module you might encounter an error like this:
+Electron'un yerleşik modülünü kullanırken böyle bir hatayla karşılaşabilirsiniz:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
