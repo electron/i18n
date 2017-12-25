@@ -41,7 +41,7 @@ Sends a message to the child window with the specified origin or `*` for no orig
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instance Properties
+### Örnek özellikleri
 
 The `BrowserWindowProxy` object has the following instance properties:
 
