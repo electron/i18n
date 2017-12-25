@@ -6,11 +6,11 @@ Electron comenzó en 2013 como el marco en el que se construiría [Atom](https:/
 
 Desde entonces se ha convertido en una herramienta popular utilizada por desarrolladores de código abierto, nuevas empresas y compañías establecidas. [Vea quién está construyendo en Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Siga leyendo para obtener más información sobre los contribuyentes y las versiones de Electron o para comenzar a construir con Electron en la [Guía de inicio rápido](quick-start.md).
 
-## Core Team and Contributors
+## Equipo central y contribuyentes
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron es mantenido por un equipo en GitHub, así como por un grupo de [colaboradores activos](https://github.com/electron/electron/graphs/contributors) de la comunidad. Algunos de los contribuyentes trabajan de manera individual y algunos trabajan en empresas más grandes que se están desarrollando en Electron. Nos complace agregar colaboradores frecuentes al proyecto como desarrolladores. Obtenga más información sobre [contribuyendo a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Lanzamientos
 
