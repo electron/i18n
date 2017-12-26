@@ -1,16 +1,16 @@
-# Accessibility
+# Accesibilidad
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+Hacer aplicaciones accesibles es importante y estamos encantados de presentar nuevas funcionalidades a [Devtron](https://electron.atom.io/devtron) y Spectron</ 1> que brindan a los desarrolladores la oportunidad de mejorar sus aplicaciones para todo el mundo.</p> 
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Los problemas de accesibilidad en las aplicaciones de Electrón son similares a los de los sitios web porque, en última instancia, son HTML. Sin embargo, con las aplicaciones de Electron, no puede usar los recursos en línea para las auditorías de accesibilidad ya que su aplicación no tiene una URL para apuntar al auditor.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+Estas nuevas características traen esas herramientas de auditoría a su aplicación Electron. Puede optar por agregar auditorías a sus pruebas con Spectron o usarlas en DevTools con Devtron. Siga leyendo para obtener un resumen de las herramientas o revise nuestra documentación de accesibilidad< 0> para obtener más información.</p> 
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+En el marco de pruebas Spectron, ahora puede auditar cada ventana y `<webview>`la etiqueta en su aplicación. Por ejemplo:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
