@@ -85,21 +85,21 @@ MyApp.app/Contents
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Sie können der ausführbaren `electron`-Datei einen beliebigen Namen geben.
 
-## Packaging Tools
+## Paket-Tools
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Unabhängig davon, Ihre App manuell zu packen, können Sie sich für Paket-Tools von Drittanbietern entscheiden, die Ihnen die Arbeit abnehmen:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Änderung des Names durch Neukompilieren des Quellcodes von Electron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Es ist weiterhin möglich Electron umzubennen in dem Sie den Produktnamen ändern und es erneut kompilieren. Um dies zu erreichen, modifizieren Sie die `atom.gyp`-Datei und rekompilieren das Projekt.
 
-### Creating a Custom Electron Fork
+### Erstellen eines angepassten Electron Forks
 
 Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
