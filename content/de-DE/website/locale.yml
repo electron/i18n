@@ -1,4 +1,4 @@
-tagline: Entwickle plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS
+tagline: Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln
 nav:
   docs: Dokumentation
   blog: Blog
@@ -8,34 +8,34 @@ nav:
   releases: Veröffentlichungen
   contact: Kontakt
   languages: Sprachen
-  code_of_conduct: Code of Conduct
+  code_of_conduct: Verhaltenskodex
 docs:
   title: Electron-Dokumentation
-  description: Sieh dir die komplette <a href="/docs/all">Dokumentation auf einer Seite</a> an oder schau dir die <a href="/docs/faq">FAQ</a> an.
+  description: Die gesamte <a href="/docs/all">Dokumentation auf einer Seite</a> anzeigen oder die <a href="/docs/faq">FAQ</a> ansehen.
   guides: Anleitungen
   api_reference: API-Referenz
   advanced: Erweitert
   footer:
     propose_change: Diese Dokumentation verbessern
     version_history: Versionsverlauf
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    translate: Diese Dokumentation übersetzen
+    view_all_docs: Gesamte Dokumentation auf einer Seite
 languages:
   choose_language: Wählen Sie Ihre Sprache
   translation_progress: Übersetzungsfortschritt
   current: Aktuelle Auswahl
 community:
   title: Electron-Community
-  description: "Tools, Boilerplates, Videos und mehr von Electron's <a href=\"https://github.com/sindresorhus/awesome-electron\">'awesome'</a> Open-Source-Mitwirkenden.\nFinde oder organisiere <a href=\"/community#meetups\">Meetups</a> in deiner Nähe."
+  description: "Tools, Boilerplates, Videos und mehr von Electron's <a href=\"https://github.com/sindresorhus/awesome-electron\">beeindruckenden</a> Open-Source-Mitwirkenden.\nFinden oder organisieren Sie <a href=\"/community#meetups\">Treffen</a> in Ihrer Nähe."
   tools: Werkzeuge
-  boilerplates: Boilerplates
+  boilerplates: Codebausteine (Boilerplates)
   components: Komponenten
   videos: Videos
   meetups: Treffen
-  awesome_notice: "Diese Liste wurde von <a href=\"https://github.com/sindresorhus/awesome-electron\">@sindresorhus's Awesome Electron</a> Repository genieriert.\n<br>Fehlt etwas? Dann <a href=\"https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md\">erstelle einen Pull-Request</a>."
-  meetup_notice: Um ein Treffen hinzuzufügen, bearbeite die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstelle einen Pull-Request</a>.
+  awesome_notice: "Diese Liste wurde von <a href=\"https://github.com/sindresorhus/awesome-electron\">@sindresorhus's Awesome Electron</a> Repository genieriert.\n<br>Fehlt etwas? Dann <a href=\"https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md\">erstellen Sie einen Pull-Request</a>."
+  meetup_notice: Um ein Treffen hinzuzufügen, bearbeiten Sie die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstellen einen Pull-Request</a>.
 electron_is_easy:
-  title: Es ist einfacher als du denkst
+  title: Es ist einfacher als Sie denken
   description: Wenn du eine Website entwickeln kannst, kannst du auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework, um native Desktop-Anwendungen mit Web-Technologien wie JavaScript, HTML und CSS zu erstellen. Wir kümmern uns um die kniffligen Dinge der App, damit Sie sich auf den Kern Ihrer Anwendung konzentrieren können.
   video_link: Schaue das Video an
 web_technologies:
@@ -59,7 +59,7 @@ get_started:
   description: Schau dir die unten aufgelisteten Ressourcen für einen Einstieg mit Electron an. Lerne, wie du deine Web-App mit Electron wrapst, alle APIs ansprechen kannst und letztlich Installer für deine Anwendung generieren kannst.
 explore:
   title: Erkunde die Electron-APIs
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen anzeigen</a> auf GitHub
 quick_start:
