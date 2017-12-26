@@ -20,9 +20,9 @@ Der Hauptprozess erschafft Webseiten durch die Verwendung von Instanzen der Klas
 
 Der Hauptprozess verwaltet alle Webseiten und die zugehörigen Renderer-Prozesse. Jeder Renderer-Prozess ist abgekapselt und kümmert sich nur um die Webseite die von ihm ausgeführt wird.
 
-Auf Webseiten ist das Aufrufen von APIs, die auf native GUI-Elemente zugreifen, nicht erlaubt. Die Verwaltung dieser Elemente ist sehr gefährlich und stellt ein Sicherheitsrisiko da. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Auf Webseiten ist das Aufrufen von APIs, die auf native GUI-Elemente zugreifen, nicht erlaubt. Die Verwaltung dieser Elemente ist sehr gefährlich und stellt ein Sicherheitsrisiko da. Wenn Sie GUI-Operationen auf einer Website ausführen wollen, dann muss der Renderer-Prozess der Webseite eine Anfrage an den Hauptprozess weiterleiten, damit letzterer diese Operationen ausführen kann.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+In Electron existieren verschiedene Möglichkeiten zwischen dem Hauptprozess und den Renderer-Prozessen zu kommunizieren. Zum Beispiel die [`ipcRenderer`](../api/ipc-renderer.md) und [`ipcMain`](../api/ipc-main.md)-Module für das senden von einfachen Nachrichten und das [remote](../api/remote.md)-Modul für RPC-ähnliche Kommunikation. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
 ## Write your First Electron App
 
