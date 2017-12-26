@@ -101,9 +101,9 @@ Es ist weiterhin möglich Electron umzubennen in dem Sie den Produktnamen änder
 
 ### Erstellen eines angepassten Electron Forks
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Einen benutzerdefinierten Fork von Electron zu erstellen ist mit großer Sicherheit nicht das, was Sie tun möchten wenn Sie Ihre App erstellen, auch nicht bei "Producton Level" Anwendungen. Das Verwenden eines Tools wie `electron-packager` oder `electron-forge` ermöglicht Ihnen Electron einen neuen Namen zu geben, ohne diese Schritte durchführen zu müssen.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefiniertem C++ Code direkt in Electron arbeiten, der entweder nicht vorgeschalten werden kann oder durch die offizielle Version von Electron abgelehnt wird. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
 #### Creating a Custom Release with surf-build
 
