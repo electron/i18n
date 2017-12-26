@@ -5,12 +5,12 @@ nav:
   community: समुदाय
   apps: एप्प्स
   userland: यूजरलैंड
-  releases: Releases
+  releases: रिलीज़स
   contact: संपर्क
   languages: भाषायें
-  code_of_conduct: Code of Conduct
+  code_of_conduct: आचार संहिता
 docs:
-  title: Electron Documentation
+  title: इलेक्ट्रान दस्तावेज़ीकरण
   description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
   guides: Guides
   api_reference: API Reference
