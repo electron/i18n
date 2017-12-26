@@ -103,13 +103,13 @@ Es ist weiterhin möglich Electron umzubennen in dem Sie den Produktnamen änder
 
 Einen benutzerdefinierten Fork von Electron zu erstellen ist mit großer Sicherheit nicht das, was Sie tun möchten wenn Sie Ihre App erstellen, auch nicht bei "Producton Level" Anwendungen. Das Verwenden eines Tools wie `electron-packager` oder `electron-forge` ermöglicht Ihnen Electron einen neuen Namen zu geben, ohne diese Schritte durchführen zu müssen.
 
-Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefiniertem C++ Code direkt in Electron arbeiten, der entweder nicht vorgeschalten werden kann oder durch die offizielle Version von Electron abgelehnt wird. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefiniertem C++ Code direkt in Electron arbeiten, der entweder nicht vorgeschalten werden kann oder durch die offizielle Version von Electron abgelehnt wird. Als Maintainer von Electron würden wir es sehr begrüßen, wenn Sie Ihren Plan umsetzen können. Also versuchen Sie das Beste, um Ihre Änderungen an Electron in die offizielle Version einfließen zu lassen. Dadurch wird es um Einiges leichter für Sie. Wir schätzen Hilfe jeglicher Art.
 
-#### Creating a Custom Release with surf-build
+#### Erstellen einer angepassten Version mit surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Installieren Sie [Surf](https://github.com/surf-build/surf) mit npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Erstellen Sie einen neuen S3 bucket und nutzen Sie die folgende leere Verzeichnis-Struktur:
     
     ```sh
 - atom-shell/
@@ -117,10 +117,10 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
   - dist/
 ```
 
-3. Set the following Environment Variables:
+3. Setzen Sie die folgenden Umgebungsvariablen:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
+* `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - der Ort an dem Sie node.js header und Symbole hochladen werden
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
 * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
