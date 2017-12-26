@@ -136,4 +136,4 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler bekommen, dann ist es sehr wahrscheinlich, dass Sie das Modul im falschen Prozess verwenden. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler bekommen, dann ist es sehr wahrscheinlich, dass Sie das Modul im falschen Prozess verwenden. Beispielsweise kann `electron.app` nur im Hauptprozess verwendet werden, während `electron.webFrame` nur im Renderer-Prozess verfügbar ist.
