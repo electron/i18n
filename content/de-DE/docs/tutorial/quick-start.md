@@ -133,15 +133,15 @@ Sobald Sie Ihre anfänglichen `main.js`, `index.html`, und `package.json`-Dateie
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) ist ein `npm`-Modul, dass vorkompilierte Versionen von Electron enthält.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Wenn Sie es global mit `npm` installiert haben, dann müssen Sie lediglich das Folgende im Souce-Verzeichnis Ihrer App ausführen:
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+Wenn Sie es lokal installiert haben, dann führen Sie Folgendes aus:
 
 #### macOS / Linux
 
@@ -155,15 +155,15 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 und Neuere
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### Electron manuell heruntergeladen
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Wenn Sie Electron manuell heruntergeladen haben, können Sie auch die beiliegende Binary nutzen um Ihre App direkt auszuführen.
 
 #### macOS
 
