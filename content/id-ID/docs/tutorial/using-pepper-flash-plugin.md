@@ -1,14 +1,16 @@
 # Menggunakan Pepper Flash Plugin
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Elektron mendukung plugin Pepper Flash. Untuk menggunakan plugin Pepper Flash di Elektron, Anda harus secara manual menentukan lokasi plugin Pepper Flash dan kemudian mengaktifkannya di aplikasi Anda.
 
-## Prepare a Copy of Flash Plugin
+## Mempersiapkan salinan Flash Plugin
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+Di macos dan Linux, rincian plugin Pepper Flash dapat ditemukan oleh navigasikan ke ` chrome: // plugins ` di browser Chrome. Lokasi dan versinya berguna untuk dukungan Flash pepper Elektron. Anda juga bisa menyalinnya ke lokasi yang lain.
 
-## Add Electron Switch
+## Tambahkan Sakelar Elektronika
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Anda bisa langsung menambahkan ` - ppapi-flash-path </ 0> dan <code> - ppapi-flash-version </ 0> ke
+Baris perintah elektron atau dengan menggunakan metode <code> app.commandLine.appendSwitch </ 0>
+sebelum acara app dimulai. Juga, aktifkan <code> plugin ` pilihan ` BrowserWindow `.
 
 For example:
 
