@@ -55,14 +55,14 @@ The `uploadData` is an array of `UploadData` objects.
 
 The `callback` has to be called with an `response` object.
 
-#### `webRequest.onBeforeSendHeaders([filter, ]listener)`
+#### `webRequest.onBeforeSendHeaders ([filter,] pendengar)`
 
 * `menyaring` Obyek 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * ` pendengar </ 0> Fungsi</li>
 </ul>
 
-<p>The <code>listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.</p> 
+<p>The <code>listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.</p> 
   * `rincian` Obyek 
     * `id` Integer
     * ` url </ 0>  String</li>
@@ -77,7 +77,7 @@ The `callback` has to be called with an `response` object.
   
   The `callback` has to be called with an `response` object.
   
-  #### `webRequest.onSendHeaders([filter, ]listener)`
+  #### `webRequest.onSendHeaders ([filter,] pendengar)`
   
   * `menyaring` Obyek 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
