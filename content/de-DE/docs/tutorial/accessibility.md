@@ -26,7 +26,7 @@ Erfahren Sie mehr über dieses Feature in der [Spectron Dokumentation](https://g
 
 In Devtron finden Sie einen neuen Tab für Barrierefreiheit. Dieser erlaubt Ihnen eine Website in Ihrer App zu revidieren und die Ergebnisse zu sortieren bzw. zu filtern.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![Screenshot von Devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
 Beide dieser Werkzeuge nutzen die [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) von Google für Chrome. Erfahren Sie mehr über die Richtlinien der Überprüfung der Barrierefreiheit, die diese Bibliothek nutzt, im [Wiki des Repositorys](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
@@ -42,9 +42,9 @@ Durch das Verwenden von [`app.setAccessibilitySupportEnabled(enabled)`](https://
 
 ### Unterstützende Technologien
 
-Electron wird die Barrierefreiheit automatisch aktivieren sofern es eine Einstellung für Erleichterte Bedienung unter Windows oder VoiceOver unter macOS erkennt. See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Electron wird die Barrierefreiheit automatisch aktivieren sofern es eine Einstellung für Erleichterte Bedienung (Windows) oder VoiceOver (macOS) erkennt. Schauen Sie in die [Dokumentation für Barrierefreiheit](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) für weitere Informationen.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Unter macOS kann unterstützende Technologie von Drittanbietern die Barrierefreiheit innerhalb von Electron-Apps durch das Setzen des `AXManualAccessibility`-Attributs umschalten:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
