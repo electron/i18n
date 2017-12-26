@@ -1,6 +1,6 @@
 ## Kelas: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Buat tombol di panel sentuh untuk aplikasi macOS asli
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
