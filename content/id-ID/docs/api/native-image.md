@@ -176,13 +176,13 @@ console.log(gambar)
  
  #### `image.getNativeHandle()` *macOS*
  
- Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+ Mengembalikan `Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.
  
  Perhatikan bahwa pointer kembali adalah pointer lemah untuk gambar asli yang mendasari bukan salinan, sehingga Anda * harus </ 0> memastikan bahwa terkait dengan ` nativeImage </ 1> contoh disimpan di sekitar.</p>
 
 <h4><code>image.isEmpty()`</h4> 
  
- Returns `Boolean` - Whether the image is empty.
+ Mengembalikan `Boolean` - Apakah gambar itu kosong.
  
  #### `image.getSize()`
  
@@ -190,19 +190,19 @@ console.log(gambar)
 
 <h4><code>image.setTemplateImage(option)`</h4> 
  
- * `option` Boolean
+ * `pilihan` Boolean
  
  Menandai gambar sebagai gambar template.
  
  #### `image.isTemplateImage()`
  
- Returns `Boolean` - Whether the image is a template image.
+ Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
  
  #### `image.crop(rect)`
  
- * `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+ * `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong
  
- Returns `NativeImage` - The cropped image.
+ Mengembalikan `NativeImage` - Gambar yang dipotong.
  
  #### `gambar.mengubah ukuran (pilihan)`
  
@@ -226,6 +226,6 @@ console.log(gambar)
 
 <h4><code>image.addRepresentation(options)`</h4> 
   
-  * `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+  * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
   
-  Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+  Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
