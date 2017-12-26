@@ -150,29 +150,29 @@ console.log(gambar)
 
 <h4><code>image.toJPEG(quality)`</h4> 
  
- * `quality` Integer (**required**) - Between 0 - 100.
+ * `kualitas`Integer (** wajib **) - Antara 0 - 100.
  
- Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+ Mengembalikan`Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data dikodekan `JPEG`.
  
  #### `image.toBitmap([options])`
  
  * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
- Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+ Mengembalikan `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi salinan piksel bitmap mentah gambar data.
  
  #### `image.toDataURL([options])`
  
  * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
- Returns `String` - The data URL of the image.
+ Mengembalikan ` String ` - URL data gambar.
  
  #### `image.getBitmap([options])`
  
  * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
- Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+ Mengembalikan `Buffer` - A [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data piksel bitmap mentah gambar.
  
- The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+ Perbedaan antara `getBitmap() ` dan ` toBitmap ()` adalah, `getBitmap()` tidak salin data bitmap, jadi Anda harus segera menggunakan Buffer yang dikembalikan tick loop acara saat ini, jika tidak data bisa diubah atau dihancurkan.
  
  #### `image.getNativeHandle()` *macOS*
  
