@@ -109,7 +109,7 @@ app.setUserTasks([])
 
 Die Aufgaben werden auch nachdem Ihre Anwendung geschlossen wurde zu sehen sein, so dass das Symbol und der Pfad der Anwendung bestehen bleiben sollten bis die App deinstalliert wird.
 
-## Werkzeugleiste mit Thumbnail
+## Thumbnail Toolbars
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
 
