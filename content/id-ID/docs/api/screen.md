@@ -4,7 +4,7 @@
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Anda tidak dapat meminta atau menggunakan modul ini sampai acara `siap` dari`aplikasi` modul dipancarkan.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
