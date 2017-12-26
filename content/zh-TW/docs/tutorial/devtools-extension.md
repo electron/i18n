@@ -1,6 +1,6 @@
 # DevTools 擴充功能
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/extensions/devtools)，可擴充 DevTools debug 流行 Web 框架的能力。
 
 ## 如何載入 DevTools 擴充功能
 
@@ -11,8 +11,8 @@ To load an extension in Electron, you need to download it in Chrome browser, loc
 Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
 
 1. 在 Chrome 瀏覽器中安裝。
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
+2. 連到 `chrome://extensions`，找到擴充功能的 ID，它是一串類似 `fmkadmapgofadopljbjfkapdkoienihi` 的雜湊字串。
+3. 找出 Chrome 儲存擴充功能的檔案系統路徑: 
     * Windows 中是 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * Linux 中可能是: 
         * `~/.config/google-chrome/Default/Extensions/`
