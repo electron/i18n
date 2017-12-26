@@ -8,7 +8,7 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
 - Buatlah build internal dari libcc dan elektron
 - Update Electron docs jika perlu
 
-## Upgrade `libcc` to a new Chromium version
+## Tingkatkan versi `libcc` ke versi Chromium baru
 
 1. Dapatkan kode dan inisialisasi proyek: 
       sh
@@ -17,13 +17,13 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
       $ ./script/bootstrap -v
 
 2. Perbarui snapshot Chromium 
-  - Pilih nomor versi dari [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
+  - Pilih nomor versi dari [Proxy Omaha](https://omahaproxy.appspot.com/) dan perbarui `VERSI` berkas dengan itu 
     - Ini bisa dilakukan secara manual dengan mengunjungi OmahaProxy di browser, atau secara otomatis:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
+    - Satu-baris untuk versi mac terbaru yang stabil: `curl -so- https://omahaproxy.appspot.com/mac > VERSI`
+    - Satu-baris untuk versi beta win64 terbaru: `curl -so- https://omahaproxy.appspot.com/all | grep "win64, beta" | awk -F, 'NR == 1{print $3}' > VERSI`
+  - jalankan `$ ./script/perbarui` 
+    - Siapkan teh - ini bisa berlangsung 30m atau lebih.
+    - Mungkin akan gagal menerapkan patch.
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
 4. (Optional) `script/update` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` calls: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
@@ -131,5 +131,5 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 ## Useful links
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
-- [OmahaProxy](http://omahaproxy.appspot.com)
+- [Proxy Omaha](http://omahaproxy.appspot.com)
 - [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
