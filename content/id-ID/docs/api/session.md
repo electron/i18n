@@ -9,13 +9,13 @@ Modul `sesi` dapat digunakan untuk membuat objek `Sesi` baru.
 You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = membutuhkan ('elektron')
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('http://github.com')
+let win = new BrowserWindow ({width: 800, height: 600})
+win.loadURL ('http://github.com')
 
 const ses = win.webContents.session
-console.log(ses.getUserAgent())
+console.log (ses.getUserAgent ())
 ```
 
 ## Metode
