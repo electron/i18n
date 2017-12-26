@@ -101,16 +101,15 @@ Anda juga dapat mengubah citra electron dengan mengubah nama produk dan membangu
 
 ### Membuat Custom Fork Electron
 
-Menciptakan sebuah kustom fork Electron ini hampir bukan sesuatu yang anda perlu lakukan untuk membangun aplikasi anda, bahkan untuk "Tingkat produksi" aplikasi. Dengan menggunakan alat seperti ` electron -packager </ 0> atau <code> electron-forge </ 0> akan memungkinkan Anda untuk "Rebrand" Electron tanpa harus melakukan langkah-langkah ini.</p>
+Menciptakan sebuah kustom fork Electron ini hampir bukan sesuatu yang anda perlu lakukan untuk membangun aplikasi anda, bahkan untuk "Tingkat produksi" aplikasi. Dengan menggunakan alat seperti ` electron -packager ` atau ` electron-forge ` akan memungkinkan Anda untuk "Rebrand" Electron tanpa harus melakukan langkah-langkah ini.
 
-<p>Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda patch langsung ke Electron, yang tidak dapat upstreamed atau ditolak dari versi resmi. Sebagai pengelola Electron, kita sangat ingin membuat skenario pekerjaan, silakan coba sesulit yang anda bisa untuk mendapatkan perubahan ke versi resmi Electron, itu akan semakin mudah untuk anda, dan kami menghargai bantuan anda.</p>
+Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda patch langsung ke Electron, yang tidak dapat upstreamed atau ditolak dari versi resmi. Sebagai pengelola Electron, kita sangat ingin membuat skenario pekerjaan, silakan coba sesulit yang anda bisa untuk mendapatkan perubahan ke versi resmi Electron, itu akan semakin mudah untuk anda, dan kami menghargai bantuan anda.
 
-<h4>Membuat sebuah Custom Release dengan surf-build</h4>
+#### Membuat sebuah Custom Release dengan surf-build
 
-<ol>
-<li><p>Menginstal <a href="https://github.com/surf-build/surf">Surf</a>, melalui npm: <code>npm install -g surf-build@latest`</li> 
+1. Menginstal [Surf](https://github.com/surf-build/surf), melalui npm: `npm install -g surf-build@latest`
 
-* Buat bucket S3 baru dan buat struktur direktori kosong berikut:
+2. Buat bucket S3 baru dan buat struktur direktori kosong berikut:
     
     ```sh
 - atom-shell/
@@ -118,7 +117,7 @@ Menciptakan sebuah kustom fork Electron ini hampir bukan sesuatu yang anda perlu
   - dist/
 ```
 
-* Tetapkan variabel lingkungan berikut:</ol> 
+3. Tetapkan variabel lingkungan berikut:
 
 * `ELECTRON_GITHUB_TOKEN` - token untuk membuat releases pada GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - merupakan tempat dimana anda akan mengunggah header node.js juga sebagai symbol
