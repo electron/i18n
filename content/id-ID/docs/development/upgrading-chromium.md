@@ -33,23 +33,23 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
 6. Saat build berhasil, buat a `dist` untuk Elektron 
   - `$ ./script/membuat-dist --tidak ada-zip` 
     - Ini akan membuat folder `dist/main` di akar repo libcc. Anda akan membutuhkan ini untuk membangun Elektron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+7. (Opsional) Memperbarui konten script jika terjadi kesalahan akibat berkas  yang telah dihapus atau diganti namanya. (`--no_zip` mencegah skrip membuat `dist`  arsip. Anda tidak membutuhkannya.)
 
 ## Perbarui kode Elektron
 
-1. Get the code: 
+1. Dapatkan kodenya: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. Jika Anda memiliki libcc yang ada di komputer Anda dengan repo sendiri,  beritahu Elektron untuk menggunakannya: 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
 
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. Jika Anda belum membangun libcc tapi sudah seharusnya diupgrade  ke Chromium baru, bootstrap Elektron seperti biasa  `$ ./script/bootstrap.py -v`
   
   - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
 
