@@ -38,21 +38,21 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka</p>
 * ` url </ 0>  String</li>
 <li><code>pilihan` Objek (opsional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+* `callback` Fungsi (opsional) - Jika ditentukan akan tampil terbuka secara asinkron. *macOS* 
   * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Returns <code>Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.</p> 
-    Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
-    
-    ### `shell.moveItemToTrash(fullPath)`
-    
+<p>Mengembalikan <code> Boolean </ 0> - Apakah sebuah aplikasi tersedia untuk membuka URL. Jika callback ditentukan, selalu mengembalikan true.</p>
+
+<p>Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalnya, mailto: URL di agen email default pengguna).</p>
+
+<h3><code>shell.moveItemToTrash(fullPath)`</h3> 
     * `fullPath` String
     
     Returns `Boolean` - Whether the item was successfully moved to the trash
     
-    Move the given file to trash and returns a boolean status for the operation.
+    Pindahkan file yang diberikan ke sampah dan mengembalikan status boolean untuk pengoperasiannya.
     
     ### `shell.beep()`
     
@@ -61,7 +61,7 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka</p>
     ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
     
     * `shortcutPath` String
-    * `operation` String (optional) - Default is `create`, can be one of following: 
+    * `operation` String (optional) - Default is `create`, bisa jadi salah satu dari berikut ini: 
       * `create` - Creates a new shortcut, overwriting if necessary.
       * `update` - Updates specified properties only on an existing shortcut.
       * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
@@ -69,9 +69,9 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka</p>
     
     Returns `Boolean` - Whether the shortcut was created successfully
     
-    Creates or updates a shortcut link at `shortcutPath`.
-    
-    ### `shell.readShortcutLink(shortcutPath)` *Windows*
+    Membuat atau memperbarui tautan pintasan di ` shortcutPath </ 0> .</p>
+
+<h3><code>shell.readShortcutLink(shortcutPath)` *Windows*</h3> 
     
     * `shortcutPath` String
     
@@ -79,4 +79,4 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka</p>
     
     Resolves the shortcut link at `shortcutPath`.
     
-    An exception will be thrown when any error happens.
+    Pengecualian akan dilemparkan saat terjadi kesalahan.
