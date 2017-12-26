@@ -168,26 +168,26 @@ Wenn Sie Electron manuell heruntergeladen haben, können Sie auch die beiliegend
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron ihre-app/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron ihre-app/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe ihre-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` ist hier Teil des Electron-Releases. Sie können es [hier](https://github.com/electron/electron/releases) herunterladen.
 
-### Run as a distribution
+### Als Distribution ausführen
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Nachdem Sie Ihre App fertig geschrieben haben, können Sie eine Distribution erstellen indem Sie der Anleitung "[Veröffentlichung der Anwendung](./application-distribution.md)" folgen und dann die gepackte Anwendung ausführen.
 
 ### Try this Example
 
