@@ -99,17 +99,17 @@ Kita perlu untuk menghasilkan file patch dari setiap patch yang diterapkan V8.
 
 ## Catatan
 
-- libcc and V8 are treated as a single unit
-- Node maintains its own fork of V8 
-  - They backport a small amount of things as needed
-  - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of electron 
-  - E.g electron, libcc, and node
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a node version bump in electron.
-- libcc is large and time-consuming to update, so we typically choose the node version based on which of its releases has a version of V8 that’s closest to the version in libcc that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
-  - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
-    - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
+- libcc dan V8 diperlakukan sebagai satu kesatuan
+- Node mempertahankan garpu sendiri dari V8 
+  - Mereka mengemas sejumlah barang kecil sesuai kebutuhan
+  - Dokumentasi di node tentang bagaimana [mereka bekerja dengan V8](https://nodejs.org/api/v8.html)
+- Kami memperbarui kode sehingga kita hanya menggunakan satu salinan V8 di semua electron 
+  - Misalnya electron, libcc, dan node
+- Kami tidak melacak upstream karena logistik: 
+  - Upstream menggunakan beberapa repo dan menggabungkannya ke satu repo tunggal akan menghasilkan sejarah yang hilang Jadi kita hanya pembaharuan saat kita sedang merencanakan sebuah versi node bertabrakan dalam electron.
+- libcc itu besar dan memakan waktu untuk pembaharuan, jadi biasanya kita pilih versi node yang berdasarkan rilisnya yang memiliki versi dari V8 yang paling dekat dengan versi di libcc yang kita gunakan. 
+  - Kadang kita harus menunggu rilis Node periodik berikutnya karena akan sinkron lebih dekat dengan versi V8 di libcc baru
+  - Electron menyimpan semua patch di libcc karena lebih sederhana dari pada Mempertahankan repos yang berbeda untuk tambalan untuk setiap proyek upstream. 
+    - Crashpad, node, libcc, dll patch semua disimpan di tempat yang sama
+  - Membangun node: 
+    - Ada kemungkinan kita perlu mengubah konfigurasi bangunan kita untuk mencocokkan bangunan flag yang diinginkan node di `node/common.gypi`
