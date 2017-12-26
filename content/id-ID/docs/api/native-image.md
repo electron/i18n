@@ -118,7 +118,7 @@ console.log(gambar)
  ### `nativeImage.createFromBuffer(buffer[, pilihan])`
  
  * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
- * `pilihan`Objek (opsional)  *` width ` Integer (opsional) - Diperlukan untuk buffer bitmap. *`height` Integer (opsional) - Diperlukan untuk buffer bitmap. *`faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+ * `pilihan` Objek (opsional)  * `width` Integer (opsional) - Diperlukan untuk buffer bitmap. *`tinggi` Integer (opsional) - Diperlukan untuk buffer bitmap. * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
  
  Mengembalikan ` gambar asli </ 0></p>
 
