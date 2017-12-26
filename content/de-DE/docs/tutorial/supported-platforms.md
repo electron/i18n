@@ -10,11 +10,11 @@ Für macOS werden ausschließlich 64bit-Dateien zum Download angeboten. Sie ben�
 
 Windows 7 und neuere Versionen werden unterstützt. Ältere Betriebssysteme werden nicht unterstützt (und funktionieren nicht zusammen mit Electron).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
+Sowohl `ia32` (`x86`) als auch `x64` (`amd64`)-Dateien werden zum Download angeboten. Die `ARM` Version von Windows wird aktuell nicht unterstützt.
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `arm` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+Die vorkompilierten `ia32` (`i686`) und `x64` (`amd64`) Dateien von Electron wurden unter Ubuntu 12.04 erstellt, die `arm` Datei wurde auf ARM v7 mit hard-float ABI und NEON für Debian Wheezy kompiliert.
 
 Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
