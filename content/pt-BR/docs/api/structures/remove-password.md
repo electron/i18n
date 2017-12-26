@@ -5,4 +5,4 @@
 * `scheme` String (opcional) - Scheme da autenticação. Pode ser `basic`, `digest`, `ntlm` e `negotiate`. Deve ser informado se estiver sendo removido por `origin`.
 * `realm` String (opcional) - Realm da autenticação. Deve ser informado se estiver sendo removido por `origin`.
 * `username` String (opcional) - Credenciais da autenticação. Deve ser informado se estiver sendo removido por `origin`.
-* `password` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
+* `password` String(opcional) - Credenciais da autenticação. Deve ser informado se estiver sendo removido por `origin`.
