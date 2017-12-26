@@ -8,7 +8,7 @@ Nutzen Sie eine der folgenden Befehlszeilenoptionen um das Debugging des Hauptpr
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron wird für V8-Inspektor Protokollnachrichten auf dem angegebenen `port` lauschen, ein externer Debugger muss sich mit diesem Port verbinden. Der standardmäßige `port` ist `5858`.
 
 ```shell
 electron --inspect=5858 your/app
@@ -16,11 +16,11 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Änhlich wie `--inspect`, pausiert jedoch die Ausführung des JavaScript-Codes auf der ersten Zeile.
 
-## External Debuggers
+## Externe Debugger
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Sie müssen einen Debugger verwenden, der das V8-Inspektor-Protokoll unterstützt.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
+- Verbinden Sie Chrome durch das Öffnen von `chrome://inspect` und wählen Sie 'Untersuchen' mit einem Rechtsklick auf die gestartete Electron-App aus.
+- [Debuggen des Hauptprozesses in VSCode](debugging-main-process-vscode.md)
