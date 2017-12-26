@@ -16,21 +16,19 @@ let win = new BrowserWindow({
 
 The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
 
-## Available APIs
+## API yang tersedia
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Semua built-in modul Node.js didukung dalam Pekerja Web, dan ` asar </ 0> 
+arsip masih dapat dibaca dengan Node.js API . Namun tidak ada modul built-in Electron yang dapat digunakan di lingkungan multi-threaded.</p>
 
-## Native Node.js modules
+<h2>Modul Node.js asli</h2>
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+<p>Setiap modul Node.js asli dapat dimuat langsung di Web Workers, namun sangat disarankan untuk tidak melakukannya. Sebagian besar modul asli yang ada telah ditulis dengan asumsi lingkungan single-threaded, menggunakannya di Web Workers akan menyebabkan crash dan korupsi memori.</p>
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+<p>Perhatikan bahwa meskipun modul Node.js asli adalah benang-aman, masih tidak aman untuk memuatnya di Pekerja Web karena fungsi <code> process.dlopen </ 0> bukan thread yang aman.</p>
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+<p>Satu-satunya cara untuk memuat modul asli dengan aman untuk saat ini, adalah memastikan bahwa aplikasi tidak memuat modul asli setelah Pekerja Web memulai.</p>
 
-```javascript
-process.dlopen = () => {
-  throw new Error('Load native module is not safe')
-}
-let worker = new Worker('script.js')
-```
+<pre><code class="javascript">process.dlopen = () = & gt; {
+   buang Kesalahan baru ('Muat modul asli tidak aman')} biarkan pekerja = Pekerja baru ('script.js')
+`</pre>
