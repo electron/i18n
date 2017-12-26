@@ -6,7 +6,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 
 * [Electron FAQ](faq.md)
 
-## Anleitungen
+## Leitfäden
 
 * [Glossar](glossary.md)
 * [Unterstützte Plattformen](tutorial/supported-platforms.md)
@@ -16,12 +16,12 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [Veröffentlichung im Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Veröffentlichung im Windows Store](tutorial/windows-store-guide.md)
 * [Anwendungspakete](tutorial/application-packaging.md)
-* [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging des Main Process](tutorial/debugging-main-process.md)
-* [Nutzen von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Verwendung von Native Node Modules](tutorial/using-native-node-modules.md)
+* [Debugging des Hauptprozesses](tutorial/debugging-main-process.md)
+* [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools Erweiterung](tutorial/devtools-extension.md)
-* [Verwendung des Pepper Flash-Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Verwendung des Widevine CDM-Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Verwendung des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
+* [Verwendung des Widevine CDM-Plugins](tutorial/using-widevine-cdm-plugin.md)
 * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
@@ -39,7 +39,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 
 * [Übersicht](api/synopsis.md)
 * [Prozess-Objekt](api/process.md)
-* [Unterstützt Chrome Befehlszeilenoptionen](api/chrome-command-line-switches.md)
+* [Unterstützte Chrome-Befehlszeilenoptionen](api/chrome-command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
 
 ### Benutzerdefinierte DOM-Elemente:
@@ -48,7 +48,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Funktion](api/window-open.md)
 
-### Module für den Main-Prozess:
+### Module für den Hauptprozess:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -88,7 +88,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 
 * [Coding Style](development/coding-style.md)
 * [clang-format im C++ Code verwenden](development/clang-format.md)
-* [Source-Code-Verzeichnis-Struktur](development/source-code-directory-structure.md)
+* [Struktur des Quellcode-Verzeichnisses](development/source-code-directory-structure.md)
 * [Technische Unterschiede zum NW.js (ehemals node-Webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Übersicht](development/build-system-overview.md)
 * [Build Anweisungen (macOS)](development/build-instructions-osx.md)
@@ -97,7 +97,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [Debug Anweisungen (macOS)](development/debugging-instructions-macos.md)
 * [Debug Anweisungen (Windows)](development/debug-instructions-windows.md)
 * [Einen Symbol-Server im Debugger einrichten](development/setting-up-symbol-server.md)
-* [Dokumentations-Gestaltungsrichtlinie](styleguide.md)
+* [Gestaltungsrichtlinien für die Dokumentation](styleguide.md)
 * [Chrome aktualisieren](development/upgrading-chrome.md)
 * [Chromium-Entwicklung](development/chromium-development.md)
 * [V8 Entwicklung](development/v8-development.md)
