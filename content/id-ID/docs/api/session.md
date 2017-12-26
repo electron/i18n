@@ -2,11 +2,11 @@
 
 > Mengelola sesi browser, cookies, cache, pengaturan proxy, dll.
 
-Proses:  Utama </ 0></p> 
+Proses: [ Utama ](../glossary.md#main-process)
 
 Modul `sesi` dapat digunakan untuk membuat objek `Sesi` baru.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Anda juga dapat mengakses sesi ` </> dari halaman yang ada dengan menggunakan sesi <code> ` milik [` WebContents `](web-contents.md), atau dari modul ` sesi `.
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
@@ -20,7 +20,7 @@ console.log (ses.getUserAgent ())
 
 ## Metode
 
-The `session` module has the following methods:
+Modul ` sesi ` memiliki metode berikut:
 
 ### `session.fromPartition(partisi[, pilihan])`
 
@@ -28,11 +28,11 @@ The `session` module has the following methods:
 * `pilihan` Obyek 
   * `cache` Boolean - Apakah akan mengaktifkan cache.
 
-Kembali `Sesi` - Contoh sesi dari string `partisi`. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Kembali `Sesi` - Contoh sesi dari string `partisi`. Bila sudah ada ` Sesi ` dengan partisi ` yang sama `, maka akan dikembalikan; jika tidak baru Sesi ` Sesi ` akan dibuat dengan ` pilihan `.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Jika ` partisi ` dimulai dengan ` bertahan: `, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di app dengan partisi ` ` yang sama. ` awist: ` awalan, halaman akan menggunakan sesi in-memory. Jika ` partisi ` adalah kosong maka sesi default aplikasi akan dikembalikan.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Untuk membuat Sesi <0 Sesi </code> dengan ` pilihan </ 0>, Anda harus memastikan <code> Sesi ` dengan ` partisi ` belum pernah digunakan sebelumnya. There is no way to change the `options` of an existing `Session` object.
 
 ## properti
 
