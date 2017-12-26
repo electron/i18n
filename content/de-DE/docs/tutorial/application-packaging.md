@@ -130,13 +130,13 @@ Das `Stats` Object, welches von `fs.stat` zurückgegeben wird, und seine Freunde
 
 ### Ausführen von Dateien innerhalb eines `asar`-Archives
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+Es gibt Node APIs, die Binärdateien wie `child_process.exec`, `child_process.spawn` und `child_process.execFile` ausführen können, jedoch ist nur `execFile` innerhalb eines `asar`-Archivs unterstützt.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Das rührt daher, dass `exec` und `spawn` `command` an Stelle von `file` als Eingabe akzeptieren, und `command`s in der Shell ausgeführt werden. Es existiert kein verlässlicher Weg herauszufinden, ob ein Command eine Datei in einem asar-Archiv nutzt. Und selbst wenn, kann man nicht sicher sein, ob man den Pfad im Command ohne Nebeneffekte austauschen kann.
 
-## Adding Unpacked Files in `asar` Archive
+## Hinzufügen von ungepackten Dateien in ein `asar`-Archiv
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+Wie gesagt, einige Node APIs werden die Datei in das Dateisystem entpacken, wenn sie aufgerufen werden. Unabhängig von den Performance-Problemen, kann es auch zu Falschalarm bei Virenscannern führen.
 
 To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
 
