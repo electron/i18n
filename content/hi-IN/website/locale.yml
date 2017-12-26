@@ -43,9 +43,9 @@ web_technologies:
   description: इलेक्ट्रॉन क्रोमियम और नोड.जेएस का उपयोग करता है ताकि आप एचटीएमएल, सीएसएस और जावास्क्रिप्ट के साथ अपनी एप्प का निर्माण कर सके ।
 open_source:
   title: मुक्त स्रोत
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: इलेक्ट्रॉन एक मुक्त स्त्रोत परियोजना है, जिसका रखरखाव गिटहब और योगदानकर्ताओं के एक सक्रिय समुदाय द्वारा किया जाता है ।
 cross_platform:
-  title: Cross Platform
+  title: क्रॉस प्लेटफार्म
   description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
 benefits:
   hard_parts_made_easy: The hard parts made easy
