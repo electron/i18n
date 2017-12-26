@@ -100,7 +100,7 @@ Nomor versi V8 selalu sesuai dengan yang dimiliki Google Chrome . Chrome 59 meny
 
 - [developers.Google.com/V8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
-- [docs / development / v8-development.md](development/v8-development.md)
+- [docs/development/v8-development.md](development/v8-development.md)
 
 ### webview
 
