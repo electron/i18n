@@ -12,13 +12,13 @@ Anda bisa langsung menambahkan ` - ppapi-flash-path </ 0> dan <code> - ppapi-fla
 Baris perintah elektron atau dengan menggunakan metode <code> app.commandLine.appendSwitch </ 0>
 sebelum acara app dimulai. Juga, aktifkan <code> plugin ` pilihan ` BrowserWindow `.
 
-For example:
+Sebagai contoh:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
+const {app, BrowserWindow} = membutuhkan ('elektron')
+const path = require ('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// Tentukan jalur flash, seandainya itu ditempatkan di direktori yang sama dengan main.js.
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -49,11 +49,11 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+Anda juga bisa mencoba memuat sistem plugin Pepper Flash yang luas alih-alih pengiriman plugin itu sendiri, jalannya bisa diterima dengan menelepon ` app.getPath ('pepperFlashSystemPlugin') `.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Aktifkan Plugin Flash dalam `<webview>` Tag
 
-Add `plugins` attribute to `<webview>` tag.
+Tambahkan atribut ` plugin ` ke tag `<webview>`.
 
 ```html
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
@@ -61,10 +61,10 @@ Add `plugins` attribute to `<webview>` tag.
 
 ## Penyelesaian masalah
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Anda dapat memeriksa apakah plugin Pepper Flash dimuat dengan memeriksa ` navigator.plugins ` di konsol devtools (walaupun Anda tidak dapat mengetahui apakah path plugin benar).
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+Arsitektur plugin Pepper Flash harus sesuai dengan yang dimiliki Electron. Pada Windows, Kesalahan umum adalah menggunakan plugin Flash versi 32bit melawan versi 64bit Elektron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Pada Windows the path passed to `--ppapi-flash-path` harus menggunakan `` sebagai pembatas, menggunakan POSIX-style paths tidak akan bekerja.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Untuk beberapa operasi, seperti media streaming menggunakan RTMP, perlu memberikan izin yang lebih luas kepada berkas '`.swf `. Salah satu cara untuk mencapai ini, adalah dengan menggunakan [ nw-flash-trust ](https://github.com/szwacz/nw-flash-trust).
