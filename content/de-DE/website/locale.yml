@@ -56,29 +56,29 @@ benefits:
   windows_installers: Installationsprogramme für Windows
 get_started:
   title: Erste Schritte
-  description: Schau dir die unten aufgelisteten Ressourcen für einen Einstieg mit Electron an. Lerne, wie du deine Web-App mit Electron wrapst, alle APIs ansprechen kannst und letztlich Installer für deine Anwendung generieren kannst.
+  description: Schauen Sie sich für den Einstieg mit Electron die unten aufgelisteten Ressourcen an. Lernen Sie, wie Sie Ihre Web-App in Electron einbetten, alle APIs ansprechen und letztlich Installer für Ihre Anwendung generieren.
 explore:
-  title: Erkunde die Electron-APIs
+  title: Erkunden Sie die Electron-APIs
   description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
 download_from_github: Von GitHub herunterladen
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen anzeigen</a> auf GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
 quick_start:
-  title: "Starte die <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start-App</a>, um Electron in Aktion zu sehen:"
-  description: Eine minimale Electron App mit hilfreichen Anmerkungen.
+  title: "Starte mit der <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start-App</a> um Electron in Aktion zu sehen:"
+  description: Eine minimale Electron-App mit hilfreichen Anmerkungen.
   clone: Das Quick-Start Repository klonen
-  go_into_repo: Gehe in das Repository
-  install_deps: Installiere die Abhängigkeiten und starte die App
+  go_into_repo: Das Repository öffnen
+  install_deps: Die Abhängigkeiten installieren und ausführen
   dive_deeper: Oder tauchen Sie tiefer ein und lesen Sie die <a href='/docs'>Dokumentation</a>.
 need_help:
-  title: Hilfe benötigt?
-  description: "Stelle Fragen im <a href='https://discuss.atom.io/c/electron'>Diskussionsforum</a> oder in unserem <a href='http://atom-slack.herokuapp.com/'>Slack</a> Kanal.\nFolge <a href=\"https://twitter.com/electronjs\">@electronjs</a> auf Twitter für wichtige Ankündigungen.\n Möchtest du uns persönlich erreichen? Dann schreib eine Email an <a href=\"mailto:electron@github.com\">electron@github.com</a>."
+  title: Benötigen Sie Hilfe?
+  description: "Stellen Sie Fragen im <a href='https://discuss.atom.io/c/electron'>Diskussionsforum</a> oder in unserem <a href='http://atom-slack.herokuapp.com/'>Slack</a> Channel.\nFolgen Sie <a href=\"https://twitter.com/electronjs\">@electronjs</a> auf Twitter für wichtige Ankündigungen.\n Möchten Sie uns persönlich erreichen? Dann schreiben Sie eine Email an <a href=\"mailto:electron@github.com\">electron@github.com</a>."
 headings:
   languages: Sprachen
 taglines:
-  languages: Übersetzte Inhalte von unserer tollen weltweiten Entwickler-Community.
-help_translate: "Hilf bei der Übersetzung"
+  languages: Übersetzte Inhalte von unser atemberaubenden weltweiten Entwickler-Community.
+help_translate: "Helfen Sie bei der Übersetzung"
 footer:
-  see_the_faq: Sieh dir häufig gestellte Fragen an
+  see_the_faq: Lesen Sie die häufig gestellte Fragen
 apps:
   title: Mit Electron entwickelte Apps
   description: Mit Electron ist das Erstellen einer Desktop-Anwendung für Ihre Firma oder Idee einfach. Electron wurde ursprünglich für den <a href='https://atom.io' target='_blank'>Atom Editor</a> von GitHub entwickelt. Seit jeher wird Electron jedoch auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
