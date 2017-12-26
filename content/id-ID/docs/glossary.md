@@ -66,7 +66,7 @@ OSR (Off-screen rendering) dapat digunakan untuk memuat halaman berat di latar b
 
 ### proses
 
-Proses adalah turunan dari sebuah program komputer yang sedang dijalankan. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Proses adalah turunan dari sebuah program komputer yang sedang dijalankan. Elektron aplikasi yang menggunakan proses [ utama ](#main-process) dan satu atau lebih [ renderer ](#renderer-process) Sebenarnya menjalankan beberapa program secara bersamaan.
 
 In Node.js and Electron, each running process has a `process` object. Objek ini bersifat global yang memberikan informasi tentang, dan kontrol atas, proses saat ini. Sebagai global, selalu tersedia untuk aplikasi tanpa menggunakan require ().
 
