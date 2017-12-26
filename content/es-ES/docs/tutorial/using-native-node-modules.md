@@ -61,15 +61,15 @@ Si instaló un módulo nativo y descubrió que no estaba funcionando, debe verif
 
 * La arquitectura del módulo debe coincidir con la arquitectura de Electron (ia32 o x64).
 * Después de actualizar Electron, generalmente necesita reconstruir los módulos.
-* When in doubt, run `electron-rebuild` first.
+* En caso de duda, ejecute `electron-rebuild` primero.
 
-## Modules that rely on `prebuild`
+## Módulos que dependen de `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) proporciona una forma de publicar fácilmente módulos de nodo nativos con binarios precompilados para múltiples versiones de Node y Electron.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Si los módulos proporcionan binarios para el uso en Electron, asegúrese de omitir `--build-from-source` y la variable de entorno `npm_config_build_from_source` para aprovechar al máximo los binarios precompilados.
 
-## Modules that rely on `node-pre-gyp`
+## Módulos que dependen de `node-pre-gyp`
 
 The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
 
