@@ -1,14 +1,14 @@
 # Unterstützte Plattformen
 
-Following platforms are supported by Electron:
+Die folgenden Plattformen werden durch Electron unterstützt:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+Für macOS werden ausschließlich 64bit-Dateien zum Download angeboten. Sie benötigen mindestens macOS 10.9.
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7 und neuere Versionen werden unterstützt. Ältere Betriebssysteme werden nicht unterstützt (und funktionieren nicht zusammen mit Electron).
 
 Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
 
