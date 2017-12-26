@@ -34,15 +34,15 @@ Wenn Ihnen weitere gute Barrierefreiheit-Tools für Electron bekannt sind, füge
 
 ## Barrierefreiheit aktivieren
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Electron-Apps lassen Barrierefreiheit aus Gründen der Performance standardmäßig deaktiviert, aber es gibt mehrere Möglichkeiten diese zu aktivieren.
 
-### Inside Application
+### Innerhalb der Anwendung
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Durch das Verwenden von [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) können Sie die Einstellung der Barrierefreiheit in Ihrer App dem Nutzer überlassen. Die Assistenten des Betriebssystems für erleichterte Bedienung haben Priorität gegenüber dieser Einstellung und überschreiben diese.
 
-### Assistive Technology
+### Unterstützende Technologien
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Electron wird die Barrierefreiheit automatisch aktivieren sofern es eine Einstellung für Erleichterte Bedienung unter Windows oder VoiceOver unter macOS erkennt. See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
 
 On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
 
