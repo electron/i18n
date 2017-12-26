@@ -11,13 +11,13 @@ nav:
   code_of_conduct: आचार संहिता
 docs:
   title: इलेक्ट्रान दस्तावेज़ीकरण
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
-  guides: Guides
-  api_reference: API Reference
-  advanced: Advanced
+  description: <a href="/docs/all">एक ही पेज पर सभी दस्तावेज़</a> देखें या फ़िर <a href="/docs/faq">अक्सर पूछे जाने वाले सवाल (FAQ)</a> पढ़ें |
+  guides: गाइड्स
+  api_reference: एपीआई रेफरेंस
+  advanced: उन्नत
   footer:
     propose_change: इस दस्तावेज़ को सुधारें
-    version_history: Version history
+    version_history: संस्करण इतिहास
     translate: इस दस्तावेज़ का अनुवाद करें
     view_all_docs: सभी दस्तावेज़ एक पेज पर
 languages:
