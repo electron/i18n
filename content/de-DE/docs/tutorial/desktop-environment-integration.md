@@ -1,33 +1,33 @@
 # Integration der Desktop-Umgebung
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Verschiedene Betriebssysteme bieten verschiedene Funktionen um Desktop-Anwendungen in ihre Desktop-Umgebungen einzubinden. Zum Beispiel können Applikationen unter Windows Verknüpfungen in der JumpList der Taskleiste und unter macOS ein individuelles Menu im Dock platzieren.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Diese Anleitung erklärt Ihnen, wie Sie Ihre Applikation mit Electron-APIs in diese Desktop-Umgebungen integrieren.
 
-## Notifications
+## Benachrichtigungen
 
-See [Notifications](notifications.md)
+[Benachrichtigungen](notifications.md) anzeigen
 
-## Recent documents (Windows & macOS)
+## Zuletzt verwendete Dokumente (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows und MacOS bieten einfachen Zugriff auf eine Liste der zuletzt verwendeten Dokumente, die von der Anwendung über die JumpList bzw. das Dock Menu geöffnet werden kann.
 
 **JumpList:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Dock Menu einer Anwendung:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Um eine Datei zu den zuletzt verwendeten Dokumenten hinzuzufügen können Sie die [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API verwenden:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+Und Sie können die [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API verwenden um die Liste der zuletzt verwendeten Dokumente zu leeren:
 
 ```javascript
 const {app} = require('electron')
