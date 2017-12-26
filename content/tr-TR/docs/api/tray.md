@@ -77,7 +77,7 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `etkinlik` Event 
+* `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -116,14 +116,14 @@ Emitted when any dragged items are dropped on the tray icon.
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - Düşürülen dosyaların yolları.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string
+* `text` String - Düşürülen yazı stringi
 
 Emitted when dragged text is dropped in the tray icon.
 
@@ -146,7 +146,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - event'ın pozisyonu
 
 Emitted when the mouse enters the tray icon.
 
@@ -157,11 +157,11 @@ Emitted when the mouse enters the tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - event'ın pozisyonu
 
 Emitted when the mouse exits the tray icon.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 The `Tray` class has the following methods:
 
@@ -247,7 +247,7 @@ Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+[`Rectangle`](structures/rectangle.md) döndürür
 
 The `bounds` of this tray icon as `Object`.
 
