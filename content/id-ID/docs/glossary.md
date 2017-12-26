@@ -26,9 +26,9 @@ Editor Metode Masukan. Sebuah program yang memungkinkan pengguna memasukkan kara
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC singkatan dari Inter-Process Communication. Elektron menggunakan IPC untuk dikirim pesan JSON serial antara proses [ utama ](#main-process) dan [ renderer ](#renderer-process).
 
-### libchromiumcontent
+### konten libchromium
 
 A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
 
