@@ -22,11 +22,11 @@ Der Hauptprozess verwaltet alle Webseiten und die zugehörigen Renderer-Prozesse
 
 Auf Webseiten ist das Aufrufen von APIs, die auf native GUI-Elemente zugreifen, nicht erlaubt. Die Verwaltung dieser Elemente ist sehr gefährlich und stellt ein Sicherheitsrisiko da. Wenn Sie GUI-Operationen auf einer Website ausführen wollen, dann muss der Renderer-Prozess der Webseite eine Anfrage an den Hauptprozess weiterleiten, damit letzterer diese Operationen ausführen kann.
 
-In Electron existieren verschiedene Möglichkeiten zwischen dem Hauptprozess und den Renderer-Prozessen zu kommunizieren. Zum Beispiel die [`ipcRenderer`](../api/ipc-renderer.md) und [`ipcMain`](../api/ipc-main.md)-Module für das senden von einfachen Nachrichten und das [remote](../api/remote.md)-Modul für RPC-ähnliche Kommunikation. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+In Electron existieren verschiedene Möglichkeiten zwischen dem Hauptprozess und den Renderer-Prozessen zu kommunizieren. Zum Beispiel die [`ipcRenderer`](../api/ipc-renderer.md) und [`ipcMain`](../api/ipc-main.md)-Module für das senden von einfachen Nachrichten und das [remote](../api/remote.md)-Modul für RPC-ähnliche Kommunikation. Passend dazu gibt es in den FAQ einen Eintrag zum [Teilen von Daten zwischen Webseiten](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Ihre erste Electron-App
 
-Generally, an Electron app is structured like this:
+Im Allgemeinen ist eine Electron-App wie folgt aufgebaut:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+Das Format der `package.json`-Datei ist genau das Gleiche wie das des Node-Moduls und das Script, welches durch das `main`-Feld angegeben wird ist das Einstiegsskript für Ihre App. Dieses führt den Hauptprotess aus. An example of your `package.json` might look like this:
 
 ```json
 {
