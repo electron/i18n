@@ -4,23 +4,13 @@
 
 Proses:  Utama </ 0></p> 
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Contoh penerapan protokol yang memiliki efek yang sama seperti protokol `file://`:
 
 ```javascript
-const {app, protocol} = require('electron')
-const path = require('path')
-
-app.on('ready', () => {
-  protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
-  }, (error) => {
-    if (error) console.error('Failed to register protocol')
-  })
-})
+const {app, protocol} = require ('electron') const path = require ('path') app.on ('siap', () = & gt; {protocol.registerFileProtocol ('atom', (permintaan, callback) = & gt; {const url = request.url.substr (7) callback ({path: path.normalize (`$ {__ dirname} / $ {url}`)})}, (error) = & gt; {if (error) console.error ('Gagal mendaftar protokol')})})
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+** Catatan: ** Semua metode kecuali yang ditentukan hanya dapat digunakan setelah event ` ready ` dari modul ` app ` dipancarkan.
 
 ## Metode
 
