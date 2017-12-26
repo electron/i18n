@@ -68,9 +68,9 @@ OSR (Off-screen rendering) dapat digunakan untuk memuat halaman berat di latar b
 
 Proses adalah turunan dari sebuah program komputer yang sedang dijalankan. Elektron aplikasi yang menggunakan proses [ utama ](#main-process) dan satu atau lebih [ renderer ](#renderer-process) Sebenarnya menjalankan beberapa program secara bersamaan.
 
-In Node.js and Electron, each running process has a `process` object. Objek ini bersifat global yang memberikan informasi tentang, dan kontrol atas, proses saat ini. Sebagai global, selalu tersedia untuk aplikasi tanpa menggunakan require ().
+Di Node.js dan Elektron, setiap proses yang berjalan memiliki ` proses ` objek. Objek ini bersifat global yang memberikan informasi tentang, dan kontrol atas, proses saat ini. Sebagai global, selalu tersedia untuk aplikasi tanpa menggunakan require ().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Lihat juga: [ proses ](#main-process), [ proses renderer ](#renderer-process)
 
 ### proses renderer
 
@@ -78,11 +78,11 @@ Proses renderer adalah jendela browser di aplikasi Anda. Berbeda dengan proses u
 
 Di normal browser, halaman web biasanya menjalankan dalam lingkungan sandboxed dan tidak diperbolehkan akses ke sumber daya yang asli. Pengguna Elektron, namun, memiliki kekuatan untuk menggunakan api Node.js di halaman web yang memungkinkan interaksi tingkat sistem operasi yang lebih rendah.
 
-See also: [process](#process), [main process](#main-process)
+Lihat juga: [ proses ](#process), [ proses renderer ](#main-process)
 
-### Squirrel
+### Tupai
 
-Squirrel adalah kerangka sumber terbuka yang memungkinkan aplikasi Elektron diperbarui secara otomatis saat versi baru dilepaskan. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel adalah kerangka sumber terbuka yang memungkinkan aplikasi Elektron diperbarui secara otomatis saat versi baru dilepaskan. Lihat [autoUpdater](api/auto-updater.md) API untuk info tentang memulai dengan Tupai.
 
 ### userland
 
@@ -98,10 +98,10 @@ Elektron membangun V8 sebagai bagian dari Chromium dan kemudian mengarahkan Node
 
 Nomor versi V8 selalu sesuai dengan yang dimiliki Google Chrome . Chrome 59 menyertakan V8 5,9, Chrome 58 menyertakan V8 5.8, dll.
 
-- [developers.google.com/v8](https://developers.google.com/v8)
+- [developers.Google.com/V8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
-- [docs/development/v8-development.md](development/v8-development.md)
+- [docs / development / v8-development.md](development/v8-development.md)
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. Ini tidak memiliki izin yang sama seperti halaman web Anda dan semua interaksi antara aplikasi dan konten tertanam Anda akan menjadi asinkron. Ini membuat aplikasi Anda tetap aman dari konten yang disematkan.
+` webview ` digunakan untuk menyematkan konten 'tamu' (seperti halaman web eksternal) di aplikasi Elektron Anda. hal ini sama dengan ` iframe `, tapi berbeda pada masing-masing Webview yang berjalan dalam proses terpisah. Ini tidak memiliki izin yang sama seperti halaman web Anda dan semua interaksi antara aplikasi dan konten tertanam Anda akan menjadi asinkron. Ini membuat aplikasi Anda tetap aman dari konten yang disematkan.
