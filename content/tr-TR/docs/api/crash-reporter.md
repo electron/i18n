@@ -1,10 +1,10 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Çökme raporlarını uzak sunucuya gönderin.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Süreç: [Ana](../glossary.md#main-process), [Oluşturucu](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+Aşağıda bir çökme durumunun otomatik olarak uzak sunucuya gönderilmesinin bir örneği var:
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -12,17 +12,17 @@ const {crashReporter} = require('electron')
 crashReporter.start({
   productName: 'YourName',
   companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
+  submitURL: 'https://web-adresiniz.com/gonderilecek-adres',
   uploadToServer: true
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağıdaki projeleri kullanabilirsiniz:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
 ## Metodlar
 
