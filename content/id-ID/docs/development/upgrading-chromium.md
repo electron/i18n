@@ -24,15 +24,15 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
   - jalankan `$ ./script/perbarui` 
     - Siapkan teh - ini bisa berlangsung 30m atau lebih.
     - Mungkin akan gagal menerapkan patch.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` calls: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
-  - `$ ./script/build`
+3. Perbaiki berkas`*patch` di folder` patches /` dan `patches-mas/`.
+4. (Opsional) `script/perbarui` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` panggilan: `$ ./script/menerapkan-tambalan` 
+  - Ada skrip kedua, `script/patch.py` yang mungkin berguna. Baca `./script/patch.py ​​-h` untuk informasi lebih lanjut.
+5. Jalankan build ketika semua patch bisa diaplikasikan tanpa kesalahan 
+  - `$ ./script/membangun`
   - Jika beberapa tambalan tidak lagi kompatibel dengan kode Chromium, perbaiki kesalahan kompilasi.
-6. Saat build berhasil, buat a `dist` for Electron 
-  - `$ ./script/create-dist  --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
+6. Saat build berhasil, buat a `dist` untuk Elektron 
+  - `$ ./script/membuat-dist --tidak ada-zip` 
+    - Ini akan membuat folder `dist/main` di akar repo libcc. Anda akan membutuhkan ini untuk membangun Elektron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
 
 ## Perbarui kode Elektron
