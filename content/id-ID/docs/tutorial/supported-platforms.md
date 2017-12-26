@@ -1,23 +1,25 @@
 # Platform yang Didukung
 
-Following platforms are supported by Electron:
+Platform berikut didukung oleh Electron :
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+Hanya binari 64bit yang disediakan untuk macOS , dan versi maco minimum yang didukung adalah macos 10.9.
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Windows 7 dan yang lebih baru didukung, sistem operasi yang lama tidak didukung (dan tidak berfungsi).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
+Kedua  ia32 </ 0> ( <code> x86 </ 0> ) dan <code> x64 </ 0> ( <code> amd64 </ 0> ) binari yang disediakan untuk Windows . Harap dicatat, versi Windows <code> ARM </ 0> tidak didukung untuk saat ini.</p>
 
-### Linux
+<h3>Linux</h3>
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `arm` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+<p>Prebuilt yang <code> ia32 </ 0> ( <code> i686 </ 0> ) dan <code> x64 </ 0> ( <code> amd64 </ 0> ) binari dari elektron yang dibangun pada Ubuntu 12.04, yang < 0> lengan </ 0> biner dibangun melawan ARM v7 dengan ABI yang terapung keras dan NEON untuk Debian Wheezy.</p>
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
+<p>Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 12.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :</p>
 
-* Ubuntu 12.04 and later
-* Fedora 21
-* Debian 8
+<ul>
+<li>Ubuntu 12.04 dan yang lebih baru</li>
+<li>Fedora 21</li>
+<li>Debian 8</li>
+</ul>
