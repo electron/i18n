@@ -1,14 +1,14 @@
 # Anwendungen aktualisieren
 
-Electron-Apps können auf verschiedenste Weise aktualisiert werden. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Electron-Apps können auf verschiedenste Weise aktualisiert werden. Der einfachste und offiziell unterstütze Weg ist, das eingebaute [Squirrel](https://github.com/Squirrel)-Framework und Electrons [autoUpdater](../api/auto-updater.md)-Modul zu nutzen.
 
-## Deploying an update server
+## Einen Update-Server aufsetzen
 
-To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
+Zuallererst benötigen Sie einen Server, den das [autoUpdater](../api/auto-updater.md)-Modul nutzen kann, um neue Updates zu beziehen.
 
-Depending on your needs, you can choose from one of these:
+Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps. Can be deployed for free on [Now](https://zeit.co/now) (using a single command), pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
+- [Hazel](https://github.com/zeit/hazel) – Update-Server für private Apps oder Open-Source-Apps. Can be deployed for free on [Now](https://zeit.co/now) (using a single command), pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
 - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
 - [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
