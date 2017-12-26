@@ -26,7 +26,7 @@ Input Method Editor. Эта программа позволяет пользов
 
 ### IPC
 
-IPC стенды для взаимодействия между процессами. Electron использует IPC для отправки сериализованных сообщений JSON, между [основными](#main-process) и [визуализационными](#renderer-process) процессами.
+IPC стенды для взаимодействия между процессами. Electron использует IPC для отправки сериализованных сообщений JSON, между [main](#main-process) и [renderer](#renderer-process) процессами.
 
 ### libchromiumcontent
 
@@ -36,7 +36,7 @@ IPC стенды для взаимодействия между процесса
 
 ### Основной (Main) процесс
 
-Основной процесс, обычно в файл с именем `main.js`, является точкой входа для каждого приложения Electron. Он контролирует жизнь приложения, от его открытия до закрытия. Также управляет нативными элементами, такими как Menu, Menu Bar, Dock, Tray, и др. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Основной процесс, обычно в файл с именем `main.js`, является точкой входа для каждого приложения Electron. Он контролирует жизнь приложения, от его открытия до закрытия. Также управляет нативными элементами, такими как Menu, Menu Bar, Dock, Tray, и др. Основной процесс отвечает за создание каждого нового процесса в приложение. Полностью встроено Node API.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
