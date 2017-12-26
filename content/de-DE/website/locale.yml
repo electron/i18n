@@ -36,8 +36,8 @@ community:
   meetup_notice: Um ein Treffen hinzuzufügen, bearbeiten Sie die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstellen einen Pull-Request</a>.
 electron_is_easy:
   title: Es ist einfacher als Sie denken
-  description: Wenn du eine Website entwickeln kannst, kannst du auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework, um native Desktop-Anwendungen mit Web-Technologien wie JavaScript, HTML und CSS zu erstellen. Wir kümmern uns um die kniffligen Dinge der App, damit Sie sich auf den Kern Ihrer Anwendung konzentrieren können.
-  video_link: Schaue das Video an
+  description: Sind Sie in der Lage eine Website zu erstellen? Dann können Sie auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework mit dem Sie Webtechnologien wie JavaScript, HTML und CSS nutzen um native Desktop-Applikationen zu erstellen. Wir kümmern uns um die kniffligen Dinge - und Sie um den Kern der Anwendung.
+  video_link: Das Video anschauen
 web_technologies:
   title: Web-Technologien
   description: Electron verwendet Chromium und Node.js, so dass Sie Ihre App mit HTML, CSS und JavaScript entwickeln können.
