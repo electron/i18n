@@ -89,26 +89,27 @@ app.on('ready', createWindow)
 
 // Verlassen, wenn alle Fenster geschlossen sind.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // Unter macOS ist es üblich für Apps und ihre Menu Bar
+  // aktiv zu bleiben bis der Nutzer explizit mit Cmd + Q die App beendet.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // Unter macOS ist es üblich ein neues Fenster der App zu erstellen, wenn
+  // das Dock Icon angeklickt wird und keine anderen Fenster offen sind.
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// In dieser Datei können Sie den Rest des App-spezifischen 
+// Hauptprozess-Codes einbinden. Sie können den Code auch 
+// auf mehrere Dateien aufteilen und diese hier einbinden.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 
 ```html
 <!DOCTYPE html>
@@ -126,9 +127,9 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## Ihre App ausführen
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Sobald Sie Ihre anfänglichen `main.js`, `index.html`, und `package.json`-Dateien erstellt haben, möchten Sie wahrscheinlich versuchen Ihre App lokal zu testen, um zu schauen ob sie wie geplant funktioniert.
 
 ### `electron`
 
