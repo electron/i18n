@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-Das Format der `package.json`-Datei ist genau das Gleiche wie das des Node-Moduls und das Script, welches durch das `main`-Feld angegeben wird ist das Einstiegsskript für Ihre App. Dieses führt den Hauptprotess aus. An example of your `package.json` might look like this:
+Das Format der `package.json`-Datei ist genau das Gleiche wie das des Node-Moduls und das Script, welches durch das `main`-Feld angegeben wird ist das Einstiegsskript für Ihre App. Dieses führt den Hauptprotess aus. Ihre `package.json`-Datei könnte zum Beispiel so aussehen:
 
 ```json
 {
@@ -45,24 +45,25 @@ Das Format der `package.json`-Datei ist genau das Gleiche wie das des Node-Modul
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Bemerkung**: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron versuchen eine `index.js`-Datei zu laden.
 
-The `main.js` should create windows and handle system events, a typical example being:
+Das `main.js`-Skript sollte typischerweise Fenster erschaffen und Systemevents behandeln:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Behalten Sie eine globale Referenz auf das Fensterobjekt. 
+// Wenn Sie dies nicht tun, wird das Fenster automatisch geschlossen, 
+// sobald das Objekt dem JavaScript-Garbagekollektor übergeben wird.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Erstellen des Browser-Fensters.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // und Laden der index.html der App.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
