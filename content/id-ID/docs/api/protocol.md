@@ -14,21 +14,23 @@ const {app, protocol} = require ('electron') const path = require ('path') app.o
 
 ## Metode
 
-The `protocol` module has the following methods:
+Modul ` protocol ` memiliki beberapa metode berikut:
 
-### `protocol.registerStandardSchemes(schemes[, options])`
+### `protocol.registerStandardSchemes (skema [, pilihan])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* ` skema ` String [] - Skema kustom untuk didaftarkan sebagai skema standar.
 * `pilihan` Objek (opsional) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * ` aman </ 0> Boolean (opsional) - <code> true </ 0> untuk mendaftarkan skema ini sebagai aman Default <code> false </ 0>.</li>
+</ul></li>
+</ul>
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
-
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
-
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
-
-```html
+<p>A standard scheme adheres to what RFC 3986 calls <a href="https://tools.ietf.org/html/rfc3986#section-3">generic URI
+syntax</a>. For example <code>http` and `https` are standard schemes, while `file` is not.</p> 
+    Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+    
+    For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+    
+    ```html
 <body>
   <img src='test.png'>
 </body>
@@ -52,7 +54,6 @@ app.on('ready', () => {
 ### `protocol.registerServiceWorkerSchemes(schemes)`
 
 * `schemes` String[] - Custom schemes to be registered to handle service workers.
-
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * ` skema </ 0>  String</li>
