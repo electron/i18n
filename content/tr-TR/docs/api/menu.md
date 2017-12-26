@@ -188,8 +188,6 @@ if (process.platform === 'darwin') {
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
- 
-Context | Request Context
 ```
 
 ### İşleme süreci
@@ -222,9 +220,9 @@ macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahipt
 
 MacOS'da, `Services` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `role` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
 
-* `window`
-* `help`
-* `services`
+* `pencere`
+* `yardım`
+* `hizmetler`
 
 ### Standart Menü Öğesi İşlemleri
 
@@ -252,7 +250,7 @@ Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni 
 
 ### Örnekler
 
-Template:
+Şablonlar:
 
 ```javascript
 [
@@ -264,7 +262,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- 1
     - 2
@@ -273,7 +271,7 @@ Menu:
     - 5
     
 
-Template:
+Şablonlar:
 
 ```javascript
 [
@@ -286,7 +284,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- ---
     - a
