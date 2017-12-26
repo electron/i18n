@@ -115,10 +115,10 @@ Mengembalikan ` gambar asli </ 0></p>
 let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(gambar)
 `</pre> 
- ### `nativeImage.createFromBuffer(buffer[, options])`
+ ### `nativeImage.createFromBuffer(buffer[, pilihan])`
  
- * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
- * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+ * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+ * `pilihan`Objek (opsional)  *` width ` Integer (opsional) - Diperlukan untuk buffer bitmap. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
  
  Mengembalikan ` gambar asli </ 0></p>
 
