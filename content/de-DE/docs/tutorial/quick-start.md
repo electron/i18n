@@ -16,9 +16,9 @@ In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebu
 
 ### Unterschiede zwischen Hauptprozess und Renderer-Prozess
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Der Hauptprozess erschafft Webseiten durch die Verwendung von Instanzen der Klasse `BrowserWindow`. Jede dieser `BrowserWindow`-Instanzen lässt die Webseite in ihrem eigenen Renderer-Prozess laufen. Wird eine Instanz von `BrowserWindow` zerstört, so wird auch der zugehörige Renderer-Prozess beendet.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Der Hauptprozess verwaltet alle Webseiten und die zugehörigen Renderer-Prozesse. Jeder Renderer-Prozess ist abgekapselt und kümmert sich nur um die Webseite die von ihm ausgeführt wird.
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
