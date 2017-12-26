@@ -108,11 +108,11 @@ Obwohl wir uns bemüht haben `asar`-Archive in der Node API soweit es geht als V
 
 Die Archive können nicht modifiziert werden, sodass alle Node APIs die Dateien modifizieren können, nicht mit `asar`-Archiven funktionieren.
 
-### Festlegen von Arbeitspfaden innerhalb von Archiven nicht möglich
+### Festlegen von Arbeitsverzeichnissen innerhalb von Archiven nicht möglich
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Trotz dessen, dass `asar`-Archive als Verzeichnisse behandelt werden, existieren diese nicht als tatsächlichen Verzeichnis im Dateisystem. Deshalb kann das Arbeitsverzeichnis niemals auf Verzeichnisse innerhalb eines `asar`-Archives festgelegt werden. Das Übergeben als `cwd`-Option einiger APIs wird ebenfalls Fehler hervorbringen.
 
-### Extra Unpacking on Some APIs
+### Zusätzliches Auspacken einiger APIs
 
 Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
 
