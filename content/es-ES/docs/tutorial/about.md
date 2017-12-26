@@ -34,21 +34,21 @@ El proceso de actualización de la versión se detalla explícitamente en nuestr
 
 El soporte a largo plazo de versiones anteriores de Electron no existe actualmente. Si su versión actual de Electron trabaja para usted, usted puede permanecer en él por como le gustaría. Si desea utilizar nuevas funciones a medida que ingresan, debe actualizar a una versión más nueva.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Llegó una actualización importante con la versión `v1.0.0`. Si aún no está utilizando esta versión, debería [ leer más acerca de los `v1.0.0`cambios](https://electronjs.org/blog/electron-1-0).
 
-## Core Philosophy
+## Filosofía inicial
 
 Para mantener la Electron pequeña (tamaño del fichero) y sostenible (la propagación de las dependencias y APIs) el proyecto limita el alcance del proyecto base.
 
 Por ejemplo, el Electron utiliza sólo la biblioteca de renderizado de cromo en lugar de cromo. Esto facilita actualizar cromo pero también significa encontraron algunas características del navegador en Google Chrome no existe en la Electron.
 
-Nuevas características añadidas a la Electron principalmente deben ser API nativas. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Nuevas características añadidas a la Electron principalmente deben ser API nativas. Si una característica puede ser su propio módulo Node.js, probablemente debería serlo. Ver las [herramientas electrónicas construidas por la comunidad](https://electronjs.org/community).
 
 ## Histórico
 
-A continuación son hitos en la historia del Electron.
+A continuación hay hitos en la historia de Electron.
 
-| :calendar:      | :tada:                                                                                                              |
+| :calendario:    | :tada:                                                                                                              |
 | --------------- | ------------------------------------------------------------------------------------------------------------------- |
 | **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
 | **May 2014**    | [Atom Shell is open sourced](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                          |
