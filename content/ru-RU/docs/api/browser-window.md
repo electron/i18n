@@ -91,10 +91,10 @@ child.once('ready-to-show', () = > {
 
 [API видимости страниц](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) работает следующим образом:
 
-* На всех платформах, состояние видимости отслеживает скрыто/минимизировано окно или нет.
-* Кроме того, на macOS, состояние видимости также отслеживает состояние перекрытия окна. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* На всех платформах, состояние видимости отслеживает скрыто/уменьшено окно или нет.
+* Кроме того, на macOS, состояние видимости также отслеживает состояние перекрытия окна. Если окно перекрыто (т.е. полностью покрыто) другим окном, состояние видимости будет `hidden`. На других платформах, состояние видимости будет `hidden`, только когда окно уменьшено или явно скрыто, при помощи `win.hide()`.
+* Если `BrowserWindow` создано с `show: false`, первоначальное состояние видимости будет `visible`, несмотря на фактически скрытое окно.
+* Если `backgroundThrottling` отключено, состояние видимости останется `visible`, даже если окно уменьшено, закрыто или скрыто.
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
