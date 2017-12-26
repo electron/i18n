@@ -16,11 +16,11 @@ win.show()
 
 ### Alternativas no macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+No macOS 10.9 Mavericks ou superior, existe uma alternativa para definir uma janela sem 'chrome'. Ao invés de definir `frame` como `false`, o que desabilita tanto a barra do título quanto os controles de janela, você pode querer esconder a barra de título e o conteúdo ocupar o tamanho completo da janela, ainda preservando os controles ("semáforo") para ações de janela padrão. Você pode fazê-lo, especificando a opção `titleBarStyle`:
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Resultando em uma janela com a barra do título escondida e o conteúdo ocupando o tamanho inteiro da janela, no entanto, a janela ainda possuirá os controles no canto superior esquerdo.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+Resulta em uma barra de título escondida com uma aparência alternativa, onde os botões de controle da janela estão um pouco mais dentro do limite da janela.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, miniaturize, and fullscreen buttons that display when hovering in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Utiliza botões customizados para fechar, minimizar e colocar tela cheia que aparecem quando passar o mouse no canto superior da janela. Esses botões customizados evitam erros com eventos do mouse que ocorrem com os botões da barra de ferramentas padrão. Essa opção é apenas aplicável para frameless windows.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -48,7 +48,7 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## Janela transparente
 
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
