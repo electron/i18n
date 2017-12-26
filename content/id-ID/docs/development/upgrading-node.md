@@ -43,7 +43,7 @@ We need to generate a patch file from each patch applied to V8.
 
 1. Get a copy of Electron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
+2. Run `script/perbarui` to get the latest libcc 
   - This will be time-consuming
 3. Remove our copies of the old Node v8 patches 
   - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
