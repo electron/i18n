@@ -77,9 +77,9 @@ app.on('ready', () => {
 
 ## Ich kann jQuery/RequireJS/Meteor/AngularJS in Electron nicht verwenden.
 
-Wegen der Node.js Integration in Electron gibt es einige zusätzlich eingefügte Symbole im DOM wie `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Wegen der Node.js Integration in Electron gibt es einige zusätzlich eingefügte Symbole im DOM wie `module`, `exports`, `require`. Das verursacht Probleme für einige Bibliotheken, da diese versuchen, Symbole mit den gleichen Namen einzufügen.
 
-To solve this, you can turn off node integration in Electron:
+Um dies zu beheben können Sie die Node-Integration in Electron deaktivieren:
 
 ```javascript
 // Im Hauptprozess.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Wenn Sie sich jedoch die Möglichkeit, Node.js und Electron APIs zu nutzen, offen halten möchten, müssen Sie die Symbole auf der Seite umbenennen, bevor Sie andere Bibliotheken einbinden:
 
 ```html
 <head>
@@ -108,7 +108,7 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Während Sie das in Electron integrierte Modul nutzen, könnten Sie auf einen Fehler wie diesen stoßen:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
