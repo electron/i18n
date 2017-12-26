@@ -8,9 +8,9 @@
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+支援 Windows 7 及其後的版本，更舊的作業系統不受支援 (也無法運作)。
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
+同時提供 `ia32` (`x86`) 和 `x64` (`amd64`) 兩種二進位檔。請注意，現在還不支援 `ARM` 版本的 Windows。
 
 ### Linux
 
