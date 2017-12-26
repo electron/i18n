@@ -32,50 +32,50 @@ Kembali `Sesi` - Contoh sesi dari string `partisi`. Bila sudah ada ` Sesi ` deng
 
 Jika ` partisi ` dimulai dengan ` bertahan: `, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di app dengan partisi ` ` yang sama. ` awist: ` awalan, halaman akan menggunakan sesi in-memory. Jika ` partisi ` adalah kosong maka sesi default aplikasi akan dikembalikan.
 
-Untuk membuat Sesi <0 Sesi </code> dengan ` pilihan </ 0>, Anda harus memastikan <code> Sesi ` dengan ` partisi ` belum pernah digunakan sebelumnya. There is no way to change the `options` of an existing `Session` object.
+Untuk membuat Sesi <0 Sesi </code> dengan ` pilihan </ 0>, Anda harus memastikan <code> Sesi ` dengan ` partisi ` belum pernah digunakan sebelumnya. Tidak ada cara untuk mengubah opsi ` ` dari objek ` Sesi ` yang ada.
 
-## properti
+## Properti
 
-The `session` module has the following properties:
+Modul ` sesi ` memiliki properti berikut:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Objek ` Sesi `, objek sesi default dari aplikasi.
 
-## Class: Session
+## Kelas: Sesi
 
-> Get and set properties of a session.
+> Dapatkan dan atur properti dari sebuah sesi.
 
-Proses:  Utama </ 0></p> 
+Proses: [ Utama ](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Anda dapat membuat objek ` Sesi ` di modul ` sesi `:
 
 ```javascript
-const {session} = require('electron')
-const ses = session.fromPartition('persist:name')
-console.log(ses.getUserAgent())
+const {session} = require ('electron')
+const ses = session.fromPartition ('bertahan: nama')
+console.log (ses.getUserAgent ())
 ```
 
 ### Instance Events
 
-The following events are available on instances of `Session`:
+Peristiwa berikut tersedia pada contoh ` Sesi `:
 
-#### Event: 'will-download'
+#### Acara: 'akan-download'
 
-* ` event </ 0>  Acara</li>
-<li><code>item` [DownloadItem](download-item.md)
-* ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
-</ul>
+* ` event ` Acara
+* ` item ` [ DownloadItem ](download-item.md)
+* ` webContents ` [ WebContents ](web-contents.md)
 
-<p>Emitted ketika Elektron akan mendownload <code>item` di `webContents`.</p> 
-  Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
-  
-  ```javascript
-const {session} = require('electron')
-session.defaultSession.on('will-download', (event, item, webContents) => {
-  event.preventDefault()
-  require('request')(item.getURL(), (data) => {
-    require('fs').writeFileSync('/somewhere', data)
+Emitted ketika Elektron akan mendownload `item` di `webContents`.
+
+Memanggil ` event.preventDefault () ` akan membatalkan unduhan dan ` item ` tidak akan tersedia dari tikungan berikutnya prosesnya.
+
+```javascript
+const {session} = require ('electron')
+session.defaultSession.on ('akan-download', (event, item, webContents) = & gt; {
+  event.preventDefault ()
+  membutuhkan ('permintaan') (item.getURL (), (data) = & gt; {
+    membutuhkan ('fs'). writeFileSync ('/ somewhere', data)
   })
 })
 ```
