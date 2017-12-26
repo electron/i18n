@@ -1,23 +1,26 @@
-## Class: TouchBarLabel
+## Kelas: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Buat label di bilah sentuh untuk aplikasi macOS asli
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### ` TouchBarLabel baru (pilihan) </ 0>  <em> Eksperimental </ 1></h3>
 
-* `pilihan` Obyek 
-  * `label` String (optional) - Text to display.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+<ul>
+<li><code>pilihan` Obyek 
 
-### Instance Properties
+* ` label </ 0>  String (opsional) - Teks untuk ditampilkan.</li>
+<li><code> textColor </ 0>  String (opsional) - Hex warna teks, yaitu <code> #ABCDEF </ 0> .</li>
+</ul></li>
+</ul>
 
-The following properties are available on instances of `TouchBarLabel`:
+<h3>Instance Properties</h3>
 
-#### `touchBarLabel.label`
+<p>Properti berikut tersedia pada contoh <code> TouchBarLabel </ 0> :</p>
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+<h4><code>sentuhBarLabel.label`</h4> 
+  A ` String </ 0> yang mewakili teks label saat ini. Mengubah nilai ini segera memperbarui label di panel sentuh.</p>
 
-#### `touchBarLabel.textColor`
-
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+<h4><code>sentuhBarLabel.textColor`</h4> 
+  
+  Sebuah  String </ 0> kode hex mewakili warna teks label saat ini. Mengubah nilai ini segera memperbarui label di panel sentuh.</p>
