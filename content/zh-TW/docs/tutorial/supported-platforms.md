@@ -4,7 +4,7 @@
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+只提供 64 位元的 macOS 二進位檔案，支援的最低 macOS 版本為 10.9。
 
 ### Windows
 
