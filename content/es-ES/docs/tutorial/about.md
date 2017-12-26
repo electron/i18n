@@ -32,7 +32,7 @@ El proceso de actualización de la versión se detalla explícitamente en nuestr
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. Si su versión actual de Electron trabaja para usted, usted puede permanecer en él por como le gustaría. If you want to make use of new features as they come in you should upgrade to a newer version.
+El soporte a largo plazo de versiones anteriores de Electron no existe actualmente. Si su versión actual de Electron trabaja para usted, usted puede permanecer en él por como le gustaría. Si desea utilizar nuevas funciones a medida que ingresan, debe actualizar a una versión más nueva.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
