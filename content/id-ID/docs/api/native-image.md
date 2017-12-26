@@ -57,9 +57,9 @@ Saat ` PNG </ 0> dan <code> JPEG </ 0> format gambar yang didukung. <code> PNG <
 `</pre> 
 
 ```javascript
-const {Tray} = require('electron')
-let appIcon = new Tray('/Users/somebody/images/icon.png')
-console.log(appIcon)
+const {Tray} = membutuhkan ('elektron')
+biarkan appIcon = Baki baru ('/Users/someone /images / icon.png')
+console.log (appIcon)
 ```
 
 Menyusul sufiks DPI juga didukung:
@@ -101,19 +101,19 @@ Mengembalikan ` gambar asli </ 0></p>
 
 <p>Membuat instance < ID > NativeImage </ 0> kosong .</p>
 
-<h3><code>nativeImage.createFromPath(path)`</h3> 
+<h3><code>nativeImage.createFromPath(jalur)`</h3> 
 
 * ` path </ 0>  String</li>
 </ul>
 
 <p>Mengembalikan <code> gambar asli </ 0></p>
 
-<p>Creates a new <code>NativeImage` instance from a file located at `path`. Metode ini mengembalikan gambar kosong jika ` path </ 0> tidak ada, tidak bisa dibaca, atau bukan gambar yang valid.</p>
+<p>Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika ` path </ 0> tidak ada, tidak bisa dibaca, atau bukan gambar yang valid.</p>
 
-<pre><code class="javascript">const nativeImage = require('electron').nativeImage
+<pre><code class="javascript">const nativeImage = require('elektron').nativeImage
 
 let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
-console.log(image)
+console.log(gambar)
 `</pre> 
  ### `nativeImage.createFromBuffer(buffer[, options])`
  
