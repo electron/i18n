@@ -1,14 +1,14 @@
-# JendelaBrowser
+# BrowserWindow
 
-> Membuat dan mengendalikan jendela browser.
+> Create and control browser windows.
 
-Proses: [Utama](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ```javascript
-// Dalam proses utamanya.
-const {Jendela Browser} = memerlukan ('electron')
+// In the main process.
+const {BrowserWindow} = require('electron')
 
-// Atau gunakan `remote` dari proses renderer.
+// Or use `remote` from the renderer process.
 // const {jendela Browser} = memerlukan ('electron').terpencil biarkan menang=jendela baru Browser ( {lebar: 800, tinggi: 600} ) menang.di ('tutup', () = & gt; {menang = batal}) //beban sebuah remote URL win.loadURL ('https://github.com') // Atau muat file HTML lokal win.loadURL (`file: // $ {__ dirname} / app / index.html`)
 ```
 
@@ -187,30 +187,25 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. Hal ini juga mempengaruhi \[API Visibilitas Laman\]\[#page-visibility\]. Default ke ` true </ 0> .</li>
 <li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0> . Lihat
  tutorial rendering <a href="../tutorial/offscreen-rendering.md"> offscreen </ 0> untuk lebih jelasnya.</li>
-<li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload </ 0> berjalan masih akan memiliki akses penuh ke jendela <code> document </ 0> dan <code> window </ 0> namun akan menggunakan set sendiri JavaScript builtins ( <code> Array </ 0> , <code> Objek </ 0> , <code> JSON </ 0> , dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron  API hanya akan tersedia di
- <code> preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
+<li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload ` berjalan masih akan memiliki akses penuh ke jendela ` document `dan` window` namun akan menggunakan set sendiri JavaScript builtins ( `Array`, `Objek`, `JSON`, dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron API hanya akan tersedia di ` preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
 Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol. <strong> Catatan: </ 0> Ini pilihan saat ini eksperimental dan dapat berubah atau dihapus di masa Elektron rilis.</li>
 <li><code> nativeWindowOpen </ 0>  Boolean (opsional) - Apakah akan menggunakan native
  <code> window.open () </ 0> . Default ke <code> false </ 0> .  <strong> Catatan: </ 1> Ini pilihan saat eksperimental.</li>
 <li><code> webviewTag </ 0>  Boolean (opsional) - Apakah untuk mengaktifkan <a href="webview-tag.md"> <code><webview>` tag </ 1> . Default untuk nilai ` nodeIntegration ` option . ** Catatan: </ 0> The ` preload </ 1> Script dikonfigurasi untuk <code><webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan <2 > tag dengan script ` preload </ 1> yang mungkin berbahaya 
-. Anda dapat menggunakan <code> akan melampirkan tampilan web </ 0>  acara di <a href="web-contents.md"> webContents </ 1> 
-untuk mengupas dengan <code> preload </ 0> naskah dan untuk memvalidasi atau mengubah
- <code><webview>` 's pengaturan awal</li> </ul></li> </ul></li> </ul> 
+. Anda dapat menggunakan <code>akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.</li> </ul></li> </ul></li> </ul> 
         
-        When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds </ 0> / <code> setSize </ 0> atau ke konstruktor <code> BrowserWindow </ 0> .</p>
-
-<p>Kemungkinan nilai dan perilaku dari <code> jenis </ 0>  option yang tergantung platform. Nilai yang mungkin adalah:</p>
+        When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
+        
+        Kemungkinan nilai dan perilaku dari ` jenis </ 0>  option yang tergantung platform. Nilai yang mungkin adalah:</p>
 
 <ul>
-<li>Di Linux, jenis yang mungkin adalah <code> desktop </ 0> , <code> dermaga </ 0> , <code> toolbar </ 0> , <code> splash </ 0> ,
- <code> notifikasi </ 0> .</li>
-<li>Di macos , jenis yang mungkin ada <code>Desktop`, `bertekstur`. 
+<li>Di Linux, jenis yang mungkin adalah <code>desktop`, `dermaga`, `toolbar`, `splash`, `notifikasi`.</li> 
         
-        * Tipe ` bertekstur </ 0> menambahkan tampilan gradien logam ( <code> NSTexturedBackgroundWindowMask </ 0> ).</li>
-<li>Tipe <code> desktop </ 0> menempatkan jendela pada tingkat jendela latar belakang desktop ( <code> kCGDesktopWindowLevel - 1 </ 0> ). Perhatikan bahwa jendela desktop tidak akan menerima acara fokus, keyboard atau mouse, namun Anda dapat menggunakan <code> globalShortcut </ 0> untuk menerima masukan secara hemat.</li>
-</ul></li>
-<li>Pada Windows , jenis yang mungkin adalah <code> toolbar </ 0> .</li>
+        * Di macos , jenis yang mungkin ada `Desktop`, `bertekstur`. 
+          * Tipe ` bertekstur </ 0> menambahkan tampilan gradien logam ( <code> NSTexturedBackgroundWindowMask </ 0> ).</li>
+<li>Tipe <code> desktop </ 0> menempatkan jendela pada tingkat jendela latar belakang desktop ( <code> kCGDesktopWindowLevel - 1 </ 0> ). Perhatikan bahwa jendela desktop tidak akan menerima acara fokus, keyboard atau mouse, namun Anda dapat menggunakan <code> globalShortcut ` untuk menerima masukan secara hemat.
+        * Pada Windows , jenis yang mungkin adalah ` toolbar </ 0> .</li>
 </ul>
 
 <h3>Instance Events</h3>
