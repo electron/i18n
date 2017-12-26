@@ -133,15 +133,15 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高级提示
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+默认的构建配置针对的是主流的桌面 Linux 发行版。若要为特定的发行版或设备构建，以下信息可能会对您有所帮助。
 
 ### 本地编译 `libchromiumcontent`
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+若要避免使用 ` libchromiumcontent` 的预生成二进制文件, 可以在本地构建 `libchromiumcontent`。 为此, 请按照下列步骤操作:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+1. 安装 [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+2. 安装 [其他生成依赖项](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+3. 获取(fetch) git 子模块(submodules)：
 
 ```sh
 $ git submodule update --init --recursive
