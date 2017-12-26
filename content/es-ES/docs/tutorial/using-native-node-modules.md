@@ -44,23 +44,23 @@ instalar npm --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### Construcción manual para Electron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Si usted es un desarrollador que está desarrollando un módulo nativo y desea probarlo contra Electron, es posible que desee reconstruir el módulo para Electron manualmente. Puedes usar `node-gyp` directamente para construir para Electron:
 
 ```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+El `HOME=~/.electron-gyp` cambia dónde encontrar los encabezados de desarrollo. El `--target=1.2.3` es la versión de Electron. El `--dist-url=...` especifica dónde descargar los encabezados. El `--arch=x64` dice que el módulo está diseñado para el sistema de 64 bits.
 
 ## Problemas
 
-If you installed a native module and found it was not working, you need to check following things:
+Si instaló un módulo nativo y descubrió que no estaba funcionando, debe verificar las siguientes cosas:
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
+* La arquitectura del módulo debe coincidir con la arquitectura de Electron (ia32 o x64).
+* Después de actualizar Electron, generalmente necesita reconstruir los módulos.
 * When in doubt, run `electron-rebuild` first.
 
 ## Modules that rely on `prebuild`
