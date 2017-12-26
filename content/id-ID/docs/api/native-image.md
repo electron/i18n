@@ -118,11 +118,11 @@ console.log(gambar)
  ### `nativeImage.createFromBuffer(buffer[, pilihan])`
  
  * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
- * `pilihan`Objek (opsional)  *` width ` Integer (opsional) - Diperlukan untuk buffer bitmap. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+ * `pilihan`Objek (opsional)  *` width ` Integer (opsional) - Diperlukan untuk buffer bitmap. *`height` Integer (opsional) - Diperlukan untuk buffer bitmap. *`faktor skala`dua kali lipat (opsional) - Default ke 1.0.
  
  Mengembalikan ` gambar asli </ 0></p>
 
-<p>Creates a new <code>NativeImage` instance from `buffer`.
+<p>Membuat contoh<code>gambar baru` baru dari `penyangga`.
  
  ### `nativeImage.createFromDataURL(dataURL)`
  
