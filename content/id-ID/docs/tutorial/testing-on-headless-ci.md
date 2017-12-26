@@ -1,12 +1,14 @@
 # Testing on Headless CI Systems (Travis CI, Jenkins)
 
-Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will simply fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+Berdasarkan Chromium , Electron mengharuskan penggerak tampilan berfungsi. Jika Chromium tidak dapat menemukan driver display, Elektron akan gagal diluncurkan - dan oleh karena itu tidak menjalankan tes Anda, terlepas dari bagaimana Anda menjalankannya. Menguji Aplikasi berbasis elektron pada Travis, Circle, Jenkins atau sejenisnya Sistem memerlukan sedikit konfigurasi. Intinya, kita perlu menggunakan driver display virtual.
 
 ## Mengkonfigurasi Server Tampilan Virtual
 
-First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Ini adalah framebuffer virtual, menerapkan protokol server tampilan X11 - itu melakukan semua operasi grafis di memori tanpa menunjukkan output layar, itulah yang kita butuhkan.
+Pertama, instal  Xvfb </ 0> . Ini adalah framebuffer virtual, menerapkan protokol server tampilan X11 - itu melakukan semua operasi grafis di memori tanpa menunjukkan output layar, itulah yang kita butuhkan.</p> 
 
-Kemudian, buat layar virtual xvfb dan ekspor variabel lingkungan disebut DISPLAY yang menunjukkan hal itu. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. Pada Windows atau macos, itu akan sederhana tidak melakukan apapun.
+Kemudian, buat layar virtual xvfb dan ekspor variabel lingkungan disebut DISPLAY yang menunjukkan hal itu. Chromium in Electron secara otomatis akan mencari ` $ DISPLAY </ 0> , sehingga tidak diperlukan konfigurasi lebih lanjut dari aplikasi Anda.
+Langkah ini bisa diotomatisasi dengan Paul Betts's
+ <a href="https://github.com/paulcbetts/xvfb-maybe"> xvfb-maybe </a> : Tuliskan perintah pengujian Anda dengan <code> xvfb-maybe ` dan alat kecil akan secara otomatis mengkonfigurasi xvfb, jika dibutuhkan oleh sistem saat ini. Pada Windows atau macos, itu akan sederhana tidak melakukan apapun.
 
 ```sh
 ## Pada Windows atau macos, ini hanya memanggil electron-mocha
