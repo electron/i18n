@@ -1,16 +1,16 @@
-# Planned Breaking API Changes
+# Perubahan API Pelacakan Terencana
 
-The following list includes the APIs that will be removed in Electron 2.0.
+Daftar berikut mencakup API yang akan dihapus di Electron 2.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+Tidak ada jadwal kapan pembebasan ini akan terjadi namun tidak berlaku lagi peringatan akan ditambahkan setidaknya 90 hari sebelumnya.
 
 ## `aplikasi`
 
 ```js
-// Deprecated
-app.getAppMemoryInfo()
-// Replace with
-app.getAppMetrics()
+// Tidak berlaku lagi
+app.getAppMemoryInfo ()
+// Ubah dengan
+app.getAppMetrics ()
 ```
 
 ## `JendelaBrowser`
@@ -36,25 +36,25 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
-clipboard.readRtf()
-// Replace with
-clipboard.readRTF()
+/ Tidak berlaku lagi
+clipboard.readRtf ()
+// Ubah dengan
+clipboard.readRTF ()
 
-// Deprecated
-clipboard.writeRtf()
-// Replace with
-clipboard.writeRTF()
+// Tidak berlaku lagi
+clipboard.writeRtf ()
+// Ubah dengan
+clipboard.writeRTF ()
 
-// Deprecated
-clipboard.readHtml()
-// Replace with
-clipboard.readHTML()
+// Tidak berlaku lagi
+clipboard.readHtml ()
+// Ubah dengan
+clipboard.readHTML ()
 
-// Deprecated
-clipboard.writeHtml()
-// Replace with
-clipboard.writeHTML()
+// Tidak berlaku lagi
+clipboard.writeHtml ()
+// Ubah dengan
+clipboard.writeHTML ()
 ```
 
 ## `kerusakanReporter`
@@ -104,12 +104,12 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `proses`
 
 ```js
-// Deprecated
-process.versions['atom-shell']
-// Replace with
+// Tidak berlaku lagi
+process.versions ['atom-shell']
+// Ubah dengan
 process.versions.electron
 ```
 
@@ -186,15 +186,15 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## URL Node Header
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Deprecated: https://atom.io/download/atom-shell
+Tidak berlaku lagi: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Ganti dengan: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## Aset ARM Duplikat
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
