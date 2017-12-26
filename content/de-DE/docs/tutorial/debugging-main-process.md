@@ -1,10 +1,10 @@
-# Debugging the Main Process
+# Debuggen des Hauptprozesses
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+Die DevTools in einem Electron Browserfenster können nur JavaScript debuggen, das auch in diesem Fenster ausgeführt wird (z.B. die Websites). Um JavaScript zu debuggen, das im Hauptprozess ausgeführt wird, benötigen Sie einen externen Debugger und müssen Electron mit der `--inspect` oder `--inspect-brk` Option starten.
 
-## Command Line Switches
+## Befehlszeilenoptionen
 
-Use one of the following command line switches to enable debugging of the main process:
+Nutzen Sie eine der folgenden Befehlszeilenoptionen um das Debugging des Hauptprozesses zu aktivieren:
 
 ### `--inspect=[port]`
 
