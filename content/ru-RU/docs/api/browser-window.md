@@ -47,7 +47,7 @@ win.once('ready-to-show', () => {
 
 ### Настройка `backgroundColor`
 
-Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, закрывающий фон Вашего приложения:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,7 +60,7 @@ win.loadURL('https://github.com')
 
 ## Родительские и дочерние окна
 
-By using `parent` option, you can create child windows:
+С помощью параметра `parent`, Вы можете создавать дочерние окна:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Окно `child` будет всегда показано поверх окна `top`.
 
 ### Модальные окна
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Модальное окно - дочернее окно, которое отключает родительское окно, чтобы создать модальное окно, Вы должны установить два параметра `parent` и `modal`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
