@@ -1,10 +1,10 @@
-## Class: Tray
+## Sınıf: Tray
 
 > Add icons and context menus to the system's notification area.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dir.
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -60,18 +60,18 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Örnek etkinlikler
+### Örnek Events
 
 The `Tray` module emits the following events:
 
-#### Etkinlik: 'tıkla'
+#### Event: 'click'
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
 Emitted when the tray icon is clicked.
 
@@ -82,7 +82,7 @@ Emitted when the tray icon is clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
 Emitted when the tray icon is right clicked.
 
@@ -93,7 +93,7 @@ Emitted when the tray icon is right clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
 Emitted when the tray icon is double clicked.
 
