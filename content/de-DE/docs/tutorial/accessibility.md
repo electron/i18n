@@ -6,11 +6,11 @@ Allgemein zugängliche Anwendungen zu erstellen ist wichtig, und wir sind glück
 
 Barrierefreiheit betreffend sind Electron-Apps und Websites vergleichbar, da beide letztlich auf HTML basieren. Dessen ungeachtet können Sie mit Electron-Apps keine Online-Ressourcen nutzen um die Barrierefreiheit zu prüfen, weil Ihre App keine URL hat, auf die der Prüfer zugreifen könnte.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+Diese neuen Funktionen beinhalten die benötigten Prüfungstools für Ihre Electron-App. Sie können diese in Spectron Ihren Tests hinzufügen oder sie innerhalb der DevTools von Devtron nutzen. Lesen Sie weiter und erhalten Sie eine Übersicht der Werkzeuge oder werfen Sie einen Blick in die [Barrierefreiheit Dokumentation](https://electronjs.org/docs/tutorial/accessibility) für weitere Informationen.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+In der Testumgebung Spectron können Sie nun jedes Fenster und jeden `<webview>`-Tag in Ihrer App prüfen. Zum Beispiel:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,7 +20,7 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Erfahren Sie mehr über dieses Feature in der [Spectron Dokumentation](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
