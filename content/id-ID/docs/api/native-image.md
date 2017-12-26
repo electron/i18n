@@ -124,15 +124,15 @@ console.log(gambar)
 
 <p>Membuat contoh<code>gambar baru` baru dari `penyangga`.
  
- ### `nativeImage.createFromDataURL(dataURL)`
+ ### `gambar asli.buatdaridataURL(dataURL)`
  
- * `dataURL` String
+ * ` dataURL ` tali
  
  Mengembalikan ` gambar asli </ 0></p>
 
-<p>Creates a new <code>NativeImage` instance from `dataURL`.
+<p>Menciptakan yang baru <code>Gambar Asli` contoh dari `dataURL`.
  
- ## Class: NativeImage
+ ## Kelas: Gambar asli
  
  > Bungkus gambar seperti tray, dock , dan ikon aplikasi.
  
@@ -140,11 +140,11 @@ console.log(gambar)
  
  ### Metode Instance
  
- The following methods are available on instances of the `NativeImage` class:
+ Metode berikut tersedia pada contoh kelas ` Gambar asli`:
  
- #### `image.toPNG([options])`
+ #### `gambar.untukPng([options])`
  
- * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
  Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
  
@@ -156,19 +156,19 @@ console.log(gambar)
  
  #### `image.toBitmap([options])`
  
- * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
  Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
  
  #### `image.toDataURL([options])`
  
- * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
  Returns `String` - The data URL of the image.
  
  #### `image.getBitmap([options])`
  
- * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+ * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
  Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
  
