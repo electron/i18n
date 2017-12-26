@@ -8,7 +8,7 @@ Process: [Main](../glossary.md#main-process)
 // В основном процессе.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Или используйте 'remote' в renderer процессе.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
