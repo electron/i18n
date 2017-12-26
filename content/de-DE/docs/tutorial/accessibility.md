@@ -28,11 +28,11 @@ In Devtron finden Sie einen neuen Tab für Barrierefreiheit. Dieser erlaubt Ihne
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Beide dieser Werkzeuge nutzen die [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) von Google für Chrome. Erfahren Sie mehr über die Richtlinien der Überprüfung der Barrierefreiheit, die diese Bibliothek nutzt, im [Wiki des Repositorys](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+Wenn Ihnen weitere gute Barrierefreiheit-Tools für Electron bekannt sind, fügen sie diese mittels einem Pull-Request zur [Dokumentation für Barrierefreiheit](https://electronjs.org/docs/tutorial/accessibility) hinzu.
 
-## Enabling Accessibility
+## Barrierefreiheit aktivieren
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
