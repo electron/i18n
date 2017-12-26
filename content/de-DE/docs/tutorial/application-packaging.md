@@ -22,13 +22,13 @@ $ asar pack your-app app.asar
 
 ## Verwenden von `asar` Archiven
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+In Electron existieren zwei Arten von APIs: Node APIs bereitgestellt von Node.js und Web APIs bereitgestellt von Chromium. Beide APIs unterstützen das Lesen von Dateien aus `asar`-Archiven.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Mit speziellen Patches in Electron behandeln Node APIs (bspw. `fs.readFile` und `require`) `asar`-Archive als virtuelle Verzeichnisse und die Dateien darin als normale Dateien des Dateisystems.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Beispiel: Angenommen es existiert ein `example.asar`-Archiv unter `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Lesen einer Datei im `asar`-Archiv:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Alle Dateien unterhalb der Archivwurzel auflisten:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Ein Modul aus dem Archiv nutzen:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Sie können außerdem eine Website in einem `asar`-Archiv mit `BrowserWindow` anzeigen lassen:
 
 ```javascript
 const {BrowserWindow} = require('electron')
