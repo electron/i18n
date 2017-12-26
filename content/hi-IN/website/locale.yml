@@ -40,9 +40,9 @@ electron_is_easy:
   video_link: वीडियो देखें
 web_technologies:
   title: वेब तकनीक
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  description: इलेक्ट्रॉन क्रोमियम और नोड.जेएस का उपयोग करता है ताकि आप एचटीएमएल, सीएसएस और जावास्क्रिप्ट के साथ अपनी एप्प का निर्माण कर सके ।
 open_source:
-  title: Open Source
+  title: मुक्त स्रोत
   description: Electron is an open source project maintained by GitHub and an active community of contributors.
 cross_platform:
   title: Cross Platform
