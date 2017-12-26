@@ -1,16 +1,16 @@
-# Uso de módulos nativos de Node
+# Uso de Módulos Nativos de Node
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Los módulos nativos de Node están respaldados por Electron, pero debido a que es muy probable que Electron use una versión V8 diferente del binario Node instalado en su sistema, deberá especificar manualmente la ubicación de los encabezados de Electron cuando construya módulos nativos.
 
-## How to install native modules
+## ¿Cómo instalar módulos nativos?
 
-Three ways to install native modules:
+Tres formas de instalar módulos nativos:
 
-### Using `npm`
+### Usando `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Al establecer algunas variables del entorno, puede usar `npm` para instalar módulos directamente.
 
-An example of installing all dependencies for Electron:
+Un ejemplo de instalación de todas las dependencias para Electron:
 
 ```sh
 # Electron's version.
