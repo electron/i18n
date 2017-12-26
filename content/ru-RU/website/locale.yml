@@ -16,10 +16,10 @@ docs:
   api_reference: Справочник по API
   advanced: Расширенный
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: Улучшить этот документ
+    version_history: История версий
+    translate: Перевести этот документ
+    view_all_docs: Вся документация на одной странице
 languages:
   choose_language: Выберите язык сайта
   translation_progress: Прогресс перевода
@@ -59,7 +59,7 @@ get_started:
   description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
 explore:
   title: Исследуйте Electron API
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Демо приложение API Electron'а</a> интерактивно демонстрирует наиболее важные функции API Electron'а. Смотрите, что возможно с Electron, на примере простого, и полезные советы для создания Вашего приложения."
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
 quick_start:
