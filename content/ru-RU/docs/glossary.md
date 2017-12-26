@@ -4,7 +4,7 @@
 
 ### ASAR
 
-ASAR это Atom Shell Archive Format. [Asar](https://github.com/electron/asar) это простой архив `tar`-like формата, который содержит в себе все файлы проекта. Electron может работать с файлами в архиве без распаковки оного.
+ASAR это Atom Shell Archive Format. [Asar](https://github.com/electron/asar) это простой архив `tar`-подобного формата, который содержит в себе все файлы проекта. Electron может работать с файлами в архиве без распаковки оного.
 
 ASAR был создан для повышения производительности в среде Windows
 
@@ -22,7 +22,7 @@ Apple Disk Image (DMG) это пакетный формат, который ис
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. Например это позволяет пользователям Латинской клавиатуры для ввода символов китайского, японского, корейского и хинди.
+Input Method Editor. Эта программа позволяет пользователям вводить символы, которые отсутствуют на клавиатуре. Например, это позволяет пользователям Латинской клавиатуры вводить Китайские, Японские, Корейские и Хинди символы.
 
 ### IPC
 
@@ -34,13 +34,13 @@ IPC стенды для взаимодействия между процесса
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### Главный (Main) процесс
+### Основной (Main) процесс
 
-Основной процесс, обычно в файл с именем `main.js`, является точкой входа для каждого приложения Electron. Он контролирует жизнь приложения, от его открытия до закрытия. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Основной процесс, обычно в файл с именем `main.js`, является точкой входа для каждого приложения Electron. Он контролирует жизнь приложения, от его открытия до закрытия. Также управляет нативными элементами, такими как Menu, Menu Bar, Dock, Tray, и др. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-В хром этот процесс называется «процесс браузера». Он переименовывается в электрон, чтобы избежать путаницы с визуализации процессов.
+В хром этот процесс называется «процесс browser». Он переименовывается в Electron, чтобы избежать путаницы с renderer процессами.
 
 См. также: [process](#process), [renderer process](#renderer-process)
 
