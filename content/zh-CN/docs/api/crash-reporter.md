@@ -1,6 +1,6 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> 将崩溃日志提交给远程服务器
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
@@ -22,7 +22,7 @@ crashReporter.start({
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+崩溃日志被保存在本地的应用特有的临时文件夹中。 For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. 在启动崩溃报告器之前，您可以通过调用`app.setPath('temp', 'my/custom/temp')` API来自定义这些临时文件的保存路径
 
 ## 方法
 
