@@ -13,34 +13,34 @@ Al establecer algunas variables del entorno, puede usar `npm` para instalar mód
 Un ejemplo de instalación de todas las dependencias para Electron:
 
 ```sh
-# Electron's version.
-export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
-export npm_config_arch=x64
-export npm_config_target_arch=x64
-# Download headers for Electron.
-export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
-export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
-export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
-HOME=~/.electron-gyp npm install
+# Versión de Electron.
+exportar npm_config_target=1.2.3
+# La arquitectura de Electron, puede ser ia32 o x64.
+exportar npm_config_arch=x64
+exportar npm_config_target_arch=x64
+# Descargar encabezados para Electron.
+exportar npm_config_disturl=https://atom.io/download/electron
+# Informe a node-pre-gyp que estamos construyendo para Electron.
+exportar npm_config_runtime=electron
+# Informe a node-pre-gyp que construya el módulo desde el código fuente.
+exportar npm_config_build_from_source=true
+# Instale todas las dependencias y almacene el caché en ~/.electron-gyp.
+HOME=~/.electron-gyp npm instalar
 ```
 
-### Installing modules and rebuilding for Electron
+### Instalación de módulos y reconstrucción para Electron
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+También puede optar por instalar módulos como otros proyectos de nodo, y luego reconstruir los módulos para Electron con el paquete [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Este módulo puede obtener la versión de Electron y manejar los pasos manuales de descargar encabezados y construir módulos nativos para su aplicación.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+Un ejemplo de cómo instalar `electron-rebuild` y luego reconstruir módulos con él:
 
 ```sh
-npm install --save-dev electron-rebuild
+instalar npm --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# Cada vez que ejecute "npm install", ejecute esto:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# En Windows si tiene problemas, intente:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
