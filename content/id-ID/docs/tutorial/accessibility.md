@@ -38,13 +38,13 @@ Aplikasi elektron menjaga aksesibilitas dinonaktifkan secara default karena alas
 
 ### Di dalam aplikasi
 
-Dengan menggunakan ` app.setAccessibilitySupportEnabled (enabled) </ 0> , Anda dapat mengekspos aksesibilitas beralih ke pengguna dalam preferensi aplikasi. Utilitas utilitas sistem pengguna memiliki prioritas atas pengaturan ini dan akan menggantikannya.</p>
+Dengan menggunakan [`app.setAccessibilitySupportEnabled (enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), Anda dapat mengekspos aksesibilitas beralih ke pengguna dalam preferensi aplikasi. Utilitas utilitas sistem pengguna memiliki prioritas atas pengaturan ini dan akan menggantikannya.
 
-<h3>Teknologi Pendukung</h3>
+### Teknologi Pendukung
 
-<p>Aplikasi elektronika akan memungkinkan aksesibilitas secara otomatis saat mendeteksi teknologi bantu ( Windows ) atau VoiceOver ( macos ). Lihat Chrome <a href="https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology"> dokumentasi aksesibilitas </a> untuk lebih jelasnya.</p>
+Aplikasi elektronika akan memungkinkan aksesibilitas secara otomatis saat mendeteksi teknologi bantu ( Windows ) atau VoiceOver ( macos ). Lihat Chrome [ dokumentasi aksesibilitas ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) untuk lebih jelasnya.
 
-<p>Pada macOS, teknologi bantu pihak ketiga dapat mengalihkan aksesibilitas di dalam aplikasi Elektron dengan menetapkan atribut <code> AXManualAccessibility ` secara terprogram:</p> 
+Pada macOS, teknologi bantu pihak ketiga dapat mengalihkan aksesibilitas di dalam aplikasi Elektron dengan menetapkan atribut ` AXManualAccessibility ` secara terprogram:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
