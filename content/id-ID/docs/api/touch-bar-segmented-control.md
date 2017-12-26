@@ -21,8 +21,8 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
     * `multiple` - Multiple items can be selected at a time.
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `perubahan` Function - Called when the user selects a new segment 
+  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. Bila mode multipel itu akan menjadi item terakhir yang dipilih.
+  * `perubahan` Fungsi - Dipanggil saat pengguna memilih segmen baru 
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 
@@ -40,4 +40,4 @@ A `SegmentedControlSegment[]` array representing the segments in this control. M
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+An `Integer` representing the currently selected segment. Mengubah nilai ini segera memperbarui kontrol di bilah sentuh. Interaksi pengguna dengan panel sentuh akan memperbarui nilai ini secara otomatis.
