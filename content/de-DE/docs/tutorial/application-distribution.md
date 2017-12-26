@@ -1,8 +1,8 @@
 # Veröffentlichung der Anwendung
 
-Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist. Achten Sie darauf, dass das Verzeichnis der vorgefertigten Electron-Dateien in den Beispielen mit `electron/` angegeben ist.
 
-On macOS:
+Unter macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Unter Windows und Linux:
 
 ```text
 electron/resources/app
@@ -20,7 +20,7 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Danach führen Sie `Electron.app` (oder `electron` unter Linux, `electron.exe` unter Windows) aus, und Electron wird als Ihre App starten. Das `electron`-Verzeichnis wird dann Ihre Distribution sein, die Sie an die Endnutzer weitergeben.
 
 ## Packaging Your App into a File
 
@@ -28,14 +28,14 @@ Apart from shipping your app by copying all of its source files, you can also pa
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+Unter macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Unter Windows und Linux:
 
 ```text
 electron/resources/
