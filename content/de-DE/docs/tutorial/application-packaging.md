@@ -1,26 +1,26 @@
 # Anwendungspakete erstellen
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Um [Probleme](https://github.com/joyent/node/issues/6960) mit langen Pfadnamen unter Windows zu entschärfen, `require` etwas zu beschleunigen und ihren Quellcode vor flüchtigen Blicken zu verstecken, können Sie Ihre App in ein [asar](https://github.com/electron/asar)-Archiv mit kleinen Änderungen am Code packen.
 
-## Generating `asar` Archive
+## `asar`-Archiv generieren
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Ein [asar](https://github.com/electron/asar)-Archiv ist ein simples tar-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
-Steps to package your app into an `asar` archive:
+Schritte um Ihre App in ein `asar`-Archiv zu packen:
 
-### 1. Install the asar Utility
+### 1. Installieren Sie die "asar Utility"
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Packen mit `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Verwenden von `asar` Archiven
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
