@@ -62,7 +62,7 @@ win.show()
 
 * Você não pode clicar através da área transparente. Nós iremos introduzir uma API para definir a forma da janela para solucionar isto, veja [nosso issue no Github](https://github.com/electron/electron/issues/1335) para mais detalhes.
 * Janelas transparentes não são redimensionáveis. Definindo `resizable` para `true` pode fazer a janela transparente parar de funcionar em algumas plataformas.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
+* O filtro `blur` apenas se aplica a página web, logo, não há uma maneira de aplicar o efeito de borrado ao conteúdo abaixo da janela (ou seja, outras aplicações abertas no sistema do usuário).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
 * On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac the native window shadow will not be shown on a transparent window.
