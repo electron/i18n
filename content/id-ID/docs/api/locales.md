@@ -159,7 +159,7 @@
 </tr>
 <tr>
   <td>fr</td>
-  <td>French</td>
+  <td>Perancis</td>
 </tr>
 <tr>
   <td>fr-CA</td>
@@ -187,7 +187,7 @@
 </tr>
 <tr>
   <td>gl</td>
-  <td>Galician</td>
+  <td>Galicia</td>
 </tr>
 <tr>
   <td>gn</td>
