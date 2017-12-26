@@ -198,32 +198,32 @@
   <td>Gujarati</td>
 </tr>
 <tr>
-  <td>ha</td>
+  <td>telah</td>
   <td>Hausa</td>
 </tr>
 <tr>
   <td>haw</td>
-  <td>Hawaiian</td>
+  <td>Hawaii</td>
 </tr>
 <tr>
-  <td>he</td>
-  <td>Hebrew</td>
+  <td>dia</td>
+  <td>Ibrani</td>
 </tr>
 <tr>
   <td>hi</td>
-  <td>Hindi</td>
+  <td>Tidak</td>
 </tr>
 <tr>
-  <td>hr</td>
-  <td>Croatian</td>
+  <td>jam</td>
+  <td>Orang Kroasia</td>
 </tr>
 <tr>
   <td>hu</td>
-  <td>Hungarian</td>
+  <td>Hongaria</td>
 </tr>
 <tr>
-  <td>hy</td>
-  <td>Armenian</td>
+  <td>dia</td>
+  <td>Orang Armenia</td>
 </tr>
 <tr>
   <td>ia</td>
@@ -331,7 +331,7 @@
 </tr>
 <tr>
   <td>mt</td>
-  <td>Maltese</td>
+  <td>Malta</td>
 </tr>
 <tr>
   <td>nb</td>
