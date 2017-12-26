@@ -96,14 +96,14 @@ child.once('ready-to-show', () = > {
 * Если `BrowserWindow` создано с `show: false`, первоначальное состояние видимости будет `visible`, несмотря на фактически скрытое окно.
 * Если `backgroundThrottling` отключено, состояние видимости останется `visible`, даже если окно уменьшено, закрыто или скрыто.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Рекомендуется приостановить дорогостоящие операции, когда состояние видимости `hidden`, для того чтобы свести к минимуму потребление энергии.
 
 ### Платформа заметок
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
+* На macOS модальные окна будут отображены в виде страниц, прикрепленных к родительскому окну.
+* На macOS дочерние окна будут находиться относительно родительского окна, во время передвижения родительского окна, тем временем на Windows и Linux дочерние окна не будут двигаться.
+* На Windows не поддерживается динамическое изменение родительского окна.
+* На Linux тип модального окна будет поменян в `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
 ## Класс: BrowserWindow
