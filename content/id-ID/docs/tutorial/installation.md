@@ -7,23 +7,23 @@ Untuk memasang binari elektron prebuilt , gunakan ` npm </ 0> . Metode yang disu
 <pre><code class="sh">npm menginstal elektron - menyimpan-dev
 `</pre> 
 
-Lihat  Dokumentasi versi elektron </ 0> untuk info tentang cara mengelola versi Elektron di aplikasi Anda. </p> 
+Lihat [ Dokumentasi versi elektron ](electron-versioning.md) untuk info tentang cara mengelola versi Elektron di aplikasi Anda.
 
 ## Instalasi global
 
-Anda juga dapat menginstal perintah ` elektron </ 0> secara global di <code> $ PATH </ 0> Anda :</p>
+Anda juga dapat menginstal perintah ` elektron ` secara global di `$PATH` Anda:
 
-<pre><code class="sh">npm memasang elektron -g
-`</pre> 
+```sh
+npm memasang elektron -g
+```
 
 ## Kustomisasi
 
-Jika Anda ingin mengubah arsitektur yang diunduh (misalnya ` ia32 </ 0> pada mesin
- <code> x64 </ 0> ), Anda dapat menggunakan flag < 0> --arch </ 0> dengan npm pasang atau setel
- variabel lingkungan <code> npm _config_arch </ 0> :</p>
+Jika Anda ingin mengubah arsitektur yang diunduh (misalnya ` ia32 ` pada mesin ` x64 `), Anda dapat menggunakan flag ` --arch ` dengan npm pasang atau setel variabel lingkungan ` npm _config_arch `:
 
-<pre><code class="shell">npm install --arch=ia32 electron
-`</pre> 
+```shell
+npm install --arch=ia32 electron
+```
 
 In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
 
@@ -33,7 +33,7 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-Jika Anda perlu menggunakan proxy HTTP, Anda dapat  menetapkan variabel lingkungan ini </ 0> .</p> 
+Jika Anda perlu menggunakan proxy HTTP, Anda dapat [ menetapkan variabel lingkungan ini ](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
 ## Penyelesaian masalah
 
