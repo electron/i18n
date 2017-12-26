@@ -30,7 +30,7 @@ Dalam Devtron, ada tab aksesibilitas baru yang memungkinkan anda untuk melakukan
 
 Kedua alat-alat ini menggunakan perpustakaan [ Alat Aksesibilitas pengembang](https://github.com/GoogleChrome/accessibility-developer-tools) yang dibangun oleh Google untuk Chrome. Anda dapat mempelajari lebih lanjut tentang aturan audit aksesibilitas yang menggunakan perpustakaan ini pada bahwa [repositori wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-Jika Anda mengetahui alat aksesibilitas terbaik lainnya untuk Elektron , tambahkan ke  dokumentasi aksesibilitas </ 0> dengan permintaan tarik.</p> 
+Jika Anda mengetahui alat aksesibilitas terbaik lainnya untuk Elektron, tambahkan ke [ dokumentasi aksesibilitas ](https://electronjs.org/docs/tutorial/accessibility) dengan permintaan tarik.
 
 ## Mengaktifkan Aksesibilitas
 
@@ -42,11 +42,12 @@ Dengan menggunakan ` app.setAccessibilitySupportEnabled (enabled) </ 0> , Anda d
 
 <h3>Teknologi Pendukung</h3>
 
-<p>Aplikasi elektronika akan memungkinkan aksesibilitas secara otomatis saat mendeteksi teknologi bantu ( Windows ) atau VoiceOver ( macos ). Lihat Chrome <a href="https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology"> dokumentasi aksesibilitas </ 0> untuk lebih jelasnya.</p>
+<p>Aplikasi elektronika akan memungkinkan aksesibilitas secara otomatis saat mendeteksi teknologi bantu ( Windows ) atau VoiceOver ( macos ). Lihat Chrome <a href="https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology"> dokumentasi aksesibilitas </a> untuk lebih jelasnya.</p>
 
-<p>Pada macOS , teknologi bantu pihak ketiga dapat mengalihkan aksesibilitas di dalam aplikasi Elektron dengan menetapkan atribut <code> AXManualAccessibility </ 0> secara terprogram:</p>
+<p>Pada macOS, teknologi bantu pihak ketiga dapat mengalihkan aksesibilitas di dalam aplikasi Elektron dengan menetapkan atribut <code> AXManualAccessibility ` secara terprogram:</p> 
 
-<pre><code class="objc">CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
+```objc
+CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
 
 + (void)enableAccessibility:(BOOL)enable inElectronApplication:(NSRunningApplication *)app
 {
@@ -58,4 +59,4 @@ Dengan menggunakan ` app.setAccessibilitySupportEnabled (enabled) </ 0> , Anda d
     AXUIElementSetAttributeValue(appRef, kAXManualAccessibility, value);
     CFRelease(appRef);
 }
-`</pre>
+```
