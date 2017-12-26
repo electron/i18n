@@ -1,6 +1,6 @@
-## Class: WebRequest
+## Kelas: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> Mencegat dan memodifikasi isi permintaan pada berbagai tahap dalam masa hidupnya.
 
 Proses:  Utama </ 0></p> 
 
@@ -32,11 +32,11 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 The following methods are available on instances of `WebRequest`:
 
-#### `webRequest.onBeforeRequest([filter, ]listener)`
+#### `webRequest.onBeforeRequest ([filter,] pendengar)`
 
 * `menyaring` Obyek 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fungsi 
+* `pendengar` Fungsi 
   * `rincian` Obyek 
     * `id` Integer
     * ` url </ 0>  String</li>
@@ -81,7 +81,7 @@ The `callback` has to be called with an `response` object.
   
   * `menyaring` Obyek 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `listener` Fungsi 
+  * `pendengar` Fungsi 
     * `rincian` Obyek 
       * `id` Integer
       * ` url </ 0>  String</li>
@@ -121,7 +121,7 @@ The `callback` has to be called with an `response` object.
     
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-    * `listener` Fungsi 
+    * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
@@ -139,7 +139,7 @@ The `callback` has to be called with an `response` object.
     
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-    * `listener` Fungsi 
+    * `pendengar` Fungsi 
       * `rincian` Obyek 
         * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
@@ -158,7 +158,7 @@ The `callback` has to be called with an `response` object.
     
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-    * `listener` Fungsi 
+    * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
@@ -176,7 +176,7 @@ The `callback` has to be called with an `response` object.
     
     * `menyaring` Obyek 
       * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-    * `listener` Fungsi 
+    * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
