@@ -131,4 +131,4 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Warten sie eine halbe Ewigkeit bis der Build abgeschlossen ist.
