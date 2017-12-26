@@ -26,9 +26,9 @@ En Electron, Node.js y Chromium comparten una sola instancia de V8—generalment
 
 ### Versiones
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+A partir de la versión 2.0 Electron[sigue a`semver`](http://semver.org). Para la mayoría de las aplicaciones y usando cualquier versión reciente de npm, ejecutar `$ npm electron de instalación` hará lo correcto.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+El proceso de actualización de la versión se detalla explícitamente en nuestro [documento de versiones](electron-versioning.md).
 
 ### LTS
 
