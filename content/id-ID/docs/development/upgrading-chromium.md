@@ -51,13 +51,13 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
 
 3. Jika Anda belum membangun libcc tapi sudah seharusnya diupgrade  ke Chromium baru, bootstrap Elektron seperti biasa  `$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - Pastikan submodule libcc (`vendor/libchromiumcontent`) menunjuk ke revisi benar
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. Set `CLANG_REVISION` di `script/update-clang.sh` untuk mencocokkan versi  Kromium sedang digunakan.
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - Terletak di `elektron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
-5. Checkout Chromium if you haven't already:
+5. Periksa Chromium jika Anda belum melakukannya:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
     - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
