@@ -82,27 +82,28 @@ session.defaultSession.on ('akan-download', (event, item, webContents) = & gt; {
 
 ### Metode Instance
 
-The following methods are available on instances of `Session`:
+Metode berikut tersedia pada contoh ` Sesi `:
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize (callback)`
 
 * `callback` Fungsi 
-  * `size` Integer - Cache size used in bytes.
+  * ` ukuran ` Integer - Ukuran cache yang digunakan dalam bytes.
 
-Callback is invoked with the session's current cache size.
+Callback dipanggil dengan ukuran cache sesi saat ini.
 
-#### `ses.clearCache(callback)`
+#### `ses.clearCache (callback)`
 
-* `callback` Function - Called when operation is done
+* ` callback ` Fungsi - Dipanggil saat operasi selesai
 
-Clears the session’s HTTP cache.
+Menghapus cache HTTP sesi.
 
-#### `ses.clearStorageData([options, callback])`
+#### `ses.clearStorageData ([options, callback])`
 
 * `pilihan` Objek (opsional) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * ` asal ` String - (opsional) Harus mengikuti representasi ` window.location.origin ` ` skema: // host: port `.
+  * ` penyimpanan ` String [] - (opsional) Jenis penyimpanan yang dapat dihapus, dapat berisi: ` appcache `, ` cookies `, ` filesystem `, ` indexdb </ 0>, <code> localstorage </ 0>, <code>
+<code> shadercache `, ` websql `, <0> petugas servis </code>
+  * ` kuota ` String [] - (opsional) Jenis kuota untuk dihapus, dapat berisi: ` sementara `, ` persisten `, ` sinkronkan `.
 * `callback` Function (optional) - Called when operation is done.
 
 Clears the data of web storages.
