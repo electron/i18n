@@ -1,6 +1,6 @@
 # Membangun petunjuk (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Ikuti panduan di bawah ini untuk membangun Elektron pada macOS.
 
 ## Prasyarat
 
@@ -8,13 +8,13 @@ Follow the guidelines below for building Electron on macOS.
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](http://nodejs.org) (external)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Jika Anda menggunakan Python yang didownload oleh Homebrew, Anda juga perlu menginstal modul Python berikut ini:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
-## macOS SDK
+## macos SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Jika Anda hanya mengembangkan Elektron dan tidak berencana untuk mendistribusikan ulang custom Electron build, Anda bisa melewati bagian ini.
 
 For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
 
