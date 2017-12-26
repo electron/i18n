@@ -54,16 +54,16 @@ Kita perlu untuk menghasilkan file patch dari setiap patch yang diterapkan V8.
 4. Memeriksa Node [repo](https://github.com/electron/node) untuk melihat apakah patch upstream Node digunakan dengan v8 mereka setelah menabrak versinya 
   - `git log --oneline deps/V8`
 5. Buat daftar periksa pada patch. Ini berguna untuk melacak pekerjaan anda dan untuk apa memiliki referensi cepat dari hash komit untuk digunakan pada langkah `git diff-tree` di bawah ini.
-6. Baca `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
-  - Delete each patchfile referenced in `patches/v8/README.md`
-7. For each patch, do: 
-  - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` is an incremented three-digit number (to force patch order)
-    - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
-  - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
-    - If a diff section has no instances of `deps/V8`, remove it altogether. 
-      - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
+6. Baca `patches/v8/README.md` untuk melihat patchfiles mana yang berasal dari versi V8 sebelumnya dan karena itu perlu dihapus. 
+  - Hapus setiap patchfile yang direferensikan di `patches/v8/README.md`
+7. Untuk setiap patch, lakukan: 
+  - (dalam node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
+    - `xxx` adalah angka tiga digit tambahan (untuk memaksa urutan patch)
+    - `patch_name` harus secara longgar sesuai dengan node yang melakukan pesan, misalnya `030-cherry_pick_cc55747,patch` jika Node melakukan pesan "cherry-pick cc55747"
+  - (sisa langkah di repo libchromium) Edit secara manual `.patch` file untuk mencocokkan direktori upstream V8's: 
+    - Jika bagian yang berbeda tidak memiliki contoh `deps/V8`, lepaskan semuanya. 
+      - Kami tidak ingin patch itu karena kami hanya patching V8.
+    - Ganti contoh dari `a/deps/v8/filename.ext` dengan `a/filename.ext` 
       - This is needed because upstream Node keeps its V8 files in a subdirectory
   - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
   - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
