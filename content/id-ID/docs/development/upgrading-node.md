@@ -64,25 +64,25 @@ Kita perlu untuk menghasilkan file patch dari setiap patch yang diterapkan V8.
     - Jika bagian yang berbeda tidak memiliki contoh `deps/V8`, lepaskan semuanya. 
       - Kami tidak ingin patch itu karena kami hanya patching V8.
     - Ganti contoh dari `a/deps/v8/filename.ext` dengan `a/filename.ext` 
-      - This is needed because upstream Node keeps its V8 files in a subdirectory
-  - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
-  - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Create a new copy of the patch: 
+      - Hal ini diperlukan karena upstream Node menyimpan file V8 di subdirektori
+  - Pastikan status lokal bersih: `status git` untuk memastikan tidak ada perubahan yang tidak mencolok.
+  - Konfirmasikan bahwa patch berlaku dengan rapi `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
+  - Buat salinan patch baru: 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - This is needed because the first patch has Node commit checksums that we don't want
-  - Confirm that checksums are the only difference between the two patches: 
+    - Hal ini diperlukan karena patch pertama Node melakukan checksum yang tidak kita inginkan
+  - Konfirmasikan bahwa checksum adalah satu-satunya perbedaan antara kedua patch tersebut: 
     - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Replace the old patch with the new: 
+  - Ganti patch lama dengan yang baru: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Add the patched code to the index *without* committing: 
+  - Tambahkan patch kode ke indeks *tanpa* melakukan: 
     - `cd src/v8 && git add . && cd ../..`
-    - We don't want to commit the changes (they're kept in the patchfiles) but need them locally so that they don't show up in subsequent diffs while we iterate through more patches
-  - Add the patch file to the index: 
-    - `git add a patches/v8/`
-  - (Optionally) commit each patch file to ensure you can back up if you mess up a step: 
-    - `git commit patches/v8/`
-8. Update `patches/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
-9. Update Electron's submodule references: 
+    - Kami tidak ingin melakukan perubahan (mereka disimpan di patchfiles) tetapi membutuhkan mereka secara lokal sehingga mereka tidak muncul dalam diffs berikutnya sementara kita terpelajar melalui patch lebih
+  - Tambahkan kode patch ke indeks: 
+    - `git tambahkan sebuah patches/v8/`
+  - (Opsional) melakukan setiap data patch untuk memastikan Anda dapat mencadangkan jika anda mengacaukan sebuah langkah: 
+    - `git melakukan patches/v8/`
+8. Pembaharuan `patches/v8/README.md` dengan referensi ke semua patch baru yang telah ditambahkan sehingga orang berikutnya akan tahu mana yang perlu dihapus.
+9. Perbaharui referensi submodul Electron: 
       sh
       $ cd electron/vendor/node
       electron/vendor/node$ git fetch
@@ -97,7 +97,7 @@ Kita perlu untuk menghasilkan file patch dari setiap patch yang diterapkan V8.
       electron$ script/bootstrap.py -d
       electron$ script/build.py -c -D
 
-## Notes
+## Catatan
 
 - libcc and V8 are treated as a single unit
 - Node maintains its own fork of V8 
