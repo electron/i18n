@@ -53,7 +53,7 @@ Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar o
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
-* `options` Hedef (isteğe bağlı) 
+* `seçenekler` Hedef (isteğe bağlı) 
   * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
   * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
   * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `true`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `false` olarak ayarlayın. Varsayılan değer `false`.
