@@ -64,14 +64,14 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+类似地，对于 `arm64` 平台，请安装下列内容：
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+若要为 `arm` 或 `ia32` 平台的目标设备交叉编译，您应当为 `bootstrap.py` 脚本使用 `--target_arch` 参数：
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -91,7 +91,7 @@ $ ./script/build.py
 $ ./script/create-dist.py
 ```
 
-这会在 `dist` 目录下创建一个有大量小文件的工作空间. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+这会在 `dist` 目录下创建一个有大量小文件的工作空间. 运行 `create-dist.py` 脚本后，您可能想要删除仍在 `out/R` 的 1.3+ GiB 的二进制文件。
 
 你可以只创建 `Debug` 目标:
 
