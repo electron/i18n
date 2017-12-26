@@ -138,10 +138,10 @@ Das rührt daher, dass `exec` und `spawn` `command` an Stelle von `file` als Ein
 
 Wie gesagt, einige Node APIs werden die Datei in das Dateisystem entpacken, wenn sie aufgerufen werden. Unabhängig von den Performance-Problemen, kann es auch zu Falschalarm bei Virenscannern führen.
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+Um dies zu umgehen können sie einige Dateien während dem Erstellen von Archiven entpacken indem Sie die `--unpack` Option nutzen. Ein Beispiel für das exkludieren von geteilten Bibliotheken nativer Module ist:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+Nach Sie den Befehl ausgeführt haben, existiert neben der `app.asar` ein generiertes Verzeichnis namens `app.asar.unpacked`, das die entpackten Dateien enthält. Sie sollten es bei der Bereitstellung der Applikation zusammen mit `app.asar` kopieren.
