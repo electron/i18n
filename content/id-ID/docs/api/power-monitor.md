@@ -33,8 +33,8 @@ Emitted saat sistem dilanjutkan.
 
 ### Event: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+Emitted saat sistem berubah menjadi AC power.
 
-### Event: 'on-battery' *Windows*
+### Acara: 'di-baterai' *Windows*
 
-Emitted when system changes to battery power.
+Emitted saat sistem berubah menjadi daya baterai.
