@@ -121,13 +121,13 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 
 * `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - der Ort an dem Sie node.js header und Symbole hochladen werden
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64`
+* `ELECTRON_RELEASE` - Auf `true` setzen und der Upload-Teil wird funktionieren, ungesetzt lassen und `surf-build` wird nur CI-type checks ausführen, angemessen um für jeden Pull-Request ausgeführt zu werden.
+* `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
+* `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen
+* `SURF_TEMP` - auf `C:\Temp` unter Windows setzen um zu langen Pfaden vorzubeugen
+* `TARGET_ARCH` - auf `ia32` oder `x64` setzen
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. In der `script/upload.py` *müssen* Sie `ELECTRON_REPO` in Ihren Fork (z.B. `MYORG/electron`) ändern, vor allem, wenn sie ein Mitwirkender am Electron-Eigentum sind.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
