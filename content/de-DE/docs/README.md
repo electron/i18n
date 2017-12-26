@@ -1,8 +1,8 @@
-Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Andernfalls nutzen Sie möglicherweise unbeabsichtigt die Dokumentation einer Version von Electron, die Änderungen der API enthält, die mit Ihrer Version von Electron nicht kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
 
-## Häufige Fragen
+## Häufig gestellte Fragen
 
-Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häufig gestellten Fragen nach:
+Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der häufig gestellten Fragen nach:
 
 * [Electron FAQ](faq.md)
 
@@ -13,8 +13,8 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Sicherheit](tutorial/security.md)
 * [Versionierung](tutorial/electron-versioning.md)
 * [Veröffentlichung der Anwendung](tutorial/application-distribution.md)
-* [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md)
-* [Anleitung: Windows Store](tutorial/windows-store-guide.md)
+* [Veröffentlichung im Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Veröffentlichung im Windows Store](tutorial/windows-store-guide.md)
 * [Anwendungspakete](tutorial/application-packaging.md)
 * [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md)
 * [Debugging des Main Process](tutorial/debugging-main-process.md)
