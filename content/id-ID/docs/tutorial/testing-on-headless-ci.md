@@ -19,26 +19,24 @@ xvfb-mungkin elektron-mocha ./test/*.js
 
 ### Travis CI
 
-On Travis, your `.travis.yml` should look roughly like this:
+Di Travis, ` .travis.yml ` Anda akan terlihat seperti ini:
 
 ```yml
 addons:
-  apt:
-    packages:
-      - xvfb
-
-install:
-  - export DISPLAY=':99.0'
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+   apt:
+     packages:
+       - xvfb install:
+   - export DISPLAY = ':   99.0 '
+ - Xvfb: 99 -screen 0 1024x768x24 & gt; / dev / null 2 & gt; & amp; 1 & amp;
 ```
 
 ### Jenkins
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+Untuk Jenkins, plugin  Xvfb tersedia </ 0> .</p> 
 
-### Circle CI
+### Lingkaran CI
 
-Circle CI is awesome dan memiliki xvfb dan `$DISPLAY` [sudah disiapkan, jadi tidak ada konfigurasi lebih lanjut yang diperlukan](https://circleci.com/docs/environment#browsers).
+Circle CI is awesome dan memiliki xvfb dan ` $ DISPLAY ` [ sudah disiapkan, jadi tidak perlu konfigurasi lebih lanjut ](https://circleci.com/docs/environment#browsers) .
 
 ### AppVeyor
 
