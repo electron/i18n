@@ -1,4 +1,4 @@
-## Kelas: Menu
+## Class: Menu
 
 > Buat menu aplikasi asli dan menu konteks.
 
