@@ -146,9 +146,9 @@ console.log(gambar)
  
  * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
- Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
- 
- #### `image.toJPEG(quality)`
+ Mengembalikan `Penyangga` - A [ Penyangga](https://nodejs.org/api/buffer.html#buffer_class_buffer)berisi data yang dikodekan` PNG </ 0>.</p>
+
+<h4><code>image.toJPEG(quality)`</h4> 
  
  * `quality` Integer (**required**) - Between 0 - 100.
  
