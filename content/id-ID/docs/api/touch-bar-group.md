@@ -1,6 +1,6 @@
-## Class: TouchBarGroup
+## Kelas: TouchBarGroup
 
-> Create a group in the touch bar for native macOS applications
+> Buat grup di bilah sentuh untuk aplikasi macOS asli
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
