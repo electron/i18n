@@ -78,21 +78,21 @@ top.show()
 Модальное окно - дочернее окно, которое отключает родительское окно, чтобы создать модальное окно, Вы должны установить два параметра `parent` и `modal`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+conts {BrowserWindow} = require('electron')
 
 let child = new BrowserWindow({parent: top, modal: true, show: false})
 child.loadURL('https://github.com')
-child.once('ready-to-show', () => {
+child.once('ready-to-show', () = > {
   child.show()
 })
 ```
 
 ### Видимость страниц
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[API видимости страниц](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) работает следующим образом:
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
+* На всех платформах, состояние видимости отслеживает скрыто/минимизировано окно или нет.
+* Кроме того, на macOS, состояние видимости также отслеживает состояние перекрытия окна. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
 * If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
 
