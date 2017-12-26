@@ -1,40 +1,39 @@
 # kulit
 
-> Manage files and URLs using their default applications.
+> Kelola file dan URL menggunakan aplikasi bawaan mereka.
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-The `shell` module provides functions related to desktop integration.
+The ` shell </ 0> modul menyediakan fungsi yang berkaitan dengan integrasi desktop.</p>
 
-An example of opening a URL in the user's default browser:
+<p>Contoh membuka URL di browser default pengguna:</p>
 
-```javascript
-const {shell} = require('electron')
+<pre><code class="javascript">const {shell} = require('electron')
 
 shell.openExternal('https://github.com')
-```
+`</pre> 
 
 ## Metode
 
-The `shell` module has the following methods:
+The ` shell </ 0> modul memiliki metode berikut:</p>
 
-### `shell.showItemInFolder(fullPath)`
-
-* `fullPath` String
-
-Returns `Boolean` - Whether the item was successfully shown
-
-Show the given file in a file manager. If possible, select the file.
-
-### `shell.openItem(fullPath)`
+<h3><code>shell.showItemInFolder(fullPath)`</h3> 
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Mengembalikan ` Boolean </ 0> - Apakah item berhasil ditampilkan</p>
 
-Open the given file in the desktop's default manner.
+<p>Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.</p>
 
-### `shell.openExternal(url[, options, callback])`
+<h3><code>shell.openItem(fullPath)`</h3> 
+
+* `fullPath` String
+
+Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka</p>
+
+<p>Buka file yang diberikan dengan cara default desktop.</p>
+
+<h3><code>shell.openExternal(url[, options, callback])`</h3> 
 
 * ` url </ 0>  String</li>
 <li><code>pilihan` Objek (opsional) *macOS* 
