@@ -95,15 +95,15 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
     * `metaKey` Boolean
   * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
   
-  Emitted when the tray icon is double clicked.
+  Dipancarkan saat ikon baki diklik dua kali.
   
   #### Event: 'balloon-show' *Windows*
   
-  Emitted when the tray balloon shows.
+  Emitted saat balon baki menunjukkan.
   
   #### Event: 'balloon-click' *Windows*
   
-  Emitted when the tray balloon is clicked.
+  Emitted saat balon nampan diklik.
   
   #### Event: 'balloon-closed' *Windows*
   
@@ -111,7 +111,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
   
   #### Event: 'drop' *macOS*
   
-  Emitted when any dragged items are dropped on the tray icon.
+  Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
   
   #### Event: 'drop-files' *macOS*
   
