@@ -22,9 +22,9 @@ electron/resources/app
 
 Danach führen Sie `Electron.app` (oder `electron` unter Linux, `electron.exe` unter Windows) aus, und Electron wird als Ihre App starten. Das `electron`-Verzeichnis wird dann Ihre Distribution sein, die Sie an die Endnutzer weitergeben.
 
-## Packaging Your App into a File
+## App in eine Datei packen
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Unabhängig vom Verbreiten Ihrer App durch das Kopieren aller Quelldateien können Sie Ihre App auch in ein [asar](https://github.com/electron/asar)-Archiv packen, um zu vermeiden, dass der Nutzer Zugriff auf den Quellcode Ihrer Anwendung erhält.
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
