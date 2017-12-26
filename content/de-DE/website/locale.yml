@@ -129,11 +129,11 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: "Devtron ist ein Open-Source Tool, mit dessen Hilfe du deine Electron App inspizieren, überwachen und debuggen kannst. \nDas Werkzeug beruht auf den hervorragenden Chrome Developer Tools."
+    description: "Devtron ist ein Open-Source-Werkzeug, mit dessen Hilfe Sie Ihre Electron App inspizieren, überwachen und debuggen können. \nDas Werkzeug beruht auf den hervorragenden Chrome Developer Tools."
   '/spectron':
     title: Spectron
-    description: Spectron ist ein Open-Source-Framework, um sehr einfach Integrationstest für deine Electron App zu schreiben. Das Framework beruht auf ChromeDriver und WebDriverIO.
+    description: Spectron ist ein Open-Source-Framework um sehr einfach Integrationstests für deine Electron-App zu schreiben. Das Framework beruht auf ChromeDriver und WebDriverIO.
 _404:
   page_not_found: Seite nicht gefunden.
-  if_this_is_an_error: Wenn dies ein Fehler ist
-  please_file_an_issue: Melde ein Problem.
+  if_this_is_an_error: Falls dies ein Fehler ist
+  please_file_an_issue: melden Sie ein Problem.
