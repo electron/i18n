@@ -66,18 +66,18 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
   
   #### Acara : 'klik'
   
-  * `event` Event 
+  * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
   * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
   
-  Emitted when the tray icon is clicked.
+  Emitted saat ikon baki diklik.
   
   #### Event: 'right-click' *macOS* *Windows*
   
-  * `event` Event 
+  * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
@@ -141,7 +141,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
   
   #### Event: 'mouse-enter' *macOS*
   
-  * `event` Event 
+  * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
@@ -152,7 +152,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
   
   #### Event: 'mouse-leave' *macOS*
   
-  * `event` Event 
+  * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
