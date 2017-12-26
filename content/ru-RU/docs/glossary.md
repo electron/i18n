@@ -46,7 +46,7 @@ IPC стенды для взаимодействия между процесса
 
 ### MAS
 
-Акроним к Apple's Mac App Store. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Акроним к Mac App Store компании Apple. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### собственные модули
 
