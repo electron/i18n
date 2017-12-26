@@ -81,9 +81,9 @@ footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
 apps:
   title: Mit Electron entwickelte Apps
-  description: Mit Electron ist das Erstellen einer Desktop-Anwendung für Ihre Firma oder Idee einfach. Electron wurde ursprünglich für den <a href='https://atom.io' target='_blank'>Atom Editor</a> von GitHub entwickelt. Seit jeher wird Electron jedoch auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
+  description: Mit Electron wird Ihnen das Erstellen einer Desktopanwendung für Ihre Firma oder Idee einfach gemacht. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom Editor</a> von GitHub entwickelt, wird Electron auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
   view_more: Mehr Apps anzeigen
-  submit_your_own: reiche deine App ein
+  submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
   edit_this_app: Diese App bearbeiten.
 clipboard:
@@ -93,20 +93,20 @@ clipboard:
 or: oder
 pages:
   '/':
-    title: Electron | Entwickle plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS.
-    description: 'Entwickle plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS.'
+    title: Electron | Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln.
+    description: 'Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln.'
   '/apps':
     title: Electron-Anwendungen
     description: Mit Electron entwickelte Anwendungen
   '/docs':
     title: Dokumentation
-    description: Anleitungen und API-Referenz-Dokumentation für die neueste Version von Elektron
+    description: Leitfäden und API-Referenz-Dokumentation für die neueste Version von Elektron
   '/docs/all':
-    title: Komplette Dokumentation von Electron!
-    description: Alle Anleitungen und die API-Dokumentation auf einer einzigen, durchsuchbaren Seite.
+    title: Gesamte Dokumentation von Electron!
+    description: Alle Leitfäden für Electron und die API-Dokumentation auf einer einzigen, durchsuchbaren Seite.
   '/docs/api':
     title: API
-    description: API Referenzdokumentation für die neueste Electron Version
+    description: API-Dokumentation für die neueste Version von Electron
   '/docs/development':
     title: Entwicklung
     description: Entwicklung mit Electron
