@@ -50,7 +50,7 @@ win.show()
 
 ## Janela transparente
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+Definindo a opção `transparent` como `true` você também pode fazer a frameless window transparente:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,8 +60,8 @@ win.show()
 
 ### Limitações
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
+* Você não pode clicar através da área transparente. Nós iremos introduzir uma API para definir a forma da janela para solucionar isto, veja [nosso issue no Github](https://github.com/electron/electron/issues/1335) para mais detalhes.
+* Janelas transparentes não são redimensionáveis. Definindo `resizable` para `true` pode fazer a janela transparente parar de funcionar em algumas plataformas.
 * The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
 * On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
