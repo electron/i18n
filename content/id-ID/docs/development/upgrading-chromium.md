@@ -88,48 +88,48 @@ Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform 
 
 Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. Lihat [Upgrade Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) untuk petunjuk bagaimana melakukan itu.
 
-## Updating NodeJS
+## Memperbarui NodeJS
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+Meningkatkan `vendor/node` ke rilis Node yang sesuai dengan versi v8 digunakan dalam rilis kromium baru. Lihat versi v8 di Node aktif
 
-See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
+Lihat [Upgrade Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) untuk petunjuk tentang ini.
 
-## Verify ffmpeg support
+## Verifikasi dukungan ffmpeg
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Elektron kapal dengan versi `ffmpeg` yang mencakup codec proprietary oleh default. Versi tanpa codec ini dibuat dan didistribusikan bersama masing-masing dilepaskan juga. Setiap peningkatan Chrome harus memverifikasi bahwa mengganti versi ini masih didukung.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Anda dapat memverifikasi dukungan Elektron untuk beberapa `ffmpeg` yang dibuat dengan memuat halaman berikut. Ini harus bekerja dengan perpustakaan default `ffmpeg` yang didistribusikan dengan Elektron dan tidak bekerja dengan perpustakaan `ffmpeg` yang dibuat tanpa hak kepemilikan codec.
 
 ```html
-<!DOCTYPE html>
+< DOCTYPE html >
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
-  </head>
-  <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
-    <p id="outcome"></p>
-    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
-    <script>
-      const video = document.querySelector('video')
-      video.addEventListener('error', ({target}) => {
-        if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
-        } else {
-          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
-        }
-      })
-      video.addEventListener('playing', () => {
-        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
-      })
-    </script>
-  </body>
+  <head>
+    <meta charset="utf-8">
+    <title> Pemeriksaan Codec Proprietary </title>
+  </head>
+  <body>
+    <p> Memeriksa apakah Elektron menggunakan codec proprietary dengan memuat video dari http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4 </p>
+    <p id="outcome"> </p>
+    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay> </video>
+    <script>
+      const video =document.querySelector ('video')
+      video.addEventListener ('error', ({target}) => {
+        jika (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+          document.querySelector ('#hasil') textContent = 'Tidak menggunakan codec proprietary, video yang dipancarkan tidak didukung aktivitas kesalahan.'
+        } lain {
+          document.querySelector ('# hasil') textContent = `Kesalahan tak terduga: ${target.error.code}`
+        }
+      })
+      video.addEventListener ('bermain', () => {
+        document.querySelector ('#results') textContent = 'Menggunakan codec proprietary, video mulai diputar.'
+      })
+    </script>
+  </body>
 </html>
 ```
 
-## Useful links
+## Tautan yang berguna
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Jadwal Peluncuran Chrome](https://www.chromium.org/developers/calendar)
 - [Proxy Omaha](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Pelacak Masalah Chromium](https://bugs.chromium.org/p/chromium)
