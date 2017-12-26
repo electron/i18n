@@ -1,6 +1,6 @@
-## Class: TouchBarSlider
+## Kelas: TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> Buat slider di panel sentuh untuk aplikasi macOS asli
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
@@ -11,7 +11,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
   * `maxValue` Integer (optional) - Maximum value.
-  * `perubahan` Function (optional) - Function to call when the slider is changed. 
+  * `perubahan` Fungsi (opsional) - Fungsi untuk memanggil saat slider diganti. 
     * `newValue` Number - The value that the user selected on the Slider
 
 ### Instance Properties
