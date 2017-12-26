@@ -1,13 +1,13 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: जावास्क्रिप्ट, एचटीएमएल और सीएसएस के द्वारा क्रॉस प्लेटफार्म डेस्कटॉप एप्पस बनायें
 nav:
-  docs: Docs
-  blog: Blog
-  community: Community
-  apps: Apps
-  userland: Userland
+  docs: दस्तावेज़
+  blog: ब्लॉग
+  community: समुदाय
+  apps: एप्प्स
+  userland: यूजरलैंड
   releases: Releases
-  contact: Contact
-  languages: Languages
+  contact: संपर्क
+  languages: भाषायें
   code_of_conduct: Code of Conduct
 docs:
   title: Electron Documentation
@@ -16,16 +16,16 @@ docs:
   api_reference: API Reference
   advanced: Advanced
   footer:
-    propose_change: Improve this doc
+    propose_change: इस दस्तावेज़ को सुधारें
     version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    translate: इस दस्तावेज़ का अनुवाद करें
+    view_all_docs: सभी दस्तावेज़ एक पेज पर
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: साईट की भाषा चुनें
+  translation_progress: अनुवाद प्रगति
+  current: वर्तमान चयन
 community:
-  title: Electron Community
+  title: इलेक्ट्रान समुदाय
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: Tools
   boilerplates: Boilerplates
@@ -73,7 +73,7 @@ need_help:
   title: Need Help?
   description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
-  languages: Languages
+  languages: भाषायें
 taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "Help translate"
@@ -117,16 +117,16 @@ pages:
     title: Electron Blog
     description: All the latest news from the Electron team and community.
   '/community':
-    title: Community
+    title: समुदाय
   '/releases':
     title: Releases
   '/contact':
-    title: Contact
+    title: संपर्क
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
   '/languages':
-    title: Languages
+    title: भाषायें
   '/userland':
-    title: Userland
+    title: यूजरलैंड
   '/devtron':
     title: Devtron
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
