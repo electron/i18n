@@ -34,27 +34,27 @@ Jadi singkatnya, langkah utamanya adalah:
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
   - Selesaikan gabungan konflik di setiap file yang ditemui, lalu: 
     1. `git tambahkan <conflict-file>`
-    2. `git cherry-pick --continue`
-    3. Repeat until finished
+    2. `git cherry-pick --lanjutkan`
+    3. Ulangi sampai selesai
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## Memperbarui [V8](https://github.com/electron/node/src/V8) Patch
 
-We need to generate a patch file from each patch applied to V8.
+Kita perlu untuk menghasilkan file patch dari setiap patch yang diterapkan V8.
 
-1. Get a copy of Electron's libcc fork 
-  - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/perbarui` to get the latest libcc 
-  - This will be time-consuming
-3. Remove our copies of the old Node v8 patches 
-  - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
-  - Remove those files from `patches/v8/`: 
-    - `git rm` the patchfiles
+1. Dapatkan salinan garpu libcc Electron 
+  - `$ git klon https://github.com/electron/libchromiumcontent`
+2. Jalankan `script/update` untuk mendapatkan libcc terbaru 
+  - Ini akan memakan-waktu
+3. Hapus salinan kita pada patch Node v8 yang lama 
+  - (In libchromiumcontent repo) Baca `patches/v8/README.md` untuk melihat patchfiles mana diciptakan selama pembaharuan terakhir
+  - Menghapus berkas tersebut dari `patches/v8/`: 
+    - `git rm` data patch
     - edit `patches/v8/README.md`
-    - commit these removals
-4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
+    - melakukan penghapusan ini
+4. Memeriksa Node [repo](https://github.com/electron/node) untuk melihat apakah patch upstream Node digunakan dengan v8 mereka setelah menabrak versinya 
   - `git log --oneline deps/V8`
-5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
-6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
+5. Buat daftar periksa pada patch. Ini berguna untuk melacak pekerjaan anda dan untuk apa memiliki referensi cepat dari hash komit untuk digunakan pada langkah `git diff-tree` di bawah ini.
+6. Baca `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
   - Delete each patchfile referenced in `patches/v8/README.md`
 7. For each patch, do: 
   - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
