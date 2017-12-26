@@ -189,16 +189,16 @@ $ .\electron\electron.exe ihre-app\
 
 Nachdem Sie Ihre App fertig geschrieben haben, können Sie eine Distribution erstellen indem Sie der Anleitung "[Veröffentlichung der Anwendung](./application-distribution.md)" folgen und dann die gepackte Anwendung ausführen.
 
-### Try this Example
+### Beispiel-Anwendung
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Klonen und führen sie den Code für dieses Tutorial mithilfe folgendem Repository aus: [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Bemerkung**: Das Ausführen benötigt [Git](https://git-scm.com) und [Node.js](https://nodejs.org/en/download/) (welches [npm](https://npmjs.org) enthält) auf Ihrem System.
 
 ```sh
-# Clone the repository
+# Klonen des Repositorys
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Verzeichniswechsel in das Repository
 $ cd electron-quick-start
 # Install dependencies
 $ npm install
