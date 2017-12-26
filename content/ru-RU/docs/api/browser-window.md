@@ -12,14 +12,14 @@ const {BrowserWindow} = require('electron')
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
+win.om('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Загрузка удалённого URL'а
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Или загрузка локального HTML файла
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
