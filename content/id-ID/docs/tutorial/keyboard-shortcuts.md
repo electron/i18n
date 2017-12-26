@@ -6,17 +6,13 @@
 
 Anda dapat menggunakan modul  Menu </ 0> untuk mengkonfigurasi cara pintas keyboard yang hanya akan dipicu saat aplikasi difokuskan. Untuk melakukannya, tentukan properti [ ` akselerator </ 0> ] saat membuat <a href="../api/menu-item.md"> MenuItem </ 1> .</p>
 
-<pre><code class="js">const {Menu, MenuItem} = require('electron')
-const menu = new Menu()
-
-menu.append(new MenuItem({
-  label: 'Print',
-  accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
-}))
+<pre><code class="js">const {Menu, MenuItem} = require ('electron') const menu = new Menu () menu.append (menu baruT ({
+   label: 'Cetak',
+   akselerator: 'CmdOrCtrl + P',
+   klik: () = & gt; { console.log ('waktu untuk mencetak barang')}}))
 `</pre> 
 
-It's easy to configure different key combinations based on the user's operating system.
+Sangat mudah untuk mengkonfigurasi kombinasi tombol yang berbeda berdasarkan sistem operasi pengguna.
 
 ```js
 {
@@ -26,7 +22,7 @@ It's easy to configure different key combinations based on the user's operating 
 
 ## Global Shortcuts
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Anda dapat menggunakan modul  globalShortcut </ 0> untuk mendeteksi kejadian keyboard meskipun aplikasi tidak memiliki fokus pada keyboard.</p> 
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -38,22 +34,21 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Jalan pintas dalam BrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Jika Anda ingin menangani jalan pintas keyboard untuk  BrowserWindow </ 0> , Anda dapat menggunakan pendengar acara ` keyup </ 1> dan <code> keydown </ 1>  pada objek jendela di dalam proses renderer.</p>
 
-```js
-window.addEventListener('keyup', doSomething, true)
-```
+<pre><code class="js">window.addEventListener('keyup', doSomething, true)
+`</pre> 
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Perhatikan parameter ketiga ` true </ 0> yang berarti pendengar akan selalu menerima penekanan tombol sebelum pendengar lainnya sehingga mereka tidak dapat menahan <code> stopPropagation () </ 0> memanggil mereka.</p>
 
-The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+<p>The <a href="web-contents.md#event-before-input-event"><code> sebelum-input- acara </ 0>  acara 
+dipancarkan sebelum pengiriman <code> keydown </ 1> dan <code> keyup </ 1> peristiwa di halaman. Ini bisa digunakan untuk menangkap dan menangani shortcut custom yang tidak terlihat pada menu.</p>
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+<p>Jika Anda tidak ingin melakukan penguraian manual pintas ada perpustakaan yang melakukan deteksi kunci lanjut seperti <a href="https://github.com/ccampbell/mousetrap"> perangkap tikus </ 0> .</p>
 
-```js
-Mousetrap.bind('4', () => { console.log('4') })
+<pre><code class="js">Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
@@ -76,4 +71,4 @@ Mousetrap.bind('* a', () => { console.log('select all') })
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
-```
+`</pre>
