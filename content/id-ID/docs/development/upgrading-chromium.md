@@ -60,33 +60,33 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
 5. Periksa Chromium jika Anda belum melakukannya:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+    - (Ganti placeholder `{VERSION}` di url di atas ke Chromium versi menggunakan libcc.)
+6. Bangun Elektron. 
+  - Cobalah untuk membangun versi Debug terlebih dahulu:`$ ./script/build.py -c D`
+  - Anda akan membutuhkannya untuk menjalankan tes
+7. Perbaiki kesalahan kompilasi dan keterkaitan
+8. Pastikan bahwa Rilis bangunan bisa dibangun juga 
   - `$ ./script/build.py -c R`
-  - Often the Release build will have different linking errors that you'll need to fix.
-  - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+  - Seringkali bangunan Rilis akan memiliki kesalahan penautan yang berbeda yang Anda inginkan perlu diperbaiki.
+  - Beberapa kesalahan kompilasi dan penghubungan disebabkan oleh sumber/objek yang hilang berkas di libcc `dist`
+9. Memperbarui `./ script/ membuat-dist` di repo libcc, buat ulang`dist`, dan  Jalankan skrip bootstrap Elektron sekali lagi.
 
-### Tips for fixing compilation errors
+### Tip untuk memperbaiki kesalahan kompilasi
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
+- Perbaiki bangunan kesalahan konfigurasi terlebih dahulu
+- Perbaiki kesalahan fatal dulu, seperti berkas yang hilang dan kesalahan yang berhubungan dengan penyusun bendera atau mendefinisikan
 - Cobalah untuk mengidentifikasi kesalahan kompleks sesegera mungkin. 
   - Mintalah bantuan jika Anda tidak yakin bagaimana memperbaikinya
 - Nonaktifkan semua fitur Elektron, perbaiki build, lalu aktifkan satu per satu
 - Tambahkan lebih banyak flag untuk menonaktifkan fitur build-time.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Ketika sebuah Debug membangun Electron berhasil, jalankan tesnya: `$ ./script/test.py` Perbaiki tes yang gagal.
 
 Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform yang didukung.
 
-## Updating Crashpad
+## Memperbarui Crashpad
 
-Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
+Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. Lihat [Upgrade Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) untuk petunjuk bagaimana melakukan itu.
 
 ## Updating NodeJS
 
