@@ -82,9 +82,9 @@ Unter Windows können Sie benutzerdefinierte Aktionen in der Kategorie `Tasks` d
 
 ![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+Im Unterschied zum Dock Menu unter macOS, welches ein richtiges Menu ist, funktionieren die nutzerspezifischen Aufgaben im Bereich Tasks der JumpList wie Anwendungsverknüpfungen. Wenn der Nutzer eine Aufgabe anklickt, wird ein Programm mit bestimmten Argumenten ausgeführt.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Um die nutzerspezifischen Aufgaben für Ihre Anwendung zu setzen, können Sie die [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API verwenden:
 
 ```javascript
 const {app} = require('electron')
@@ -100,16 +100,16 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Um die Liste der Aufgaben zu leeren, rufen Sie lediglich `app.setUserTasks` mit einem leeren Array auf:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Die Aufgaben werden auch nachdem Ihre Anwendung geschlossen wurde zu sehen sein, so dass das Symbol und der Pfad der Anwendung bestehen bleiben sollten bis die App deinstalliert wird.
 
-## Thumbnail Toolbars
+## Werkzeugleiste mit Thumbnail
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
 
