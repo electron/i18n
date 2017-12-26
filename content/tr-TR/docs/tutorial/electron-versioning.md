@@ -138,9 +138,9 @@ We seek to increase clarity at all levels of the update and releases process. St
 * Commits that would result in a semver **minor** bump must start with `feat:`.
 * Commits that would result in a semver **patch** bump must start with `fix:`.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* Sıkıştırılmış mesajın yukarıdaki ileti biçimine uyması koşuluyla, taahhütlerin ezilmesine izin veririz.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* Çekme isteğinde bulunan bazı taahhütlerin semantik önek içermemesi, aynı çekme isteğinden daha sonra yapılan bir taahhüt anlamlı bir mesaj içerdiği sürece kabul edilebilir.
 
 # Versionless `master`
 
