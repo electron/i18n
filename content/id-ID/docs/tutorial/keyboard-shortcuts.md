@@ -1,13 +1,12 @@
 # Cara pintas keyboard
 
-> Configure local and global keyboard shortcuts
+> Konfigurasikan pintasan keyboard lokal dan global
 
-## Local Shortcuts
+## Jalan pintas lokal
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Anda dapat menggunakan modul  Menu </ 0> untuk mengkonfigurasi cara pintas keyboard yang hanya akan dipicu saat aplikasi difokuskan. Untuk melakukannya, tentukan properti [ ` akselerator </ 0> ] saat membuat <a href="../api/menu-item.md"> MenuItem </ 1> .</p>
 
-```js
-const {Menu, MenuItem} = require('electron')
+<pre><code class="js">const {Menu, MenuItem} = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -15,7 +14,7 @@ menu.append(new MenuItem({
   accelerator: 'CmdOrCtrl+P',
   click: () => { console.log('time to print stuff') }
 }))
-```
+`</pre> 
 
 It's easy to configure different key combinations based on the user's operating system.
 
