@@ -1,8 +1,8 @@
 # `<webview>`Tag
 
-> Display external web content in an isolated frame and process.
+> Tampilkan konten web eksternal dalam bingkai dan proses yang terisolasi.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Proses: [ Renderer ](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
