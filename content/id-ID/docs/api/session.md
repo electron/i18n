@@ -1,109 +1,108 @@
-# sidang
+# session
 
-> Mengelola sesi browser, cookies, cache, pengaturan proxy, dll.
+> Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Proses: [ Utama ](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-Modul `sesi` dapat digunakan untuk membuat objek `Sesi` baru.
+The `session` module can be used to create new `Session` objects.
 
-Anda juga dapat mengakses sesi ` </> dari halaman yang ada dengan menggunakan sesi <code> ` milik [` WebContents `](web-contents.md), atau dari modul ` sesi `.
+You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
 ```javascript
-const {BrowserWindow} = membutuhkan ('elektron')
+const {BrowserWindow} = require('electron')
 
-let win = new BrowserWindow ({width: 800, height: 600})
-win.loadURL ('http://github.com')
+let win = new BrowserWindow({width: 800, height: 600})
+win.loadURL('http://github.com')
 
 const ses = win.webContents.session
-console.log (ses.getUserAgent ())
+console.log(ses.getUserAgent())
 ```
 
-## Metode
+## Methods
 
-Modul ` sesi ` memiliki metode berikut:
+The `session` module has the following methods:
 
-### `session.fromPartition(partisi[, pilihan])`
+### `session.fromPartition(partition[, options])`
 
-* `partisi` String
-* `pilihan` Obyek 
-  * `cache` Boolean - Apakah akan mengaktifkan cache.
+* `partition` String
+* `options` Object 
+  * `cache` Boolean - Whether to enable cache.
 
-Kembali `Sesi` - Contoh sesi dari string `partisi`. Bila sudah ada ` Sesi ` dengan partisi ` yang sama `, maka akan dikembalikan; jika tidak baru Sesi ` Sesi ` akan dibuat dengan ` pilihan `.
+Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
-Jika ` partisi ` dimulai dengan ` bertahan: `, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di app dengan partisi ` ` yang sama. ` awist: ` awalan, halaman akan menggunakan sesi in-memory. Jika ` partisi ` adalah kosong maka sesi default aplikasi akan dikembalikan.
+If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
-Untuk membuat Sesi <0 Sesi </code> dengan ` pilihan </ 0>, Anda harus memastikan <code> Sesi ` dengan ` partisi ` belum pernah digunakan sebelumnya. Tidak ada cara untuk mengubah opsi ` ` dari objek ` Sesi ` yang ada.
+To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
-## Properti
+## Properties
 
-Modul ` sesi ` memiliki properti berikut:
+The `session` module has the following properties:
 
 ### `session.defaultSession`
 
-Objek ` Sesi `, objek sesi default dari aplikasi.
+A `Session` object, the default session object of the app.
 
-## Kelas: Sesi
+## Class: Session
 
-> Dapatkan dan atur properti dari sebuah sesi.
+> Get and set properties of a session.
 
-Proses: [ Utama ](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-Anda dapat membuat objek ` Sesi ` di modul ` sesi `:
+You can create a `Session` object in the `session` module:
 
 ```javascript
-const {session} = require ('electron')
-const ses = session.fromPartition ('bertahan: nama')
-console.log (ses.getUserAgent ())
+const {session} = require('electron')
+const ses = session.fromPartition('persist:name')
+console.log(ses.getUserAgent())
 ```
 
 ### Instance Events
 
-Peristiwa berikut tersedia pada contoh ` Sesi `:
+The following events are available on instances of `Session`:
 
-#### Acara: 'akan-download'
+#### Event: 'will-download'
 
-* ` event ` Acara
-* ` item ` [ DownloadItem ](download-item.md)
-* ` webContents ` [ WebContents ](web-contents.md)
+* `event` Event
+* `item` [DownloadItem](download-item.md)
+* `webContents` [WebContents](web-contents.md)
 
-Emitted ketika Elektron akan mendownload `item` di `webContents`.
+Emitted when Electron is about to download `item` in `webContents`.
 
-Memanggil ` event.preventDefault () ` akan membatalkan unduhan dan ` item ` tidak akan tersedia dari tikungan berikutnya prosesnya.
+Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
 ```javascript
-const {session} = require ('electron')
-session.defaultSession.on ('akan-download', (event, item, webContents) = & gt; {
-  event.preventDefault ()
-  membutuhkan ('permintaan') (item.getURL (), (data) = & gt; {
-    membutuhkan ('fs'). writeFileSync ('/ somewhere', data)
+const {session} = require('electron')
+session.defaultSession.on('will-download', (event, item, webContents) => {
+  event.preventDefault()
+  require('request')(item.getURL(), (data) => {
+    require('fs').writeFileSync('/somewhere', data)
   })
 })
 ```
 
-### Metode Instance
+### Instance Methods
 
-Metode berikut tersedia pada contoh ` Sesi `:
+The following methods are available on instances of `Session`:
 
-#### `ses.getCacheSize (callback)`
+#### `ses.getCacheSize(callback)`
 
-* `callback` Fungsi 
-  * ` ukuran ` Integer - Ukuran cache yang digunakan dalam bytes.
+* `callback` Function 
+  * `size` Integer - Cache size used in bytes.
 
-Callback dipanggil dengan ukuran cache sesi saat ini.
+Callback is invoked with the session's current cache size.
 
-#### `ses.clearCache (callback)`
+#### `ses.clearCache(callback)`
 
-* ` callback ` Fungsi - Dipanggil saat operasi selesai
+* `callback` Function - Called when operation is done
 
-Menghapus cache HTTP sesi.
+Clears the session’s HTTP cache.
 
-#### `ses.clearStorageData ([options, callback])`
+#### `ses.clearStorageData([options, callback])`
 
-* `pilihan` Objek (opsional) 
-  * ` asal ` String - (opsional) Harus mengikuti representasi ` window.location.origin ` ` skema: // host: port `.
-  * ` penyimpanan ` String [] - (opsional) Jenis penyimpanan yang dapat dihapus, dapat berisi: ` appcache `, ` cookies `, ` filesystem `, ` indexdb </ 0>, <code> localstorage </ 0>, <code>
-<code> shadercache `, ` websql `, <0> petugas servis </code>
-  * ` kuota ` String [] - (opsional) Jenis kuota untuk dihapus, dapat berisi: ` sementara `, ` persisten `, ` sinkronkan `.
+* `options` Object (optional) 
+  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
 
 Clears the data of web storages.
@@ -114,7 +113,7 @@ Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Obyek 
+* `config` Object 
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
@@ -133,7 +132,7 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-Sebagai contoh:
+For example:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
