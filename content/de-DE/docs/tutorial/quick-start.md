@@ -70,24 +70,24 @@ function createWindow () {
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Öffnen der DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Ausgegeben, wenn das Fenster geschlossen wird.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Dereferenzieren des Fensterobjekts, normalerweise würden Sie Fenster
+    // in einem Array speichern, falls Ihre App mehrere Fenster unterstützt. 
+    // Das ist der Zeitpunkt, an dem Sie das zugehörige Element löschen sollten.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Diese Methode wird aufgerufen, wenn Electron mit der
+// Initialisierung fertig ist und Browserfenster erschaffen kann.
+// Einige APIs können nur nach dem Auftreten dieses Events genutzt werden.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Verlassen, wenn alle Fenster geschlossen sind.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
