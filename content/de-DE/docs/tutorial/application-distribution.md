@@ -26,7 +26,7 @@ Danach führen Sie `Electron.app` (oder `electron` unter Linux, `electron.exe` u
 
 Unabhängig vom Verbreiten Ihrer App durch das Kopieren aller Quelldateien können Sie Ihre App auch in ein [asar](https://github.com/electron/asar)-Archiv packen, um zu vermeiden, dass der Nutzer Zugriff auf den Quellcode Ihrer Anwendung erhält.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Um ein `asar`-Archiv zu nutzen, um den `app` Ordner zu ersetzen, müssen Sie das Archiv in `app.asar` umbenennen und, wie unten, in das Resources-Verzeichnis von Electron verschieben. Erst dann wird Electron versuchen das Archiv zu lesen und daraus starten.
 
 Unter macOS:
 
@@ -42,7 +42,7 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Mehr Details finden Sie unter [Anwendungspakete](application-packaging.md) in der Dokumentation.
 
 ## Rebranding with Downloaded Binaries
 
