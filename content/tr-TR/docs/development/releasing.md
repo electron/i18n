@@ -1,6 +1,6 @@
 # Yayınlanma
 
-Bu belgede, Electron'un yeni bir sürümünün yayınlanma süreci açıklanmaktadır.
+Bu belgede, Electron 'un yeni bir sürümünün yayınlanma süreci açıklanmaktadır.
 
 ## Hangi dalın yayınlanacağını belirleyin
 
