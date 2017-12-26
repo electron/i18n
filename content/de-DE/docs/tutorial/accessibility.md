@@ -24,7 +24,7 @@ Erfahren Sie mehr über dieses Feature in der [Spectron Dokumentation](https://g
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+In Devtron finden Sie einen neuen Tab für Barrierefreiheit. Dieser erlaubt Ihnen eine Website in Ihrer App zu revidieren und die Ergebnisse zu sortieren bzw. zu filtern.
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
