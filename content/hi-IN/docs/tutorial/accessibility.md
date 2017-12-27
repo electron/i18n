@@ -8,7 +8,7 @@ Accessibility concerns in Electron applications are similar to those of websites
 
 These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
 
-## Spectron
+## स्पेकट्रॉन
 
 In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
 
