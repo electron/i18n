@@ -10,9 +10,9 @@
 
 विंडोज 7 और उसके बाद के ओएस समर्थित हैं | पुराने ओएस समर्थित नहीं हैं (न ही वे काम करते हैं) |
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
+विंडोज के लिए दोनों `ia32` (`x86`) and `x64` (`amd64`) बाइनरिस प्रदान की गयी हैं |. कृपया ध्यान दें, विंडोज का `ARM` संस्करण अभी समर्थित नहीं है |
 
-### Linux
+### लिनक्स
 
 The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `arm` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
 
