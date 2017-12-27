@@ -243,21 +243,21 @@ jika (process.platform! == 'win32' || systemPreferences.isAeroGlassEnabled ()) {
 }
 
 // Buat jendela.
-let win = new BrowserWindow(browserOptions)
+biarkan menang = Browser jendela baru(browserOptions)
 
-// Navigate.
-if (browserOptions.transparent) {
-  win.loadURL(`file://${__dirname}/index.html`)
-} else {
-  // No transparency, so we load a fallback that uses basic styles.
+// Arahkan.
+jika (browserOptions.transparent) {
+  win.loadURL (`file://${__dirname}/index.html`)
+} lain {
+  // Tidak ada transparansi, jadi kita memuat mundur yang menggunakan gaya dasar.
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 </code></pre>
               <h3>
-                <code>systemPreferences.getAccentColor()</code> <em>Windows</em>
+                <code>systemPreferences.getAccentColor()</code> <em>Jendela</em>
               </h3>
               <p>
-                Returns <code>String</code> - The users current system wide accent color preference in RGBA hexadecimal form.
+                Mengembalikan <code>String</code> - Pengguna saat ini memiliki preferensi warna aksen lebar di RGBA bentuk heksadesimal.
               </p>
               <pre><code class="js">const color = systemPreferences.getAccentColor() // `"aabbccdd"`
 const red = color.substr(0, 2) // "aa"
@@ -266,34 +266,34 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 </code></pre>
               <h3>
-                <code>systemPreferences.getColor(color)</code> <em>Windows</em>
+                <code>systemPreferences.getColor(warna)</code> <em>jendela</em>
               </h3>
               <ul>
                 <li>
-                  <code>color</code> String - One of the following values: <ul>
+                  <code>warna</code> String - Salah satu nilai berikut: <ul>
                     <li>
-                      <code>3d-dark-shadow</code> - Dark shadow for three-dimensional display elements.
+                      <code>3d-dark-shadow</code> - bayangan gelap untuk elemen tampilan tiga dimensi.
                     </li>
                     <li>
-                      <code>3d-face</code> - Face color for three-dimensional display elements and for dialog box backgrounds.
+                      <code>3d-face</code> - Warna wajah untuk elemen tampilan tiga dimensi dan untuk dialog latar belakang kotak.
                     </li>
                     <li>
-                      <code>3d-highlight</code> - Highlight color for three-dimensional display elements.
+                      <code>3d-highlight </code> - Sorot warna untuk elemen tampilan tiga dimensi.
                     </li>
                     <li>
-                      <code>3d-light</code> - Light color for three-dimensional display elements.
+                      <code>3d-light</code> - Warna terang untuk elemen tampilan tiga dimensi.
                     </li>
                     <li>
-                      <code>3d-shadow</code> - Shadow color for three-dimensional display elements.
+                      <code>3d-shadow</code> - Warna bayangan untuk elemen tampilan tiga dimensi.
                     </li>
                     <li>
-                      <code>active-border</code> - Active window border.
+                      <code>border aktif</code> - Batas jendela aktif.
                     </li>
                     <li>
-                      <code>active-caption</code> - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+                      <code>active-caption</code> - Bilah judul jendela aktif. Menentukan warna sisi kiri pada gradien warna bar judul jendela aktif jika efek gradiennya diaktifkan.
                     </li>
                     <li>
-                      <code>active-caption-gradient</code> - Right side color in the color gradient of an active window's title bar.
+                      <code>active-caption-gradient</code> - Warna sisi kanan pada gradien warna bar judul jendela aktif.
                     </li>
                     <li>
                       <code>app-workspace</code> - Background color of multiple document interface (MDI) applications.
