@@ -1,4 +1,4 @@
-# Environment Variables
+# वातावरण वेरिएबल्स
 
 > Control application configuration and behavior without changing code.
 
