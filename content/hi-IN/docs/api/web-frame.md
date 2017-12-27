@@ -1,4 +1,4 @@
-# webFrame
+# वेबफ्रेम
 
 > Customize the rendering of the current web page.
 
