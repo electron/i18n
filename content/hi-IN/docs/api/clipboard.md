@@ -1,4 +1,4 @@
-# clipboard
+# क्लिपबोर्ड
 
 > Perform copy and paste operations on the system clipboard.
 
