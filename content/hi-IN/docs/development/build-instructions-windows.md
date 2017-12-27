@@ -1,4 +1,4 @@
-# Build Instructions (Windows)
+# बिल्ड निर्देश (विंडोज)
 
 Follow the guidelines below for building Electron on Windows.
 
