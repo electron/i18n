@@ -61,7 +61,7 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
-Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `listener` `listener(details, callback)` ile birlikte çağırılacak. This may occur after a TCP connection is made to the server, but before any http data is sent.
+Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `listener` `listener(details, callback)` ile birlikte çağırılacak. Bu, bir sunucuya TCP bağlantısı yapıldığında ortaya çıkabilir ancak öncesinde herhangi bir http verisi gönderilmiştir.
 
 * `details` Nesne 
   * `id` Integer
