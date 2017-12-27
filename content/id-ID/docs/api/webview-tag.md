@@ -568,7 +568,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       Corresponds to the points in time when the spinner of the tab stops spinning.
       
-      ### Event: 'did-get-response-details'
+      ### Event: 'Apakah-mendapatkan-tanggapan-rincian'
       
       Pengembalian:
       
@@ -578,12 +578,12 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `httpResponseCode` Integer
       * `requestMethod` String
       * `referrer` String
-      * `headers` Object
-      * `resourceType` String
+      * `headers` Obyek
+      * `Jenissumberdaya` String
       
       Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
       
-      ### Event: 'did-get-redirect-request'
+      ### Event: 'apakah-mendapatkan-redirect-permintaan'
       
       Pengembalian:
       
@@ -593,7 +593,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       Fired when a redirect was received while requesting a resource.
       
-      ### Event: 'dom-ready'
+      ### Event: 'dom-siap'
       
       Fired when document in the given frame is loaded.
       
@@ -606,7 +606,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
       
-      ### Event: 'page-favicon-updated'
+      ### Event: 'halaman-favicon-updated '
       
       Pengembalian:
       
@@ -821,7 +821,7 @@ Pengembalian:
 
 <p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-<h3>Event: 'devtools-opened'</h3>
+<h3>Event: 'devtools-dibuka'</h3>
 
 <p>Emitted when DevTools is opened.</p>
 
