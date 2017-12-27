@@ -308,67 +308,67 @@ const alpha = color.substr(6, 2) // "dd"
                       <code>desktop</code> - Warna latar belakang desktop.
                     </li>
                     <li>
-                      <code>disabled-text</code> - Grayed (disabled) text.
+                      <code>teks nonaktif</code> - Teks abu-abu (dinonaktifkan).
                     </li>
                     <li>
-                      <code>highlight</code> - Item(s) selected in a control.
+                      <code>sorot</code> - Item (s) dipilih dalam kontrol.
                     </li>
                     <li>
-                      <code>highlight-text</code> - Text of item(s) selected in a control.
+                      <code>highlight-text</code> - Teks item(s) yang dipilih dalam kontrol.
                     </li>
                     <li>
-                      <code>hotlight</code> - Color for a hyperlink or hot-tracked item.
+                      <code>hotlight</code> - Warna untuk item hyperlink atau hot-tracked.
                     </li>
                     <li>
-                      <code>inactive-border</code> - Inactive window border.
+                      <code>tidak aktif-batas</code> - Batas jendela tidak aktif.
                     </li>
                     <li>
-                      <code>inactive-caption</code> - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+                      <code>tidak aktif-caption</code> - Judul keterangan tidak aktif. Menentukan warna sisi kiri pada gradien warna bar judul jendela yang tidak aktif jika gradiennya efek diaktifkan.
                     </li>
                     <li>
-                      <code>inactive-caption-gradient</code> - Right side color in the color gradient of an inactive window's title bar.
+                      <code>tidak aktif-caption-gradient</code> - Warna sisi kanan pada gradien warna dari bilah judul jendela yang tidak aktif.
                     </li>
                     <li>
-                      <code>inactive-caption-text</code> - Color of text in an inactive caption.
+                      <code>teks keterangan tidak aktif</code> - Warna teks dalam teks tidak aktif.
                     </li>
                     <li>
-                      <code>info-background</code> - Background color for tooltip controls.
+                      <code>info-background</code> - Warna latar belakang untuk kontrol tooltip.
                     </li>
                     <li>
-                      <code>info-text</code> - Text color for tooltip controls.
+                      <code>info-text</code> - Warna teks untuk kontrol tooltip.
                     </li>
                     <li>
-                      <code>menu</code> - Menu background.
+                      <code>menu</code> - Latar belakang menu.
                     </li>
                     <li>
                       <code>menu-highlight</code> - The color used to highlight menu items when the menu appears as a flat menu.
                     </li>
                     <li>
-                      <code>menubar</code> - The background color for the menu bar when menus appear as flat menus.
+                      <code>menubar</code> - Warna latar untuk bilah menu saat menu tampil rata menu.
                     </li>
                     <li>
-                      <code>menu-text</code> - Text in menus.
+                      <code>menu-text</code> - Teks dalam menu.
                     </li>
                     <li>
-                      <code>scrollbar</code> - Scroll bar gray area.
+                      <code>scrollbar</code> - Area gulir batang abu-abu.
                     </li>
                     <li>
-                      <code>window</code> - Window background.
+                      <code>jendela</code> - Latar belakang jendela.
                     </li>
                     <li>
-                      <code>window-frame</code> - Window frame.
+                      <code>bingkai jendela</code> - Bingkai jendela.
                     </li>
                     <li>
-                      <code>window-text</code> - Text in windows.
+                      <code>jendela-teks</code> - teks di jendela.
                     </li>
                   </ul>
                 </li>
               </ul>
               <p>
-                Returns <code>String</code> - The system color setting in RGB hexadecimal form (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> for more details.
+                Mengembalikan <code>Senar</code> - Pengaturan warna sistem dalam bentuk heksadesimal RGB (<code>#ABCDEF</code>). Lihat <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> untuk lebih jelasnya.
               </p>
               <h3>
-                <code>systemPreferences.isInvertedColorScheme()</code> <em>Windows</em>
+                <code>systemPreferences.isInvertedColorScheme () </code> <em>Jendela</em>
               </h3>
               <p>
                 Returns <code>Boolean</code> - <code>true</code> if an inverted color scheme, such as a high contrast theme, is active, <code>false</code> otherwise.
