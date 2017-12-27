@@ -22,11 +22,11 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. `isminizin` `ürünü` için çökme raporları `İsminiz Crashes` dizinimde /temp dizini altında tutulacaktır. Bu geçici dizinin yolunu `app.setPath('temp', '/my/custom/temp')` şeklinde kendinize göre ayarlayabilirsiniz.
 
 ## Metodlar
 
-The `crashReporter` module has the following methods:
+`crashReporter` modülü aşağıdaki metodlara sahiptir:
 
 ### `crashReporter.start(options)`
 
