@@ -31,7 +31,7 @@ community:
   boilerplates: Boilerplates
   components: घटक
   videos: वीडियो
-  meetups: Meetups
+  meetups: सम्मेलन
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
@@ -51,8 +51,8 @@ benefits:
   hard_parts_made_easy: मुश्किल हिस्सें बने आसान
   automatic_updates: 'स्वत: अपडेटस'
   native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
+  crash_reporting: क्रेश रिपोर्ट
+  debugging_and_profiling: दोषमुक्ति और विश्लेषण
   windows_installers: विंडोज़ इंस्टालरस
 get_started:
   title: प्रारंभ करें
@@ -66,8 +66,8 @@ quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
   clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
+  go_into_repo: रिपॉजिटरी में जायें |
+  install_deps: निर्भरतायें इनस्टॉल करें और फिर चलायें
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: सहायता की आवश्यकता है?
@@ -129,11 +129,11 @@ pages:
     title: यूजरलैंड
   '/devtron':
     title: डेवट्रॉन
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: डेवट्रॉन एक मुक्त स्रोत औज़ार है, जिसकी मदद से आप अपनी इलेक्ट्रॉन एप्प की निरक्षण, निगरानी और दोषमुक्ति कर सकते हैं |यह बनाया गया है अद्भुत क्रोम डेवलपर टूल्स पर |
   '/spectron':
-    title: Spectron
+    title: स्पेकट्रॉन
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: पेज नहीं मिला
+  if_this_is_an_error: यदि यह कोई त्रुटि है
+  please_file_an_issue: कृपया समस्या दर्ज करें ।
