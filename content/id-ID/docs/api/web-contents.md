@@ -18,30 +18,30 @@ console.log (isi)
 
 ## Metode
 
-These methods can be accessed from the `webContents` module:
+Metode ini dapat diakses dari modul `webContents`:
 
 ```javascript
-const {webContents} = require('electron')
-console.log(webContents)
+const {webContents} = require ('electron')
+console.log (webContents)
 ```
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Mengembalikan `WebContents[]` - Kumpulan semua `WebContents` instances. Ini akan berisi konten web untuk semua jendela, peta web, devtool terbuka, dan halaman latar belakang devtools extension.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Mengembalikan <`WebContents` - Isi web yang difokuskan pada aplikasi ini, jika tidak kembali `null`.
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Mengembalikan `WebContents` - Contoh WebContents dengan ID yang diberikan.
 
-## Class: WebContents
+## Kelas: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Render dan kendalikan isi instance BrowserWindow.
 
 Proses:  Utama </ 0></p> 
 
