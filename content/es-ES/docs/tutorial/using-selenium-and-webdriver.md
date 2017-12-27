@@ -44,40 +44,40 @@ app.start().then(function () {
 
 ## Configurar con WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provee un paquete de nodos para probar con el driver de la web, lo usaremos como ejemplo.
 
-### 1. Start ChromeDriver
+### 1. Inicie ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Primero usted necesita descargar el `chromedriver` binario, y ejecutarlo:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Iniciar ChromeDriver (v2.10.291558) en puerto 9515
+Solo conexiones locales permitidas.
 ```
 
-Remember the port number `9515`, which will be used later
+Recuerde el puerto número `9515`, que usaremos más adelante
 
-### 2. Install WebDriverJS
+### 2. instalar WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Conecte a ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+El uso de `selenium-webdriver` con Electron es básicamente e mismo que con upstream, excepto que tiene que ser especificado manualmente como conectar al chromedriver y donde encontrar el binario de Electron:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // El "9515" es el puerto abierto por chrome driver.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      // Aquí va la dirección de tu Electron binario.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -96,13 +96,13 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## Configurar con WebDriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebDriverIO](http://webdriver.io/) provee un paquete de nodos para probar con el driver de la web.
 
-### 1. Start ChromeDriver
+### 1. Inicie ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Primero usted necesita descargar el `chromedriver` binario, y ejecutarlo:
 
 ```sh
 $ npm install electron-chromedriver
@@ -111,7 +111,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+Recuerde el puerto número `9515`, que usaremos más adelante
 
 ### 2. Install WebdriverIO
 
