@@ -134,7 +134,7 @@ Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan ya
 
 ### Upload Your App
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+Setelah menandatangani aplikasi Anda, Anda dapat menggunakan Application Loader untuk mengunggahnya ke iTunes hubungkan untuk diproses, pastikan Anda telah membuat [membuat catatan](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)sebelum mengunggah.
 
 ### Submit Your App for Review
 
@@ -147,19 +147,19 @@ Untuk memenuhi semua persyaratan untuk sandboxing aplikasi, modul berikut telah 
 * `kerusakanReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+dan perilaku berikut telah diubah:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Penangkapan video mungkin tidak bekerja untuk beberapa mesin.
+* Beberapa fitur aksesibilitas tertentu mungkin tidak bekerja.
+* Aplikasi tidak akan mengetahui perubahan DNS.
 
 Selain itu, karena penggunaan sandboxing aplikasi, sumber daya yang bisa diakses oleh aplikasi ini sangat terbatas; kamu bisa membaca [App Sandboxing](https://developer.apple.com/app-sandboxing/) untuk informasi lebih lanjut.
 
 ### Additional Entitlements
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Bergantung pada API Elektron yang digunakan aplikasi Anda, Anda mungkin perlu menambahkan tambahan hak untuk berkas`parent.plist` agar dapat menggunakan API ini dari blog aplikasi Mac App Store anda dibuat.
 
-#### Network Access
+#### Internet akses
 
 Enable outgoing network connections to allow your app to connect to a server:
 
@@ -168,7 +168,7 @@ Enable outgoing network connections to allow your app to connect to a server:
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Aktifkan koneksi jaringan masuk agar aplikasi Anda dapat membuka jaringan soket mendengarkan:
 
 ```xml
 <key>com.apple.security.network.server</key>
