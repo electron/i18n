@@ -679,7 +679,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Linux'ta önemi yok.
+Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Linux için bir önemi yoktur.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -921,7 +921,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 
 #### `win.setProgressBar(progress[, options])`
 
-* `ilerleme`çift
+* `ilerleme` çift
 * `options` Obje (isteğe bağlı) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
