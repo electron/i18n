@@ -48,13 +48,13 @@ IPC стенды для взаимодействия между процесса
 
 Акроним к Mac App Store компании Apple. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### собственные модули
+### нативные модули
 
-Собственные модули (также называемые [addons](https://nodejs.org/api/addons.html) в Node.js) являются модули, написанные на C или C++, которые могут быть загружены в Node.js или Electron с помощью функции require() и используется, как обычные модули Node.js. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
+Нативными модулями (также называемые [addons](https://nodejs.org/api/addons.html) в Node.js) являются модули, написанные на C или C++, которые могут быть загружены в Node.js или Electron с помощью функции require() и используются, как обычные модули Node.js. Они используются главным образом для предоставления интерфейса между скриптами JavaScript, выполняющихся в Node.js и C/C++ библиотеках.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Нативные модуля Node поддерживаются в Electron, но учитывая, что Electron предпочитает использовать разные версии V8 для Node установленного на Вашем компьютере, вы должны вручную указать расположение заголовков Electron'а, когда собираете нативные модули.
 
-См. также [Using Native Node Modules](tutorial/using-native-node-modules.md).
+См. также [Использование нативных модулей Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
