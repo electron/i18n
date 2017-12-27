@@ -56,12 +56,12 @@ benefits:
   windows_installers: विंडोज़ इंस्टालरस
 get_started:
   title: प्रारंभ करें
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: इलेक्ट्रॉन के साथ प्रारम्भ करने के लिए, नीचे दिए गए संसाधनों को देखें । जानें कि कैसे आप इलेक्ट्रॉन के साथ अपने वेब एप्प को व्रैप, सभी ऐपीआई तक पहुँच, और इंस्टालरस उत्पन्न कर सकते हैं |
 explore:
-  title: Explore the Electron APIs
+  title: इलेक्ट्रॉन ऐपीआइस का अंवेषण करें
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
-download_from_github: Download from GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+download_from_github: गिटहब से डाउनलोड करें
+view_all_releases_on_github: गिटहब पर<a href="https://github.com/electron/electron-api-demos/releases">सभी रिलीजी देखें</a>
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
@@ -70,22 +70,22 @@ quick_start:
   install_deps: Install the dependencies and run
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
-  title: Need Help?
+  title: सहायता की आवश्यकता है?
   description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
   languages: भाषायें
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+help_translate: "अनुवाद करने में मद्द करें"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: अक्सर पूछे जाने वाले सवाल (एफएक्यू) पढ़ें
 apps:
-  title: Apps built on Electron
+  title: इलेक्ट्रॉन पर निर्मित एप्प्स
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  view_more: और अधिक एप्प्स देखें
+  submit_your_own: स्वयं का सबमिट करें
+  something_missing: किसी चीज़ की कमी है?
+  edit_this_app: इस एप्प का संपादन करें |
 clipboard:
   copy: कॉपी करें
   copy_to_clipboard: क्‍लिपबोर्ड पर कॉपी करें
@@ -100,9 +100,9 @@ pages:
     description: इलेक्ट्रॉन पर निर्मित एप्प्स
   '/docs':
     title: दस्तावेज़ीकरण
-    description: Guides and API reference documentation for the latest Electron release
+    description: नवीनतम इलेक्ट्रॉन रिलीज़ के लिए गाइड्स और ऐपीआई रेफरेंस दस्तावेज़ीकरण
   '/docs/all':
-    title: All the Electron Docs!
+    title: सभी इलेक्ट्रॉन दस्तावेज़!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: एपीआई
