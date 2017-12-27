@@ -107,8 +107,8 @@ Primero usted necesita descargar el `chromedriver` binario, y ejecutarlo:
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Starting ChromeDriver (v2.10.291558) en puerto 9515
+Solo conexiones locales son permitidas.
 ```
 
 Recuerde el puerto número `9515`, que usaremos más adelante
@@ -152,4 +152,4 @@ client
 
 Para probar su aplicación sin reconstruir Electron, simplemente [coloque](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la fuente de su aplicación en el directorio de recursos de Electron.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+También puede pasar un argumento para ejecutar con su electron binario que lleva a la carpeta de su aplicación. Esto elimina la necesidad de copiar y pegar su aplicación en el directorio de recurso de Electron.
