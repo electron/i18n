@@ -2,34 +2,34 @@
 
 > Tampilan rinci tentang kebijakan dan implementasi versi kami.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Seperti versi 2.0.0, Electron mengikuti [semver](#semver). Perintah berikut akan menginstal stabil terbaru dari Electron:
 
 ```sh
-npm install --save-dev electron
+peasangan npm --save-dev electron
 ```
 
 Untuk memperbarui proyek yang ada untuk menggunakan versi stabil terbaru:
 
 ```sh
-npm install --save-dev electron@latest
+pemasangan npm --save-dev electron@latest
 ```
 
-## Version 1.x
+## Versi 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Versi utama berhubungan dengan perubahan API pengguna akhir . Versi minor berhubungan dengan rilis utama Chromium . Versi patch sesuai dengan fitur baru dan perbaikan bug. Meskipun mudah bagi pengembang yang menggabungkan fitur, ini menciptakan masalah bagi pengembang aplikasi yang menghadapi klien. Siklus pengujian QA dari aplikasi utama seperti Slack, Stride, Teams, Skype, VS Code, Atom , dan Desktop dapat berlangsung lama dan stabilitas adalah hasil yang sangat diinginkan. Ada risiko tinggi dalam mengadopsi fitur baru saat mencoba menyerap perbaikan bug.
+Electron versions *< 2.0* tidak sesuai dengan [semver](http://semver.org) spesifikasi. Versi utama berhubungan dengan perubahan API pengguna akhir . Versi minor berhubungan dengan rilis utama Chromium . Versi patch sesuai dengan fitur baru dan perbaikan bug. Meskipun mudah bagi pengembang yang menggabungkan fitur, ini menciptakan masalah bagi pengembang aplikasi yang menghadapi klien. Siklus pengujian QA dari aplikasi utama seperti Slack, Stride, Teams, Skype, VS Code, Atom , dan Desktop dapat berlangsung lama dan stabilitas adalah hasil yang sangat diinginkan. Ada risiko tinggi dalam mengadopsi fitur baru saat mencoba menyerap perbaikan bug.
 
-Here is an example of the 1.x strategy:
+Berikut adalah contoh strategi 1.x:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Aplikasi yang dikembangkan dengan `1.8.1` tidak dapat memperbaiki bug `1.8.3` tanpa menyerap fitur `1.8.2`, atau dengan membelokkan perbaikan dan mempertahankan baris rilis baru.
 
-## Version 2.0 and Beyond
+## Versi 2.0 dan Seterusnya
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Ada beberapa perubahan besar dari strategi 1.x yang kami diuraikan di bawah ini. Setiap perubahan dimaksudkan untuk memenuhi kebutuhan dan prioritas pengembang/pengelola dan pengembang aplikasi.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
+1. Penggunaan semip yang ketat
+2. Pengenalan semver-compliant `-beta`tag
 3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
 4. Clearly defined stabilization branches
 5. The `master` branch is versionless; only stability branches contain version information
