@@ -99,114 +99,115 @@ Itu ` gambar asli </ 0> modul memiliki metode berikut, yang semuanya mengembalik
 
 Mengembalikan ` gambar asli </ 0></p>
 
-<p>Membuat instance < ID > NativeImage </ 0> kosong .</p>
+<p>Membuat instance <code>NativeImage` kosong.
 
-<h3><code>nativeImage.createFromPath(jalur)`</h3> 
+### `nativeImage.createFromPath(jalur)`
 
 * ` path </ 0>  String</li>
 </ul>
 
 <p>Mengembalikan <code> gambar asli </ 0></p>
 
-<p>Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika ` path </ 0> tidak ada, tidak bisa dibaca, atau bukan gambar yang valid.</p>
-
-<pre><code class="javascript">const nativeImage = require('elektron').nativeImage
+<p>Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau bukan gambar yang valid.</p> 
+ ```javascript
+const nativeImage = require('elektron').nativeImage
 
 let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(gambar)
-`</pre> 
- ### `nativeImage.createFromBuffer(buffer[, pilihan])`
- 
- * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
- * `pilihan` Objek (opsional)  * `width` Integer (opsional) - Diperlukan untuk buffer bitmap. *`tinggi` Integer (opsional) - Diperlukan untuk buffer bitmap. * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
- 
- Mengembalikan ` gambar asli </ 0></p>
+```
+
+### `nativeImage.createFromBuffer(buffer[, pilihan])`
+
+* `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `pilihan` Objek (opsional)  * `width` Integer (opsional) - Diperlukan untuk buffer bitmap. *`tinggi` Integer (opsional) - Diperlukan untuk buffer bitmap. * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
+
+Mengembalikan ` gambar asli </ 0></p>
 
 <p>Membuat contoh<code>gambar baru` baru dari `penyangga`.
- 
- ### `gambar asli.buatdaridataURL(dataURL)`
- 
- * ` dataURL ` tali
- 
- Mengembalikan ` gambar asli </ 0></p>
+
+### `gambar asli.buatdaridataURL(dataURL)`
+
+* ` dataURL ` tali
+
+Mengembalikan ` gambar asli </ 0></p>
 
 <p>Menciptakan yang baru <code>Gambar Asli` contoh dari `dataURL`.
- 
- ## Kelas: Gambar asli
- 
- > Bungkus gambar seperti tray, dock , dan ikon aplikasi.
- 
- Proses:  Utama </ 0> ,  Renderer </ 1></p> 
- 
- ### Metode Instance
- 
- Metode berikut tersedia pada contoh kelas ` Gambar asli`:
- 
- #### `gambar.untukPng([options])`
- 
- * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
- 
- Mengembalikan `Penyangga` - A [ Penyangga](https://nodejs.org/api/buffer.html#buffer_class_buffer)berisi data yang dikodekan` PNG </ 0>.</p>
+
+## Kelas: Gambar asli
+
+> Bungkus gambar seperti nampan, dermaga, dan ikon aplikasi.
+
+Proses:  Utama </ 0> ,  Renderer </ 1></p> 
+
+### Metode Instance
+
+Metode berikut tersedia pada contoh kelas ` Gambar asli`:
+
+#### `gambar.untukPng([options])`
+
+* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+
+Mengembalikan `Penyangga` - A [ Penyangga](https://nodejs.org/api/buffer.html#buffer_class_buffer)berisi data yang dikodekan` PNG </ 0>.</p>
 
 <h4><code>image.toJPEG(quality)`</h4> 
- 
- * `kualitas`Integer (** wajib **) - Antara 0 - 100.
- 
- Mengembalikan`Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data dikodekan `JPEG`.
- 
- #### `image.toBitmap([options])`
- 
- * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
- 
- Mengembalikan `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi salinan piksel bitmap mentah gambar data.
- 
- #### `image.toDataURL([options])`
- 
- * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
- 
- Mengembalikan ` String ` - URL data gambar.
- 
- #### `image.getBitmap([options])`
- 
- * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
- 
- Mengembalikan `Buffer` - A [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data piksel bitmap mentah gambar.
- 
- Perbedaan antara `getBitmap() ` dan ` toBitmap ()` adalah, `getBitmap()` tidak salin data bitmap, jadi Anda harus segera menggunakan Buffer yang dikembalikan tick loop acara saat ini, jika tidak data bisa diubah atau dihancurkan.
- 
- #### `image.getNativeHandle()` *macOS*
- 
- Mengembalikan `Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.
- 
- Perhatikan bahwa pointer kembali adalah pointer lemah untuk gambar asli yang mendasari bukan salinan, sehingga Anda * harus </ 0> memastikan bahwa terkait dengan ` nativeImage </ 1> contoh disimpan di sekitar.</p>
 
-<h4><code>image.isEmpty()`</h4> 
- 
- Mengembalikan `Boolean` - Apakah gambar itu kosong.
- 
- #### `image.getSize()`
- 
- Mengembalikan [`Ukuran`](structures/size.md)
- 
- #### `image.setTemplateImage(option)`
- 
- * `pilihan` Boolean
- 
- Menandai gambar sebagai gambar template.
- 
- #### `image.isTemplateImage()`
- 
- Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
- 
- #### `image.crop(rect)`
- 
- * `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong
- 
- Mengembalikan `NativeImage` - Gambar yang dipotong.
- 
- #### `gambar.mengubah ukuran (pilihan)`
- 
- * ` pilihan </ 0> Objek
+* `kualitas`Integer (** wajib **) - Antara 0 - 100.
+
+Mengembalikan`Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data dikodekan `JPEG`.
+
+#### `image.toBitmap([options])`
+
+* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+
+Mengembalikan `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi salinan piksel bitmap mentah gambar data.
+
+#### `image.toDataURL([options])`
+
+* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+
+Mengembalikan ` String ` - URL data gambar.
+
+#### `image.getBitmap([options])`
+
+* `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
+
+Mengembalikan `Buffer` - A [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data piksel bitmap mentah gambar.
+
+Perbedaan antara `getBitmap() ` dan ` toBitmap ()` adalah, `getBitmap()` tidak salin data bitmap, jadi Anda harus segera menggunakan Buffer yang dikembalikan tick loop acara saat ini, jika tidak data bisa diubah atau dihancurkan.
+
+#### `image.getNativeHandle()` *macOS*
+
+Mengembalikan `Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.
+
+Perhatikan bahwa pointer kembali adalah pointer lemah untuk gambar asli yang mendasari bukan salinan, sehingga Anda *harus* memastikan bahwa terkait dengan`nativeImage` contoh disimpan di sekitar.
+
+#### `image.isEmpty()`
+
+Mengembalikan `Boolean` - Apakah gambar itu kosong.
+
+#### `image.getSize()`
+
+Mengembalikan [`Ukuran`](structures/size.md)
+
+#### `image.setTemplateImage(option)`
+
+* `pilihan` Boolean
+
+Menandai gambar sebagai gambar template.
+
+#### `image.isTemplateImage()`
+
+Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
+
+#### `image.crop(rect)`
+
+* `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong
+
+Mengembalikan `NativeImage` - Gambar yang dipotong.
+
+#### `gambar.mengubah ukuran (pilihan)`
+
+* ` pilihan </ 0> Objek
   * <code> lebar </ 0>  Integer (opsional) - Default ke lebar gambar.
  * <code> tinggi </ 0>  bilangan bulat (opsional) - Default ke tinggi gambar
   * <code> kualitas </ 0>  String (opsional) - Kualitas gambar mengubah ukuran yang diinginkan.
@@ -222,10 +223,10 @@ console.log(gambar)
 <p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
 <h4><code>image.getAspectRatio()`</h4> 
-  Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+ Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
 <h4><code>image.addRepresentation(options)`</h4> 
-  
-  * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
-  
-  Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
+ 
+ * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
+ 
+ Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
