@@ -10,7 +10,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+Buatlah bar sentuhan baru dengan item tertentu. Gunakan `BrowserWindow.setTouchBar` untuk menambahkan `TouchBar` ke jendela.
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
@@ -18,11 +18,11 @@ Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar
 
 ### Instance Properties
 
-The following properties are available on instances of `TouchBar`:
+Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Mengubah nilai segera update item keluar di bar sentuhan.
 
 ## Contoh
 
