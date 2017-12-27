@@ -30,25 +30,25 @@ Windows'un daha sonraki sürümleri, gelişmiş bildirimlere, özel şablonlara,
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
-### Quiet Hours / Presentation Mode
+### Sessiz Saatler / Sunum modu
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Bir bildirim gönderme izninizin olup olmadığını saptamak için, userland modülünü kullanın [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Bu, Windows'un bildirimi sessizce atıp atmayacağını önceden belirlemenizi sağlar.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Bildirimler MacOS'ta açıktır; ancak [ Apple'ın İnsan Arayüzü yönerge bildirimlerinin](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) farkında olmalısınız.
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Not, bu bildirimler 256 byte ile sınırlıdır ve bu sınırı aşarsa kesilecektir.
 
 ### Gelişmiş bildirimler
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+MacOS'un daha sonraki sürümleri, kullanıcılara bildirimlere hızlıca cevap verebilmeleri için bildirimler ile bir girdi alanına izin verir. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Bir bildirim gönderme izninizin olup olmadığını saptamak için, userland modülünü kullanın [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
