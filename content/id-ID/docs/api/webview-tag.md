@@ -642,15 +642,15 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
   
-  ### Event: 'found-in-page'
+  ### Event: 'ditemukan-di-halaman'
   
   Pengembalian:
   
-  * `result` Obyek 
-    * `requestId` Integer
-    * `activeMatchOrdinal` Integer - Position of the active match.
-    * `matches` Integer - Number of Matches.
-    * `selectionArea` Object - Coordinates of first match region.
+  * `hasil` Obyek 
+    * `Idpermintaan` IntegerId
+    * `aktifSesuaiOrdinal` Integer - Posisi pertandingan aktif.
+    * `cocokdengan` Integer - Jumlah yang Cocok.
+    * `seleksiArea` Objek - Koordinat wilayah pertandingan pertama.
     * `finalUpdate` Boolean
   
   Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
@@ -792,15 +792,15 @@ Fired when a plugin process is crashed.
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### Event: 'media-mulai-bermain''
 
-Emitted when media starts playing.
+Emitted saat media mulai diputar.
 
-### Event: 'media-paused'
+### Event: 'media-berhenti'
 
-Emitted when media is paused or done playing.
+Emitted saat media dijeda atau dilakukan bermain.
 
-### Event: 'did-change-theme-color'
+### Event: 'apakah-ganti-tema-warna'
 
 Pengembalian:
 
