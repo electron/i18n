@@ -196,9 +196,9 @@ Ganti dengan: https://atom.io/download/electron
 
 ## Aset ARM Duplikat
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Setiap rilis Elektron mencakup dua ARM identik yang dibangun dengan sedikit berbeda nama file, seperti `electron-v1.7.3-linux-arm.zip` dan `electron-v1.7.3-linux-armv7l.zip`. Aset dengan awalan `v7l` ditambahkan untuk mengklarifikasi kepada pengguna versi ARM yang didukungnya, dan untuk membedakannya dari aset armv6l dan arm64 masa depan yang mungkin diproduksi.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+File *tanpa awalan* masih dipublikasikan untuk menghindari pemutusan setup yang mungkin memakannya Mulai dari 2.0, file yang tidak diawali akan tidak lagi dipublikasikan.
 
 For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
 
