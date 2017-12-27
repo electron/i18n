@@ -1,7 +1,7 @@
 # Display 物件
 
 * `id` Number - 代表顯示區的唯一識別數字
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `rotation` Number - 螢幕畫面的順時鐘旋轉角度，度數可以是 0、90、180 或 270。
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
