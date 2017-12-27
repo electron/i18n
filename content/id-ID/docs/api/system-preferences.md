@@ -296,16 +296,16 @@ const alpha = color.substr(6, 2) // "dd"
                       <code>active-caption-gradient</code> - Warna sisi kanan pada gradien warna bar judul jendela aktif.
                     </li>
                     <li>
-                      <code>app-workspace</code> - Background color of multiple document interface (MDI) applications.
+                      <code>app-workspace</code> - Warna latar belakang beberapa dokumen antarmuka (MDI) aplikasi.
                     </li>
                     <li>
-                      <code>button-text</code> - Text on push buttons.
+                      <code>tombol-teks</code> - Teks pada tombol push.
                     </li>
                     <li>
-                      <code>caption-text</code> - Text in caption, size box, and scroll bar arrow box.
+                      <code>caption-text</code> - Teks dalam keterangan, kotak ukuran, dan kotak panah gulir.
                     </li>
                     <li>
-                      <code>desktop</code> - Desktop background color.
+                      <code>desktop</code> - Warna latar belakang desktop.
                     </li>
                     <li>
                       <code>disabled-text</code> - Grayed (disabled) text.
