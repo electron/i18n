@@ -373,7 +373,7 @@ Pengembalian:
         
         #### Event: 'apakah-ganti-tema-warna'
         
-        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
         
         ```html
 <meta name='theme-color' content='#ff0000'>
@@ -387,7 +387,7 @@ Pengembalian:
 <li><code> url </ 0>  String</li>
 </ul>
 
-<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
 
 <h4>Event: 'cursor-changed'</h4>
 
@@ -401,9 +401,9 @@ Pengembalian:
     * `size` [Size](structures/size.md) (optional) - the size of the `image`
     * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
     
-    Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+    Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
     
-    If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+    Jika `jenis` parameternya `custom`, itu `gambar` Parameter akan menahan custom gambar kursor dalam `GambarAsli`, dan `skala`, `size` and `hotspot` akan memegang informasi tambahan tentang kursor khusus.
     
     #### Event: 'context-menu'
     
