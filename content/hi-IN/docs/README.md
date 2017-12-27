@@ -1,29 +1,29 @@
-कृपया सुनिश्चित करें कि आप अपने इलेक्ट्रॉन संस्करण से मेल खाने वाले दस्तावेज़ों का उपयोग कर रहे हैं । संस्करण संख्या, पेज यूआरएल का एक भाग होना चाहिए । यदि ऐसा नहीं है, तो शायद आप एक ऐसी विकास शाखा के दस्तावेज़ीकरण का इस्तेमाल कर रहे हैं, जिसमे मौजूद ऐपीआई परिवर्तन आपके इलेक्ट्रॉन संस्करण के अनुकूल नहीं हैं | To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+कृपया सुनिश्चित करें कि आप अपने इलेक्ट्रॉन संस्करण से मेल खाने वाले दस्तावेज़ों का उपयोग कर रहे हैं । संस्करण संख्या, पेज यूआरएल का एक भाग होना चाहिए । यदि ऐसा नहीं है, तो शायद आप एक ऐसी विकास शाखा के दस्तावेज़ीकरण का इस्तेमाल कर रहे हैं, जिसमे मौजूद ऐपीआई परिवर्तन आपके इलेक्ट्रॉन संस्करण के अनुकूल नहीं हैं | दस्तावेज़ीकरण के पुराने संस्करण देखने के लिए, आप गिटहब पर [टैग के द्वारा ढूंढ](https://github.com/electron/electron/tree/v1.4.0) सकते हैं | इसके लिए आप "स्विच ब्रांचेज/टैग्स" ड्रापडाउन खोलें और उस टैग को चुनें जो आपके संस्करण से मिलता है|
 
-## FAQ
+## अक्सर पूछे जाने वाले सवाल
 
-There are questions that are asked quite often. Check this out before creating an issue:
+यह वे सवाल हैं जो की अक्सर पूछे जाते हैं | नयी समस्या जमा करने से पहले इन्हें जरूर पढ़ें:
 
-* [Electron FAQ](faq.md)
+* [इलेक्ट्रॉन के अकसर पूछे जाने वाले सवाल](faq.md)
 
-## Guides
+## गाइड्स
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [शब्दों की शब्दावली](glossary.md)
+* [समर्थित प्लेटफ़ॉर्म](tutorial/supported-platforms.md)
+* [सुरक्षा](tutorial/security.md)
+* [संस्करण](tutorial/electron-versioning.md)
+* [एप्लीकेशन वितरण](tutorial/application-distribution.md)
+* [मैक एप्प स्टोर सबमिशन गाइड](tutorial/mac-app-store-submission-guide.md)
+* [विंडोज स्टोर गाइड](tutorial/windows-store-guide.md)
+* [एप्लीकेशन पैकेजिंग](tutorial/application-packaging.md)
+* [मूल नोड मोड्यूल का इस्तेमाल](tutorial/using-native-node-modules.md)
+* [मुख्य प्रक्रिया दोषमुक्ति](tutorial/debugging-main-process.md)
+* [सेलेनियम और वेबड्राईवर का इस्तेमाल](tutorial/using-selenium-and-webdriver.md)
+* [डेवटूल्स एक्सटेंशन](tutorial/devtools-extension.md)
+* [पेप्पर फ़्लैश प्लगइन का इस्तेमाल](tutorial/using-pepper-flash-plugin.md)
+* [वाइडवाइन सीडीएम प्लगइन का इस्तेमाल](tutorial/using-widevine-cdm-plugin.md)
+* [हेडलेस सीआई सिस्टम (ट्रेविस, जेनकिंस) पर परिक्षण](tutorial/testing-on-headless-ci.md)
+* [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 * [Updating Applications](tutorial/updates.md)
 
