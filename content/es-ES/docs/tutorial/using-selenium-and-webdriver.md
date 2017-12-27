@@ -6,14 +6,14 @@ Para [ChromeDriver - WebDriver para Chrome](https://sites.google.com/a/chromium.
 
 ## Configurando Spectron
 
-[Spectron](https://electron.atom.io/spectron) es el sistema de pruebas de Electron, apoyado oficialmente por ChromeDriver. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electron.atom.io/spectron) es el sistema de pruebas de Electron, apoyado oficialmente por ChromeDriver. Se construyó sobre [WebdriverIO](http://webdriver.io/) y tiene ayudantes para acceder a la API de Electron en su prueba y paquetes ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Un test simple para verificar si una ventana está abierta con un título
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,27 +22,27 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Check if the window is visible
+  // Comprueba que la ventana está abierta
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verify the window is visible
+  // Verifica que la ventana sea visible
   assert.equal(isVisible, true)
 }).then(function () {
-  // Get the window's title
+  // obtiene el título de la página
   return app.client.getTitle()
 }).then(function (title) {
-  // Verify the window's title
+  // Verifica el título de la página
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log any failures
+  // Registra cualquier falla
   console.error('Test failed', error.message)
 }).then(function () {
-  // Stop the application
+  // Detiene la aplicación
   return app.stop()
 })
 ```
 
-## Setting up with WebDriverJs
+## Configurar con WebDriverJs
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
