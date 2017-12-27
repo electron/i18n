@@ -819,7 +819,7 @@ Pengembalian:
 *  url </ 0>  String</li>
 </ul>
 
-<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
 
 <h3>Event: 'devtools-dibuka'</h3>
 
