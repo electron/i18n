@@ -117,9 +117,9 @@ API template sederhana:</p>
 Menu.setApplicationMenu(menu)
 `</pre> 
               
-              ### Render process
+              ### Render proses
               
-              Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+              Berikut adalah contoh membuat menu secara dinamis di halaman web (render process) dengan menggunakan modul [` remote `](remote.md)modul, dan menampilkannya kapan klik kanan pengguna halaman:
               
               ```html
 <!-- index.html -->
