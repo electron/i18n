@@ -76,9 +76,9 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
 <li><code>unhide` - Map to the `unhideAllApplications` action
     * `startspeaking` - Map to the `startSpeaking` action
     * `stopspeaking` - Map to the `stopSpeaking` action
-    * ` depan </ 0> - Peta ke <code> arrangeInFront </ 0> tindakan</li>
-<li><code> zoom </ 0> - Peta ke <code> performZoom </ 0> tindakan</li>
-<li><code>window` - The submenu is a "Window" menu
+    * `depan` - Peta ke `arrangeInFront` tindakan
+    * `zoom` - Peta ke `performZoom` tindakan
+    * `window` - The submenu is a "Window" menu
     * `help` - The submenu is a "Help" menu
     * `services` - The submenu is a "Services" menu
     
@@ -86,9 +86,9 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     ### Instance Properties
     
-    Properti berikut tersedia pada contoh ` MenuItem </ 0> :</p>
-
-<h4><code>menuItem.enabled`</h4> 
+    Properti berikut tersedia pada contoh `MenuItem`:
+    
+    #### `menuItem.enabled`
     
     A`Boolean` menunjukkan apakah item tersebut diaktifkan, properti ini dapat diubah secara dinamis.
     
@@ -100,7 +100,7 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
     
-    A `checkbox` menu item will toggle the `checked` property on and off when selected.
+    Sebuah `centang` item menu akan beralih `diperiksa` properti dan mematikan saat dipilih.
     
     Sebuah `radio` item menu akan menyala nya `diperiksa` properti saat diklik, dan akan mematikan bahwa properti untuk semua item yang berdekatan di menu yang sama.
     
