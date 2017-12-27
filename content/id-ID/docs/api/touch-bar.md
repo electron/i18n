@@ -4,7 +4,7 @@
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBar(options)` *Experimental*
+### `baru TouchBar(options)` *Experimental*
 
 * `pilihan` Obyek 
   * `item` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) []
