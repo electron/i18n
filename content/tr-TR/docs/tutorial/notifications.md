@@ -26,7 +26,7 @@ Ayrıca, Windows 8'de bildirim gövdesi için maksimum uzunluk 250 karakterken, 
 
 ### Gelişmiş bildirimler
 
-Windows'un daha sonraki sürümleri, gelişmiş bildirimlere, özel şablonlara, görüntüler ve diğer esnek öğelere izin verir. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Windows'un daha sonraki sürümleri, gelişmiş bildirimlere, özel şablonlara, görüntüler ve diğer esnek öğelere izin verir. Bu bildirimleri göndermek için (ana işlemde yada oluşturucu işleminde), göndermek için yerel düğüm eklentilerini `ToastNotification` ve `TileNotification` objelerini kullanan userland modülünü kullanın [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications).
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
