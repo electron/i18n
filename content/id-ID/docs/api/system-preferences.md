@@ -341,7 +341,7 @@ const alpha = color.substr(6, 2) // "dd"
                       <code>menu</code> - Latar belakang menu.
                     </li>
                     <li>
-                      <code>menu-highlight</code> - The color used to highlight menu items when the menu appears as a flat menu.
+                      <code>menu-highlight</code> - Warna yang digunakan untuk menyorot item menu saat menu muncul sebagai menu datar.
                     </li>
                     <li>
                       <code>menubar</code> - Warna latar untuk bilah menu saat menu tampil rata menu.
@@ -371,5 +371,5 @@ const alpha = color.substr(6, 2) // "dd"
                 <code>systemPreferences.isInvertedColorScheme () </code> <em>Jendela</em>
               </h3>
               <p>
-                Returns <code>Boolean</code> - <code>true</code> if an inverted color scheme, such as a high contrast theme, is active, <code>false</code> otherwise.
+                Mengembalikan <code>Boolean</code> - <code>benar</code> jika skema warna terbalik, seperti tema kontras tinggi, aktif, <code> salah </code> sebaliknya.
               </p>
