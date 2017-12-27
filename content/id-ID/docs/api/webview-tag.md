@@ -533,22 +533,22 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       Pengembalian:
       
       * ` url </ 0>  String</li>
-<li><code>isMainFrame` Boolean
+<li><code>adalahBingkaiUtama` Boolean
       
       Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
       
-      ### Event: 'did-finish-load'
+      ### Acara: 'did-finish-load'
       
       Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
       
-      ### Event: 'did-fail-load'
+      ### Acara: 'did-fail-load'
       
       Pengembalian:
       
       * `errorCode` Integer
       * `errorDescription` String
       * `validatedURL` String
-      * `isMainFrame` Boolean
+      * `adalahBingkaiUtama` Boolean
       
       This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
       
@@ -556,15 +556,15 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       Pengembalian:
       
-      * `isMainFrame` Boolean
+      * `adalahBingkaiUtama` Boolean
       
       Fired when a frame has done navigation.
       
-      ### Event: 'did-start-loading'
+      ### Event: 'apakah-mulai-loading '
       
       Corresponds to the points in time when the spinner of the tab starts spinning.
       
-      ### Event: 'did-stop-loading'
+      ### Event: 'apakah-mulai-loading '
       
       Corresponds to the points in time when the spinner of the tab stops spinning.
       
@@ -589,7 +589,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       * `oldURL` String
       * `newURL` String
-      * `isMainFrame` Boolean
+      * `adalahBingkaiUtama` Boolean
       
       Fired when a redirect was received while requesting a resource.
       
@@ -720,7 +720,7 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     
     Pengembalian:
     
-    * `isMainFrame` Boolean
+    * `adalahBingkaiUtama` Boolean
     * ` url </ 0>  String</li>
 </ul>
 
