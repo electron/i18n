@@ -178,43 +178,43 @@ bersama dengan notifikasi.&lt;/p>
                   <code>AppleInterfaceStyle</code>: <code>senar</code>
                 </li>
                 <li>
-                  <code>AppleAquaColorVariant</code>: <code>integer</code>
+                  <code>AppleAquaColorVariant</code>: <code>bilangan bulat</code>
                 </li>
                 <li>
-                  <code>AppleHighlightColor</code>: <code>string</code>
+                  <code>AppleHighlightColor</code>: <code>senar</code>
                 </li>
                 <li>
-                  <code>AppleShowScrollBars</code>: <code>string</code>
+                  <code>AppleShowScrollBars</code>: <code>senar</code>
                 </li>
                 <li>
                   <code>NSNavRecentPlaces</code>: <code>array</code>
                 </li>
                 <li>
-                  <code>NSPreferredWebServices</code>: <code>dictionary</code>
+                  <code>NSPreferredWebServices</code>: <code>kamus</code>
                 </li>
                 <li>
                   <code>NSUserDictionaryReplacementItems</code>: <code>array</code>
                 </li>
               </ul>
               <h3>
-                <code>systemPreferences.setUserDefault(key, type, value)</code> <em>macOS</em>
+                <code>systemPreferences.setUserDefault (kunci, jenis, nilai) </code> <em> macOS</em>
               </h3>
               <ul>
                 <li>
                   <code>kunci</code> senar
                 </li>
                 <li>
-                  <code>type</code> String - See [<code>getUserDefault</code>][#systempreferencesgetuserdefaultkey-type-macos]
+                  <code>ketik</code> String - lihat [<code>getUserDefault</code>] [# systempreferencesgetuserdefaultkey-type-macos]
                 </li>
                 <li>
-                  <code>value</code> String
+                  <code>nilai</code> Senar
                 </li>
               </ul>
               <p>
-                Set the value of <code>key</code> in system preferences.
+                Tetapkan nilai <code>kunci</code> pada preferensi sistem.
               </p>
               <p>
-                Note that <code>type</code> should match actual type of <code>value</code>. An exception is thrown if they don't.
+                Perhatikan bahwa <code>tipe</code> harus sesuai dengan tipe <code>nilai</code> yang sebenarnya. Sebuah pengecualian dilemparkan jika tidak.
               </p>
               <p>
                 API ini menggunakan <code>NSUserDefaults</code> pada macOS. Beberapa kunci <code>kunci</code> dan <code>yang populer</code> adalah:
@@ -228,21 +228,21 @@ bersama dengan notifikasi.&lt;/p>
                 <code>systemPreferences.isAeroGlassEnabled()</code> <em>Windows</em>
               </h3>
               <p>
-                Returns <code>Boolean</code> - <code>true</code> if <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx">DWM composition</a> (Aero Glass) is enabled, and <code>false</code> otherwise.
+                Mengembalikan <code>Boolean</code> - <code>benar</code> jika <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx">komposisi DWM</a> (Aero Glass) adalah diaktifkan, dan <code>salah</code> sebaliknya.
               </p>
               <p>
-                An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+                Contoh penggunaannya untuk menentukan apakah Anda harus membuat jendela transparan atau tidak (jendela transparan tidak akan bekerja dengan benar saat komposisi DWM dinonaktifkan):
               </p>
-              <pre><code class="javascript">const {BrowserWindow, systemPreferences} = require('electron')
-let browserOptions = {width: 1000, height: 800}
+              <pre><code class="javascript">const {BrowserWindow, systemPreferences} = require ('elektron')
+biarkan browserOptions = {width: 1000, height: 800}
 
-// Make the window transparent only if the platform supports it.
-if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
-  browserOptions.transparent = true
-  browserOptions.frame = false
+// Buat jendela transparan hanya jika platform mendukungnya.
+jika (process.platform! == 'win32' || systemPreferences.isAeroGlassEnabled ()) {
+  browserOptions.transparent = benar
+  browserOptions.frame = salah
 }
 
-// Create the window.
+// Buat jendela.
 let win = new BrowserWindow(browserOptions)
 
 // Navigate.
