@@ -62,11 +62,11 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (закадровый рендеринг) может использоваться для загрузки тяжелых страниц в фоновом режиме и затем отобразит её после (это будет намного быстрее). Это позволяет Вам рендерить страницу без отображения на экране.
 
 ### процесс
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Процесс является экземпляром компьютерной программы, который выполняется. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
