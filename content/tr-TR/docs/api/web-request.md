@@ -1,10 +1,10 @@
-## Class: WebRequest
+## Sınıf: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> İsteğin içeriğini ömrünün çeşitli aşamalarında kesip değiştirin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
+`WebRequest` sınıfının örneklerine `webRequest`'nin `Session` özelliği kullanılarak erişilir.
 
 The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
 
@@ -17,7 +17,7 @@ An example of adding `User-Agent` header for requests:
 ```javascript
 const {session} = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// Aşağıdaki Url'ler için tüm istekleri kullanıcı aracına değiştirin.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -30,7 +30,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### Örnek yöntemleri
 
-The following methods are available on instances of `WebRequest`:
+Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
@@ -141,7 +141,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `details` Nesne 
-    * `kimlik` dizesi
+    * `id` String
     * `url` String
     * `method` String
     * `resourceType` Dize
@@ -163,7 +163,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` Dize
+    * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
