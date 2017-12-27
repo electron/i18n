@@ -12,12 +12,11 @@ Sebuah `filter` objek memiliki `url` properti yang merupakan Array URL pola yang
 
 Untuk event tertentu ` pendengar` dilewatkan dengan `panggilan kembali`, yang seharusnya dipanggil dengan `respon` ketika objek `pendengar` telah melakukan pekerjaannya.
 
-An example of adding `User-Agent` header for requests:
+Contoh menambahkan `User-Agent` header untuk permintaan:
 
 ```javascript
 const {session} = require('electron')
-
-// Modify the user agent for all requests to the following urls.
+// Mengubah agen pengguna untuk semua permintaan ke url berikut.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -30,35 +29,35 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### Metode Instance
 
-The following methods are available on instances of `WebRequest`:
+Metode berikut tersedia pada contoh `WebRequest`:
 
-#### `webRequest.onBeforeRequest ([filter,] pendengar)`
+#### `webRequest.onBeforeRequest ([filter,]pendengar)`
 
-* `menyaring` Obyek 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Objek 
+  * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
 * `pendengar` Fungsi 
   * `rincian` Obyek 
     * `id` Integer
     * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
-    * `timestamp` Double
+<li><code>TipeSumberdaya` String
+    * `timestamp` Duakali
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Fungsi 
     * `respon` Obyek 
-      * `cancel` Boolean (optional)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+      * `batalkan` Boolean (opsional)
+      * `redirectURL` String (opsional) - Permintaan asli dicegah dikirim atau diselesaikan dan diarahkan ke URL yang diberikan.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` saat sebuah permintaan akan segera terjadi.
 
-The `uploadData` is an array of `UploadData` objects.
+`UploadData` sebuah array `UploadData` objek.
 
-The `callback` has to be called with an `response` object.
+`panggilan kembali` harus dipanggil dengan `respon` objek.
 
 #### `webRequest.onBeforeSendHeaders ([filter,] pendengar)`
 
 * `menyaring` Obyek 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
 * ` pendengar </ 0> Fungsi</li>
 </ul>
 
@@ -68,26 +67,26 @@ The `callback` has to be called with an `response` object.
     * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-    * `timestamp` Double
+    * `timestamp` Duakali
     * `requestHeaders` Object
   * `callback` Fungsi 
     * `respon` Obyek 
-      * `cancel` Boolean (optional)
+      * `batalkan` Boolean (opsional)
       * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
   
-  The `callback` has to be called with an `response` object.
+  `panggilan kembali` harus dipanggil dengan `respon` objek.
   
   #### `webRequest.onSendHeaders ([filter,] pendengar)`
   
   * `menyaring` Obyek 
-    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+    * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
   * `pendengar` Fungsi 
     * `rincian` Obyek 
       * `id` Integer
       * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-      * `timestamp` Double
+      * `timestamp` Duakali
       * `requestHeaders` Object
   
   The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
@@ -95,7 +94,7 @@ The `callback` has to be called with an `response` object.
   #### `webRequest.onHeadersReceived([filter, ]listener)`
   
   * `menyaring` Obyek 
-    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+    * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
   * ` pendengar </ 0> Fungsi</li>
 </ul>
 
@@ -105,7 +104,7 @@ The `callback` has to be called with an `response` object.
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-      * `timestamp` Double
+      * `timestamp` Duakali
       * `statusLine` String
       * `statusCode` Bilangan bulat
       * `responseHeaders` Objek
@@ -115,19 +114,19 @@ The `callback` has to be called with an `response` object.
         * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
         * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
     
-    The `callback` has to be called with an `response` object.
+    `panggilan kembali` harus dipanggil dengan `respon` objek.
     
     #### `webRequest.onResponseStarted([filter, ]listener)`
     
     * `menyaring` Obyek 
-      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+      * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-        * `timestamp` Double
+        * `timestamp` Duakali
         * `responseHeaders` Objek
         * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
         * `statusCode` Bilangan bulat
@@ -138,14 +137,14 @@ The `callback` has to be called with an `response` object.
     #### `webRequest.onBeforeRedirect([filter, ]listener)`
     
     * `menyaring` Obyek 
-      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+      * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-        * `timestamp` Double
+        * `timestamp` Duakali
         * `redirectURL` String
         * `statusCode` Bilangan bulat
         * `ip` String (optional) - The server IP address that the request was actually sent to.
@@ -157,14 +156,14 @@ The `callback` has to be called with an `response` object.
     #### `webRequest.onCompleted([filter, ]listener)`
     
     * `menyaring` Obyek 
-      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+      * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-        * `timestamp` Double
+        * `timestamp` Duakali
         * `responseHeaders` Objek
         * `fromCache` Boolean
         * `statusCode` Bilangan bulat
@@ -175,14 +174,14 @@ The `callback` has to be called with an `response` object.
     #### `webRequest.onErrorOccurred([filter, ]listener)`
     
     * `menyaring` Obyek 
-      * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+      * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code>resourceType` String
-        * `timestamp` Double
+        * `timestamp` Duakali
         * `fromCache` Boolean
         * `error` String - The error description.
     
