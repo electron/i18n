@@ -103,32 +103,32 @@ pages:
     description: नवीनतम इलेक्ट्रॉन रिलीज़ के लिए गाइड्स और ऐपीआई रेफरेंस दस्तावेज़ीकरण
   '/docs/all':
     title: सभी इलेक्ट्रॉन दस्तावेज़!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: इलेक्ट्रॉन के सभी गाइड्स और एपीआई दस्तावेज़ीकरण एक ही, खोजने योग्य पेज पर |
   '/docs/api':
     title: एपीआई
-    description: API reference documentation for the latest Electron release
+    description: नवीनतम इलेक्ट्रॉन रिलीज़ के लिए ऐपीआई रेफरेंस दस्तावेज़ीकरण
   '/docs/development':
     title: विकास
-    description: Developing with Electron
+    description: इलेक्ट्रॉन के साथ निर्माण
   '/docs/tutorial':
-    title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    title: ट्यूटोरियल
+    description: नवीनतम इलेक्ट्रॉन रिलीज़ के लिए गाइड्स और ट्यूटोरियल
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: इलेक्ट्रॉन ब्लॉग
+    description: इलेक्ट्रॉनक टीम और समुदाय की सभी नवीनतम सूचनायें |
   '/community':
     title: समुदाय
   '/releases':
-    title: Releases
+    title: रिलीज़स
   '/contact':
     title: संपर्क
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: इलेक्ट्रॉन टीम के साथ ट्विटर, स्लैक, गिटहब या ईमेल पर संपर्क साधें ।
   '/languages':
     title: भाषायें
   '/userland':
     title: यूजरलैंड
   '/devtron':
-    title: Devtron
+    title: डेवट्रॉन
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
   '/spectron':
     title: Spectron
