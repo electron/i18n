@@ -149,9 +149,9 @@ Mengembalikan ` WebContents </ 0> - Isi web dari halaman web ini.</p>
 * ` nama </ 0>  String</li>
 </ul>
 
-<p>Mengembalikan <code> sembarang </ 0> - Variabel global <code> nama </ 0> (misalnya <code> global [name] </ 0> ) dalam proses utama.</p>
-
-<h2>properti</h2>
-
-<h3><code>remote.process`</h3> 
+<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) dalam proses utama.</p> 
+    ## properti
+    
+    ### `remote.process`
+    
     The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
