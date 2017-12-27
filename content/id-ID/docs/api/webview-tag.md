@@ -823,12 +823,12 @@ Pengembalian:
 
 <h3>Event: 'devtools-dibuka'</h3>
 
-<p>Emitted when DevTools is opened.</p>
+<p>Emitted saat DevTools dibuka.</p>
 
-<h3>Event: 'devtools-closed'</h3>
+<h3>Event: 'devtools-ditutup'</h3>
 
-<p>Emitted when DevTools is closed.</p>
+<p>Emitted saat DevTools ditutup.</p>
 
-<h3>Event: 'devtools-focused'</h3>
+<h3>Event: 'fokus devtools'</h3>
 
-<p>Emitted when DevTools is focused / opened.</p>
+<p>Emitted saat DevTools difokuskan / dibuka.</p>
