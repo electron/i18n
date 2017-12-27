@@ -50,7 +50,7 @@ cross_platform:
 benefits:
   hard_parts_made_easy: मुश्किल हिस्सें बने आसान
   automatic_updates: 'स्वत: अपडेटस'
-  native_menus_and_notifications: Native menus & notifications
+  native_menus_and_notifications: मूल मेन्यु और सूचनायें
   crash_reporting: क्रेश रिपोर्ट
   debugging_and_profiling: दोषमुक्ति और विश्लेषण
   windows_installers: विंडोज़ इंस्टालरस
@@ -65,7 +65,7 @@ view_all_releases_on_github: गिटहब पर<a href="https://github.com/e
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
+  clone: त्वरित प्रारंभ रिपॉसिटरी को क्लोन करें
   go_into_repo: रिपॉजिटरी में जायें |
   install_deps: निर्भरतायें इनस्टॉल करें और फिर चलायें
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
@@ -115,7 +115,7 @@ pages:
     description: नवीनतम इलेक्ट्रॉन रिलीज़ के लिए गाइड्स और ट्यूटोरियल
   '/blog':
     title: इलेक्ट्रॉन ब्लॉग
-    description: इलेक्ट्रॉनक टीम और समुदाय की सभी नवीनतम सूचनायें |
+    description: इलेक्ट्रॉनक टीम और समुदाय के सभी नवीनतम समाचार|
   '/community':
     title: समुदाय
   '/releases':
