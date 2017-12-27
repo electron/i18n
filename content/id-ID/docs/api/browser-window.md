@@ -1114,7 +1114,7 @@ win.loadURL(url)
                                 
                                 Mengatur tata letak touchBar untuk jendela aktif. Specifying `null` or `undefined` clears the touch bar. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
                                 
-                                **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+                                **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
                                 
                                 #### `win.setBrowserView(browserView)` *Experimental*
                                 
