@@ -1,4 +1,4 @@
-# ipcRenderer
+# आईपीसी रेंदेरेर
 
 > Communicate asynchronously from a renderer process to the main process.
 
