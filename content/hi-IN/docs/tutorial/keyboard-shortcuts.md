@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# कीबोर्ड शोर्टकट्स
 
 > Configure local and global keyboard shortcuts
 
