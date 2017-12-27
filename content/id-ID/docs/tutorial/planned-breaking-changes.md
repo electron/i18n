@@ -118,11 +118,11 @@ process.versions.electron
 ## `sesi`
 
 ```js
-// Deprecated
+// Tidak berlaku lagi
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Ubah dengan
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -131,24 +131,24 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Nampan`
 
 ```js
-// Deprecated
-tray.setHighlightMode(true)
-// Replace with
-tray.setHighlightMode('on')
+// Tidak berlaku lagi
+tray.setHighlightMode (true)
+// Ubah dengan
+tray.setHighlightMode ('on')
 
-// Deprecated
-tray.setHighlightMode(false)
-// Replace with
-tray.setHighlightMode('off')
+// Tidak berlaku lagi
+tray.setHighlightMode (salah)
+// Ubah dengan
+tray.setHighlightMode ('off')
 ```
 
 ## `kontenWeb`
 
 ```js
-// Deprecated
-webContents.openDevTools({detach: true})
-// Replace with
-webContents.openDevTools({mode: 'detach'})
+// Tidak berlaku lagi
+webContents.openDevTools ({detach: true})
+// Ubah dengan
+webContents.openDevTools ({mode: 'detach'})
 ```
 
 ```js
