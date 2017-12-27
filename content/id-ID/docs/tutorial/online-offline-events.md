@@ -1,15 +1,15 @@
 # Deteksi Peristiwa Online / Offline
 
-[Deteksi kejadian online dan offline](https://developer.mozilla.org/en-US/docs/Online_and_offline_events)dapat diimplementasikan dalam proses perenderer dengan menggunakan atribut [`navigator.onLine `](http://html5index.org/Offline%20-%20NavigatorOnLine.html), bagian dari API HTML5 standar. Atribut `navigator.onLine` mengembalikan `false` jika jaringan apapun permintaan dijamin gagal yaitu pasti offline (terputus dari jaringan). Mengembalikan `true` dalam semua kasus lain. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+[Deteksi kejadian online dan offline](https://developer.mozilla.org/en-US/docs/Online_and_offline_events)dapat diimplementasikan dalam proses perenderer dengan menggunakan atribut [`navigator.onLine `](http://html5index.org/Offline%20-%20NavigatorOnLine.html), bagian dari API HTML5 standar. Atribut `navigator.onLine` mengembalikan `false` jika jaringan apapun permintaan dijamin gagal yaitu pasti offline (terputus dari jaringan). Mengembalikan `true` dalam semua kasus lain. Karena semua kondisi lain kembali `benar`, kita harus memperhatikan positif palsu, karena kita tidak dapat mengasumsikan nilai `benar` berarti Electron dapat mengakses internet. Seperti dalam kasus di mana komputer menjalankan perangkat lunak virtualisasi yang memiliki adapter ethernet virtual yang selalu "terhubung." Karena itu, jika Anda benar-benar ingin menentukan status akses internet Elektron, Anda harus mengembangkan cara tambahan untuk pengecekan.
 
-Example:
+Contoh:
 
 *main.js*
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = membutuhkan('electron')
 
-let onlineStatusWindow
+biarkan onlineStatusWindow
 
 app.on('ready', () => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
@@ -37,7 +37,7 @@ app.on('ready', () => {
 </html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+Mungkin ada kejadian di mana Anda ingin menanggapi kejadian ini di Proses utama juga. Proses utama bagaimanapun tidak memiliki `navigator` dan dengan demikian tidak dapat mendeteksi kejadian ini secara langsung. Menggunakan Perangkat komunikasi inter-proses Elektron, acara dapat diteruskan ke proses utama dan ditangani sesuai kebutuhan, seperti yang ditunjukkan pada contoh berikut.
 
 *main.js*
 
