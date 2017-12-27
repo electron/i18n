@@ -71,11 +71,11 @@ quick_start:
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
 need_help:
   title: सहायता की आवश्यकता है?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
+  description: <a href='https://discuss.atom.io/c/electron'>डिस्कस</a> फोरम पर या हमारे<a href='http://atom-slack.herokuapp.com/'>स्लैक</a> चैनल पर सवाल पूछें | महत्वपूर्ण सूचनाओं के लिए <a href="https://twitter.com/electronjs">@electronjs</a> को ट्विटर पर फॉलो करें | क्या आप हमसे निजी संपर्क करना चाहते हैं ? ईमेल <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
   languages: भाषायें
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: हमारे वैश्विक डेवलपर समुदाय की और से स्थानीय सामग्री |
 help_translate: "अनुवाद करने में मद्द करें"
 footer:
   see_the_faq: अक्सर पूछे जाने वाले सवाल (एफएक्यू) पढ़ें
