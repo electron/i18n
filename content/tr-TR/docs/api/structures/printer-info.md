@@ -1,4 +1,4 @@
-# Printerinfo nesnesi
+# Yazıcı bilgi nesnesi
 
 * `name` String
 * `description` String
