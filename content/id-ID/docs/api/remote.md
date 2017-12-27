@@ -92,33 +92,33 @@ Untuk menghindari masalah ini, pastikan Anda membersihkan rujukan ke callback re
 
 ## Mengakses modul built-in dalam proses utama
 
-Modul built-in dalam proses utama ditambahkan sebagai getter di modul ` remote </ 0> , sehingga Anda dapat menggunakannya secara langsung seperti modul <code> elektron </ 0> .</p>
+Modul built-in dalam proses utama ditambahkan sebagai getter di modul `remote`, sehingga Anda dapat menggunakannya secara langsung seperti modul `elektron`.
 
-<pre><code class="javascript">const app = require('electron').remote.app
+```javascript
+const app = require('electron').remote.app
 console.log(app)
-`</pre> 
+```
 
 ## Metode
 
-The ` jarak jauh </ 0> modul memiliki metode berikut:</p>
+Itu `jarak jauh` modul memiliki metode berikut:
 
-<h3><code>remote.require(module)`</h3> 
+### `remote.require(module)`
 
 * `module` String
 
-Mengembalikan ` sembarang </ 0> - Objek dikembalikan oleh <code> require (module) </ 0> pada proses utama.
-Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk proses utama.</p>
+Mengembalikan `sembarang` - Objek dikembalikan oleh `require(module)` pada proses utama. Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk proses utama.
 
-<p>misalnya</p>
+misalnya
 
-<pre><code>project/
-├── main
-│   ├── foo.js
-│   └── index.js
-├── package.json
-└── renderer
-    └── index.js
-`</pre> 
+    project/
+    ├── main
+    │   ├── foo.js
+    │   └── index.js
+    ├── package.json
+    └── renderer
+        └── index.js
+    
 
 ```js
 // main process: main/index.js
@@ -138,13 +138,13 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Mengembalikan ` BrowserWindow </ 0> - Jendela tempat halaman web ini berada.</p>
+Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web ini berada.
 
-<h3><code>remote.getCurrentWebContents()`</h3> 
+### `remote.getCurrentWebContents()`
 
-Mengembalikan ` WebContents </ 0> - Isi web dari halaman web ini.</p>
+Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
-<h3><code>remote.getGlobal(name)`</h3> 
+### `remote.getGlobal(name)`
 
 * ` nama </ 0>  String</li>
 </ul>
