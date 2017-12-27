@@ -61,18 +61,18 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
 * ` pendengar </ 0> Fungsi</li>
 </ul>
 
-<p>The <code>listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.</p> 
+<p>Seorang <code>pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.</p> 
   * `rincian` Obyek 
     * `id` Integer
     * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
+<li><code>TipeSumberdaya` String
     * `timestamp` Duakali
-    * `requestHeaders` Object
+    * `permintaanHeaders` Objek
   * `callback` Fungsi 
     * `respon` Obyek 
       * `batalkan` Boolean (opsional)
-      * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+      * `permintaanHeader` Objek (opsional) - Bila tersedia, permintaan akan dibuat dengan headers ini.
   
   `panggilan kembali` harus dipanggil dengan `respon` objek.
   
@@ -85,11 +85,11 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
       * `id` Integer
       * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
+<li><code>TipeSumberdaya` String
       * `timestamp` Duakali
-      * `requestHeaders` Object
+      * `permintaanHeaders` Objek
   
-  The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+  `pendengar` akan dipanggil dengan `pendengar(rincian)` tepat sebelum permintaan akan dikirim ke server, modifikasi sebelumnya `onBeforeSendHeader` respon terlihat pada saat pendengar ini dipecat.
   
   #### `webRequest.onHeadersReceived([filter, ]listener)`
   
@@ -98,25 +98,25 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
   * ` pendengar </ 0> Fungsi</li>
 </ul>
 
-<p>The <code>listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.</p> 
+<p><code>pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.</p> 
     * `rincian` Obyek 
       * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
+<li><code>TipeSumberdaya` String
       * `timestamp` Duakali
-      * `statusLine` String
+      * `statusGaris` String
       * `statusCode` Bilangan bulat
       * `responseHeaders` Objek
     * `callback` Fungsi 
       * `respon` Obyek 
-        * `cancel` Boolean
-        * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-        * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+        * `batalkan` Boolean
+        * `responHeader` Objek (opsional) - Bila disediakan, server diasumsikan telah merespon dengan headers ini.
+        * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
     
     `panggilan kembali` harus dipanggil dengan `respon` objek.
     
-    #### `webRequest.onResponseStarted([filter, ]listener)`
+    #### `webRequest.onResponseStarted([filter, ]pendengar)`
     
     * `menyaring` Obyek 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
@@ -125,14 +125,14 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
+<li><code>TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
-        * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+        * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
         * `statusCode` Bilangan bulat
-        * `statusLine` String
+        * `statusGaris` String
     
-    The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+    Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte pertama dari respon tubuh yang diterima. Untuk permintaan HTTP, ini berarti baris status dan header respon tersedia.
     
     #### `webRequest.onBeforeRedirect([filter, ]listener)`
     
@@ -167,7 +167,7 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
         * `responseHeaders` Objek
         * `fromCache` Boolean
         * `statusCode` Bilangan bulat
-        * `statusLine` String
+        * `statusGaris` String
     
     The `listener` will be called with `listener(details)` when a request is completed.
     
