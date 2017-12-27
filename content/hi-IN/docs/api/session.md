@@ -1,4 +1,4 @@
-# session
+# सत्र
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
