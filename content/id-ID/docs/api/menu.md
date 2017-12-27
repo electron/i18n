@@ -119,7 +119,7 @@ Menu.setApplicationMenu(menu)
               
               ### Render proses
               
-              Berikut adalah contoh membuat menu secara dinamis di halaman web (render process) dengan menggunakan modul [` remote `](remote.md)modul, dan menampilkannya kapan klik kanan pengguna halaman:
+              Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
               
               ```html
 <!-- index.html -->
@@ -139,7 +139,7 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
           
-          ## Notes on macOS Application Menu
+          ## Catatan pada Menu Aplikasi MacOS
           
           macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
           
@@ -167,19 +167,19 @@ window.addEventListener('contextmenu', (e) => {
  <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html"> About Information Property List Files </ 0> 
 untuk informasi lebih lanjut.</p>
 
-<h2>Setting Menu for Specific Browser Window (<em>Linux</em> <em>Windows</em>)</h2>
+<h2>Setting Menu untuk Jendela Peramban Tertentu (<em> Linux </em> <em> Windows </em>)</h2>
 
-<p>The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code>setMenu` method</a> of browser windows can set the menu of certain browser windows.
+<p>Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
           
-          ## Menu Item Position
+          ## Posisi Item Menu
           
-          You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+          Anda dapat menggunakan `posisi` dan `id` untuk mengontrol bagaimana item akan ditempatkan ketika membangun sebuah menu dengan `Menu.buildFromTemplate`.
           
           The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
           
           * `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
           * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-          * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+          * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). Jika Item yang direferensikan tidak ada, grup pemisah baru dibuat dengan id yang diberikan dan item ini dimasukkan setelah pemisah tersebut.
           
           When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
           
