@@ -102,133 +102,138 @@ bersama dengan notifikasi.&lt;/p>
 &lt;p>Pelanggan &lt;code> id &lt;/ 0> dikembalikan, yang dapat digunakan untuk menghentikan langganan
 &lt;code> acara &lt;/ 0>.&lt;/p>
 
-&lt;p>Under the hood this API subscribes to &lt;code>NSDistributedNotificationCenter</code>, example values of <code>event</code> are:</p> <ul>
-            <li>
-              <code>AppleInterfaceThemeChangedNotification</code>
-            </li>
-            <li>
-              <code>AppleAquaColorVariantChanged</code>
-            </li>
-            <li>
-              <code>AppleColorPreferencesChangedNotification</code>
-            </li>
-            <li>
-              <code>AppleShowScrollBarsSettingChanged</code>
-            </li>
-          </ul>
-          <h3>
-            <code>systemPreferences.unsubscribeNotification(id)</code> <em>macOS</em>
-          </h3>
-          <ul>
-            <li>
-              <code>id</code> Integer
-            </li>
-          </ul>
-          <p>
-            Removes the subscriber with <code>id</code>.
-          </p>
-          <h3>
-            <code>systemPreferences.subscribeLocalNotification(event, callback)</code> <em>macOS</em>
-          </h3>
-          <ul>
+&lt;p>Di bawah tenda, API ini mengikuti &lt;code> NSDistributedNotificationCenter &lt;/ 0> , contoh nilai &lt;code> event &lt;/ 0> adalah:&lt;/p>
+
+&lt;ul>
+&lt;li>&lt;code>AppleInterfaceThemeChangedNotification</code>
+        </li>
+        <li>
+          <code>AppleAquaColorVariantChanged</code>
+        </li>
+        <li>
+          <code>AppleColorPreferencesChangedNotification</code>
+        </li>
+        <li>
+          <code>AppleShowScrollBarsSettingChanged</code>
+        </li>
+      </ul>
+      
+      <h3>
+        <code>systemPreferences.unsubscribeNotification(id)</code> <em>macOS</em>
+      </h3>
+      
+      <ul>
+        <li>
+          <code>id</code> Integer
+        </li>
+      </ul>
+      
+      <p>
+        Removes the subscriber with <code>id</code>.
+      </p>
+      
+      <h3>
+        <code>systemPreferences.subscribeLocalNotification(event, callback)</code> <em>macOS</em>
+      </h3>
+      
+      <ul>
+        <li>
+          <code> event &lt;/ 0> String&lt;/li>
+&lt;li>&lt;code>callback</code> Fungsi <ul>
             <li>
               <code> event &lt;/ 0> String&lt;/li>
-&lt;li>&lt;code>callback</code> Fungsi <ul>
-                <li>
-                  <code> event &lt;/ 0> String&lt;/li>
 &lt;li>&lt;code> userInfo &lt;/ 0> Objek&lt;/li>
 &lt;/ul>&lt;/li>
 &lt;/ul>
 
-&lt;p>Same as &lt;code>subscribeNotification</code>, but uses <code>NSNotificationCenter</code> for local defaults. This is necessary for events such as <code>NSUserDefaultsDidChangeNotification</code></p> <h3>
-                    <code>systemPreferences.unsubscribeLocalNotification(id)</code> <em>macOS</em>
-                  </h3>
-                  <ul>
-                    <li>
-                      <code>id</code> Integer
-                    </li>
-                  </ul>
-                  <p>
-                    Same as <code>unsubscribeNotification</code>, but removes the subscriber from <code>NSNotificationCenter</code>.
-                  </p>
-                  <h3>
-                    <code>systemPreferences.getUserDefault(key, type)</code> <em>macOS</em>
-                  </h3>
-                  <ul>
-                    <li>
-                      <code>key</code> String
-                    </li>
-                    <li>
-                      <code>type</code> String - Can be <code>string</code>, <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>double</code>, <code>url</code>, <code>array</code>, <code>dictionary</code>
-                    </li>
-                  </ul>
-                  <p>
-                    Returns <code>any</code> - The value of <code>key</code> in system preferences.
-                  </p>
-                  <p>
-                    This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
-                  </p>
-                  <ul>
-                    <li>
-                      <code>AppleInterfaceStyle</code>: <code>string</code>
-                    </li>
-                    <li>
-                      <code>AppleAquaColorVariant</code>: <code>integer</code>
-                    </li>
-                    <li>
-                      <code>AppleHighlightColor</code>: <code>string</code>
-                    </li>
-                    <li>
-                      <code>AppleShowScrollBars</code>: <code>string</code>
-                    </li>
-                    <li>
-                      <code>NSNavRecentPlaces</code>: <code>array</code>
-                    </li>
-                    <li>
-                      <code>NSPreferredWebServices</code>: <code>dictionary</code>
-                    </li>
-                    <li>
-                      <code>NSUserDictionaryReplacementItems</code>: <code>array</code>
-                    </li>
-                  </ul>
-                  <h3>
-                    <code>systemPreferences.setUserDefault(key, type, value)</code> <em>macOS</em>
-                  </h3>
-                  <ul>
-                    <li>
-                      <code>key</code> String
-                    </li>
-                    <li>
-                      <code>type</code> String - See [<code>getUserDefault</code>][#systempreferencesgetuserdefaultkey-type-macos]
-                    </li>
-                    <li>
-                      <code>value</code> String
-                    </li>
-                  </ul>
-                  <p>
-                    Set the value of <code>key</code> in system preferences.
-                  </p>
-                  <p>
-                    Note that <code>type</code> should match actual type of <code>value</code>. An exception is thrown if they don't.
-                  </p>
-                  <p>
-                    This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
-                  </p>
-                  <ul>
-                    <li>
-                      <code>ApplePressAndHoldEnabled</code>: <code>boolean</code>
-                    </li>
-                  </ul>
-                  <h3>
-                    <code>systemPreferences.isAeroGlassEnabled()</code> <em>Windows</em>
-                  </h3>
-                  <p>
-                    Returns <code>Boolean</code> - <code>true</code> if <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx">DWM composition</a> (Aero Glass) is enabled, and <code>false</code> otherwise.
-                  </p>
-                  <p>
-                    An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
-                  </p>
-                  <pre><code class="javascript">const {BrowserWindow, systemPreferences} = require('electron')
+&lt;p>Sama seperti &lt;code> subscribeNotification &lt;/ 0> , namun gunakan &lt;code> NSNotificationCenter &lt;/ 0> untuk default lokal . Ini diperlukan untuk acara seperti &lt;code> NSUserDefaultsDidChangeNotification &lt;/ 0>&lt;/p>
+
+&lt;h3>&lt;code>systemPreferences.unsubscribeLocalNotification(id)</code> <em>macOS</em></h3> <ul>
+                <li>
+                  <code>id</code> Integer
+                </li>
+              </ul>
+              <p>
+                Same as <code>unsubscribeNotification</code>, but removes the subscriber from <code>NSNotificationCenter</code>.
+              </p>
+              <h3>
+                <code>systemPreferences.getUserDefault(key, type)</code> <em>macOS</em>
+              </h3>
+              <ul>
+                <li>
+                  <code>key</code> String
+                </li>
+                <li>
+                  <code>type</code> String - Can be <code>string</code>, <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>double</code>, <code>url</code>, <code>array</code>, <code>dictionary</code>
+                </li>
+              </ul>
+              <p>
+                Returns <code>any</code> - The value of <code>key</code> in system preferences.
+              </p>
+              <p>
+                This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
+              </p>
+              <ul>
+                <li>
+                  <code>AppleInterfaceStyle</code>: <code>string</code>
+                </li>
+                <li>
+                  <code>AppleAquaColorVariant</code>: <code>integer</code>
+                </li>
+                <li>
+                  <code>AppleHighlightColor</code>: <code>string</code>
+                </li>
+                <li>
+                  <code>AppleShowScrollBars</code>: <code>string</code>
+                </li>
+                <li>
+                  <code>NSNavRecentPlaces</code>: <code>array</code>
+                </li>
+                <li>
+                  <code>NSPreferredWebServices</code>: <code>dictionary</code>
+                </li>
+                <li>
+                  <code>NSUserDictionaryReplacementItems</code>: <code>array</code>
+                </li>
+              </ul>
+              <h3>
+                <code>systemPreferences.setUserDefault(key, type, value)</code> <em>macOS</em>
+              </h3>
+              <ul>
+                <li>
+                  <code>key</code> String
+                </li>
+                <li>
+                  <code>type</code> String - See [<code>getUserDefault</code>][#systempreferencesgetuserdefaultkey-type-macos]
+                </li>
+                <li>
+                  <code>value</code> String
+                </li>
+              </ul>
+              <p>
+                Set the value of <code>key</code> in system preferences.
+              </p>
+              <p>
+                Note that <code>type</code> should match actual type of <code>value</code>. An exception is thrown if they don't.
+              </p>
+              <p>
+                This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
+              </p>
+              <ul>
+                <li>
+                  <code>ApplePressAndHoldEnabled</code>: <code>boolean</code>
+                </li>
+              </ul>
+              <h3>
+                <code>systemPreferences.isAeroGlassEnabled()</code> <em>Windows</em>
+              </h3>
+              <p>
+                Returns <code>Boolean</code> - <code>true</code> if <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx">DWM composition</a> (Aero Glass) is enabled, and <code>false</code> otherwise.
+              </p>
+              <p>
+                An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+              </p>
+              <pre><code class="javascript">const {BrowserWindow, systemPreferences} = require('electron')
 let browserOptions = {width: 1000, height: 800}
 
 // Make the window transparent only if the platform supports it.
@@ -248,123 +253,123 @@ if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 </code></pre>
-                  <h3>
-                    <code>systemPreferences.getAccentColor()</code> <em>Windows</em>
-                  </h3>
-                  <p>
-                    Returns <code>String</code> - The users current system wide accent color preference in RGBA hexadecimal form.
-                  </p>
-                  <pre><code class="js">const color = systemPreferences.getAccentColor() // `"aabbccdd"`
+              <h3>
+                <code>systemPreferences.getAccentColor()</code> <em>Windows</em>
+              </h3>
+              <p>
+                Returns <code>String</code> - The users current system wide accent color preference in RGBA hexadecimal form.
+              </p>
+              <pre><code class="js">const color = systemPreferences.getAccentColor() // `"aabbccdd"`
 const red = color.substr(0, 2) // "aa"
 const green = color.substr(2, 2) // "bb"
 const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 </code></pre>
-                  <h3>
-                    <code>systemPreferences.getColor(color)</code> <em>Windows</em>
-                  </h3>
-                  <ul>
+              <h3>
+                <code>systemPreferences.getColor(color)</code> <em>Windows</em>
+              </h3>
+              <ul>
+                <li>
+                  <code>color</code> String - One of the following values: <ul>
                     <li>
-                      <code>color</code> String - One of the following values: <ul>
-                        <li>
-                          <code>3d-dark-shadow</code> - Dark shadow for three-dimensional display elements.
-                        </li>
-                        <li>
-                          <code>3d-face</code> - Face color for three-dimensional display elements and for dialog box backgrounds.
-                        </li>
-                        <li>
-                          <code>3d-highlight</code> - Highlight color for three-dimensional display elements.
-                        </li>
-                        <li>
-                          <code>3d-light</code> - Light color for three-dimensional display elements.
-                        </li>
-                        <li>
-                          <code>3d-shadow</code> - Shadow color for three-dimensional display elements.
-                        </li>
-                        <li>
-                          <code>active-border</code> - Active window border.
-                        </li>
-                        <li>
-                          <code>active-caption</code> - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-                        </li>
-                        <li>
-                          <code>active-caption-gradient</code> - Right side color in the color gradient of an active window's title bar.
-                        </li>
-                        <li>
-                          <code>app-workspace</code> - Background color of multiple document interface (MDI) applications.
-                        </li>
-                        <li>
-                          <code>button-text</code> - Text on push buttons.
-                        </li>
-                        <li>
-                          <code>caption-text</code> - Text in caption, size box, and scroll bar arrow box.
-                        </li>
-                        <li>
-                          <code>desktop</code> - Desktop background color.
-                        </li>
-                        <li>
-                          <code>disabled-text</code> - Grayed (disabled) text.
-                        </li>
-                        <li>
-                          <code>highlight</code> - Item(s) selected in a control.
-                        </li>
-                        <li>
-                          <code>highlight-text</code> - Text of item(s) selected in a control.
-                        </li>
-                        <li>
-                          <code>hotlight</code> - Color for a hyperlink or hot-tracked item.
-                        </li>
-                        <li>
-                          <code>inactive-border</code> - Inactive window border.
-                        </li>
-                        <li>
-                          <code>inactive-caption</code> - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-                        </li>
-                        <li>
-                          <code>inactive-caption-gradient</code> - Right side color in the color gradient of an inactive window's title bar.
-                        </li>
-                        <li>
-                          <code>inactive-caption-text</code> - Color of text in an inactive caption.
-                        </li>
-                        <li>
-                          <code>info-background</code> - Background color for tooltip controls.
-                        </li>
-                        <li>
-                          <code>info-text</code> - Text color for tooltip controls.
-                        </li>
-                        <li>
-                          <code>menu</code> - Menu background.
-                        </li>
-                        <li>
-                          <code>menu-highlight</code> - The color used to highlight menu items when the menu appears as a flat menu.
-                        </li>
-                        <li>
-                          <code>menubar</code> - The background color for the menu bar when menus appear as flat menus.
-                        </li>
-                        <li>
-                          <code>menu-text</code> - Text in menus.
-                        </li>
-                        <li>
-                          <code>scrollbar</code> - Scroll bar gray area.
-                        </li>
-                        <li>
-                          <code>window</code> - Window background.
-                        </li>
-                        <li>
-                          <code>window-frame</code> - Window frame.
-                        </li>
-                        <li>
-                          <code>window-text</code> - Text in windows.
-                        </li>
-                      </ul>
+                      <code>3d-dark-shadow</code> - Dark shadow for three-dimensional display elements.
+                    </li>
+                    <li>
+                      <code>3d-face</code> - Face color for three-dimensional display elements and for dialog box backgrounds.
+                    </li>
+                    <li>
+                      <code>3d-highlight</code> - Highlight color for three-dimensional display elements.
+                    </li>
+                    <li>
+                      <code>3d-light</code> - Light color for three-dimensional display elements.
+                    </li>
+                    <li>
+                      <code>3d-shadow</code> - Shadow color for three-dimensional display elements.
+                    </li>
+                    <li>
+                      <code>active-border</code> - Active window border.
+                    </li>
+                    <li>
+                      <code>active-caption</code> - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+                    </li>
+                    <li>
+                      <code>active-caption-gradient</code> - Right side color in the color gradient of an active window's title bar.
+                    </li>
+                    <li>
+                      <code>app-workspace</code> - Background color of multiple document interface (MDI) applications.
+                    </li>
+                    <li>
+                      <code>button-text</code> - Text on push buttons.
+                    </li>
+                    <li>
+                      <code>caption-text</code> - Text in caption, size box, and scroll bar arrow box.
+                    </li>
+                    <li>
+                      <code>desktop</code> - Desktop background color.
+                    </li>
+                    <li>
+                      <code>disabled-text</code> - Grayed (disabled) text.
+                    </li>
+                    <li>
+                      <code>highlight</code> - Item(s) selected in a control.
+                    </li>
+                    <li>
+                      <code>highlight-text</code> - Text of item(s) selected in a control.
+                    </li>
+                    <li>
+                      <code>hotlight</code> - Color for a hyperlink or hot-tracked item.
+                    </li>
+                    <li>
+                      <code>inactive-border</code> - Inactive window border.
+                    </li>
+                    <li>
+                      <code>inactive-caption</code> - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+                    </li>
+                    <li>
+                      <code>inactive-caption-gradient</code> - Right side color in the color gradient of an inactive window's title bar.
+                    </li>
+                    <li>
+                      <code>inactive-caption-text</code> - Color of text in an inactive caption.
+                    </li>
+                    <li>
+                      <code>info-background</code> - Background color for tooltip controls.
+                    </li>
+                    <li>
+                      <code>info-text</code> - Text color for tooltip controls.
+                    </li>
+                    <li>
+                      <code>menu</code> - Menu background.
+                    </li>
+                    <li>
+                      <code>menu-highlight</code> - The color used to highlight menu items when the menu appears as a flat menu.
+                    </li>
+                    <li>
+                      <code>menubar</code> - The background color for the menu bar when menus appear as flat menus.
+                    </li>
+                    <li>
+                      <code>menu-text</code> - Text in menus.
+                    </li>
+                    <li>
+                      <code>scrollbar</code> - Scroll bar gray area.
+                    </li>
+                    <li>
+                      <code>window</code> - Window background.
+                    </li>
+                    <li>
+                      <code>window-frame</code> - Window frame.
+                    </li>
+                    <li>
+                      <code>window-text</code> - Text in windows.
                     </li>
                   </ul>
-                  <p>
-                    Returns <code>String</code> - The system color setting in RGB hexadecimal form (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> for more details.
-                  </p>
-                  <h3>
-                    <code>systemPreferences.isInvertedColorScheme()</code> <em>Windows</em>
-                  </h3>
-                  <p>
-                    Returns <code>Boolean</code> - <code>true</code> if an inverted color scheme, such as a high contrast theme, is active, <code>false</code> otherwise.
-                  </p>
+                </li>
+              </ul>
+              <p>
+                Returns <code>String</code> - The system color setting in RGB hexadecimal form (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> for more details.
+              </p>
+              <h3>
+                <code>systemPreferences.isInvertedColorScheme()</code> <em>Windows</em>
+              </h3>
+              <p>
+                Returns <code>Boolean</code> - <code>true</code> if an inverted color scheme, such as a high contrast theme, is active, <code>false</code> otherwise.
+              </p>
