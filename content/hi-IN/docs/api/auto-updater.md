@@ -1,4 +1,4 @@
-# स्वतःअपडेटर
+# स्वतः अपडेटर
 
 > Enable apps to automatically update themselves.
 
