@@ -18,7 +18,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 
 2. Update the Chromium snapshot 
   - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `VERSION` Bu dosya ile 
-    - Bu, tarayıcıda OmahaProxy'yi ziyaret ederek veya otomatik olarak yapılabilir:
+    - Bu, tarayıcıda manuel olarak OmahaProxy'yi ziyaret ederek veya otomatik olarak yapılabilir:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - run `$ ./script/update` 
