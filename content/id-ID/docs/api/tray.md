@@ -7,20 +7,7 @@ Proses:  Utama </ 0></p>
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
-
-let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
-  ])
-  tray.setToolTip('This is my application.')
-  tray.setContextMenu(contextMenu)
-})
+const {app, Menu, Tray} = require('electron') Biarkan nampan = null app.on ('siap', () = > {nampan = baru Tray('/path/to/my/icon') const contextMenu = tray.setToolTip Menu.buildFromTemplate ([{label: 'Item1', type: 'radio'}, {label: 'Item2', type: 'radio'}, {label: 'Item3', type: 'radio', checked: true}, {label: 'Item4', type: 'radio'}]) (' Inilah saya  aplikasi.')   tray.setContextMenu(contextMenu)})
 ```
 
 **Keterbatasan platform**
@@ -32,22 +19,7 @@ app.on('ready', () => {
 * Pada Linux dalam rangka untuk perubahan yang dibuat ke setiap `MenuItem` s untuk mengambil efek, Anda harus memanggil `setContextMenu` lagi. Sebagai contoh:
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
-
-let appIcon = null
-app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'}
-  ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+const {app, Menu, Tray} = require('electron') Biarkan appIcon = null app.on ('siap', () = > {appIcon = baru Tray('/path/to/my/icon') const contextMenu = Menu.buildFromTemplate ([{label: 'Item1', type: 'radio'}, {label: 'Item2', type: 'radio'}]) / / membuat perubahan konteks menu contextMenu.items[1].checked = false / / menyebutnya lagi untuk Linux karena kami diubah konteks menu appIcon.setContextMenu(contextMenu)})
 ```
 
 * Pada Windows disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik.
@@ -105,65 +77,65 @@ Jika Anda ingin menyimpan perilaku yang sama pada semua platform, Anda tidak har
   
   Emitted saat balon nampan diklik.
   
-  #### Event: 'balloon-closed' *Windows*
+  #### Event: 'balon-tertutup' *Windows*
   
-  Emitted when the tray balloon is closed because of timeout or user manually closes it.
+  Dipancarkan ketika balon nampan ditutup karena timeout atau pengguna secara manual menutup itu.
   
-  #### Event: 'drop' *macOS*
+  #### Event: 'turun' *macOS*
   
   Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
   
-  #### Event: 'drop-files' *macOS*
+  #### Event: 'drop-file' *macOS*
   
   * ` event </ 0>  Acara</li>
-<li><code>files` String[] - The paths of the dropped files.
+<li><code>file` String [] - path file menjatuhkan.
   
   Disuarakan saat file terseret dijatuhkan di ikon baki.
   
-  #### Event: 'drop-text' *macOS*
+  #### Event: 'drop-teks' *macOS*
   
   * ` event </ 0>  Acara</li>
-<li><code>text` String - the dropped text string
+<li><code>teks` String - string teks menjatuhkan
   
-  Emitted when dragged text is dropped in the tray icon.
+  Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
   
-  #### Event: 'drag-enter' *macOS*
+  #### Event: 'Masukkan tarik' *macOS*
   
-  Emitted when a drag operation enters the tray icon.
+  Dibunyikan apabila operasi drag yang memasuki ikon tray.
   
-  #### Event: 'drag-leave' *macOS*
+  #### Event: 'drag-meninggalkan' *macOS*
   
-  Emitted when a drag operation exits the tray icon.
+  Dibunyikan apabila operasi tarik keluar ikon tray.
   
   #### Event: 'drag-end' *macOS*
   
-  Emitted when a drag operation ends on the tray or ends at another location.
+  Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi lain.
   
-  #### Event: 'mouse-enter' *macOS*
-  
-  * `peristiwa` Peristiwa 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `position` [Point](structures/point.md) - The position of the event
-  
-  Emitted when the mouse enters the tray icon.
-  
-  #### Event: 'mouse-leave' *macOS*
+  #### Event: 'masuk mouse' *macOS*
   
   * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
-  * `position` [Point](structures/point.md) - The position of the event
+  * `posisi` [Point](structures/point.md) - posisi acara
   
-  Emitted when the mouse exits the tray icon.
+  Dibunyikan apabila operasi drag yang memasuki ikon tray.
+  
+  #### Acara: 'pindah' *macOS*
+  
+  * `peristiwa` Peristiwa 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `posisi` [Point](structures/point.md) - posisi acara
+  
+  Dibunyikan apabila operasi drag yang memasuki ikon tray.
   
   ### Metode Instance
   
-  The `Tray` class has the following methods:
+  Itu `net` modul memiliki metode berikut:
   
   #### `tray.destroy()`
   
@@ -232,7 +204,7 @@ win.on('hide', () => {
     
     #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
     
-    * `menu` Menu (optional)
+    * ` teks ` String (opsional)
     * `position` [Point](structures/point.md) (optional) - The pop up position.
     
     Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
