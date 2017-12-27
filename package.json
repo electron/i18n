@@ -38,6 +38,7 @@
     "collect": "script/collect.js",
     "build": "npm-run-all build:*",
     "build:stats": "script/stats.js",
+    "build:readme": "script/readme.js",
     "build:module": "script/build-module.js",
     "prepare-release": "script/prepare-release.sh",
     "test": "mocha && standard --fix",
