@@ -105,31 +105,31 @@ bersama dengan notifikasi.&lt;/p>
 &lt;p>Di bawah tenda, API ini mengikuti &lt;code> NSDistributedNotificationCenter &lt;/ 0> , contoh nilai &lt;code> event &lt;/ 0> adalah:&lt;/p>
 
 &lt;ul>
-&lt;li>&lt;code>AppleInterfaceThemeChangedNotification</code>
+&lt;li>&lt;code>Pemberitahuan Antarmuka Tema Apple Berubah</code>
         </li>
         <li>
-          <code>AppleAquaColorVariantChanged</code>
+          <code>Variasi Warna Apple Aqua Berubah</code>
         </li>
         <li>
-          <code>AppleColorPreferencesChangedNotification</code>
+          <code>Pemberitahuan Perubahan Preferensi Warna Apple</code>
         </li>
         <li>
-          <code>AppleShowScrollBarsSettingChanged</code>
+          <code>Pengaturan Bilah Gulir Tampilkan Apple Berubah</code>
         </li>
       </ul>
       
       <h3>
-        <code>systemPreferences.unsubscribeNotification(id)</code> <em>macOS</em>
+        <code>systemPreferences.unsubscribePrmberitahuan(id)</code> <em>macOS</em>
       </h3>
       
       <ul>
         <li>
-          <code>id</code> Integer
+          <code>id</code> Bilangan bulat
         </li>
       </ul>
       
       <p>
-        Removes the subscriber with <code>id</code>.
+        Menghapus pelanggan dengan <code>id</code>.
       </p>
       
       <h3>
@@ -148,13 +148,13 @@ bersama dengan notifikasi.&lt;/p>
 
 &lt;p>Sama seperti &lt;code> subscribeNotification &lt;/ 0> , namun gunakan &lt;code> NSNotificationCenter &lt;/ 0> untuk default lokal . Ini diperlukan untuk acara seperti &lt;code> NSUserDefaultsDidChangeNotification &lt;/ 0>&lt;/p>
 
-&lt;h3>&lt;code>systemPreferences.unsubscribeLocalNotification(id)</code> <em>macOS</em></h3> <ul>
+&lt;h3>&lt;code>System Preferences.unsubscribe Local Pemberitahuan (id)</code> <em>macOS</em></h3> <ul>
                 <li>
                   <code>id</code> Integer
                 </li>
               </ul>
               <p>
-                Same as <code>unsubscribeNotification</code>, but removes the subscriber from <code>NSNotificationCenter</code>.
+                Sama seperti <code> unsubscribeNotification </code>, namun menghapus pelanggan dari <code> NSNotificationCenter </code>.
               </p>
               <h3>
                 <code>systemPreferences.getUserDefault(key, type)</code> <em>macOS</em>
