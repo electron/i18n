@@ -47,11 +47,11 @@ Proses:  Utama </ 0></p>
 
 ### Instance Events
 
-#### Event: 'did-finish-load'
+#### Acara: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Emitted saat navigasi selesai, yaitu pemintal tab sudah berhenti berputar, dan event `onload` event dikirim.
 
-#### Event: 'did-fail-load'
+#### Acara: 'did-fail-load'
 
 Pengembalian:
 
@@ -59,26 +59,26 @@ Pengembalian:
 <li><code>errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `adalahBingkaiUtama` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Peristiwa ini seperti `selesai-selesai` namun dipancarkan saat beban gagal atau tidak dibatalkan, mis. `window.stop()` dipanggil. Daftar lengkap kode kesalahan dan maknanya tersedia [disini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 #### Event: 'did-frame-finish-load'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code>isMainFrame` Boolean
+<li><code>adalahBingkaiUtama` Boolean
 
-Emitted when a frame has done navigation.
+Emitted saat frame sudah selesai navigasi.
 
-#### Event: 'did-start-loading'
+#### Event: 'apakah-mulai-loading '
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Sesuai dengan poin pada saat pemintal tab mulai berputar.
 
-#### Event: 'did-stop-loading'
+#### Event: 'apakah-mulai-loading '
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
 #### Event: 'did-get-response-details'
 
@@ -103,7 +103,7 @@ Pengembalian:
 * ` event </ 0>  Acara</li>
 <li><code>oldURL` String
 * `newURL` String
-* `isMainFrame` Boolean
+* `adalahBingkaiUtama` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
 * `referrer` String
@@ -191,7 +191,7 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     
     * ` event </ 0>  Acara</li>
 <li><code> url </ 0>  String</li>
-<li><code>isMainFrame` Boolean
+<li><code>adalahBingkaiUtama` Boolean
     
     Emitted when an in-page navigation happened.
     
