@@ -30,9 +30,9 @@ Ada beberapa perubahan besar dari strategi 1.x yang kami diuraikan di bawah ini.
 
 1. Penggunaan semip yang ketat
 2. Pengenalan semver-compliant `-beta`tag
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+3. Pengenalan [pesan komit konvensional](https://conventionalcommits.org/)
+4. Cabang stabilisasi yang didefinisikan dengan jelas
+5. Cabang `master` tidak berversi; Hanya cabang stabilitas yang berisi informasi versi
 
 Kami akan membahas secara rinci bagaimana cara kerja git branching, bagaimana penandaan npm bekerja, apa yang diharapkan pengembang untuk dilihat, dan bagaimana seseorang dapat mengubah backport.
 
@@ -49,28 +49,28 @@ Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada katego
 * **Versi minor** 
     * update versi node.js minor
     * Perubahan API non-breaking elektron
-* **Patch Version Increments** 
-    * node.js patch version updates
+* **Versi Patch** 
+    * update patch versi node.js
     * memperbaiki kromium terkait patch
-    * electron bug fixes
+    * perbaikan bug electron
 
 Perhatikan bahwa kebanyakan update kromium akan dianggap melanggar. Perbaikan yang bisa di-backport kemungkinan akan dipilih ceri sebagai tambalan.
 
-# Stabilization Branches
+# Cabang Stabilisasi
 
 Stabilisasi cabang adalah cabang yang berjalan sejajar dengan master, mengambil hanya cherry-mengambil komit yang berkaitan dengan keamanan atau stabilitas. Cabang-cabang ini tidak pernah tergabung kembali untuk dikuasai.
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+Cabang stabilisasi selalu baik **major** or **minor** versi baris, dan dinamai sesuai template berikut `$MAJOR-$MINOR-x` e.g. `2-0-x`.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+Kami mengizinkan beberapa cabang stabilisasi ada bersamaan, dan berniat untuk mendukung setidaknya dua secara paralel setiap saat, mendukung perbaikan sekuriti seperlunya. ![](../images/versioning-sketch-2.png)
 
 Baris yang lebih tua tidak akan didukung oleh GitHub, namun kelompok lain dapat mengambil stabilitas kepemilikan dan stabilitas backport dan keamanan mereka sendiri. Kami mencegah hal ini, namun menyadari bahwa ini membuat hidup lebih mudah bagi banyak pengembang aplikasi.
 
-# Beta Releases and Bug Fixes
+# Rilis Beta dan Perbaikan Bug
 
-Developers want to know which releases are *safe* to use. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Pengembang ingin mengetahui rilis mana yang *aman* untuk digunakan. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. Pada saat bersamaan, penguncian ke versi tetap berbahaya karena anda mengabaikan tambalan keamanan dan perbaikan bug yang mungkin keluar sejak versi anda. Tujuan kami adalah membiarkan rangkaian standar berikut masuk `package.json` :
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
