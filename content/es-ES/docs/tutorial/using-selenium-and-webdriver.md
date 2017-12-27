@@ -150,6 +150,6 @@ client
 
 ## Flujo de trabajo
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Para probar su aplicación sin reconstruir Electron, simplemente [coloque](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la fuente de su aplicación en el directorio de recursos de Electron.
 
 Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
