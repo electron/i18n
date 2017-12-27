@@ -39,7 +39,7 @@
     "build": "npm-run-all build:*",
     "build:stats": "script/stats.js",
     "build:module": "script/build-module.js",
-    "prepare-release": "script/prepare-release.sh",
+    "update-source-content": "script/update-source-content.sh",
     "test": "mocha && standard --fix",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
