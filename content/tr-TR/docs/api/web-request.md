@@ -98,7 +98,7 @@ The `listener` will be called with `listener(details)` just before a request is 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
 
 * `details` Nesne 
   * `kimlik` dizesi
@@ -129,11 +129,11 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `resourceType` Dize
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
