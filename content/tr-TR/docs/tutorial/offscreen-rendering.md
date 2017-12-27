@@ -1,16 +1,16 @@
 # Ekran Dışı İşleme
 
-Ekran dışı görüntülenme, bir tarayıcı penceresinin içeriğini bir bitmap olarak edinmenizi sağlar, böylece, herhangi bir yerde, örneğin bir 3D sahnedeki bir doku üzerinde oluşturulabilir. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Ekran dışı görüntülenme, bir tarayıcı penceresinin içeriğini bir bitmap olarak edinmenizi sağlar, böylece, herhangi bir yerde, örneğin bir 3D sahnedeki bir doku üzerinde oluşturulabilir. Electron'daki ekran dışı işleme, [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) projesinden daha benzer bir yaklaşım kullanıyor.
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+İki işleme modu kullanılabilir ve olayın daha verimli olması için sadece kirli alan ` 'paint' ` 'ten geçebilir. İşleme durdurulabilir, devam ettirilebilir ve kare hızı ayarlanabilir. Belirtilen kare hızı bir üst limit değeridir, bir web sayfasında hiçbir şey olmadığında hiç çerçeve oluşturulmaz. En yüksek kare hızı değeri 60'tır, çünkü daha yukarıda hiçbir yararı yoktur, sadece performans kaybıdır.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Not:** Bir ekran dışı pencere her zamanan [Frameless Window](../api/frameless-window.md) oluşturur.
 
-## Two modes of rendering
+## İşlemenin iki modu
 
 ### GPU hızlandırma
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+GPU hızlandırılmış oluşturma, GPU'nun kompozisyon için kullanıldığı anlamına gelir. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
 
 ### Çıkış aygıtı yazılımı
 
