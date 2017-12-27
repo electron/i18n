@@ -29,7 +29,7 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 ## Zarif pencere görüntüsü
 
-Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı görür; bu, iyi bir yerel uygulama deneyimi değildir. Daha fazla görüntü için resmi hazır hale getirmek için iki farklı çözüm bulunmaktadır.
+Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı görür; bu, iyi bir yerel uygulama deneyimi değildir. Daha fazla görüntü ve resmi hazır hale getirmek için iki farklı çözüm bulunmaktadır.
 
 ### Using `ready-to-show` event
 
