@@ -134,7 +134,7 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     
     Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte pertama dari respon tubuh yang diterima. Untuk permintaan HTTP, ini berarti baris status dan header respon tersedia.
     
-    #### `webRequest.onBeforeRedirect([filter, ]listener)`
+    #### `webRequest.onBeforeRedirect([filter, ]pendengar)`
     
     * `menyaring` Obyek 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
@@ -143,17 +143,17 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
         * ` id </ 0>  String</li>
 <li><code> url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
+<li><code>TipeSumberdaya` String
         * `timestamp` Duakali
         * `redirectURL` String
         * `statusCode` Bilangan bulat
-        * `ip` String (optional) - The server IP address that the request was actually sent to.
-        * `fromCache` Boolean
+        * `ip` String (opsional) - Alamat IP server yang meminta benar-benar dikirim ke.
+        * `dariCache` Boolean
         * `responseHeaders` Objek
     
-    The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+    `pendengar` akan dipanggil dengan `pendengar(rincian)` saat server memulai redirect akan segera terjadi.
     
-    #### `webRequest.onCompleted([filter, ]listener)`
+    #### `webRequest.onCompleted([filter, ]pendengar)`
     
     * `menyaring` Obyek 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
@@ -162,16 +162,16 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
+<li><code>TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
-        * `fromCache` Boolean
+        * `dariCache` Boolean
         * `statusCode` Bilangan bulat
         * `statusGaris` String
     
-    The `listener` will be called with `listener(details)` when a request is completed.
+    Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika sebuah permintaan selesai.
     
-    #### `webRequest.onErrorOccurred([filter, ]listener)`
+    #### `webRequest.onErrorOccurred([filter, ]pendengar)`
     
     * `menyaring` Obyek 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
@@ -180,9 +180,9 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
         * `id` Integer
         * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
-<li><code>resourceType` String
+<li><code>TipeSumberdaya` String
         * `timestamp` Duakali
-        * `fromCache` Boolean
-        * `error` String - The error description.
+        * `dariCache` Boolean
+        * `kesalahan` String - deskripsi kesalahan.
     
-    The `listener` will be called with `listener(details)` when an error occurs.
+    `pendengar` akan dipanggil dengan `pendengar(rincian)` bila terjadi kesalahan.
