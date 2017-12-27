@@ -1,19 +1,19 @@
 # kontenWeb
 
-> Render and control web pages.
+> Render dan kontrol halaman web.
 
 Proses:  Utama </ 0></p> 
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`screen` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Hal ini bertanggung jawab untuk merender dan mengendalikan halaman web dan merupakan milik dari objek [` BrowserWindow `](browser-window.md). Contoh mengakses ` konten web `:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = membutuhkan ('elektron')
 
-let win = new BrowserWindow({width: 800, height: 1500})
-win.loadURL('http://github.com')
+let win = new BrowserWindow ({width: 800, height: 1500})
+win.loadURL ('http://github.com')
 
-let contents = win.webContents
-console.log(contents)
+biarkan isi = win.webContents
+console.log (isi)
 ```
 
 ## Metode
