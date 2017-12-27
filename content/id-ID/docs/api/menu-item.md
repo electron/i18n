@@ -100,13 +100,13 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
     
-    Sebuah ` centang </ 0> item menu akan beralih <code> diperiksa </ 0> properti dan mematikan saat dipilih.</p>
-
-<p>Sebuah <code> radio </ 0> item menu akan menyala nya <code> diperiksa </ 0> properti saat diklik, dan akan mematikan bahwa properti untuk semua item yang berdekatan di menu yang sama.</p>
-
-<p>Anda dapat menambahkan fungsi <code> klik </ 0> untuk perilaku tambahan.</p>
-
-<h4><code>menuItem.label`</h4> 
+    A `checkbox` menu item will toggle the `checked` property on and off when selected.
+    
+    Sebuah `radio` item menu akan menyala nya `diperiksa` properti saat diklik, dan akan mematikan bahwa properti untuk semua item yang berdekatan di menu yang sama.
+    
+    Anda dapat menambahkan fungsi `klik` untuk perilaku tambahan.
+    
+    #### `menuItem.label`
     
     A `String` representing the menu items visible label
     
