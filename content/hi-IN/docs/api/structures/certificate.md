@@ -7,6 +7,6 @@
 * ` विषय ` [ CertificatePrincipal ](certificate-principal.md) - विषय मुख्याध्यापक
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
-* `validStart` Number - Start date of the certificate being valid in seconds
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* ` validExpiry ` सेकंड में मान्य होने के प्रमाण पत्र की संख्या-समाप्ति दिनांक
+* ` validExpiry ` सेकंड में मान्य होने के प्रमाण पत्र की संख्या-समाप्ति दिनांक
+* ` फिंगरप्रिंट ` स्ट्रिंग-प्रमाण पत्र के फिंगरप्रिंट
