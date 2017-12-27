@@ -58,7 +58,7 @@ jika memasang melalui <code> npm </ 1> gagal.
 Pada jaringan yang lebih lambat, disarankan untuk menggunakan flag `--verbose` untuk menunjukkan kemajuan download:
 
 ```sh
-npm install --verbose electron
+memasang npm --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
+Jika Anda perlu memaksa download ulang aset tersebut dan file SHASUM menyetel variabel lingkungan  force_no_cache </ 0> ke <code> true </ 0> .</p>
