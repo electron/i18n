@@ -15,28 +15,29 @@ and log in with your GitHub account.
 The following languages are currently being translated, but we can
 [easily add more]((https://github.com/electron/electron-i18n/issues/new?title=new%20language%20request)):
 
+<!-- start language-table -->
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
-- [한국어 (Korean)](https://crowdin.com/project/electron/ko)
+- [Indonesian](https://crowdin.com/project/electron/id)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
+- [한국어 (Korean)](https://crowdin.com/project/electron/ko)
 - [中文 (Chinese Traditional)](https://crowdin.com/project/electron/zh-TW)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [українська (Ukrainian)](https://crowdin.com/project/electron/uk)
+- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [język polski (Polish)](https://crowdin.com/project/electron/pl)
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
-- [Indonesian](https://crowdin.com/project/electron/id)
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
+- [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [ไทย (Thai)](https://crowdin.com/project/electron/th)
-- [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
-- [English (English (Canada))](https://crowdin.com/project/electron/en-CA)
+- [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [हिन्दी (Hindi)](https://crowdin.com/project/electron/hi)
-- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
+<!-- end language-table -->
 
 ## Installation
 
