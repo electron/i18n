@@ -282,17 +282,17 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Event: 'devtools-dibuka'
 
-Emitted when DevTools is opened.
+Emitted saat DevTools dibuka.
 
-#### Event: 'devtools-closed'
+#### Event: 'devtools-ditutup'
 
-Emitted when DevTools is closed.
+Emitted saat DevTools ditutup.
 
-#### Event: 'devtools-focused'
+#### Event: 'fokus devtools'
 
-Emitted when DevTools is focused / opened.
+Emitted saat DevTools difokuskan / dibuka.
 
 #### Acara : 'sertifikat-kesalahan'
 
@@ -303,11 +303,11 @@ Pengembalian:
 <li><code> error </ 0>  String - Kode kesalahan</li>
 <li><code> sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
 <li><code>callback` Fungsi 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya
 
-Emitted when failed to verify the `certificate` for `url`.
+Emitted ketika gagal untuk memverifikasi `sertifikat` untuk `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+Penggunaannya sama dengan [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
 #### Acara : 'pilih-klien-sertifikat'
 
