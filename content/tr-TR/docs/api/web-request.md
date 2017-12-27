@@ -61,7 +61,7 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `listener` `listener(details, callback)` ile birlikte çağırılacak. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Nesne 
   * `id` Integer
@@ -112,8 +112,8 @@ The `listener` will be called with `listener(details)` just before a request is 
 * `callback` Function 
   * `response` Object 
     * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+    * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu header'lara cevap verecektir.
+    * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak header durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
 `callback` bir `response` nesnesi ile birlikte çağırılacak.
 
