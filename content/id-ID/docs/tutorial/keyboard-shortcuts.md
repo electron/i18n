@@ -15,12 +15,10 @@ Anda dapat menggunakan modul  Menu </ 0> untuk mengkonfigurasi cara pintas keybo
 Sangat mudah untuk mengkonfigurasi kombinasi tombol yang berbeda berdasarkan sistem operasi pengguna.
 
 ```js
-{
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
-}
+{akselerator: platform proses === 'darwin'? 'Alt + Cmd + I': 'Ctrl + Shift + I'}
 ```
 
-## Global Shortcuts
+## Jalan pintas global
 
 Anda dapat menggunakan modul  globalShortcut </ 0> untuk mendeteksi kejadian keyboard meskipun aplikasi tidak memiliki fokus pada keyboard.</p> 
 
