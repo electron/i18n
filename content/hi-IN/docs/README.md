@@ -24,38 +24,38 @@
 * [वाइडवाइन सीडीएम प्लगइन का इस्तेमाल](tutorial/using-widevine-cdm-plugin.md)
 * [हेडलेस सीआई सिस्टम (ट्रेविस, जेनकिंस) पर परिक्षण](tutorial/testing-on-headless-ci.md)
 * [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [कीबोर्ड शोर्टकट्स](tutorial/keyboard-shortcuts.md)
+* [एप्लीकेशन अपडेट](tutorial/updates.md)
 
-## Tutorials
+## ट्यूटोरियल
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
-* [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [त्वरित प्रारंम्भ](tutorial/quick-start.md)
+* [डेस्कटॉप वातावरण एकीकरण](tutorial/desktop-environment-integration.md)
+* [ऑनलाइन/ऑफलाइन ईवेंट का पता लगाना](tutorial/online-offline-events.md)
+* [आरईपीएल](tutorial/repl.md)
+* [मूल सूचनायें](tutorial/notifications.md)
 
-## API References
+## ऐपीआई रेफरेंस
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [सार](api/synopsis.md)
+* [प्रक्रिया ऑब्जेक्ट](api/process.md)
+* [समर्थित क्रोम आदेश पंक्ति स्विचेस](api/chrome-command-line-switches.md)
+* [वातावरण वेरिएबल्स](api/environment-variables.md)
 
-### Custom DOM Elements:
+### विशिष्ट डीओएम तत्व:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`फाइल` ऑब्जेक्ट](api/file-object.md)
+* [`<webview>` टैग](api/webview-tag.md)
+* [`विंडो.ओपन` फंक्शन](api/window-open.md)
 
-### Modules for the Main Process:
+### मुख्य प्रक्रिया के लिए मोड्यूलस:
 
-* [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
+* [एप्प](api/app.md)
+* [स्वतःअपडेटर](api/auto-updater.md)
+* [ब्राउज़रव्यू](api/browser-view.md)
+* [ब्राउज़रविंडो](api/browser-window.md)
+* [कंटेंटट्रेसिंग](api/content-tracing.md)
+* [डायलॉग](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
