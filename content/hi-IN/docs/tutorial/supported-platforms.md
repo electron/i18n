@@ -1,14 +1,14 @@
 # समर्थित प्लेटफ़ॉर्म
 
-Following platforms are supported by Electron:
+निम्नलिखित प्लेटफार्म इलेक्ट्रॉन द्वारा समर्थित हैं:
 
-### macOS
+### मैकओएस
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+मैकओएस के लिए केवल 64-बिट बाइनरिस प्रदान की गयी हैं, और न्यूनतम मैकओएस समर्थित संस्करण मैकओएस 10.9 है |
 
-### Windows
+### विंडोज
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+विंडोज 7 और उसके बाद के ओएस समर्थित हैं | पुराने ओएस समर्थित नहीं हैं (न ही वे काम करते हैं) |
 
 Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
 
