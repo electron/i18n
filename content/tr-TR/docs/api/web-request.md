@@ -10,9 +10,9 @@ Süreç: [Ana](../glossary.md#main-process)
 
 The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. Eğer `filter` eksikse, tüm istekler eşleştirilmiş olacaktır.
 
-For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+Bazı durumlar için `listener` işini bitirdiği zaman bir `callback` ile aktarılan `listener` bir `response` nesnesi ile çağırılmış olmalıdır.
 
-An example of adding `User-Agent` header for requests:
+İsteklere `User-Agent` başlığı ekleme örneği:
 
 ```javascript
 const {session} = require('electron')
@@ -35,7 +35,7 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
@@ -46,8 +46,8 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Object 
-      * `cancel` Boolean (optional)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+      * `cancel` Boolean (isteğe bağlı)
+      * `redirectURL` String (isteğe bağlı) - Orijinal istek gönderilmesinden veya tamamlanmasına engel olunur ve bunun yerine belirtilen URL'ye yönlendirilir.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
 
@@ -58,7 +58,7 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
@@ -72,7 +72,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `requestHeaders` Object
 * `callback` Function 
   * `cevap` Nesne 
-    * `cancel` Boolean (optional)
+    * `cancel` Boolean (isteğe bağlı)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `callback` has to be called with an `response` object.
@@ -80,7 +80,7 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
@@ -95,7 +95,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
@@ -120,7 +120,7 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
@@ -138,7 +138,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` String
@@ -157,7 +157,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
@@ -175,7 +175,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
