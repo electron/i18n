@@ -186,9 +186,9 @@ console.log(gambar)
  
  #### `image.getSize()`
  
- Mengembalikan ` Ukuran </ 0></p>
-
-<h4><code>image.setTemplateImage(option)`</h4> 
+ Mengembalikan [`Ukuran`](structures/size.md)
+ 
+ #### `image.setTemplateImage(option)`
  
  * `pilihan` Boolean
  
