@@ -49,11 +49,11 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
       * `cancel` Boolean (isteğe bağlı)
       * `redirectURL` String (isteğe bağlı) - Orijinal istek gönderilmesinden veya tamamlanmasına engel olunur ve bunun yerine belirtilen URL'ye yönlendirilir.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile birlikte çağırılmış olacak.
 
-The `uploadData` is an array of `UploadData` objects.
+`uploadData`, `UploadData` nesnelerinin bir dizisidir.
 
-The `callback` has to be called with an `response` object.
+`callback` bir `response` nesnesi ile birlikte çağırılacak.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
@@ -73,9 +73,9 @@ The `listener` will be called with `listener(details, callback)` before sending 
 * `callback` Function 
   * `cevap` Nesne 
     * `cancel` Boolean (isteğe bağlı)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+    * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu header bilgileriyle birlikte yapılacaktır.
 
-The `callback` has to be called with an `response` object.
+`callback` bir `response` nesnesi ile birlikte çağırılacak.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -115,7 +115,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-The `callback` has to be called with an `response` object.
+`callback` bir `response` nesnesi ile birlikte çağırılacak.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -148,11 +148,11 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `listener(details)` ile birlikte çağırılacaktır.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
@@ -170,7 +170,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when a request is completed.
+Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağırılacaktır.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
@@ -184,6 +184,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` Dize
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - Hata açıklaması.
 
-The `listener` will be called with `listener(details)` when an error occurs.
+Bir hata oluştuğunda `listener` `listener(details)` ile birlikte çağırılacaktır.
