@@ -49,7 +49,7 @@ Returns:
 `Durum` aşağıdakilerden biri olabilir:
 
 * `progressing` - İndirme devam ediyor.
-* `interrupted` - İndirme kesintiye uğradı ama devam edilebilir.
+* `interrupted` - İndirme kesintiye uğradı ve devam edilebilir.
 
 #### Event: 'done'
 
@@ -86,7 +86,7 @@ API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. K
 
 #### `downloadItem.isPaused()`
 
-İndirilmenin durdurulup durdurulmadığına dair `Boolean` döndürür.
+İndirmenin durdurulup durdurulmadığına dair `Boolean` döndürür.
 
 #### `downloadItem.resume()`
 
@@ -138,11 +138,11 @@ Cevabın başlığından İçerik-Hazırlama alanını `String` türünde dönd�
 
 Geçerli durumu `String` türünde döndürür. `progressing`, `completed`, `cancelled` veya `interrupted` olabilir.
 
-**Not:** Aşağıdaki metodlar oturum yeniden başlatıldığı zaman `iptal edilmiş` öğelerin devamı için oldukça kullanışlıdır.
+**Not:** Aşağıdaki metodlar oturum yeniden başlatıldığı zaman bir `cancelled` öğenin devamı için oldukça kullanışlıdır.
 
 #### `downloadItem.getURLChain()`
 
-Herhangi bir yeniden yönlendirme de dahil olmak üzere öğenin tam url zincirini `String[]` döndürür.
+Herhangi bir yeniden yönlendirme de dahil olmak üzere öğenin tam url zincirini `String[]` olarak döndürür.
 
 #### `downloadItem.getLastModifiedTime()`
 
