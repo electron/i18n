@@ -28,7 +28,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 
@@ -73,7 +73,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
 * `callback` Function 
   * `cevap` Nesne 
     * `cancel` Boolean (isteğe bağlı)
-    * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu header bilgileriyle birlikte yapılacaktır.
+    * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu başlıklarla birlikte yapılacaktır.
 
 `callback` bir `response` nesnesi ile birlikte çağırılacak.
 
@@ -90,7 +90,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
     * `timestamp` Double
     * `requestHeaders` Object
 
-Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` ile birlikte çağırılacak, `onBeforeSendHeaders` yanıtlarının önceki değişiklikleri bu listener'ın işi bitinceye kadar görülür.
+Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` ile birlikte çağırılacak. `onBeforeSendHeaders` yanıtlarının önceki değişiklikleri bu listener'ın işi bitinceye kadar görülür.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
@@ -112,8 +112,8 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 * `callback` Function 
   * `response` Object 
     * `cancel` Boolean
-    * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu header'lara cevap verecektir.
-    * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak header durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
+    * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu başlıklara cevap verecektir.
+    * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
 `callback` bir `response` nesnesi ile birlikte çağırılacak.
 
@@ -133,7 +133,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `statusCode` Integer
     * `statusLine` String
 
-Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
+Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu, durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
