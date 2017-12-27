@@ -133,7 +133,7 @@ bersama dengan notifikasi.&lt;/p>
       </p>
       
       <h3>
-        <code>systemPreferences.subscribeLocalNotification(event, callback)</code> <em>macOS</em>
+        <code>systemPreferences.subscribePemberitahuan (acara, telepon kembali)</code> <em>macOS</em>
       </h3>
       
       <ul>
@@ -154,28 +154,28 @@ bersama dengan notifikasi.&lt;/p>
                 </li>
               </ul>
               <p>
-                Sama seperti <code> unsubscribeNotification </code>, namun menghapus pelanggan dari <code> NSNotificationCenter </code>.
+                Sama seperti <code> unsubscribeNotification </code>, namun menghapus pelanggan dari <code>NSNotificationCenter</code>.
               </p>
               <h3>
-                <code>systemPreferences.getUserDefault(key, type)</code> <em>macOS</em>
+                <code>systempreferences.get userdefault (kunci, jenis) </code> <em>macOS</em>
               </h3>
               <ul>
                 <li>
-                  <code>key</code> String
+                  <code>kunci</code> senar
                 </li>
                 <li>
-                  <code>type</code> String - Can be <code>string</code>, <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>double</code>, <code>url</code>, <code>array</code>, <code>dictionary</code>
+                  <code>ketik</code> String - Bisa <code>string</code>, <code>boolean </code>, <code>bilangan bulat</code>, <code>float</code>, <code>ganda</code>, <code>url</code>, <code>array</code>, <code>kamus</code>
                 </li>
               </ul>
               <p>
-                Returns <code>any</code> - The value of <code>key</code> in system preferences.
+                . Mengembalikan <code>sembarang</code> - Nilai<code> kunci</code> pada preferensi sistem.
               </p>
               <p>
-                This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
+                API ini menggunakan <code>NSUserDefaults</code> pada macOS. Beberapa kunci <code>kunci</code> dan <code>yang populer</code> adalah:
               </p>
               <ul>
                 <li>
-                  <code>AppleInterfaceStyle</code>: <code>string</code>
+                  <code>AppleInterfaceStyle</code>: <code>senar</code>
                 </li>
                 <li>
                   <code>AppleAquaColorVariant</code>: <code>integer</code>
@@ -201,7 +201,7 @@ bersama dengan notifikasi.&lt;/p>
               </h3>
               <ul>
                 <li>
-                  <code>key</code> String
+                  <code>kunci</code> senar
                 </li>
                 <li>
                   <code>type</code> String - See [<code>getUserDefault</code>][#systempreferencesgetuserdefaultkey-type-macos]
@@ -217,7 +217,7 @@ bersama dengan notifikasi.&lt;/p>
                 Note that <code>type</code> should match actual type of <code>value</code>. An exception is thrown if they don't.
               </p>
               <p>
-                This API uses <code>NSUserDefaults</code> on macOS. Some popular <code>key</code> and <code>type</code>s are:
+                API ini menggunakan <code>NSUserDefaults</code> pada macOS. Beberapa kunci <code>kunci</code> dan <code>yang populer</code> adalah:
               </p>
               <ul>
                 <li>
