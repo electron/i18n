@@ -28,8 +28,8 @@ app.on('ready', () => {
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * Indikator aplikasi hanya akan ditampilkan bila memiliki menu konteks.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Ketika app indikator yang digunakan pada Linux, `Klik` maka akan diabaikan.
+* Pada Linux dalam rangka untuk perubahan yang dibuat ke setiap `MenuItem` s untuk mengambil efek, Anda harus memanggil `setContextMenu` lagi. Sebagai contoh:
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -50,11 +50,11 @@ app.on('ready', () => {
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Pada Windows disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Jika Anda ingin menyimpan perilaku yang sama pada semua platform, Anda tidak harus bergantung pada cara `Klik` dan selalu lampirkan menu konteks ke tray icon.
 
-### `new Tray(image)`
+### `tray baru(image)`
 
 * ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
 </ul>
@@ -62,7 +62,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 <p>Creates a new tray icon associated with the <code>image`.</p> 
   ### Instance Events
   
-  The `Tray` module emits the following events:
+  Modul `Tray` memancarkan peristiwa berikut:
   
   #### Acara : 'klik'
   
@@ -71,37 +71,37 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
-  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
   
   Emitted saat ikon baki diklik.
   
-  #### Event: 'right-click' *macOS* *Windows*
+  #### Event: klik 'kanan' *macOS* *Windows*
   
   * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
-  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
   
   Dibunyikan ketika ikon tray benar diklik.
   
-  #### Event: 'double-click' *macOS* *Windows*
+  #### Event: 'Klik dua kali' *macOS* *Windows*
   
   * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
-  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
   
   Dipancarkan saat ikon baki diklik dua kali.
   
-  #### Event: 'balloon-show' *Windows*
+  #### Event: 'balon-show' *Windows*
   
   Emitted saat balon baki menunjukkan.
   
-  #### Event: 'balloon-click' *Windows*
+  #### Event: 'klik-balloon' *Windows*
   
   Emitted saat balon nampan diklik.
   
