@@ -84,9 +84,9 @@ Prosesnya adalah sebagai berikut:
 1. Semua baris rilis utama dan minor baru dimulai dengan `-beta.N` tag untuk `N >= 1`. Pada saat itu, set fitur adalah **terkunci**. Baris rilis itu tidak mengakui fitur lebih lanjut, dan hanya berfokus pada keamanan dan stabilitas. misalnya `2.0.0-beta.1`.
 2. Perbaikan bug, perbaikan regresi, dan patch keamanan dapat diterima. Setelah melakukannya, beta baru dirilis `N`. Misalnya `2.0.0-beta.2`
 3. Jika rilis beta tertentu *dianggap* stabil, maka akan dirilis ulang sebagai bangunan yang stabil, hanya mengubah informasi versi. misalnya `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+4. Jika perbaikan bug masa depan atau patch keamanan perlu dilakukan setelah rilis stabil, mereka menerapkannya dan versi *patch* bertambah misalnya `2.0.1`.
 
-For each major and minor bump, you should expect too see something like the following:
+Untuk setiap benturan besar dan kecil, Anda harus berharap juga melihat sesuatu seperti berikut ini:
 
 ```text
 2.0.0-beta.1
@@ -97,14 +97,14 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+Contoh siklus hidup dalam gambar:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Cabang rilis baru dibuat yang mencakup rangkaian fitur terbaru. Ini diterbitkan sebagai `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+* Perbaikan bug masuk ke master yang bisa di-pack ke cabang rilis. Patch ini diterapkan, dan beta baru diterbitkan sebagai `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* Beta dianggap *umumnya stabil* dan diterbitkan lagi sebagai non-beta di bawah `2.0.0`. ![](../images/versioning-sketch-5.png)
+* Kemudian, eksploitasi zero-day terungkap dan sebuah perbaikan diterapkan pada master. Kami memasang port-port ke garis `2-0-x` dan melepaskan `2.0.1`. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+Beberapa contoh bagaimana berbagai rentang semver akan mengambil rilis baru:
 
 ![](../images/versioning-sketch-7.png)
 
@@ -132,11 +132,11 @@ Kami mendamaikan kode yang ditandai dengan strategi versi kami sebagai berikut:
 
 # Semantic Commits
 
-Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan release. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan release. Dimulai dengan `2.0.0` kami akan meminta permintaan tarik sesuai dengan spesifikasi [Konvensional ](https://conventionalcommits.org/), yang dapat diringkas sebagai berikut:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* Komitmen yang akan menghasilkan tiang utama **utama** harus dimulai dengan `BREAKING CHANGE:`.
+* Komitmen yang akan menghasilkan titik semintang **minor** harus dimulai dengan `feat:`.
+* Perintah yang akan menghasilkan tambatan semver **patch** harus dimulai dengan `fix:`.
 
 * We allow squashing of commits, provided that the squashed message adheres the the above message format.
 
