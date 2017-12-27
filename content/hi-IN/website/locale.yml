@@ -59,16 +59,16 @@ get_started:
   description: इलेक्ट्रॉन के साथ प्रारम्भ करने के लिए, नीचे दिए गए संसाधनों को देखें । जानें कि कैसे आप इलेक्ट्रॉन के साथ अपने वेब एप्प को व्रैप, सभी ऐपीआई तक पहुँच, और इंस्टालरस उत्पन्न कर सकते हैं |
 explore:
   title: इलेक्ट्रॉन ऐपीआइस का अंवेषण करें
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>इलेक्ट्रॉन ऐपीआई डेमोस एप्प</a> बड़े ही बखूबी तरीके से इलेक्ट्रॉन ऐपीआई की सबसे महत्वपूर्ण विशेषताओं को पर्दर्शित करता है | अपनी खुद की एप्प बनाने के लिए सैंपल कोड और मददगार सुझावों का इस्तेमाल करें और जानें कि इलेक्ट्रॉन के साथ क्या-क्या संभव है |"
 download_from_github: गिटहब से डाउनलोड करें
 view_all_releases_on_github: गिटहब पर<a href="https://github.com/electron/electron-api-demos/releases">सभी रिलीजी देखें</a>
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "इलेक्ट्रॉन इस्तेमाल करने के लिए <a href='https://github.com/electron/electron-quick-start' target='_blank'>त्वरित प्रारम्भ</a> एप्प को घुमायें:"
+  description: मददगार टिप्पणियों के साथ एक न्यूनतम इलेक्ट्रॉन एप्प |
   clone: त्वरित प्रारंभ रिपॉसिटरी को क्लोन करें
   go_into_repo: रिपॉजिटरी में जायें |
   install_deps: निर्भरतायें इनस्टॉल करें और फिर चलायें
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  dive_deeper: या फिर ज्यादा गहराई में जायें और <a href='/docs'>प्रलेख</a> पढ़ें |
 need_help:
   title: सहायता की आवश्यकता है?
   description: <a href='https://discuss.atom.io/c/electron'>डिस्कस</a> फोरम पर या हमारे<a href='http://atom-slack.herokuapp.com/'>स्लैक</a> चैनल पर सवाल पूछें | महत्वपूर्ण सूचनाओं के लिए <a href="https://twitter.com/electronjs">@electronjs</a> को ट्विटर पर फॉलो करें | क्या आप हमसे निजी संपर्क करना चाहते हैं ? ईमेल <a href="mailto:electron@github.com">electron@github.com</a>.
