@@ -80,7 +80,7 @@ Sesuai dengan poin pada saat pemintal tab mulai berputar.
 
 Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
-#### Event: 'did-get-response-details'
+#### Event: 'Apakah-mendapatkan-tanggapan-rincian'
 
 Pengembalian:
 
@@ -90,13 +90,13 @@ Pengembalian:
 * `originalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
+* `pengarah` String
+* `headers` Obyek
+* `Jenissumberdaya` String
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
 
-#### Event: 'did-get-redirect-request'
+#### Event: 'apakah-mendapatkan-redirect-permintaan'
 
 Pengembalian:
 
@@ -106,21 +106,21 @@ Pengembalian:
 * `adalahBingkaiUtama` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
-* `headers` Object
+* `pengarah` String
+* `headers` Obyek
 
-Emitted when a redirect is received while requesting a resource.
+Emitted ketika redirect diterima saat meminta resource.
 
-#### Event: 'dom-ready'
+#### Event: 'dom-siap'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
 </ul>
 
-<p>Emitted when the document in the given frame is loaded.</p>
+<p>Emitted saat dokumen dalam bingkai yang diberikan dimuat.</p>
 
-<h4>Event: 'page-favicon-updated'</h4>
+<h4>Event: 'halaman-favicon-updated '</h4>
 
 <p>Pengembalian:</p>
 
