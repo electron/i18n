@@ -317,11 +317,11 @@ Pengembalian:
 <li><code> url </ 0> URL</li>
 <li><code> certificateList </ 0>  <a href="structures/certificate.md"> Sertifikat [] </ 1></li>
 <li><code>callback` Fungsi 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `sertifikat` [Sertifikat](structures/certificate.md) - Harus berupa sertifikat dari daftar yang diberikan
 
 Emitted ketika sertifikat klien diminta.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+Penggunaannya sama dengan [the `pilih-sertifikat-klien` acara `app`](app.md#event-select-client-certificate).
 
 #### Acara : 'login'
 
@@ -348,30 +348,30 @@ Pengembalian:
 
 <p>Emitted ketika <code> webContents </ 0> ingin melakukan auth dasar.</p>
 
-<p>The usage is the same with <a href="app.md#event-login">the <code>login` event of `app`</a>.</p> 
-        #### Event: 'found-in-page'
+<p>Penggunaannya sama dengan <a href="app.md#event-login">the <code>masuk` event of `app`</a>.</p> 
+        #### Event: 'ditemukan-di-halaman'
         
         Pengembalian:
         
         * ` event </ 0>  Acara</li>
-<li><code>result` Obyek 
-          * `requestId` Integer
-          * `activeMatchOrdinal` Integer - Position of the active match.
-          * `matches` Integer - Number of Matches.
-          * `selectionArea` Object - Coordinates of first match region.
+<li><code>hasil` Obyek 
+          * `Idpermintaan` IntegerId
+          * `aktifSesuaiOrdinal` Integer - Posisi pertandingan aktif.
+          * `cocokdengan` Integer - Jumlah yang Cocok.
+          * `seleksiArea` Objek - Koordinat wilayah pertandingan pertama.
           * `finalUpdate` Boolean
         
-        Emitted when a result is available for [`webContents.findInPage`] request.
+        Dipancarkan saat hasilnya tersedia [`webContents.findInPage`] permintaan.
         
-        #### Event: 'media-started-playing'
+        #### Event: 'media-mulai-bermain''
         
-        Emitted when media starts playing.
+        Emitted saat media mulai diputar.
         
-        #### Event: 'media-paused'
+        #### Event: 'media-berhenti'
         
-        Emitted when media is paused or done playing.
+        Emitted saat media dijeda atau dilakukan bermain.
         
-        #### Event: 'did-change-theme-color'
+        #### Event: 'apakah-ganti-tema-warna'
         
         Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
         
