@@ -49,7 +49,7 @@ Returns:
 `Durum` aşağıdakilerden biri olabilir:
 
 * `progressing` - İndirme devam ediyor.
-* `interrupted` - İndirme kesildi ama devam edilebilir.
+* `interrupted` - İndirme kesintiye uğradı ama devam edilebilir.
 
 #### Event: 'done'
 
@@ -58,13 +58,13 @@ Returns:
 * `event` Event
 * `state` String
 
-İndirme işlemi terminal durumundayken yayımlanır. Bu bitmiş indirme, (via `downloadItem.cancel()`) ile iptal edilmiş bir indirme ve devam edilemeyen kesmeye uğramış indirme içerir.
+İndirme işlemi terminal durumundayken yayınlanır. Bu, bitmiş bir indirme, (`downloadItem.cancel()`) ile iptal edilmiş bir indirme ve devam edilemeyen kesintiye uğramış indirme içerir.
 
 `Durum` aşağıdakilerden biri olabilir:
 
 * `completed` - İndirme başarıyla tamamlandı.
 * `cancelled` - İndirme iptal edildi.
-* `interrupted` - İndirme kesildi ve devam edemez.
+* `interrupted` - İndirme kesintiye uğradı ve devam edemez.
 
 ### Örnek yöntemler
 
