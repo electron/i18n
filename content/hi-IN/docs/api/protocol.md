@@ -1,4 +1,4 @@
-# protocol
+# प्रोटोकॉल
 
 > Register a custom protocol and intercept existing protocol requests.
 
