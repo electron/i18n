@@ -8,7 +8,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 `WebRequest`'in metodları isteğe bağlı bir `filter` ve `listener` kabul eder. API'nin event'ı olduğunda `listener` `listener(details)` ile birlikte çağırılmış olacak. `details` nesnesi isteği açıklar. `listener` gibi `null` göndermek event'ı iptal edecektir.
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. Eğer `filter` eksikse, tüm istekler eşleştirilmiş olacaktır.
+`filtre` nesnesi, URL kalıplarının bir dizisi olan URL ile eşleşmeyen istekleri filtrelemek için kullanılacak kalıpların `urls` özelliğine sahiptir. Eğer `filter` eksikse, tüm istekler eşleştirilmiş olacaktır.
 
 Bazı durumlar için `listener` işini bitirdiği zaman bir `callback` ile aktarılan `listener` bir `response` nesnesi ile çağırılmış olmalıdır.
 
@@ -90,7 +90,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
     * `timestamp` Double
     * `requestHeaders` Object
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` ile birlikte çağırılacak, `onBeforeSendHeaders` yanıtlarının önceki değişiklikleri bu listener'ın işi bitinceye kadar görülür.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
