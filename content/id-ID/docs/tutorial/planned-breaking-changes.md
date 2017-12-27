@@ -86,19 +86,19 @@ menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ## `gambarasli`
 
 ```js
-// Deprecated
+// Tidak berlaku lagi
 nativeImage.toPng()
-// Replace with
+// Ubah dengan
 nativeImage.toPNG()
 
-// Deprecated
+// Tidak berlaku lagi
 nativeImage.toJpeg()
-// Replace with
+// Ubah dengan
 nativeImage.toJPEG()
 
-// Deprecated
+// Ubah dengan
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Ubah dengan
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -113,7 +113,7 @@ process.versions ['atom-shell']
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `proses.versi.electron` dan `proses.versi.chrome` akan dibuat properti hanya baca untuk konsistensi dengan proses `proses.versi` properti yang ditetapkan oleh Node.
 
 ## `sesi`
 
@@ -188,7 +188,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ## URL Node Header
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Ini adalah URL yang ditentukan sebagai `disturl` pada file `.npmrc` atau sebagai `--dist-url` bendera perintah saat membangun modul Node asli.
 
 Tidak berlaku lagi: https://atom.io/download/atom-shell
 
@@ -200,7 +200,7 @@ Setiap rilis Elektron mencakup dua ARM identik yang dibangun dengan sedikit berb
 
 File *tanpa awalan* masih dipublikasikan untuk menghindari pemutusan setup yang mungkin memakannya Mulai dari 2.0, file yang tidak diawali akan tidak lagi dipublikasikan.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Untuk detailnya, lihat [6986](https://github.com/electron/electron/pull/6986) dan [7189](https://github.com/electron/electron/pull/7189).
 
 ## `FIXME` comments
 
