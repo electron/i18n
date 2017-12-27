@@ -24,7 +24,7 @@ Indicates that response body has ended.
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
-#### Event: 'error'
+#### イベント: ' エラー '
 
 戻り値：
 
