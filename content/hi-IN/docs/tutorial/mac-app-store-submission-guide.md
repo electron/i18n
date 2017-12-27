@@ -144,8 +144,8 @@ After these steps, you can [submit your app for review](https://developer.apple.
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
-* `crashReporter`
-* `स्वतःअपडेटर`
+* `क्रेश रिपोर्टर`
+* `स्वतः अपडेटर`
 
 and the following behaviors have been changed:
 
