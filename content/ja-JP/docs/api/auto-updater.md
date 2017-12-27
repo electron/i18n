@@ -1,101 +1,101 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> 自動的に彼ら自身を更新するアプリケーションを有効にします。
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+`自動アップデーター` のモジュールは、[リス](https://github.com/Squirrel) のフレームワークのインターフェイスを提供します。
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+これらのプロジェクトの 1 つを使用して、アプリケーションを配布するため、マルチプラット フォーム リリース サーバーを迅速に起動できます。
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [ナッツ](https://github.com/GitbookIO/nuts): 1 A スマート リリース サーバー、アプリケーションのバックエンドとして GitHub を使ってします。リス (Mac ・ Windows) と自動更新</em>
+* [電子リリース サーバー](https://github.com/ArekSredzki/electron-release-server): *A 完全におすすめの電子アプリケーションの自動アップデートと互換性のあるリリース サーバーを自己ホスト型*
+* [リスの更新サーバー](https://github.com/Aluxian/squirrel-updates-server): *Squirrel.Mac と Squirrel.Windows GitHub のリリースを使用しての簡単な node.js サーバー*
+* [リス リリース サーバー](https://github.com/Arcath/squirrel-release-server): 1 A フォルダーから更新プログラムを読み取り、Squirrel.Windows の単純な PHP アプリケーション。 デルタ更新プログラムをサポートしています</em>。
 
-## Platform notices
+## プラットフォーム通知
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+`自動アップデーター` は、異なるプラットフォームの統一 API を提供しています、上はまだいくつかの微妙な違い各プラットフォームです。
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+MacOS の `自動アップデーター` のモジュールで成り立っている [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac)、任意の特別なセットアップ作業にする必要はありません。 サーバー側の要件、[サーバーのサポート](https://github.com/Squirrel/Squirrel.Mac#server-support) を読むことができます。 [アプリケーション トランスポート セキュリティ](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) は、更新プロセスの一部としてすべての要求に適用されることに注意してください。 ATS を無効にする必要があるアプリは、そのアプリの plist に `NSAllowsArbitraryLoads` キーを追加できます。
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**注:**アプリケーションは、macOS で自動更新を署名する必要があります。これ `Squirrel.Mac` の要件です。
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
+Windows では、`自動アップデーター` を生成する [電子 winstaller](https://github.com/electron/windows-installer)、[電子フォージ](https://github.com/electron-userland/electron-forge) または [面倒な電子インストーラー](https://github.com/electron/grunt-electron-installer) パッケージを使用することをお勧めしますが、使用前に、ユーザーのコンピューターにアプリをインストールする必要がWindows インストーラー。
 
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
+確認してください [電子 winstaller](https://github.com/electron/windows-installer) または [電子フォージ](https://github.com/electron-userland/electron-forge) を使用してときあなたのアプリの [初回実行](https://github.com/electron/windows-installer#handling-squirrel-events) (を参照してください [より多くの情報のためのこの問題](https://github.com/electron/electron/issues/7155) も) を更新はないです。 またアプリのショートカットを取得する [電子-リス-スタートアップ](https://github.com/mongodb-js/electron-squirrel-startup) を使用する勧めします。
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
+リスで生成されたインストーラーは、1 com.squirrel.PACKAGE_ID の形式で [アプリケーションのユーザー モデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) を持つショートカット アイコンを作成します。YOUR_EXE_WITHOUT_DOT_EXE</code>、例は、`com.squirrel.slack.Slack` と `com.squirrel.code.Code`。 `App.setAppUserModelId` API を使用してアプリケーションに同じ ID を使用する必要が、それ以外の場合、Windows はアプリをタスク バーに正しく固定することができません。
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+Squirrel.Mac とは異なり、Windows は S3 またはその他の静的ファイルのホストに更新プログラムをホストできます。 Squirrel.Windows のしくみについての詳細を取得する [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントを読むことができます。
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Linux では、自動アップデーターの組み込みサポートがないので、ディストリビューションのパッケージ マネージャーを使用してアプリを更新することをお勧め。
 
 ## イベント
 
-The `autoUpdater` object emits the following events:
+`自動アップデーター` オブジェクトは、次のイベントを生成します。
 
-### Event: 'error'
+### イベント: ' エラー '
 
 戻り値：
 
 * `error` Error
 
-Emitted when there is an error while updating.
+更新中にエラーがあるときに出力されます。
 
-### Event: 'checking-for-update'
+### イベント: ' チェックのため-更新 '
 
-Emitted when checking if an update has started.
+更新が始まったかどうかをチェックするときに放出されます。
 
-### Event: 'update-available'
+### イベント:「更新プログラム-利用可能」
 
-Emitted when there is an available update. The update is downloaded automatically.
+利用可能な更新がある場合に生成されます。更新プログラムが自動的にダウンロードされます。
 
-### Event: 'update-not-available'
+### イベント:「更新プログラム利用不可」
 
-Emitted when there is no available update.
+利用可能な更新がない場合に出力されます。
 
-### Event: 'update-downloaded'
+### イベント:「更新プログラムをダウンロード '
 
 戻り値：
 
 * `event` Event
-* `releaseNotes` String
-* `releaseName` String
-* `releaseDate` Date
-* `updateURL` String
+* `リリース ノート`文字列
+* `releaseName`文字列
+* `releaseDate`日付
+* `updateURL`文字列
 
-Emitted when an update has been downloaded.
+更新プログラムがダウンロードされているときに出力されます。
 
-On Windows only `releaseName` is available.
+Windows `releaseName` のみ利用可能です。
 
-## Methods
+## メソッド
 
-The `autoUpdater` object has the following methods:
+`自動アップデーター` オブジェクトには、次のメソッドがあります。
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+### `autoUpdater.setFeedURL (url [, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。
 
-Sets the `url` and initialize the auto updater.
+初期化自動アップデーターの `url` を設定します。
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+現在の `文字列` を返しますフィードの URL に更新。
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+更新プログラムがあるかどうかをサーバーに要求します。この API を使用する前に `setFeedURL` を呼び出す必要があります。
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+アプリを再起動し、それがダウンロードされた後に、更新プログラムをインストールします。それは、放出されてきた `更新プログラム ダウンロード` 後にのみ呼び出す必要があります。
 
 **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
