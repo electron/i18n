@@ -72,18 +72,18 @@ Baris yang lebih tua tidak akan didukung oleh GitHub, namun kelompok lain dapat 
 
 Pengembang ingin mengetahui rilis mana yang *aman* untuk digunakan. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. Pada saat bersamaan, penguncian ke versi tetap berbahaya karena anda mengabaikan tambalan keamanan dan perbaikan bug yang mungkin keluar sejak versi anda. Tujuan kami adalah membiarkan rangkaian standar berikut masuk `package.json` :
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* Gunakan `~2.0.0` untuk mengakui hanya stabilitas atau keamanan terkait perbaikan untuk rilis `2.0.0` anda.
+* Gunakan `^ 2.0.0` untuk mengakui fitur pekerjaan yang tidak melanggar * cukup stabil * serta perbaikan keamanan dan bug.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. Untuk mencapai hal ini, semver memungkinkan * pengenal pra-rilis * untuk menunjukkan versi tertentu belum *aman* atau * stabil*.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+Apapun yang anda pilih, secara berkala Anda harus menemukan versi ` package.json ` karena melanggar perubahan adalah fakta kehidupan Chromium.
 
-The process is as follows:
+Prosesnya adalah sebagai berikut:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
+1. Semua baris rilis utama dan minor baru dimulai dengan `-beta.N` tag untuk `N >= 1`. Pada saat itu, set fitur adalah **terkunci**. Baris rilis itu tidak mengakui fitur lebih lanjut, dan hanya berfokus pada keamanan dan stabilitas. misalnya `2.0.0-beta.1`.
+2. Perbaikan bug, perbaikan regresi, dan patch keamanan dapat diterima. Setelah melakukannya, beta baru dirilis `N`. Misalnya `2.0.0-beta.2`
+3. Jika rilis beta tertentu *dianggap* stabil, maka akan dirilis ulang sebagai bangunan yang stabil, hanya mengubah informasi versi. misalnya `2.0.0`.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
 
 For each major and minor bump, you should expect too see something like the following:
