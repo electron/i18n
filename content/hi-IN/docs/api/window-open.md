@@ -1,4 +1,4 @@
-# `window.open` Function
+# `विंडो.ओपन` फंक्शन
 
 > Open a new window and load a URL.
 
