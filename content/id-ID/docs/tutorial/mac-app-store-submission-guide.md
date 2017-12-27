@@ -20,7 +20,7 @@ Sebelum menandatangani aplikasi Anda, Anda perlu mengetahui ID Tim akun Anda. Un
 
 Setelah menyelesaikan pekerjaan persiapan, Anda dapat mengemas aplikasi Anda dengan mengikuti [ Distribusi Aplikasi ](application-distribution.md), lalu lanjutkan ke menandatangani aplikasi Anda.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+Pertama, Anda harus menambahkan kunci `ElektronTeamID` ke aplikasi `Info.plist`, yang memiliki ID Tim Anda sebagai nilai:
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Kemudian, Anda perlu menyiapkan tiga file hak.
 
 `child.plist`:
 
@@ -79,7 +79,7 @@ Then, you need to prepare three entitlements files.
 
 You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
 
-And then sign your app with the following script:
+Dan kemudian masuki aplikasi Anda dengan skrip berikut:
 
 ```sh
 #!/bin/bash
@@ -118,9 +118,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+Jika Anda baru mengenal aplikasi sandboxing di bawah macos, Anda juga harus membaca Apple's [Mengaktifkan App Sandbox ](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) untuk memiliki ide dasar, tambahkan kunci untuk izin yang dibutuhkan oleh aplikasi Anda ke file hak.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Terlepas dari penandatanganan aplikasi Anda secara manual, Anda juga dapat memilih untuk menggunakan modul [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) untuk melakukan pekerjaan itu.
 
 #### Sign Native Modules
 
@@ -130,7 +130,7 @@ Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika mengg
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
 ### Upload Your App
 
