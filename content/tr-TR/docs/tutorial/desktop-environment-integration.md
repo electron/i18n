@@ -173,7 +173,7 @@ MacOS üzerinde ilerleme çubuğu dock simgesinin bir parçası olarak görünt�
 
 Unity DE aynı zamanda başlatıcıda ki ilerleme çubuğunu belirlemenizi sağlayan benzer bir özelliğe sahiptir.
 
-**ilerleme çubuğu düğmesindeki görev çubuğu düğmesi**
+**ilerleme çubuğu düğmesindeki görev çubuğu düğmesi:**
 
 ![Görev çubuğu ilerleme çubuğu](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
