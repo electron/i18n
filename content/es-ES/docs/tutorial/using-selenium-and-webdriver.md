@@ -113,24 +113,24 @@ Only local connections are allowed.
 
 Recuerde el puerto número `9515`, que usaremos más adelante
 
-### 2. Install WebdriverIO
+### 2. instalar WebDriverIO
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Conecte al Driver de Chrome
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Use localhot como servidor de drivers de Chrome
+  port: 9515,        // "9515" es el puerto abierto por el driver de Chrome.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Dirección a su electrón binario.
+      args: [/* cli arguments */]           // opcional 'app=' + /path/to/your/app/
     }
   }
 }
@@ -148,7 +148,7 @@ client
   .end()
 ```
 
-## Workflow
+## Flujo de trabajo
 
 To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
