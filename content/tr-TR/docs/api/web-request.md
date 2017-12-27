@@ -6,9 +6,9 @@ Süreç: [Ana](../glossary.md#main-process)
 
 `WebRequest` sınıfının örneklerine `webRequest`'nin `Session` özelliği kullanılarak erişilir.
 
-The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+`WebRequest`'in metodları isteğe bağlı bir `filter` ve `listener` kabul eder. API'nin event'ı olduğunda `listener` `listener(details)` ile birlikte çağırılmış olacak. `details` nesnesi isteği açıklar. `listener` gibi `null` göndermek event'ı iptal edecektir.
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
+The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. Eğer `filter` eksikse, tüm istekler eşleştirilmiş olacaktır.
 
 For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
 
