@@ -1,4 +1,4 @@
-# Supported Chrome Command Line Switches
+# समर्थित क्रोम आदेश पंक्ति स्विचेस
 
 > Command line switches supported by Electron.
 
