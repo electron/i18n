@@ -1,4 +1,4 @@
-कृपया सुनिश्चित करें कि आप अपने इलेक्ट्रॉन संस्करण से मेल खाने वाले दस्तावेज़ों का उपयोग कर रहे हैं । संस्करण संख्या, पेज यूआरएल का एक भाग होना चाहिए । If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+कृपया सुनिश्चित करें कि आप अपने इलेक्ट्रॉन संस्करण से मेल खाने वाले दस्तावेज़ों का उपयोग कर रहे हैं । संस्करण संख्या, पेज यूआरएल का एक भाग होना चाहिए । यदि ऐसा नहीं है, तो शायद आप एक ऐसी विकास शाखा के दस्तावेज़ीकरण का इस्तेमाल कर रहे हैं, जिसमे मौजूद ऐपीआई परिवर्तन आपके इलेक्ट्रॉन संस्करण के अनुकूल नहीं हैं | To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## FAQ
 
