@@ -191,10 +191,10 @@ Sets download saving directory. By default, the download directory will be the `
 * `pilihan` Obyek 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `downloadThroughput` Double (opsional) - Kecepatan download di Bps. Default ke 0 yang akan menonaktifkan download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-Emulates network with the given configuration for the `session`.
+Emulasikan jaringan dengan konfigurasi yang diberikan untuk `sesi`.
 
 ```javascript
 // To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
@@ -225,7 +225,7 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
       * `-2` - Indicates failure.
       * `-3` - Uses the verification result from chromium.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc(request, callback)` setiap kali ada sertifikat server verifikasi diminta. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
 Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
@@ -251,7 +251,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Fungsi 
     * `permissionGranted` Boolean - Allow or deny the permission
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
 
 ```javascript
 const {session} = require('electron')
