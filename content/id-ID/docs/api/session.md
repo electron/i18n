@@ -164,7 +164,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
   
   Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
@@ -210,7 +210,7 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi jaringan asli.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -220,7 +220,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
 <li><code>error` String - Verification result from chromium.
   * `callback` Fungsi 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
       * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
       * `-3` - Uses the verification result from chromium.
