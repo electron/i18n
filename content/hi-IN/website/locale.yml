@@ -26,9 +26,9 @@ languages:
   current: वर्तमान चयन
 community:
   title: इलेक्ट्रान समुदाय
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'इलेक्ट्रॉन के <a href="https://github.com/sindresorhus/awesome-electron">अद्भुत</a> मुक्त स्त्रोत योगदानकर्ताओं की और से औज़ार, पूर्वनिर्मित कोड, विडियो और भी बहुत कुछ | अपने आसपास के <a href="/community#meetups">सम्मेलन</a> खोजें या जोड़ें |'
   tools: औज़ार
-  boilerplates: Boilerplates
+  boilerplates: पूर्वनिर्मित कोड
   components: घटक
   videos: वीडियो
   meetups: सम्मेलन
