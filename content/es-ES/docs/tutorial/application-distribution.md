@@ -1,20 +1,20 @@
 # Distribución de la Aplicación
 
-Para distribiur tu aplicacion con ElectronJS, necesitas descargar los binarios de Electron [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Para distribuir su aplicación con Electron, debe descargar los [binarios precompilados](https://github.com/electron/electron/releases) de Electron. Luego, la carpeta que contiene tu aplicación debe llamarse `aplicación` y colocarse en el directorio de recursos de Electron como se muestra en los siguientes ejemplos. Tenga en cuenta que la ubicación de los binarios precompilados de Electron se indican con `electron/` en los ejemplos siguientes.
 
-On macOS:
+En macOS:
 
 ```text
-electron/Electron.app/Contents/Resources/app/
+electron/Electron.aplicaciones/Contenidos/Recursos/Aplicaciones/
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-On Windows and Linux:
+En Windows y Linux:
 
 ```text
-electron/resources/app
+electron/recursos/aplicaciones
 ├── package.json
 ├── main.js
 └── index.html
@@ -28,14 +28,14 @@ Apart from shipping your app by copying all of its source files, you can also pa
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+En macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+En Windows y Linux:
 
 ```text
 electron/resources/
