@@ -22,7 +22,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
 
-## Devtron
+## डेवट्रॉन
 
 In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
