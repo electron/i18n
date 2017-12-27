@@ -1,16 +1,16 @@
 ## Sınıf: WebRequest
 
-> İsteğin içeriğini ömrünün çeşitli aşamalarında kesip değiştirin.
+> İsteğin içeriğini, ömrünün çeşitli aşamalarında kesip değiştirin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`WebRequest` sınıfının örneklerine `webRequest`'nin `Session` özelliği kullanılarak erişilir.
+`WebRequest` sınıfının örneklerine `Session`'nın `webRequest` özelliği kullanılarak erişilir.
 
 `WebRequest`'in metodları isteğe bağlı bir `filter` ve `listener` kabul eder. API'nin event'ı olduğunda `listener` `listener(details)` ile birlikte çağırılmış olacak. `details` nesnesi isteği açıklar. `listener` gibi `null` göndermek event'ı iptal edecektir.
 
 `filtre` nesnesi, URL kalıplarının bir dizisi olan URL ile eşleşmeyen istekleri filtrelemek için kullanılacak kalıpların `urls` özelliğine sahiptir. Eğer `filter` eksikse, tüm istekler eşleştirilmiş olacaktır.
 
-Bazı durumlar için `listener` işini bitirdiği zaman bir `callback` ile aktarılan `listener` bir `response` nesnesi ile çağırılmış olmalıdır.
+Bazı durumlar için `listener` işini bitirdiği zaman bir `callback` ile aktarılan `listener`, bir `response` nesnesi ile çağırılmış olmalıdır.
 
 İsteklere `User-Agent` başlığı ekleme örneği:
 
