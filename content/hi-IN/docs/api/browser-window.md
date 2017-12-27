@@ -1,4 +1,4 @@
-# BrowserWindow
+# ब्राउज़रविंडो
 
 > Create and control browser windows.
 
