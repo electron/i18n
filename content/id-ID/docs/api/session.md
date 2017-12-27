@@ -6,7 +6,7 @@ Process: [Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Anda juga dapat mengakses `sesi</> dari halaman yang ada dengan menggunakan sesi <code> ` milik [` WebContents `](web-contents.md), atau dari modul ` sesi `.
 
 ```javascript
 const {BrowserWindow} = require('electron')
