@@ -132,18 +132,17 @@ akan menghasilkan satu tombol berlabel "OK".</li>
     * ` jendela browser </ 0> jendela Browser(opsional)</li>
 <li><code>pilihan` Obyek 
       * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1> - Sertifikat untuk dipercaya / diimpor.</li>
-<li><code> pesan </ 0>  String - Pesan untuk ditampilkan kepada pengguna.</li>
-</ul></li>
-<li><code>callback ` Fungsi
-      
-      Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. Jika Anda memberikan argumen `browserWindow`, dialog akan dilampirkan ke jendela induk, membuatnya menjadi modal.
-      
-      Pada Windows pilihannya lebih terbatas, karena API Win32 digunakan:
-      
-      * Argumen `pesan` tidak digunakan, karena OS menyediakan dialog konfirmasinya sendiri.
-      * Argumen `browserWindow` diabaikan karena tidak mungkin membuat modal dialog konfirmasi ini.
-      ## Lembar
-      
-      Pada macos, dialog disajikan sebagai lembaran yang dilekatkan pada jendela jika Anda memberikan referensi `BrowserWindow` pada parameter `browserWindow`, atau modalnya jika tidak ada jendela yang disediakan.
-      
-      Anda dapat memanggil `BrowserWindow.getCurrentWindow (). SetSheetOffset (offset)` untuk mengubah offset dari bingkai jendela tempat lembaran dilekatkan.
+<li><code>pesan` String - Pesan untuk ditampilkan kepada pengguna.
+    * `callback ` Fungsi
+    
+    Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. Jika Anda memberikan argumen `browserWindow`, dialog akan dilampirkan ke jendela induk, membuatnya menjadi modal.
+    
+    Pada Windows pilihannya lebih terbatas, karena API Win32 digunakan:
+    
+    * Argumen `pesan` tidak digunakan, karena OS menyediakan dialog konfirmasinya sendiri.
+    * Argumen `browserWindow` diabaikan karena tidak mungkin membuat modal dialog konfirmasi ini.
+    ## Lembar
+    
+    Pada macos, dialog disajikan sebagai lembaran yang dilekatkan pada jendela jika Anda memberikan referensi `BrowserWindow` pada parameter `browserWindow`, atau modalnya jika tidak ada jendela yang disediakan.
+    
+    Anda dapat memanggil `BrowserWindow.getCurrentWindow (). SetSheetOffset (offset)` untuk mengubah offset dari bingkai jendela tempat lembaran dilekatkan.
