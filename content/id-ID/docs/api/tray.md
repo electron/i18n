@@ -4,7 +4,7 @@
 
 Proses:  Utama </ 0></p> 
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -25,8 +25,8 @@ app.on('ready', () => {
 
 **Keterbatasan platform**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
+* Pada aplikas Linux indikator akan digunakan jika didukung, sebaliknya `GtkStatusIcon` akan digunakan sebagai gantinya.
+* Pada distribusi Linux yang hanya memiliki aplikasi indikator yang mendukung, Anda harus menginstal `libappindicator1` untuk membuat ikon tray bekerja.
 * Indikator aplikasi hanya akan ditampilkan bila memiliki menu konteks.
 * Ketika app indikator yang digunakan pada Linux, `Klik` maka akan diabaikan.
 * Pada Linux dalam rangka untuk perubahan yang dibuat ke setiap `MenuItem` s untuk mengambil efek, Anda harus memanggil `setContextMenu` lagi. Sebagai contoh:
@@ -59,7 +59,7 @@ Jika Anda ingin menyimpan perilaku yang sama pada semua platform, Anda tidak har
 * ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
 </ul>
 
-<p>Creates a new tray icon associated with the <code>image`.</p> 
+<p>Buatlah sebuah ikon tray baru yang terkait dengan <code>image`.</p> 
   ### Instance Events
   
   Modul `Tray` memancarkan peristiwa berikut:
