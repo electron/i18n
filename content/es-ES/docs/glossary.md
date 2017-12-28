@@ -58,15 +58,15 @@ Véase también [Usando Módulos de Nodo Nativos](tutorial/using-native-node-mod
 
 ### NSIS
 
-Nullsoft Scriptable Install System es un instalador basado en secuencias de comandos de herramienta de edición para Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) soporta NSIS como objetivo compilar.
+Nullsoft Scriptable Install System es un instalador basado en secuencias de comandos de herramienta de edición para Microsoft Windows. Fue lanzado bajo una combinación de licencias de software libre y es una alternativa ampliamente usada para productos comerciales como InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) soporta NSIS como objetivo compilar.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+El OSR (renderizado fuera de la pantalla) se puede utilizar para cargar un fondo de pantalla pesado y mostrarlo luego (será mucho más rápido). Permite renderizar la página sin mostrarla en pantalla.
 
 ### proceso
 
-A process is an instance of a computer program that is being executed. Aplicaciones de Electron que hacen usan de la [main](#main-process) y uno o muchos procesos [renderer](#renderer-process) están ejecutando varios programas simultáneamente.
+Un proceso es una instancia en un programa de computadora que está siendo ejecutado. Aplicaciones de Electron que hacen usan de la [main](#main-process) y uno o muchos procesos [renderer](#renderer-process) están ejecutando varios programas simultáneamente.
 
 En Node.js y Electron, cada proceso en ejecución tiene un objeto de `process`. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
@@ -94,9 +94,9 @@ Como nodo, Electron se centra en tener un pequeño conjunto de APIs que proporci
 
 V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electrón forma V8 como parte de Chromium y luego apunta el Nodo ese V8 cuando lo está formando.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Los números de versión de V8 siempre corresponden a aquellos de Google Chrome. Chrome 59 incluye V8 5.9, Chrome 58 incluye V8 5.8, etcétera.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -104,4 +104,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### vistaweb
 
-`webview` etiquetas se utilizan para incrustar contenido de 'guest' (como páginas web externas) en su aplicación Electron. Son similares a `iframe`s, pero se diferencian en que cada vista Web se ejecuta en un proceso separado. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` etiquetas se utilizan para incrustar contenido de 'guest' (como páginas web externas) en su aplicación Electron. Son similares a `iframe`s, pero se diferencian en que cada vista Web se ejecuta en un proceso separado. No tiene los mismos permisos que su página web y todas las interacciones entre tu aplicación y el contenido incluido serán asincrónicas. Esto mantiene a tu aplicación protegida de contenido incluido.
