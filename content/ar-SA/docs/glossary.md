@@ -26,49 +26,66 @@
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+إيبك تعني الاتصالات بين العملية. يستخدم الإلكترون إيبك لإرسال رسائل جسون المسلسلة بين عمليات  الرئيسية </ 0> و  renderer</ 1>.</p> 
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+مكتبة مشتركة تشمل [وحدة "محتوى الكروم"](https://www.chromium.org/developers/content-module) وكافة التبعيات الخاصة به (مثلاً، الطرفة، [V8](#v8)، إلخ.). كما يشار إليها ب "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### العملية الرئيسية
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+العملية الرئيسية، عادة ملف اسمه `main.js`، هي نقطة الدخول لتطبيق كل إلكترون. أنها تسيطر على اللتطبيق، من فتح إغلاق. وتدير أيضا العناصر الأصلية مثل القائمة وشريط القوائم،إلخ. العملية الرئيسية هي المسؤولة عن خلق كل عملية عارض جديد في التطبيق. تم إنشاء واجهة برمجة تطبيقات بالكامل.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+يتم تحديد ملف العملية الرئيسي لكل تطبيق في الخاصية ` الرئيسية </ 0> في
+<code> package.json </ 0>. هذه هي طريقة <code> الإلكترون. </ 0> يعرف ما الملف لتنفيذ عند بدء التشغيل.</p>
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+<p>في كروميوم، يشار إلى هذه العملية باسم "عملية المتصفح". تم إعادة تسميته في إلكترون لتجنب الارتباك مع عمليات العارض.</p>
 
-See also: [process](#process), [renderer process](#renderer-process)
+<p>See also: <a href="#process">process</a>, <a href="#renderer-process">renderer process</a></p>
 
-### MAS
+<h3>MAS</h3>
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+<p>Acronym for Apple's Mac App Store. For details on submitting your app to the
+MAS, see the <a href="tutorial/mac-app-store-submission-guide.md">Mac App Store Submission Guide</a>.</p>
 
-### native modules
+<h3>native modules</h3>
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
+Node.js) are modules written in C or C++ that can be loaded into Node.js or
+Electron using the require() function, and used just as if they were an
+ordinary Node.js module. They are used primarily to provide an interface
+between JavaScript running in Node.js and C/C++ libraries.</p>
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+<p>Native Node modules are supported by Electron, but since Electron is very
+likely to use a different V8 version from the Node binary installed in your
+system, you have to manually specify the location of Electron’s headers when
+building native modules.</p>
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+<p>See also <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
 
-### NSIS
+<h3>NSIS</h3>
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+<p>Nullsoft Scriptable Install System is a script-driven Installer
+authoring tool for Microsoft Windows. It is released under a combination of
+free software licenses, and is a widely-used alternative to commercial
+proprietary products like InstallShield. <a href="https://github.com/electron-userland/electron-builder">electron-builder</a> supports NSIS
+as a build target.</p>
 
-### OSR
+<h3>OSR</h3>
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+<p>OSR (Off-screen rendering) can be used for loading heavy page in
+background and then displaying it after (it will be much faster).
+It allows you to render page without showing it on screen.</p>
 
-### process
+<h3>process</h3>
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+<p>A process is an instance of a computer program that is being executed. Electron
+apps that make use of the <a href="#main-process">main</a> and one or many <a href="#renderer-process">renderer</a> process are
+actually running several programs simultaneously.</p>
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+<p>In Node.js and Electron, each running process has a <code>process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
