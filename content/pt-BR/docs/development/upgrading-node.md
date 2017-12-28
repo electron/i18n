@@ -4,9 +4,9 @@
 
 One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. Isso é importante por causa do Node and [libchromiumcontent](upgrading-chrome.md) usam suas próprias versões do V8.
 
-Upgrading Node is much easier than upgrading libchromiumcontent, so fewer conflicts arise if one upgrades libchromiumcontent first, then chooses the upstream Node release whose V8 is closest to it.
+Atualizar o Node é muito mais fácil que atualizar o libchromiumcontent, pois há menos conflitos que atualizar o libchromiumcontent primeiro, em seguida, escolhe o versão do Node próximo ao V8.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Electron tem seu próprio [Node fork](https://github.com/electron/node), com modificações para detalhadas para compilação com V8, mencionados acima e para expor API necessário para o Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
 
 Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
