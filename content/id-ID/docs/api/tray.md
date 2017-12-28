@@ -167,7 +167,7 @@ Jika Anda ingin menyimpan perilaku yang sama pada semua platform, Anda tidak har
 <p>Sets the title displayed aside of the tray icon in the status bar.</p>
 
 <h4><code>tray.setHighlightMode(mode)` *macOS*</h4> 
-        * `mode` String - Highlight mode with one of the following values: 
+        * `modus` String - Highlight mode with one of the following values: 
           * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
           * `always` - Always highlight the tray icon.
           * `never` - Never highlight the tray icon.
