@@ -6,10 +6,10 @@ Proses : [Utama](../glossary.md#main-process)
 
 ```javascript
 // Dalam proses utamanya.
-const {BrowserWindow} = require('electron')
+Misalnya {Jendela Peramban} = memerlukan ('elektron')
 
-// Or use `remote` from the renderer process.
-// const {jendela Browser} = memerlukan ('electron').terpencil biarkan menang=jendela baru Browser ( {lebar: 800, tinggi: 600} ) menang.di ('tutup', () = & gt; {menang = batal}) //beban sebuah remote URL win.loadURL ('https://github.com') // Atau muat file HTML lokal win.loadURL (`file: // $ {__ dirname} / app / index.html`)
+// Atau gunakan`terpencil` dari proses renderer.
+// Misalnya {Jendela Peramban} = memerlukan ('electron').terpencil biarkan menang=jendela baru Peramban ( {lebar: 800, tinggi: 600} ) menang.di ('tutup', () = & gt; {menang = batal}) //beban sebuah remote URL win.loadURL ('https://github.com') // Atau muat file HTML lokal win.loadURL (`file: // $ {__ dirname} / app / index.html`)
 ```
 
 ## Jendela tanpa bingkai
@@ -20,11 +20,11 @@ Untuk membuat jendela tanpa krom , atau jendela transparan dalam bentuk sewenang
 
 Saat memuat halaman di jendela secara langsung, pengguna mungkin melihat pemuatan laman secara bertahap, yang bukan pengalaman bagus untuk aplikasi asli. Untuk membuat tampilan jendela tanpa lampu kilat visual, ada dua solusi untuk situasi yang berbeda.
 
-### Menggunakan ` siap-show </ 0>  acara</h3>
+### Menggunakan ` siap-tampil</ 0>  acara</h3>
 
 <p>Saat memuat halaman, <code> siap-show </ 0>  acara akan dikeluarkan saat proses penyaji telah memberikan halaman untuk pertama kalinya jika jendela belum terbukti belum. Menampilkan jendela setelah acara ini tidak memiliki lampu kilat visual:</p>
 
-<pre><code class="javascript">const {jendela Browser} = memerlukan ('electron') nyalakan = jendela baru Browser({show: false}) win.once ('siap-untuk-menunjukkan', () = & gt; {win.show ()})
+<pre><code class="javascript">const {jendela peramban} = memerlukan ('electron') nyalakan = jendela baru peramban({show: false}) win.once ('siap-untuk-menunjukkan', () = & gt; {win.show ()})
 `</pre> 
 
 Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi untuk halaman dengan banyak sumber daya terpencil, itu mungkin dipancarkan sebelum acara <code> Apakah-selesai-load </ 0>.</p>
@@ -39,7 +39,7 @@ Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi un
 
 Preview untuk aplikasi yang menggunakan ` siap-untuk-menunjukkan </ 0> peristiwa, masih disarankan untuk melakukan <code> backgroundColor </ 0> untuk aplikasi yang lebih asli.</p>
 
-<h2>Jendela orang tua dan anak</h2>
+<h2>Jendela dewasa dan anak</h2>
 
 <p>Dengan menggunakan opsi <code> induk </ 0>  , Anda dapat membuat jendela anak:</p>
 
