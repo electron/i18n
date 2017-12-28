@@ -2,10 +2,10 @@ tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
 nav:
   docs: Документация
   blog: Блог
-  community: Community
+  community: Общество
   apps: Приложения
   userland: Userland
-  releases: Releases
+  releases: Издания
   contact: Контакти
   languages: Езици
   code_of_conduct: Code of Conduct
@@ -25,11 +25,11 @@ languages:
   translation_progress: Translation Progress
   current: current selection
 community:
-  title: Electron Community
+  title: Обществото на Electron
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
-  tools: Tools
+  tools: Инструменти
   boilerplates: Boilerplates
-  components: Components
+  components: Компоненти
   videos: Videos
   meetups: Meetups
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
@@ -61,7 +61,7 @@ explore:
   title: Explore the Electron APIs
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Download from GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Вижте всички издания</a> в GitHub
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
@@ -117,9 +117,9 @@ pages:
     title: Electron Blog
     description: All the latest news from the Electron team and community.
   '/community':
-    title: Community
+    title: Общество
   '/releases':
-    title: Releases
+    title: Издания
   '/contact':
     title: Контакти
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
