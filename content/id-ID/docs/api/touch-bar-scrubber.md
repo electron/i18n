@@ -10,41 +10,41 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
   * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini
   * `select` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap 
     * `selectedIndex` Bulat - indeks dari item yang dipilih pengguna
-  * `sorot` Fungsi - Disebut saat pengguna mengetuk item apapun 
-    * `highlightedIndex` Integer - The index of the item the user touched
-  * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle`String - Gaya item overlay yang dipilih. Default ke`null`.
-  * `showArrowButtons` Boolean - Defaults to `false`.
-  * `mode` String - Defaults to `free`.
-  * `continuous` Boolean - Defaults to `true`.
+  * `sorot` Fungsi - disebut ketika pengguna keran item 
+    * `highlightedIndex` Bulat - indeks dari item pengguna menyentuh
+  * `selectedStyle` String - gaya item yang dipilih. Default ke `null`.
+  * `overlayStyle` String - gaya item dipilih overlay. Default ke `null`.
+  * `showArrowButtons` Aljabar Boolean - default ke `false`.
+  * `modus` String - default untuk `gratis`.
+  * `terus-menerus` Aljabar Boolean - default ke `true`.
 
-### Instance Properties
+### Contoh properti
 
-Properti berikut tersedia pada contoh ` TouchBarScrubber </ 0> :</p>
+Properti berikut tersedia pada contoh-contoh dari `TouchBarScrubber`:
 
-<h4><code>touchBarScrubber.items`</h4> 
+#### `touchBarScrubber.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh. Memperbarui properti dalam di dalam array ini ** tidak memperbarui batang sentuh </ 0> .</p> 
+`[ScrubberItem]` array yang mewakili item dalam scrubber ini. Segera memperbarui nilai ini update kontrol di bar sentuhan. Memperbarui sifat-sifat yang mendalam dalam array ini **tidak memperbarui bar sentuhan**.
 
 #### `touchBarScrubber.selectedStyle`
 
 A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh. Nilai yang mungkin:</p>
 
 <ul>
-<li><code>background` - Maps ke `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
+<li><code>latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
 
-* `garis besar` - Maps ke `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles</ul> 
+* `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `null` - sebenarnya null, bukan string, menghilangkan semua gaya</ul> 
 
 #### `touchBarScrubber.overlayStyle`
 
-A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya ini dilapisi di atas item scrubber dan bukan ditempatkan di belakangnya. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh.  Nilai yang mungkin:</p>
+A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya ini overlayed di atas item scrubber bukan ditempatkan di balik itu. Segera memperbarui nilai ini update kontrol di bar sentuhan.  Nilai yang mungkin:</p>
 
 <ul>
-<li><code>background` - Maps ke `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
+<li><code>latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
 
-* `garis besar` - Maps ke `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles</ul> 
+* `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `null` - sebenarnya null, bukan string, menghilangkan semua gaya</ul> 
 
 #### `touchBarScrubber.showArrowButtons`
 
