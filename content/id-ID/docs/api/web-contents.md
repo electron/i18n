@@ -805,7 +805,7 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `action` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -843,7 +843,7 @@ console.log(requestId)
     * `callback` Fungsi 
       * `success` Boolean
     
-    Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
+    Unregisters ServiceWorker jika ada dan mengembalikan boolean sebagai respon terhadap `callback` ketika janji JS terpenuhi atau salah saat janji JS ditolak.
     
     #### `contents.getPrinters()`
     
@@ -935,7 +935,7 @@ win.webContents.on('devtools-opened', () => {
   * ` path </ 0>  String</li>
 </ul>
 
-<p>Removes the specified path from DevTools workspace.</p>
+<p>Menghapus jalur yang ditentukan dari ruang kerja DevTools.</p>
 
 <h4><code>contents.openDevTools([options])`</h4> 
     * `pilihan` Objek (opsional) 
@@ -976,10 +976,10 @@ win.webContents.on('devtools-opened', () => {
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Send an asynchronous message to renderer process via <code>channel`, you can also send arbitrary arguments. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
+<p>Kirim pesan asinkron ke proses renderer melalui <code>saluran`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
       The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
       
-      An example of sending messages from the main process to the renderer process:
+      Contoh pengiriman pesan dari proses utama ke proses renderer:
       
       ```javascript
 // Dalam proses utamanya.
@@ -1022,7 +1022,7 @@ app.on('ready', () => {
   * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
 
-Enable device emulation with the given parameters.
+Aktifkan emulasi perangkat dengan parameter yang diberikan.
 
 #### `contents.disableDeviceEmulation()`
 
@@ -1076,7 +1076,7 @@ The `dirtyRect` is an object with `x, y, width, height` properties that describe
 
 #### `contents.endFrameSubscription()`
 
-End subscribing for frame presentation events.
+Akhiri berlangganan untuk presentasi peristiwa.
 
 #### `contents.startDrag(item)`
 
@@ -1118,10 +1118,10 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 #### `contents.setSize(options)`
 
-Set the size of the page. This is only supported for `<webview>` guest contents.
+Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
 
 * `pilihan` Obyek 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) atribut untuk mengubah ukuran isi guestview secara manual. 
     * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
 </ul></li>
@@ -1155,7 +1155,7 @@ Set the size of the page. This is only supported for `<webview>` guest contents.
       
       #### `contents.invalidate()`
       
-      Schedules a full repaint of the window this web contents is in.
+      Jadwal repaint penuh dari jendela isi web ini masuk.
       
       If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
       
@@ -1167,11 +1167,11 @@ Set the size of the page. This is only supported for `<webview>` guest contents.
       
       * `policy` String - Specify the WebRTC IP Handling Policy. 
         * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-        * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-        * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+        * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
+        * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
         * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
       
-      Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+      Menetapkan kebijakan penanganan IP WebRTC memungkinkan Anda mengendalikan IP mana saja terpapar melalui WebRTC. Lihat [BrowserLeaks](https://browserleaks.com/webrtc) untuk keterangan lebih lanjut.
       
       #### `contents.getOSProcessId()`
       
