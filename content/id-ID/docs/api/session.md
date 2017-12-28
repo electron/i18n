@@ -9,13 +9,13 @@ Modul ` sesi ` dapat digunakan untuk membuat objek ` Sesi ` baru.
 Anda juga dapat mengakses `sesi</> dari halaman yang ada dengan menggunakan properti <code>sesi` dari [` WebContents `](web-contents.md), atau dari modul `sesi`.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = membutuhkan('elektron')
 
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
-console.log(ses.getUserAgent())
+console.log (ses.getUserAgent())
 ```
 
 ## Metode
@@ -29,10 +29,9 @@ Modul ` sesi ` memiliki metode berikut:
   * `cache` Boolean - Baik untuk mengaktifkan cache.
 
 Kembali ` Sesi </ 0> - Contoh sesi dari <code> partisi </ 0> senar. Bila sudah ada
-<code> Sesi </ 0> dengan yang sama <code> partisi </ 0>, maka akan dikembalikan; jika tidak baru
-<code> Sesi </ 0> contohnya akan dibuat dengan <code> pilihan </ 0>.</p>
+<code>Sesi` dengan yang sama ` partisi `, maka akan dikembalikan; jika tidak baru `Sesi` contohnya akan dibuat dengan `pilihan`.
 
-<p>Jika <code> partisi ` dimulai dengan ` bertahan: `, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di aplikasi dengan yang sama ` partisi `. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi dalam penyimpanan. Jika `partisi` kosong maka sesi dasar aplikasi akan dikembalikan.
+Jika `partisi` dimulai dengan `bertahan:`, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di aplikasi dengan yang sama `partisi`. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi dalam penyimpanan. Jika `partisi` adalah kosong maka sesi default aplikasi akan dikembalikan.
 
 Untuk membuat sebuah `Sesi` dengan `pilihan`, Anda harus memastikan `Sesi` dengan `partisi` yang tidak pernah digunakan sebelumnya. Tidak ada cara untuk mengubah `pilihan` yang sudah ada `Sesi` sasaran.
 
