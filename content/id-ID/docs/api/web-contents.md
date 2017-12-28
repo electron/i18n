@@ -649,7 +649,7 @@ Injects CSS into the current web page.
 
 * ` kode </ 0> String</li>
 <li><code>userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `panggilan balik` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -677,7 +677,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Sesuaikan render halaman web saat ini.
 
 #### `contents.isAudioMuted()`
 
@@ -687,7 +687,7 @@ Returns `Boolean` - Whether this page has been muted.
 
 * `factor` Number - Zoom factor.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
 
 #### `contents.getZoomFactor(callback)`
 
@@ -700,11 +700,11 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 * `level` Number - Zoom level
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Fungsi 
+* `panggilan balik` Fungsi 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -721,14 +721,14 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
 
 #### `contents.undo()`
 
