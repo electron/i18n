@@ -1,6 +1,6 @@
 ## Kelas: TouchBarScrubber
 
-> Buat scrubber (pemilih yang dapat digulir)
+> Membuat scrubber (digulir pemilih)
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
@@ -9,8 +9,8 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 * `pilihan` Obyek 
   * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini
   * `select` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap 
-    * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Fungsi - Disebut saat pengguna mengetuk item apapun 
+    * `selectedIndex` Bulat - indeks dari item yang dipilih pengguna
+  * `sorot` Fungsi - Disebut saat pengguna mengetuk item apapun 
     * `highlightedIndex` Integer - The index of the item the user touched
   * `selectedStyle` String - Selected item style. Defaults to `null`.
   * `overlayStyle`String - Gaya item overlay yang dipilih. Default ke`null`.
