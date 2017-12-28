@@ -70,7 +70,7 @@ function createWindow () {
   // DevToolsを開く
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // ウィンドウが閉じられた時に発火
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -81,7 +81,7 @@ function createWindow () {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.on('ready', createWindow)
 
 // 全てのウィンドウが閉じられた時に終了する
@@ -116,9 +116,9 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    Node.js <script>document.write(process.versions.node)</script> および
+    Chrome <script>document.write(process.versions.chrome)</script>、
+    Electron <script>document.write(process.versions.electron)</script>を使用しています。
   </body>
 </html>
 ```
@@ -129,15 +129,15 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) はコンパイル済みの Electron を含む `npm` モジュールです。
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+もし `npm` を用いて electron をグローバルインストールしている場合、ソースディレクトリで以下のコマンドを入力するだけでアプリを実行できます。
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+ローカルインストールしている場合はOSによって異なりますが、以下のコマンドを入力します。
 
 #### macOS / Linux
 
@@ -151,13 +151,13 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 以降
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### 手動でダウンロードした Electron バイナリ
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
