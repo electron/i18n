@@ -1,20 +1,18 @@
 # Multithreading
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+Dengan [Pekerja Web](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), dimungkinkan untuk menjalankan JavaScript dalam tingkat OS-benang.
 
 ## Multi-threaded Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Mungkin untuk menggunakan fitur Node.js di elektron 's Web pekerja, untuk melakukannya `nodeIntegrationInWorker` pilihan harus ditetapkan `benar` dalam `webPreferences`.
 
 ```javascript
-let win = new BrowserWindow({
-  webPreferences: {
+biarkan win = BrowserWindow baru ({webPreferences: {
     nodeIntegrationInWorker: true
-  }
-})
+  }})
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`NodeIntegrationInWorker` dapat digunakan independen dari `nodeIntegration`, tapi `sandbox` harus tidak diatur ke `true`.
 
 ## API yang tersedia
 
