@@ -1,10 +1,10 @@
 # autoUpdater
 
-> 自動的に彼ら自身を更新するアプリケーションを有効にします。
+> アプリを自動的に更新することができます。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`自動アップデーター` のモジュールは、[リス](https://github.com/Squirrel) のフレームワークのインターフェイスを提供します。
+`autoUpdater` モジュールは [Squirrel](https://github.com/Squirrel) フレームワークのためのインターフェイスを提供します
 
 これらのプロジェクトの 1 つを使用して、アプリケーションを配布するため、マルチプラット フォーム リリース サーバーを迅速に起動できます。
 
@@ -66,10 +66,10 @@ Linux では、自動アップデーターの組み込みサポートがない�
 戻り値：
 
 * `event` Event
-* `リリース ノート`文字列
-* `releaseName`文字列
-* `releaseDate`日付
-* `updateURL`文字列
+* `releaseNotes` String
+* `releaseName` String
+* `releaseDate` Date
+* `updateURL` String
 
 更新プログラムがダウンロードされているときに出力されます。
 
