@@ -12,11 +12,11 @@ Langkah-langkah berikut mengenalkan cara mudah untuk mengirimkan aplikasi Anda k
 
 Untuk mengirimkan aplikasi Anda ke Mac App Store, pertama Anda harus mendapatkan sertifikat dari Apel. Anda bisa mengikuti ini [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) di web.
 
-### Get Team ID
+### Dapatkan ID Tim
 
 Sebelum menandatangani aplikasi Anda, Anda perlu mengetahui ID Tim akun Anda. Untuk menemukan ID Tim Anda, Masuk ke [Apple Developer Center](https://developer.apple.com/account/), dan klik Membership di sidebar. ID Tim Anda muncul di Keanggotaan Bagian informasi dengan nama tim.
 
-### Sign Your App
+### Tanda Tangani Aplikasi
 
 Setelah menyelesaikan pekerjaan persiapan, Anda dapat mengemas aplikasi Anda dengan mengikuti [ Distribusi Aplikasi ](application-distribution.md), lalu lanjutkan ke menandatangani aplikasi Anda.
 
@@ -77,7 +77,7 @@ Kemudian, Anda perlu menyiapkan tiga file hak.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Anda harus mengganti `TEAM_ID` dengan ID Tim Anda, dan ganti ` your.bundle.id` dengan ID Bundle aplikasi Anda.
 
 Dan kemudian masuki aplikasi Anda dengan skrip berikut:
 
@@ -87,10 +87,9 @@ Dan kemudian masuki aplikasi Anda dengan skrip berikut:
 # Name of your app.
 APP="YourApp"
 # The path of your app to sign.
-APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+APP_PATH ="/path/to/YourApp.app" # Jalan ke lokasi yang ingin Anda gunakan untuk memasukkan paket yang ditandatangani.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# Nama sertifikat yang Anda minta.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
 # The path of your plist files.
