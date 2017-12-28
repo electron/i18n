@@ -31,11 +31,11 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 ### `crashReporter.start(options)`
 
 * `options` Nesne 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
+  * `companyName` Katar (opsiyonel)
+  * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
+  * `productName` Katar (opsiyonel) - Varsayılan olarak `app.getName()`.
+  * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
+  * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
   * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
@@ -106,7 +106,7 @@ Set an extra parameter to be sent with the crash report. The values specified he
 * `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
 * `_version` Katar - `package.json` içerisindeki versiyon.
 * `_productName` Katar - `crashReporter` `options` objesi içerisindeki ürün ismi.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
+* `_companyName` Katar - `crashReporter` `options` objesi içerisindeki şirket ismi.
+* `upload_file_minidump` Dosya - `minidump` formatında çökme raporu.
+* `crashReporter``options` objesi içerisindeki `extra`'nın tüm birinci seviye özellikleri.
