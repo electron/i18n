@@ -20,14 +20,14 @@ Creemos que nuestro sistema de actualizaciones de Chromium alcanza un balance ap
 
 Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. Como ejemplo, considere una página web remota siendo mostrada dentro de una ventana del navegador. Si el atacante sabe como arreglarselas para cambiar dicho contenido (bien sea atacando la fuente directamente, o interviniendo entre su aplicación y el destino real), Será capaz de ejecutar códigos nativos en la máquina del usuario,.
 
-> :warning: Bajo ninguna circunstancia usted debería cargar y ejecutar un código remoto con la integración de nodos activada.:warning. En cambio, use solo archivos locales (guardados juntos con su aplicación) para ejecutar el código nodal. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: Bajo ninguna circunstancia usted debería cargar y ejecutar un código remoto con la integración de nodos activada.:warning. En cambio, use solo archivos locales (guardados juntos con su aplicación) para ejecutar el código nodal. Para mostrar contenido remoto use la etiqueta `webview` y asegúrese de desactivar el `nodeIntegration`.
 
-#### Checklist
+#### Lista de verificación
 
-This is not bulletproof, but at the least, you should attempt the following:
+Esto no es aprueba de balas, pero debería intentar lo siguiente al menos:
 
-* Only display secure (https) content
-* Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
+* Solo mostrar contenido seguro (https)
+* Deshabilitar los nodos de integración en todos los renders que muestran contenido remoto (setting `nodeIntegration` to `false` in `webPreferences`)
 * Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
 * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
 * Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
