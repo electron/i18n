@@ -95,12 +95,12 @@ adalah -1.</li>
 
 <h3>Instance Properties</h3>
 
-<p><code> menu </ 0> objek juga memiliki properti berikut:</p>
-
-<h4><code>menu.items`</h4> 
+<p><code>menu` objek juga memiliki properti berikut:</p> 
+              #### `menu.items`
+              
               A `MenuItem[]` array containing the menu's items.
               
-              Setiap ` Menu ` terdiri dari beberapa [` MenuItem `](menu-item.md) s dan masing-masing ` MenuItem ` bisa punya submenu.
+              Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
               
               ## Contoh
               
