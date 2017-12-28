@@ -38,7 +38,7 @@ Mengembalikan `WebContents` - Contoh WebContents dengan ID yang diberikan.
 
 Proses: [utama](../glossary.md#main-process)
 
-### Contoh peristiwa
+### Perihal contoh
 
 #### Event: 'Apakah-selesai-load'
 
@@ -46,7 +46,7 @@ Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputa
 
 #### Event: 'Apakah-gagal-load'
 
-Pengembalian:
+Kembali:
 
 * `peristiwa` Peristiwa
 * `errorCode` Bilangan bulat
@@ -67,7 +67,7 @@ Dibunyikan apabila bingkai telah melakukan navigasi.
 
 #### Event: 'Apakah-mulai-loading'
 
-Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
+Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
 #### Event: 'Apakah-stop-loading'
 
@@ -75,10 +75,10 @@ Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
 #### Event: 'Apakah-mendapatkan-tanggapan-rincian'
 
-Pengembalian:
+Kembali:
 
-* ` event </ 0>  Acara</li>
-<li><code>status` Boolean
+* `acara` Acara
+* `status` Boolean
 * `newURL` String
 * `originalURL` String
 * `httpResponseCode` Integer
