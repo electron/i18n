@@ -8,9 +8,7 @@ The ` shell </ 0> modul menyediakan fungsi yang berkaitan dengan integrasi deskt
 
 <p>Contoh membuka URL di browser default pengguna:</p>
 
-<pre><code class="javascript">const {shell} = require('electron')
-
-shell.openExternal('https://github.com')
+<pre><code class="javascript">const {shell} = require('electron') shell.openExternal ('https://github.com')
 `</pre> 
 
 ## Metode
@@ -29,15 +27,15 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil ditampilkan</p>
 
 * `fullPath` String
 
-Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka</p>
+Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka.</p>
 
 <p>Buka file yang diberikan dengan cara default desktop.</p>
 
-<h3><code>shell.openExternal(url[, options, callback])`</h3> 
+<h3><code>shell.openExternal (url [, pilihan, callback])`</h3> 
 
-* ` url </ 0>  String</li>
+* ` url </ 0> String</li>
 <li><code>pilihan` Objek (opsional) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
+  * `Aktifkan` Aljabar Boolean - `benar` untuk membawa aplikasi dibuka latar depan. Default adalah `benar`.
 * `callback` Fungsi (opsional) - Jika ditentukan akan tampil terbuka secara asinkron. *macOS* 
   * ` error </ 0> Kesalahan</li>
 </ul></li>
@@ -50,33 +48,33 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka</p>
 <h3><code>shell.moveItemToTrash(fullPath)`</h3> 
     * `fullPath` String
     
-    Returns `Boolean` - Whether the item was successfully moved to the trash
+    Kembali `Boolean` - Apakah item berhasil dipindahkan ke tempat sampah
     
     Pindahkan file yang diberikan ke sampah dan mengembalikan status boolean untuk pengoperasiannya.
     
-    ### `shell.beep()`
+    ### `Shell.beep()`
     
-    Play the beep sound.
+    Bermain suara bip.
     
-    ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
-    
-    * `shortcutPath` String
-    * `operation` String (optional) - Default is `create`, bisa jadi salah satu dari berikut ini: 
-      * `create` - Creates a new shortcut, overwriting if necessary.
-      * `update` - Updates specified properties only on an existing shortcut.
-      * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
-    * `options` [ShortcutDetails](structures/shortcut-details.md)
-    
-    Returns `Boolean` - Whether the shortcut was created successfully
-    
-    Membuat atau memperbarui tautan pintasan di ` shortcutPath </ 0> .</p>
-
-<h3><code>shell.readShortcutLink(shortcutPath)` *Windows*</h3> 
+    ### `shell.writeShortcutLink (shortcutPath [, operasi], pilihan)` *Windows*
     
     * `shortcutPath` String
+    * `operasi` String (opsional) - Default adalah `membuat`, bisa jadi salah satu dari berikut ini: 
+      * `buat` - membuat shortcut baru, Timpa jika diperlukan.
+      * `update` - update ditentukan properti hanya pada tombol cepat yang ada.
+      * `menggantikan` - menimpa tombol cepat yang ada, gagal jika tidak ada jalan pintas.
+    * `pilihan` [ShortcutDetails](structures/shortcut-details.md)
     
-    Returns [`ShortcutDetails`](structures/shortcut-details.md)
+    Kembali `Boolean` - Apakah cara pintas telah dibuat berhasil
     
-    Resolves the shortcut link at `shortcutPath`.
+    Menciptakan atau update link pintasan di `shortcutPath`.
     
-    Pengecualian akan dilemparkan saat terjadi kesalahan.
+    ### `shell.readShortcutLink(shortcutPath)` *Windows*
+    
+    * `shortcutPath` String
+    
+    Kembali [`ShortcutDetails`](structures/shortcut-details.md)
+    
+    Menyelesaikan link pintasan di `shortcutPath`.
+    
+    Pengecualian akan dilemparkan ketika terjadi kesalahan.
