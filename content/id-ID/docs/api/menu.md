@@ -59,8 +59,7 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
   * `pilihan` Objek (opsional) 
-    * ` x </ 0> Nomor (opsional) - Default adalah posisi kursor mouse saat ini.
-Harus dinyatakan jika <code> y </ 0> dinyatakan.</li>
+    * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
 <li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
     * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0> .</li>
 <li><code>positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
