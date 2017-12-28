@@ -1,16 +1,16 @@
-# Documentación de guía de estilo de Electron
+# Documentación de Guía de Estilo de Electron
 
 Estos son los lineamientos para escribir documentación de Electron.
 
 ## Títulos
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Cada página debe tener un solo `#`-nivel de título en la parte superior.
+* Los capítulos en la misma página deben tener `#`-títulos de nivel.
+* Los subcapítulos necesitan aumentar el número de `#` en el título acorde a su profundidad de anidamiento.
+* Todas las palabras en el título de la página deben escribirse con mayúscula, excepto las conjunciones como "de" y "y".
+* Sólo debe escribirse con mayúscula la primera palabra del título de capítulo.
 
-Using `Quick Start` as example:
+Usando `Quick Start` como ejemplo:
 
 ```markdown
 # Inicio Rápido
@@ -38,19 +38,19 @@ Using `Quick Start` as example:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Para referencias API, hay excepciones a esta regla.
 
 ## Reglas de Markdown
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Usa `sh` en vez de `cmd` en code blocks (debido al resaltador de sintaxis).
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
 ## Escoger palabras
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Utilice "podrá" sobre "podría" al describir resultados.
+* Prefiere "en el ___ proceso" sobre "en".
 
 ## Referencias API
 
