@@ -76,7 +76,7 @@ console.log(dialog)
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `message` String (可选) * macOS *-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * ` showsTagField ` Boolean (可选) * macOS *-显示标记输入框, 默认为 ` true `。
 * `callback` Function (可选) 
   * `filename` String
 
