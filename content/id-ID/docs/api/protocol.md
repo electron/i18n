@@ -248,12 +248,12 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 <li><code>referrer` String
                                                         * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
-                                                      * `callback` Fungsi 
-                                                        * `redirectRequest` Obyek 
+                                                      * `panggilan balik` Fungsi 
+                                                        * `redirectRequest` Sasaran 
                                                           * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code> sesi </ 0> Objek (opsional)</li>
-<li><code>uploadData` Objek (opsional) 
+<li><code>uploadData` Objek (pilihan) 
                                                             * ` contentType </ 0>  String - jenis konten MIME.</li>
 <li><code> data </ 0>  String - Konten yang akan dikirim</li>
 </ul></li>
