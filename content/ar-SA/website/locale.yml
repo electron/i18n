@@ -75,14 +75,14 @@ need_help:
 headings:
   languages: اللغات
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+  languages: محتوى مترجم من مجتمعنا العالمي المذهل من المطورين.
+help_translate: "المساعدة في الترجمة"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: راجع اﻷسئلة المتداولة بكثرة
 apps:
-  title: Apps built on Electron
+  title: تطبيقات مبنية على إلكترون
   description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
-  view_more: View more apps
+  view_more: عرض المزيد من التطبيقات
   submit_your_own: أرسل تطبيقك الخاص
   something_missing: هل هناك شيء مفقود؟
   edit_this_app: عدّل هذا التطبيق.
@@ -93,36 +93,36 @@ clipboard:
 or: أو
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: إلكترون | اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.
+    description: 'اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: تطبيقات إلكترون
+    description: تطبيقات مبنية على إلكترون
   '/docs':
-    title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    title: التوثيق
+    description: أدلة وتوثيق مرجع API الخاصة بأحدث إصدارمن إلكترون
   '/docs/all':
-    title: All the Electron Docs!
+    title: جميع وثائق إلكترون!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: أدلة وتوثيق مرجع API الخاصة بأحدث إصدارمن إلكترون
   '/docs/development':
-    title: Development
-    description: Developing with Electron
+    title: التطوير
+    description: التطوير مع إلكترون
   '/docs/tutorial':
-    title: Tutorial
+    title: درس تعليمي
     description: Guides and tutorials for the latest Electron release
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: مدونة إلكترون
+    description: آخر الأخبار من فريق ومجتمع إلكترون.
   '/community':
     title: المجتمع
   '/releases':
-    title: Releases
+    title: اﻹصدارات
   '/contact':
     title: تواصل معنا
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: تواصل مع فريق إلكترون عبر تويتر، Slack، Github، والبريد اﻹلكتروني.
   '/languages':
     title: اللغات
   '/userland':
@@ -134,6 +134,6 @@ pages:
     title: Spectron
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
+  page_not_found: الصفحة غير موجودة.
+  if_this_is_an_error: إذا كان هذا خطأ
   please_file_an_issue: please file an issue.
