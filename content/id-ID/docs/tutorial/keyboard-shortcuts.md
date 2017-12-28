@@ -1,8 +1,8 @@
-# Cara pintas keyboard
+# Keyboard Shortcuts
 
-> Konfigurasikan pintasan keyboard lokal dan global
+> Configure local and global keyboard shortcuts
 
-## Jalan pintas lokal
+## Local Shortcuts
 
 Anda dapat menggunakan modul  Menu </ 0> untuk mengkonfigurasi cara pintas keyboard yang hanya akan dipicu saat aplikasi difokuskan. Untuk melakukannya, tentukan properti [ ` akselerator </ 0> ] saat membuat <a href="../api/menu-item.md"> MenuItem </ 1> .</p>
 
