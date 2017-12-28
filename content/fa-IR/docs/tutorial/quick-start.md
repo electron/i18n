@@ -16,9 +16,9 @@
 
 ### تفاوت پردازش اصلی و پردازش رندرینگ
 
-پروسه اصلی به وسیله خلق نمونه های BrowserWindow صفحات وب را می‌سازد. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+پروسه اصلی به وسیله خلق نمونه های BrowserWindow صفحات وب را می‌سازد. هر نمونه از BrowserWindow پروسه رندرینگ خود را اجرا می کند. وقتی که یک نمونه از BrowserWindow نابود می‌شود، پروسه رندرینگ متناظر با آن هم خاتمه می‌یابد.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+پروسه اصلی، تمام صفحات وب و پروسه های رندر متناظر آن ها را مدیریت می‌کند. هر پروسه رندر، ایزوله است و مراقب صفحه وبی است که درونش در حال اجراست.
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
