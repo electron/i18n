@@ -4,16 +4,16 @@
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
 
 * `pilihan` Obyek 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
+  * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini
+  * `select` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap 
     * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
+  * `highlight` Fungsi - Disebut saat pengguna mengetuk item apapun 
     * `highlightedIndex` Integer - The index of the item the user touched
   * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
+  * `overlayStyle`String - Gaya item overlay yang dipilih. Default ke`null`.
   * `showArrowButtons` Boolean - Defaults to `false`.
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
@@ -31,7 +31,7 @@ A `ScrubberItem[]` array representing the items in this scrubber. Memperbarui ni
 A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh. Nilai yang mungkin:</p>
 
 <ul>
-<li><code>background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
+<li><code>background` - Maps ke `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
 
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actually null, not a string, removes all styles</ul> 
@@ -41,7 +41,7 @@ A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Memp
 A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya ini dilapisi di atas item scrubber dan bukan ditempatkan di belakangnya. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh.  Nilai yang mungkin:</p>
 
 <ul>
-<li><code>background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
+<li><code>background` - Maps ke `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
 
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actually null, not a string, removes all styles</ul> 
