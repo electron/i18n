@@ -41,9 +41,9 @@ Preview untuk aplikasi yang menggunakan ` siap-untuk-menunjukkan </ 0> peristiwa
 
 <h2>Jendela dewasa dan anak</h2>
 
-<p>Dengan menggunakan opsi <code> induk </ 0>  , Anda dapat membuat jendela anak:</p>
+<p>Dengan menggunakan opsi <code> utama </ 0>  , Anda dapat membuat jendela anak:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') biarkan top = new BrowserWindow () biarkan anak = new BrowserWindow ( {parent: top} ) child.show () top.show () top.show ()
+<pre><code class="javascript">const {Browser peramban} = require ('elektron') biarkan top = new BrowserWindow () biarkan anak = new BrowserWindow ( {parent: top} ) child.show () top.show () top.show ()
 
 `</pre> 
 
@@ -54,8 +54,8 @@ Jendela ` anak </ 0> akan selalu tampil di atas jendela <code> atas </ 0> .</p>
 <p>Jendela modal adalah jendela anak yang menonaktifkan jendela orangtua, untuk menciptakan jendela modal, Anda harus menetapkan pilihan <code>orang tua` dan `modal`pilihan:
 
 ```javascript
-const {BrowserWindow} = require ('electron') biarkan anak = new BrowserWindow ( {parent: top, modal: true, show: false} ) child.loadURL ('https://github.com') child.once (' siap tampil ', () = & gt; {
-
+const {BrowserWindow} = require ('electron') biarkan anak = Jendela peramban baru ( {orang tua: atas, modal: benar, tunjukkan: salah} ) anak. beban URL ('https://github.com') child.once (' siap tampil ', () = & gt; {
+{parent: top, modal: true, show: false}{parent: top, modal: true, show: false}{parent: top, modal: true, show: false}{parent: top, modal: true, show: false}
 ```
 
 ### Visibilitas halaman 
@@ -63,8 +63,8 @@ const {BrowserWindow} = require ('electron') biarkan anak = new BrowserWindow ( 
 The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p> 
 
 * Pada semua platform, negara visibilitas melacak apakah jendela tersembunyi / diminimalkan atau tidak.
-* Selain itu, di macOS , status visibilitas juga melacak keadaan oklusi jendela. Jika jendela ditutup (yaitu tertutup sepenuhnya) oleh jendela lain, status visibilitas akan ` tersembunyi </ 0> . Pada platform lain, status visibilitas hanya <code> tersembunyi </ 0> hanya jika jendela diminimalkan atau secara eksplisit disembunyikan dengan <code> win.hide () </ 0> .</li>
-<li>Jika <code> BrowserWindow </ 0> dibuat dengan <code> show: false </ 0> , status visibilitas awal akan <code> terlihat </ 0> meskipun jendela benar-benar tersembunyi.</li>
+* Selain itu, di macOS , status visibilitas juga melacak keadaan oklusi jendela. Jika jendela ditutup (yaitu tertutup sepenuhnya) oleh jendela lain, status visibilitas akan ` tersembunyi </ 0> . Pada platform lain, status visibilitas hanya <code> tersembunyi </ 0> hanya jika jendela diminimalkan atau secara eksplisit disembunyikan dengan <code> menyembunyikan () </ 0> .</li>
+<li>Jika <code> Browser Window </ 0> dibuat dengan <code> show: false </ 0> , status visibilitas awal akan <code> terlihat </ 0> meskipun jendela benar-benar tersembunyi.</li>
 <li>Jika <code> backgroundThrottling </ 0> dinonaktifkan, status visibilitas akan tetap
  <code> terlihat </ 0> meskipun jendela diminimalkan, tersumbat, atau tersembunyi</li>
 </ul>
