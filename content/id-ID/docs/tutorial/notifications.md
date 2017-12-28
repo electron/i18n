@@ -5,13 +5,9 @@ Ketiga sistem operasi tersebut menyediakan sarana bagi aplikasi untuk mengirim p
 **Catatan:** Karena ini adalah API HTML5, ini hanya tersedia dalam proses renderer. Jika Anda ingin menampilkan Notifikasi dalam proses utama, periksa modul [Notification](../api/notification.md).
 
 ```javascript
-let myNotification = new Notification('Title', {
+biarkan myNotification = baru pemberitahuan ('Title', {
   body: 'Lorem Ipsum Dolor Sit Amet'
-})
-
-myNotification.onclick = () => {
-  console.log('Notification clicked')
-}
+}) myNotification.onclick = () = > {console.log ('notifikasi mengklik')}
 ```
 
 Sementara kode dan pengalaman pengguna di seluruh sistem operasi serupa, ada perbedaan halus.
@@ -26,19 +22,19 @@ Selanjutnya, pada Windows 8, panjang maksimum untuk badan notifikasi adalah 250 
 
 ### Pemberitahuan Lanjutan
 
-Versi Windows selanjutnya memungkinkan pemberitahuan lanjutan, dengan template khusus, gambar, dan elemen fleksibel lainnya. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Versi Windows selanjutnya memungkinkan pemberitahuan lanjutan, dengan template khusus, gambar, dan elemen fleksibel lainnya. Untuk mengirim pemberitahuan tersebut (dari proses utama atau proses renderer), menggunakan userland modul [elektron-windows-pemberitahuan](https://github.com/felixrieseberg/electron-windows-notifications), yang menggunakan asli Node addons untuk mengirim `ToastNotification` dan `TileNotification` objek.
 
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Sementara pemberitahuan termasuk tombol bekerja dengan hanya `elektron-windows-pemberitahuan`, penanganan Balasan memerlukan penggunaan [`elektron-windows-interaktif-pemberitahuan`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), yang membantu dengan pendaftaran komponen COM yang diperlukan dan memanggil app elektron Anda dengan data masuk pengguna.
 
 ### Jam Tenang / Mode Presentasi
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Untuk mendeteksi apakah Anda diizinkan mengirim pemberitahuan atau tidak, gunakan modul [pemberitahuan modul elektronika](https://github.com/felixrieseberg/electron-notification-state).
 
 Hal ini memungkinkan Anda untuk menentukan sebelumnya apakah Windows diam-diam akan membuang notifikasi atau tidak.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Notifikasi adalah lurus ke depan pada macOS, tetapi Anda harus menyadari [Apple Human Interface panduan mengenai pemberitahuan](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
 Perhatikan bahwa notifikasi dibatasi hingga 256 byte dan akan terpotong jika melebihi batas tersebut.
 
