@@ -1,11 +1,11 @@
-# BrowserWindow
+# Jendela Peramban
 
-> Create and control browser windows.
+> mengatasi dan kendalikan jendela peramban
 
-Process: [Main](../glossary.md#main-process)
+Proses : [Utama](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// Dalam proses utamanya.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
