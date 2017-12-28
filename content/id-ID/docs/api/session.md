@@ -73,29 +73,29 @@ Terpencar ketika Elektron akan men-download `barang` di `webContents`.
 Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` tidak akan tersedia dari tikungan berikutnya prosesnya.
 
 ```javascript
-const {session} = require('electron')
-session.defaultSession.on('will-download', (event, item, webContents) => {
-  event.preventDefault()
-  require('request')(item.getURL(), (data) => {
-    require('fs').writeFileSync('/somewhere', data)
+const {sesi} = memerlukan('electron')
+sesi.defaultSesi.pada('akan-mendownload', (agenda, barang, webContents) => {
+  peristiwa.mencegahDefault()
+  memerlukan('permintaan')(barang.getURL(), (data) => {
+    memerlukan('fs').writeFileSync('/ehtahdimana', data)
   })
 })
 ```
 
-### Instance Methods
+### Metode Contoh
 
-The following methods are available on instances of `Session`:
+Metode berikut tersedia pada contoh `Sesi`:
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize(panggilanbalik)`
 
-* `callback` Function 
-  * `size` Integer - Cache size used in bytes.
+* `panggilan balik` Fungsi 
+  * `ukuran`Bilangan Bulat - Ukuran cache yang digunakan dalam bytes.
 
-Callback is invoked with the session's current cache size.
+Callback dipanggil dengan ukuran cache sesi saat ini.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `memanggil kembali` Fungsi - terpanggil ketika operasi selesai
 
 Clears the session’s HTTP cache.
 
