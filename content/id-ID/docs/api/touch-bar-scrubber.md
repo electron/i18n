@@ -33,7 +33,7 @@ A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Memp
 <ul>
 <li><code>background` - Maps ke `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
 
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
+* `garis besar` - Maps ke `[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actually null, not a string, removes all styles</ul> 
 
 #### `touchBarScrubber.overlayStyle`
@@ -43,7 +43,7 @@ A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya
 <ul>
 <li><code>background` - Maps ke `[NSScrubberSelectionStyle roundedBackgroundStyle]`</li> 
 
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
+* `garis besar` - Maps ke `[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actually null, not a string, removes all styles</ul> 
 
 #### `touchBarScrubber.showArrowButtons`
