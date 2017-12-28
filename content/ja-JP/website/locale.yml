@@ -75,7 +75,7 @@ need_help:
 headings:
   languages: 言語
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: 世界中の素晴らしい開発者コミュニティによってローカライズされたコンテンツ
 help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）
@@ -106,13 +106,13 @@ pages:
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: 最新の Electron のための API リファレンス
   '/docs/development':
     title: 開発
     description: Electronを用いた開発
   '/docs/tutorial':
     title: チュートリアル
-    description: Guides and tutorials for the latest Electron release
+    description: 最新の Electron のためのガイドとチュートリアル
   '/blog':
     title: Electron ブログ
     description: Electron チームとコミュニティからの最新情報
