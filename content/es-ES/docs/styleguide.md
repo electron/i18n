@@ -45,7 +45,7 @@ Para referencias API, hay excepciones a esta regla.
 * Usa `sh` en vez de `cmd` en code blocks (debido al resaltador de sintaxis).
 * Las líneas deben estar listas en 80 columnas.
 * No anidar listas de más de 2 niveles (debido al renderizador markdown).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Todos los bloques de código `js` y `javascript` están linted con [markdown estándar](http://npm.im/standard-markdown).
 
 ## Escoger palabras
 
@@ -54,7 +54,7 @@ Para referencias API, hay excepciones a esta regla.
 
 ## Referencias API
 
-The following rules only apply to the documentation of APIs.
+Las siguientes reglas sólo se aplican a la documentación de APIs.
 
 ### Título de Página
 
@@ -70,7 +70,7 @@ Usando `session` como ejemplo:
 > Administra sesiones de navegador, cookies, caché, configuración del proxy, etc.
 ```
 
-### Module methods and events
+### Métodos del módulo y eventos
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
@@ -79,11 +79,11 @@ Usando `autoUpdater` como ejemplo:
 ```markdown
 # autoUpdater
 
-## Events
+## Eventos
 
-### Event: 'error'
+### Evento: 'error'
 
-## Methods
+## Métodos
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
@@ -101,7 +101,7 @@ Usando `autoUpdater` como ejemplo:
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Usando las clases `Session` y `Cookies` como ejemplo:
 
 ```markdown
 # session
