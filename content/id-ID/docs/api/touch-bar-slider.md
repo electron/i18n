@@ -1,35 +1,35 @@
-## Kelas: TouchBarSpacer
+## Kelas: TouchBarSlider
 
-> Buat label di bilah sentuh untuk aplikasi macOS asli
+> Membuat slider di bar sentuhan untuk aplikasi asli macOS
 
-Proses: [ Utama](../tutorial/quick-start.md#main-process)
+Proses: [utama](../tutorial/quick-start.md#main-process)
 
-### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
+### `baru TouchBarSlider(options)` *Experimental*
 
-* `options` Benda 
-  * `label` String (opsional) - Teks tombol.
+* `pilihan` Objek 
+  * `label` String (opsional) - Label teks.
   * `nilai` Bulat (opsional) - nilai dipilih.
   * `nilai` Bulat (opsional) - nilai dipilih.
-  * `nilai` Bulat (opsional) - nilai dipilih.
-  * `perubahan` Fungsi (opsional) - Fungsi untuk memanggil saat slider diganti. 
-    * `newValue` Number - The value that the user selected on the Slider
+  * `maxValue` Bulat (opsional) - nilai maksimum.
+  * `perubahan` Fungsi (opsional) - fungsi untuk panggilan ketika slider berubah. 
+    * `newValue` Nomor - nilai yang dipilih pengguna pada Panel geser Slider
 
-### Instance Properties
+### Contoh properti
 
-The following properties are available on instances of `TouchBarSlider`:
+Properti berikut tersedia pada contoh-contoh dari `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+`String` mewakili slider's teks saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+`Nomor` mewakili slider's nilai saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+`Nomor` mewakili slider's nilai minimal saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+`Nomor` mewakili slider's nilai maksimum saat ini. Mengubah nilai ini segera update slider di bar sentuhan.
