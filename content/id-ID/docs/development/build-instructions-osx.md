@@ -1,6 +1,6 @@
-# Membangun petunjuk (macOS)
+# Bangun Instruksi (Linux)
 
-Ikuti panduan di bawah ini untuk membangun Elektron pada macOS.
+Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
 ## Prasyarat
 
@@ -32,22 +32,22 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Simpan file
 
-## Mendapatkan kode
+## Dapatkan kode
 
 ```sh
 $ git klon https://github.com/electron/electron
 ```
 
-## Bootstrap
+## Bootstrapping
 
-Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Skrip bootstrap akan men-download semua dependensi diperlukan membangun dan menciptakan membangun project file. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```sh
 $ cd elektron
 $ ./script/bootstrap.py -v
 ```
 
-## Membangun
+## Bangunan 
 
 Build both `Release` and `Debug` targets:
 
@@ -67,9 +67,9 @@ After building is done, you can find `Electron.app` under `out/D`.
 
 Elektron hanya bisa dibangun untuk target 64bit pada macOS dan tidak ada rencana untuk melakukannya dukung macos 32bit di masa depan.
 
-## Pembersihan
+## Membersihkan
 
-Untuk membersihkan file build:
+Untuk membersihkan bangunan file:
 
 ```sh
 $ npm run clean
@@ -83,6 +83,6 @@ $ npm berjalan bersih-bangun
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Pengujian
+## Coba
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
