@@ -97,7 +97,7 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
   * `pesan` String - Isi kotak pesan.
   * `detail` String (opsional) - Informasi tambahan dari pesan.
   * `kotak centangLabel` String (opsional) - Jika tersedia, kotak pesan akan menyertakan kotak centang dengan label yang diberikan. Status kotak centang hanya bisa diperiksa bila menggunakan `callback`.
-  * `checkboxChecked` Boolean (opsional) - Status checkbox awal dicentang. `false` secara default.
+  * `checkboxChecked` Boolean (opsional) - Status pemeriksaan awal dari kotak centang. `false` secara default.
   * `icon` [NativeImage](native-image.md) (optional)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `` akan digunakan sebagai nilai balik atau respons balik. Pilihan ini diabaikan pada Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
