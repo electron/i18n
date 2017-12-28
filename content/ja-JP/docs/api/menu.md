@@ -1,16 +1,16 @@
 ## クラス: Menu
 
-> Create native application menus and context menus.
+> ネイティブアプリケーションのメニューとコンテクストメニューを生成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+新しいメニューを生成します。
 
 ### 静的メソッド
 
-The `menu` class has the following static methods:
+`Menu`クラスは以下の静的メソッドを持ちます。
 
 #### `Menu.setApplicationMenu(menu)`
 
