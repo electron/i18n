@@ -45,9 +45,9 @@ console.log(dialog)
 
 返回 `String[]` 用户选择的文件路径数组，如果用户定义了callback ，则返回`undefined`。
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+` filters ` 指定一个文件类型数组，用于规定用户可见或可选的特定类型范围。例如:
 
 ```javascript
 {
@@ -82,7 +82,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -112,7 +112,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
