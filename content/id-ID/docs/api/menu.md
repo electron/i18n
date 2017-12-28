@@ -181,7 +181,7 @@ untuk informasi lebih lanjut.</p>
           * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
           * `endof` - Menyisipkan item ini di akhir kelompok logis yang berisi item yang diacu id (grup dibuat oleh item pemisah). Jika Item yang direferensikan tidak ada, grup pemisah baru dibuat dengan id yang diberikan dan item ini dimasukkan setelah pemisah tersebut.
           
-          When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. Jadi jika Anda ingin memposisikan sekelompok item menu di lokasi yang sama Anda hanya perlu menentukan posisi untuk item pertama.
+          Bila item diposisikan, semua item yang tidak diposisikan dimasukkan setelah item baru diposisikan. Jadi jika Anda ingin memposisikan sekelompok item menu di lokasi yang sama Anda hanya perlu menentukan posisi untuk item pertama.
           
           ### Contoh
           
