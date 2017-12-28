@@ -26,17 +26,17 @@ console.log(dialog)
 
 * `browserWindow` BrowserWindow (可选)
 * `options` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
+  * `title` String (可选)
+  * `defaultPath` String (可选)
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `properties` String[] (可选) -包含对话框应用的功能。支持以下值: 
     * `openFile` - Allow files to be selected.
     * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
+    * ` multiSelections `-允许多选。
+    * ` showHiddenFiles `-显示对话框中的隐藏文件。
+    * ` createDirectory `-允许从对话框创建新目录。* macOS *
+    * ` promptToCreate `-如果输入的文件路径在对话框中不存在, 则提示创建。 This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
     * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
@@ -70,10 +70,10 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 * `browserWindow` BrowserWindow (可选)
 * `options` Object 
-  * `title` String (optional)
+  * `title` String (可选)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
