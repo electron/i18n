@@ -1,10 +1,10 @@
 ## Class: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> 处理 HTTP/HTTPS 请求的响应。
 
 线程：[主线程](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+` IncomingMessage ` 实现了 [ Readable Stream ](https://nodejs.org/api/stream.html#stream_readable_streams) 接口, 因此是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)。
 
 ### 事件
 
@@ -18,11 +18,11 @@ The `data` event is the usual method of transferring response data into applicat
 
 #### Event: 'end'
 
-Indicates that response body has ended.
+指示响应正文已结束。
 
 #### Event: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+正在进行的 HTTP 事务被取消后触发。
 
 #### Event: 'error'
 
