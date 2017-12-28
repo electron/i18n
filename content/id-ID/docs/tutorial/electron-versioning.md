@@ -138,12 +138,12 @@ Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan re
 * Komitmen yang akan menghasilkan titik semintang **minor** harus dimulai dengan `feat:`.
 * Perintah yang akan menghasilkan tambatan semver **patch** harus dimulai dengan `fix:`.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* Kami mengizinkan meremas commit, asalkan berpegang pesan terjepit di atas format pesan.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* Hal ini dapat diterima untuk beberapa commit dalam permintaan tarik untuk tidak memasukkan awalan semantik, asalkan komit kemudian dalam permintaan tarik sama berisi pesan semantik bermakna mencakup.
 
 # Versionless `master`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* `Master` branch akan selalu berisi `0.0.0-dev` di yang `package.json`
+* Rilis Cabang-cabang tidak pernah digabung kembali ke master
+* Rilis cabang *Apakah* mengandung versi yang benar di mereka `package.json`
