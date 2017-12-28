@@ -28,11 +28,11 @@ Esto no es aprueba de balas, pero debería intentar lo siguiente al menos:
 
 * Solo mostrar contenido seguro (https)
 * Deshabilitar los nodos de integración en todos los renders que muestran contenido remoto (setting `nodeIntegration` to `false` in `webPreferences`)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
+* Habilitar aislamiento del contexto en todos los renders que muestren contenido remoto (ajustando `contextIsolation` a `true` en `webPreferences`)
+* Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto
+* No desactive `webSecurity`. desactivarlo deshabilitará la política de mismo origen.
+* Defina un [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) y use reglas extrictas (i.e. `script-src 'self'`)
+* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) que permite a las cadenas ser ejecutadas como código.
 * Do not set `allowRunningInsecureContent` to true.
 * Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
 * Do not use `blinkFeatures` unless you know what you're doing.
