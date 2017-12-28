@@ -98,14 +98,14 @@ Set an extra parameter to be sent with the crash report. The values specified he
 
 ## Çökme Raporu verisi
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+Çökme raporlarlayıcısı aşağıdaki verileri `submitURL` adresine `multipart/form-data` `POST` olarak yollayacaktır:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
+* `ver` Katar - Electron versiyonu.
+* `platform` Katar - örneğin. 'win32'.
+* `process_type` Katar - örneğin. 'renderer'.
+* `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` Katar - `package.json` içerisindeki versiyon.
+* `_productName` Katar - `crashReporter` `options` objesi içerisindeki ürün ismi.
 * `prod` String - Name of the underlying product. In this case Electron.
 * `_companyName` String - The company name in the `crashReporter` `options` object.
 * `upload_file_minidump` File - The crash report in the format of `minidump`.
