@@ -20,7 +20,7 @@ Electron的[版本发布](https://github.com/electron/electron/releases)相当�
 
 Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一到两周之内更新，具体时间根据升级所需的工作量而定。
 
-为了使版本更加稳定，Electron通常会在Node.js发布了新版本的一个月之后在更新。
+为了使版本更加稳定，Electron通常会在Node.js发布了新版本的一个月之后再更新。
 
 在Electron里，Node.js和Chromium共享同一个V8实例--通常是Chromium在用的版本。大多数情况下这能*正常工作*但有时候还是需要为Node.js打补丁。
 
