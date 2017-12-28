@@ -43,77 +43,77 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 
 <h4><code>Menu.membangun dari Template (template)`</h4> 
   
-  * ` template </ 0> MenuItemConstructorOptions []</li>
-</ul>
-
-<p>Mengembalikan <code> Menu </ 0></p>
-
-<p>Umumnya, <code>template` hanyalah sebuah array dari `options` untuk membangun a [MenuItem](menu-item.md). Penggunaannya bisa diacu di atas.</p> 
-    Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
-    
-    ### Metode Instance
-    
-    The `menu` object has the following instance methods:
-    
-    #### `menu.popup ([browserWindow, options])`
-    
-    * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
-    * `pilihan` Objek (opsional) 
-      * ` x </ 0> Nomor (opsional) - Default adalah posisi kursor mouse saat ini.
+  * `template` MenuItemConstructorOptions []
+  
+  Mengembalikan `menu`
+  
+  Umumnya, `template` hanyalah sebuah array dari `options` untuk membangun a [MenuItem](menu-item.md). Penggunaannya bisa diacu di atas.
+  
+  Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
+  
+  ### Metode Instance
+  
+  The `menu` object has the following instance methods:
+  
+  #### `menu.popup ([browserWindow, options])`
+  
+  * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
+  * `pilihan` Objek (opsional) 
+    * ` x </ 0> Nomor (opsional) - Default adalah posisi kursor mouse saat ini.
 Harus dinyatakan jika <code> y </ 0> dinyatakan.</li>
 <li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
-      * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0> .</li>
+    * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0> .</li>
 <li><code>positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
-    
-    Pops up this menu as a context menu in the `browserWindow`.
-    
-    #### `menu.closePopup([browserWindow])`
-    
-    * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
-    
-    Menutup menu konteks di `browserWindow`.
-    
-    #### `menu.append(menuItem)`
-    
-    * ` menuItem </ 0> MenuItem</li>
+  
+  Pops up this menu as a context menu in the `browserWindow`.
+  
+  #### `menu.closePopup([browserWindow])`
+  
+  * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
+  
+  Menutup menu konteks di `browserWindow`.
+  
+  #### `menu.append(menuItem)`
+  
+  * ` menuItem </ 0> MenuItem</li>
 </ul>
 
 <p>Appends the <code>menuItem` to the menu.</p> 
-      #### `menu.insert(pos, menuItem)`
-      
-      * `pos` Integer
-      * ` menuItem </ 0> MenuItem</li>
+    #### `menu.insert(pos, menuItem)`
+    
+    * `pos` Integer
+    * ` menuItem </ 0> MenuItem</li>
 </ul>
 
-<p>Sisipkan <code>menuItem` ke posisi ` pos` pada menu.</p> 
-        ### Instance Properties
-        
-        `menu` objek juga memiliki properti berikut:
-        
-        #### `menu.items`
-        
-        A `MenuItem[]` array containing the menu's items.
-        
-        Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
-        
-        ## Contoh
-        
-        Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
-        
-        ### Proses utama
-        
-        Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
-        
-        ```javascript
+<p>Sisipkan <code>menuItem` ke posisi `pos` pada menu.</p> 
+      ### Instance Properties
+      
+      `menu` objek juga memiliki properti berikut:
+      
+      #### `menu.items`
+      
+      A `MenuItem[]` array containing the menu's items.
+      
+      Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
+      
+      ## Contoh
+      
+      Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
+      
+      ### Proses utama
+      
+      Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
+      
+      ```javascript
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
-    
-    ### Render proses
-    
-    Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
-    
-    ```html
+  
+  ### Render proses
+  
+  Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
+  
+  ```html
 <!-- index.html -->
 <script>
 const {remote} = require('electron')
