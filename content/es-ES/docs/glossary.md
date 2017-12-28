@@ -46,11 +46,11 @@ Véase también: [proceso](#process), [proceso de renderizado](#renderer-process
 
 ### MAC
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Acrónimo para la Mac App Store de Apple. Para más detalles sobre cómo subir tu aplicación al MAS, vea la [Guía de Subidas de la Mac App Store](tutorial/mac-app-store-submission-guide.md).
 
 ### módulos nativos
 
-Los módulos nativos (también llamados [addons](https://nodejs.org/api/addons.html) en Node.js) son módulos escritos en C o C++ que puede ser cargado en Node.js o Electron mediante la función include() y utilizado como si fueran un módulo ordinario de Node.js. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Los módulos nativos (también llamados [addons](https://nodejs.org/api/addons.html) en Node.js) son módulos escritos en C o C++ que puede ser cargado en Node.js o Electron mediante la función include() y utilizado como si fueran un módulo ordinario de Node.js. Son usados principalmente para ofrecer una interfaz entre JavaScript corriendo en Node.js y las librerías C/C++.
 
 Nativo nodo módulos están soportados por el Electron, pero puesto que el Electron es muy probable que utilice una versión V8 del nodo binario instalada en su sistema, usted tiene que especificar manualmente la ubicación de cabeceras del Electron al compilar los módulos nativos.
 
@@ -58,7 +58,7 @@ Véase también [Usando Módulos de Nodo Nativos](tutorial/using-native-node-mod
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) soporta NSIS como objetivo compilar.
+Nullsoft Scriptable Install System es un instalador basado en secuencias de comandos de herramienta de edición para Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) soporta NSIS como objetivo compilar.
 
 ### OSR
 
