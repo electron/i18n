@@ -149,22 +149,22 @@ request.on('login', (authInfo, callback) => {
 * ` encoding`String(可选)-用于将字符串块转换为Buffer对象。默认值为 "utf-8"。
 * ` callback ` Function (可选)-在写操作结束后调用。
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+` callback ` 实质上是为了保持与 Node.js API 的相似性而引入的虚拟函数。 在将 ` chunk ` 内容传递到 Chromium 网络层之后, 在下一个 tick 中异步调用。 与 Node.js 实现相反, 不保证 ` chunk ` 内容在调用 ` callback ` 之前已经被刷新。
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+向请求正文中添加一个数据块。 第一次写操作可能导致在线路上发出请求头。 在第一次写入操作后, 不允许添加或删除自定义标头。
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (可选)
+* `encoding` String (可选)
+* `callback` Function (可选)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+发送请求数据的最后一个块。将不允许后续的写入或结束操作。` finish ` 事件将在结束操作后发出。
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+取消正在进行的 HTTP 事务。 如果请求已发出 ` close ` 事件, 则中止操作将不起作用。 否则正在进行的事件将发出 ` abort ` 和 ` close ` 事件。 此外, 如果有一个正在进行的响应对象, 它将发出 ` aborted ` 事件。
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+当重定向模式为 ` manual 手动 ` 时, 将继续延迟的重定向请求。
