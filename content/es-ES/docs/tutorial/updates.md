@@ -17,7 +17,7 @@ Si su aplicación está empaquetada con [electron-builder](https://github.com/el
 
 ## Implementación de actualizaciones en su aplicación
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Una vez ya ha utilizado su servidor de actualizaciones, continúe importando los modulos requeridos en su código. El siguiente código podría variar para diferente servidores de software, pero funciona como está descrito cuando se usa [Hazel](https://github.com/zeit/hazel).
 
 **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
 
