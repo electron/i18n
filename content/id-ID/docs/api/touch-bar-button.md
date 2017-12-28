@@ -7,24 +7,24 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 ### `TouchBarButtonbaru(pilihan)`*Eksperimental*
 
 * `pilihan` Objek 
-  * `label` String (optional) - Button text.
+  * `label` String (opsional) - Teks tombol.
   * `backgroundColor` String (opsional) - Tombol warna latar dalam format hex, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * `ikon `[ NativeImage ](native-image.md) (opsional) - Ikon tombol.
+  * `iconPosition`String (opsional) - Bisa jadi `left`,` right`atau`overlay`.
+  * `klik`Fungsi (opsional) - Fungsi untuk memanggil saat tombol diklik.
 
 ### Instance Properties
 
-The following properties are available on instances of `TouchBarButton`:
+Properti berikut tersedia pada contoh `TouchBarButton`:
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+A `String` mewakili teks tombol saat ini. Mengubah nilai ini segera memperbarui tombolnya di bilah sentuh.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Kode `String` hex mewakili warna latar belakang tombol saat ini. Mengubah nilai ini segera diperbarui tombol di panel sentuh.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+A `NativeImage` mewakili ikon tombol saat ini. Mengubah nilai ini segera memperbarui tombolnya di bilah sentuh.
