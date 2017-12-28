@@ -28,9 +28,9 @@ console.log(dialog)
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `属性` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
+  * `properties` String[] (可选) -包含对话框应用的功能。支持以下值: 
     * `openFile` - Allow files to be selected.
     * `openDirectory` - Allow directories to be selected.
     * `multiSelections` - Allow multiple paths to be selected.
@@ -72,7 +72,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
