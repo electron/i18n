@@ -4,12 +4,12 @@ Dokumen ini menjelaskan proses pelepasan versi baru Electron.
 
 ## Tentukan cabang mana yang akan dilepaskan
 
-- **Jika merilis beta, ** jalankan skrip di bawah ini dari `master`.
-- **Jika merilis versi stabil, ** jalankan skrip di bawah ini dari `1-7-x` atau `1-6-x`, tergantung pada versi yang Anda nyalakan untuk.
+- **Jika merilis beta,** jalankan skrip di bawah ini dari `master`.
+- **Jika merilis versi stabil,** jalankan skrip di bawah ini dari `1-7-x` atau `1-6-x`, tergantung versi yang anda nyatakan untuk.
 
 ## Cari tahu perubahan versi apa yang dibutuhkan
 
-Jalankan `npm run prepare-release -- --notesOnly` untuk melihat rilis yang dihasilkan secara otomatis. catatan. Catatan yang dihasilkan akan membantu Anda menentukan apakah ini adalah masalah besar, kecil, patch, atau versi beta berubah. Membaca [Aturan Perubahan Versi](../tutorial/electron-versioning.md#semver) untuk informasi lebih lanjut.
+Jalankan `npm run prepare-release -- --notesOnly` untuk melihat rilis yang dihasilkan secara otomatis catatan. Catatan yang dihasilkan akan membantu Anda menentukan apakah ini adalah masalah besar, kecil, patch, atau versi beta berubah. Membaca [Aturan Perubahan Versi](../tutorial/electron-versioning.md#semver) untuk informasi lebih lanjut.
 
 ## Jalankan skrip persiapan-rilis
 
@@ -46,7 +46,7 @@ npm menjalankan mempersiapkan-release -- beta
 ### Promosikan beta untuk stabil
 
 ```sh
-npm menjalankan mempersiapkan-release -- -- stabil
+npm menjalankan mempersiapkan-release -- --stabil
 ```
 
 ## Tunggu untuk membangun :hourglass_flowing_sand:
@@ -62,7 +62,7 @@ Itu `persiapan-release` akan memicu pembuatan melalui panggilan API. Untuk meman
 
 Menulis catatan rilis adalah cara yang baik untuk membuat diri Anda sibuk sementara membangun berjalan. Untuk prior art, lihat rilis yang ada di [halaman rilis](https://github.com/electron/electron/releases).
 
-Tips: - Setiap item yang terdaftar harus merujuk PR pada elektron / elektron, bukan masalah, atau PR dari repo lain seperti libcc. - Tidak perlu menggunakan markup tautan saat mereferensikan PRs. String seperti `#123` akan otomatis dikonversi menjadi tautan di github.com. - Untuk melihat versi Chromium, V8, dan Node di setiap versi Elektron, kunjungi [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: Setiap item yang terdaftar harus mereferensikan PR pada electron/electron, bukan masalah, juga PR dari repo lain seperti libcc. - Tidak perlu menggunakan markup tautan saat mereferensikan PRs. String seperti `#123` akan otomatis dikonversi menjadi tautan di github.com. - Untuk melihat versi Chromium, V8, dan Node di setiap versi Elektron, kunjungi [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Rilis patch
 
