@@ -121,7 +121,7 @@ Pengembalian:
 <li><code> event </ 0>  Acara</li>
 <li><code>favicons` String[] - Array of URLs
 
-Emitted when page receives favicon urls.
+Dibunyikan saat halaman menerima url favicon.
 
 #### Event: 'new-window'
 
@@ -160,7 +160,7 @@ Pengembalian:
 
 <p>Emitted when a user or the page wants to start navigation. It can happen when
 the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-  This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+  Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
   
   It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
   
@@ -186,9 +186,9 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
 <li><code> url </ 0>  String</li>
 <li><code>isMainFrame` Boolean
     
-    Emitted when an in-page navigation happened.
+    Dibunyikan saat navigasi dalam halaman terjadi.
     
-    When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+    Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
     
     #### Event: 'will-prevent-unload'
     
