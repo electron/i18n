@@ -62,7 +62,7 @@ Itu `persiapan-release` akan memicu pembuatan melalui panggilan API. Untuk meman
 
 Menulis catatan rilis adalah cara yang baik untuk membuat diri Anda sibuk sementara membangun berjalan. Untuk prior art, lihat rilis yang ada di [halaman rilis](https://github.com/electron/electron/releases).
 
-Tips: Setiap item yang terdaftar harus mereferensikan PR pada electron/electron, bukan masalah, juga PR dari repo lain seperti libcc. - Tidak perlu menggunakan markup tautan saat mereferensikan PRs. String seperti `#123` akan otomatis dikonversi menjadi tautan di github.com. - Untuk melihat versi Chromium, V8, dan Node di setiap versi Elektron, kunjungi [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: Setiap item yang terdaftar harus mereferensikan PR pada electron/electron, bukan masalah, juga PR dari repo lain seperti libcc. - Tidak perlu menggunakan markup tautan saat mereferensikan PRs. String seperti `#123` akan otomatis dikonversi menjadi tautan di github.com. - Untuk melihat versi Chromium, V8, dan Node di setiap versi Electron, kunjungi [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Rilis patch
 
@@ -146,25 +146,26 @@ Untuk sebuah `minor` rilis, misalnya. `1.8.0`, gunakan format ini:
 Gunakan format yang sama dengan yang disarankan di atas, tapi tambahkan catatan berikut di awal changelog:
 
 ```sh
-**Catatan:** Ini adalah rilis beta dan kemungkinan besar akan memiliki beberapa ketidakstabilan dan / atau regresi.
+**Catatan:** Ini adalah rilis beta dan kemungkinan besar akan memiliki beberapa ketidakstabilan dan/atau regresi.
 
 Silakan mengajukan masalah baru untuk bug yang Anda temukan di dalamnya.
 
-Rilis ini dipublikasikan ke [npm] (https://www.npmjs.com/package/electron) di bawah tag `beta` dan dapat diinstal melalui` npm install electron @ beta`.
+Rilis ini dipublikasikan ke [npm](https://www.npmjs.com/package/electron) di bawah tag `beta` dan dapat diinstal melalui
+`npm install electron@beta`.
 ```
 
 ## Mengedit rancangan konsep
 
-1. Kunjungi [halaman rilis ](https://github.com/electron/electron/releases) dan Anda akan melihat draf rilis baru dengan dengan catatan rilis placeholder.
+1. Kunjungi [halaman rilis](https://github.com/electron/electron/releases) dan anda akan melihat draf rilis baru dengan dengan catatan rilis placeholder.
 2. Edit rilis dan tambahkan catatan rilis.
-3. Hapus tanda centang pada `prerelease` kotak centang jika Anda menerbitkan rilis stabil; biarkan diperiksa untuk rilis beta.
+3. Hapus tanda centang pada `prerelease` kotak centang jika anda menerbitkan rilis stabil; biarkan diperiksa untuk rilis beta.
 4. Klik 'Simpan draf'. **Jangan klik 'Publikasikan rilis'!**
 5. Tunggu sampai semua bangunan berlalu sebelum melanjutkan.
 6. Anda dapat menjalankan `npm run release --validateRelease` untuk memverifikasi semua file yang dibutuhkan telah dibuat untuk rilis.
 
 ## Gabungkan cabang sementara
 
-Setelah rilis selesai, gabungkan cabang `release` kembali cabang pelepasan sumber menggunakan skrip `merge-release`. Jika cabang tidak berhasil digabung kembali script ini akan otomatis rebase cabang `release` dan dorong perubahan yang akan memicu pelepasan membangun lagi, yang berarti Anda harus menunggu rilis dibangun untuk dijalankan lagi sebelum melanjutkan.
+Setelah rilis selesai, gabungkan cabang `release` kembali cabang pelepasan sumber menggunakan `merge-release` naskah. Jika cabang tidak berhasil digabung kembali script ini akan otomatis rebase cabang `release` dan dorong perubahan yang akan memicu pelepasan membangun lagi, yang berarti Anda harus menunggu rilis dibangun untuk dijalankan lagi sebelum melanjutkan.
 
 ### Bergabung kembali ke master
 
@@ -180,7 +181,7 @@ npm run merge-release -- 1-7-x
 
 ## Publikasikan rilisnya
 
-Setelah penggabungan selesai dengan sukses, jalankan skrip `release` via `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download binari dan buat header simpul dan linker .lib yang digunakan pada Windows oleh node-gyp untuk membangun modul asli. 3. Buat dan upload file SHASUMS yang tersimpan di S3 untuk file simpul. 4. Buat dan upload file SHASUMS256.txt yang tersimpan di rilis GitHub. 5. Validasi semua file yang dibutuhkan ada di GitHub dan S3 dan miliki checksum yang benar seperti yang ditentukan dalam file SHASUMS. 6. Publikasikan rilis di GitHub 7. Menghapus `rilis` cabang.
+Setelah penggabungan selesai dengan sukses, jalankan `release` naskah melalui `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download binari dan buat header simpul dan linker .lib yang digunakan pada Windows oleh node-gyp untuk membangun modul asli. 3. Buat dan upload file SHASUMS yang tersimpan di S3 untuk file simpul. 4. Buat dan upload file SHASUMS256.txt yang tersimpan di rilis GitHub. 5. Validasi semua file yang dibutuhkan ada di GitHub dan S3 dan miliki checksum yang benar seperti yang ditentukan dalam file SHASUMS. 6. Publikasikan rilis di GitHub 7. Menghapus `rilis` cabang.
 
 ## Publikasikan ke npm
 
