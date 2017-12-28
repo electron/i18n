@@ -59,45 +59,45 @@ Puede cambiar el nombre `Electron.ap ` a cualquier nombre que desee, y también 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+También puede cambiar el nombre de la aplicación auxiliar para evitar mostrar `Electron Helper` en el Monitor de actividad, pero asegúrese de haber cambiado el nombre del archivo ejecutable de la aplicación auxiliar.
 
-The structure of a renamed app would be like:
+La estructura de una aplicación renombrada sería como:
 
 ```text
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     ├── MyApp Helper EH.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper EH
+    |       └── MyApp Helper EH
     ├── MyApp Helper NP.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper NP
+    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Puede cambiar el nombre del archivo ejecutable `electrón` a cualquier nombre que desee.
 
-## Packaging Tools
+## Herramientas de empaquetado
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Además de empaquetar su aplicación manualmente, también puede elegir usar herramientas de empaquetados de terceros para hacer el trabajo por usted:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [Electron-builder](https://github.com/electron-userland/electron-builder)
 * [Empaquetador de Electron](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Cambio de marca mediante la reconstrucción de la fuente de Electron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+También es posible cambiar la marca de Electron cambiando el nombre del producto y construirlo desde la fuente. Para hacer esto, necesita modificar el archivo `atom.gyp` y tener una reconstrucción limpia.
 
 ### Crear un tenedor Electronico personalizado
 
