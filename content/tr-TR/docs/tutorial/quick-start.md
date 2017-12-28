@@ -22,11 +22,11 @@ Ana süreç, tüm web sayfalarını ve bunlara karşılık gelen oluşturucuyu y
 
 Web sayfalarında yerel GUI kaynaklarını web sayfalarındaki yönetmek çok tehlikeli ve kaynakların sızdırılması kolay olduğu için yerel GUI ile ilgili API'lerin çağrılmasına izin verilmez. Bir web sayfasında GUI işlemlerini gerçekleştirmek isterseniz, oluşturucu ana işlemin bu işlemleri gerçekleştirmesini istemek için web sayfasının süreci ana süreçle iletişim kurmalıdır.
 
-Electron'da, ana süreç ve oluşturucu işlemleri arasında iletişim kurmanın birkaç yolu var. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+Electron'da, ana süreç ve oluşturucu işlemleri arasında iletişim kurmanın birkaç yolu var. Tıpkı mesaj göndermek için [` ipcRenderer `](../api/ipc-renderer.md) ve [`ipcMain`](../api/ipc-main.md) modülleri ve RPC stili iletişim için [remote](../api/remote.md) modülü gibi. Aynı zamanda [web sayfaları arasında nasıl veri paylaşılır](../faq.md#how-to-share-data-between-web-pages)'da bir SSS girdisi vardır.
 
-## Write your First Electron App
+## İlk Electron Uygulamanı Yaz
 
-Generally, an Electron app is structured like this:
+Genellikle, bir Electron uygulaması şöyle yapılandırılır:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+` package.json ` biçimi Düğüm modüllerinin biçimiyle tamamen aynıdır ve ana süreci başlatacak ` ana ` alanıyla belirtilen komut dosyası uygulamanızın başlangıç ​​komut dosyasıdır. ` package.json ` öğesinin bir örneği şu şekilde görünebilir:
 
 ```json
 {
@@ -45,9 +45,9 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Not**: `Ana` alan `package.json`'da yoksa, Electron bir `index.js` yüklemeye çalışacaktır.
 
-The `main.js` should create windows and handle system events, a typical example being:
+`Main.js` pencereleri oluşturmalı ve sistem olaylarını işlemelidir, tipik bir örnek:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
