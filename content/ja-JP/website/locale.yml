@@ -16,9 +16,9 @@ docs:
   api_reference: API リファレンス
   advanced: 発展的なドキュメント
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
+    propose_change: このドキュメントを改善する
+    version_history: 過去のバージョン
+    translate: ドキュメントの翻訳に参加する
     view_all_docs: All Docs on One Page
 languages:
   choose_language: 言語選択
@@ -76,7 +76,7 @@ headings:
   languages: 言語
 taglines:
   languages: Localized content from our awesome global developer community.
-help_translate: "翻訳する"
+help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）
 apps:
