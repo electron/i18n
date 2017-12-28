@@ -2,11 +2,11 @@
 
 > 打开一个无工具栏、边框、和其它图形化界面的"谷歌浏览器"窗口
 
-无边框窗口它不是完整的谷歌浏览器窗口，它只是窗口的一部分，像工具栏，它不是网页的一个部分 These are options on the [`BrowserWindow`](browser-window.md) class.
+无边框窗口它不是完整的谷歌浏览器窗口，它只是窗口的一部分，像工具栏，它不是网页的一个部分 这些是 [` BrowserWindow `](browser-window.md) 类上的选项。
 
-## Create a frameless window
+## 创建无框窗口
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+要创建无框窗口, 需要在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -16,7 +16,7 @@ win.show()
 
 ### Alternatives on macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+在 macOS 10.9 Mavericks and newer, 有另一种方式来指定无窗口。 Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
 
 #### `hidden`
 
