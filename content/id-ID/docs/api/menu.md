@@ -43,7 +43,7 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 
 <h4><code>Menu.membangun dari Template (template)`</h4> 
   
-  * `template` MenuItemConstructorOptions []
+  * `template` MenuItemConstructorOptions[]
   
   Mengembalikan `menu`
   
