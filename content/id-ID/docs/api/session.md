@@ -204,9 +204,7 @@ window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
-})
-
-// To emulate a network outage.
+}) / / untuk meniru pemadaman jaringan.
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
@@ -288,16 +286,16 @@ session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
-#### `ses.setUserAgent(userAgent[, acceptLanguages])`
+#### `ses.setUserAgent (userAgent [, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (opsional)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Menggantikan `userAgent` dan `acceptLanguages` untuk sesi ini.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`AcceptLanguages` harus koma terpisah daftar bahasa kode, misalnya `"En-US, fr, de, ko, zh-CN, ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Ini tidak akan mempengaruhi yang ada `WebContents`, dan setiap `WebContents` dapat menggunakan `webContents.setUserAgent` untuk menimpa agen sesi pengguna.
 
 #### `ses.getUserAgent()`
 
@@ -314,39 +312,39 @@ Returns `Blob` - The blob data associated with the `identifier`.
 #### `ses.createInterruptedDownload(options)`
 
 * `pilihan` Obyek 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `jalan` String - path absolut download.
+  * `urlChain` String [] - URL lengkap jaringan untuk men-download.
+  * `mimeType` String (opsional)
+  * `offset` Bulat - rentang mulai untuk men-download.
+  * `panjang` Bulat - panjang Total download.
+  * `lastModified` String - header Last-Modified nilai.
+  * `eTag` String - ETag header nilai.
+  * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache (pilihan [, callback])`
 
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan
 
-Clears the session’s HTTP authentication cache.
+Membersihkan cache otentikasi HTTP sesi.
 
 ### Instance Properties
 
-The following properties are available on instances of `Session`:
+Properti berikut tersedia pada contoh-contoh dari `sesi`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Sebuah objek [cookie](cookies.md) sesi ini.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Sebuah objek [WebRequest](web-request.md) sesi ini.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Sebuah objek [protokol](protocol.md) untuk sesi ini.
 
 ```javascript
 const {app, session} = require('electron')
