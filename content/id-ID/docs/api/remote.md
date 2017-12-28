@@ -22,9 +22,9 @@ Setiap objek (termasuk fungsi) dikembalikan oleh `remote` modul mewakili sebuah 
 
 Dalam contoh di atas, baik `BrowserWindow` dan `menang` adalah objek remote dan `BrowserWindow baru` tidak membuat `BrowserWindow` objek dalam proses renderer. Sebagai gantinya, ia menciptakan objek `BrowserWindow` dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu objek `win`.
 
-**Catatan:** Hanya [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) yang hadir saat objek jarak jauh pertama kali direferensikan dapat diakses melalui remote.
+**Catatan:** Hanya [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) yang ada Bila objek remote pertama direferensikan bisa diakses via remote.
 
-**Catatan:** Array dan Buffer disalin melalui IPC saat diakses melalui modul `remote`. Memodifikasi mereka dalam proses renderer tidak memodifikasinya dalam proses utama dan sebaliknya.
+**Catatan:** Array dan Buffer disalin melalui IPC saat diakses melalui `remote` modul. Mengubahnya dalam proses renderer tidak mengubahnya menjadi yang utama proses dan sebaliknya.
 
 ## Lifetime dari Remote Objects
 
@@ -83,7 +83,7 @@ Untuk menghindari masalah ini, pastikan Anda membersihkan rujukan ke callback re
 
 ## Mengakses modul built-in dalam proses utama
 
-Modul built-in dalam proses utama ditambahkan sebagai getter di modul `remote`, sehingga Anda dapat menggunakannya secara langsung seperti modul `elektron`.
+Modul built-in dalam proses utama ditambahkan sebagai getter di `remote` modul, sehingga Anda dapat menggunakannya secara langsung seperti modul `elektron`.
 
 ```javascript
 const app = require('electron').remote.app
