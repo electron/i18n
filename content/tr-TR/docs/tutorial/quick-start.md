@@ -2,17 +2,17 @@
 
 Electron zengin yerli (işletim sistemi) API'ler ile bir çalışma zamanı sağlayarak, saf JavaScript ile masaüstü uygulamalar oluşturmanıza olanak sağlar. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+Bu, Electron'un (GUI) kütüphaneleri grafiksel kullanıcı arayüzüne JavaScript bağladığı anlamına gelmez. Bunun yerine, Electron GUI'sini web sayfaları olarak kullanır, böylece bunu JavaScript tarafından kontrol edilen minimal bir Chromium tarayıcı olarak görüyorsunuz.
 
-### Main Process
+### Ana Süreç
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Electron'da ` package.json ` 'ın ` ana ` komut dosyasını çalıştıran süreç ** ana süreç ** olarak adlandırılır. Ana süreçte çalışan komut dosyası web sayfaları oluşturarak bir GUI görüntüleyebilir.
 
 ### Oluşturucu işlemi
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası ** oluşturucu işlemi ** olarak adlandırılan kendi işlemini çalıştırır.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin vermez. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
 ### Differences Between Main Process and Renderer Process
 
