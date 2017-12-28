@@ -4,17 +4,17 @@
 
 ### أرشيف تنسيق أتوم شيل
 
-أسار تعني أرشيف تنسيق أتوم شيل. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+أسار تعني أرشيف تنسيق أتوم شيل. [إسار](https://github.com/electron/asar) هو أرشيف بسيط `تار`- مثل صيغة تار التي تدمج عدة ملفات في ملف واحد. الإلكترون يمكن قراءة ملفات تعسفية منه دون تفريغ الملف بأكمله.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+تم إنشاء تنسيق أسار في المقام الأول لتحسين الأداء على ويندوز... تودو
 
-### Brightray
+### برايتراي
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+برايتراي [هو](https://github.com/electron-archive/brightray) مكتبة ثابتة والتي جعلت [ملفات كروميوم](#libchromiumcontent) أسهل للاستخدام في التطبيقات. تم الآن إهمالها ودمجها في الكود باس الكترون.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+مكتبة وقت التشغيل C (CRT) هو الجزء من "مكتبة c + + القياسية" التي تتضمن المكتبة القياسية إيزو C99. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -102,6 +102,6 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
-### webview
+### معرض الويب
 
 `webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
