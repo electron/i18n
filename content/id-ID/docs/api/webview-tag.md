@@ -338,7 +338,7 @@ Injects CSS into the guest page.
 
 * ` kode </ 0> String</li>
 <li><code>userGesture` Boolean - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `result` Any
 
 Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
@@ -508,13 +508,13 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       * `factor` Number - Zoom factor.
       
-      Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+      Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
       
       ### `<webview>.setZoomLevel(level)`
       
       * `level` Number - Zoom level
       
-      Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+      Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
       
       ### `<webview>.showDefinitionForSelection()` *macOS*
       
@@ -558,15 +558,15 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       * `isMainFrame` Boolean
       
-      Fired when a frame has done navigation.
+      Dibunyikan apabila bingkai telah melakukan navigasi.
       
       ### Event: 'Apakah-mulai-loading'
       
-      Corresponds to the points in time when the spinner of the tab starts spinning.
+      Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
       
       ### Event: 'Apakah-stop-loading'
       
-      Corresponds to the points in time when the spinner of the tab stops spinning.
+      Sesuai dengan poin pada saat pemintal tab berhenti berputar.
       
       ### Event: 'Apakah-mendapatkan-tanggapan-rincian'
       
@@ -595,7 +595,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       ### Event: 'dom-siap'
       
-      Fired when document in the given frame is loaded.
+      Emitted saat dokumen dalam bingkai yang diberikan dimuat.
       
       ### Acara : 'halaman-judul-diperbarui'
       
@@ -608,7 +608,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       ### Event: 'halaman-favicon-updated '
       
-      Pengembalian:
+      Kembali
       
       * `favicons` String[] - Array of URLs.
       
