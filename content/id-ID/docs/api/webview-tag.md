@@ -42,7 +42,7 @@ Jika Anda ingin mengontrol konten tamu dengan cara apa pun, Anda dapat menulis J
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Tolong jangan menimpa properti default ` display: flex; ` CSS, kecuali menentukan tampilan `: inline-flex; ` untuk tata letak inline.
 
-` webview ` memiliki masalah yang tersembunyi menggunakan atribut ` hidden ` atau menggunakan ` display: none; `. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
+` webview ` memiliki masalah yang tersembunyi menggunakan atribut ` hidden ` atau menggunakan ` display: none; `. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. Pendekatan yang direkomendasikan adalah untuk menyembunyikan `webview` menggunakan `visibilitas: tersembunyi`.
 
 ```html
 <style>
