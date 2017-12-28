@@ -82,11 +82,11 @@ Anda harus mengganti `TEAM_ID` dengan ID Tim Anda, dan ganti ` your.bundle.id` d
 Dan kemudian masuki aplikasi Anda dengan skrip berikut:
 
 ```sh
-#!/bin/bash
+#! / bin / Bash
 
-# Name of your app.
-APP="YourApp"
-# The path of your app to sign.
+# nama aplikasi anda.
+aplikasi = "yourapp"
+# jalan aplikasi Anda untuk masuk.
 APP_PATH ="/path/to/YourApp.app" # Jalan ke lokasi yang ingin Anda gunakan untuk memasukkan paket yang ditandatangani.
 RESULT_PATH="~/Desktop/$APP.pkg"
 # Nama sertifikat yang Anda minta.
@@ -179,7 +179,7 @@ Lihat [Mengaktifkan dokumentasi Akses Jaringan](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) untuk lebih jelasnya.
 
 #### dialog.showSaveDialog
 
@@ -214,12 +214,12 @@ Elektron menggunakan algoritma kriptografi berikut:
 * RSA - [RFC 3447](http://www.ietf.org/rfc/rfc3447)
 * SHA - [FIPS 180-4](http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
 * Blowfish - https://www.schneier.com/cryptography/blowfish/
-* CAST - [RFC 2144](https://tools.ietf.org/html/rfc2144), [RFC 2612](https://tools.ietf.org/html/rfc2612)
+* CAST - [RFC 2144](https://tools.ietf.org/html/rfc2144), [ RFC 2612 ](https://tools.ietf.org/html/rfc2612)
 * DES - [FIPS 46-3](http://csrc.nist.gov/publications/fips/fips46-3/fips46-3.pdf)
 * DH - [RFC 2631](https://tools.ietf.org/html/rfc2631)
 * DSA - [ANSI X9.30](http://webstore.ansi.org/RecordDetail.aspx?sku=ANSI+X9.30-1%3A1997)
 * EC - [SEC 1](http://www.secg.org/sec1-v2.pdf)
-* IDEA - "On the Design and Security of Block Ciphers" book by X. Lai
+* IDEA - "Di Desain dan Keamanan Blok Ciphers" oleh X. Lai
 * MD2 - [RFC 1319](http://tools.ietf.org/html/rfc1319)
 * MD4 - [RFC 6150](https://tools.ietf.org/html/rfc6150)
 * MD5 - [RFC 1321](https://tools.ietf.org/html/rfc1321)
@@ -229,4 +229,4 @@ Elektron menggunakan algoritma kriptografi berikut:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](http://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+Cara mendapatkan persetujuan ERN, Anda bisa merujuk artikelnya: [Bagaimana memasukkan aplikasi ke Apple App Store secara legal saat menggunakan enkripsi (atau cara mendapatkan ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
