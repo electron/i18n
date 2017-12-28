@@ -493,7 +493,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Kirim pesan asinkron ke proses renderer melalui <code>saluran`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
+<p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
       See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
       
       ### `<webview>.sendInputEvent(event)`
