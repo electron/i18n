@@ -46,27 +46,6 @@ dipancarkan sebelum pengiriman <code> keydown </ 1> dan <code> keyup </ 1> peris
 
 <p>Jika Anda tidak ingin melakukan penguraian manual pintas ada perpustakaan yang melakukan deteksi kunci lanjut seperti <a href="https://github.com/ccampbell/mousetrap"> perangkap tikus </ 0> .</p>
 
-<pre><code class="js">Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
-
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
-
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
-
-  // return false to prevent default behavior and stop event from bubbling
-  return false
-})
-
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
-
-// konami code!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
-  console.log('konami code')
-})
+<pre><code class="js">Mousetrap.bind ('4', () = > {console.log('4')}) Mousetrap.bind ('? ', () = > {console.log ('menunjukkan cara pintas!')}) Mousetrap.bind ('Escudo', () = > {console.log('escape')}, 'keyup') / / kombinasi Mousetrap.bind ('perintah + pergeseran + k', () = > {console.log ('perintah pergeseran k')}) / / peta beberapa kombinasi ke callback sama Mousetrap.bind (['perintah + k', ' ctrl + k'], ()) = > {console.log ('perintah k atau control k') / / kembali palsu untuk mencegah perilaku default dan acara berhenti dari menggelegak kembali palsu}) / / gmail gaya urutan Mousetrap.bind ('g saya ', () = > {console.log ('pergi ke inbox')}) Mousetrap.bind ('* ', () = > {konsol .log ('Pilih Semua')}) / / kode konami!
+Mousetrap.bind ('sampai sampai down turun kiri kanan kiri kanan b masukkan ', () = > {console.log ('kode konami')})
 `</pre>
