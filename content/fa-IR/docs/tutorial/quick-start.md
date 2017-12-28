@@ -2,7 +2,7 @@
 
 الکترون شما را قادر می سازد با جاوا اسکریپ خالص و فراهم کردن API های غنی سیستم عامل اصلی، اپلیکیشن دستکتاب بسازید. شما باید این رو نوعی از Node.js runtime بدانید که روی ساخت اپلیکیشن دستکتاپ تمرکز کرده به جز بخش وب سرورها.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+این به این معنی نیست که الکترون یک پوسته جاوااسکریپت از کتابخانه های رابط کاربری گرافیکی است. به جز، استفاده الکترون از صفحات وب که جزی از رابط کاربر گرافیکی هستند، پس شما می توانید آن را جزی از مرورگر Chromium به حساب بیاورید که با جاوا اسکریپت کنترل می شود.
 
 ### پردازش اصلی
 
