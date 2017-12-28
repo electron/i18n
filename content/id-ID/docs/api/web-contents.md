@@ -15,17 +15,16 @@ const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWind
 Metode ini dapat diakses dari modul `webContents`:
 
 ```javascript
-const {webContents} = require ('electron')
-console.log (webContents)
+const {webContents} = require('electron') console.log(webContents)
 ```
 
 ### `webContents.getAllWebContents()`
 
-Mengembalikan `WebContents[]` - Kumpulan semua `WebContents` instances. Ini akan berisi konten web untuk semua jendela, peta web, devtool terbuka, dan halaman latar belakang devtools extension.
+`[WebContents]` - mengembalikan array dari semua contoh `WebContents`. Ini akan berisi isi web untuk semua windows, webviews, devtools dibuka, dan devtools ekstensi latar belakang halaman.
 
 ### `webContents.getFocusedWebContents()`
 
-Mengembalikan <`WebContents` - Isi web yang difokuskan pada aplikasi ini, jika tidak kembali `null`.
+Kembali `WebContents` - isi web yang terfokus dalam aplikasi ini, jika tidak kembali `null`.
 
 ### `webContents.fromId(id)`
 
@@ -33,44 +32,44 @@ Mengembalikan <`WebContents` - Isi web yang difokuskan pada aplikasi ini, jika t
 
 Mengembalikan `WebContents` - Contoh WebContents dengan ID yang diberikan.
 
-## Kelas: WebContents
+## Kelas: WebKontes
 
-> Render dan kendalikan isi instance BrowserWindow.
+> Membuat dan mengontrol isi sebuah instance BrowserWindow.
 
-Proses:  Utama </ 0></p> 
+Proses: [utama](../glossary.md#main-process)
 
-### Instance Events
+### Contoh peristiwa
 
-#### Acara: 'did-finish-load'
+#### Event: 'Apakah-selesai-load'
 
-Emitted saat navigasi selesai, yaitu pemintal tab sudah berhenti berputar, dan event `onload` event dikirim.
+Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
 
-#### Acara: 'did-fail-load'
+#### Event: 'Apakah-gagal-load'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>errorCode` Integer
+* `peristiwa` Peristiwa
+* `errorCode` Bilangan bulat
 * `errorDescription` String
 * `validatedURL` String
-* `adalahBingkaiUtama` Boolean
+* `isMainFrame` Boolean
 
-Peristiwa ini seperti `selesai-selesai` namun dipancarkan saat beban gagal atau tidak dibatalkan, mis. `window.stop()` dipanggil. Daftar lengkap kode kesalahan dan maknanya tersedia [disini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil. Daftar lengkap kode galat dan makna mereka tersedia [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Event: 'Apakah-frame-selesai-load'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>adalahBingkaiUtama` Boolean
+* `peristiwa` Peristiwa
+* `isMainFrame` Boolean
 
-Emitted saat frame sudah selesai navigasi.
+Dibunyikan apabila bingkai telah melakukan navigasi.
 
-#### Event: 'apakah-mulai-loading '
+#### Event: 'Apakah-mulai-loading'
 
-Sesuai dengan poin pada saat pemintal tab mulai berputar.
+Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
 
-#### Event: 'apakah-mulai-loading '
+#### Event: 'Apakah-stop-loading'
 
 Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
@@ -97,7 +96,7 @@ Pengembalian:
 * ` event </ 0>  Acara</li>
 <li><code>oldURL` String
 * `newURL` String
-* `adalahBingkaiUtama` Boolean
+* `isMainFrame` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
 * `pengarah` String
@@ -185,7 +184,7 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     
     * ` event </ 0>  Acara</li>
 <li><code> url </ 0>  String</li>
-<li><code>adalahBingkaiUtama` Boolean
+<li><code>isMainFrame` Boolean
     
     Emitted when an in-page navigation happened.
     
