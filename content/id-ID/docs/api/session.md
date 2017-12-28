@@ -97,17 +97,17 @@ Callback dipanggil dengan ukuran cache sesi saat ini.
 
 * `memanggil kembali` Fungsi - terpanggil ketika operasi selesai
 
-Clears the session’s HTTP cache.
+Membersihkan sesi-sesi HTTP cache.
 
-#### `ses.clearStorageData([options, callback])`
+#### `ses.clearStorageData([pilihan-pilihan, panggilan kembali])`
 
-* `options` Object (optional) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+* `pilihan-pilihan` Objek (pilihan) 
+  * `asal` Senar - (pilihan) Harus mengikuti `jendela.lokasi.asal`’s representasi `scheme://host:port`.
+  * `penyimpanan` Senar[] - (pilihan) Jenis penyimpanan yang bisa dihapus, bisa berisi: `chacheaplikasi`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `kuota` Senar[] - (pilihan) Jenis kuota untuk menghapus, dapat berisi: `sementara`, `gigih`, `syncable`.
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
-Clears the data of web storages.
+Menghapus data penyimpanan web.
 
 #### `ses.flushStorageData()`
 
@@ -250,7 +250,7 @@ const {session} = require('electron') session.fromPartition('some-partition').se
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
 Menghapus cache resolver host.
 
