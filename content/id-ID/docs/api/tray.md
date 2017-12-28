@@ -1,21 +1,21 @@
-## Kelas: Baki
+## Kelas: nampan
 
 > Tambahkan ikon dan menu konteks ke area pemberitahuan sistem.
 
 Proses:  Utama </ 0></p> 
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron') Biarkan nampan = null app.on ('siap', () = > {nampan = baru Tray('/path/to/my/icon') const contextMenu = tray.setToolTip Menu.buildFromTemplate ([{label: 'Item1', type: 'radio'}, {label: 'Item2', type: 'radio'}, {label: 'Item3', type: 'radio', checked: true}, {label: 'Item4', type: 'radio'}]) (' Inilah saya  aplikasi.')   tray.setContextMenu(contextMenu)})
 ```
 
-**Keterbatasan platform**
+**Keterbatasan platform:**
 
-* Pada aplikas Linux indikator akan digunakan jika didukung, sebaliknya `GtkStatusIcon` akan digunakan sebagai gantinya.
-* Pada distribusi Linux yang hanya memiliki aplikasi indikator yang mendukung, Anda harus menginstal `libappindicator1` untuk membuat ikon tray bekerja.
-* Indikator aplikasi hanya akan ditampilkan bila memiliki menu konteks.
-* Ketika app indikator yang digunakan pada Linux, `Klik` maka akan diabaikan.
+* Pada Linux indikator app akan digunakan jika didukung, sebaliknya `GtkStatusIcon` akan digunakan sebagai gantinya.
+* Pada distribusi Linux yang hanya memiliki indikator app mendukung, Anda harus menginstal `libappindicator1` untuk membuat ikon tray yang bekerja.
+* Indikator App akan hanya ditampilkan ketika itu mempunyai menu konteks.
+* Ketika app indikator yang digunakan pada Linux, acara `Klik` akan diabaikan.
 * Pada Linux dalam rangka untuk perubahan yang dibuat ke setiap `MenuItem` s untuk mengambil efek, Anda harus memanggil `setContextMenu` lagi. Sebagai contoh:
 
 ```javascript
@@ -24,7 +24,7 @@ const {app, Menu, Tray} = require('electron') Biarkan appIcon = null app.on ('si
 
 * Pada Windows disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik.
 
-Jika Anda ingin menyimpan perilaku yang sama pada semua platform, Anda tidak harus bergantung pada cara `Klik` dan selalu lampirkan menu konteks ke tray icon.
+Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tidak harus bergantung pada acara `Klik` dan selalu lampirkan menu konteks ke tray icon.
 
 ### `tray baru(image)`
 
