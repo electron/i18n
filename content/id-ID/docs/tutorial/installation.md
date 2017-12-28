@@ -52,7 +52,7 @@ jika memasang melalui <code> npm </ 1> gagal.
 
 <p>Jika kesalahan di atas terus berlanjut, flag <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> mungkin perlu disetel ke true:</p>
 
-<pre><code class="sh">sudo npm install electron --unsafe-perm=true
+<pre><code class="sh">sudo npm menginstal elektron--tidak aman-perm = true
 `</pre> 
 
 Pada jaringan yang lebih lambat, disarankan untuk menggunakan flag `--verbose` untuk menunjukkan kemajuan download:
