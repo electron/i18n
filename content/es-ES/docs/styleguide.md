@@ -60,7 +60,7 @@ Las siguientes reglas sólo se aplican a la documentación de APIs.
 
 Cada página debe utilizar el nombre real del objeto devuelto por `require('electron')` como el título, como `BrowserWindow`, `autoUpdater` y `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Debajo del título de la página debe haber una descripción de una línea a partir de `>`.
 
 Usando `session` como ejemplo:
 
@@ -72,7 +72,7 @@ Usando `session` como ejemplo:
 
 ### Métodos del módulo y eventos
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Para módulos que no son clases, sus métodos y los eventos deben esar listados bajo los capítulos `## Métodos` y `## Eventos`.
 
 Usando `autoUpdater` como ejemplo:
 
