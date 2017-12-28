@@ -32,13 +32,13 @@ Kembali ` Sesi </ 0> - Contoh sesi dari <code> partisi </ 0> senar. Bila sudah a
 <code> Sesi </ 0> dengan yang sama <code> partisi </ 0>, maka akan dikembalikan; jika tidak baru
 <code> Sesi </ 0> contohnya akan dibuat dengan <code> pilihan </ 0>.</p>
 
-<p>Jika <code> partisi ` dimulai dengan ` bertahan: `, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di aplikasi dengan yang sama ` partisi `. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi dalam penyimpanan. If the `partition` is empty then default session of the app will be returned.
+<p>Jika <code> partisi ` dimulai dengan ` bertahan: `, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di aplikasi dengan yang sama ` partisi `. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi dalam penyimpanan. Jika `partisi` kosong maka sesi dasar aplikasi akan dikembalikan.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Untuk membuat sebuah `Sesi` dengan `pilihan`, Anda harus memastikan `Sesi` dengan `partisi` yang tidak pernah digunakan sebelumnya. Tidak ada cara untuk mengubah `pilihan` yang sudah ada `Sesi` sasaran.
 
-## Properties
+## Properti/peralatan
 
-The `session` module has the following properties:
+Modul `sesi` terdapat properti sebagai berikut:
 
 ### `session.defaultSession`
 
