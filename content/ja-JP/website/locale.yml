@@ -19,7 +19,7 @@ docs:
     propose_change: このドキュメントを改善する
     version_history: 過去のバージョン
     translate: ドキュメントの翻訳に参加する
-    view_all_docs: All Docs on One Page
+    view_all_docs: Electronに関する全てのドキュメントを1ページで表示する
 languages:
   choose_language: 言語選択
   translation_progress: 翻訳状態
@@ -64,7 +64,7 @@ download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
   title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> アプリで実際に動く Electron を見てみましょう"
-  description: 最低限の機能と親切な解説コード
+  description: 親切なコメント文とともに、最低限の機能のみを実装した Electron アプリをお試しください
   clone: Quick Start リポジトリを clone する
   go_into_repo: リポジトリに移動
   install_deps: 依存ライブラリをインストールし、実行
@@ -134,6 +134,6 @@ pages:
     title: Spectron
     description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
 _404:
-  page_not_found: ページが見つかりません
+  page_not_found: ページが見つかりません。
   if_this_is_an_error: もしこれがエラーであれば、
   please_file_an_issue: Issue にてお知らせください。
