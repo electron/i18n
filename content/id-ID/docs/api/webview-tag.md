@@ -518,7 +518,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       ### `<webview>.showDefinitionForSelection()` *macOS*
       
-      Shows pop-up dictionary that searches the selected word on the page.
+      Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
       
       ### `<webview>.getWebContents()`
       
