@@ -20,7 +20,7 @@ Creemos que nuestro sistema de actualizaciones de Chromium alcanza un balance ap
 
 Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. Como ejemplo, considere una página web remota siendo mostrada dentro de una ventana del navegador. Si el atacante sabe como arreglarselas para cambiar dicho contenido (bien sea atacando la fuente directamente, o interviniendo entre su aplicación y el destino real), Será capaz de ejecutar códigos nativos en la máquina del usuario,.
 
-> :warning: Bajo ninguna circunstancia usted debería cargar y ejecutar un código remoto con la integración de nodos activada.:warning. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: Bajo ninguna circunstancia usted debería cargar y ejecutar un código remoto con la integración de nodos activada.:warning. En cambio, use solo archivos locales (guardados juntos con su aplicación) para ejecutar el código nodal. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
 
 #### Checklist
 
