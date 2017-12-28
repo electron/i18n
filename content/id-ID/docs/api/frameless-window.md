@@ -105,4 +105,4 @@ tombol {
 
 ## Context menu
 
-Pada beberapa platform, area draggable akan diperlakukan sebagai frame non-client, jadi saat Anda klik kanan maka akan muncul menu sistem. Untuk membuat menu konteks berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks khusus pada area yang dapat digeser.
+Pada beberapa platform, area draggable akan diperlakukan sebagai frame non-client, jadi saat Anda klik kanan maka akan muncul menu sistem. Untuk membuat menu berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks kustom pada daerah yang seret.
