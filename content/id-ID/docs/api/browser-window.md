@@ -636,7 +636,7 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
 <li><code> tinggi </ 0>  Integer</li>
 <li><code>animate` Boolean (optional) *macOS*
               
-              Resizes the window's client area (e.g. the web page) to `width` and `height`.
+              Mengubah ukuran jendela area klien (misalnya halaman web) untuk `lebar` dan `tinggi`.
               
               #### `win.getContentSize ()`
               
@@ -710,7 +710,7 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
                     
                     #### `win.isMaximizable()` *macOS* *Windows*
                     
-                    Returns `Boolean` - Whether the window can be manually maximized by user.
+                    Kembali `Boolean` - Apakah jendela dapat dimaksimalkan secara manual oleh pengguna.
                     
                     Di Linux selalu kembali ` true </ 0> .</p>
 
@@ -722,7 +722,7 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
 <p>Menetapkan apakah tombol perbesar/zoom window toggles fullscreen mode atau memaksimalkan jendela.</p>
 
 <h4><code>win.isFullScreenable ()`</h4> 
-                      Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+                      Kembali `Boolean` - Apakah tombol jendela memaksimalkan/zoom Matikan modus fullscreen atau memaksimalkan jendela.
                       
                       #### `win.setClosable(closable)` *macOS* *Windows*
                       
@@ -732,56 +732,56 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
                       
                       #### `win.isClosable()` *macOS* *Windows*
                       
-                      Returns `Boolean` - Whether the window can be manually closed by user.
+                      Kembali `Boolean` - Apakah jendela bisa ditutup secara manual oleh pengguna.
                       
                       Di Linux selalu kembali ` true </ 0> .</p>
 
-<h4><code>win.setAlwaysOnTop(flag[, level][, relativeLevel])`</h4> 
+<h4><code>win.setAlwaysOnTop (bendera [, tingkat] [, relativeLevel])`</h4> 
                       
-                      * `flag` Boolean
-                      * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-                      * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+                      * `bendera` Boolean
+                      * `tingkat` String (opsional) *macOS* - nilai mencakup `normal`, `mengambang`, `robek-off-menu`, `modal-panel`, `menu utama`, `status`, `pop-putus-menu`, `layar-saver`, dan ~ ~ `dermaga` ~ ~ (sudah ditinggalkan). Default adalah `mengambang`. Lihat [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) untuk rincian lebih lanjut.
+                      * `relativeLevel` Bulat (opsional) *macOS* - jumlah lapisan yang lebih tinggi untuk mengatur jendela ini relatif terhadap `tingkat`. Default adalah ``. Perhatikan bahwa Apple menghambat pengaturan tingkat lebih tinggi dari 1 di atas `layar-saver`.
                       
                       Menetapkan apakah jendela harus selalu tampil di atas jendela lain. Setelah pengaturan ini, jendela masih merupakan jendela normal, bukan jendela toolbox yang tidak bisa difokuskan.
                       
                       #### `win.isAlwaysOnTop()`
                       
-                      Returns `Boolean` - Whether the window is always on top of other windows.
+                      Kembali `Boolean` - Apakah jendela selalu di atas jendela lainnya.
                       
                       #### `win.center()`
                       
                       Memindahkan jendela ke bagian tengah layar.
                       
-                      #### `win.setPosition(x, y[, animate])`
+                      #### `win.setPosition (x, y [, bernyawa])`
                       
                       * `x` Integer
                       * `y` Integer
                       * `animate` Boolean (optional) *macOS*
                       
-                      Moves window to `x` and `y`.
+                      Bergerak jendela `x` dan `y`.
                       
                       #### `win.getPosition()`
                       
-                      Returns `Integer[]` - Contains the window's current position.
+                      Mengembalikan `Integer []` - berisi jendela posisi saat ini.
                       
                       #### `win.setTitle(title)`
                       
                       * ` title </ 0>  String</li>
 </ul>
 
-<p>Changes the title of native window to <code>title`.</p> 
+<p>Perubahan judul jendela asli <code>judul`.</p> 
                         #### `win.getTitle()`
                         
-                        Returns `String` - The title of the native window.
+                        Mengembalikan `String` - judul jendela asli.
                         
-                        **Note:** The title of web page can be different from the title of the native window.
+                        **Catatan:** Judul halaman web dapat berbeda dari judul jendela asli.
                         
-                        #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+                        #### `win.setSheetOffset (offsetY [, offsetX])` *macOS*
                         
-                        * `offsetY` Float
-                        * `offsetX` Float (optional)
+                        * `offsetY` Mengambang
+                        * `offsetX` Mengambang (opsional)
                         
-                        Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+                        Perubahan titik lampiran untuk lembar on macOS. Secara default, lembar yang terpasang di bawah bingkai jendela, tetapi Anda mungkin ingin menampilkan mereka di bawah toolbar HTML yang diberikan. Sebagai contoh:
                         
                         ```javascript
 const {BrowserWindow} = require('electron')
@@ -793,33 +793,33 @@ win.setSheetOffset(toolbarRect.height)
                     
                     #### `win.flashFrame(flag)`
                     
-                    * `flag` Boolean
+                    * `bendera` Boolean
                     
                     Mulai atau berhenti berkedip kedip jendela untuk menarik perhatian pengguna.
                     
                     #### `win.setSkipTaskbar(skip)`
                     
-                    * `skip` Boolean
+                    * `melompat` Boolean
                     
                     Membuat jendela tidak tampil di taskbar.
                     
                     #### `win.setKiosk(flag)`
                     
-                    * `flag` Boolean
+                    * `bendera` Boolean
                     
                     Masuk atau keluar dari mode kiosk.
                     
                     #### `win.isKiosk()`
                     
-                    Returns `Boolean` - Whether the window is in kiosk mode.
+                    Kembali `Boolean` - Apakah jendela dalam kiosk mode.
                     
                     #### `win.getNativeWindowHandle()`
                     
-                    Returns `Buffer` - The platform-specific handle of the window.
+                    Kembali `Buffer` - spesifik platform handle dari window.
                     
-                    The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+                    Jenis pegangan yang asli adalah `HWND` pada Windows, `NSView *` pada `jendela` (`lama unsigned`) di Linux dan macOS.
                     
-                    #### `win.hookWindowMessage(message, callback)` *Windows*
+                    #### `win.hookWindowMessage (pesan, callback)` *Windows*
                     
                     * ` pesan </ 0> Integer</li>
 <li><code>callback ` Fungsi
@@ -1026,11 +1026,11 @@ win.loadURL(url)
 <p>Ubah ikon jendela.</p>
 
 <h4><code>win.setAutoHideMenuBar(hide)`</h4> 
-                                * `hide` Boolean
+                                * `Sembunyikan` Boolean
                                 
-                                Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+                                Menetapkan apakah jendela menu bar harus menyembunyikan diri secara otomatis. Pernah mengatur menu bar hanya akan menunjukkan bila pengguna menekan tombol `Alt` tunggal.
                                 
-                                If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+                                Jika bilah menu sudah terlihat, memanggil `setAutoHideMenuBar(true)` tidak menyembunyikan itu segera.
                                 
                                 #### `win.isMenuBarAutoHide()`
                                 
