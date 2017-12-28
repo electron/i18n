@@ -8,6 +8,6 @@ Proses: [utama](../tutorial/quick-start.md#main-process)
 
 * `pilihan` Objek 
   * `ukuran` String (opsional) - Ukuran spacer, nilai yang mungkin adalah: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+    * `kecil` - kecil ruang antara item.
+    * `besar` - besar ruang antara item.
+    * `fleksibel` - mengambil semua ruang yang tersedia.
