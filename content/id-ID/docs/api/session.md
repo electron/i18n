@@ -28,7 +28,8 @@ Modul ` sesi ` memiliki metode berikut:
 * `pilihan` Sasaran 
   * `cache` Boolean - Baik untuk mengaktifkan cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Kembali ` Sesi </ 0> - Contoh sesi dari <code> partisi </ 0> senar. When there is an existing
+<code>Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
