@@ -1,16 +1,16 @@
-## Kelas: TouchBarSlider
+## Kelas: TouchBarSpacer
 
-> Buat slider di panel sentuh untuk aplikasi macOS asli
+> Buat label di bilah sentuh untuk aplikasi macOS asli
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
 
-* `pilihan` Obyek 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
+* `options` Benda 
+  * `label` String (opsional) - Teks tombol.
+  * `nilai` Bulat (opsional) - nilai dipilih.
+  * `nilai` Bulat (opsional) - nilai dipilih.
+  * `nilai` Bulat (opsional) - nilai dipilih.
   * `perubahan` Fungsi (opsional) - Fungsi untuk memanggil saat slider diganti. 
     * `newValue` Number - The value that the user selected on the Slider
 
