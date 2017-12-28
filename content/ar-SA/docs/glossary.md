@@ -6,9 +6,9 @@
 
 أسار تعني أرشيف تنسيق أتوم شيل. [إسار](https://github.com/electron/asar) هو أرشيف بسيط `تار`- مثل صيغة تار التي تدمج عدة ملفات في ملف واحد. الإلكترون يمكن قراءة ملفات تعسفية منه دون تفريغ الملف بأكمله.
 
-تم إنشاء تنسيق أسار في المقام الأول لتحسين الأداء على ويندوز... تودو
+تم إنشاء تنسيق أسار في المقام الأول لتحسين الأداء على ويندوز
 
-### برايتراي
+### Brightray
 
 برايتراي [هو](https://github.com/electron-archive/brightray) مكتبة ثابتة والتي جعلت [ملفات كروميوم](#libchromiumcontent) أسهل للاستخدام في التطبيقات. تم الآن إهمالها ودمجها في الكود باس الكترون.
 
@@ -102,17 +102,17 @@ See also: [process](#process), [main process](#main-process)
 
 ### userland
 
-هذا المصطلح نشأ في مجتمع Unix، حيث "userland" أو "userspace" تشير إلى البرامج التي تعمل خارج نواة نظام التشغيل. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+هذا المصطلح نشأ في مجتمع Unix، حيث "userland" أو "userspace" تشير إلى البرامج التي تعمل خارج نواة نظام التشغيل. في الآونة الأخيرة، تم تعميم هذا المصطلح في مجتمع Node. js npm ل التمييز بين الميزات المتوفرة في "node core" مقابل حزم نشرت إلى سجل npm من قبل مجتمع "أكبر بكثير".
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+مثل node، الالكترون تركز على وجود مجموعة صغيرة من واجهات برمجة التطبيقات التي توفر جميع الأوليات اللازمة تطوير تطبيقات سطح المكتب منصة متعددة. فلسفة التصميم هذه تسمح للإلكترون لتبقى أداة مرنة دون إفراط في وصف كيفية استخدامها. Userland تمكن المستخدمين من إنشاء وتبادل الأدوات التي توفر وظائف إضافية علاوة على ما هو متوفر في "core".
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 هو محرك جافا سكريبت المفتوح المصدر من غوغل. هو مكتوب في C ++ و هو المستخدم في غوغل كروم. V8 يمكن تشغيل مستقل، أو يمكن أن تكون جزءا لا يتجزأ من أي تطبيق C ++.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+بني الإلكترون V8 كجزء من كروميوم ثم يشير node إلى V8 عندما تم البناء.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+لا تزال أرقام الإصدار من V8 تطابق أرقام غوغل كروم. يتضمن كروم 59 V8 5.9، يتضمن كروم 58 V8 5.8،.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
