@@ -156,19 +156,19 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 <li><code> method </ 0>  String</li>
 <li><code>session` Object (optional)
                                   * `uploadData` Objek (opsional) 
-                                    * `contentType` String - MIME type of the content.
+                                    * `contentType` String - jenis konten MIME.
                                     * `data` String - Content to be sent.
                             * `penyelesaian` Fungsi (opsional) 
                               * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Registers a protocol of <code>scheme` that will send an HTTP request as a response.</p> 
-                                The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+<p>Mendaftarkan protokol <code>skema` yang akan mengirim permintaan HTTP sebagai tanggapan.</p> 
+                                Penggunaannya sama dengan ` registerFileProtocol`, kecuali bahwa `callback` harus dipanggil dengan objek ` redirectRequest` yang memiliki `url`, ` method `, `rujukan `, `uploadData` dan`sesi`.
                                 
-                                By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+                                Secara default permintaan HTTP akan menggunakan kembali sesi saat ini. Jika Anda menginginkan meminta untuk memiliki sesi yang berbeda Anda harus menetapkan `sesi`ke`null`.
                                 
-                                For POST requests the `uploadData` object must be provided.
+                                Agar POST meminta objek `uploadData` harus disediakan.
                                 
                                 ### `protocol.unregisterProtocol(scheme[, completion])`
                                 
@@ -178,7 +178,7 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 </ul></li>
 </ul>
 
-<p>Unregisters the custom protocol of <code>scheme`.</p> 
+<p>Unregisters protokol kustom <code>skema`.</p> 
                                     ### `protocol.isProtocolHandled(scheme, callback)`
                                     
                                     * ` skema </ 0>  String</li>
@@ -187,8 +187,8 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 </ul></li>
 </ul>
 
-<p>The <code>callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.</p> 
-                                        ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
+<p>The<code>callback ` akan dipanggil dengan boolean yang menunjukkan apakah ada sudah menjadi handler untuk skema ``.</p> 
+                                        ### `protocol.interceptFileProtocol(skema, handler[,completion])`
                                         
                                         * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
@@ -204,7 +204,7 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 </ul></li>
 </ul>
 
-<p>Intercepts <code>scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.</p> 
+<p>Sisipkan <code>skema` dan gunakan ` handler ` sebagai penangan baru protokol yang mengirimkan file sebagai tanggapan.</p> 
                                             ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
                                             
                                             * ` skema </ 0>  String</li>
@@ -221,7 +221,7 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 </ul></li>
 </ul>
 
-<p>Intercepts <code>scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.</p> 
+<p>Sisipkan <code>skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.</p> 
                                                 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
                                                 
                                                 * ` skema </ 0>  String</li>
@@ -238,7 +238,7 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 </ul></li>
 </ul>
 
-<p>Intercepts <code>scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.</p> 
+<p>Sisipkan <code>skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.</p> 
                                                     ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
                                                     
                                                     * ` skema </ 0>  String</li>
