@@ -90,9 +90,7 @@ APP="YourApp"
 APP_PATH ="/path/to/YourApp.app" # Jalan ke lokasi yang ingin Anda gunakan untuk memasukkan paket yang ditandatangani.
 RESULT_PATH="~/Desktop/$APP.pkg"
 # Nama sertifikat yang Anda minta.
-APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
-INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+APP_KEY ="Aplikasi Pengembang Mac Pihak ke-3: Nama Perusahaan (APPIDENTITY)" INSTALLER_KEY="Installer Pengembang Mac Pihak Ketiga: Nama Perusahaan (APPIDENTITY)" # Jalan file plist anda.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
@@ -121,7 +119,7 @@ Jika Anda baru mengenal aplikasi sandboxing di bawah macos, Anda juga harus memb
 
 Terlepas dari penandatanganan aplikasi Anda secara manual, Anda juga dapat memilih untuk menggunakan modul [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) untuk melakukan pekerjaan itu.
 
-#### Sign Native Modules
+#### Masuki Modul Asli
 
 Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika menggunakan tanda elektron-osx, pastikan untuk menyertakan jalan ke binari yang dibangun di dalamnya daftar argumen:
 
@@ -129,17 +127,17 @@ Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika mengg
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versi 8.1.0 dan yang lebih baru mengabaikan file tersebut secara default.
 
-### Upload Your App
+### Upload Aplikasi Anda
 
 Setelah menandatangani aplikasi Anda, Anda dapat menggunakan Application Loader untuk mengunggahnya ke iTunes hubungkan untuk diproses, pastikan Anda telah membuat [membuat catatan](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)sebelum mengunggah.
 
-### Submit Your App for Review
+### Kirimkan Aplikasi Anda untuk Diperiksa
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+Setelah langkah ini, anda dapat [ mengirimkan aplikasi untuk ditinjau](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## Keterbatasan MAS Build
 
 Untuk memenuhi semua persyaratan untuk sandboxing aplikasi, modul berikut telah dinonaktifkan dalam MAS build:
 
@@ -154,27 +152,25 @@ dan perilaku berikut telah diubah:
 
 Selain itu, karena penggunaan sandboxing aplikasi, sumber daya yang bisa diakses oleh aplikasi ini sangat terbatas; kamu bisa membaca [App Sandboxing](https://developer.apple.com/app-sandboxing/) untuk informasi lebih lanjut.
 
-### Additional Entitlements
+### Tambahan Entitlements
 
 Bergantung pada API Elektron yang digunakan aplikasi Anda, Anda mungkin perlu menambahkan tambahan hak untuk berkas`parent.plist` agar dapat menggunakan API ini dari blog aplikasi Mac App Store anda dibuat.
 
 #### Internet akses
 
-Enable outgoing network connections to allow your app to connect to a server:
+Aktifkan koneksi jaringan keluar untuk memungkinkan aplikasi Anda terhubung ke server:
 
 ```xml
-<key>com.apple.security.network.client</key>
-<true/>
+<key>com.apple.security.network.client</key> <true/>
 ```
 
 Aktifkan koneksi jaringan masuk agar aplikasi Anda dapat membuka jaringan soket mendengarkan:
 
 ```xml
-<key>com.apple.security.network.server</key>
-<true/>
+<key>com.apple.security.network.server </key> <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+Lihat [Mengaktifkan dokumentasi Akses Jaringan](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) untuk lebih jelasnya.
 
 #### dialog.showOpenDialog
 
