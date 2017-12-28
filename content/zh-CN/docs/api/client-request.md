@@ -112,7 +112,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+当发出重定，并且模式为 `manuals(手动)`时触发。调用[`request.followRedirect`](#requestfollowRedirect) 将持续重定向
 
 ### 实例属性
 
