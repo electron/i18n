@@ -82,11 +82,11 @@ $ npm run clean-build
 
 **Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
 
-## Pengujian
+## Uji
 
 Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
 
-## Pemecahan masalah
+## Pemecahan Masalah
 
 ### Perintah xxxx tidak ditemukan
 
