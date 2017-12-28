@@ -1,6 +1,6 @@
 # Membangun Intruksi (Windows)
 
-Ikuti panduan di bawah ini untuk membangun Electron pada Windows.
+Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
 ## Prasyarat
 
@@ -32,7 +32,7 @@ $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Membangun
+## Bangunan
 
 Membangun kedua rilis dan Debug target:
 
@@ -40,7 +40,7 @@ Membangun kedua rilis dan Debug target:
 $ python script\build.py
 ```
 
-Anda juga hanya dapat membangun Debug target:
+Anda juga dapat membangun target Debug saja:
 
 ```powershell
 $ python script\build.py - c D
@@ -68,7 +68,7 @@ $ python script\bootstrap.py --msvs
 
 ## Membersihkan
 
-Untuk membersihkan bangunan file:
+Untuk membersihkan membangun file:
 
 ```powershell
 $ npm run clean
