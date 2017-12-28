@@ -22,11 +22,11 @@ Una imagen de disco de Apple es un formato de empaquetado utilizado por macOS. A
 
 ### IME
 
-Método de entrada del editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Método de entrada del editor. Un programa que permite a los usuarios introducir caracteres y símbolos no encontrados en su teclado. Por ejemplo, esto permite a los usuarios de teclados de latín introducir caracteres chinos, japoneses, coreanos e indios.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC significa Comunicación de Inter-Procesos. Electron usa IPC para enviar mensajes JSON serializados entre los procesos [principales](#main-process) y de [renderizado](#renderer-process).
 
 ### libchromiumcontent
 
