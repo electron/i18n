@@ -1,10 +1,10 @@
-# Glossary
+# المعجم
 
-This page defines some terminology that is commonly used in Electron development.
+تعرف هذه الصفحة بعض المصطلحات التي يشيع استخدامها في تطوير الإلكترون.
 
-### ASAR
+### أرشيف تنسيق أتوم شيل
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+أسار تعني أرشيف تنسيق أتوم شيل. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
 The ASAR format was created primarily to improve performance on Windows... TODO
 
