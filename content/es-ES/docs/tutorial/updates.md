@@ -19,13 +19,13 @@ Si su aplicación está empaquetada con [electron-builder](https://github.com/el
 
 Una vez ya ha utilizado su servidor de actualizaciones, continúe importando los modulos requeridos en su código. El siguiente código podría variar para diferente servidores de software, pero funciona como está descrito cuando se usa [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Importante:** por favor asegúrese de que el código abajo solo sea ejecutado en su paquete de aplicaciones, y no en desarrollo. Puede usar [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) para verificar el entorno.
 
 ```js
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Luego, construya el URL de uno de los servidores de actualizaciones y contarlo [autoUpdater](../api/auto-updater.md):
 
 ```js
 const server = 'https://your-deployment-url.com'
@@ -34,7 +34,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Como último paso, chequee por actualizaciones. El ejemplo abajo lo verificará cada minuto:
 
 ```js
 setInterval(() => {
@@ -42,11 +42,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Una vez que su aplicación esté [empaquetada](../tutorial/application-distribution.md), esta recibirá una actualización por cada nuevo [Lanzamiento en GitHub](https://help.github.com/articles/creating-releases/) que usted realice.
 
-## Applying updates
+## Aplicando actualizaciones
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Ahora que ha configurado los mecanismos básicos de actualización para su aplicación, tiene que asegurarse que el usuario será notificado cuando haya una actualización. Esto puede ser conseguido usando el Actualizador automático API [events](../api/auto-updater.md#events):
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -64,7 +64,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+También asegúrese de que los errores estén [siendo manejados](../api/auto-updater.md#event-error). Aquí hay un ejemplo para cargarlos al `stderr`:
 
 ```js
 autoUpdater.on('error', message => {
