@@ -40,7 +40,7 @@ $ git klon https://github.com/electron/electron
 
 ## Bootstrapping
 
-Skrip bootstrap akan men-download semua dependensi diperlukan membangun dan menciptakan membangun project file. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Skrip bootstrap akan men-download semua dependensi diperlukan membangun dan menciptakan membangun project file. Perhatikan bahwa kita menggunakan  ninja </ 0> untuk membangun Elektron sehingga tidak ada proyek Xcode yang dihasilkan.</p> 
 
 ```sh
 $ cd elektron
