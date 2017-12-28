@@ -188,7 +188,7 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     
     Dibunyikan saat navigasi dalam halaman terjadi.
     
-    Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+    Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
     
     #### Event: 'will-prevent-unload'
     
@@ -227,7 +227,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 <li><code> terbunuh </ 0>  Boolean</li>
 </ul>
 
-<p>Emitted when the renderer process crashes or is killed.</p>
+<p>Emitted ketika proses renderer crash atau terbunuh.</p>
 
 <h4>Event: 'plugin-crashed'</h4>
 
@@ -238,7 +238,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 <li><code> nama </ 0>  String</li>
 <li><code>version` String
   
-  Emitted when a plugin process has crashed.
+  Dibunyikan ketika proses plugin telah jatuh.
   
   #### Event: 'destroyed'
   
@@ -420,7 +420,7 @@ Pengembalian:
       * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
       * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
       * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-      * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+      * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
         * `inError` Boolean - Whether the media element has crashed.
         * `isPaused` Boolean - Whether the media element is paused.
         * `isMuted` Boolean - Whether the media element is muted.
@@ -429,7 +429,7 @@ Pengembalian:
         * `isControlsVisible` Boolean - Whether the media element's controls are visible.
         * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
         * `canRotate` Boolean - Whether the media element can be rotated.
-      * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
+      * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
         * `canUndo` Boolean - Whether the renderer believes it can undo.
         * `canRedo` Boolean - Whether the renderer believes it can redo.
         * `canCut` Boolean - Whether the renderer believes it can cut.
@@ -438,7 +438,7 @@ Pengembalian:
         * `canDelete` Boolean - Whether the renderer believes it can delete.
         * `canSelectAll` Boolean - Whether the renderer believes it can select all.
     
-    Emitted when there is a new context menu that needs to be handled.
+    Emitted saat ada menu konteks baru yang perlu ditangani.
     
     #### Event: 'select-bluetooth-device'
     
@@ -449,7 +449,7 @@ Pengembalian:
     * `callback` Fungsi 
       * `deviceId` String
     
-    Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+    Dipancarkan saat perangkat bluetooth perlu dipilih saat dihubungi `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
     
     ```javascript
 const {app, webContents} = require('electron')
@@ -478,7 +478,7 @@ Pengembalian:
 <li><code>dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+Emitted ketika bingkai baru dihasilkan. Hanya area kotor yang dilewati di penyangga.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -577,15 +577,15 @@ Returns `Boolean` - Whether the web page is waiting for a first-response from th
 
 #### `contents.stop()`
 
-Stops any pending navigation.
+Menghentikan navigasi yang tertunda.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Muat ulang halaman web saat ini.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Muat ulang halaman ini dan mengabaikan cache.
 
 #### `contents.canGoBack()`
 
@@ -603,7 +603,7 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+Menghapus sejarah navigasi.
 
 #### `contents.goBack()`
 
@@ -617,7 +617,7 @@ Makes the browser go forward a web page.
 
 * `index` Integer
 
-Navigates browser to the specified absolute web page index.
+Menavigasi browser ke indeks halaman web absolut yang ditentukan.
 
 #### `contents.goToOffset(offset)`
 
@@ -633,7 +633,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for this web page.
+Mengganti agen pengguna untuk halaman web ini.
 
 #### `contents.getUserAgent()`
 
@@ -643,7 +643,7 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injects CSS into the current web page.
+Menyuntikkan CSS ke dalam halaman web saat ini.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -671,7 +671,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `ignore` Boolean
 
-Ignore application menu shortcuts while this web contents is focused.
+Abaikan shortcut menu aplikasi sementara konten web ini difokuskan.
 
 #### `contents.setAudioMuted(muted)`
 
@@ -751,7 +751,7 @@ Executes the editing command `copy` in web page.
 * `x` Integer
 * `y` Integer
 
-Copy the image at the given position to the clipboard.
+Salin gambar pada posisi yang diberikan ke clipboard.
 
 #### `contents.paste()`
 
@@ -799,7 +799,7 @@ Inserts `text` to the focused element.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
 
 Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
