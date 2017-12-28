@@ -196,7 +196,7 @@ The existing webview will see the `destroy` event and will then create a new web
 
 When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. Ini dapat membuat ukuran lebih cepat dibandingkan dengan mengandalkan webview elemen batas-batas untuk secara otomatis mengubah ukuran isi.
 
 ```javascript
 const {webContents} = require('electron')
@@ -239,7 +239,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * ` url </ 0> URL</li>
-<li><code>pilihan` Objek (opsional) 
+<li><code>pilihan` Objek (pilihan) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -533,38 +533,38 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       Pengembalian:
       
       * ` url </ 0>  String</li>
-<li><code>adalahBingkaiUtama` Boolean
+<li><code>isMainFrame` Boolean
       
       Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
       
-      ### Acara: 'did-finish-load'
+      ### Event: 'Apakah-selesai-load'
       
       Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
       
-      ### Acara: 'did-fail-load'
+      ### Event: 'Apakah-gagal-load'
       
       Pengembalian:
       
-      * `errorCode` Integer
+      * `errorCode` Bilangan bulat
       * `errorDescription` String
       * `validatedURL` String
-      * `adalahBingkaiUtama` Boolean
+      * `isMainFrame` Boolean
       
       This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
       
-      ### Event: 'did-frame-finish-load'
+      ### Event: 'Apakah-frame-selesai-load'
       
       Pengembalian:
       
-      * `adalahBingkaiUtama` Boolean
+      * `isMainFrame` Boolean
       
       Fired when a frame has done navigation.
       
-      ### Event: 'apakah-mulai-loading '
+      ### Event: 'Apakah-mulai-loading'
       
       Corresponds to the points in time when the spinner of the tab starts spinning.
       
-      ### Event: 'apakah-mulai-loading '
+      ### Event: 'Apakah-stop-loading'
       
       Corresponds to the points in time when the spinner of the tab stops spinning.
       
@@ -589,7 +589,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       * `oldURL` String
       * `newURL` String
-      * `adalahBingkaiUtama` Boolean
+      * `isMainFrame` Boolean
       
       Fired when a redirect was received while requesting a resource.
       
@@ -720,7 +720,7 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     
     Pengembalian:
     
-    * `adalahBingkaiUtama` Boolean
+    * `isMainFrame` Boolean
     * ` url </ 0>  String</li>
 </ul>
 
