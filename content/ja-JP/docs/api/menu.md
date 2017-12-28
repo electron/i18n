@@ -16,23 +16,23 @@
 
 * `menu` Menu
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+macOSではアプリケーション メニューとして `menu` を設定します。Windows と Linuxでは、`menu` は各ウィンドウの上部のメニューとして設定されます。
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+`null`を渡すと、Windows、Linuxではメニューバーを削除しますが削除しますが、macOSでは何も影響を与えません。
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**注:**このAPIは`app`モジュールの`ready`イベントの後に呼び出されます。
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+`Menu`を返します - セットされていればメニューを、セットされていなければ`null`を返します。
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**注:**返される `メニュー` のインスタンスは、メニュー項目の動的な追加または削除をサポートしていません。 [インスタンス プロパティ](#instance-properties) は動的に変更ができます。
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+`アクション` をアプリケーションの最初のレスポンダーに送信します。 macOS メニューの既定の動作をエミュレートするために使用されます。 通常 [`MenuItem`](menu-item.md) の [`roll`](menu-item.md#roles) プロパティのみを使用します。
 
 See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
 
