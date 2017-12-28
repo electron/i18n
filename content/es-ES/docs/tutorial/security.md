@@ -33,26 +33,26 @@ Esto no es aprueba de balas, pero debería intentar lo siguiente al menos:
 * No desactive `webSecurity`. desactivarlo deshabilitará la política de mismo origen.
 * Defina un [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) y use reglas extrictas (i.e. `script-src 'self'`)
 * [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) que permite a las cadenas ser ejecutadas como código.
-* Do not set `allowRunningInsecureContent` to true.
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
-* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+* No ajuste `allowRunningInsecureContent` a verdad.
+* No habilite `experimentalFeatures` o `experimentalCanvasFeatures` a menos que sepa que está haciendo.
+* No use `blinkFeatures` a menos que sepa qué está haciendo.
+* Visor web: no agregue el atributo `nodeintegration`.
+* Visor web: no use `disablewebsecurity`
+* Visor web: no use `allowpopups`
+* Visor web: no use `insertCSS` o `executeJavaScript` con CSS/JS remotos.
+* Visor web: verifique las opciones y parámetros de todos `<webview>` los tags antes de que sean atacados usando el evento `will-attach-webview`:
 
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
+    // desactive los scrips predeterminados si están en desuso o verifique que su locación sea legítima
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Disable node integration
+    // Inhabilite la integración de los nodos
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
+    // Verifica que la URL estén cargadas
     if (!params.src.startsWith('https://yourapp.com/')) {
       event.preventDefault()
     }
@@ -60,4 +60,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+De nuevo, esta lista solo minimiza los riesgos, no los remueve. Si su meta es mostrar una página web, un navegador sería una opción más segura.
