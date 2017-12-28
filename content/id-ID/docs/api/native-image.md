@@ -108,7 +108,7 @@ Mengembalikan ` gambar asli </ 0></p>
 
 <p>Mengembalikan <code> gambar asli </ 0></p>
 
-<p>Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau bukan gambar yang valid.</p> 
+<p>Membuat instance <code>NativeImage` baru dari sebuah file yang berada di `path`. Metode ini mengembalikan gambar kosong jika `path` tidak ada, tidak bisa dibaca, atau tidak gambar yang valid.</p> 
  ```javascript
 const nativeImage = require('elektron').nativeImage
 
@@ -179,7 +179,7 @@ Perbedaan antara `getBitmap() ` dan ` toBitmap ()` adalah, `getBitmap()` tidak s
 
 Mengembalikan `Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.
 
-Perhatikan bahwa pointer kembali adalah pointer lemah untuk gambar asli yang mendasari bukan salinan, sehingga Anda *harus* memastikan bahwa terkait dengan`nativeImage` contoh disimpan di sekitar.
+Perhatikan bahwa pointer yang dikembalikan adalah pointer lemah ke native yang mendasarinya gambar bukan salinannya, jadi Anda *harus* memastikannya terkait `nativeImage` contoh disimpan di sekitar.
 
 #### `image.isEmpty()`
 
