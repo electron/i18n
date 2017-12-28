@@ -55,7 +55,7 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   The `menu` object has the following instance methods:
   
-  #### `menu.popup ([browserWindow, options])`
+  #### `menu.popup([browserWindow, options])`
   
   * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
   * `pilihan` Objek (opsional) 
