@@ -266,7 +266,7 @@ Returns `Boolean` - Whether the guest page is waiting for a first-response for t
 
 ### `<webview>.stop()`
 
-Stops any pending navigation.
+Menghentikan navigasi yang tertunda.
 
 ### `<webview>.reload()`
 
@@ -292,7 +292,7 @@ Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+Menghapus sejarah navigasi.
 
 ### `<webview>.goBack()`
 
@@ -442,7 +442,7 @@ Inserts `text` to the focused element.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
 
 Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
@@ -727,8 +727,8 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
 <p>Dibunyikan saat navigasi dalam halaman terjadi.</p>
 
 <p>Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
-navigasi di luar halaman. Examples of this occurring are when anchor links
-are clicked or when the DOM <code>hashchange` event is triggered.</p> 
+navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
+diklik atau saat event hash <code>hashchange` dipicu.</p> 
       ### Acara : 'dekat'
       
       Fired when the guest page attempts to close itself.
