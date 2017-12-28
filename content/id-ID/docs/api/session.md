@@ -1,12 +1,12 @@
-# session
+# sesi
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Mengelola sesi browser, cookies, cache, pengaturan proxy, dll.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Utama](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Modul ` sesi ` dapat digunakan untuk membuat objek ` Sesi ` baru.
 
-Anda juga dapat mengakses `sesi</> dari halaman yang ada dengan menggunakan sesi <code> ` milik [` WebContents `](web-contents.md), atau dari modul ` sesi `.
+Anda juga dapat mengakses `sesi</> dari halaman yang ada dengan menggunakan properti <code>sesi` dari [` WebContents `](web-contents.md), atau dari modul `sesi`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,15 +18,15 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Methods
+## Metode
 
-The `session` module has the following methods:
+Modul ` sesi ` memiliki metode berikut:
 
-### `session.fromPartition(partition[, options])`
+### `sesi.daripartisi(partisi[, pilihan])`
 
-* `partition` String
-* `options` Object 
-  * `cache` Boolean - Whether to enable cache.
+* `partisi` Tali
+* `pilihan` Sasaran 
+  * `cache` Boolean - Baik untuk mengaktifkan cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
