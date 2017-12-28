@@ -6,11 +6,11 @@
 
 ### پردازش اصلی
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+در الکترون، پروسه ها با صدا کردن اسکریپت اصلی package.json اجرا می شوند. اسکریپتی که هنگام اجرا در پروسه اصلی می تواند رابط کاربری گرافیکی را به وسیله ایجاد صفحات وب نمایش دهد.
 
 ### پردازش رندرینگ
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+از آنجا که الکترون برای نمایش صفحات وب از Chromium استفاده می‌کند، از معماری چند پردازشی هم بهرمند می‌شود. هر صفحه وب در الکترون پروسه خود را برای اجرا دارد، هر کدام پردازش جداگانه دارد.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
