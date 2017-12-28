@@ -102,7 +102,7 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     Sebuah `centang` item menu akan beralih `diperiksa` properti dan mematikan saat dipilih.
     
-    Sebuah `radio` item menu akan menyala nya `diperiksa` properti saat diklik, dan akan mematikan bahwa properti untuk semua item yang berdekatan di menu yang sama.
+    Sebuah `radio` item menu akan menyala nya `diperiksa` properti saat diklik, dan akan mematikan properti itu untuk semua item yang berdekatan di menu yang sama.
     
     Anda dapat menambahkan fungsi `klik` untuk perilaku tambahan.
     
