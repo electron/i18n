@@ -6,7 +6,7 @@ Proses: [Renderer](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
-Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya dari proses renderer, modul `ipc` diperlukan untuk mengirim pesan antar proses ke proses utama. Dengan modul `remote`, Anda dapat memanggil metode dari objek proses utama tanpa secara eksplisit mengirim pesan antar proses, mirip dengan Java [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). Contoh membuat jendela browser dari a Proses renderer:
+Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya Dari proses renderer, modul `ipc` diperlukan untuk mengirim antar proses pesan ke proses utama. Dengan modul `remote`, Anda dapat memanggil metode dari objek proses utama tanpa secara eksplisit mengirim pesan antar proses, mirip dengan Java [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). Contoh membuat jendela browser dari a Proses renderer:
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
@@ -20,7 +20,7 @@ win.loadURL('https://github.com')
 
 Setiap objek (termasuk fungsi) dikembalikan oleh `remote` modul mewakili sebuah Objek dalam proses utama (kita menyebutnya remote object atau remote function). Saat Anda memanggil metode objek jarak jauh, panggil fungsi remote, atau buat Sebuah objek baru dengan konstruktor jarak jauh (fungsi), sebenarnya Anda mengirim pesan inter-proses sinkron.
 
-Dalam contoh di atas, baik `BrowserWindow` dan `menang` adalah objek remote dan `BrowserWindow baru` tidak membuat `BrowserWindow` objek dalam proses renderer. Sebagai gantinya, ia menciptakan objek `BrowserWindow` dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu objek `win`.
+Dalam contoh di atas, baik `BrowserWindow` dan `menang` adalah objek remote dan `BrowserWindow baru` tidak membuat `BrowserWindow` objek dalam proses renderer. Sebagai gantinya, ia menciptakan objek `BrowserWindow`dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu `menang` objek.
 
 **Catatan:** Hanya [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) yang ada Bila objek remote pertama direferensikan bisa diakses via remote.
 
@@ -98,7 +98,7 @@ Itu `jarak jauh` modul memiliki metode berikut:
 
 * `module` String
 
-Mengembalikan `sembarang` - Objek dikembalikan oleh `require(module)` pada proses utama. Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk proses utama.
+Mengembalikan `sembarang` - Objek dikembalikan oleh `require (module)` pada proses utama. Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk dari proses utama.
 
 misalnya
 
