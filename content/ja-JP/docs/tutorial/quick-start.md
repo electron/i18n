@@ -84,7 +84,7 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 全てのウィンドウが閉じられた時に終了する
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -123,7 +123,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## アプリを実行する
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
@@ -181,7 +181,7 @@ $ .\electron\electron.exe your-app\
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### 配布用パッケージとして実行
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
@@ -189,17 +189,17 @@ After you're done writing your app, you can create a distribution by following t
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Note**: 以下の手順でサンプルを実行する場合、[Git](https://git-scm.com) と [Node.js](https://nodejs.org/en/download/) （[npm](https://npmjs.org) を含む）をシステムにインストールしておく必要があります。
 
 ```sh
-# Clone the repository
+# リポジトリをクローン
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# リポジトリに移動
 $ cd electron-quick-start
-# Install dependencies
+# 依存ライブラリをインストール
 $ npm install
-# Run the app
+# アプリを実行
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+さらにサンプルコードを入手したい場合、Electron 開発者たちの素晴らしいコミュニティによって作成された[ボイラープレートのリスト](https://electronjs.org/community#boilerplates)を御覧ください。
