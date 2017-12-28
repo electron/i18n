@@ -1,19 +1,13 @@
 # kontenWeb
 
-> Render dan kontrol halaman web.
+> Kontrol dan render halaman web.
 
-Proses:  Utama </ 0></p> 
+Proses: [utama](../glossary.md#main-process)
 
-`screen` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Hal ini bertanggung jawab untuk merender dan mengendalikan halaman web dan merupakan milik dari objek [` BrowserWindow `](browser-window.md). Contoh mengakses ` konten web `:
+`webContents` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ini bertanggung jawab untuk render dan mengendalikan halaman web dan properti objek [`BrowserWindow`](browser-window.md). Contoh untuk mengakses objek `webContents`:
 
 ```javascript
-const {BrowserWindow} = membutuhkan ('elektron')
-
-let win = new BrowserWindow ({width: 800, height: 1500})
-win.loadURL ('http://github.com')
-
-biarkan isi = win.webContents
-console.log (isi)
+const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow({width: 800, height: 1500}) win.loadURL ('http://github.com') Biarkan isi baru = win.webContents console.log(contents)
 ```
 
 ## Metode
