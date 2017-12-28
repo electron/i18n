@@ -43,8 +43,8 @@ Para referencias API, hay excepciones a esta regla.
 ## Reglas de Markdown
 
 * Usa `sh` en vez de `cmd` en code blocks (debido al resaltador de sintaxis).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* Las líneas deben estar listas en 80 columnas.
+* No anidar listas de más de 2 niveles (debido al renderizador markdown).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
 ## Escoger palabras
