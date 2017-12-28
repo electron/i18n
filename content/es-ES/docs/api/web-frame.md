@@ -1,26 +1,24 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> Personalice la reproducción de la página web actual.
 
-Proceso: [Renderizador](../glossary.md#renderer-process)
+Proceso: [Reproducir](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Un ejemplo de zoom de la página actual al 200%.
 
 ```javascript
 const {webFrame} = require('electron')
-
-webFrame.setZoomFactor(2)
 ```
 
 ## Métodos
 
-The `webFrame` module has the following methods:
+El módulo `webFrame` tiene los siguientes métodos:
 
 ### `webFrame.setZoomFactor(factor)`
 
 * `factor` Number - Zoom factor.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
