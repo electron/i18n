@@ -724,10 +724,10 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     * ` url </ 0>  String</li>
 </ul>
 
-<p>Emitted when an in-page navigation happened.</p>
+<p>Dibunyikan saat navigasi dalam halaman terjadi.</p>
 
-<p>When in-page navigation happens, the page URL changes but does not cause
-navigation outside of the page. Examples of this occurring are when anchor links
+<p>Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
+navigasi di luar halaman. Examples of this occurring are when anchor links
 are clicked or when the DOM <code>hashchange` event is triggered.</p> 
       ### Acara : 'dekat'
       
