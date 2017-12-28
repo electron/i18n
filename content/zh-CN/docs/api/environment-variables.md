@@ -24,7 +24,7 @@ Windows 控制台示例:
 
 ### `GOOGLE_API_KEY`
 
-Electron包含一个硬编码的 API key用于请求谷歌的地理编码服务。 由于此 API key包含在每个版本的电子中, 因此它通常超过其使用限额。 为了应对这一情况，您可以在环境中提供自己的 Google API key。 在打开将进行地理编码请求的任何Browser窗口之前, 请在主进程文件中放置以下代码:
+Electron包含一个硬编码的 API key用于请求谷歌的地理编码服务。 由于此 API key包含在每个版本的Electron中, 因此它通常超过其使用限额。 为了应对这一情况，您可以在环境中提供自己的 Google API key。 在打开将进行地理编码请求的任何Browser窗口之前, 请在主进程文件中放置以下代码:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
