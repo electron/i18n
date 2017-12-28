@@ -48,29 +48,29 @@ Sebuah `Sesi` objek, objek sesi bawaan pada aplikasi.
 
 > Dapatkan dan atur peralatan dari sebuah sesi.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Utama](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 
 ```javascript
-const {session} = require('electron')
-const ses = session.fromPartition('persist:name')
+const {sesi} = memerlukan('electron')
+const ses = sesi.daripartisi('pertahanan:nama')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Perihal contoh
 
-The following events are available on instances of `Session`:
+Peristiwa berikut tersedia pada contoh `Sesi`:
 
-#### Event: 'will-download'
+#### Perihan: 'akan-terunduh'
 
-* `event` Event
-* `item` [DownloadItem](download-item.md)
+* `acara` Acara
+* `barang` [unduhbarang](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Terpencar ketika Elektron akan men-download `barang` di `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` tidak akan tersedia dari tikungan berikutnya prosesnya.
 
 ```javascript
 const {session} = require('electron')
