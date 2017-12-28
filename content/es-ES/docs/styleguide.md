@@ -1,6 +1,6 @@
-# Electron Documentation Styleguide
+# Documentación de guía de estilo de Electron
 
-These are the guidelines for writing Electron documentation.
+Estos son los lineamientos para escribir documentación de Electron.
 
 ## Títulos
 
@@ -13,27 +13,27 @@ These are the guidelines for writing Electron documentation.
 Using `Quick Start` as example:
 
 ```markdown
-# Quick Start
+# Inicio Rápido
 
 ...
 
-## Main process
+## Proceso principal
 
 ...
 
-## Renderer process
+## Proceso de renderizado
 
 ...
 
-## Run your app
+## Ejecutar tu aplicación
 
 ...
 
-### Run as a distribution
+### Ejecutar como distribución
 
 ...
 
-### Manually downloaded Electron binary
+### Binario Electron descargado manualmente
 
 ...
 ```
@@ -47,12 +47,12 @@ For API references, there are exceptions to this rule.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Escoger palabras
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
 
-## API references
+## Referencias API
 
 The following rules only apply to the documentation of APIs.
 
