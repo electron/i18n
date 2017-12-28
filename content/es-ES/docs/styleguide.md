@@ -58,7 +58,7 @@ Las siguientes reglas sólo se aplican a la documentación de APIs.
 
 ### Título de Página
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Cada página debe utilizar el nombre real del objeto devuelto por `require('electron')` como el título, como `BrowserWindow`, `autoUpdater` y `session`.
 
 Under the page title must be a one-line description starting with `>`.
 
@@ -104,40 +104,40 @@ Usando `autoUpdater` como ejemplo:
 Usando las clases `Session` y `Cookies` como ejemplo:
 
 ```markdown
-# session
+# sesión
 
-## Methods
+## Métodos
 
 ### session.fromPartition(partition)
 
-## Properties
+## Propiedades
 
 ### session.defaultSession
 
-## Class: Session
+## Clase: Sesión
 
-### Instance Events
+### Eventos de Instancia
 
-#### Event: 'will-download'
+#### Evento: 'will-download'
 
-### Instance Methods
+### Métodos de Instancia
 
 #### `ses.getCacheSize(callback)`
 
-### Instance Properties
+### Propiedades de Instancia
 
 #### `ses.cookies`
 
-## Class: Cookies
+## Clase: Cookies
 
-### Instance Methods
+### Métodos de Instancia
 
 #### `cookies.get(filter, callback)`
 ```
 
 ### Métodos
 
-The methods chapter must be in the following form:
+El capítulo de métodos debe estar de la siguiente forma:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -172,7 +172,7 @@ Below the method is more detailed information on each of the arguments. The type
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Booleano (opcional) _macOS_ _Windows_ - Anima la cosa.
 ```
 
 `Array` type arguments must specify what elements the array may include in the description below.
@@ -181,25 +181,25 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### Eventos
 
-The events chapter must be in following form:
+El capítulo de eventos debe estar de la siguiente forma:
 
 ```markdown
-### Event: 'wake-up'
+### Evento: 'wake-up'
 
-Returns:
+Devuelve:
 
 * `time` String
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+El título puede ser `###` o `####`-niveles dependiendo de si es una propiedad de un módulo o una clase.
 
-The arguments of an event follow the same rules as methods.
+Los argumentos de un evento siguen las mismas reglas que los métodos.
 
 ### Propiedades
 
-The properties chapter must be in following form:
+El capítulo de propiedades debe estar de la siguiente forma:
 
 ```markdown
 ### session.defaultSession
@@ -207,7 +207,7 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+El título puede ser `#` o `#`-niveles dependiendo de si es una propiedad de un módulo o una clase.
 
 ## Traducciones de la documentación
 
