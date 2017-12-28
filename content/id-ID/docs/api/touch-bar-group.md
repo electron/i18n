@@ -4,7 +4,7 @@
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `baru TouchBarGroup(options)` *Experimental*
 
 * `pilihan` Obyek 
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+  * `item` [TouchBar](touch-bar.md) - item untuk menampilkan sebagai sebuah kelompok.
