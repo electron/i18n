@@ -12,17 +12,17 @@ Electron'da ` package.json ` 'ın ` ana ` komut dosyasını çalıştıran süre
 
 Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası ** oluşturucu işlemi ** olarak adlandırılan kendi işlemini çalıştırır.
 
-Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin vermez. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin vermez. Bununla birlikte, Electron kullanıcıları, daha düşük seviyedeki işletim sistemi etkileşimlerine izin veren web sayfalarında Node.js API'lerini kullanma gücüne sahiptir.
 
-### Differences Between Main Process and Renderer Process
+### Ana İşlem ve Oluşturucu İşlem Arasındaki Farklar
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Ana işlem ` TarayıcıPenceresi ` örnekleri oluşturarak web sayfaları oluşturur. Her ` TarayıcıPenceresi ` örneği, web sayfasını kendi oluşturucu işleminde çalıştırır. `TarayıcıPenceresi` örneği yok edildiğinde, ilgili oluşturucu işlemi de sonlandırılır.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Ana süreç, tüm web sayfalarını ve bunlara karşılık gelen oluşturucuyu yönetir. Her oluşturucu işlemi izoledir ve yalnızca içinde çalışan web sayfasıyla ilgilenir.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Web sayfalarında yerel GUI kaynaklarını web sayfalarındaki yönetmek çok tehlikeli ve kaynakların sızdırılması kolay olduğu için yerel GUI ile ilgili API'lerin çağrılmasına izin verilmez. Bir web sayfasında GUI işlemlerini gerçekleştirmek isterseniz, oluşturucu ana işlemin bu işlemleri gerçekleştirmesini istemek için web sayfasının süreci ana süreçle iletişim kurmalıdır.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+Electron'da, ana süreç ve oluşturucu işlemleri arasında iletişim kurmanın birkaç yolu var. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
 ## Write your First Electron App
 
