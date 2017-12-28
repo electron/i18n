@@ -1,10 +1,10 @@
 ## 类: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> 用于 Chrome 远程调试协议的备用传输。
 
 线程：[主线程](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome Developer Tools 在 JavaScript 运行时提供了一个 [ special binding ](https://developer.chrome.com/devtools/docs/debugger-protocol), 允许与页面进行交互和检测。
 
 ```javascript
 const {BrowserWindow} = require('electron')
