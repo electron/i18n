@@ -20,9 +20,9 @@
 
 پروسه اصلی، تمام صفحات وب و پروسه های رندر متناظر آن ها را مدیریت می‌کند. هر پروسه رندر، ایزوله است و مراقب صفحه وبی است که درونش در حال اجراست.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+در صفحات وب، دسترسی به API های رابط کاربری گرافیکی نیتیو مجاز نیست به خاطر اینکه مدیریت منابع نیتیو رابط کاربری گرافیکی در صفحات وب خیلی خطرناک است و به راحتی باعث نشتی منابع می‌شود. اگر هم بخواهید عملیات های رابط کاربری گرافیکی در صفحه وب اجرا کنید، پروسه رندر درون صفحه وب باید با ارتباط با پروسه اصلی و درخواست از آن عملیات را انجام دهد.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+در الکترون، ما راه های مختلفی برای ارتباط بین پروسه اصلی و پروسه رندر داریم. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
 ## اولین برنامه الکترون خود را بنویسید
 
