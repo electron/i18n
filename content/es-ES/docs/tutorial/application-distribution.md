@@ -22,7 +22,7 @@ electron/recursos/aplicaciones
 
 Luego ejecute `Electron.aplicaciones` (o `electron</ 0> en Linux, <code> electron.exe </ 0> en Windows), y Electron comenzará su aplicación. El directorio <code>electron` será entonces su distribución para entregar a los usuarios finales.
 
-## Packaging Your App into a File
+## Su aplicación se ha empaquetado en un archivo
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
