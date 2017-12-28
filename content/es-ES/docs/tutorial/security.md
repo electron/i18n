@@ -12,13 +12,13 @@ Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse 
 
 ## Actualizaciones y problemas de seguridad Chromium
 
-Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más pronto posible, los desarrolladores deben estar consientes que actualizar es una tarea muy serio - involucrando ediciones a mano a docenas o hasta cientos de archivos. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más pronto posible, los desarrolladores deben estar consientes que actualizar es una tarea muy serio - involucrando ediciones a mano a docenas o hasta cientos de archivos. Dados los recurso y contribuciones disponibles hoy, Electron no va a estar usando la última versión de Chomium, rezagandose por días o semanas.
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+Creemos que nuestro sistema de actualizaciones de Chromium alcanza un balance apropiado entre los recursos que tenemos disponibles y las necesidad de la mayoría de las aplicaciones en el marco de referencia. Estamos definitivamente interesados en escuchar más sobre casos específicos de gente que construye cosas encima de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
 
-## Ignoring Above Advice
+## Ignorando Consejos
 
-A security issue exists whenever you receive code from a remote destination and execute it locally. As an example, consider a remote website being displayed inside a browser window. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. Como ejemplo, considere una página web remota siendo mostrada dentro de una ventana del navegador. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
 > :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
 
