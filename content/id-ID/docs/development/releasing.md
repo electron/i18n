@@ -191,15 +191,14 @@ Setelah mempublikasikan berhasil, jalankan `npm run publish-to-npm` untuk menerb
 
 Dalam kasus pelepasan yang rusak dengan mesin CI rusak, mungkin kita harus melakukannya upload ulang binari untuk rilis yang sudah diterbitkan.
 
-Langkah pertama adalah pergi ke [Rilis](https://github.com/electron/electron/releases) halaman dan hapus binari yang rusak dengan berkas checksum `SHASUMS256.txt`.
+Langkah pertama adalah pergi ke [Releases](https://github.com/electron/electron/releases) halaman dan hapus binari yang rusak dengan `SHASUMS256.txt` file checksum.
 
 Kemudian buat distribusi secara manual untuk setiap platform dan unggah:
 
 ```sh
 # Checkout versi untuk diunggah ulang.
-git checkout THE.RELEASE.VERSION
-
-# Lakukan pelepasan, tetapkan target arsitektur.
+git checkout vTHE.RELEASE.VERSION
+# Apakah rilis membangun, menentukan satu target arsitektur.
 ./script/bootstrap.py --target_arch [arm | x64 | ia32]
 ./script/build.py -c R
 ./script/create-dist.py
