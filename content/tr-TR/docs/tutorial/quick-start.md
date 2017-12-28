@@ -54,35 +54,34 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+ //Pencere nesnesinin genel bir referansını tutun, aksi takdirde pencere
+ //JavaScript nesnesi çöp topladığında otomatik olarak kapatılacaktır.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Tarayıcı penceresini oluştur.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // ve uygulamanın index.html'sini yükle.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // DevToos'u aç.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Pencere kapatıldığında ortaya çıkar.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+  //Pencere nesnesini referans dışı bırakın,
+  // uygulamanız çoklu pencereleri destekliyorsa genellikle pencereleri
+  // bir dizide saklarsınız, bu, ilgili öğeyi silmeniz gereken zamandır.
     win = null
   })
 }
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Bu yöntem, Electron başlatmayı tamamladığında
+// ve tarayıcı pencereleri oluşturmaya hazır olduğunda çağrılır.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
