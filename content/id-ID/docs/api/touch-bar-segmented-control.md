@@ -1,30 +1,32 @@
 ## Kelas: TouchBarSegmentedControl
 
-> Buat kontrol tersegmentasi (grup tombol) di mana satu tombol memiliki status yang dipilih
+> Membuat kontrol tersegmentasi (tombol group) dimana satu tombol memiliki keadaan yang dipilih
 
-Proses: [ Utama](../tutorial/quick-start.md#main-process)
+Proses: [utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSegmentedControl(options)` *Experimental*
+### ` TouchBarLabel baru (pilihan) </ 0> <em> Eksperimental </ 1></h3>
 
-* `pilihan` Obyek 
-  * `segmentStyle` String - (opsional) Style dari segmen: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style
-    * `small-square` - The control is displayed using the small square style.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String - (opsional) Mode pemilihan kontrol: 
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. Bila mode multipel itu akan menjadi item terakhir yang dipilih.
-  * `perubahan` Fungsi - Dipanggil saat pengguna memilih segmen baru 
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+<ul>
+<li><code>pilihan` Objek 
+
+* `segmentStyle` String - gaya segmen (opsional): 
+  * `otomatis` - Default. Munculnya tersegmentasi kontrol otomatis ditentukan berdasarkan jenis jendela di yang kontrol ditampilkan dan posisi dalam jendela.
+  * `bulat` - kontrol ditampilkan menggunakan gaya bulat.
+  * `bertekstur-bulat` - kontrol ditampilkan menggunakan gaya bulat bertekstur.
+  * `putaran-rect` - kontrol ditampilkan menggunakan gaya rect bulat.
+  * `bertekstur persegi` - kontrol ditampilkan menggunakan gaya persegi bertekstur.
+  * `kapsul` - kontrol ditampilkan menggunakan gaya kapsul
+  * `persegi kecil` - kontrol ditampilkan menggunakan gaya persegi kecil.
+  * `dipisahkan` - segmen dalam pengendalian ditampilkan sangat dekat satu sama lain tetapi tidak menyentuh.
+* `modus` String - (opsional) modus pilihan kontrol: 
+  * `single` - Default. Salah satu item yang dipilih pada satu waktu, memilih salah satu untuk melepas item yang dipilih sebelumnya.
+  * `beberapa` - beberapa item dapat dipilih pada satu waktu.
+  * `tombol` - membuat segmen bertindak sebagai tombol, setiap segmen dapat ditekan dan dirilis tapi tidak pernah ditandai aktif.
+* `segmen` [[SegmentedControlSegment]](structures/segmented-control-segment.md) - serangkaian segmen untuk menempatkan di kontrol ini.
+* `selectedIndex` Bulat (opsional) - indeks dari segmen yang dipilih, akan diperbarui secara otomatis dengan interaksi pengguna. Bila beberapa itu akan terakhir item yang dipilih.
+* `perubahan` Fungsi - disebut ketika pengguna memilih segmen baru 
+  * `selectedIndex` Bulat - indeks dari segmen pengguna yang dipilih.
+  * `isSelected` Boolean - baik yang merupakan pengguna pilihan segmen yang dipilih atau tidak.</li> </ul> 
 
 ### Instance Properties
 
@@ -36,7 +38,7 @@ A `String` representing the controls current segment style. Updating this value 
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh. Memperbarui properti dalam di dalam array ini ** tidak memperbarui batang sentuh </ 0> .</p> 
+A `SegmentedControlSegment[]` array representing the segments in this control. Segera memperbarui nilai ini update kontrol di bar sentuhan. Memperbarui sifat-sifat yang mendalam dalam array ini **tidak memperbarui bar sentuhan**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
