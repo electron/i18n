@@ -22,7 +22,7 @@ app.on('ready', () => {
 })
 ```
 
-## Platform notice
+## プラットフォーム通知
 
 On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
 

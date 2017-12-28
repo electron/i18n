@@ -2,11 +2,11 @@
 
 > Monitor power state changes.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
-For example:
+Por ejemplo:
 
 ```javascript
 const electron = require('electron')
@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Eventos
 
 The `powerMonitor` module emits the following events:
 

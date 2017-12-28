@@ -1,10 +1,10 @@
-# webContents
+# webİçeriği
 
-> Render and control web pages.
+> Web sayfalarını oluşturun ve kontrol edin.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 'dır. Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`BrowserWindow`](browser-window.md) nesnesinin bir öğesidir. `webContents` nesnesine erişmenin bir örneği:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## Metodlar
 
-These methods can be accessed from the `webContents` module:
+Bu yöntemlere `webContents` modülünden erişilebilir:
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,123 +27,123 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+`WebContents[]` 'ne döndürür - Tüm `WebContents` örneklerinin bir dizisi. Bu, tüm pencereler, web görüntüleri, açılan devtools eklentileri ve devtools uzantısı arka plan sayfaları için web içeriğini içerecektir.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+`WebContents` 'ne dödürür - Bu uygulamaya odaklanmış web içeriği aksi takdirde `null` değerini döndürür.
 
 ### `webContents.fromId(id)`
 
-* `id` Integer
+* `id` Tamsayı
 
-Returns `WebContents` - A WebContents instance with the given ID.
+`WebContents` 'ne döndürür - Belirli bir kimliği olan bir Web İçeriği örneği.
 
-## Class: WebContents
+## Tür: Webİçerikleri
 
-> Render and control the contents of a BrowserWindow instance.
+> Bir TarayıcıPenceresi örneğinin içeriğini oluşturun ve denetleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
-### Instance Events
+### Örnek Olaylar
 
-#### Event: 'did-finish-load'
+#### Olay: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Gezinme yapılırken, yani sekmenin döner kısmı dönmeyi durduğunda ortaya çıkar ve `onload` olayı gönderilir.
 
-#### Event: 'did-fail-load'
+#### Olay: 'did-fail-load'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* `event` Olay
+* `errorCode` Tamsayı
+* `errorDescription` Koşul
+* `validatedURL` Koşul
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Bu etkinlik, `did-finish-load` gibidir ancak yük başarısız olduğunda veya iptal edildiğinde yayınlanır, örneğin; `window.stop()` çağrılır. Hata kodlarının tam listesi ve anlamları [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
 
-#### Event: 'did-frame-finish-load'
+#### Olay: 'did-frame-finish-load'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+Bir çerçeve aramayı bitirdiğinde ortaya çıkar.
 
-#### Event: 'did-start-loading'
+#### Olay: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
-#### Event: 'did-stop-loading'
+#### Olay: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
-#### Event: 'did-get-response-details'
+#### Olay: 'did-get-response-details'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
+* `newURL` Dize
+* `originalURL` Dize
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
+* `referrer` Dize
+* `headers` Nesne
+* `resourceType` Dize
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+İstenen bir kaynakla ilgili ayrıntılar mevcut olduğunda yayımlanır. `status` kaynağı indirmek için soket bağlantısını gösterir.
 
-#### Event: 'did-get-redirect-request'
+#### Olay: 'did-get-redirect-request'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `oldURL` String
-* `newURL` String
+* `event` Olay
+* `oldURL` Dize
+* `newURL` Dize
 * `isMainFrame` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
+* `referrer` Dize
+* `headers` Nesne
 
-Emitted when a redirect is received while requesting a resource.
+Bir kaynak talep ederken yönlendirme alındığında yayınlanır.
 
-#### Event: 'dom-ready'
+#### Olay: 'dom-ready'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `event` Olay
 
-Emitted when the document in the given frame is loaded.
+Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 
-#### Event: 'page-favicon-updated'
+#### Olay: 'page-favicon-updated'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `favicons` String[] - Array of URLs
+* `event` Olay
+* `favicons` Dize[] - URL dizisi
 
-Emitted when page receives favicon urls.
+Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
-#### Event: 'new-window'
+#### Olay: 'new-window'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
-* `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `event` Olay
+* `url` Dize
+* `frameName` Dize
+* `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
+* `options` Nesne - Yeni `BrowserWindow` oluşturmak için kullanılacak seçenekler.
+* `additionalFeatures` Dize[] - `window.open()` için verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmayan özellikler).
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Sayfa, bir `url` için yeni bir pencere açmayı istediğinde ortaya çıkar. `window.open` veya `<a target='_blank'>` gibi harici bir bağlantıyla istenebilir.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Varsayılan olarak `url` için yeni bir `BrowserWindow` oluşturulacaktır.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+`event.preventDefault()` öğesinin çağrılması, Electron'un otomatik olarak yeni bir `BrowserWindow` oluşturmasını önleyecektir. `event.preventDefault()` öğesini çağırıp manuel olarak yeni bir `BrowserWindow` oluşturursanız, `event.newGuest` öğesini yeni `BrowserWindow` örneğine referans yapacak şekilde ayarlamanız gerekir; aksi halde beklenmeyen davranışlara neden olabilir. Örneğin:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -155,43 +155,43 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### Olay: 'will-navigate'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+Gezinme programlı olarak `webContents.loadURL` ve `webContents.back` gibi API'lerle başlatıldığında, bu olay yayınlanmaz.
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
-Calling `event.preventDefault()` will prevent the navigation.
+`event.preventDefault()` öğesinin çağırılması gezinmeyi engeller.
 
-#### Event: 'did-navigate'
+#### Olay: 'did-navigate'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 
-Emitted when a navigation is done.
+Bir gezinme yapıldığında ortaya çıkar.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
-#### Event: 'did-navigate-in-page'
+#### Olay: 'did-navigate-in-page'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `event` Olay
+* `url` Dize
 * `isMainFrame` Boolean
 
-Emitted when an in-page navigation happened.
+Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
 #### Event: 'will-prevent-unload'
 
@@ -222,7 +222,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### Etkinlik: 'çöktü'
 
 Returns:
 
@@ -241,7 +241,7 @@ Returns:
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### Etkinlik: 'yıkıldı'
 
 Emitted when `webContents` is destroyed.
 
@@ -317,12 +317,12 @@ Emitted when a client certificate is requested.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Etkinlik: 'giriş'
 
 Returns:
 
 * `event` Event
-* `request` Nesne 
+* `istek` Nesne 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -340,12 +340,12 @@ Emitted when `webContents` wants to do basic auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Etkinlik: 'sayfa içinde kurmak'
 
 Returns:
 
 * `event` Event
-* `result` Nesne 
+* `sonuç` Nesne 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -358,7 +358,7 @@ Emitted when a result is available for [`webContents.findInPage`] request.
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### Etkinlik: 'medya-duraklatıldı'
 
 Emitted when media is paused or done playing.
 
@@ -466,7 +466,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Etkinlik: 'boya'
 
 Returns:
 
@@ -504,12 +504,12 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Örnek yöntemleri
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -553,7 +553,7 @@ Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Web sayfası odaklanma.
 
 #### `contents.isFocused()`
 
@@ -744,8 +744,8 @@ Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 
 Copy the image at the given position to the clipboard.
 
@@ -790,7 +790,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -848,7 +848,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -933,7 +933,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -956,8 +956,8 @@ Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 
 Starts inspecting element at position (`x`, `y`).
 
@@ -977,7 +977,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// In the main process.
+// Ana süreçte.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Örnek özellikleri
 
 #### `contents.id`
 

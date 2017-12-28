@@ -1,4 +1,4 @@
-## Class: ClientRequest
+## クラス: ClientRequest
 
 > Make HTTP/HTTPS requests.
 
@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### インスタンスイベント
 
 #### Event: 'response'
 
@@ -91,7 +91,7 @@ Emitted just after the last chunk of the `request`'s data has been written into 
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### イベント: ' エラー '
 
 戻り値：
 
@@ -114,7 +114,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### インスタンスプロパティ
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### インスタンスメソッド
 
 #### `request.setHeader(name, value)`
 

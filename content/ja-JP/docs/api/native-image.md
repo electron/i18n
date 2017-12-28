@@ -2,7 +2,7 @@
 
 > Create tray, dock, and application icons using PNG or JPG files.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
@@ -135,13 +135,13 @@ Returns `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
-## Class: NativeImage
+## クラス: NativeImage
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
-### Instance Methods
+### インスタンスメソッド
 
 The following methods are available on instances of the `NativeImage` class:
 

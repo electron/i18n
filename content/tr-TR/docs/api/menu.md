@@ -1,102 +1,102 @@
-## Class: Menu
+## Bölüm: Menü
 
-> Create native application menus and context menus.
+> Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
-Süreç: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
-### `new Menu()`
+### `yeni Menü()`
 
-Creates a new menu.
+Yeni bir menü oluşturun.
 
-### Static Methods
+### Statik Yöntemler
 
-The `menu` class has the following static methods:
+`menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menü
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+`null` bırakılması, Windows ve Linux'ta menü çubuğunu kaldırır, ancak macOS üzerinde hiçbir etkisi yoktur.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Note:** Bu API `app` modülü `ready` olduktan sonra çağrılmalıdır.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+`Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `null` ise, ayarlanmamışsa.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Note:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `action` String
+* `action` Dizisi
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+`action` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenuItem`](menu-item.md) [`role`](menu-item.md#roles) özelliğini kullanırsınız.
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) bakın.
 
 #### `Menu.buildFromTemplate(template)`
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+`Menu` 'ye Dön
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Genellikle `template` yalnızca bir [MenuItem](menu-item.md) oluşturmak için bir dizi `option` 'dur. Kullanım, yukarıdaki referanslar olabilir.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar oluşturulan menü öğelerinin özellikleri olacaktır.
 
-### Instance Methods
+### Örnek Yöntemleri
 
-The `menu` object has the following instance methods:
+`menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (optional) 
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+* `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
+* `seçenekler` Hedef (isteğe bağlı) 
+  * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
+  * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
+  * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `true`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `false` olarak ayarlayın. Varsayılan değer `false`.
+  * `positioningItem` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Bu menüyü `browserWindow` 'nde bir bağlam menüsü olarak açar.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
 
-Closes the context menu in the `browserWindow`.
+`browserWindow` 'nde bağlam menüsünü kapatır.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` MenüÖğesi
 
-Appends the `menuItem` to the menu.
+Menüye `menuItem` ekler.
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Integer
-* `menuItem` MenuItem
+* `pos` Tamsayı
+* `menuItem` MenüÖğesi
 
-Inserts the `menuItem` to the `pos` position of the menu.
+`menuItem` 'ı menünün `pos` konumuna yerleştirir.
 
-### Instance Properties
+### Örnek Özellikleri
 
-`menu` objects also have the following properties:
+`menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+`MenuItem[]` Menünün Öğelerini içeren bir dizidir.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Her `Menu` birden fazla [`MenuItem`](menu-item.md) den oluşur ve her `MenuItem` bir alt menüye sahip olabilir.
 
-## Examples
+## Örnekler
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+`Menu` sınıfı yalnızca ana işlemde kullanılabilir, ancak [`remote`](remote.md) modül vasıtasıyla oluşturma işleminde de kullanabilirsiniz.
 
-### Main process
+### Ana süreç
 
-An example of creating the application menu in the main process with the simple template API:
+Ana süreçte uygulama menüsünü basit şablon API'si ile oluşturmak için bir örnek:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -190,9 +190,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### İşleme süreci
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Aşağıda, [`remote`](remote.md) modülü kullanarak bir web sayfasında (işleme süreci) dinamik olarak bir menü oluşturmak ve kullanıcı sayfayı sağ tıklattığında oluşturmak için bir örnek görünmektedir:
 
 ```html
 <!-- index.html -->
@@ -212,45 +212,45 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## MacOS Uygulama Menüleri Hakkında Notlar
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahiptir. İşte, uygulamanızın menüsünü daha yerli yapmaya ilişkin bazı notlar.
 
-### Standard Menus
+### Standart Menüler
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+MacOS'da, `Services` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `role` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
 
-* `window`
-* `help`
-* `services`
+* `pencere`
+* `yardım`
+* `hizmetler`
 
-### Standard Menu Item Actions
+### Standart Menü Öğesi İşlemleri
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS, `About xxx`, `Hide xxx` ve `Hide Others` gibi bazı menü öğeleri için standart eylemler önermiştir. Bir menü öğesinin eylemini standart bir eylem olarak ayarlamak için, menü öğesinin `role` özniteliğini ayarlamanız gerekir.
 
-### Main Menu's Name
+### Ana Menünün Adı
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+MacOS'da hangi etiketi ayarlarsanız ayarlayın uygulama menüsünün ilk öğesinin etiketi daima uygulamanızın adıdır. Bunu değiştirmek için uygulama paketinin `Info.plist` dosyasını geliştirin. Daha fazla bilgi için [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) bakın.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Belirli Tarayıcı Penceresi için Menü Ayarlama (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+Tarayıcı pencerelerinin [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows), belirli tarayıcı pencerelerinin menüsünü ayarlayabilir.
 
-## Menu Item Position
+## Menü Öğesi Konumu
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+`Menu.buildFromTemplate` ile bir menü oluştururken öğenin nasıl yerleştirileceğini kontrol etmek için `position` ve `id` kullanabilirsiniz.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+`MenuItem` `position` özniteliği `[placement]=[id]` formundadır; burada `placement`, `before`, `after` veya `endof` ve `id` 'den biridir, menüdeki mevcut bir öğenin benzersiz kimliğidir:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `before` - Bu öğeyi kimliği belirtilen maddeden önce ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
+* `after` - Bu öğeyi, kimliği belirtilen öğenin üzerine ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
+* `endof` - Bu öğeyi kimliği referanslı öğeyi içeren mantıksal grubun sonuna ekler (gruplar ayırıcı öğeler tarafından oluşturulur). Başvurulan öğe yoksa, verilen bir kimliği kullanarak yeni bir ayırıcı grubu oluşturulur ve bu öğe bu ayırıcıdan sonra eklenir.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni bir öğe yerleştirilene kadar arkaya eklenir. Dolayısıyla, bir grup menü öğesini aynı konuma yerleştirmek istiyorsanız, yalnızca ilk öğe için bir konum belirtmeniz yeterlidir.
 
-### Examples
+### Örnekler
 
-Template:
+Şablonlar:
 
 ```javascript
 [
@@ -262,7 +262,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- 1
     - 2
@@ -271,7 +271,7 @@ Menu:
     - 5
     
 
-Template:
+Şablonlar:
 
 ```javascript
 [
@@ -284,7 +284,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
     <br />- ---
     - a

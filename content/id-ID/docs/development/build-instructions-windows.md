@@ -1,23 +1,23 @@
-# Build Instructions (Windows)
+# Membangun Intruksi (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Ikuti panduan di bawah ini untuk membangun Electron pada Windows.
 
-## Prerequisites
+## Prasyarat
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
+* Windows 7 / Server 2008 R2 atau lebih tinggi
+* Visual Studio 2015 Update 3 - [unduh VS 2015 Community Edition untuk gratis ](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Debugging Tools untuk Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) jika Anda berencana untuk membuat distribusi penuh sejak `symstore.exe` digunakan untuk membuat simbol dari `.pdb` file.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Jika saat ini Anda tidak memiliki instalasi Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) memiliki versi Windows yang timebombed yang dapat anda gunakan untuk membangun Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Bangunan Electron dilakukan sepenuhnya dengan script baris perintah dan tidak dapat dilakukan dengan Visual Studio. Anda bisa mengembangkan electron dengan editor tapi dukungan untuk bangunan dengan Visual Studio akan datang di masa depan.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Catatan:** Walaupun Visual Studio tidak digunakan untuk membangun, hal ini masih **diperlukan** karena kita perlu membangun toolchains yang menyediakan.
 
-## Getting the Code
+## Dapatkan kode
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -25,80 +25,80 @@ $ git clone https://github.com/electron/electron.git
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Perhatikan bahwa kita menggunakan `ninja` untuk membangun Electron sehingga tidak ada proyek Visual Studio yang dihasilkan.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## Membangun
 
-Build both Release and Debug targets:
+Membangun kedua rilis dan Debug target:
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Anda juga hanya dapat membangun Debug target:
 
 ```powershell
-$ python script\build.py -c D
+$ python script\build.py - c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Setelah pembangunan selesai, Anda dapat menemukan `electron.exe` dibawah `out\D` (debug target) atau di bawah `out\R` (rilis target).
 
-## 32bit Build
+## Membangun 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Untuk membangun target 32bit, Anda harus melewati `--target_arch=ia32`kapan menjalankan script bootstrap:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Langkah lain membangun tentu sama persis.
 
-## Visual Studio project
+## Proyek Visual Studio
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Untuk menghasilkan proyek Visual Studio, Anda bisa melewati `--msvs` parameter:
 
 ```powershell
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## Membersihkan
 
-To clean the build files:
+Untuk membersihkan bangunan file:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
 
-## Tests
+## Pengujian
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
 
-## Troubleshooting
+## Pemecahan masalah
 
-### Command xxxx not found
+### Perintah xxxx tidak ditemukan
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Jika Anda mengalami kesalahan seperti `Command xxxx tidak ditemukan`, Anda dapat mencoba menggunakannya `VS2015 Command Prompt` konsol untuk menjalankan bangunan skrip.
 
-### Fatal internal compiler error: C1001
+### Kesalahan fatal kompilator internal: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Pastikan Anda menginstal pembaruan Visual Studio terbaru.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Jika membangun di bawah Cygwin, Anda mungkin melihat `bootstrap.py` gagal mengikuti perintah berikut kesalahan:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,24 +115,24 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Hal ini disebabkan oleh bug saat menggunakan Cygwin Python dan Win32 Node bersamaan. Sebuah Solusinya adalah menggunakan Win32 Python untuk mengeksekusi script bootstrap (dengan asumsi Anda telah menginstal Python di bawah `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: tidak dapat membuka file masukan 'kernel32.lib'
 
 Try reinstalling 32bit Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Cukup membuat direktori itu [harus memperbaiki masalah](http://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp tidak dikenali sebagai perintah internal atau eksternal
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Anda mungkin mendapatkan kesalahan ini jika Anda menggunakan Git Bash untuk bangunan, sebaiknya gunakan PowerShell atau VS2015 Command Prompt sebagai gantinya.

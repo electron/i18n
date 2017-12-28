@@ -10,7 +10,7 @@ Processus : [Principal](../tutorial/quick-start.md#main-process)
   * `label` String (facultatif) - Texte du bouton.
   * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton.
-  * `iconPosition` String -Peut être `left`, `right` ou `overlay`.
+  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
   * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
 
 ### Propriétés d'instance

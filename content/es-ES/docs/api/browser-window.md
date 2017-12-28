@@ -1,11 +1,11 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Crea y controla ventanas del navegador.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// En el proceso principal.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### Noticias de plataforma
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -108,9 +108,9 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Crea y controla ventanas del navegador.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -223,18 +223,18 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
 #### Event: 'close'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -336,9 +336,9 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -349,7 +349,7 @@ Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMM
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // Navega la ventana hasta cuando el usuario hag clic sobre el botón de atrás
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -370,9 +370,9 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -385,7 +385,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Evento: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 
@@ -409,7 +409,7 @@ Returns `BrowserWindow` - The window that owns the given `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Íntegro
 
 Returns `BrowserWindow` - The window with the given `id`.
 
@@ -427,7 +427,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a Chrome extension by name.
+Remueve una extensión de Chrome por nombre.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -472,13 +472,13 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Propiedades de Instancia
 
 Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// En este ejemplo `win` es nuestra instancia
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Métodos de Instancia
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -569,7 +569,7 @@ Returns `Boolean` - Whether the window is minimized.
 
 #### `win.setFullScreen(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
 Sets whether the window should be in fullscreen mode.
 
@@ -600,32 +600,32 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Booleano (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Devuelve [`Rectángulo`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Booleano (optional) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Devuelve [`Rectángulo`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
-* `width` Integer
-* `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `ancho` Íntegro
+* `alto` Íntegro
+* `animate` Booleano (optional) *macOS*
 
-Resizes the window to `width` and `height`.
+Cambia el tamaño de la ventana a `ancho` y `altura`.
 
 #### `win.getSize()`
 
@@ -633,9 +633,9 @@ Returns `Integer[]` - Contains the window's width and height.
 
 #### `win.setContentSize(width, height[, animate])`
 
-* `width` Integer
-* `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `ancho` Íntegro
+* `alto` Íntegro
+* `animate` Booleano (optional) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -645,8 +645,8 @@ Returns `Integer[]` - Contains the window's client area's width and height.
 
 #### `win.setMinimumSize(width, height)`
 
-* `width` Integer
-* `height` Integer
+* `ancho` Íntegro
+* `alto` Íntegro
 
 Sets the minimum size of window to `width` and `height`.
 
@@ -656,8 +656,8 @@ Returns `Integer[]` - Contains the window's minimum width and height.
 
 #### `win.setMaximumSize(width, height)`
 
-* `width` Integer
-* `height` Integer
+* `ancho` Íntegro
+* `alto` Íntegro
 
 Sets the maximum size of window to `width` and `height`.
 
@@ -667,7 +667,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 #### `win.setResizable(resizable)`
 
-* `resizable` Boolean
+* `resizable` Booleano
 
 Sets whether the window can be manually resized by user.
 
@@ -677,19 +677,19 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
-* `movable` Boolean
+* `movable` Booleano
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Devuelve `Booleano` - Si la ventana puede ser movida por el usuario.
 
-On Linux always returns `true`.
+En Linux siempre devuelve `verdadero`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
-* `minimizable` Boolean
+* `minimizable` Booleano
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
@@ -697,11 +697,11 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
-On Linux always returns `true`.
+En Linux siempre devuelve `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
-* `maximizable` Boolean
+* `maximizable` Booleano
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
@@ -709,11 +709,11 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+En Linux siempre devuelve `verdadero`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
-* `fullscreenable` Boolean
+* `fullscreenable` Booleano
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
@@ -723,7 +723,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
-* `closable` Boolean
+* `closable` Booleano
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
@@ -731,11 +731,11 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+En Linux siempre devuelve `verdadero`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
-* `flag` Boolean
+* `flag` Booleano
 * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
 * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
@@ -743,7 +743,7 @@ Sets whether the window should show always on top of other windows. After settin
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Devuelve `Booleano` - Si la ventana siempre está sobre de otras ventanas.
 
 #### `win.center()`
 
@@ -751,11 +751,11 @@ Moves window to the center of the screen.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Integer
-* `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `x` Íntegro
+* `y` Íntegro
+* `animate` Booleano (optional) *macOS*
 
-Moves window to `x` and `y`.
+Mueve la ventana a `x` y `y`.
 
 #### `win.getPosition()`
 
@@ -776,7 +776,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (opcional)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -790,19 +790,19 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.flashFrame(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
 Starts or stops flashing the window to attract user's attention.
 
 #### `win.setSkipTaskbar(skip)`
 
-* `skip` Boolean
+* `skip` Booleano
 
 Makes the window not show in the taskbar.
 
 #### `win.setKiosk(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
 Enters or leaves the kiosk mode.
 
@@ -818,26 +818,26 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
-* `message` Integer
-* `callback` Function
+* `message` Íntegro
+* `callback` Función
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
-* `message` Integer
+* `message` Íntegro
 
 Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
-* `message` Integer
+* `message` Íntegro
 
 Unhook the window message.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Desbloquea todos los mensajes de la venta.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
@@ -851,7 +851,7 @@ Returns `String` - The pathname of the file the window represents.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
-* `edited` Boolean
+* `edited` Booleano
 
 Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
 
@@ -942,7 +942,7 @@ Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to conv
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
-* `hasShadow` Boolean
+* `hasShadow` Booleano
 
 Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
@@ -1006,13 +1006,13 @@ Sets the properties for the window's taskbar button.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+Igual como `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Cambia ícono de la ventana.
 
 #### `win.setAutoHideMenuBar(hide)`
 

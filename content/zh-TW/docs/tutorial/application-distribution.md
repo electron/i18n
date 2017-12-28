@@ -97,19 +97,19 @@ MyApp.app/Contents
 
 ## 由原始碼開始客製品牌
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+也可以從原始碼修改 Electron 產品名稱再建置，達到品牌客製化的目的。為此，你需要修改 `atom.gyp` 檔，清楚先前建置產出的檔案後再重新建置。
 
 ### 建立客製化的 Electron 分支
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+你不太可能會需要建立客製的 Electron 分支，就算你的應用程式該有「上線水準」也不例外。 使用 `electron-packager` 或 `electron-forge` 這些工具，讓你省下這些步驟也能對 Electron 「客製品牌」。
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+如果你直接修改了 Electron 中的 C++ 程式碼，而且不能回饋回上游，或是被官方版本拒絕了，就需要建立 Electron 分支。 身為 Electron 的維護團隊，我們殷切期望能符合你的使用情境，希望你能盡可能將修改的地方回饋進 Electron 官方版，對你而言也會更容易維護。衷心感謝你的幫忙。
 
 #### 以 surf-build 建立客製化發行版
 
 1. 透過 npm 安裝 [Surf](https://github.com/surf-build/surf): `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. 建立新的 S3 Bucket，並建立以下空目錄:
     
     ```sh
 - atom-shell/
@@ -119,15 +119,15 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 3. 設定以下環境變數:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64`
+* `ELECTRON_GITHUB_TOKEN` - 能在 GitHub 建立 Release 的 Token。
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 要上傳 Node.js 標頭檔及符號檔的地方
+* `ELECTRON_RELEASE` - 設為 `true` 就會執行上傳作業，不設的話 `surf-build` 將只像 CI 一樣的檢查，適合對每一次 Pull Request 都執行。
+* `CI` - 設為 `true`，否則會失敗
+* `GITHUB_TOKEN` - 設成跟 `ELECTRON_GITHUB_TOKEN` 一樣
+* `SURF_TEMP` - 在 Windows 下設為 `C:\Temp`，防止碰到路徑過長問題
+* `TARGET_ARCH` - 設為 `ia32` 或 `x64`
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. 在 `script/upload.py` 中，你*必須*將 `ELECTRON_REPO` 設為你的分支 (`MYORG/electron`)，如果你同時也是原版 Electron 的貢獻者時更要特別注意。
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 

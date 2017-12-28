@@ -1,0 +1,139 @@
+tagline: اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS
+nav:
+  docs: التوثيقات
+  blog: المدونة
+  community: المجتمع
+  apps: التطبيقات
+  userland: مساحة المستخدم
+  releases: اﻹصدارات
+  contact: تواصل معنا
+  languages: اللغات
+  code_of_conduct: قواعد السلوك
+docs:
+  title: توثيقات الكترون
+  description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
+  guides: الأدلة
+  api_reference: مرجع API
+  advanced: خيارات متقدمة
+  footer:
+    propose_change: حسن هذه الوثيقة
+    version_history: تاريخ الإصدارات
+    translate: ترجم هذه الوثيقة
+    view_all_docs: جميع الوثائق في صفحة واحدة
+languages:
+  choose_language: اختر لغة الموقع الخاصة بك
+  translation_progress: سير الترجمة
+  current: الاختيار الحالي
+community:
+  title: مجتمع Electron
+  description: 'أدوات، وقوالب، ومقاطع فيديو وغيرها من <a href="https://github.com/sindresorhus/awesome-electron">مطوّري Electron الرائعين</a> مفتوحة المصدر. اعثر على أو أضف<a href="/community#meetups">الملتقيات</a> القريبة منك.'
+  tools: الأدوات
+  boilerplates: القوالب
+  components: المكونات
+  videos: مقاطع فيديو
+  meetups: الملتقيات
+  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
+  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+electron_is_easy:
+  title: الأمر أسهل مما تصور
+  description: إن كان بمقدورك بناء موقع إلكتروني، فستكون قادرًا على بناء تطبيق سطح المكتب. Electron هو إطار عمل لإنشاء تطبيقات سطح المكتب حقيقة باستخدام تقنيات الويب مثل جافاسكريبت وHTML وCSS. يهتم Electron بالتفاصيل الصعبة والمعقدة ليتيح لك التركيز على جوهر تطبيقك.
+  video_link: شاهد مقطع الفيديو
+web_technologies:
+  title: تقنيات الويب
+  description: يستخدم إلكترون كلاً من Chromium و Node.js لتتمكن من بناء تطبيقك باستخدام HTML، وCSS، وجافاسكريبت.
+open_source:
+  title: مفتوح المصدر
+  description: إلكترون هو مشروع مفتوح المصدر ترعاه GitHub ومجتمع نشط من المساهمين.
+cross_platform:
+  title: متعدد المنصات
+  description: تطبيقات إلكترون متوافقة مع أنظمة الماك والويندوز ولينوكس، وتعمل على هذه المنصات الثلاثة.
+benefits:
+  hard_parts_made_easy: اﻷجزاء الصعبة صارت أسهل
+  automatic_updates: تحديثات تلقائية
+  native_menus_and_notifications: قوائم وتنبيهات أصلية
+  crash_reporting: تقرير الأخطاء
+  debugging_and_profiling: تصحيح الأخطاء وجمع المعلومات
+  windows_installers: مثبت Windows
+get_started:
+  title: ابدأ الآن
+  description: للشروع في استخدام إلكترون، راجع المصادر المذكورة أدناه. ولتتعرف على كيفية ربط تطبيق الويب الخاص بك مع إلكترون، راجع توثيقات الواجهة البرمجية API وأنشئ برامج التثبيت.
+explore:
+  title: استكشف واجهة إلكترون البرمجية API
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+download_from_github: تحميل من GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> عرض جميع الإصدارات</a> على GitHub
+quick_start:
+  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  description: تطبيق إلكترون بسيط مع بعض الملاحظات المفيدة.
+  clone: استنسخ مستودع "البدء السريع"
+  go_into_repo: الذهاب إلى المستودع
+  install_deps: تثبيت الاعتماديات والتشغيل
+  dive_deeper: أو الغوص أعمق وقراءة <a href='/docs'> الوثائق</a>.
+need_help:
+  title: هل أنت بحاجة إلى مساعدة؟
+  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
+headings:
+  languages: اللغات
+taglines:
+  languages: محتوى مترجم من مجتمعنا العالمي المذهل من المطورين.
+help_translate: "المساعدة في الترجمة"
+footer:
+  see_the_faq: راجع اﻷسئلة المتداولة بكثرة
+apps:
+  title: تطبيقات مبنية على إلكترون
+  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
+  view_more: عرض المزيد من التطبيقات
+  submit_your_own: أرسل تطبيقك الخاص
+  something_missing: هل هناك شيء مفقود؟
+  edit_this_app: عدّل هذا التطبيق.
+clipboard:
+  copy: نسخ
+  copy_to_clipboard: نسخ إلى الحافظة
+  copied: تم النسخ
+or: أو
+pages:
+  '/':
+    title: إلكترون | اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.
+    description: 'اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.'
+  '/apps':
+    title: تطبيقات إلكترون
+    description: تطبيقات مبنية على إلكترون
+  '/docs':
+    title: التوثيق
+    description: أدلة وتوثيق مرجع API الخاصة بأحدث إصدارمن إلكترون
+  '/docs/all':
+    title: جميع وثائق إلكترون!
+    description: All of Electron's guides and API documentation on a single, searchable page.
+  '/docs/api':
+    title: API
+    description: أدلة وتوثيق مرجع API الخاصة بأحدث إصدارمن إلكترون
+  '/docs/development':
+    title: التطوير
+    description: التطوير مع إلكترون
+  '/docs/tutorial':
+    title: درس تعليمي
+    description: Guides and tutorials for the latest Electron release
+  '/blog':
+    title: مدونة إلكترون
+    description: آخر الأخبار من فريق ومجتمع إلكترون.
+  '/community':
+    title: المجتمع
+  '/releases':
+    title: اﻹصدارات
+  '/contact':
+    title: تواصل معنا
+    description: تواصل مع فريق إلكترون عبر تويتر، Slack، Github، والبريد اﻹلكتروني.
+  '/languages':
+    title: اللغات
+  '/userland':
+    title: مساحة المستخدم
+  '/devtron':
+    title: Devtron
+    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+  '/spectron':
+    title: Spectron
+    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+_404:
+  page_not_found: الصفحة غير موجودة.
+  if_this_is_an_error: إذا كان هذا خطأ
+  please_file_an_issue: please file an issue.

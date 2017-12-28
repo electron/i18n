@@ -76,8 +76,8 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
 <li><code>unhide` - Map to the `unhideAllApplications` action
     * `startspeaking` - Map to the `startSpeaking` action
     * `stopspeaking` - Map to the `stopSpeaking` action
-    * `front` - Map to the `arrangeInFront` action
-    * `zoom` - Map to the `performZoom` action
+    * `depan` - Peta ke `arrangeInFront` tindakan
+    * `zoom` - Peta ke `performZoom` tindakan
     * `window` - The submenu is a "Window" menu
     * `help` - The submenu is a "Help" menu
     * `services` - The submenu is a "Services" menu
@@ -86,7 +86,7 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     ### Instance Properties
     
-    The following properties are available on instances of `MenuItem`:
+    Properti berikut tersedia pada contoh `MenuItem`:
     
     #### `menuItem.enabled`
     
@@ -100,11 +100,11 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
     
-    A `checkbox` menu item will toggle the `checked` property on and off when selected.
+    Sebuah `centang` item menu akan beralih `diperiksa` properti dan mematikan saat dipilih.
     
-    A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+    Sebuah `radio` item menu akan menyala nya `diperiksa` properti saat diklik, dan akan mematikan bahwa properti untuk semua item yang berdekatan di menu yang sama.
     
-    You can add a `click` function for additional behavior.
+    Anda dapat menambahkan fungsi `klik` untuk perilaku tambahan.
     
     #### `menuItem.label`
     

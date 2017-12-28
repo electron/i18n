@@ -1,4 +1,4 @@
-## Kelas: Menu
+## Class: Menu
 
 > Buat menu aplikasi asli dan menu konteks.
 
@@ -45,11 +45,11 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   * `template` MenuItemConstructorOptions[]
   
-  Returns `Menu`
+  Mengembalikan `menu`
   
-  Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+  Umumnya, `template` hanyalah sebuah array dari `options` untuk membangun a [MenuItem](menu-item.md). Penggunaannya bisa diacu di atas.
   
-  You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+  Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
   
   ### Metode Instance
   
@@ -57,20 +57,20 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   #### `menu.popup([browserWindow, options])`
   
-  * `browserWindow` BrowserWindow (optional) - Default is the focused window.
+  * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
   * `pilihan` Objek (opsional) 
-    * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-    * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-    * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-    * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+    * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
+<li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
+    * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0> .</li>
+<li><code>positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
   
   Pops up this menu as a context menu in the `browserWindow`.
   
   #### `menu.closePopup([browserWindow])`
   
-  * `browserWindow` BrowserWindow (optional) - Default is the focused window.
+  * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
   
-  Closes the context menu in the `browserWindow`.
+  Menutup menu konteks di `browserWindow`.
   
   #### `menu.append(menuItem)`
   
@@ -84,120 +84,33 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
     * ` menuItem </ 0> MenuItem</li>
 </ul>
 
-<p>Inserts the <code>menuItem` to the `pos` position of the menu.</p> 
+<p>Sisipkan <code>menuItem` ke posisi `pos` pada menu.</p> 
       ### Instance Properties
       
-      `menu` objects also have the following properties:
+      `menu` objek juga memiliki properti berikut:
       
       #### `menu.items`
       
       A `MenuItem[]` array containing the menu's items.
       
-      Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+      Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
       
-      ## Examples
+      ## Contoh
       
-      The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+      Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
       
-      ### Main process
+      ### Proses utama
       
-      An example of creating the application menu in the main process with the simple template API:
+      Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
       
       ```javascript
-const {app, Menu} = require('electron')
-
-const template = [
-  {
-    label: 'Edit',
-    submenu: [
-      {role: 'undo'},
-      {role: 'redo'},
-      {type: 'separator'},
-      {role: 'cut'},
-      {role: 'copy'},
-      {role: 'paste'},
-      {role: 'pasteandmatchstyle'},
-      {role: 'delete'},
-      {role: 'selectall'}
-    ]
-  },
-  {
-    label: 'View',
-    submenu: [
-      {role: 'reload'},
-      {role: 'forcereload'},
-      {role: 'toggledevtools'},
-      {type: 'separator'},
-      {role: 'resetzoom'},
-      {role: 'zoomin'},
-      {role: 'zoomout'},
-      {type: 'separator'},
-      {role: 'togglefullscreen'}
-    ]
-  },
-  {
-    role: 'window',
-    submenu: [
-      {role: 'minimize'},
-      {role: 'close'}
-    ]
-  },
-  {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
-      }
-    ]
-  }
-]
-
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      {role: 'about'},
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
-      {role: 'hide'},
-      {role: 'hideothers'},
-      {role: 'unhide'},
-      {type: 'separator'},
-      {role: 'quit'}
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    {type: 'separator'},
-    {
-      label: 'Speech',
-      submenu: [
-        {role: 'startspeaking'},
-        {role: 'stopspeaking'}
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    {role: 'close'},
-    {role: 'minimize'},
-    {role: 'zoom'},
-    {type: 'separator'},
-    {role: 'front'}
-  ]
-}
-
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
   
-  ### Render process
+  ### Render proses
   
-  Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+  Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
   
   ```html
 <!-- index.html -->
@@ -217,7 +130,7 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Catatan pada Menu Aplikasi MacOS
 
 macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
 
@@ -245,23 +158,23 @@ macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tent
  <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html"> About Information Property List Files </ 0> 
 untuk informasi lebih lanjut.</p>
 
-<h2>Setting Menu for Specific Browser Window (<em>Linux</em> <em>Windows</em>)</h2>
+<h2>Setting Menu untuk Jendela Peramban Tertentu (<em> Linux </em> <em> Windows </em>)</h2>
 
-<p>The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code>setMenu` method</a> of browser windows can set the menu of certain browser windows.
+<p>Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
 
-## Menu Item Position
+## Posisi Item Menu
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Anda dapat menggunakan `posisi` dan `id` untuk mengontrol bagaimana item akan ditempatkan ketika membangun sebuah menu dengan `Menu.buildFromTemplate`.
 
 The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `sebelum` - Menyisipkan item ini sebelum item yang diacu id. Jika Item yang direferensikan tidak ada barang akan disisipkan pada akhir menu.
+* `setelah` - Menyisipkan item ini setelah item id direferensikan. Jika direferensikan item tidak ada item akan disisipkan di akhir menu.
+* `endof` - Menyisipkan item ini di akhir kelompok logis yang berisi item yang diacu id (grup dibuat oleh item pemisah). Jika Item yang direferensikan tidak ada, grup pemisah baru dibuat dengan id yang diberikan dan item ini dimasukkan setelah pemisah tersebut.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Bila item diposisikan, semua item yang tidak diposisikan dimasukkan setelah item baru diposisikan. Jadi jika Anda ingin memposisikan sekelompok item menu di lokasi yang sama Anda hanya perlu menentukan posisi untuk item pertama.
 
-### Examples
+### Contoh
 
 Template:
 

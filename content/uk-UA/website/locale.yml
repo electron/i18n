@@ -15,6 +15,11 @@ docs:
   guides: Посібники
   api_reference: Довідник API
   advanced: Додатково
+  footer:
+    propose_change: Поліпшити цю документацію
+    version_history: Історія версій
+    translate: Перекласти цю документацію
+    view_all_docs: Вся документація на одній сторінці
 languages:
   choose_language: Оберіть мову
   translation_progress: Прогрес перекладу
@@ -54,11 +59,7 @@ get_started:
   description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати встановники.
 explore:
   title: Дослідіть API Electron
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">API Electron демо</a>
-    - інтерактивно демонструє найбільш важливі особливості API Electron.
-    - Дізнайтеся що можливо з Electron за допомогою зразків коду та корисних порад для
-    - створення вашого додатку.
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Дивіться що можливо завдяки Electron з прикладами коду та корисними підказками для створення вашого додатку."
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Локалізований контент від нашої крутої глобальної спільноти.
 help_translate: "Допоможіть з перекладами"
 footer:
-  see_something: Бачите щось що треба виправити?
-  propose_change: Запропонуйте зміни у вихідному файлі.
-  need_different_version: Потрібна інша версія документації?
-  see_available_versions: Перегляньте доступні версії.
-  want_something_searchable: Хочете щось знайти?
-  view_all_docs: Переглянути всі документи на сторінці
   see_the_faq: Перегляньте FAQ
 apps:
   title: Програми, побудовані на Electron
@@ -92,9 +87,9 @@ apps:
   something_missing: Чогось не вистачає?
   edit_this_app: Відредагувати цю программу.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Копіювати
+  copy_to_clipboard: Копіювати до буферу обміну
+  copied: Скопійовано
 or: чи
 pages:
   '/':

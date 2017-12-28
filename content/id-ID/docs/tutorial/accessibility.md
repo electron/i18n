@@ -30,21 +30,21 @@ Dalam Devtron, ada tab aksesibilitas baru yang memungkinkan anda untuk melakukan
 
 Kedua alat-alat ini menggunakan perpustakaan [ Alat Aksesibilitas pengembang](https://github.com/GoogleChrome/accessibility-developer-tools) yang dibangun oleh Google untuk Chrome. Anda dapat mempelajari lebih lanjut tentang aturan audit aksesibilitas yang menggunakan perpustakaan ini pada bahwa [repositori wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-Jika Anda tahu perangkat akses lainnya untuk electron, menambahkannya ke [dokumentasi aksesibilitas](https://electronjs.org/docs/tutorial/accessibility) dengan permintaan tarik.
+Jika Anda mengetahui alat aksesibilitas terbaik lainnya untuk Elektron, tambahkan ke [ dokumentasi aksesibilitas ](https://electronjs.org/docs/tutorial/accessibility) dengan permintaan tarik.
 
-## Enabling Accessibility
+## Mengaktifkan Aksesibilitas
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Aplikasi elektron menjaga aksesibilitas dinonaktifkan secara default karena alasan kinerja namun ada beberapa cara untuk mengaktifkannya.
 
-### Inside Application
+### Di dalam aplikasi
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Dengan menggunakan [`app.setAccessibilitySupportEnabled (enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), Anda dapat mengekspos aksesibilitas beralih ke pengguna dalam preferensi aplikasi. Utilitas utilitas sistem pengguna memiliki prioritas atas pengaturan ini dan akan menggantikannya.
 
-### Assistive Technology
+### Teknologi Pendukung
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Aplikasi elektronika akan memungkinkan aksesibilitas secara otomatis saat mendeteksi teknologi bantu ( Windows ) atau VoiceOver ( macos ). Lihat Chrome [ dokumentasi aksesibilitas ](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) untuk lebih jelasnya.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Pada macOS, teknologi bantu pihak ketiga dapat mengalihkan aksesibilitas di dalam aplikasi Elektron dengan menetapkan atribut ` AXManualAccessibility ` secara terprogram:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

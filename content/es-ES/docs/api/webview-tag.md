@@ -8,7 +8,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## Ejemplo
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -221,13 +221,13 @@ win.on('resize', () => {
 })
 ```
 
-## Methods
+## Métodos
 
 The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**Ejemplo**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
-* `code` String
+* `codigo` String
 * `userGesture` Boolean - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -418,19 +418,19 @@ Executes editing command `unselect` in page.
 
 ### `<webview>.replace(text)`
 
-* `text` String
+* `texto` String
 
 Executes editing command `replace` in page.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` String
+* `texto` String
 
 Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.insertText(text)`
 
-* `text` String
+* `texto` String
 
 Inserts `text` to the focused element.
 
@@ -529,7 +529,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+Devuelve:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -542,7 +542,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+Devuelve:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -553,7 +553,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Returns:
+Devuelve:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Returns:
+Devuelve:
 
 * `status` Boolean
 * `newURL` String
@@ -584,7 +584,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Returns:
+Devuelve:
 
 * `oldURL` String
 * `newURL` String
@@ -598,7 +598,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+Devuelve:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +607,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+Devuelve:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +623,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+Devuelve:
 
 * `level` Integer
 * `message` String
@@ -643,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+Devuelve:
 
 * `result` Object 
   * `requestId` Integer
@@ -666,7 +666,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+Devuelve:
 
 * `url` String
 * `frameName` String
@@ -691,7 +691,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Returns:
+Devuelve:
 
 * `url` String
 
@@ -705,7 +705,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+Devuelve:
 
 * `url` String
 
@@ -715,7 +715,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+Devuelve:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+Devuelve:
 
 * `channel` String
 * `args` Array
@@ -776,7 +776,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+Devuelve:
 
 * `name` String
 * `version` String
@@ -797,7 +797,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+Devuelve:
 
 * `themeColor` String
 
@@ -809,7 +809,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+Devuelve:
 
 * `url` String
 

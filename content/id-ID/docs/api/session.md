@@ -1,129 +1,130 @@
-# session
+# sesi
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Mengelola sesi browser, cookies, cache, pengaturan proxy, dll.
 
-Proses:  Utama </ 0></p> 
+Proses: [Utama](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Modul ` sesi ` dapat digunakan untuk membuat objek ` Sesi ` baru.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Anda juga dapat mengakses `sesi</> dari halaman yang ada dengan menggunakan properti <code>sesi` dari [` WebContents `](web-contents.md), atau dari modul `sesi`.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = membutuhkan('elektron')
 
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
-console.log(ses.getUserAgent())
+console.log (ses.getUserAgent())
 ```
 
-## Methods
+## Metode
 
-The `session` module has the following methods:
+Modul `sesi` memiliki metode berikut:
 
-### `session.fromPartition(partition[, options])`
+### `sesi.daripartisi(partisi[, pilihan])`
 
-* `partition` String
-* `pilihan` Object 
-  * `cache` Boolean - Whether to enable cache.
+* `partisi` Tali
+* `pilihan` Sasaran 
+  * `cache` Boolean - Baik untuk mengaktifkan cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Kembali ` Sesi </ 0> - Contoh sesi dari <code> partisi </ 0> senar. Bila sudah ada
+<code>Sesi` dengan yang sama `partisi`, maka akan dikembalikan; jika tidak baru `Sesi` contohnya akan dibuat dengan `pilihan`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Jika `partisi` dimulai dengan `bertahan:`, halaman akan menggunakan sesi persisten tersedia untuk semua halaman di aplikasi dengan yang sama `partisi`. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi dalam penyimpanan. Jika `partisi` adalah kosong maka sesi default aplikasi akan dikembalikan.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Untuk membuat sebuah `Sesi` dengan `pilihan`, Anda harus memastikan `Sesi` dengan `partisi` yang tidak pernah digunakan sebelumnya. Tidak ada cara untuk mengubah `pilihan` yang sudah ada `Sesi` sasaran.
 
-## Properties
+## Properti/peralatan
 
-The `session` module has the following properties:
+Modul `sesi` terdapat properti sebagai berikut:
 
-### `session.defaultSession`
+### `sesi.sisibawaan`
 
-A `Session` object, the default session object of the app.
+Sebuah `Sesi` objek, objek sesi bawaan pada aplikasi.
 
-## Class: Session
+## Tingkat: Sesi
 
-> Get and set properties of a session.
+> Dapatkan dan atur peralatan dari sebuah sesi.
 
-Proses:  Utama </ 0></p> 
+Proses: [Utama](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 
 ```javascript
-const {session} = require('electron')
-const ses = session.fromPartition('persist:name')
+const {sesi} = memerlukan('electron')
+const ses = sesi.daripartisi('pertahanan:nama')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Perihal contoh
 
-The following events are available on instances of `Session`:
+Peristiwa berikut tersedia pada contoh `Sesi`:
 
-#### Event: 'will-download'
+#### Perihan: 'akan-terunduh'
 
-* ` event </ 0>  Acara</li>
-<li><code>item` [DownloadItem](download-item.md)
-* ` webContents </ 0>  <a href="web-contents.md"> WebContents </ 1></li>
-</ul>
+* `acara` Acara
+* `barang` [unduhbarang](download-item.md)
+* `webContents` [WebContents](web-contents.md)
 
-<p>Emitted when Electron is about to download <code>item` in `webContents`.</p> 
-  Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
-  
-  ```javascript
-const {session} = require('electron')
-session.defaultSession.on('will-download', (event, item, webContents) => {
-  event.preventDefault()
-  require('request')(item.getURL(), (data) => {
-    require('fs').writeFileSync('/somewhere', data)
+Terpencar ketika Elektron akan men-download `barang` di `webContents`.
+
+Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` tidak akan tersedia dari tikungan berikutnya prosesnya.
+
+```javascript
+const {sesi} = memerlukan('electron')
+sesi.defaultSesi.pada('akan-mendownload', (agenda, barang, webContents) => {
+  peristiwa.mencegahDefault()
+  memerlukan('permintaan')(barang.getURL(), (data) => {
+    memerlukan('fs').writeFileSync('/ehtahdimana', data)
   })
 })
 ```
 
-### Metode Instance
+### Metode Contoh
 
-The following methods are available on instances of `Session`:
+Metode berikut tersedia pada contoh `Sesi`:
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize(panggilanbalik)`
 
-* `callback` Fungsi 
-  * `size` Integer - Cache size used in bytes.
+* `panggilan balik` Fungsi 
+  * `ukuran`Bilangan Bulat - Ukuran cache yang digunakan dalam bytes.
 
-Callback is invoked with the session's current cache size.
+Callback dipanggil dengan ukuran cache sesi saat ini.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `memanggil kembali` Fungsi - terpanggil ketika operasi selesai
 
-Clears the session’s HTTP cache.
+Membersihkan sesi-sesi HTTP cache.
 
-#### `ses.clearStorageData([options, callback])`
+#### `ses.clearStorageData([pilihan-pilihan, panggilan kembali])`
 
-* `pilihan` Objek (opsional) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+* `pilihan-pilihan` Objek (pilihan) 
+  * `asal` Senar - (pilihan) Harus mengikuti `jendela.lokasi.asal`’s representasi `scheme://host:port`.
+  * `penyimpanan` Senar[] - (pilihan) Jenis penyimpanan yang bisa dihapus, bisa berisi: `chacheaplikasi`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `kuota` Senar[] - (pilihan) Jenis kuota untuk menghapus, dapat berisi: `sementara`, `gigih`, `syncable`.
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
-Clears the data of web storages.
+Menghapus data penyimpanan web.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Menulis data DOMStorage yang tidak tertulis ke disk.
 
-#### `ses.setProxy(config, callback)`
+#### `ses.setProxy(config, panggilan kembali)`
 
-* `config` Object 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `konfigurasi` Objek 
+  * `pacScript` Senar - URL yang terkait dengan file PAC.
+  * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
+  * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
+* `callback` Fungsi - Disebut saat operasi selesai.
 
-Sets the proxy settings.
+Mengatur pengaturan proxy.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+Ketika `pacScript` dan `proxyRules` disediakan bersama, `proxyRules` pilihan diabaikan dan `pacScript` konfigurasi diterapkan.
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` harus mengikuti aturan di bawah ini:
 
     proxyRules = schemeProxies[";"<schemeProxies>]
     schemeProxies = [<urlScheme>"="]<proxyURIList>
@@ -132,12 +133,12 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-For example:
+Sebagai contoh:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
-* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `foopy:80` - GunakanHTTP proxy `foopy:80` untuk semua URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` untuk semua URLs, gagal untuk `bar` if `foopy:80` tidak tersedia, dan setelah itu tidak menggunakan proxy.
+* `socks4://foopy` - Gunakan SOCKS v4 proxy `foopy:1080` untuk semua URLs.
 * `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
@@ -152,199 +153,177 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Cocokkan akhiran domain tertentu.
     
     Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Mencocokkan URL yang literal alamat IP.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Contoh: "127.0.1", "[0:0::1]", "[:: 1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL PREFIX_LENGHT_IN_BITS "/"`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Contoh: "192.168.1.1/16", "fefe:13::abc / 33".
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Perhitingan lokal address. Pengertian dari `<local>` adalah diantaranya perhitungan host satu: "127.0.0.1", "::1", "localhost".
 
-#### `ses.resolveProxy(url, callback)`
+#### `ses.resolveProxy (url, callback)`
 
 * ` url </ 0> URL</li>
 <li><code>callback` Fungsi 
   * `proxy` String
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `callback(proxy)` ketika permintaan dilakukan.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `jalan` String - lokasi download
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `pilihan` Object 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+* `pilihan` Obyek 
+  * `offline` Boolean (opsional) - Apakah untuk meniru jaringan listrik. Default ke false.
+  * `latensi` Kamar Double (opsional) - RTT di ms. default untuk 0 yang akan menonaktifkan latency throttling.
+  * `downloadThroughput` Double (opsional) - Kecepatan download di Bps. Default ke 0 yang akan menonaktifkan download throttling.
+  * `uploadThroughput` Kamar Double (opsional) - Upload tingkat di Bps. defaultnya adalah 0 yang akan menonaktifkan upload throttling.
 
-Emulates network with the given configuration for the `session`.
+Emulasikan jaringan dengan konfigurasi yang diberikan untuk `sesi`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+Untuk meniru sambungan GPRS dengan 50kbps throughput dan 500 ms latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
-})
-
-// To emulate a network outage.
+}) / / untuk meniru pemadaman jaringan.
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi jaringan asli.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Fungsi 
-  * `permintaan` Object 
+  * `permintaan` Obyek 
     * `hostname` String
     * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
 <li><code>error` String - Verification result from chromium.
   * `callback` Fungsi 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `verificationResult` Integer - Nilai bisa menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
+      * `` - menunjukkan keberhasilan dan menonaktifkan verifikasi sertifikat Transperancy.
+      * `-2` - menunjukkan kegagalan.
+      * `-3` - menggunakan hasil verifikasi dari kromium.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc(request, callback)` setiap kali ada sertifikat server verifikasi diminta. Memanggil `callback(0)` menerima sertifikat, panggilan `callback(-2)` menolak itu.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+Memanggil `setCertificateVerifyProc(null)` akan kembali kembali ke default sertifikat verifikasi proc.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-
-win.webContents.session.setCertificateVerifyProc((request, callback) => {
-  const {hostname} = request
-  if (hostname === 'github.com') {
-    callback(0)
-  } else {
-    callback(-2)
-  }
-})
+const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webContents.session.setCertificateVerifyProc BrowserWindow() baru ((request, callback) = > {const {hostname} = permintaan jika (hostname === 'github.com') {callback(0)} lain {callback(-2)}})
 ```
 
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Fungsi 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
-  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+  * `webContents` [WebContents](web-contents.md) - WebContents meminta izin.
+  * `izin` String - Enum 'media', 'geolocation', 'pemberitahuan', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Fungsi 
-    * `permissionGranted` Boolean - Allow or deny the permission
+    * `permissionGranted` Boolean - mengizinkan atau menolak izin
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya.
 
 ```javascript
-const {session} = require('electron')
-session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
-  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
-  }
-
-  callback(true)
-})
+const {session} = require('electron') session.fromPartition('some-partition').setPermissionRequestHandler ((webContents, izin, callback) = > {jika (webContents.getURL() === 'beberapa-host' & & izin === 'pemberitahuan') {}     kembali callback(false) / / ditolak.
+  } callback(true)})
 ```
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
-Clears the host resolver cache.
+Menghapus cache resolver host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domain` String - daftar dipisahkan koma server untuk otentikasi Terpadu yang diaktifkan.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
 
 ```javascript
-const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
-session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
-
-// consider all urls for integrated authentication.
+const {session} = require('electron') / / mempertimbangkan setiap url yang diakhiri dengan 'example.com', 'foobar.com', 'baz' / / untuk otentikasi Terpadu.
+session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz') / / mempertimbangkan semua Url untuk otentikasi Terpadu.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
-#### `ses.setUserAgent(userAgent[, acceptLanguages])`
+#### `ses.setUserAgent (userAgent [, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (opsional)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Menggantikan `userAgent` dan `acceptLanguages` untuk sesi ini.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`AcceptLanguages` harus koma terpisah daftar bahasa kode, misalnya `"En-US, fr, de, ko, zh-CN, ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Ini tidak akan mempengaruhi yang ada `WebContents`, dan setiap `WebContents` dapat menggunakan `webContents.setUserAgent` untuk menimpa agen sesi pengguna.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Mengembalikan `String` - user agent untuk sesi ini.
 
-#### `ses.getBlobData(identifier, callback)`
+#### `ses.getBlobData (pengenal, callback)`
 
-* `identifier` String - Valid UUID.
+* `pengenal` String - UUID berlaku.
 * `callback` Fungsi 
-  * `result` Buffer - Blob data.
+  * `hasil` Luapan penyangga - gumpalan data.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+Mengembalikan `gumpalan` - gumpalan data yang terkait dengan `pengenal`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `pilihan` Object 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+* `pilihan` Obyek 
+  * `jalan` String - path absolut download.
+  * `urlChain` String [] - URL lengkap jaringan untuk men-download.
+  * `mimeType` String (opsional)
+  * `offset` Bulat - rentang mulai untuk men-download.
+  * `panjang` Bulat - panjang Total download.
+  * `lastModified` String - header Last-Modified nilai.
+  * `eTag` String - ETag header nilai.
+  * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache (pilihan [, callback])`
 
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan
 
-Clears the session’s HTTP authentication cache.
+Membersihkan cache otentikasi HTTP sesi.
 
 ### Instance Properties
 
-The following properties are available on instances of `Session`:
+Properti berikut tersedia pada contoh-contoh dari `sesi`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Sebuah objek [cookie](cookies.md) sesi ini.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Sebuah objek [WebRequest](web-request.md) sesi ini.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Sebuah objek [protokol](protocol.md) untuk sesi ini.
 
 ```javascript
 const {app, session} = require('electron')

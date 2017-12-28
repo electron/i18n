@@ -77,9 +77,9 @@ app.on('ready', () => {
 
 ## Ich kann jQuery/RequireJS/Meteor/AngularJS in Electron nicht verwenden.
 
-Wegen der Node.js Integration in Electron gibt es einige zusätzlich eingefügte Symbole im DOM wie `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Wegen der Node.js Integration in Electron gibt es einige zusätzlich eingefügte Symbole im DOM wie `module`, `exports`, `require`. Das verursacht Probleme für einige Bibliotheken, da diese versuchen, Symbole mit den gleichen Namen einzufügen.
 
-To solve this, you can turn off node integration in Electron:
+Um dies zu beheben können Sie die Node-Integration in Electron deaktivieren:
 
 ```javascript
 // Im Hauptprozess.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Wenn Sie sich jedoch die Möglichkeit, Node.js und Electron APIs zu nutzen, offen halten möchten, müssen Sie die Symbole auf der Seite umbenennen, bevor Sie andere Bibliotheken einbinden:
 
 ```html
 <head>
@@ -108,32 +108,32 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Während Sie das in Electron integrierte Modul nutzen, könnten Sie auf einen Fehler wie diesen stoßen:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Und zwar deshalb, weil Sie das [npm `electron` module](https://www.npmjs.com/package/electron) entweder lokal oder global installiert haben, was das in Electron integrierte Modul überschreibt.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Um zu überprüfen, ob Sie das richtige integrierte Modul verwenden, können Sie den Pfad des `electron`-Moduls ausgeben lassen:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+und kontrollieren ob es folgende Form hat:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Wenn der Pfad wie `node_modules/electron/index.js` aussieht, dann können Sie entweder das npm `electron` Modul entfernen oder umbenennen.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler bekommen, dann ist es sehr wahrscheinlich, dass Sie das Modul im falschen Prozess verwenden. Beispielsweise kann `electron.app` nur im Hauptprozess verwendet werden, während `electron.webFrame` nur im Renderer-Prozess verfügbar ist.

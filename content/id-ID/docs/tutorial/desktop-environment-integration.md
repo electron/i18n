@@ -1,61 +1,60 @@
 # Integrasi Lingkungan Desktop
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+sistem operasi yang berbeda menyediakan fitur yang berbeda untuk mengintegrasikan aplikasi desktop ke dalam lingkungan desktop mereka. Sebagai contoh, pada Windows , aplikasi dapat menempatkan shortcut di jumplist dari task bar, dan di Mac, aplikasi dapat menempatkan sebuah menu kustom di dermaga menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Panduan ini menjelaskan cara untuk mengintegrasikan aplikasi Anda ke orang-orang lingkungan desktop dengan Electron API.
 
-## Notifications
+## pemberitahuan
 
-See [Notifications](notifications.md)
+Lihat  Pemberitahuan </ 0></p> 
 
-## Recent documents (Windows & macOS)
+## Dokumen terbaru (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dibuka oleh aplikasi melalui jumplist atau dermaga menu, masing-masing.
 
-**JumpList:**
+**jumplist:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Daftar Langsung Berkas Terbaru](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Menu dermaga aplikasi:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Untuk menambahkan file ke dokumen baru-baru ini, Anda dapat menggunakan  app.addRecentDocument </ 0> API :</p> 
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+Dan Anda dapat menggunakan [app.clearRecentDocuments ](../api/app.md#appclearrecentdocuments-os-x-windows) API untuk mengosongkan daftar dokumen baru-baru:
 
 ```javascript
-const {app} = require('electron')
+onst {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### catatan Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Agar dapat menggunakan fitur ini pada Windows , aplikasi Anda harus terdaftar sebagai handler dari jenis file dokumen, jika file tersebut tidak akan muncul di jumplist bahkan setelah Anda telah menambahkan. Anda dapat menemukan semuanya di mendaftarkan aplikasi Anda di  Aplikasi Pendaftaran </ 0> .</p> 
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan mulai dengan path dari file ditambahkan sebagai argumen baris perintah.
 
-### macOS Notes
+### Catatan macOS
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Ketika sebuah file yang diminta dari menu dokumen terakhir, `open-file` acara dari `app` modul akan dipancarkan untuk itu.
 
-## Custom Dock Menu (macOS)
+## Dock Menu kustom (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+MacOS memungkinkan pengembang untuk menentukan menu kustom untuk dock , yang biasanya berisi beberapa cara pintas untuk fitur yang umum digunakan dari aplikasi Anda:
 
-**Dock menu of Terminal.app:**
+**Menu dermaga Terminal.app:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Untuk mengatur kustom Anda dock menu, Anda dapat menggunakan ` aplikasi. dermaga .setMenu </ 0>  API , yang hanya tersedia di MacOS :</p>
 
-```javascript
-const {app, Menu} = require('electron')
+<pre><code class="javascript">const {app, Menu} = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
   {label: 'New Window', click () { console.log('New Window') }},
@@ -67,27 +66,43 @@ const dockMenu = Menu.buildFromTemplate([
   },
   {label: 'New Command...'}
 ])
-app.dock.setMenu(dockMenu)
-```
+app.dock.setMenu(dockMenu)         
+        
+`</pre> 
 
-## User Tasks (Windows)
+## Pengguna Tugas ( Windows )
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Pada Windows Anda dapat menentukan tindakan kustom dalam ` Tugas </ 0> kategori jumplist, seperti dikutip dari MSDN:</p>
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
-> 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+<blockquote>
+  <p>Aplikasi mendefinisikan tugas berdasarkan kedua fitur program dan kunci
+   hal pengguna diharapkan untuk melakukan dengan mereka. Tugas harus bebas konteks, dalam
+   bahwa aplikasi tidak perlu berjalan bagi mereka untuk bekerja. Mereka
+   juga harus menjadi tindakan statistik yang paling umum bahwa pengguna normal akan
+   tampil di aplikasi, seperti menulis pesan email atau membuka
+   kalender dalam program mail, membuat dokumen baru dalam pengolah kata, meluncurkan
+   aplikasi dalam mode tertentu , atau meluncurkan salah satu subcommands nya. Sebuah
+   aplikasi tidak harus kekacauan menu dengan fitur-fitur canggih yang standar
+   pengguna tidak perlu atau tindakan satu kali seperti pendaftaran. Jangan gunakan tugas
+   untuk barang-barang promosi seperti upgrade atau penawaran khusus.</p>
+  
+  <p>Hal ini sangat dianjurkan bahwa daftar tugas statis. Ini harus tetap
+   sama terlepas dari keadaan atau status aplikasi. Meskipun
+   mungkin untuk beragam daftar dinamis, Anda harus mempertimbangkan bahwa ini bisa
+   membingungkan pengguna yang tidak mengharapkan bahwa sebagian dari daftar tujuan untuk
+   mengubah.</p>
+</blockquote>
 
-**Tasks of Internet Explorer:**
+<p><strong>Tugas dari Internet Explorer:</strong></p>
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+<p><img src="https://msdn.microsoft.com/dynimg/IC420539.png" alt="IE" /></p>
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+<p>Berbeda dengan menu dock di MacOS yang merupakan menu yang nyata, tugas-tugas pengguna di Windows bekerja seperti shortcut aplikasi tersebut bahwa ketika pengguna mengklik tugas, program akan dieksekusi dengan argumen tertentu.</p>
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+<p>Untuk mengatur tugas-tugas pengguna untuk aplikasi Anda, Anda dapat menggunakan
+ <a href="../api/app.md#appsetusertaskstasks-windows"> app.setUserTasks </ 0>  API :</p>
 
-```javascript
-const {app} = require('electron')
+<pre><code class="javascript">const {app} = require('electron')
 app.setUserTasks([
   {
     program: process.execPath,
@@ -98,32 +113,32 @@ app.setUserTasks([
     description: 'Create a new window'
   }
 ])
-```
+`</pre> 
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Untuk membersihkan daftar tugas Anda, silahkan hubungi `app.setUserTasks` dengan array kosong:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Tugas pengguna masih akan menunjukkan bahkan setelah aplikasi Anda menutup, sehingga ikon dan program jalan yang ditentukan untuk suatu tugas harus ada sampai aplikasi Anda dihapus.
 
-## Thumbnail Toolbars
+## thumbnail Toolbars
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+Pada Windows Anda dapat menambahkan toolbar thumbnail dengan tombol yang ditetapkan dalam tata letak taskbar dari jendela aplikasi. Ini memberikan pengguna cara untuk mengakses perintah jendela tertentu tanpa memulihkan atau mengaktifkan jendela.
 
-From MSDN, it's illustrated:
+Dari MSDN, itu bergambar:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> toolbar ini adalah cukup akrab toolbar standar kontrol umum. Ia memiliki maksimal tujuh tombol. Masing-masing tombol ini ID, gambar, tooltip, dan negara didefinisikan dalam struktur, yang kemudian diteruskan ke taskbar. Aplikasi ini dapat menunjukkan, mengaktifkan, menonaktifkan, atau menyembunyikan tombol dari toolbar thumbnail seperti yang dipersyaratkan oleh perusahaan negara saat ini.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Sebagai contoh, Windows Media Player mungkin menawarkan kontrol media transportasi standar seperti play, pause, mute, dan berhenti.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Toolbar thumbnail Windows Media Player:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![pemain](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+Anda dapat menggunakan [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) untuk mengatur toolbar thumbnail dalam aplikasi Anda:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +164,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Untuk membersihkan tombol thumbnail toolbar, hanya memanggil `BrowserWindow.setThumbarButtons` dengan array kosong:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,27 +172,27 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Kesatuan Launcher pintas (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Dalam Unity, Anda dapat menambahkan entri kustom untuk peluncur nya melalui memodifikasi `.desktop` file, lihat [Menambahkan Shortcut ke Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) .
 
-**Launcher shortcuts of Audacious:**
+**pintas peluncur dari Audacious:**
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![berani](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Progress Bar di Bar Tugas ( Windows, MacOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Pada Windows tombol taskbar bisa digunakan untuk menampilkan progress bar. Ini memungkinkan sebuah jendela untuk memberikan informasi kemajuan kepada pengguna tanpa pengguna harus melakukannya beralih ke jendela itu sendiri.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Pada MacOS progress bar akan ditampilkan sebagai bagian dari dermaga ikon.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Pada Unity DE juga memiliki fitur serupa yang memungkinkan Anda untuk menentukan kemajuan bar di peluncur.
 
-**Progress bar in taskbar button:**
+**Progres bar di tombol taskbar:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Untuk mengatur progress bar untuk Window, Anda bisa menggunakan [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,31 +200,31 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Ikon Hamparan di Taskbar (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan aplikasi status, seperti dikutip dari MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Ikon hamparan berfungsi sebagai pemberitahuan status kontekstual, dan dimaksudkan untuk meniadakan kebutuhan akan ikon status area pemberitahuan terpisah untuk berkomunikasi informasi itu kepada pengguna. Misalnya, status mail baru di Microsoft Pandangan, yang saat ini ditampilkan di area notifikasi, sekarang dapat ditunjukkan melalui overlay pada tombol taskbar. Sekali lagi, Anda harus memutuskan selama Anda siklus pengembangan yang metode yang terbaik untuk aplikasi Anda. Ikon overlay adalah dimaksudkan untuk memasok status, notifikasi atau status lama yang penting status jaringan, status pesan, atau surat baru. Pengguna seharusnya tidak disajikan dengan hamparan atau animasi yang terus berubah.
 
-**Overlay on taskbar button:**
+**Overlay pada tombol taskbar:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Tampilan tombol taskbar](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+const {BrowserWindow} = membutuhkan ('elektron')
+biarkan menang = new BrowserWindow ()
+win.setOverlayIcon ('path / to / overlay.png', 'Deskripsi untuk overlay')
 ```
 
 ## Flash Frame (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Pada Windows Anda dapat menyorot tombol taskbar untuk menarik perhatian pengguna. Ini mirip dengan memantulkan ikon dok pada macos. Dari dokumentasi referensi MSDN:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Biasanya, sebuah jendela dilemparkan untuk memberi tahu pengguna bahwa jendela membutuhkan perhatian tapi saat ini tidak memiliki fokus keyboard.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Untuk flash tombol taskbar BrowserWindow, Anda bisa menggunakan [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,32 +233,32 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Jangan lupa untuk memanggil metode `flashFrame`dengan`false` untuk mematikan lampu kilat. Di Contoh di atas, itu disebut saat jendela masuk ke fokus, tapi mungkin saja gunakan batas waktu atau acara lain untuk menonaktifkannya.
 
-## Represented File of Window (macOS)
+## Mewakili File of Window (macos)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Pada macOS, sebuah jendela dapat mengatur file yang diwakilinya, sehingga ikon file dapat ditampilkan judul bar dan saat pengguna Command-Click atau Control-Click pada judul path popup akan muncul.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Anda juga dapat mengatur keadaan diedit dari jendela sehingga ikon file dapat menunjukkan apakah dokumen di jendela ini telah dimodifikasi.
 
-**Represented file popup menu:**
+**Mewakili menu data popup:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+Untuk mengatur file jendela yang terwakili, Anda bisa menggunakan [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) dan [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.setRepresentedFilename('/etc/passwd')
-win.setDocumentEdited(true)
+const {BrowserWindow} = membutuhkan ('elektron')
+biarkan menang = new BrowserWindow ()
+win.setRepresentedFilename ('/ etc / passwd')
+win.setDocumentEdited (benar)
 ```
 
-## Dragging files out of the window
+## Menyeret data dari jendela
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Untuk jenis aplikasi tertentu yang memanipulasi data, penting untuk dapat melakukannya untuk menyeret data dari Electron ke aplikasi lain. Untuk menerapkan fitur ini di aplikasi, Anda perlu memanggil `webContents.startDrag(item)`API pada`ondragstart`event.
 
-In web page:
+Di halaman web:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +270,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+Dalam proses utamanya:
 
 ```javascript
 const {ipcMain} = require('electron')

@@ -15,6 +15,11 @@ docs:
   guides: راهنماها
   api_reference: مرجع API
   advanced: پیشرفته
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: زبان سایت را انتخاب کنید
   translation_progress: پیشرفت ترجمه
@@ -54,11 +59,7 @@ get_started:
   description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
 explore:
   title: Explore the Electron APIs
-  description:
-    - The <a href="https://github.com/electron/electron-api-demos">Electron API Demos app</a>
-    - interactively demonstrates the most important features of the Electron API.
-    - See what's possible with Electron with sample code and helpful tips for
-    - برنامه خودتان را بسازید.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: دانلود از گیت‌هاب
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Localized content from our awesome global developer community.
 help_translate: "همکاری در ترجمه"
 footer:
-  see_something: See something that needs fixing?
-  propose_change: پیشنهاد برای تغییر سورس کد.
-  need_different_version: نسخه دیگری از اسناد را نیاز دارید؟
-  see_available_versions: نسخه های موجود را مشاهده کنید.
-  want_something_searchable: Want something searchable?
-  view_all_docs: مشاهده تمام اسناد در یک صفحه
   see_the_faq: پرسش های متداول را ببینید
 apps:
   title: برنامه‌های ساخته شده برپایه الکترون

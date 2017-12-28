@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Instance Events
+### インスタンスイベント
 
 次のイベントは、`クッキー` のインスタンス。
 
@@ -47,7 +47,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### インスタンスメソッド
 
 The following methods are available on instances of `Cookies`:
 

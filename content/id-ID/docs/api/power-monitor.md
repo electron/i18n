@@ -4,37 +4,37 @@
 
 Proses: [Utama](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Anda tidak dapat meminta atau menggunakan modul ini sampai acara `siap` dari`aplikasi` modul dipancarkan.
 
-For example:
+Sebagai contoh:
 
 ```javascript
-const electron = require('electron')
-const {app} = electron
+const electron = require ('elektron')
+const {app} = elektron
 
-app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
-  })
+app.on ('siap', () => {
+  electron.powerMonitor.on ('suspend', () => {
+    console.log ('Sistemnya akan tertidur')
+  })
 })
 ```
 
-## Events
+## Acara
 
-The `powerMonitor` module emits the following events:
+Modul`powerMonitor` memancarkan peristiwa berikut:
 
-### Event: 'suspend'
+### Acara: 'menangguhkan'
 
-Emitted when the system is suspending.
+Emitted saat sistem sedang menangguhkan.
 
-### Event: 'resume'
+### Acara: 'resume'
 
-Emitted when system is resuming.
+Emitted saat sistem dilanjutkan.
 
 ### Event: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+Emitted saat sistem berubah menjadi AC power.
 
-### Event: 'on-battery' *Windows*
+### Acara: 'di-baterai' *Windows*
 
-Emitted when system changes to battery power.
+Emitted saat sistem berubah menjadi daya baterai.

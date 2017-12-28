@@ -109,13 +109,13 @@ $ ./script/build.py -c D
 $ npm run clean
 ```
 
-Sadece `out` ve `dist` dizinlerini temizlemek için:
+Sadece `out` and `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Not:** Her iki clean komutu `bootstrap` betiğinin inşaa öncesi çalıştırılmasını şart koşar.
+**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
 
 ## Arıza giderme
 
@@ -129,7 +129,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Testler
 
-[İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests) sayfasını ziyaret edin
+Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
 
 ## İleri düzey başlıklar
 
@@ -161,16 +161,16 @@ $ ./script/build.py -c R
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. Eğer bir sebepten dolayı `clang` ile inşa etmek isterseniz, sisteminize kurulu, `bootstrap.py` ögesini `--clang_dir=<path>` ile arayabilirsiniz geçin. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Örneğin, `clang` 'ı `/user/local/bin/clang` dizinine yüklediyseniz:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### `clang` dışında derleyicileri kullanarak
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Ortam Değişkenleri
 
-`CC` ve `CXX` dışında, aşağıdaki ortam değişkenlerini de özel inşaa konfigurasyonları için ayarlayabilirsiniz:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`

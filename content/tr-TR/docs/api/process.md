@@ -1,6 +1,6 @@
-# process
+# süreç
 
-> Extensions to process object.
+> İşlem nesnesine uzantılar.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -111,7 +111,7 @@ Returns `Object`:
 * `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
 * `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Tüm sistem hakkında bellek kullanım istatistiklerini veren bir nesneyi döndürür. Tüm istatistiklerin kilobayt cinsinden rapor edildiğini not et.
 
 ### `process.hang()`
 

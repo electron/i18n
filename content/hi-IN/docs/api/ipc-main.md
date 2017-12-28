@@ -1,4 +1,4 @@
-# ipcMain
+# आईपीसी मुख्य
 
 > Communicate asynchronously from the main process to renderer processes.
 

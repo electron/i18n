@@ -15,6 +15,11 @@ docs:
   guides: 안내서
   api_reference: API 참조 문서
   advanced: 고급
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: 이 웹사이트를 볼 언어를 선택하세요
   translation_progress: 번역 진행 단계
@@ -54,11 +59,7 @@ get_started:
   description: Electron을 시작하려면 아래에 있는 리소스를 확인하세요. 어떻게 Electron으로 당신의 웹 앱을 개발하고, 모든 API에 액세스하고, 설치 프로그램을 생성하는지에 대해 알아보세요.
 explore:
   title: Electron API를 탐색하세요
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">Electron API 데모 애플리케이션</a>
-    - Electron API의 가장 중요한 기능을 대화식으로 보여줍니다.
-    - 예제 코드와 유용한 팁들로 Electron으로 무엇이 가능한지 살펴봅니다
-    - 여러분의 앱을 만드세요.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: GitHub에서 다운로드
 view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: 우리의 멋진 글로벌 개발자 커뮤니티에서 지역화된 콘텐츠입니다.
 help_translate: "번역에 도움을 주세요."
 footer:
-  see_something: 뭔가 고쳐야 할 것이 있나요?
-  propose_change: 소스 파일에 변화를 제안합니다.
-  need_different_version: 다른 버전의 문서가 필요하신가요?
-  see_available_versions: 사용 가능한 버전을 확인하세요.
-  want_something_searchable: 뭔가 검색을 원하십니까?
-  view_all_docs: 한 페이지에 모든 문서 보기
   see_the_faq: 자주 묻는 질문
 apps:
   title: Electron으로 설계된 애플리케이션

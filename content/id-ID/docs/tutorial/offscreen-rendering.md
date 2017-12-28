@@ -1,27 +1,27 @@
 # Rendering di luar layar
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Perenderan di luar layar memungkinkan Anda mendapatkan konten jendela browser dalam bitmap, sehingga dapat ditampilkan di mana saja, misalnya pada tekstur dalam adegan 3D. Perenderan offscreen di Electron menggunakan pendekatan serupa dari proyek  Chromium Embedded Framework </ 0> .</p> 
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'cat' </ 0>  acara untuk menjadi lebih efisien. Perenderan bisa dihentikan, dilanjutkan dan frame rate bisa diatur. Frame rate yang ditentukan adalah nilai batas atas, bila tidak ada yang terjadi pada halaman web, tidak ada frame yang dihasilkan. Frame rate maksimal adalah 60, karena di atas itu tidak ada manfaatnya, hanya performance loss.</p>
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+<p><strong> Catatan: </ 0> Sebuah jendela offscreen selalu dibuat sebagai <a href="../api/frameless-window.md"> Frameless Jendela </ 1> .</p>
 
-## Two modes of rendering
+<h2>Dua mode rendering</h2>
 
-### GPU accelerated
+<h3>GPU dipercepat</h3>
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+<p>GPU accelerated rendering berarti GPU digunakan untuk komposisi. Karena itu frame harus disalin dari GPU yang membutuhkan kinerja lebih banyak, sehingga mode ini agak sedikit lebih lambat dari yang lain. Manfaat mode inilah animasi WebGL dan 3D CSS didukung.</p>
 
-### Software output device
+<h3>Perangkat output perangkat lunak</h3>
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+<p>Mode ini menggunakan perangkat output perangkat lunak untuk rendering di CPU, sehingga generasi frame jauh lebih cepat, sehingga mode ini lebih disukai daripada yang dipercepat GPU.</p>
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+<p>Untuk mengaktifkan mode ini akselerasi GPU harus dinonaktifkan dengan memanggil
+ API <a href="../api/app.md#appdisablehardwareacceleration"><code> app.disableHardwareAcceleration () </ 0>  .</p>
 
-## Usage
+<h2>Pemakaian</h2>
 
-```javascript
-const {app, BrowserWindow} = require('electron')
+<pre><code class="javascript">const {app, BrowserWindow} = require('electron')
 
 app.disableHardwareAcceleration()
 
@@ -38,4 +38,4 @@ app.once('ready', () => {
   })
   win.webContents.setFrameRate(30)
 })
-```
+`</pre>

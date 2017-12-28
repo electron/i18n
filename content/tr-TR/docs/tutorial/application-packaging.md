@@ -8,10 +8,10 @@ An [asar](https://github.com/electron/asar) archive is a simple tar-like format 
 
 Steps to package your app into an `asar` archive:
 
-### 1. Install the asar Utility
+### 1. Asar Yardımcı Programını Kurun
 
 ```sh
-$ npm install -g asar
+$ npm kurma -g asar
 ```
 
 ### 2. Package with `asar pack`
@@ -108,7 +108,7 @@ Even though we tried hard to make `asar` archives in the Node API work like dire
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Çalışma dizini arşivdeki dizinlere ayarlanamıyor
 
 Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
 

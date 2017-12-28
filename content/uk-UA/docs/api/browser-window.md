@@ -5,10 +5,10 @@
 Процес: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// В головному процесі.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Чи використовуйте `remote` з процесу рендеринга.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,10 +16,10 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Завантажити зовнішнє URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Чи завантажити локальний HTML файл
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### Модальні вікна
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### Зауваження
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -106,7 +106,7 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## Клас: BrowserWindow
 
 > Create and control browser windows.
 
@@ -118,7 +118,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -225,16 +225,16 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### Подія: 'close'
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -252,93 +252,93 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### Подія: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' *Windows*
+#### Подія: 'session-end' *Windows*
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Подія: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Подія: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Подія: 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Подія: 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Подія: 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Подія: 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Подія: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Подія: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Подія: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Подія: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Подія: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Подія: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Подія: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### Подія: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Подія: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Подія: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Подія: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Подія: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Подія: 'app-command' *Windows*
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -356,32 +356,32 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Подія: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Подія: 'scroll-touch-end' *macOS*
 
 Emitted when scroll wheel event phase has ended.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Подія: 'scroll-touch-edge' *macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' *macOS*
+#### Подія: 'swipe' *macOS*
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Подія: 'sheet-begin' *macOS*
 
 Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' *macOS*
+#### Подія: 'sheet-end' *macOS*
 
 Emitted when the window has closed a sheet.
 
@@ -389,7 +389,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Статичні Методи
 
 The `BrowserWindow` class has the following static methods:
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Властивості Екземпляра
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,11 +493,11 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Методи Екземпляра
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Примітка:** Деякі методи доступні тільки на певних операціїних системах і позначені як такі.
 
 #### `win.destroy()`
 
@@ -600,30 +600,30 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (опціонально) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Повертає [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (опціонально) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Повертає [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (опціонально) *macOS*
 
 Resizes the window to `width` and `height`.
 
@@ -635,7 +635,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (опціонально) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -753,7 +753,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (опціонально) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -776,7 +776,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (опціонально)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -819,7 +819,7 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
-* `callback` Функція
+* `callback` Function
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
@@ -874,7 +874,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -922,7 +922,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -973,7 +973,7 @@ The `buttons` is an array of `Button` objects:
 `flags` це масив, що може містити наступні `String`:
 
 * `enabled` - Кнопка активна та доступна юзеру.
-* `disabled` - Кнопка відключена. Врна присутня, але має вигляд, такої, що не буде реагувати на дії користувача.
+* `disabled` - Кнопка відключена. Вона присутня, але має вигляд, такої, що не буде реагувати на дії користувача.
 * `dismissonclick` - Коли на кнопку натискають, панель мініатюр негайно закривається.
 * `nobackground` - Не малювати границі кнопки, використовувати тільки зображення.
 * `hidden` - Кнопка не відображається користувачу.
@@ -1098,7 +1098,7 @@ Controls whether to hide cursor when typing.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Експериментальний*
 
 * `touchBar` TouchBar
 
@@ -1106,8 +1106,8 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Експериментальний*
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Примітка:** BrowserView API наразі є експериментальним і може бути зміненим чи видаленим з майбутніх версій Electron.

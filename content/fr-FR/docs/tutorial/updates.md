@@ -8,7 +8,7 @@ Pour commencer, vous devez d'abord déployer un serveur dont le module [autoUpda
 
 Selon vos besoins, vous pouvez choisir parmi l'un d'entre eux :
 
-- [Hazel](https://github.com/zeit/hazel) - Simple serveur de mise à jour pour les applications open sources. Récupère les [versions GitHub](https://help.github.com/articles/creating-releases/) et peuvent être déployées gratuitement sur [Now](https://zeit.co/now).
+- [Hazel](https://github.com/zeit/hazel) - Serveur de mise à jour pour les applications open sources ou privées. Peut être déployé gratuitement sur [Now](https://zeit.co/now) (à l'aide d'une seule commande), récupère depuis [GitHub Releases](https://help.github.com/articles/creating-releases/) et exploite la puissance du CDN de GitHub.
 - [Nuts](https://github.com/GitbookIO/nuts) - Utilise également les [versions GitHub](https://help.github.com/articles/creating-releases/), mais met en cache les mises à jour sur le disque et prend en charge les dépôts privés.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Fournit un tableau de bord pour le traitement des versions
 - [Nucleus](https://github.com/atlassian/nucleus) - Un serveur de mise à jour complet pour les applications Electron, maintenu par Atlassian. Prend en charge plusieurs applications et canaux; utilise un magasin de fichier statiques pour rapetisser le coût serveur.

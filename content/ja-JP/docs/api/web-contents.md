@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 プロセス: [Main](../glossary.md#main-process)
 
-### Instance Events
+### インスタンスイベント
 
 #### Event: 'did-finish-load'
 
@@ -504,7 +504,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### インスタンスメソッド
 
 #### `contents.loadURL(url[, options])`
 
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### インスタンスプロパティ
 
 #### `contents.id`
 

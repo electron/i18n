@@ -26,28 +26,28 @@ console.log(dialog)
 
 * `browserWindow` BrowserWindow (可选)
 * `options` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `属性` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
+  * `title` String (可选)
+  * `defaultPath` String (可选)
+  * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
+  * `filters` [FileFilter[]](structures/file-filter.md) (可选)
+  * `properties` String[] (可选) -包含对话框应用的功能。支持以下值: 
     * `openFile` - Allow files to be selected.
     * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
-    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-* `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+    * ` multiSelections `-允许多选。
+    * ` showHiddenFiles `-显示对话框中的隐藏文件。
+    * ` createDirectory `-允许从对话框创建新目录。* macOS *
+    * ` promptToCreate `-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。 *Windows*
+    * ` noResolveAliases `-禁用自动别名 (symlink) 路径解析。 选定的别名现在将返回别名路径而不是其目标路径。* macOS *
+    * ` treatPackageAsDirectory `-将包 (如 `.app ` 文件夹) 视为目录而不是文件。* macOS *
+  * `message` String (可选) * macOS *-显示在输入框上方的消息。
+* `callback` Function (可选) 
+  * ` filePaths ` String[] - 用户选择的文件路径的数组
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+返回 `String[]` 用户选择的文件路径数组，如果用户定义了callback ，则返回`undefined`。
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+` filters ` 指定一个文件类型数组，用于规定用户可见或可选的特定类型范围。例如:
 
 ```javascript
 {
@@ -60,29 +60,29 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+` extensions ` 数组应为没有通配符或点的扩展名 (例如, ` "png" ` 是正确的, 而 ` ".png" ` 和 ` *. png "` 就是错误的)。 若要显示所有文件, 请使用 ` "*" ` 通配符 (不支持其他通配符)。
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+如果定义了 ` callback `, 则 API 调用将是异步的, 结果将通过 ` callback(filenames)`返回
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+** 注意: **在 Windows 和 Linux 上, 打开对话框不能同时是文件选择器和目录选择器, 因此如果在这些平台上将 ` properties ` 设置为`["openFile"、"openDirectory"]`, 则将显示为目录选择器。
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (可选)
 * `options` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `callback` Function (optional) 
+  * `title` String (可选)
+  * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
+  * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
+  * `filters` [FileFilter[]](structures/file-filter.md) (可选)
+  * `message` String (可选) * macOS *-显示在对话框上的消息。
+  * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
+  * ` showsTagField ` Boolean (可选) * macOS *-显示标记输入框, 默认为 ` true `。
+* `callback` Function (可选) 
   * `filename` String
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -104,7 +104,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 默认值为 `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
-* `callback` Function (optional) 
+* `callback` Function (可选) 
   * `response` Number - The index of the button that was clicked
   * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
@@ -112,7 +112,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 

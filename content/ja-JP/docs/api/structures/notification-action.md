@@ -1,19 +1,19 @@
 # NotificationAction オブジェクト
 
-* `type` String - The type of action, can be `button`.
+* `type` String - 動作タイプ、 `button`にすることができます。
 * `text` String - (optional) 指定されたアクションのラベル。
 
-## Platform / Action Support
+## プラットフォーム/動作サポート
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                         |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| 操作種類     | プラットフォームサポート | Usage of `text`                  | デフォルト`text` | 制限事項                                                                                                                                                                |
+| -------- | ------------ | -------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS        | Used as the label for the button | "Show"      | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
-### Button support on macOS
+### MacOSでのボタンサポート
 
 In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
-* App is signed
+* アプリを署名します。
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
 
 If either of these requirements are not met the button simply won't appear.

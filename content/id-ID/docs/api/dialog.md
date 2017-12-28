@@ -7,8 +7,7 @@ Proses:  Utama </ 0></p>
 Contoh menampilkan dialog untuk memilih beberapa file dan direktori:
 
 ```javascript
-const {dialog} = require('electron')
-console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
+const {dialog} = require ('electron') console.log (dialog.showOpenDialog ({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
 Dialog dibuka dari thread utama Elektron. Jika Anda ingin menggunakan objek dialog dari proses renderer, ingatlah untuk mengaksesnya dengan menggunakan remote:
@@ -33,20 +32,20 @@ The ` dialog </ 0> modul memiliki metode berikut:</p>
     * ` buka file </ 0> - Memungkinkan file dipilih.</li>
 <li><code> buka direktorat </ 0> - Biarkan direktori dipilih.</li>
 <li><code> multi pilihan</ 0> - Memungkinkan beberapa jalur untuk dipilih.</li>
-<li><code>showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. Ini tidak benar-benar membuat file di jalan tapi memungkinkan jalur yang tidak ada untuk dikembalikan yang harus dibuat oleh aplikasi. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
-    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-* `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+<li><code>showHiddenFiles` - Tampilkan file tersembunyi dalam dialog.
+    * `createDirectory` - Biarkan membuat direktori baru dari dialog. *macOS*
+    * `promptToCreate` - Prompt untuk pembuatan jika path file yang dimasukkan dalam dialog tidak ada. Ini tidak benar-benar membuat file di jalan tapi memungkinkan jalur yang tidak ada untuk dikembalikan yang harus dibuat oleh aplikasi. *Windows*
+    * `noResolveAliases` - Nonaktifkan jalur alias otomatis (symlink) resolusi. Alias yang dipilih sekarang akan mengembalikan jalur alias alih-alih jalan sasaran mereka *macOS*
+    * `treatPackageAsDirectory` - Perlakukan paket, seperti folder `.app` sebagai sebuah direktori, bukan sebuah file. *macOS*
+  * `pesan` String (opsional) *macOS* - Pesan untuk menampilkan kotak masukan di atas.
+* `callback` Fungsi (opsional) 
+  * `filePaths` String[] - Kumpulan jalur file yang dipilih oleh pengguna
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Mengembalikan `String[]`, sebuah array path file yang dipilih oleh pengguna, jika callback diberikan, ia akan kembali `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+The `filters` menentukan kumpulan jenis file yang dapat ditampilkan atau dipilih bila Anda ingin membatasi pengguna ke tipe tertentu. Sebagai contoh:
 
 ```javascript
 {
@@ -59,88 +58,88 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+Elemen `ekstensi` harus berisi ekstensi tanpa wildcard atau titik (misalnya `'png'` bagus tapi ` '. Png'` dan ` '*.png'` buruk). Untuk menampilkan semua file, gunakan wildcard `'*'` (tidak ada wildcard lain yang didukung).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui ` callback (nama file)`
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Catatan:** Pada Windows dan Linux, sebuah dialog terbuka tidak dapat berupa pemilih file dan pemilih direktori, jadi jika Anda menetapkan `properti` ke ` ['openFile', ' openDirectory ']` pada platform ini, pemilih direktori akan ditampilkan.
 
-### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
+### `dialog.showSaveDialog ([browserWindow,] options [, callback])`
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Object 
+<li><code>pilihan` Obyek 
   * ` judul </ 0>  String (opsional)</li>
-<li><code>defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+<li><code>defaultPath` String (opsional) - Jalur direktori absolut, path file absolut, atau nama file yang akan digunakan secara default.
   * ` buttonLabel </ 0>  String (opsional) - Label khusus untuk tombol konfirmasi, bila dibiarkan kosong, label default akan digunakan.</li>
 <li><code> filter </ 0>  <a href="structures/file-filter.md"> FileFilter [] </ 1> (opsional)</li>
-<li><code>message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `callback` Function (optional) 
+<li><code>pesan` String (opsional) *macOS* - Pesan untuk menampilkan teks di atas.
+  * `nameFieldLabel` String (opsional) *macOS* - Label khusus untuk teks yang ditampilkan di depan bidang teks nama file.
+  * `showsTagField` Boolean (opsional) *macOS* - Tampilkan kotak masukan tag, defaultnya `true`.
+* `callback` Fungsi (opsional) 
   * `filename` String
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Mengembalikan `String`, path dari file yang dipilih oleh pengguna, jika sebuah callback diberikan maka `tidak terdefinisi`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+Filter `` menentukan kumpulan jenis file yang dapat ditampilkan, lihat `dialog.showOpenDialog ` untuk sebuah contoh.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui ` callback (namafile) `
 
-### `dialog.showMessageBox([browserWindow, ]options[, callback])`
+### `dialog.showMessageBox ([browserWindow,] options [, callback])`
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Object 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+<li><code>pilihan` Obyek 
+  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. Pada Windows, `"question"` menampilkan ikon yang sama dengan `"info"`, kecuali jika Anda menyetel ikon menggunakan opsi ` "icon" `. Pada macos, keduanya `"warning"` dan `"error"` menampilkan ikon peringatan yang sama.
+  * `tombol` String[] (opsional) - Array teks untuk tombol. Pada Windows, sebuah array kosong akan menghasilkan satu tombol berlabel "OK".
+  * `defaultId` Integer (opsional) - Indeks tombol pada susunan tombol yang akan dipilih secara default saat kotak pesan terbuka.
+  * `title` String (opsional) - Judul kotak pesan, beberapa platform tidak akan menampilkannya.
+  * `pesan` String - Isi kotak pesan.
+  * `detail` String (opsional) - Informasi tambahan dari pesan.
+  * `kotak centangLabel` String (opsional) - Jika tersedia, kotak pesan akan menyertakan kotak centang dengan label yang diberikan. Status kotak centang hanya bisa diperiksa bila menggunakan `callback`.
+  * `checkboxChecked` Boolean (opsional) - Status checkbox awal dicentang. `false` secara default.
   * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
-* `callback` Function (optional) 
-  * `response` Number - The index of the button that was clicked
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `` akan digunakan sebagai nilai balik atau respons balik. Pilihan ini diabaikan pada Windows.
+  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
+  * `normalizeAccessKeys` Boolean (opsional) - Menormalisasi tombol akses keyboard. Defaultnya adalah ` false </ 0> . Mengaktifkan asumsi ini <code>&` digunakan pada label tombol untuk penempatan tombol akses pintas keyboard dan label akan dikonversi sehingga bekerja dengan benar pada setiap platform, `&` karakter dihapus di macos, dikonversi ke `_` di Linux, dan tidak tersentuh pada Windows. Misalnya, label tombol `Vie&w` akan dikonversi ke `Vie_w` di Linux dan ` View ` di macos dan dapat dipilih melalui `Alt-W` pada Windows dan Linux.
+* `callback` Fungsi (opsional) 
+  * `response` Number - Indeks tombol yang diklik
+  * `checkboxChecked` Boolean - Status kotak centang jika `checkboxLabel` telah ditetapkan. Jika tidak `false`.
 
-Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+Mengembalikan `Integer`, indeks tombol yang diklik, jika callback diberikan, ia akan kembali terdefinisi.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Menunjukkan kotak pesan, akan memblokir proses sampai kotak pesan ditutup. Ini mengembalikan indeks tombol yang diklik.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+Jika `callback` dilewati, dialog tidak akan memblokir prosesnya. Panggilan API akan menjadi asinkron dan hasilnya akan dilewatkan melalui `callback (respon)`.
 
-### `dialog.showErrorBox(title, content)`
+### `dialog.showErrorBox(judul, konten)`
 
-* `title` String - The title to display in the error box
-* `content` String - The text content to display in the error box
+* `title` String - Judul yang akan ditampilkan di kotak kesalahan
+* `content` String - Isi teks untuk ditampilkan di kotak kesalahan
 
 Menampilkan dialog modal yang menunjukkan pesan kesalahan.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+API ini dapat dipanggil dengan aman sebelum `siap` acara yang digunakan aplikasi `app`, biasanya digunakan untuk melaporkan kesalahan pada tahap awal startup. Jika dipanggil sebelum acara aplikasi `siap` di Linux, pesan akan dipancarkan ke stderr, dan tidak ada dialog GUI yang akan muncul.
 
-### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
+### `dialog.showCertificateTrustDialog ([browserWindow,] options, callback)` * macos * * Windows *
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
-<li><code>pilihan` Object 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+<li><code>pilihan` Obyek 
+  * `sertifikat` [Sertifikat](structures/certificate.md) - Sertifikat untuk dipercaya/diimpor.
+  * `pesan` String - Pesan untuk ditampilkan kepada pengguna.
 * `callback ` Fungsi
 
-Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. Jika Anda memberikan argumen `browserWindow`, dialog akan dilampirkan ke jendela induk, membuatnya menjadi modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Pada Windows pilihannya lebih terbatas, karena API Win32 digunakan:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Argumen `pesan` tidak digunakan, karena OS menyediakan dialog konfirmasinya sendiri.
+* Argumen `browserWindow` diabaikan karena tidak mungkin membuat modal dialog konfirmasi ini.
 
-## Sheets
+## Lembar
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+Pada macos, dialog disajikan sebagai lembaran yang dilekatkan pada jendela jika Anda memberikan referensi `BrowserWindow` pada parameter `browserWindow`, atau modalnya jika tidak ada jendela yang disediakan.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Anda dapat memanggil `BrowserWindow.getCurrentWindow (). SetSheetOffset (offset)` untuk mengubah offset dari bingkai jendela tempat lembaran dilekatkan.

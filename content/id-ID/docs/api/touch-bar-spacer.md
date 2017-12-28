@@ -1,13 +1,13 @@
-## Class: TouchBarSpacer
+## Kelas: TouchBarSpacer
 
-> Create a spacer between two items in the touch bar for native macOS applications
+> Membuat spacer antara dua item di bar sentuhan untuk aplikasi asli macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proses: [utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSpacer(options)` *Experimental*
+### `baru TouchBarSpacer(options)` *Experimental*
 
-* `pilihan` Object 
-  * `ukuran` String (optional) - Size of spacer, possible values are: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+* `pilihan` Objek 
+  * `ukuran` String (opsional) - Ukuran spacer, nilai yang mungkin adalah: 
+    * `kecil` - kecil ruang antara item.
+    * `besar` - besar ruang antara item.
+    * `fleksibel` - mengambil semua ruang yang tersedia.

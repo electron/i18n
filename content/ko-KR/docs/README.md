@@ -25,7 +25,7 @@
 * [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
 * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
 * [키보드 단축기](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [애플리케이션 업데이트](tutorial/updates.md)
 
 ## 따라하기
 

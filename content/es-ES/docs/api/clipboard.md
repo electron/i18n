@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## Métodos
 
 The `clipboard` module has the following methods:
 
@@ -33,7 +33,7 @@ Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, type])`
 
-* `text` String
+* `texto` String
 * `type` String (optional)
 
 Writes the `text` into the clipboard as plain text.
@@ -72,7 +72,7 @@ Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `text` String
+* `texto` String
 * `type` String (optional)
 
 Writes the `text` into the clipboard in RTF.
@@ -109,7 +109,7 @@ Returns `String` - The text on the find pasteboard. This method uses synchronous
 
 ### `clipboard.writeFindText(text)` *macOS*
 
-* `text` String
+* `texto` String
 
 Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 

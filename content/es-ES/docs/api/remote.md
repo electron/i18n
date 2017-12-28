@@ -2,7 +2,7 @@
 
 > Use main process modules from the renderer process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Proceso: [Renderizador](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
@@ -43,7 +43,7 @@ First, in order to avoid deadlocks, the callbacks passed to the main process are
 For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
 
 ```javascript
-// main process mapNumbers.js
+// proceso principal mapNumbers.js
 exports.withRendererCallback = (mapper) => {
   return [1, 2, 3].map(mapper)
 }
@@ -54,7 +54,7 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
+// proceso de renderizado
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
@@ -71,7 +71,7 @@ For example, the following code seems innocent at first glance. It installs a ca
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // la ventana está cerrada...
 })
 ```
 
@@ -90,7 +90,7 @@ const app = require('electron').remote.app
 console.log(app)
 ```
 
-## Methods
+## Métodos
 
 The `remote` module has the following methods:
 
@@ -112,18 +112,18 @@ e.g.
     
 
 ```js
-// main process: main/index.js
+// proceso principal: main/index.js
 const {app} = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
+// algún módulo relativo: main/foo.js
 module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
+// proceso de renderizado: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
 

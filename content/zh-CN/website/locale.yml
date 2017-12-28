@@ -15,6 +15,11 @@ docs:
   guides: 指南
   api_reference: API 参考
   advanced: 高级选项
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: 请选择语言
   translation_progress: 翻译进度
@@ -54,11 +59,7 @@ get_started:
   description: 若要开始使用 Electron ，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 APIs ，以及生成的安装程序。
 explore:
   title: 探讨 Electron 的 APIs
-  description:
-    - <a href="https://github.com/electron/electron-api-demos"> Electron API 演示应用程序</a>
-    - 交互式演示 Electron API 最重要的功能。
-    - 通过示例demo和有用的提示, 看看 Electron 能做什么
-    - 构建你的应用程序。
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: 本地化的内容来自我们强大的全球开发者社区。
 help_translate: "帮助我们翻译"
 footer:
-  see_something: 看到需要修理的东西了吗？
-  propose_change: 建议对源文件进行更改。
-  need_different_version: 需要不同版本的文档？
-  see_available_versions: 查看可用版本。
-  want_something_searchable: 想要可搜索的东西？
-  view_all_docs: 在一页内查看所有文档
   see_the_faq: 查看常见问题
 apps:
   title: 使用 Electron 构建的应用
@@ -131,7 +126,7 @@ pages:
   '/languages':
     title: 语言
   '/userland':
-    title: Userland
+    title: 用户区
   '/devtron':
     title: Devtron
     description: Devtron 是一个开源工具, 可以帮助您检查、监视和调试您的Electron应用程序. 建立在强大的 Chrome 开发工具之上。

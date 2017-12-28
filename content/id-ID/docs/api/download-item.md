@@ -116,28 +116,28 @@ disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta
         
         Returns `Integer` - The received bytes of the download item.
         
-        #### `downloadItem.getContentDisposition()`
+        #### `downloadItem.getContentDisposition ()`
         
-        Returns `String` - The Content-Disposition field from the response header.
-        
-        #### `downloadItem.getState()`
+        Mengembalikan ` String </ 0> - Bidang Content-Disposition dari header tanggapan.</p>
+
+<h4><code>downloadItem.getState ()`</h4> 
         
         Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
         
         **Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
         
-        #### `downloadItem.getURLChain()`
+        #### `downloadItem.getURLChain ()`
         
-        Returns `String[]` - The complete url chain of the item including any redirects.
+        Mengembalikan ` String [] </ 0> - Rantai url lengkap item termasuk pengalihan apa pun.</p>
+
+<h4><code>downloadItem.getLastModifiedTime ()`</h4> 
         
-        #### `downloadItem.getLastModifiedTime()`
+        Mengembalikan ` String </ 0> - Nilai header Terakhir-Diubah.</p>
+
+<h4><code>downloadItem.getETag ()`</h4> 
         
-        Returns `String` - Last-Modified header value.
+        Mengembalikan ` String </ 0> - nilai header ETag.</p>
+
+<h4><code>downloadItem.getStartTime ()`</h4> 
         
-        #### `downloadItem.getETag()`
-        
-        Returns `String` - ETag header value.
-        
-        #### `downloadItem.getStartTime()`
-        
-        Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+        Mengembalikan  Ganda </ 0> - Jumlah detik sejak zaman UNIX saat unduhan dimulai.</p>

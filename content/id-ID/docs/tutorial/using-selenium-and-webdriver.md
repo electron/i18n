@@ -1,83 +1,83 @@
 # Menggunakan Selenium dan WebDriver
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+Dari [ChromeDriver - WebDriver untuk Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver adalah alat open source untuk pengujian otomatis aplikasi web di banyak server    browser. Ini menyediakan kemampuan untuk navigasi ke halaman web, input pengguna,    Eksekusi JavaScript, dan banyak lagi. ChromeDriver adalah server standalone yang mana    menerapkan protokol kawat WebDriver untuk Chromium. Ini sedang dikembangkan oleh    anggota tim Chromium dan WebDriver.
 
-## Setting up Spectron
+## Menyiapkan Spectron
 
-[Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electron.atom.io/spectron) adalah kerangka pengujian ChromeDriver yang didukung secara resmi untuk Elektron. Ini dibangun di atas [WebdriverIO](http://webdriver.io/) dan memiliki pembantu untuk mengakses API Elektron dalam pengujian dan kumpulan ChromeDriver Anda.
 
 ```sh
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-var Application = require('spectron').Application
-var assert = require('assert')
+// Tes sederhana untuk memverifikasi jendela yang terlihat dibuka dengan judul
+var Application = require ('spectron') Aplikasi
+var assert = require ('assert')
 
-var app = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+aplikasi var = aplikasi baru ({
+   path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
 
-app.start().then(function () {
-  // Check if the window is visible
-  return app.browserWindow.isVisible()
-}).then(function (isVisible) {
-  // Verify the window is visible
-  assert.equal(isVisible, true)
-}).then(function () {
-  // Get the window's title
-  return app.client.getTitle()
-}).then(function (title) {
-  // Verify the window's title
-  assert.equal(title, 'My App')
-}).catch(function (error) {
-  // Log any failures
-  console.error('Test failed', error.message)
-}).then(function () {
-  // Stop the application
-  return app.stop()
+app.start () lalu (function () {
+   // Periksa apakah jendela terlihat
+   kembali app.browserWindow.isVisible ()
+}) kemudian (function (isVisible) {
+   // Verifikasi jendela yang terlihat
+   assert.equal (isVisible, true)
+}) lalu (function () {
+   // Dapatkan judul jendela
+   kembalikan app.client.getTitle ()
+}) lalu (fungsi (judul) {
+   // Verifikasi judul jendela
+   assert.equal (judul, 'App saya')
+}) catch (fungsi (error) {
+   // Masuki kegagalan
+   console.error ('Test failed', error.message)
+}) lalu (function () {
+   // hentikan aplikasi
+   kembali app.stop ()
 })
 ```
 
-## Setting up with WebDriverJs
+## Menyiapkan dengan WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) menyediakan Paket Node untuk pengujian dengan driver web, kami akan menggunakannya sebagai contoh.
 
-### 1. Start ChromeDriver
+### 1. Mulai ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Pertama, Anda perlu mendownload `chromedriver` biner, dan jalankan:
 
 ```sh
-$ npm install electron-chromedriver
+$ npm memasang chromedriver elektron
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+Mulai ChromeDriver (v2.10.291558) di port 9515
+Hanya koneksi lokal yang diizinkan.
 ```
 
-Remember the port number `9515`, which will be used later
+Ingat nomor port `9515`, yang akan digunakan nanti
 
-### 2. Install WebDriverJS
+### 2. Instal WebDriverJS
 
 ```sh
-$ npm install selenium-webdriver
+$ npm pasang selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Sambungkan ke ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+Penggunaan `selenium-webdriver` dengan Elektron pada dasarnya sama dengan hulu, kecuali bahwa Anda harus secara manual menentukan cara menghubungkan driver krom dan di mana menemukan biner Elektron:
 
 ```javascript
-const webdriver = require('selenium-webdriver')
+const webdriver = require ('selenium-webdriver')
 
-const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
-  .usingServer('http://localhost:9515')
-  .withCapabilities({
-    chromeOptions: {
-      // Here is the path to your Electron binary.
+const driver = new webdriver.Builder ()
+   // "9515" adalah port yang dibuka oleh pengemudi krom.
+  .usingServer ('http: // localhost: 9515')
+   .withCapabilities ({
+     chromeOptions: {
+       // Ini jalan ke biner Elektron Anda.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -94,42 +94,44 @@ driver.wait(() => {
 }, 1000)
 
 driver.quit()
+ 
+Context | Request Context
 ```
 
-## Setting up with WebdriverIO
+## Menyiapkan dengan WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) menyediakan paket Node untuk pengujian dengan web sopir.
 
-### 1. Start ChromeDriver
+### 1. Mulai ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Pertama, Anda perlu mendownload `chromedriver` biner, dan jalankan:
 
 ```sh
-$ npm install electron-chromedriver
-$ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+$ npm memasang chromedriver elektron
+$ ./node_modules/.bin/chromedriver --url-base = wd / hub --port = 9515
+Mulai ChromeDriver (v2.10.291558) di port 9515
+Hanya koneksi lokal yang diizinkan.
 ```
 
-Remember the port number `9515`, which will be used later
+Ingat nomor port `9515`, yang akan digunakan nanti
 
-### 2. Install WebdriverIO
+### 2. Instal Webdriverio
 
 ```sh
-$ npm install webdriverio
+$ npm pasang webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. Sambungkan ke driver krom
 
 ```javascript
-const webdriverio = require('webdriverio')
-const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
-  desiredCapabilities: {
-    browserName: 'chrome',
-    chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+const webdriverio = require ('webdriverio')
+pilihan const = {
+   host: 'localhost', // Gunakan localhost sebagai server driver chrome
+   port: 9515, // "9515" adalah port yang dibuka oleh pengemudi krom.
+  yang dikehendakiKetentuan: {
+     browserName: 'chrome',
+     chromeOptions: {
+       biner: '/ Path-to-Your-App / elektron', // Path ke biner Elektron Anda.
       args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
@@ -146,10 +148,12 @@ client
     console.log('Title was: ' + title)
   })
   .end()
+ 
+Context | Request Context
 ```
 
-## Workflow
+## Alur kerja
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Untuk menguji aplikasi Anda tanpa membangun kembali Electron, cukup [tempat](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) sumber aplikasi Anda ke direktori sumber Elektron.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Sebagai alternatif, berikan argumen untuk dijalankan dengan biner elektron Anda yang ditunjukkan folder aplikasi Anda Ini menghilangkan kebutuhan untuk menyalin-tempel aplikasi Anda Direktori sumber elektron.

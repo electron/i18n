@@ -1,4 +1,4 @@
-# contentTracing
+# कंटेंट ट्रेसिंग
 
 > Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
 

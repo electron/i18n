@@ -1,19 +1,19 @@
-# Planned Breaking API Changes
+# Perubahan API Pelacakan Terencana
 
-The following list includes the APIs that will be removed in Electron 2.0.
+Daftar berikut mencakup API yang akan dihapus di Electron 2.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+Tidak ada jadwal kapan pembebasan ini akan terjadi namun tidak berlaku lagi peringatan akan ditambahkan setidaknya 90 hari sebelumnya.
 
 ## `aplikasi`
 
 ```js
-// Deprecated
-app.getAppMemoryInfo()
-// Replace with
-app.getAppMetrics()
+// Tidak berlaku lagi
+app.getAppMemoryInfo ()
+// Ubah dengan
+app.getAppMetrics ()
 ```
 
-## `BrowserWindow`
+## `JendelaBrowser`
 
 ```js
 // Deprecated
@@ -36,28 +36,28 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
-clipboard.readRtf()
-// Replace with
-clipboard.readRTF()
+/ Tidak berlaku lagi
+clipboard.readRtf ()
+// Ubah dengan
+clipboard.readRTF ()
 
-// Deprecated
-clipboard.writeRtf()
-// Replace with
-clipboard.writeRTF()
+// Tidak berlaku lagi
+clipboard.writeRtf ()
+// Ubah dengan
+clipboard.writeRTF ()
 
-// Deprecated
-clipboard.readHtml()
-// Replace with
-clipboard.readHTML()
+// Tidak berlaku lagi
+clipboard.readHtml ()
+// Ubah dengan
+clipboard.readHTML ()
 
-// Deprecated
-clipboard.writeHtml()
-// Replace with
-clipboard.writeHTML()
+// Tidak berlaku lagi
+clipboard.writeHtml ()
+// Ubah dengan
+clipboard.writeHTML ()
 ```
 
-## `crashReporter`
+## `kerusakanReporter`
 
 ```js
 // Deprecated
@@ -83,72 +83,72 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
-## `nativeImage`
+## `gambarasli`
 
 ```js
-// Deprecated
+// Tidak berlaku lagi
 nativeImage.toPng()
-// Replace with
+// Ubah dengan
 nativeImage.toPNG()
 
-// Deprecated
+// Tidak berlaku lagi
 nativeImage.toJpeg()
-// Replace with
+// Ubah dengan
 nativeImage.toJPEG()
 
-// Deprecated
+// Ubah dengan
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Ubah dengan
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `process`
+## `proses`
 
 ```js
-// Deprecated
-process.versions['atom-shell']
-// Replace with
+// Tidak berlaku lagi
+process.versions ['atom-shell']
+// Ubah dengan
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `proses.versi.electron` dan `proses.versi.chrome` akan dibuat properti hanya baca untuk konsistensi dengan proses `proses.versi` properti yang ditetapkan oleh Node.
 
-## `session`
+## `sesi`
 
 ```js
-// Deprecated
+// Tidak berlaku lagi
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Ubah dengan
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
 ```
 
-## `Tray`
+## `Nampan`
 
 ```js
-// Deprecated
-tray.setHighlightMode(true)
-// Replace with
-tray.setHighlightMode('on')
+// Tidak berlaku lagi
+tray.setHighlightMode (true)
+// Ubah dengan
+tray.setHighlightMode ('on')
 
-// Deprecated
-tray.setHighlightMode(false)
-// Replace with
-tray.setHighlightMode('off')
+// Tidak berlaku lagi
+tray.setHighlightMode (salah)
+// Ubah dengan
+tray.setHighlightMode ('off')
 ```
 
-## `webContents`
+## `kontenWeb`
 
 ```js
-// Deprecated
-webContents.openDevTools({detach: true})
-// Replace with
-webContents.openDevTools({mode: 'detach'})
+// Tidak berlaku lagi
+webContents.openDevTools ({detach: true})
+// Ubah dengan
+webContents.openDevTools ({mode: 'detach'})
 ```
 
 ```js
@@ -158,7 +158,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+## `webBingkai`
 
 ```js
 // Deprecated
@@ -186,21 +186,21 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## URL Node Header
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Ini adalah URL yang ditentukan sebagai `disturl` pada file `.npmrc` atau sebagai `--dist-url` bendera perintah saat membangun modul Node asli.
 
-Deprecated: https://atom.io/download/atom-shell
+Tidak berlaku lagi: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Ganti dengan: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## Aset ARM Duplikat
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Setiap rilis Elektron mencakup dua ARM identik yang dibangun dengan sedikit berbeda nama file, seperti `electron-v1.7.3-linux-arm.zip` dan `electron-v1.7.3-linux-armv7l.zip`. Aset dengan awalan `v7l` ditambahkan untuk mengklarifikasi kepada pengguna versi ARM yang didukungnya, dan untuk membedakannya dari aset armv6l dan arm64 masa depan yang mungkin diproduksi.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+File *tanpa awalan* masih dipublikasikan untuk menghindari pemutusan setup yang mungkin memakannya Mulai dari 2.0, file yang tidak diawali akan tidak lagi dipublikasikan.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Untuk detailnya, lihat [6986](https://github.com/electron/electron/pull/6986) dan [7189](https://github.com/electron/electron/pull/7189).
 
 ## `FIXME` comments
 

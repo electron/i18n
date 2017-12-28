@@ -1,25 +1,25 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Permite que las aplicaciones que se actualicen automáticamente.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+El modulo `autoUpdater` provee una interfaz para el framework [Squirrel](https://github.com/Squirrel).
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+Puedes iniciar rápidamente un servidor multiplataforma para distribuir tu aplicación utilizando uno de estos proyectos:
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [nuts](https://github.com/GitbookIO/nuts): * Un servidor de lanzamiento inteligente para tus aplicaciones, usando GitHub como Backend. Se auto actualiza con Squirrel(Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): * Un destacado destacado servidor de lanzamiento alojado para aplicaciones en electron, compatible con el auto actualizador*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): * Un simple servidor en node.js para Squirrel.Mac y Squirrel.Windows el cual usa GitHub releases*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Una simple aplicacion PHP para Squirrel.Windows la cual lee las actualizaciones desde una carpeta. Admite las actualizaciones delta.*
 
-## Platform notices
+## Noticias de plataforma
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+A pesar que `autoUpdater` provee una API uniforme para diferentes plataformas, aun algunas diferencias sutiles en cada plataforma.
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+En macOS el modulo `autoUpdater` esta construido sobre [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) significando que no tienes que hacer alguna configuración especial para que funcione. Para los requerimientos del lado del servidor, puedes leer [Soporte de Servidor](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
 
 **Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
@@ -37,45 +37,45 @@ Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file hos
 
 There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Events
+## Eventos
 
 The `autoUpdater` object emits the following events:
 
-### Event: 'error'
+### Evento: 'error'
 
-Returns:
+Devuelve:
 
 * `error` Error
 
 Emitted when there is an error while updating.
 
-### Event: 'checking-for-update'
+### Evento: 'checking-for-update'
 
 Emitted when checking if an update has started.
 
-### Event: 'update-available'
+### Evento: 'update-available'
 
 Emitted when there is an available update. The update is downloaded automatically.
 
-### Event: 'update-not-available'
+### Evento: 'update-not-available'
 
 Emitted when there is no available update.
 
-### Event: 'update-downloaded'
+### Evento: 'update-downloaded'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `releaseNotes` String
 * `releaseName` String
-* `releaseDate` Date
+* `releaseDate` Fecha
 * `updateURL` String
 
 Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
-## Methods
+## Métodos
 
 The `autoUpdater` object has the following methods:
 

@@ -1,4 +1,4 @@
-# powerSaveBlocker
+# पॉवर सेवब्लॉकर
 
 > Block the system from entering low-power (sleep) mode.
 

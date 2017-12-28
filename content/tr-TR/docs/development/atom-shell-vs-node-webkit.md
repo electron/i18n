@@ -6,26 +6,26 @@ NW.js gibi Electron, JavaScript ve HTML ile masaüstü uygulamaları yazmak içi
 
 Ancak Electron'u NW.js'den tamamen ayrı bir ürün haline getiren iki proje arasında da temel farklılıklar bulunmaktadır:
 
-**1. Entry of Application**
+**1. Uygulama Girişi**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+NW.js'de bir uygulamanın ana giriş noktası bir web sayfası veya bir JS komut dosyasıdır. `package.json`'da bir html veya js dosyası belirlersiniz, uygulamanın ana penceresi (bir html giriş noktası olması durumunda) olarak bir tarayıcı penceresinde açılır veya komut dosyası yürütülür.
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+Electron'da giriş noktası bir JavaScript komut dizisi dosyasıdır. Doğrudan bir URL sağlıyorsanız, manuel olarak bir tarayıcı penceresi oluşturun ve API'yi kullanan bir HTML dosyası yükleyin. Uygulamadan ne zaman çıkılacağına karar vermek için aynı zamanda pencereyi dinlemeniz gerekiyor.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron daha çok Node.js çalışma zamanı gibi çalışır. Electron API'leri daha düşük seviyededir, böylece tarayıcı testi için [PhantomJS](http://phantomjs.org/) yerine kullanabilirsiniz.
 
-**2. Build System**
+**2. Sistem Oluşturun**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Tüm Chromium'u oluşturma karmaşıklığından kaçınmak için, Electron [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) kullanır Chromium'un İçerik API'sı. `libchromiumcontent` Chromium içerik modülünü ve tüm bağımlılıklarını içeren tek olarak paylaşılmış kütüphanedir. Kullanıcıların Electron oluşturmak için güçlü bir makineye ihtiyacı yoktur.
 
-**3. Node Integration**
+**3. Ağ Entegrasyonu**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+NW.js'de web sayfalarında ki ağ entegrasyonu, çalışmak için Chromium'u yamalamayı gerektirir, bizim seçtiğimiz Electron'da ise libuv döngüsüne ekleyerek Chromium'un hacklenmesini önleriz. [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) kodunun nasıl yapılacağına bakın.
 
-**4. Multi-context**
+**4. Çoklu bağlam**
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+Deneyimli bir NW.js kullanıcıysanız, ağ bağlamı ve web bağlamı kavramlarına tanıdık olamalısınız. Bu kavramlar NW.js'in nasıl uygulandığından dolayı icat edildi.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Ağın [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) özelliğini kullanarak, Electron web sayfalarında yeni bir JavaScript içeriği sunmaz.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Not: NW.js isteğe bağlı olarak 0.13'ten beri çoklu bağlamı desteklenmiştir.

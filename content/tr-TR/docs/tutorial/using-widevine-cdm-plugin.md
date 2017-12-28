@@ -1,8 +1,8 @@
 # Widevine CDM Eklentisini Kullanma
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+Electron'da Chrome tarayıcısına yüklenmiş Widevine CDM eklentisini kullanabilirsiniz.
 
-## Getting the plugin
+## Eklenti edin
 
 Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
 
@@ -20,7 +20,7 @@ On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.d
 
 On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## Eklenti kullanılıyor
 
 After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
 
@@ -28,7 +28,7 @@ After getting the plugin files, you should pass the `widevinecdmadapter`'s path 
 
 The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
 
-Example code:
+Kod orneği:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -53,7 +53,7 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## Eklenti doğrulanıyor
 
 To verify whether the plugin works, you can use following ways:
 

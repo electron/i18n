@@ -1,83 +1,80 @@
-# shell
+# kulit
 
-> Manage files and URLs using their default applications.
+> Kelola file dan URL menggunakan aplikasi bawaan mereka.
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-The `shell` module provides functions related to desktop integration.
+The ` shell </ 0> modul menyediakan fungsi yang berkaitan dengan integrasi desktop.</p>
 
-An example of opening a URL in the user's default browser:
+<p>Contoh membuka URL di browser default pengguna:</p>
 
-```javascript
-const {shell} = require('electron')
+<pre><code class="javascript">const {shell} = require('electron') shell.openExternal ('https://github.com')
+`</pre> 
 
-shell.openExternal('https://github.com')
-```
+## Metode
 
-## Methods
+The ` shell </ 0> modul memiliki metode berikut:</p>
 
-The `shell` module has the following methods:
-
-### `shell.showItemInFolder(fullPath)`
+<h3><code>shell.showItemInFolder(fullPath)`</h3> 
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+Mengembalikan ` Boolean </ 0> - Apakah item berhasil ditampilkan</p>
 
-Show the given file in a file manager. If possible, select the file.
+<p>Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.</p>
 
-### `shell.openItem(fullPath)`
+<h3><code>shell.openItem(fullPath)`</h3> 
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka.</p>
 
-Open the given file in the desktop's default manner.
+<p>Buka file yang diberikan dengan cara default desktop.</p>
 
-### `shell.openExternal(url[, options, callback])`
+<h3><code>shell.openExternal (url [, pilihan, callback])`</h3> 
 
-* ` url </ 0>  String</li>
+* ` url </ 0> String</li>
 <li><code>pilihan` Objek (opsional) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `Aktifkan` Aljabar Boolean - `benar` untuk membawa aplikasi dibuka latar depan. Default adalah `benar`.
+* `callback` Fungsi (opsional) - Jika ditentukan akan tampil terbuka secara asinkron. *macOS* 
   * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Returns <code>Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.</p> 
-    Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
-    
-    ### `shell.moveItemToTrash(fullPath)`
-    
+<p>Mengembalikan <code> Boolean </ 0> - Apakah sebuah aplikasi tersedia untuk membuka URL. Jika callback ditentukan, selalu mengembalikan true.</p>
+
+<p>Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalnya, mailto: URL di agen email default pengguna).</p>
+
+<h3><code>shell.moveItemToTrash(fullPath)`</h3> 
     * `fullPath` String
     
-    Returns `Boolean` - Whether the item was successfully moved to the trash
+    Kembali `Boolean` - Apakah item berhasil dipindahkan ke tempat sampah
     
-    Move the given file to trash and returns a boolean status for the operation.
+    Pindahkan file yang diberikan ke sampah dan mengembalikan status boolean untuk pengoperasiannya.
     
-    ### `shell.beep()`
+    ### `Shell.beep()`
     
-    Play the beep sound.
+    Bermain suara bip.
     
-    ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
+    ### `shell.writeShortcutLink (shortcutPath [, operasi], pilihan)` *Windows*
     
     * `shortcutPath` String
-    * `operation` String (optional) - Default is `create`, can be one of following: 
-      * `create` - Creates a new shortcut, overwriting if necessary.
-      * `update` - Updates specified properties only on an existing shortcut.
-      * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
-    * `options` [ShortcutDetails](structures/shortcut-details.md)
+    * `operasi` String (opsional) - Default adalah `membuat`, bisa jadi salah satu dari berikut ini: 
+      * `buat` - membuat shortcut baru, Timpa jika diperlukan.
+      * `update` - update ditentukan properti hanya pada tombol cepat yang ada.
+      * `menggantikan` - menimpa tombol cepat yang ada, gagal jika tidak ada jalan pintas.
+    * `pilihan` [ShortcutDetails](structures/shortcut-details.md)
     
-    Returns `Boolean` - Whether the shortcut was created successfully
+    Kembali `Boolean` - Apakah cara pintas telah dibuat berhasil
     
-    Creates or updates a shortcut link at `shortcutPath`.
+    Menciptakan atau update link pintasan di `shortcutPath`.
     
     ### `shell.readShortcutLink(shortcutPath)` *Windows*
     
     * `shortcutPath` String
     
-    Returns [`ShortcutDetails`](structures/shortcut-details.md)
+    Kembali [`ShortcutDetails`](structures/shortcut-details.md)
     
-    Resolves the shortcut link at `shortcutPath`.
+    Menyelesaikan link pintasan di `shortcutPath`.
     
-    An exception will be thrown when any error happens.
+    Pengecualian akan dilemparkan ketika terjadi kesalahan.

@@ -1,14 +1,14 @@
 # プロセス
 
-> Extensions to process object.
+> プロセスオブジェクトの拡張。
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
 ## イベント
 
-### Event: 'loaded'
+### イベント: 'loaded'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## プロパティ
 
 ### `process.defaultApp`
 

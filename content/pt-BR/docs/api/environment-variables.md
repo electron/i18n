@@ -1,17 +1,17 @@
 # Variáveis de Ambiente
 
-> Control application configuration and behavior without changing code.
+> Controle configurações e comportamento de aplicações sem mudar o código.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Certos comportamentos do Electron são controlados por variáveis de ambientes porque são inicializados antes que as flags da linha de comando e o código da aplicação.
 
-POSIX shell example:
+Exemplo de shell POSIX:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Exemplo de console do Windows:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
@@ -50,26 +50,26 @@ Don't attach to the current console session.
 
 Don't use the global menu bar on Linux.
 
-## Development Variables
+## Variáveis de desenvolvimento
 
-The following environment variables are intended primarily for development and debugging purposes.
+As seguintes variáveis de ambiente são destinadas principalmente para fins de depuração e desenvolvimento.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Imprime o log interno do Chrome para o console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Quando o Electron lê de um arquivo ASAR, o offset de leitura e o caminho para o `tmpdir` do sistema será registrado. O arquivo resultante pode ser fornecido para o módulo ASAR para otimização da ordenação de arquivos.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Imprime o rastreamento da pilha para o console quando o Electron trava.
 
-This environment variable will not work if the `crashReporter` is started.
+Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Mostra a caixa de diálogo de travamento do Windows quando o Electron trava.
 
-This environment variable will not work if the `crashReporter` is started.
+Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.

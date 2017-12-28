@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### Örnek yöntemleri
 
 #### `debugger.attach([protocolVersion])`
 
@@ -57,16 +57,16 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
-### Instance Events
+### Örnek etkinlikler
 
-#### Event: 'detach'
+#### Etkinlik: 'ayırmak'
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### Etkinlik: 'mesaj'
 
 * `event` Event
 * `method` String - Method name.

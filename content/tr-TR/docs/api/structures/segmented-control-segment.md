@@ -1,5 +1,5 @@
-# SegmentedControlSegment Object
+# Segmentli Kontrol Segmenti Nesnesi
 
-* `label` String - (optional) The text to appear in this segment
+* `etiket` Dize - (isteğe bağlı) bu segmentte görünecek metin
 * `icon` NativeImage - (optional) The image to appear in this segment
 * `enabled` Boolean - (optional) Whether this segment is selectable. Default: true

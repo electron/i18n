@@ -1,4 +1,4 @@
-# Notification
+# Bildirim
 
 > Create OS desktop notifications
 
@@ -8,7 +8,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## Sınıf: bildirim
 
 > Create OS desktop notifications
 
@@ -18,7 +18,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Statik yöntemler
 
 The `Notification` class has the following static methods:
 
@@ -39,13 +39,13 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
 
-### Instance Events
+### Örnek etkinlikler
 
 Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### Etkinlik: 'göster'
 
 Returns:
 
@@ -53,7 +53,7 @@ Returns:
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
-#### Event: 'click'
+#### Etkinlik: 'tıkla'
 
 Returns:
 
@@ -61,7 +61,7 @@ Returns:
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Etkinlik: 'kapalı'
 
 Returns:
 
@@ -69,7 +69,7 @@ Returns:
 
 Emitted when the notification is closed by manual intervention from the user.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilmez.
 
 #### Event: 'reply' *macOS*
 
@@ -87,7 +87,7 @@ Returns:
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Örnek yöntemleri
 
 Objects created with `new Notification` have the following instance methods:
 
@@ -95,7 +95,7 @@ Objects created with `new Notification` have the following instance methods:
 
 Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
 
-### Playing Sounds
+### Çalınan sesler
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 

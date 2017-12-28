@@ -1,28 +1,28 @@
 # شروع سریع
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+الکترون شما را قادر می سازد با جاوا اسکریپ خالص و فراهم کردن API های غنی سیستم عامل اصلی، اپلیکیشن دستکتاب بسازید. شما باید این رو نوعی از Node.js runtime بدانید که روی ساخت اپلیکیشن دستکتاپ تمرکز کرده به جز بخش وب سرورها.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+این به این معنی نیست که الکترون یک پوسته جاوااسکریپت از کتابخانه های رابط کاربری گرافیکی است. به جز، استفاده الکترون از صفحات وب که جزی از رابط کاربر گرافیکی هستند، پس شما می توانید آن را جزی از مرورگر Chromium به حساب بیاورید که با جاوا اسکریپت کنترل می شود.
 
 ### پردازش اصلی
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+در الکترون، پروسه ها با صدا کردن اسکریپت اصلی package.json اجرا می شوند. اسکریپتی که هنگام اجرا در پروسه اصلی می تواند رابط کاربری گرافیکی را به وسیله ایجاد صفحات وب نمایش دهد.
 
 ### پردازش رندرینگ
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+از آنجا که الکترون برای نمایش صفحات وب از Chromium استفاده می‌کند، از معماری چند پردازشی هم بهرمند می‌شود. هر صفحه وب در الکترون پروسه خود را برای اجرا دارد، هر کدام پردازش جداگانه دارد.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+در مرورگرهای معمولی، صفحات وب اغلب در محیط sandboxed اجرا می‌شوند و اجازه دسترسی به منابع اصلی ندارند. کاربران الکترون، به هر حال، قادرند با استفاده از API های Node.js در صفحات وب دسترسی به لایه های زیرین اجرایی سیستم عامل داشته باشند.
 
 ### تفاوت پردازش اصلی و پردازش رندرینگ
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+پروسه اصلی به وسیله خلق نمونه های BrowserWindow صفحات وب را می‌سازد. هر نمونه از BrowserWindow پروسه رندرینگ خود را اجرا می کند. وقتی که یک نمونه از BrowserWindow نابود می‌شود، پروسه رندرینگ متناظر با آن هم خاتمه می‌یابد.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+پروسه اصلی، تمام صفحات وب و پروسه های رندر متناظر آن ها را مدیریت می‌کند. هر پروسه رندر، ایزوله است و مراقب صفحه وبی است که درونش در حال اجراست.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+در صفحات وب، دسترسی به API های رابط کاربری گرافیکی نیتیو مجاز نیست به خاطر اینکه مدیریت منابع نیتیو رابط کاربری گرافیکی در صفحات وب خیلی خطرناک است و به راحتی باعث نشتی منابع می‌شود. اگر هم بخواهید عملیات های رابط کاربری گرافیکی در صفحه وب اجرا کنید، پروسه رندر درون صفحه وب باید با ارتباط با پروسه اصلی و درخواست از آن عملیات را انجام دهد.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+در الکترون، ما راه های مختلفی برای ارتباط بین پروسه اصلی و پروسه رندر داریم. مثل ماژول های [`ipcRenderer`](../api/ipc-renderer.md) و [`ipcMain`](../api/ipc-main.md) برای ارسال پیام و ماژول [remote](../api/remote.md) برای ارتباطات RPC استایل. همچنین در سوالات متداول بخش "چگونگی اشتراک اطلاعات بین صفحات وب" در دسترس است.
 
 ## اولین برنامه الکترون خود را بنویسید
 

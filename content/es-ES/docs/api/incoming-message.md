@@ -1,16 +1,16 @@
-## Class: IncomingMessage
+## Clase: IncomingMessage
 
 > Handle responses to HTTP/HTTPS requests.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Instance Events
+### Eventos de Instancia
 
 #### Event: 'data'
 
-Returns:
+Devuelve:
 
 * `chunk` Buffer - A chunk of response body's data.
 
@@ -24,15 +24,15 @@ Indicates that response body has ended.
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
-#### Event: 'error'
+#### Evento: 'error'
 
-Returns:
+Devuelve:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
 Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Instance Properties
+### Propiedades de Instancia
 
 An `IncomingMessage` instance has the following readable properties:
 

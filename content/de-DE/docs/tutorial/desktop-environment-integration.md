@@ -1,58 +1,58 @@
 # Integration der Desktop-Umgebung
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Verschiedene Betriebssysteme bieten verschiedene Funktionen um Desktop-Anwendungen in ihre Desktop-Umgebungen einzubinden. Zum Beispiel können Applikationen unter Windows Verknüpfungen in der JumpList der Taskleiste und unter macOS ein individuelles Menu im Dock platzieren.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Diese Anleitung erklärt Ihnen, wie Sie Ihre Applikation mit Electron-APIs in diese Desktop-Umgebungen integrieren.
 
-## Notifications
+## Benachrichtigungen
 
-See [Notifications](notifications.md)
+[Benachrichtigungen](notifications.md) anzeigen
 
-## Recent documents (Windows & macOS)
+## Zuletzt verwendete Dokumente (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows und MacOS bieten einfachen Zugriff auf eine Liste der zuletzt verwendeten Dokumente, die von der Anwendung über die JumpList bzw. das Dock Menu geöffnet werden kann.
 
 **JumpList:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Dock Menu einer Anwendung:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Um eine Datei zu den zuletzt verwendeten Dokumenten hinzuzufügen können Sie die [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API verwenden:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+Und Sie können die [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API verwenden um die Liste der zuletzt verwendeten Dokumente zu leeren:
 
 ```javascript
 const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Bemerkungen zu Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Um diese Funktion unter Windows zu nutzen, muss die Anwendung als Handler für den Dateityp des Dokuments registriert sein, ansonsten wird die Datei nicht in der JumpList erscheinen, auch nachdem sie hinzugefügt wurde. Alle Informationen zum Registrieren Ihrer Anwendung finden Sie unter [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Sobald ein Nutzer auf eine Datei in der JumpList klickt, wird eine neue Instanz Ihrer Anwendung gestartet mit dem Pfad der Datei als Befehlszeilenargument.
 
-### macOS Notes
+### Bemerkungen zu macOS
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Sobald eine Datei vom Menu der zuletzt hinzugefügten Dateien angefordert wird, so wird dafür das `open-file`-Event des `app`-Moduls ausgeworfen.
 
-## Custom Dock Menu (macOS)
+## Individuelles Dock Menu (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+macOS ermöglicht dem Entwickler ein individuelles menu für das Dock festzulegen, welches normalerweise einige Verknüpfungen für häufig verwendete Funktionen der Anwendung bereitstellt:
 
-**Dock menu of Terminal.app:**
+**Dock Menu der Terminal.app:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Um Ihr eigenes Dock Menu festzulegen, können Sie die `app.dock.setMenu` API nutzen. Diese ist nur unter macOS verfügbar:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -70,21 +70,21 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Nutzerspezifische Aufgaben (Windows)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Unter Windows können Sie benutzerdefinierte Aktionen in der Kategorie `Tasks` der JumpList definieren. Zitat von MSDN:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Tasks of Internet Explorer:**
+**Aufgaben beim Internet Explorer:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+Im Unterschied zum Dock Menu unter macOS, welches ein richtiges Menu ist, funktionieren die nutzerspezifischen Aufgaben im Bereich Tasks der JumpList wie Anwendungsverknüpfungen. Wenn der Nutzer eine Aufgabe anklickt, wird ein Programm mit bestimmten Argumenten ausgeführt.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Um die nutzerspezifischen Aufgaben für Ihre Anwendung zu setzen, können Sie die [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API verwenden:
 
 ```javascript
 const {app} = require('electron')
@@ -100,14 +100,14 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Um die Liste der Aufgaben zu leeren, rufen Sie lediglich `app.setUserTasks` mit einem leeren Array auf:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Die Aufgaben werden auch nachdem Ihre Anwendung geschlossen wurde zu sehen sein, so dass das Symbol und der Pfad der Anwendung bestehen bleiben sollten bis die App deinstalliert wird.
 
 ## Thumbnail Toolbars
 

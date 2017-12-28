@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> 访问可用于从桌面上使用 [` navigator.mediaDevices.getUserMedia `] API 捕获的音频和视频的媒体源信息。
+> 通过[` navigator.mediaDevices.getUserMedia `] API ，可以访问那些用于从桌面上捕获音频和视频的媒体源信息。
 
 进程: [ Renderer](../glossary.md#renderer-process)
 

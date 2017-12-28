@@ -771,7 +771,7 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 <h3><code> app.setLoginItemSettings (pengaturan) </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
 
 <ul>
-<li><code>settings` Object 
+<li><code>settings` Obyek 
                                                 * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
 <li><code> openAsHidden </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi sebagai tersembunyi. Default ke
  <code> false </ 0> . Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi

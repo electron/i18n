@@ -15,6 +15,11 @@ docs:
   guides: ガイド
   api_reference: API リファレンス
   advanced: 発展的なドキュメント
+  footer:
+    propose_change: このドキュメントを改善する
+    version_history: 過去のバージョン
+    translate: ドキュメントの翻訳に参加する
+    view_all_docs: Electronに関する全てのドキュメントを1ページで表示する
 languages:
   choose_language: 言語選択
   translation_progress: 翻訳状態
@@ -54,16 +59,12 @@ get_started:
   description: Electronでの開発を始めるには、こちらの情報をチェックしてください。Electronを用いたWebアプリのパッケージ化、APIへのアクセス、インストーラの作成方法などが解説されています。
 explore:
   title: ElectronのAPIに触れる
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">Electron APIのデモアプリ</a>
-    - はElectron APIの中でも特に重要な機能をインタラクティブに紹介します。
-    - サンプルコードや親切な Tips とともに、Electron を使うと何ができるのかをご確認ください。
-    - あなたのアプリ開発にきっと役立つはずです。
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
   title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> アプリで実際に動く Electron を見てみましょう"
-  description: 最低限の機能と親切な解説コード
+  description: 親切なコメント文とともに、最低限の機能のみを実装した Electron アプリをお試しください
   clone: Quick Start リポジトリを clone する
   go_into_repo: リポジトリに移動
   install_deps: 依存ライブラリをインストールし、実行
@@ -74,15 +75,9 @@ need_help:
 headings:
   languages: 言語
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "翻訳する"
+  languages: 世界中の素晴らしい開発者コミュニティによってローカライズされたコンテンツ
+help_translate: "翻訳に参加する"
 footer:
-  see_something: このドキュメントに誤りが含まれていますか？
-  propose_change: こちらからデータの修正を提案できます。
-  need_different_version: 別のバージョンの Electron に関するドキュメントが必要ですか？
-  see_available_versions: 利用可能な他のバージョンのものを見る。
-  want_something_searchable: 複数のドキュメントを横断して検索したいことがありますか？
-  view_all_docs: すべてのドキュメントをまとめて表示
   see_the_faq: よくある質問（FAQ）
 apps:
   title: Electronで開発されたアプリ
@@ -111,13 +106,13 @@ pages:
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: 最新の Electron のための API リファレンス
   '/docs/development':
     title: 開発
     description: Electronを用いた開発
   '/docs/tutorial':
     title: チュートリアル
-    description: Guides and tutorials for the latest Electron release
+    description: 最新の Electron のためのガイドとチュートリアル
   '/blog':
     title: Electron ブログ
     description: Electron チームとコミュニティからの最新情報
@@ -131,7 +126,7 @@ pages:
   '/languages':
     title: 言語
   '/userland':
-    title: ユーザーランド (userland)
+    title: Userland
   '/devtron':
     title: Devtron
     description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
@@ -139,6 +134,6 @@ pages:
     title: Spectron
     description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
 _404:
-  page_not_found: ページが見つかりません
+  page_not_found: ページが見つかりません。
   if_this_is_an_error: もしこれがエラーであれば、
   please_file_an_issue: Issue にてお知らせください。

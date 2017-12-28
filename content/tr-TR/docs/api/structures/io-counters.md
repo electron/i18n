@@ -1,8 +1,8 @@
-# IOCounters Object
+# IOCounters objesi
 
-* `readOperationCount` Number - The number of I/O read operations.
-* `writeOperationCount` Number - The number of I/O write operations.
-* `otherOperationCount` Number - Then number of I/O other operations.
-* `readTransferCount` Number - The number of I/O read transfers.
-* `writeTransferCount` Number - The number of I/O write transfers.
-* `otherTransferCount` Number - Then number of I/O other transfers.
+* `readOperationCount` Sayı - I/O okuma operasyonlarının sayısı.
+* ` writeOperationCount ` Sayı - I/O yazma operasyonlarının sayısı.
+* `otherOperationCount` Sayı - I/O diğer operasyonların sayısı.
+* `readTransferCount` Sayı - I/O okuma transferlerinin sayısı.
+* `writeTransferCount` Sayı - I/O yazma transferlerinin sayısı.
+* `otherTransferCount` Sayı - I/O diğer transferlerin sayısı.

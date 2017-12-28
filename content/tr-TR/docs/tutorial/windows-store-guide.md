@@ -1,35 +1,37 @@
 # Windows Uygulama Mağazası'na Gönderme Kılavuzu
 
-With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+Windows 10 ile, iyi eski win32 çalıştırılabilmenin yeni bir kardeşi var: Evrensel Windows Platformu. Yeni ` .appx </ 0> biçimi yalnızca bir dizi yeni
+Cortana veya Push Bildirimleri gibi güçlü API'ler, ancak Windows Mağazası aracılığıyla, ayrıca yükleme ve güncellemeyi basitleştirir.</p>
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+<p>Microsoft <a href="https://github.com/catalystcode/electron-windows-store">, Electron uygulamalarını <code> .appx </ 1> paketleri halinde derleyen bir araç geliştirdi </ 0>, geliştiricilerin yeni uygulamada bulunan özelliklerden yararlanmasını sağlayan bir araç geliştirdi. Bu kılavuz, nasıl kullanılacağını ve bir Electron AppX paketinin özellik ve sınırlamaları hakkında açıklama yapar.</p>
 
-## Background and Requirements
+<h2>Arka plan ve Gereksinimler</h2>
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+<p>Windows 10 "Yıldönümü Güncellemesi", sanal bir dosya sistemi ve kayıt defteri ile başlatarak win32 <code> .exe </ 0> ikili dosyalarını çalıştırabilir . Her ikiside derleme sırasında Windows içinde uygulama ve yükleyiciyi çalıştırarak oluşturulan Konteyner, Windows'un hangi modifikasyonları işletim sistemi kurulum sırasında yapılır. Çalıştırılabilir dosyayı bir sanal dosya sistemi ve bir sanal kayıt defteri ile eşleştirme, Windows'un tek tıklamayla yükleme ve kaldırmayı etkinleştirmesini sağlar.</p>
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+<p>Buna ek olarak, exe, appx modelinde başlatıldı - Universal Windows Platform'un sunduğu API'ların çoğunu kullanabileceği anlamına geliyor. Daha fazla yetenek kazanmak için, bir Electron uygulaması, görevleri arka planda çalıştırmak, push bildirimleri almak ya da işlehat duyurularını almak için bir yardımcı olarak başlatılan <code> exe </ 0> ile birlikte başlatılan görünmez bir UWP arka plan göreviyle eşleşebilir . Diğer UWP uygulamaları ile iletişim kurun.</p>
 
-To compile any existing Electron app, ensure that you have the following requirements:
+<p>Mevcut herhangi bir Electron uygulamasını derlemek için aşağıdaki gereksinimlere sahip olduğunuzdan emin olun:</p>
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+<ul>
+<li>Yıldönümü Güncellemesi ile Windows 10 (2 Ağustos 2016'da piyasaya sürülmüştür)</li>
+<li>Windows 10 SDK <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk"> indirilebilir burada </ 0></li>
+<li>En azından Düğüm 4 (kontrol etmek için, <code> düğümünü çalıştırın-v </ 0>)</li>
+</ul>
 
-Then, go and install the `electron-windows-store` CLI:
+<p>Ardından gidip <code> electron-windows-store ` CLI'yi yükleyin:
 
 ```sh
-npm install -g electron-windows-store
+npm yükleme -g elektron-windows-mağaza
 ```
 
-## Step 1: Package Your Electron Application
+## 1. Adım: Elektron Uygulamasını Paketleyin
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketleyin . Aslında ihtiyaç duymadığınız herhangi bir modül uygulamanızın boyutunu artıracağından, son uygulamanızda ihtiyacınız olmayan ` node_modules </ 0> ' i kaldırdığınızdan emin olun.</p>
 
-The output should look roughly like this:
+<p>Çıktı kabaca şöyle olmalıdır:</p>
 
-```text
-├── Ghost.exe
+<pre><code class="text">├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
 ├── content_shell.pak
@@ -39,41 +41,47 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   ├── app
+│   └── atom.asar
 ├── snapshot_blob.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
-```
+`</pre> 
 
-## Step 2: Running electron-windows-store
+## 2. Adım: Elektron windows mağazasını çalıştırma
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Yüksek bir PowerShell'den ("Yönetici olarak çalıştırın") gerekli parametrelerle `` electron-windows-store </ 0> 'i çalıştırın ; hem giriş ve çıkış dizinlerini, uygulamanın adını ve sürümünü ve
+ <0 > node_modules </ 0> düzleştirilmelidir.</p>
 
-```powershell
-electron-windows-store `
+<pre><code class="powershell">electron-windows-store `
     --input-directory C:\myelectronapp `
     --output-directory C:\output\myelectronapp `
     --flatten true `
     --package-version 1.0.0.0 `
     --package-name myelectronapp
-```
+``</pre> 
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Bu araç idam edildikten sonra çalışmaya başlar: Electron uygulamanızı bir giriş olarak kabul eder , ` node_modules </ 0> 'i düzleştirir. Ardından uygulamanızı <code> app.zip </ 0> olarak arşivler.
+Araç, bir yükleyici ve bir Windows Konteyner kullanarak , Windows Uygulama Bildirisi'ni ( <code> AppXManifest.xml </ 0> ) ve çıktı dosyanızın sanal dosya sistemini ve sanal kayıt defterini içeren "genişletilmiş" bir AppX paketi oluşturur.</p>
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+<p>Genişletilmiş AppX dosyaları oluşturulduktan sonra araç , disk üzerindeki bu dosyalardan tek bir dosya AppX paketi oluşturmak için Windows Uygulama Paketleyiciyi ( <code> MakeAppx.exe </ 0> ) kullanır.
+Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenilir bir sertifika oluşturmak için kullanılabilir. İmzalı AppX paketi ile CLI, otomatik olarak paketi makinenize yükleyebilir.</p>
 
-## Step 3: Using the AppX Package
+<h2>3. Adım: AppX Paketini Kullanma</h2>
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+<p>Paketinizi çalıştırmak için, kullanıcıların gerekir Windows'u sözde "Yıldönümü Güncellemesi" ile 10 - Windows'un nasıl güncelleştirileceği ile ilgili ayrıntılar bulunabilir <a href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update">Burada</a>.</p>
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+<p>Geleneksel UWP uygulamalarına karşı olarak, paketlenmiş uygulamaların şu anda bir elle doğrulama işlemi uygulayabilirsiniz. <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">burada</a>.
+In the meantime, all users will be able to just install your package by double-clicking it,
+so a submission to the store might not be necessary if you're simply looking for an
+easier installation method. In managed environments (usually enterprises), the
+<code>Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 

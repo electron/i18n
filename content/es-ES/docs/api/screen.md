@@ -49,39 +49,39 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Eventos
 
 The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Methods
+## Métodos
 
 The `screen` module has the following methods:
 

@@ -2,7 +2,7 @@
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -18,7 +18,7 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Methods
+## Métodos
 
 The `session` module has the following methods:
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -62,7 +62,7 @@ The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-* `event` Event
+* `evento` Evento
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Métodos de Instancia
 
 The following methods are available on instances of `Session`:
 
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Propiedades de Instancia
 
 The following properties are available on instances of `Session`:
 

@@ -2,7 +2,7 @@
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
@@ -28,7 +28,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Instance Methods
+### Métodos de Instancia
 
 The following methods are available on instances of `WebRequest`:
 
@@ -38,7 +38,7 @@ The following methods are available on instances of `WebRequest`:
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `resourceType` String
@@ -64,7 +64,7 @@ The `callback` has to be called with an `response` object.
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Object 
-  * `id` Integer
+  * `id` Íntegro
   * `url` String
   * `method` String
   * `resourceType` String
@@ -83,7 +83,7 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `resourceType` String
@@ -123,7 +123,7 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `resourceType` String
@@ -160,7 +160,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `resourceType` String
@@ -178,7 +178,7 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `resourceType` String

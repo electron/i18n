@@ -1,6 +1,6 @@
-# Upgrading Crashpad
+# Crashpad güncelleniyor
 
-1. Get the version of crashpad that we're going to use.
+1. Kullanacağınız carshpad sürümünü edinin.
     
     - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
     - We need to check out the correponding branch.
@@ -10,7 +10,7 @@
         - `git checkout <revision checksum>`
     - Add electron's crashpad fork as a remote
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - Güncelleme için yeni bir dalı kontrol edin
     - `git checkout -b electron-crashpad-vA.B.C.D`
     - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
 
@@ -18,11 +18,11 @@
     
     - Or view http://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. Her yama için:
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum 
     - `git cherry-pick <checksum>`
-    - Resolve any conflicts
+    - Çakışmaları çöz
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
     - `git push electron electron-crashpad-vA.B.C.D`
 
@@ -36,6 +36,6 @@
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
     - Both should build with no errors
-6. Push changes to submodule reference 
+6. Değişiklikleri alt modül başvurusuna gönderin 
     - (From electron root) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`

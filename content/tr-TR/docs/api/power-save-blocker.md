@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-For example:
+Örneğin:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')

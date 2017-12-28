@@ -1,32 +1,30 @@
-# Setting Up Symbol Server in Debugger
+# Menyiapkan Symbol Server di Debugger
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](http://support.microsoft.com/kb/311503) so the documentation there can be useful.
+Simbol Debug memungkinkan Anda melakukan sesi debugging yang lebih baik. Mereka memiliki informasi tentang fungsi yang terdapat dalam executables dan dynamic library dan memberi Anda informasi untuk mendapatkan clean call stack. Symbol Server memungkinkan debugger memuat simbol, binari dan sumber yang benar secara otomatis tanpa memaksa pengguna mendownload file debugging besar. Fungsi server seperti  server simbol Microsoft </ 0> sehingga dokumentasi dapat bermanfaat.</p> 
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Perhatikan bahwa karena Elektron yang dibebaskan dibangun sangat dioptimalkan, debugging tidak selalu mudah. Debugger tidak dapat menampilkan konten semua variabel dan jalur eksekusi bisa terasa aneh karena inlining, panggilan ekor, dan pengoptimalan komplotan lainnya. Satu-satunya solusi adalah membangun bangunan lokal yang tidak dioptimalkan .
 
-The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+URL server simbol resmi untuk Elektron adalah https: // electron -symbols.githubapp.com. Anda tidak dapat mengunjungi URL ini secara langsung, Anda harus menambahkannya ke jalur simbol alat debugging Anda. Pada contoh di bawah ini, direktori cache lokal digunakan untuk menghindari pengambilan PDB dari server secara berulang kali. Ganti ` c: \ code \ simbol </ 0> dengan direktori cache yang sesuai pada mesin Anda.</p>
 
-## Using the Symbol Server in Windbg
+<h2>Menggunakan Symbol Server di Windbg</h2>
 
-The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+<p>Jalur simbol Windbg dikonfigurasi dengan nilai string yang dibatasi dengan karakter tanda bintang. Untuk hanya menggunakan server simbol Elektron , tambahkan entri berikut ke jalur simbol Anda ( <strong> Catatan: </ 0> Anda dapat mengganti <code> c: \ code \ symbols </ 1> dengan direktori yang dapat ditulis di komputer Anda, jika Anda lebih memilih lokasi yang berbeda untuk simbol yang diunduh):</p>
 
-```powershell
-SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-```
+<pre><code class="powershell">SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+`</pre> 
 
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Tetapkan string ini sebagai ` _NT_SYMBOL_PATH </ 0> di lingkungan, dengan menggunakan menu Windbg, atau dengan mengetikkan perintah <code> .sympath </ 0> . Jika Anda ingin mendapatkan simbol dari server simbol Microsoft juga, Anda harus mencantumkannya terlebih dulu:</p>
 
-```powershell
-SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-```
+<pre><code class="powershell">SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+`</pre> 
 
-## Using the symbol server in Visual Studio
+## Menggunakan server simbol dalam Visual Studio
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
-## Troubleshooting: Symbols will not load
+## Mengatasi masalah: Simbol tidak akan dimuat
 
-Type the following commands in Windbg to print why symbols are not loading:
+Ketik perintah berikut di Windbg untuk mencetak mengapa simbol tidak dimuat:
 
 ```powershell
 > !sym noisy

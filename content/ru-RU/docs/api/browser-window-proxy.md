@@ -37,9 +37,9 @@
 * `message` String
 * `targetOrigin` String
 
-Отправляет сообщение дочернему окну с указанием ротидельского окна или `*` без указания.
+Отправляет сообщение дочернему окну с указанием родительского окна или `*` без указания.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+Помимо этих методов, дочернее окно реализует объект `window.opener` без свойств и с одним методом.
 
 ### Instance Properties
 

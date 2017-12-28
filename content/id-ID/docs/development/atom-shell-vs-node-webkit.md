@@ -1,31 +1,31 @@
-# Technical Differences Between Electron and NW.js (formerly node-webkit)
+# Perbedaan Teknis Antara Elektron dan NW.js (sebelumnya node-webkit)
 
-**Note: Electron was previously named Atom Shell.**
+**Catatan: Elektron sebelumnya bernama Atom Shell.**
 
-Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
+Seperti NW.js, Electron menyediakan platform untuk menulis aplikasi desktop dengan JavaScript dan HTML dan memiliki integrasi Node untuk memberi akses ke sistem tingkat rendah dari halaman web.
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+Tapi ada juga perbedaan mendasar antara kedua proyek yang menjadikan Elektron produk terpisah dari NW.js:
 
-**1. Entry of Application**
+**1. Masuknya Aplikasi**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+Di NW.js titik masuk utama aplikasi adalah halaman web atau skrip JS. Anda menentukan file html atau js di ` package.json ` dan dibuka di jendela browser sebagai jendela utama aplikasi (jika ada entri html) atau skrip dijalankan.
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+Di Elektron, titik masuknya adalah skrip JavaScript Alih-alih memberikan URL secara langsung, Anda secara manual membuat jendela browser dan memuat file HTML menggunakan API. Anda juga perlu mendengarkan acara di jendela untuk memutuskan kapan harus berhenti dari aplikasi.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Elektron bekerja lebih mirip runtime Node.js. API Elektron lebih rendah sehingga Anda dapat menggunakannya untuk pengujian browser di tempat [ PhantomJS ](http://phantomjs.org/).
 
-**2. Build System**
+**2. Membangun Sistem**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Untuk menghindari kompleksitas membangun semua Chromium, Elektron menggunakan [` libchromiumcontent `](https://github.com/electron/libchromiumcontent) untuk mengakses API Konten Chromium. ` libchromiumcontent ` adalah satu perpustakaan bersama yang termasuk modul Konten Chromium dan semua dependensinya. Pengguna tidak perlu butuh mesin yang kuat untuk membangun Elektron.
 
-**3. Node Integration**
+**3. Integrasi Node**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+Di NW.js, integrasi Node di halaman web memerlukan kromium patch untuk bekerja, sementara di Elektron kita memilih cara yang berbeda untuk mengintegrasikan loop libuv dengan lingkaran pesan masing-masing platform untuk menghindari peretasan kromium. Lihat kode [` node_bindings `](https://github.com/electron/electron/tree/master/atom/common) untuk bagaimana hal itu dilakukan.
 
-**4. Multi-context**
+**4. Multi-konteks**
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+Jika Anda pengguna NW.js berpengalaman, Anda harus terbiasa dengan konsep konteks Node dan konteks web. Konsep ini ditemukan karena bagaimana NW.js diterapkan.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Dengan menggunakan [ multi-context ](https://github.com/nodejs/node-v0.x-archive/commit/756b622) Fitur Node, Electron tidak mengenalkan konteks JavaScript baru di halaman web.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Catatan: NW.js secara opsional mendukung multi-konteks sejak 0,13.

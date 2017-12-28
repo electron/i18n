@@ -1,189 +1,189 @@
-# Build Instructions (Linux)
+# Bangun Instruksi (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
-## Prerequisites
+## Prasyarat
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* Sedikitnya ruang disk 25GB dan RAM 8GB.
+* Python 2.7.x. Beberapa distribusi seperti CentOS 6.x masih menggunakan Python 2.6.x jadi Anda mungkin perlu memeriksa versi Python Anda dengan ` python -V `.
+* Node.js. Ada berbagai cara untuk menginstal Node. Anda dapat mendownload kode sumber dari [nodejs.org](http://nodejs.org) dan mengkompilasinya. Melakukan hal tersebut memungkinkan pemasangan Node di direktori home Anda sendiri sebagai pengguna standar. Atau coba repositori seperti [ NodeSource ](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [berdentang](https://clang.llvm.org/get_started.html) 3.4 atau yang lebih baru.
+* Header pengembangan GTK + dan libnotify.
 
-On Ubuntu, install the following libraries:
+Di Ubuntu, instal pustaka berikut ini:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
-                       libnotify-dev libgnome-keyring-dev libgconf2-dev \
-                       libasound2-dev libcap-dev libcups2-dev libxtst-dev \
-                       libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \ 
+libnotify-dev libgnome-keyring-dev libgconf2-dev \
+libasound2-dev libcap-dev libcups2-dev libxtst-dev \
+libxss1 libnss3-dev gcc-multilib g ++ - multilib curl \
+gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+Pada RHEL / CentOS, instal pustaka berikut ini:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
-                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Di Fedora, instal pustaka berikut ini:
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
-                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
+libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Distribusi lainnya mungkin menawarkan paket yang serupa untuk instalasi melalui manajer paket seperti pacman. Atau seseorang bisa mengkompilasi dari source code.
 
-## Getting the Code
+## Mendapatkan kode
 
 ```sh
-$ git clone https://github.com/electron/electron
+$ git klon https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Bootstrap
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Anda harus memiliki Python 2.7.x agar naskahnya berhasil. Mengunduh file tertentu bisa memakan waktu lama. Perhatikan bahwa kami menggunakan ` ninja ` untuk membangun Elektron sehingga tidak ada ` Makefile ` yang dihasilkan.
 
 ```sh
-$ cd electron
+$ cd elektron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### Kompilasi silang
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Jika Anda ingin membangun target ` lengan ` Anda juga harus menginstal dependensi berikut ini:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
-                       g++-arm-linux-gnueabihf
+                         g ++ - arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Demikian pula untuk ` arm64 `, instal yang berikut ini:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
-                       g++-aarch64-linux-gnu
+                         g ++ - aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+Dan untuk mengkompilasi silang target ` lengan ` atau ` ia32 `, Anda harus melewati parameter ` - target_arch ` ke ` bootstrap.py ` script:
 
 ```sh
-$ ./script/bootstrap.py -v --target_arch=arm
+$ ./script/bootstrap.py -v --target_arch=lengan
 ```
 
-## Building
+## Membangun
 
-If you would like to build both `Release` and `Debug` targets:
+Jika Anda ingin membangun target ` Release ` dan ` Debug `:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Script ini akan menyebabkan Elektron sangat besar dieksekusi untuk ditempatkan di direktori ` keluar / R `. Ukuran file lebih dari 1,3 gigabyte. Ini Terjadi karena biner target rilis berisi simbol debugging. Untuk mengurangi ukuran file, jalankan script ` create-dist.py `:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Ini akan menempatkan distribusi kerja dengan ukuran file yang jauh lebih kecil di direktori ` dist `. Setelah menjalankan script ` create-dist.py `, Anda mungkin ingin menghapus binari 1.3 + gigabyte yang masih di ` keluar / R `.
 
-You can also build the `Debug` target only:
-
-```sh
-$ ./script/build.py -c D
-```
-
-After building is done, you can find the `electron` debug binary under `out/D`.
-
-## Cleaning
-
-To clean the build files:
+Anda juga dapat membangun target ` Debug ` saja:
 
 ```sh
-$ npm run clean
+$ ./script/build.py
 ```
 
-To clean only `out` and `dist` directories:
+Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
+
+## Pembersihan
+
+Untuk membersihkan membangun file:
 
 ```sh
-$ npm run clean-build
+$ npm bersih
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+Untuk membersihkan hanya ` keluar ` dan ` dist ` direktori:
 
-## Troubleshooting
+```sh
+$ npm bersih
+```
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+** Catatan: ** Kedua perintah bersih mengharuskan menjalankan ` bootstrap ` lagi sebelum membangun.
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+## Penyelesaian masalah
+
+### Kesalahan saat Memuat Perpustakaan Bersama: libtinfo.so.5
+
+Prebuilt ` clang ` akan mencoba untuk link ke ` libtinfo.so.5 `. Bergantung pada arsitektur host, symlink ke sesuai ` libncurses `:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## Pengujian
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Lihat [ Bangun Ikhtisar Sistem: Pengujian ](build-system-overview.md#tests)
 
-## Advanced topics
+## Topik lanjutan
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+Konfigurasi bangunan default ditargetkan untuk distribusi desktop desktop utama. Untuk membangun distribusi atau perangkat tertentu, informasi berikut mungkin bisa membantu Anda.
 
-### Building `libchromiumcontent` locally
+### Membangun ` libchromiumcontent ` secara lokal
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Untuk menghindari penggunaan binari prebuilt dari ` libchromiumcontent `, Anda dapat membangun ` libchromiumcontent ` secara lokal. Untuk melakukannya, ikuti langkah-langkah ini:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+1. Menginstal [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+2. Install [ tambahan build dependencies ](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+3. Ambil submodul git:
 
 ```sh
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. Pass ` - build_release_libcc ` beralih ke script ` bootstrap.py `:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Perhatikan bahwa secara default konfigurasi ` shared_library ` tidak dibangun, jadi Anda hanya bisa membuat versi Elemen ` Release ` dari Elektron jika Anda menggunakan mode ini:
 
 ```sh
 $ ./script/build.py -c R
 ```
 
-### Using system `clang` instead of downloaded `clang` binaries
+### Menggunakan sistem ` clang ` daripada download ` clang ` binari
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Secara default Elektron dibangun dengan prebuilt [` clang `](https://clang.llvm.org/get_started.html) binari yang disediakan oleh proyek Chromium. Jika karena alasan tertentu Anda ingin membangun dengan ` clang ` terinstal di sistem Anda, Anda dapat memanggil ` bootstrap.py ` dengan ` - clang_dir = <path> `. Dengan melewatkannya, skrip build akan mengasumsikan biner ` berdentang ` berada di ` <path> / bin / `.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Sebagai contoh jika Anda menginstal ` clang ` di bawah ` / user / local / bin / clang `:
 
 ```sh
-$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
+$ ./script/bootstrap.py -v --build_release_libcc --clang_dir / usr / local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Menggunakan kompiler selain ` clang `
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Untuk membangun Elektron dengan kompiler seperti ` g ++ `, Anda harus menonaktifkan ` clang ` dengan ` - disable_clang ` terlebih dulu, lalu set ` CC ` dan ` CXX ` variabel lingkungan ke yang Anda inginkan.
 
-For example building with GCC toolchain:
+Misalnya bangunan dengan GCC toolchain:
 
 ```sh
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
+$ env CC = gcc CXX = g ++ ./script/bootstrap.py -v --build_release_libcc --disable_clang 
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Variabel Lingkungan
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+Selain ` CC ` dan ` CXX `, Anda juga dapat mengatur variabel lingkungan berikut untuk menyesuaikan konfigurasi pembuatan:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +199,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Variabel lingkungan harus ditetapkan saat menjalankan script ` bootstrap.py `, variabel tidak akan bekerja di script ` build.py `.

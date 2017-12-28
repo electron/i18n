@@ -1,17 +1,17 @@
-## Class: DownloadItem
+## Sınıf: DownloadItem
 
-> Control file downloads from remote sources.
+> Kontrol dosyası uzak kaynaklardan yükleme yapar.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` elektron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
 
 ```javascript
-// In the main process.
+// Ana işlem içinde.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+Kaydetme yolunu ayarlayın ve Electron'un bir kaydetme istememesi için yol gösterin.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
@@ -35,7 +35,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Events
+### Örnek Events
 
 #### Event: 'updated'
 
@@ -44,12 +44,12 @@ Returns:
 * `event` Event
 * `state` String
 
-Emitted when the download has been updated and is not done.
+İndirme güncellendiğinde ve bitmediğinde yayınlanır.
 
-The `state` can be one of following:
+`Durum` aşağıdakilerden biri olabilir:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - İndirme devam ediyor.
+* `interrupted` - İndirme kesintiye uğradı ve devam edilebilir.
 
 #### Event: 'done'
 
@@ -58,100 +58,100 @@ Returns:
 * `event` Event
 * `state` String
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+İndirme işlemi terminal durumundayken yayınlanır. Bu, bitmiş bir indirme, (`downloadItem.cancel()`) ile iptal edilmiş bir indirme ve devam edilemeyen kesintiye uğramış indirme içerir.
 
-The `state` can be one of following:
+`Durum` aşağıdakilerden biri olabilir:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - İndirme başarıyla tamamlandı.
+* `cancelled` - İndirme iptal edildi.
+* `interrupted` - İndirme kesintiye uğradı ve devam edemez.
 
-### Instance Methods
+### Örnek yöntemler
 
-The `downloadItem` object has the following methods:
+`downloadItem` nesnesi aşağıdaki yöntemleri içerir:
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - indirme öğesinin dosya kaydetme yolunu ayarlayın.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. Kullanıcı API aracılığıyla kaydetme yolunu ayarlamazsa, Electron kaydetme yolunu belirlemek için orijinal rutinleri kullanacaktır. (Genellikle bir kaydetme diyaloğı çıkarır).
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+İndirilen öğenin kaydedilecek yolunu `String` olarak döndürür. Bu ya `downloadItem.setSavePath(path)` ile ayarlanmış yol olacak yada kaydetme diyaloğunda görünen seçilmiş yol olacak.
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+İndirmeyi duraklatır.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+İndirmenin durdurulup durdurulmadığına dair `Boolean` döndürür.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Durdurulmuş indirmeyi devam ettirir.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Not:** Devamlı indirmeleri etkinleştirmek için, indirdiğiniz sunucunun aralık isteklerini desteklemesi gerekir ve `Last-Modified` ve `ETag` başlık değerlerinin ikisini de sağlamalıdir. Aksi takdirde, `resume()`, daha önce alınan baytları atlayacak ve indirmeyi baştan başlatacaktır.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+İndirmenin devam edip edemeyeceğine dair `Boolean` döndürür.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+İndirme işlemini iptal eder.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Öğenin nereden indirildiğine dair orjinal url'sini `String` olarak döndürür.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Dosyaların Mime türünü `String` olarak döndürür.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+İndirme işleminin kullanıcı hareketi olup olmadığına dair `Boolean` döndürür.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+İndirilen öğenin ismini `String` olarak döndürür.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Not:** Dosya adı her zaman yerel diskte kaydedilen dosya adıyla aynı değildir. Kullanıcı, istenen bir indirme kaydetme iletişim kutusunda dosya adını değiştirirse, kaydedilen dosyanın gerçek adı farklı olacaktır.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+İndirilen öğenin toplam byte boyutunu `Integer` olarak döndürür.
 
-If the size is unknown, it returns 0.
+Eğer boyutu bilinmiyorsa 0 değerini döndürür.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+İndirilen öğenin indirilen byte kadarını `Integer` türünde döndürür.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Cevabın başlığından İçerik-Hazırlama alanını `String` türünde döndürür.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Geçerli durumu `String` türünde döndürür. `progressing`, `completed`, `cancelled` veya `interrupted` olabilir.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Not:** Aşağıdaki metodlar oturum yeniden başlatıldığı zaman bir `cancelled` öğenin devamı için oldukça kullanışlıdır.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Herhangi bir yeniden yönlendirme de dahil olmak üzere öğenin tam url zincirini `String[]` olarak döndürür.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Son değiştirilen başlık değerini `String` olarak döndürür.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+ETag başlık değerini `String` olarak döndürür.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+UNIX zaman başlangıcından indirmenin başlatıldığı zamana kadar geçen saniye sayısını `Double` türünde döndürür.

@@ -2,25 +2,25 @@
 
 [Electron](https://electronjs.org), HTML, CSS ve JavaScript ile çok platformlu masaüstü uygulamaları oluşturmak için GitHub tarafından geliştirilen bir açık kaynak kütüphanesidir. Electron bunu, [Chromium](https://www.chromium.org/Home) ve [Node.js](https://nodejs.org)'yi tek bir çalışma zamanında birleştirerek gerçekleştirir ve uygulamalar Mac, Windows ve Linux için paketlenebilir.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Elektron 2013'te, GitHub'ın değiştirilebilir metin editörü olan  Atom </ 0> 'ın kurulacağı çerçeve olarak başladı. İkisi de 2014 baharında açık kaynaklıydı.</p> 
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+O zamandan beri açık kaynaklı geliştiriciler, yeni teşebbüsler ve kurulu şirketler tarafından kullanılan popüler bir araç haline geldi.  Electron inşasını gör </ 0>.</p> 
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 
-## Core Team and Contributors
+## Çekirdek Takım ve Katkıda Bulunanlar
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Katkıda bulunanların bir kısmı bireylerdir ve bazıları Electron üzerinde gelişmekte olan büyük şirketlerde çalışır. Sık sık katkıda bulunan geliştiricileri projeye eklemekten mutluyuz. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Sürümler
 
 [Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
 
-### Updating Dependencies
+### Bağımlılıklar güncelleniyor
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron'un Chromium sürümü, yeni bir kararlı Chromium sürümünün piyasaya sürülmesinden sonra bir iki hafta içinde güncellenir.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Node.js'nin yeni bir sürümü piyasaya çıktığında, Electron genellikle daha kararlı bir sürümü getirmek için yükseltmeden önce yaklaşık bir ay bekler.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
@@ -32,23 +32,23 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Elektron'un eski sürümlerinin uzun vadeli desteği şu anda mevcut değildir. Mevcut Elektron sürümünüz sizde çalışıyorsa, istediğiniz süre boyunca kullanabilirsiniz. Kullandıkça yeni özelliklerden yararlanmak isterseniz daha yeni bir sürüme geçmelisiniz.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Büyük güncelleme sürümü `v1.0.0` ile geldi. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
-## Core Philosophy
+## Temel felsefe
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Örneğin, Electron, yalnızca Chromium'un tamamında değil, Chromium'daki işleme kütüphanesini kullanır. Bu, Chromium'u yükseltmeyi kolaylaştırır, ancak Google Chrome'da bulunan bazı tarayıcı özelliklerinin Electron'da bulunmadığı anlamına gelir.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
 ## Tarihçe
 
 Electron tarihçesinin kilometre taşları aşağıdadır.
 
-| :calendar:       | :tada:                                                                                                                                        |
+| Takvim:          | :tada:                                                                                                                                        |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Nisan 2013**   | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).                                |
 | **Mayıs 2014**   | [Atom Shell açık kaynaklı oldu](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                                 |

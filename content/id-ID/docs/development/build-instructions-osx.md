@@ -1,22 +1,22 @@
-# Build Instructions (macOS)
+# Membangun petunjuk (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Ikuti panduan di bawah ini untuk membangun Elektron pada macOS.
 
-## Prerequisites
+## Prasyarat
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](http://nodejs.org) (external)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Jika Anda menggunakan Python yang didownload oleh Homebrew, Anda juga perlu menginstal modul Python berikut ini:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
-## macOS SDK
+## macos SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Jika Anda hanya mengembangkan Elektron dan tidak berencana untuk mendistribusikan ulang custom Electron build, Anda bisa melewati bagian ini.
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+Untuk fitur tertentu (misalnya pinch-zoom) agar berfungsi dengan benar, Anda harus menargetkan SDK macos 10.10.
 
 Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
 
@@ -30,24 +30,24 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 
 - Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
 - Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Simpan file
 
-## Getting the Code
+## Mendapatkan kode
 
 ```sh
-$ git clone https://github.com/electron/electron
+$ git klon https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Bootstrap
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```sh
-$ cd electron
+$ cd elektron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## Membangun
 
 Build both `Release` and `Debug` targets:
 
@@ -63,13 +63,13 @@ $ ./script/build.py -c D
 
 After building is done, you can find `Electron.app` under `out/D`.
 
-## 32bit Support
+## Dukungan 32bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Elektron hanya bisa dibangun untuk target 64bit pada macOS dan tidak ada rencana untuk melakukannya dukung macos 32bit di masa depan.
 
-## Cleaning
+## Pembersihan
 
-To clean the build files:
+Untuk membersihkan file build:
 
 ```sh
 $ npm run clean
@@ -78,11 +78,11 @@ $ npm run clean
 To clean only `out` and `dist` directories:
 
 ```sh
-$ npm run clean-build
+$ npm berjalan bersih-bangun
 ```
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## Pengujian
 
 See [Build System Overview: Tests](build-system-overview.md#tests)

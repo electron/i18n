@@ -1,4 +1,4 @@
-# Synopsis
+# सार
 
 > How to use Node.js and Electron APIs.
 

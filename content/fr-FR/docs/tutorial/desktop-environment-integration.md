@@ -80,7 +80,7 @@ Sur Windows, vous pouvez spécifier des actions personnalisées dans la catégor
 
 **Tâches d'Internet Explorer :**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
 A la différence du menu dock de macOS qui est un véritable menu, les tâches utilisateur dans Windows fonctionnent comme les raccourcis d'application tels que lorsque l'utilisateur clique sur une tâche, un programme sera exécuté avec les arguments spécifiés.
 

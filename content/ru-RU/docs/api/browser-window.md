@@ -8,18 +8,18 @@ Process: [Main](../glossary.md#main-process)
 // В основном процессе.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Или используйте 'remote' в renderer процессе.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
+win.om('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Загрузка удалённого URL'а
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Или загрузка локального HTML файла
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -47,7 +47,7 @@ win.once('ready-to-show', () => {
 
 ### Настройка `backgroundColor`
 
-Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Для больших приложений `ready-to-show` событие может вызываться слишком поздно, что может сделать приложение слишком медленным. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, закрывающий фон Вашего приложения:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,7 +60,7 @@ win.loadURL('https://github.com')
 
 ## Родительские и дочерние окна
 
-By using `parent` option, you can create child windows:
+С помощью параметра `parent`, Вы можете создавать дочерние окна:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,40 +71,40 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Окно `child` будет всегда показано поверх окна `top`.
 
 ### Модальные окна
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Модальное окно - дочернее окно, которое отключает родительское окно, чтобы создать модальное окно, Вы должны установить два параметра `parent` и `modal`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+conts {BrowserWindow} = require('electron')
 
 let child = new BrowserWindow({parent: top, modal: true, show: false})
 child.loadURL('https://github.com')
-child.once('ready-to-show', () => {
+child.once('ready-to-show', () = > {
   child.show()
 })
 ```
 
 ### Видимость страниц
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[API видимости страниц](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) работает следующим образом:
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* На всех платформах, состояние видимости отслеживает скрыто/уменьшено окно или нет.
+* Кроме того, на macOS, состояние видимости также отслеживает состояние перекрытия окна. Если окно перекрыто (т.е. полностью покрыто) другим окном, состояние видимости будет `hidden`. На других платформах, состояние видимости будет `hidden`, только когда окно уменьшено или явно скрыто, при помощи `win.hide()`.
+* Если `BrowserWindow` создано с `show: false`, первоначальное состояние видимости будет `visible`, несмотря на фактически скрытое окно.
+* Если `backgroundThrottling` отключено, состояние видимости останется `visible`, даже если окно уменьшено, закрыто или скрыто.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Рекомендуется приостановить дорогостоящие операции, когда состояние видимости `hidden`, для того чтобы свести к минимуму потребление энергии.
 
 ### Платформа заметок
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* На macOS модальные окна будут отображены в виде страниц, прикрепленных к родительскому окну.
+* На macOS дочерние окна будут находиться относительно родительского окна, во время передвижения родительского окна, тем временем на Windows и Linux дочерние окна не будут двигаться.
+* На Windows не поддерживается динамическое изменение родительского окна.
+* На Linux тип модального окна будет поменян в `dialog`.
+* На Linux многие среды рабочего стола не поддерживают скрытие модального окна.
 
 ## Класс: BrowserWindow
 

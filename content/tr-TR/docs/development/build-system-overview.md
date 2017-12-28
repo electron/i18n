@@ -1,84 +1,83 @@
 # Sistem Genel Bakışı Oluşturma
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron proje üretimi için [gyp](https://gyp.gsrc.io/) ve inşa etmek için [ninja](https://ninja-build.org/) kullanır. Proje yapılandırmaları `.gyp` ve `.gypi` dosyaları içinde bulunabilir.
 
-## Gyp Files
+## Gyp Dosyaları
 
-Following `gyp` files contain the main rules for building Electron:
+Aşağıdaki `gyp` dosyaları Electron oluşturmanın ana kurallarını içerir:
 
-* `electron.gyp` defines how Electron itself is built.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `brightray/brightray.gypi` includes general build configurations about building.
+* `electron.gyp` Electron 'un kendisinin nasıl inşa edildiğini tanımlar.
+* `common.gypi` Node yapılandırmalarının oluşumunu Chromium ile birlikte oluşmasını ayarlar.
+* `brightray/brightray.gyp` `brightray` 'nin nasıl oluştuğunu ve Chromium ile bağlanmak için varsayılan yapılandırmaları nasıl içerdiğini tanımlar.
+* `brightray/brightray.gypi` inşa etmekle ilgili genel yapı konfigürasyonlarını içerir.
 
-## Component Build
+## Eleman Oluşturma
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Chromium oldukça büyük bir proje olduğu için son bağlama aşaması ilerlemeyi zorlaştıran bir kaç dakika alabilir. Bunu gidermek için, Chromium her elemanı ortak kitaplıkta ayıran, bağlantıları çok hızlandıran ama dosya boyut ve performansını feda eden '' eleman oluştur'' u sundu.
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron'da çok benzer bir yaklaşım izledik: `Debug` için, ikili hızlı bağlanma süresine ulaşmak için, bir Chromium bileşenlerinin paylaşılan kitaplık versiyonuna bağlantı oluşturur, `Release` için, ikili statik kitaplık versiyonuna bağlanır, ki böylece olası en iyi ikili boyutu ve performansına sahip olabiliriz.
 
-## Minimal Bootstrapping
+## Kısa Ön yükleme
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+Chromium'un önceden oluşturulmuş ikili dosyalarının tümü (`libchromiumcontent`) önyükleme komut dosyası çalışıyorken indirilir. Varsayılan olarak, Statik kitaplık ve paylaşılan kitaplığın ikisi de yüklenir, ve son boyut platforma bağlı olarak 800 Mb ve 2 Gb arasında olmalı.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+Varsayılan olarak, `libchromiumcontent` Amazon Web Servisleri'nden yüklenir. Eğer `LIBCHROMIUMCONTENT_MIRROR` ortamı değişken olarak ayarlanırsa, önyükleme komut dosyası oradan yüklenir. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) `libchromiumcontent` için bir yansımadır. Eğer AWS erişiminde sorun yaşıyorsanız, indirme adresini `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/` üzerinden değiştirebilisiniz
 
-If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
+Eğer sadece Electron'u sadece hızlıca denemek veya geliştirmek için oluşturuyorsanız, sadece paylaşılan kitaplık versiyonunu `--dev` parametresini atlayarak indirebilirsiniz:
 
 ```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## İki Aşamalı Proje Üretimi
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+Electron `Release` ve `Debug` yapılarındaki farklı kitaplık kurulumları ile bağlantı sağlar. Ancak, `gyp`, farklı yapılandırmalar için farklı bağlantı kurulumlarının yapılandırmalarını desteklemez.
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+Bunun etrafında çalışmak amacıyla Electron hangi bağlantı ayarlarını kullanacağını kontrol etmek için `libchromiumcontent_component` değişkeni bir `gyp` kullanır ve `gyp`'i çalıştırırken sadece bir hedef üretir.
 
-## Target Names
+## Hedef İsimler
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+`Release` ve `Debug` 'ı hedef isim olarak kullanan çoğu projenin aksine, Electron hedef isim olarak `R` ve `D` 'ı kullanır. Bunun sebebi, eğer sadece bir `Release` veya `Debug` inşa yapılandırması tanımlı ise `gyp` rastgele çöker ve Electron yukarıda belirtildiği gibi belli bir zamanda sadece bir hedef üretir.
 
-This only affects developers, if you are just building Electron for rebranding you are not affected.
+Bu sadece geliştiricileri etkiler, eğer Electron'u sadece tekrar işlemek için kullanıyorsanız bu durum sizi etkilemez.
 
 ## Testler
 
-Test your changes conform to the project coding style using:
+Değişikliklerinizin proje kodlama stiline uyumunu test etmek için kullandığı:
 
 ```sh
 $ npm run lint
 ```
 
-Test functionality using:
+İşlevselleği test etmek için:
 
 ```sh
-$ npm test
+$ npm testi
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Electron kaynak kodunda ne zaman değişiklik yaparsanız, şu testten önce inşa etmeyi yeniden çalıştırmalısınız:
 
 ```sh
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+Test paketini belirli testi izole ederek veya hali hazırda kullandığınız Mocha' nın </a> özellikli  özel testlerini engelleyerek daha hızlı çalıştırabilirsiniz. Herhangi bir `describe` veya `it` işlevini çağırmak için sadece `.only` ekle:</p> 
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
-})
+  // ... sadece bu blok içindeki testler çalıştırılacak })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Alternatif olarak, mocha'nın `grep` seçeneğini sadece verilen normal ifade modeliyle eşleşen testleri çalıştırmak için kullanabilirsiniz:
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Yerel modülleri içeren testler ( ör. `runas`) hata ayıklama yapısı ile çalıştırılamaz ( ayrıntılar için bkz. [#2558](https://github.com/electron/electron/issues/2558)), ama sürüm yapılarıyla birlikte çalışacaklardır.
 
-To run the tests with the release build use:
+Sürüm yapısıyla testleri çalıştırmak için kullanacağınız:
 
 ```sh
 $ npm test -- -R

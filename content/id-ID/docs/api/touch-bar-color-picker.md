@@ -1,25 +1,25 @@
-## Class: TouchBarColorPicker
+## Kelas: TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> Buat pemetik warna di bilah sentuh untuk aplikasi macOS asli
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarColorPicker(options)` *Experimental*
+### `TouchBarColorPicker baru (pilihan)`*Eksperimental*
 
-* `pilihan` Object 
-  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
-  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker
+* `pilihan` Obyek 
+  * `tersediaWarna`String[](opsional) - Array string warna hex ke muncul sebagai warna yang mungkin dipilih.
+  * `selectedColor` String (opsional) - Warna hex yang dipilih di pemetik, i.e`#ABCDEF`.
+  * `perubahan` Fungsi (opsional) - Fungsi untuk memanggil saat warna dipilih. 
+    * `warna` String - Warna yang dipilih pengguna dari pemetik
 
 ### Instance Properties
 
-The following properties are available on instances of `TouchBarColorPicker`:
+Properti berikut tersedia pada contoh `TouchBarColorPicker`:
 
-#### `touchBarColorPicker.availableColors`
+#### `sentuhBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Array`String[]` yang mewakili warna pemetik warna yang tersedia untuk dipilih. Segera ganti nilai ini perbarui pemetik warna di bilah sentuh.
 
-#### `touchBarColorPicker.selectedColor`
+#### `sentuhBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+A `String` kode hex yang mewakili warna pemetik warna yang dipilih saat ini. Segera ganti nilai ini perbarui pemetik warna di bilah sentuh.

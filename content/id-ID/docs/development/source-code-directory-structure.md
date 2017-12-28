@@ -1,66 +1,66 @@
-# Source Code Directory Structure
+# Struktur Direktori Sumber Kode
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Kode sumber dari electron dipisahkan menjadi beberapa bagian, sebagian besar mengikuti Chromium pada konvensi pemisahan.
 
-You may need to become familiar with [Chromium's multi-process architecture](http://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](http://dev.chromium.org/developers/design-documents/multi-process-architecture) untuk memahami kode sumber yang lebih baik.
 
-## Structure of Source Code
+## Struktur Sumber Kode
 
 ```sh
 Electron
-├── atom/ - C++ source code.
-|   ├── app/ - System entry code.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   main process things. This talks to the renderer to manage web pages.
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       including some utility functions and code to integrate node's message
-|       loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
-├── default_app/ - The default page to show when Electron is started without
-|   providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
-└── common.gypi - Compiler specific settings and building rules for other
-    components like `node` and `breakpad`.
+├── atom/ - C++ sumber kode.
+|   ├── app / - Sistem daftar kode.
+|   ├── browser/ -  Frontend termasuk jendela utama, UI, dan semua
+|   |   hal proses utama. Ini berbicara kepada renderer untuk mengelola halaman web.
+|   |   ├── ui/ - Implementasi barang UI untuk platform yang berbeda.
+|   |   |   ├── cocoa/ - Kode sumber spesifik kakao.
+|   |   |   ├── win/ - Windows GUI sumber kode spesifik.
+|   |   |   └── x/ - X11 sumber kode spesifik.
+|   |   ├── api/ - Implementasi dari proses utama APIs.
+|   |   ├── net/ - kode jaringan terkait.
+|   |   ├── mac/ - Sumber kode Objective-C Mac tertentu.
+|   |   └── resources/ - Ikon, file yang bergantung pada platform, dll.
+|   ├── renderer/ - Kode yang berjalan dalam proses renderer.
+|   |   └── api/ - Implementasi proses renderer APIs.
+|   └── common/ - Kode yang digunakan oleh proses utama dan renderer,
+|       termasuk beberapa fungsi utilitas dan kode untuk mengintegrasikan pesan node
+|       loop ke loop pesan Chromium.
+|       └── api/ - Pelaksanaan API umum, dan yayasan
+|           Modul built-in Electron.
+├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
+├── default_app / - Halaman default untuk ditampilkan saat Electron dimulai tanpa
+|   menyediakan sebuah aplikasi.
+├── docs/ - Dokumentasi.
+├── lib/ - Sumber kode JavaScript.
+|   ├── browser/ - kode inisialisasi proses utama javascript.
+|   |   └── api/ - Implementasi API Javascript.
+|   ├── common/ - JavaScript digunakan oleh proses utama dan renderer
+|   |   └── api/ - Implementasi API Javascript.
+|   └── renderer/ - Kode inisialisasi proses renderer utama javascript.
+|       └── api/ - Implementasi API Javascript.
+├── spec / - tes otomatis.
+├── electron.gyp - Aturan pembangunan electron.
+└── common.gypi - Pengaturan spesifik Compiler dan aturan bangunan untuk lainnya
+     komponen seperti `node` dan` breakpad`.
 ```
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+File di `/chromium_src` cenderung menjadi potongan Chromium yang bukan bagian dari lapisan konten. Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan sumber sebagai bagian dari [libcc](../glossary.md#libchromiumcontent) tapi kebanyakan Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik, barang analisis) jadi kami hanya mengambil bagian dari kode. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan chromium_src cenderung menjadi yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa ditingkatkan seperti yang lainnya patch libcc yang kita pertahankan sekarang.
 
-## Structure of Other Directories
+## Struktur Direktori Lain
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **skrip** - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan, pengujian, dll.
+* **alat** - Skrip pembantu yang digunakan oleh file gyp, tidak seperti `skrip`, skrip diletakkan disini jangan pernah dipanggil oleh pengguna secara langsung.
+* **vendor** - sumber kode dari dependensi pihak ketiga, kami tidak menggunakannya `third_party` sebagai nama karena akan membingungkannya dengan direktori yang sama di Pohon sumber kode Chromium.
+* **node_modules** - Modul simpul pihak ketiga digunakan untuk bangunan.
+* **keluar** - Direktori keluaran sementara `ninja`.
+* **dist** - Direktori sementara dibuat oleh skrip `script/create-dist.py` saat membuat distribusi.
+* **external_binaries** - Download binari kerangka pihak ketiga yang jangan mendukung bangunan dengan `gyp`.
 
-## Keeping Git Submodules Up to Date
+## Menjaga Git Submodul Up to Date
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Repositori Electron memiliki beberapa dependensi yang dipesan, ditemukan di [/vendor](https://github.com/electron/electron/tree/master/vendor). Terkadang Anda mungkin melihat pesan seperti ini saat menjalankan `status git`:
 
 ```sh
 $ git status
@@ -69,13 +69,13 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Untuk memperbarui dependensi ini, jalankan perintah berikut:
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Jika Anda sering menjalankan perintah ini, Anda bisa membuat alias untuk itu di berkas `~/.gitconfig` Anda:
 
 ```sh
 [alias]

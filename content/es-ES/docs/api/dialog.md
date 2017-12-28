@@ -2,7 +2,7 @@
 
 > Display native system dialogs for opening and saving files, alerting, etc.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 An example of showing a dialog to select multiple files and directories:
 
@@ -18,7 +18,7 @@ const {dialog} = require('electron').remote
 console.log(dialog)
 ```
 
-## Methods
+## Métodos
 
 The `dialog` module has the following methods:
 
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (opcional)
 * `options` Object 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".

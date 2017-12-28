@@ -1,4 +1,4 @@
-# Frameless Window
+# Çerçevesiz pencere
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
@@ -14,7 +14,7 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### Alternatives on macOS
+### macOs üzerindeki alternatifler
 
 On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
 
@@ -48,7 +48,7 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## Pencere şeffaflığı
 
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
@@ -77,7 +77,7 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-## Draggable region
+## Sürüklenebilir bölge
 
 By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
@@ -100,7 +100,7 @@ button {
 
 If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
-## Text selection
+## Metin seçimi
 
 In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 
@@ -111,6 +111,6 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 }
 ```
 
-## Context menu
+## Kaynak menüsü
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.

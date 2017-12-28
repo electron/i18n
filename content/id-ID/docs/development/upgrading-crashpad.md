@@ -1,41 +1,41 @@
-# Upgrading Crashpad
+# Upgrade Crashpad
 
-1. Get the version of crashpad that we're going to use.
+1. Dapatkan versi crashpad yang akan kita gunakan.
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the correponding branch.
+    - `libcc/src/third_party/crashpad/README.chromium` akan memiliki garis `Revisi:` dengan checksum
+    - Kita perlu memeriksa cabang yang sesuai.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
-    - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - `git klon https://chromium.googlesource.com/crashpad/crashpad`
+    - Periksa cabang dengan checksum revisi: 
         - `git checkout <revision checksum>`
     - Add electron's crashpad fork as a remote
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
-    - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
+    - Lihat cabang baru untuk pembaruan
+    - `git checkout -b elektron-crashpad-vA.B.C.D`
+    - `A.B.C.D` adalah versi kromium yang ditemukan di `libcc/VERSION` dan akan menjadi seperti `62.0.3202.94`
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. Buatlah daftar checklist dari Electron patch yang perlu diaplikasikan dengan `git log --oneline`
     
     - Or view http://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. Untuk setiap patch:
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum 
     - `git cherry-pick <checksum>`
-    - Resolve any conflicts
+    - Selesaikan konflik
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
-    - `git push electron electron-crashpad-vA.B.C.D`
+    - `git dorong elektron elektron-crashpad-vA.B.C.D`
 
-4. Update Electron to build the new crashpad:
+4. Update Electron untuk membangun tabrakan baru:
     
     - `cd vendor/crashpad`
     - `git fetch`
-    - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
-    - From Electron root's root, run `script/update.py`
+    - `git checkout elektron-crashpad-v62.0.3202.94`
+5. Regenerasi file Ninja terhadap kedua target 
+    - Dari akar akar elektron, jalankan `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
-6. Push changes to submodule reference 
-    - (From electron root) `git add vendor/crashpad`
+    - Keduanya harus membangun tanpa kesalahan
+6. Dorong perubahan ke referensi submodule 
+    - (Dari akar elektron) `git tambahkan vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`

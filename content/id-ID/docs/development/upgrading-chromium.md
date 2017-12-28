@@ -1,135 +1,135 @@
-# Upgrading Chromium
+# Mengupgrade Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium di Elektron.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- Tingkatkan versi beta ke versi Chromium baru
+- Buat kode Elektron yang kompatibel dengan libcc baru
+- Update Elektron dependensi (crashpad, NodeJS, dll) jika diperlukan
+- Buatlah build internal dari libcc dan elektron
+- Update Electron docs jika perlu
 
-## Upgrade `libcc` to a new Chromium version
+## Tingkatkan versi `libcc` ke versi Chromium baru
 
-1. Get the code and initialize the project: 
-  -     sh
-        $ git clone git@github.com:electron/libchromiumcontent.git
-        $ cd libchromiumcontent
-        $ ./script/bootstrap -v
+1. Dapatkan kode dan inisialisasi proyek: 
+      sh
+      $ git clone git@github.com:electron/libchromiumcontent.git
+      $ cd libchromiumcontent
+      $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
-  - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
-  - `$ ./script/create-dist  --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+2. Perbarui snapshot Chromium 
+  - Pilih nomor versi dari [Proxy Omaha](https://omahaproxy.appspot.com/) dan perbarui `VERSI` berkas dengan itu 
+    - Ini bisa dilakukan secara manual dengan mengunjungi OmahaProxy di browser, atau secara otomatis:
+    - Satu-baris untuk versi mac terbaru yang stabil: `curl -so- https://omahaproxy.appspot.com/mac > VERSI`
+    - Satu-baris untuk versi beta win64 terbaru: `curl -so- https://omahaproxy.appspot.com/all | grep "win64, beta" | awk -F, 'NR == 1{print $3}' > VERSI`
+  - jalankan `$ ./script/perbarui` 
+    - Siapkan teh - ini bisa berlangsung 30m atau lebih.
+    - Mungkin akan gagal menerapkan patch.
+3. Perbaiki berkas`*patch` di folder` patches /` dan `patches-mas/`.
+4. (Opsional) `script/perbarui` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` panggilan: `$ ./script/menerapkan-tambalan` 
+  - Ada skrip kedua, `script/patch.py` yang mungkin berguna. Baca `./script/patch.py ​​-h` untuk informasi lebih lanjut.
+5. Jalankan build ketika semua patch bisa diaplikasikan tanpa kesalahan 
+  - `$ ./script/membangun`
+  - Jika beberapa tambalan tidak lagi kompatibel dengan kode Chromium, perbaiki kesalahan kompilasi.
+6. Saat build berhasil, buat a `dist` untuk Elektron 
+  - `$ ./script/membuat-dist --tidak ada-zip` 
+    - Ini akan membuat folder `dist/main` di akar repo libcc. Anda akan membutuhkan ini untuk membangun Elektron.
+7. (Opsional) Memperbarui konten script jika terjadi kesalahan akibat berkas  yang telah dihapus atau diganti namanya. (`--no_zip` mencegah skrip membuat `dist`  arsip. Anda tidak membutuhkannya.)
 
-## Update Electron's code
+## Perbarui kode Elektron
 
-1. Get the code: 
-  -     sh
-        $ git clone git@github.com:electron/electron.git
-        $ cd electron
+1. Dapatkan kodenya: 
+      sh
+      $ git clone git@github.com:electron/electron.git
+      $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
-  -     sh
-        $ ./script/bootstrap.py -v \
+2. Jika Anda memiliki libcc yang ada di komputer Anda dengan repo sendiri,  beritahu Elektron untuk menggunakannya: 
+      sh
+      $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
 
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. Jika Anda belum membangun libcc tapi sudah seharusnya diupgrade  ke Chromium baru, bootstrap Elektron seperti biasa  `$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - Pastikan submodule libcc (`vendor/libchromiumcontent`) menunjuk ke revisi benar
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. Set `CLANG_REVISION` di `script/update-clang.sh` untuk mencocokkan versi  Kromium sedang digunakan.
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - Terletak di `elektron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
-5. Checkout Chromium if you haven't already:
+5. Periksa Chromium jika Anda belum melakukannya:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+    - (Ganti placeholder `{VERSION}` di url di atas ke Chromium versi menggunakan libcc.)
+6. Bangun Elektron. 
+  - Cobalah untuk membangun versi Debug terlebih dahulu:`$ ./script/build.py -c D`
+  - Anda akan membutuhkannya untuk menjalankan tes
+7. Perbaiki kesalahan kompilasi dan keterkaitan
+8. Pastikan bahwa Rilis bangunan bisa dibangun juga 
   - `$ ./script/build.py -c R`
-  - Often the Release build will have different linking errors that you'll need to fix.
-  - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+  - Seringkali bangunan Rilis akan memiliki kesalahan penautan yang berbeda yang Anda inginkan perlu diperbaiki.
+  - Beberapa kesalahan kompilasi dan penghubungan disebabkan oleh sumber/objek yang hilang berkas di libcc `dist`
+9. Memperbarui `./ script/ membuat-dist` di repo libcc, buat ulang`dist`, dan  Jalankan skrip bootstrap Elektron sekali lagi.
 
-### Tips for fixing compilation errors
+### Tip untuk memperbaiki kesalahan kompilasi
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Perbaiki bangunan kesalahan konfigurasi terlebih dahulu
+- Perbaiki kesalahan fatal dulu, seperti berkas yang hilang dan kesalahan yang berhubungan dengan penyusun bendera atau mendefinisikan
+- Cobalah untuk mengidentifikasi kesalahan kompleks sesegera mungkin. 
+  - Mintalah bantuan jika Anda tidak yakin bagaimana memperbaikinya
+- Nonaktifkan semua fitur Elektron, perbaiki build, lalu aktifkan satu per satu
+- Tambahkan lebih banyak flag untuk menonaktifkan fitur build-time.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Ketika sebuah Debug membangun Electron berhasil, jalankan tesnya: `$ ./script/test.py` Perbaiki tes yang gagal.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform yang didukung.
 
-## Updating Crashpad
+## Memperbarui Crashpad
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
+Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. Lihat [Upgrade Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) untuk petunjuk bagaimana melakukan itu.
 
-## Updating NodeJS
+## Memperbarui NodeJS
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+Meningkatkan `vendor/node` ke rilis Node yang sesuai dengan versi v8 digunakan dalam rilis kromium baru. Lihat versi v8 di Node aktif
 
-See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
+Lihat [Upgrade Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) untuk petunjuk tentang ini.
 
-## Verify ffmpeg support
+## Verifikasi dukungan ffmpeg
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Elektron kapal dengan versi `ffmpeg` yang mencakup codec proprietary oleh default. Versi tanpa codec ini dibuat dan didistribusikan bersama masing-masing dilepaskan juga. Setiap peningkatan Chrome harus memverifikasi bahwa mengganti versi ini masih didukung.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Anda dapat memverifikasi dukungan Elektron untuk beberapa `ffmpeg` yang dibuat dengan memuat halaman berikut. Ini harus bekerja dengan perpustakaan default `ffmpeg` yang didistribusikan dengan Elektron dan tidak bekerja dengan perpustakaan `ffmpeg` yang dibuat tanpa hak kepemilikan codec.
 
 ```html
-<!DOCTYPE html>
+< DOCTYPE html >
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
-  </head>
-  <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
-    <p id="outcome"></p>
-    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
-    <script>
-      const video = document.querySelector('video')
-      video.addEventListener('error', ({target}) => {
-        if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
-        } else {
-          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
-        }
-      })
-      video.addEventListener('playing', () => {
-        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
-      })
-    </script>
-  </body>
+  <head>
+    <meta charset="utf-8">
+    <title> Pemeriksaan Codec Proprietary </title>
+  </head>
+  <body>
+    <p> Memeriksa apakah Elektron menggunakan codec proprietary dengan memuat video dari http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4 </p>
+    <p id="outcome"> </p>
+    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay> </video>
+    <script>
+      const video =document.querySelector ('video')
+      video.addEventListener ('error', ({target}) => {
+        jika (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+          document.querySelector ('#hasil') textContent = 'Tidak menggunakan codec proprietary, video yang dipancarkan tidak didukung aktivitas kesalahan.'
+        } lain {
+          document.querySelector ('# hasil') textContent = `Kesalahan tak terduga: ${target.error.code}`
+        }
+      })
+      video.addEventListener ('bermain', () => {
+        document.querySelector ('#results') textContent = 'Menggunakan codec proprietary, video mulai diputar.'
+      })
+    </script>
+  </body>
 </html>
 ```
 
-## Useful links
+## Tautan yang berguna
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
-- [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Jadwal Peluncuran Chrome](https://www.chromium.org/developers/calendar)
+- [Proxy Omaha](http://omahaproxy.appspot.com)
+- [Pelacak Masalah Chromium](https://bugs.chromium.org/p/chromium)

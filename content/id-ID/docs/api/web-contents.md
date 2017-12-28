@@ -1,86 +1,79 @@
-# webContents
+# kontenWeb
 
-> Render and control web pages.
+> Kontrol dan render halaman web.
 
-Proses:  Utama </ 0></p> 
+Proses: [utama](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ini bertanggung jawab untuk render dan mengendalikan halaman web dan properti objek [`BrowserWindow`](browser-window.md). Contoh untuk mengakses objek `webContents`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-
-let win = new BrowserWindow({width: 800, height: 1500})
-win.loadURL('http://github.com')
-
-let contents = win.webContents
-console.log(contents)
+const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow({width: 800, height: 1500}) win.loadURL ('http://github.com') Biarkan isi baru = win.webContents console.log(contents)
 ```
 
-## Methods
+## Metode
 
-These methods can be accessed from the `webContents` module:
+Metode ini dapat diakses dari modul `webContents`:
 
 ```javascript
-const {webContents} = require('electron')
-console.log(webContents)
+const {webContents} = require('electron') console.log(webContents)
 ```
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+`[WebContents]` - mengembalikan array dari semua contoh `WebContents`. Ini akan berisi isi web untuk semua windows, webviews, devtools dibuka, dan devtools ekstensi latar belakang halaman.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Kembali `WebContents` - isi web yang terfokus dalam aplikasi ini, jika tidak kembali `null`.
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Mengembalikan `WebContents` - Contoh WebContents dengan ID yang diberikan.
 
-## Class: WebContents
+## Kelas: WebKontes
 
-> Render and control the contents of a BrowserWindow instance.
+> Membuat dan mengontrol isi sebuah instance BrowserWindow.
 
-Proses:  Utama </ 0></p> 
+Proses: [utama](../glossary.md#main-process)
 
-### Instance Events
+### Contoh peristiwa
 
-#### Event: 'did-finish-load'
+#### Event: 'Apakah-selesai-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
 
-#### Event: 'did-fail-load'
+#### Event: 'Apakah-gagal-load'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>errorCode` Integer
+* `peristiwa` Peristiwa
+* `errorCode` Bilangan bulat
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil. Daftar lengkap kode galat dan makna mereka tersedia [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Event: 'Apakah-frame-selesai-load'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>isMainFrame` Boolean
+* `peristiwa` Peristiwa
+* `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+Dibunyikan apabila bingkai telah melakukan navigasi.
 
-#### Event: 'did-start-loading'
+#### Event: 'Apakah-mulai-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
 
-#### Event: 'did-stop-loading'
+#### Event: 'Apakah-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
-#### Event: 'did-get-response-details'
+#### Event: 'Apakah-mendapatkan-tanggapan-rincian'
 
 Pengembalian:
 
@@ -90,13 +83,13 @@ Pengembalian:
 * `originalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
+* `pengarah` String
+* `headers` Obyek
+* `Jenissumberdaya` String
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
 
-#### Event: 'did-get-redirect-request'
+#### Event: 'apakah-mendapatkan-redirect-permintaan'
 
 Pengembalian:
 
@@ -106,21 +99,21 @@ Pengembalian:
 * `isMainFrame` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
-* `headers` Object
+* `pengarah` String
+* `headers` Obyek
 
-Emitted when a redirect is received while requesting a resource.
+Emitted ketika redirect diterima saat meminta resource.
 
-#### Event: 'dom-ready'
+#### Event: 'dom-siap'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
 </ul>
 
-<p>Emitted when the document in the given frame is loaded.</p>
+<p>Emitted saat dokumen dalam bingkai yang diberikan dimuat.</p>
 
-<h4>Event: 'page-favicon-updated'</h4>
+<h4>Event: 'halaman-favicon-updated '</h4>
 
 <p>Pengembalian:</p>
 
@@ -145,7 +138,7 @@ Emitted when the page requests to open a new window for a `url`. It could be req
 
 By default a new `BrowserWindow` will be created for the `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. For example:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Sebagai contoh:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -282,17 +275,17 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Event: 'devtools-dibuka'
 
-Emitted when DevTools is opened.
+Emitted saat DevTools dibuka.
 
-#### Event: 'devtools-closed'
+#### Event: 'devtools-ditutup'
 
-Emitted when DevTools is closed.
+Emitted saat DevTools ditutup.
 
-#### Event: 'devtools-focused'
+#### Event: 'fokus devtools'
 
-Emitted when DevTools is focused / opened.
+Emitted saat DevTools difokuskan / dibuka.
 
 #### Acara : 'sertifikat-kesalahan'
 
@@ -303,11 +296,11 @@ Pengembalian:
 <li><code> error </ 0>  String - Kode kesalahan</li>
 <li><code> sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
 <li><code>callback` Fungsi 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya
 
-Emitted when failed to verify the `certificate` for `url`.
+Emitted ketika gagal untuk memverifikasi `sertifikat` untuk `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+Penggunaannya sama dengan [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
 #### Acara : 'pilih-klien-sertifikat'
 
@@ -317,23 +310,23 @@ Pengembalian:
 <li><code> url </ 0> URL</li>
 <li><code> certificateList </ 0>  <a href="structures/certificate.md"> Sertifikat [] </ 1></li>
 <li><code>callback` Fungsi 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `sertifikat` [Sertifikat](structures/certificate.md) - Harus berupa sertifikat dari daftar yang diberikan
 
 Emitted ketika sertifikat klien diminta.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+Penggunaannya sama dengan [the `pilih-sertifikat-klien` acara `app`](app.md#event-select-client-certificate).
 
 #### Acara : 'login'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code>permintaan` Object 
+<li><code>permintaan` Obyek 
   * ` method </ 0>  String</li>
 <li><code> url </ 0> URL</li>
 <li><code> perujuk </ 0> URL</li>
 </ul></li>
-<li><code>authInfo` Object 
+<li><code>authInfo` Obyek 
     * ` isProxy </ 0>  Boolean</li>
 <li><code> skema </ 0>  String</li>
 <li><code> host </ 0>  String</li>
@@ -348,32 +341,32 @@ Pengembalian:
 
 <p>Emitted ketika <code> webContents </ 0> ingin melakukan auth dasar.</p>
 
-<p>The usage is the same with <a href="app.md#event-login">the <code>login` event of `app`</a>.</p> 
-        #### Event: 'found-in-page'
+<p>Penggunaannya sama dengan <a href="app.md#event-login">the <code>masuk` event of `app`</a>.</p> 
+        #### Event: 'ditemukan-di-halaman'
         
         Pengembalian:
         
         * ` event </ 0>  Acara</li>
-<li><code>result` Object 
-          * `requestId` Integer
-          * `activeMatchOrdinal` Integer - Position of the active match.
-          * `matches` Integer - Number of Matches.
-          * `selectionArea` Object - Coordinates of first match region.
+<li><code>hasil` Obyek 
+          * `Idpermintaan` IntegerId
+          * `aktifSesuaiOrdinal` Integer - Posisi pertandingan aktif.
+          * `cocokdengan` Integer - Jumlah yang Cocok.
+          * `seleksiArea` Objek - Koordinat wilayah pertandingan pertama.
           * `finalUpdate` Boolean
         
-        Emitted when a result is available for [`webContents.findInPage`] request.
+        Dipancarkan saat hasilnya tersedia [`webContents.findInPage`] permintaan.
         
-        #### Event: 'media-started-playing'
+        #### Event: 'media-mulai-bermain''
         
-        Emitted when media starts playing.
+        Emitted saat media mulai diputar.
         
-        #### Event: 'media-paused'
+        #### Event: 'media-berhenti'
         
-        Emitted when media is paused or done playing.
+        Emitted saat media dijeda atau dilakukan bermain.
         
-        #### Event: 'did-change-theme-color'
+        #### Event: 'apakah-ganti-tema-warna'
         
-        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
         
         ```html
 <meta name='theme-color' content='#ff0000'>
@@ -387,7 +380,7 @@ Pengembalian:
 <li><code> url </ 0>  String</li>
 </ul>
 
-<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
 
 <h4>Event: 'cursor-changed'</h4>
 
@@ -401,16 +394,16 @@ Pengembalian:
     * `size` [Size](structures/size.md) (optional) - the size of the `image`
     * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
     
-    Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+    Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
     
-    If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+    Jika `jenis` parameternya `custom`, itu `gambar` Parameter akan menahan custom gambar kursor dalam `GambarAsli`, dan `skala`, `size` and `hotspot` akan memegang informasi tambahan tentang kursor khusus.
     
     #### Event: 'context-menu'
     
     Pengembalian:
     
     * ` event </ 0>  Acara</li>
-<li><code>params` Object 
+<li><code>params` Obyek 
       * `x` Integer - x coordinate
       * `y` Integer - y coordinate
       * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -873,7 +866,7 @@ console.log(requestId)
     
     #### `contents.printToPDF(options, callback)`
     
-    * `pilihan` Object 
+    * `pilihan` Obyek 
       * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
       * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
       * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -1017,8 +1010,8 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
+* `parameters` Obyek 
+  * `screenPosition` String - Specify the screen type to emulate (default: `Desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
@@ -1037,7 +1030,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `peristiwa` Obyek 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1087,7 +1080,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Obyek 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1127,80 +1120,83 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `pilihan` Object 
+* `pilihan` Obyek 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
-    * `width` Integer
-    * `height` Integer
-#### `contents.isOffscreen()`
+    * ` width </ 0>  Integer</li>
+<li><code> tinggi </ 0>  Integer</li>
+</ul></li>
+</ul></li>
+</ul>
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
-
-#### `contents.startPainting()`
-
-If *offscreen rendering* is enabled and not painting, start painting.
-
-#### `contents.stopPainting()`
-
-If *offscreen rendering* is enabled and painting, stop painting.
-
-#### `contents.isPainting()`
-
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
-
-#### `contents.setFrameRate(fps)`
-
-* `fps` Integer
-
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
-
-#### `contents.getFrameRate()`
-
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
-
-#### `contents.invalidate()`
-
-Schedules a full repaint of the window this web contents is in.
-
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
-
-#### `contents.getWebRTCIPHandlingPolicy()`
-
-Returns `String` - Returns the WebRTC IP Handling Policy.
-
-#### `contents.setWebRTCIPHandlingPolicy(policy)`
-
-* `policy` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
-
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
-
-#### `contents.getOSProcessId()`
-
-Returns `Integer` - The `pid` of the associated renderer process.
-
-### Instance Properties
-
-#### `contents.id`
-
-A `Integer` representing the unique ID of this WebContents.
-
-#### `contents.session`
-
-A [`Session`](session.md) used by this webContents.
-
-#### `contents.hostWebContents`
-
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
-
-#### `contents.devToolsWebContents`
-
-A `WebContents` of DevTools for this `WebContents`.
-
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
-
-#### `contents.debugger`
-
-A [Debugger](debugger.md) instance for this webContents.
+<h4><code>contents.isOffscreen()`</h4> 
+      Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+      
+      #### `contents.startPainting()`
+      
+      If *offscreen rendering* is enabled and not painting, start painting.
+      
+      #### `contents.stopPainting()`
+      
+      If *offscreen rendering* is enabled and painting, stop painting.
+      
+      #### `contents.isPainting()`
+      
+      Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+      
+      #### `contents.setFrameRate(fps)`
+      
+      * `fps` Integer
+      
+      If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+      
+      #### `contents.getFrameRate()`
+      
+      Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+      
+      #### `contents.invalidate()`
+      
+      Schedules a full repaint of the window this web contents is in.
+      
+      If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+      
+      #### `contents.getWebRTCIPHandlingPolicy()`
+      
+      Returns `String` - Returns the WebRTC IP Handling Policy.
+      
+      #### `contents.setWebRTCIPHandlingPolicy(policy)`
+      
+      * `policy` String - Specify the WebRTC IP Handling Policy. 
+        * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+        * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+        * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+        * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+      
+      Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+      
+      #### `contents.getOSProcessId()`
+      
+      Returns `Integer` - The `pid` of the associated renderer process.
+      
+      ### Instance Properties
+      
+      #### `contents.id`
+      
+      A `Integer` representing the unique ID of this WebContents.
+      
+      #### `contents.session`
+      
+      A [`Session`](session.md) used by this webContents.
+      
+      #### `contents.hostWebContents`
+      
+      A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+      
+      #### `contents.devToolsWebContents`
+      
+      A `WebContents` of DevTools for this `WebContents`.
+      
+      **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+      
+      #### `contents.debugger`
+      
+      A [Debugger](debugger.md) instance for this webContents.

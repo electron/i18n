@@ -42,7 +42,7 @@ To create a `Session` with `options`, you have to ensure the `Session` with the 
 
 Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
-## Class: Session
+## Sınıf: oturum
 
 > Get and set properties of a session.
 
@@ -60,7 +60,7 @@ console.log(ses.getUserAgent())
 
 Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
-#### Event: 'will-download'
+#### Etkinlik: 'indirilecek'
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -99,7 +99,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -132,7 +132,7 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-For example:
+Örneğin:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
@@ -215,7 +215,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Verification result from chromium.

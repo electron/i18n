@@ -2,7 +2,7 @@
 
 > Create a segmented control (a button group) where one button has a selected state
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
@@ -26,7 +26,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 
-### Instance Properties
+### Örnek özellikleri
 
 The following properties are available on instances of `TouchBarSegmentedControl`:
 

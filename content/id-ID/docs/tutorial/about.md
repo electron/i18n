@@ -26,9 +26,9 @@ Di Electron, Node.js dan Chromium berbagi satu contoh V8 — biasanya versi yang
 
 ### Versi
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Seperti versi 2.0 Elektron [pengikut `semver`](http://semver.org). Untuk sebagian besar aplikasi, dan menggunakan versi npm terbaru, menjalankan `$ npm menginstal elektron ` akan melakukan hal yang benar.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Proses update versi rinci secara eksplisit di [ ersioning Doc](electron-versioning.md) kami.
 
 ### LTS
 
@@ -55,4 +55,4 @@ Berikut adalah tonggak dalam sejarah Electron.
 | **April 2015**   | [Atom Shell menjadi Electron](https://github.com/electron/electron/pull/1389).                                            |
 | **Mei 2016**     | [Elektron rilis `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                      |
 | **Mei 2016**     | [Aplikasi Electron kompatibel dengan Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **Agustus 2016** | [Windows Store mendukungan aplikasi Electron](https://electronjs.org/docs/tutorial/windows-store-guide).                  |
+| **Agustus 2016** | [Dukungan Windows Store untuk aplikasi Elektron](https://electronjs.org/docs/tutorial/windows-store-guide).               |

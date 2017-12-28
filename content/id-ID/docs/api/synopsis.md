@@ -1,14 +1,14 @@
 # Ringkasan
 
-> How to use Node.js and Electron APIs.
+> Cara menggunakan API Node.js dan Elektron.
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+Semua modul built-in Node.js </ 0> tersedia di Elektron dan modul simpul pihak ketiga juga didukung sepenuhnya (termasuk  modul asli </ 1>).</p> 
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Elektron juga menyediakan beberapa modul built-in tambahan untuk pengembangan native aplikasi desktop Beberapa modul hanya tersedia dalam proses utama, beberapa hanya tersedia dalam proses renderer (halaman web), dan beberapa dapat digunakan masuk keduanya proses.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
+Aturan dasarnya adalah: jika sebuah modul  GUI </ 0> atau sistem tingkat rendah terkait, maka seharusnya hanya tersedia dalam proses utama. Anda harus akrab dengan konsep  proses utama vs. proses renderer </ 0> skrip untuk bisa menggunakan modul tersebut.</p> 
 
-The main process script is just like a normal Node.js script:
+Script proses utama seperti script Node.js biasa:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,25 +20,25 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan ekstra untuk menggunakan modul simpul:
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const {app} = require('electron').remote
-  console.log(app.getVersion())
-</script>
-</body>
-</html>
+& lt; DOCTYPE html & gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+  const {app} = membutuhkan ('elektron'). remote
+  console.log (app.getVersion ())
+</ 2>
+</ 1>
+</ 0>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Untuk menjalankan aplikasi Anda, baca  Jalankan aplikasi Anda </ 0>.</p> 
 
-## Destructuring assignment
+## Penataan ulang tugas
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+Pada 0,37, Anda bisa menggunakannya  tugas destruksi </ 0> agar lebih mudah digunakan modul built-in</p> 
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -51,10 +51,10 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Jika Anda memerlukan modul ` elektron </ 0>, Anda dapat meminta dan kemudian menggunakannya
+destrukturisasi untuk mengakses modul individual dari <code> elektron </ 0>.</p>
 
-```javascript
-const electron = require('electron')
+<pre><code class="javascript">const electron = require('electron')
 const {app, BrowserWindow} = electron
 
 let win
@@ -63,9 +63,9 @@ app.on('ready', () => {
   win = new BrowserWindow()
   win.loadURL('https://github.com')
 })
-```
+`</pre> 
 
-This is equivalent to the following code:
+Ini setara dengan kode berikut:
 
 ```javascript
 const electron = require('electron')

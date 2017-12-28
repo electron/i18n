@@ -1,27 +1,27 @@
-Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Andernfalls nutzen Sie möglicherweise unbeabsichtigt die Dokumentation einer Version von Electron, die Änderungen der API enthält, die mit Ihrer Version von Electron nicht kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
 
-## Häufige Fragen
+## Häufig gestellte Fragen
 
-Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häufig gestellten Fragen nach:
+Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der häufig gestellten Fragen nach:
 
 * [Electron FAQ](faq.md)
 
-## Anleitungen
+## Leitfäden
 
 * [Glossar](glossary.md)
 * [Unterstützte Plattformen](tutorial/supported-platforms.md)
 * [Sicherheit](tutorial/security.md)
 * [Versionierung](tutorial/electron-versioning.md)
 * [Veröffentlichung der Anwendung](tutorial/application-distribution.md)
-* [Anleitung: Mac App Store Veröffentlichung](tutorial/mac-app-store-submission-guide.md)
-* [Anleitung: Windows Store](tutorial/windows-store-guide.md)
+* [Veröffentlichung im Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Veröffentlichung im Windows Store](tutorial/windows-store-guide.md)
 * [Anwendungspakete](tutorial/application-packaging.md)
-* [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging des Main Process](tutorial/debugging-main-process.md)
-* [Nutzen von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Verwendung von Native Node Modules](tutorial/using-native-node-modules.md)
+* [Debugging des Hauptprozesses](tutorial/debugging-main-process.md)
+* [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools Erweiterung](tutorial/devtools-extension.md)
-* [Verwendung des Pepper Flash-Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Verwendung des Widevine CDM-Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Verwendung des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
+* [Verwendung des Widevine CDM-Plugins](tutorial/using-widevine-cdm-plugin.md)
 * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
@@ -39,7 +39,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 
 * [Übersicht](api/synopsis.md)
 * [Prozess-Objekt](api/process.md)
-* [Unterstützt Chrome Befehlszeilenoptionen](api/chrome-command-line-switches.md)
+* [Unterstützte Chrome-Befehlszeilenoptionen](api/chrome-command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
 
 ### Benutzerdefinierte DOM-Elemente:
@@ -48,7 +48,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Funktion](api/window-open.md)
 
-### Module für den Main-Prozess:
+### Module für den Hauptprozess:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -88,7 +88,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 
 * [Coding Style](development/coding-style.md)
 * [clang-format im C++ Code verwenden](development/clang-format.md)
-* [Source-Code-Verzeichnis-Struktur](development/source-code-directory-structure.md)
+* [Struktur des Quellcode-Verzeichnisses](development/source-code-directory-structure.md)
 * [Technische Unterschiede zum NW.js (ehemals node-Webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Übersicht](development/build-system-overview.md)
 * [Build Anweisungen (macOS)](development/build-instructions-osx.md)
@@ -97,7 +97,7 @@ Bevor Sie ein neues Problem eröffnen, schauen Sie vorher in der Liste der häuf
 * [Debug Anweisungen (macOS)](development/debugging-instructions-macos.md)
 * [Debug Anweisungen (Windows)](development/debug-instructions-windows.md)
 * [Einen Symbol-Server im Debugger einrichten](development/setting-up-symbol-server.md)
-* [Dokumentations-Gestaltungsrichtlinie](styleguide.md)
+* [Gestaltungsrichtlinien für die Dokumentation](styleguide.md)
 * [Chrome aktualisieren](development/upgrading-chrome.md)
 * [Chromium-Entwicklung](development/chromium-development.md)
 * [V8 Entwicklung](development/v8-development.md)

@@ -1,10 +1,10 @@
 # `File` 对象
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+> 在文件系统中，使用HTML5 `File` 原生API操作文件
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+DOM 文件接口为原生文件提供了抽象, 以便让用户使用 HTML5 文件 API 直接处理原生文件。 Electron已经向 ` 文件 ` 接口添加了一个 ` path ` 属性, 在文件系统上暴露出文件的真实路径
 
-Example of getting a real path from a dragged-onto-the-app file:
+示例：获取拖拽到app上的文件的真实路径
 
 ```html
 <div id="holder">

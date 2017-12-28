@@ -24,9 +24,10 @@ So in short, the primary steps are:
 
 ## 更新 Electron 的 Node [分支](https://github.com/electron/node)
 
-1. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` 
+1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
+2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
   - `vX.X.X` Must use a version of node compatible with our current version of chromium
-2. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
+3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
   - Cherry-pick commit range: 
     1. Checkout both `vY.Y.Y` & `v.X.X.X`
@@ -62,7 +63,7 @@ We need to generate a patch file from each patch applied to V8.
   - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
     - If a diff section has no instances of `deps/V8`, remove it altogether. 
       - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8`/filename.ext`with`a/filename.ext` 
+    - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
       - This is needed because upstream Node keeps its V8 files in a subdirectory
   - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
   - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
@@ -82,19 +83,19 @@ We need to generate a patch file from each patch applied to V8.
     - `git commit patches/v8/`
 8. Update `patches/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
 9. Update Electron's submodule references: 
-  -     sh
-         cd electron/vendor/node
-         electron/vendor/node$ git fetch
-         electron/vendor/node$ git checkout electron-node-vA.B.C
-         electron/vendor/node$ cd ../libchromiumcontent
-         electron/vendor/libchromiumcontent$ git fetch
-         electron/vendor/libchromiumcontent$ git checkout upgrade-to-chromium-X
-         electron/vendor/libchromiumcontent$ cd ../..
-         electron$ git add vendor
-         electron$ git commit -m "update submodule referefences for node and libc"
-         electron$ git pso upgrade-to-chromium-62
-         electron$ script/bootstrap.py -d
-         electron$ script/build.py -c -D
+      sh
+      $ cd electron/vendor/node
+      electron/vendor/node$ git fetch
+      electron/vendor/node$ git checkout electron-node-vA.B.C
+      electron/vendor/node$ cd ../libchromiumcontent
+      electron/vendor/libchromiumcontent$ git fetch
+      electron/vendor/libchromiumcontent$ git checkout upgrade-to-chromium-X
+      electron/vendor/libchromiumcontent$ cd ../..
+      electron$ git add vendor
+      electron$ git commit -m "update submodule referefences for node and libc"
+      electron$ git pso upgrade-to-chromium-62
+      electron$ script/bootstrap.py -d
+      electron$ script/build.py -c -D
 
 ## 備註
 

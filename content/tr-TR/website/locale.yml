@@ -15,6 +15,11 @@ docs:
   guides: Kılavuzlar
   api_reference: API Referansı
   advanced: Gelişmiş
+  footer:
+    propose_change: Improve this doc
+    version_history: Sürüm geçmişi
+    translate: Bu dökümanı çevir
+    view_all_docs: Tek bir sayfada tüm dökümanlar
 languages:
   choose_language: Site dilinizi seçin
   translation_progress: Çeviri Süreci
@@ -54,11 +59,7 @@ get_started:
   description: Electron'la başlamak için, aşağıdaki kaynakları kontrol ediniz. Web uygulamanızı nasıl Electron ile paketleyebileceğinizi, tüm API'lere erişebileceğinizi ve yükleyeciler oluşturabileceğinizi öğrenin.
 explore:
   title: Elektron API'leri keşfetmek
-  description:
-    - <a href="https://github.com/electron/electron-api-demos">Electron API Önizlemeler uygulaması</a>
-    - etkileşimli olarak Electron API'nin en önemli özelliklerini gösterir.
-    - Electron'la nelerin yapılabileceğinin mümkün olduğunu örnek kod ve faydalı ipuçlarıyla görün
-    - uygulaman kuruluyor.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Github'dan indirin
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tüm sürümleri GitHub'da Göster</a>
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Bizim mükemmel geliştirici topluluğumuz tarafından yerelleştirilmiş içerik.
 help_translate: "Çeviriye yardım et"
 footer:
-  see_something: Düzeltilmesi gereken bir şey mi gördün?
-  propose_change: Kaynak dosyada bir değişiklik öneriyorum.
-  need_different_version: Dokümanların farklı bir sürümüne mi ihtiyacınız var?
-  see_available_versions: Kullanılabilir sürümleri gör.
-  want_something_searchable: Aranabilir olmasını ister misiniz?
-  view_all_docs: Tüm dokümanları bir sayfada görüntüle
   see_the_faq: 'Bkz: sıkça sorulan sorular'
 apps:
   title: Electron ile yapılmış uygulamalar
@@ -92,7 +87,7 @@ apps:
   something_missing: Bir şey mi eksik?
   edit_this_app: Bu uygulamayı düzenle.
 clipboard:
-  copy: Kopyala
+  copy: Copy
   copy_to_clipboard: Panoya Kopyala
   copied: Kopyalandı
 or: ya da

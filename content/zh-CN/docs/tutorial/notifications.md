@@ -19,7 +19,7 @@ myNotification.onclick = () => {
 ## Windows
 
 * 在 Windows 10 上, 通知 "仅能运行".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. 但是请注意，它不需要被固定到开始屏幕。
+* 在Windows 8.1 和 Windows 8上，带有[应用程序用户模型id（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)的app快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 
 此外，在Windows 8中，通知正文的最大长度为250个字符，Windows团队建议将通知保留为200个字符。 然而，Windows 10中已经删除了这个限制，但是Windows团队要求开发人员合理使用。 尝试将大量文本发送到API(数千个字符) 可能会导致不稳定。
@@ -54,4 +54,4 @@ MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人�
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+通知是通过`libnotify`发送的，libnotify可以在任何实现了[桌面通知规范（Desktop Notifications Specification）](https://developer.gnome.org/notification-spec/)的桌面环境中发送通知，包括Cinnamon、Enlightenment、Unity、GNOME、KDE

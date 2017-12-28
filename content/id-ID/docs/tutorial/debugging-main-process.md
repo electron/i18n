@@ -1,14 +1,14 @@
-# Debugging the Main Process
+# Debugging Proses Utama
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+DevTools di jendela browser Elektron hanya bisa men-debug JavaScript itu dieksekusi di jendela itu (yaitu halaman web). Untuk men-debug JavaScript itu dieksekusi dalam proses utama Anda perlu menggunakan debugger eksternal dan luncurkan Elektron dengan tombol `--periksa`atau `--periksa-brk`.
 
-## Command Line Switches
+## Saklar Baris Perintah
 
-Use one of the following command line switches to enable debugging of the main process:
+Gunakan salah satu dari switch baris perintah berikut untuk mengaktifkan debugging main proses:
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Elektron akan mendengarkan pesan protokol inspektur V8 pada port `yang ditentukan`, debugger eksternal perlu terhubung ke port ini. Default `port` adalah `5858`.
 
 ```shell
 electron --inspect=5858 your/app
@@ -16,11 +16,11 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Seperti `--periksa` tapi jeda eksekusi pada baris pertama JavaScript.
 
-## External Debuggers
+## Debuggers Eksternal
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Anda perlu menggunakan debugger yang mendukung protokol inspektur V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
+- Sambungkan Chrome dengan mengunjungi `chrome://periksa` dan pilih untuk memeriksa meluncurkan aplikasi Elektron hadir di sana.
+- [Debugging Proses Utama di VSCode](debugging-main-process-vscode.md)

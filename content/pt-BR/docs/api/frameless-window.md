@@ -1,12 +1,12 @@
 # Frameless Window
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Abra uma janela sem barra de ferramentas, bordas ou outros elementos gráficos do "Chrome".
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Uma janela 'frameless' é uma janela que não possui [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), ou seja, não possui partes da janela que não são partes da página web, como a barra de ferramentas. Estas são opções na classe [`BrowserWindow`](browser-window.md).
 
-## Create a frameless window
+## Criando uma frameless window
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+Para criar uma frameless window, você precisa definir `frame` como `false` nas `options` da [BrowserWindow](browser-window.md):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -14,13 +14,13 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### Alternatives on macOS
+### Alternativas no macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+No macOS 10.9 Mavericks ou superior, existe uma alternativa para definir uma janela sem 'chrome'. Ao invés de definir `frame` como `false`, o que desabilita tanto a barra do título quanto os controles de janela, você pode querer esconder a barra de título e o conteúdo ocupar o tamanho completo da janela, ainda preservando os controles ("semáforo") para ações de janela padrão. Você pode fazê-lo, especificando a opção `titleBarStyle`:
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Resultando em uma janela com a barra do título escondida e o conteúdo ocupando o tamanho inteiro da janela, no entanto, a janela ainda possuirá os controles no canto superior esquerdo.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+Resulta em uma barra de título escondida com uma aparência alternativa, onde os botões de controle da janela estão um pouco mais dentro do limite da janela.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, miniaturize, and fullscreen buttons that display when hovering in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Utiliza botões customizados para fechar, minimizar e colocar tela cheia que aparecem quando passar o mouse no canto superior da janela. Esses botões customizados evitam erros com eventos do mouse que ocorrem com os botões da barra de ferramentas padrão. Essa opção é apenas aplicável para frameless windows.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -48,9 +48,9 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## Janela transparente
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+Definindo a opção `transparent` como `true` você também pode fazer a frameless window transparente:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,9 +60,9 @@ win.show()
 
 ### Limitações
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
+* Você não pode clicar através da área transparente. Nós iremos introduzir uma API para definir a forma da janela para solucionar isto, veja [nosso issue no Github](https://github.com/electron/electron/issues/1335) para mais detalhes.
+* Janelas transparentes não são redimensionáveis. Definindo `resizable` para `true` pode fazer a janela transparente parar de funcionar em algumas plataformas.
+* O filtro `blur` apenas se aplica a página web, logo, não há uma maneira de aplicar o efeito de borrado ao conteúdo abaixo da janela (ou seja, outras aplicações abertas no sistema do usuário).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
 * On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac the native window shadow will not be shown on a transparent window.

@@ -56,43 +56,38 @@ Outputnya harus terlihat kira-kira seperti ini:
 
 ## Langkah 2: Menjalankan electron-windows-store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Dari PowerShell yang ditinggikan (jalankan sebagai "Administrator"), jalankan `electron-windows-store ` dengan parameter yang dibutuhkan, berikan kedua input tersebut dan direktori output, nama dan versi aplikasi, dan konfirmasi itu `node_modules ` harus diratakan.
 
 ```powershell
-electron-windows-store `
-    --input-directory C:\myelectronapp `
-    --output-directory C:\output\myelectronapp `
-    --flatten true `
-    --package-version 1.0.0.0 `
-    --package-name myelectronapp
+direktori-direktori-direktori-masukkan-direktori-C: \myelectronapp `--output-directory C:\output \ myelectronapp` --flatten true `--package-version 1.0.0.0` --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Setelah dijalankan, alat bekerja: Ini menerima aplikasi Elektron Anda sebagai masukan, meratakan `node_modules`. Kemudian, arsipkan aplikasi Anda sebagai `app.zip`. Dengan menggunakan installer dan Windows Container, alat ini menciptakan AppX yang "diperluas" paket - termasuk Windows Application Manifest (` AppXManifest.xml `) sebagai serta sistem file virtual dan virtual registry di dalam output Anda map.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+Setelah file AppX yang diperluas dibuat, alat ini menggunakan Windows App Packager (`MakeAppx.exe `) untuk membuat paket AppX satu file dari file di disk. Akhirnya, alat ini bisa digunakan untuk membuat sertifikat terpercaya di komputer Anda untuk menandatangani paket AppX baru. Dengan paket AppX yang telah ditandatangani, CLI juga bisa secara otomatis menginstal paket di mesin anda.
 
-## Step 3: Using the AppX Package
+## Langkah 3: Menggunakan Paket AppX
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+Untuk menjalankan paket Anda, pengguna Anda memerlukan Windows 10 dengan apa yang disebutnya "Update Ulang Tahun" - rincian tentang cara memperbarui Windows dapat ditemukan [di sini](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Sebagai lawan dari aplikasi UWP tradisional, aplikasi terpaket saat ini perlu menjalani proses verifikasi manual, yang bisa Anda terapkan [disini](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Sementara itu, semua pengguna hanya bisa menginstal paket Anda dengan mengklik dua kali, jadi pengiriman ke toko mungkin tidak diperlukan jika Anda hanya mencari metode pemasangan yang lebih mudah. Di lingkungan yang dikelola (biasanya perusahaan), `Add-AppxPackage` [PowerShell Cmdlet dapat digunakan untuk menginstalnya secara otomatis](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Keterbatasan penting lainnya adalah paket AppX yang dikompilasi masih berisi win32 executable - dan karena itu tidak akan berjalan di Xbox, HoloLens, atau Phones.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Opsional: Tambahkan Fitur UWP menggunakan BackgroundTask
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Anda dapat memasangkan aplikasi Elektron Anda dengan tugas latar belakang UWP yang tak terlihat itu akan memanfaatkan sepenuhnya fitur Windows 10 - seperti pemberitahuan push, Integrasi Cortana, atau ubin hidup.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Untuk mengetahui bagaimana aplikasi Elektron yang menggunakan tugas latar belakang untuk mengirim roti panggang pemberitahuan dan ubin hidup, [periksa sampel yang disediakan Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
 
 ## Opsional: Mengkonversi menggunakan Virtualization Penampung
 
 Opsional: Tambahkan Fitur UWP menggunakan BackgroundTask Namun, jika Anda menggunakan installer kustom, atau jika Anda mengalami masalah dengan paket yang dihasilkan, Anda dapat mencoba membuat paket menggunakan kompilasi dengan Windows Container - dalam mode itu, CLI akan menginstal dan menjalankan aplikasi Anda di Windows kosong. Wadah untuk menentukan modifikasi apa yang sebenarnya dilakukan aplikasi Anda terhadap sistem operasi.
 
-Sebelum menjalankan CLI untuk pertama kalinya, Anda harus menyiapkan "Windows Desktop App Converter". Ini akan memakan waktu beberapa menit, tapi jangan khawatir - Anda hanya perlu melakukan ini satu kali. Download dan Desktop App Converter dari [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Sebelum menjalankan CLI untuk pertama kalinya, Anda harus menyiapkan "Windows Desktop App Converter". Ini akan memakan waktu beberapa menit, tapi jangan khawatir - Anda hanya perlu melakukan ini satu kali. Download dan Desktop App Converter dari [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Anda akan menerima dua file: `DesktopAppConverter.zip ` dan ` BaseImage-14316.wim `.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. Unzip `DesktopAppConverter.zip`. Dari PowerShell yang ditinggikan (dibuka dengan "jalankan sebagai Administrator", pastikan bahwa kebijakan eksekusi sistem Anda mengizinkan kami melakukannya jalankan semua yang ingin kita jalankan dengan memanggil `Set-ExecutionPolicy bypass`.
+2. Kemudian, jalankan instalasi Desktop App Converter, lewat di lokasi Windows Base Image (diunduh sebagai `BaseImage-14316.wim `), oleh memanggil `.\DesktopAppConverter.ps1 -Setup -BaseImage.\ BaseImage-14316.wim `.
+3. Jika menjalankan perintah di atas meminta Anda melakukan reboot, silahkan restart mesin dan jalankan perintah diatas lagi setelah berhasil restart.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Setelah instalasi berhasil, Anda dapat beralih ke kompilasi aplikasi Elektron Anda.

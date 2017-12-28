@@ -70,7 +70,7 @@ function createWindow () {
   // DevToolsを開く
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // ウィンドウが閉じられた時に発火
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -81,10 +81,10 @@ function createWindow () {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 全てのウィンドウが閉じられた時に終了する
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -116,28 +116,28 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    Node.js <script>document.write(process.versions.node)</script> および
+    Chrome <script>document.write(process.versions.chrome)</script>、
+    Electron <script>document.write(process.versions.electron)</script>を使用しています。
   </body>
 </html>
 ```
 
-## Run your app
+## アプリを実行する
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) はコンパイル済みの Electron を含む `npm` モジュールです。
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+もし `npm` を用いて electron をグローバルインストールしている場合、ソースディレクトリで以下のコマンドを入力するだけでアプリを実行できます。
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+ローカルインストールしている場合はOSによって異なりますが、以下のコマンドを入力します。
 
 #### macOS / Linux
 
@@ -151,13 +151,13 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 以降
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### 手動でダウンロードした Electron バイナリ
 
 If you downloaded Electron manually, you can also use the included binary to execute your app directly.
 
@@ -181,7 +181,7 @@ $ .\electron\electron.exe your-app\
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### 配布用パッケージとして実行
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
@@ -189,17 +189,17 @@ After you're done writing your app, you can create a distribution by following t
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Note**: 以下の手順でサンプルを実行する場合、[Git](https://git-scm.com) と [Node.js](https://nodejs.org/en/download/) （[npm](https://npmjs.org) を含む）をシステムにインストールしておく必要があります。
 
 ```sh
-# Clone the repository
+# リポジトリをクローン
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# リポジトリに移動
 $ cd electron-quick-start
-# Install dependencies
+# 依存ライブラリをインストール
 $ npm install
-# Run the app
+# アプリを実行
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+さらにサンプルコードを入手したい場合、Electron 開発者たちの素晴らしいコミュニティによって作成された[ボイラープレートのリスト](https://electronjs.org/community#boilerplates)を御覧ください。

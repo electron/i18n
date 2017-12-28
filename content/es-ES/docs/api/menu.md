@@ -1,14 +1,14 @@
-## Class: Menu
+## Clase: Menu
 
 > Create native application menus and context menus.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Crea un nuevo menú.
 
-### Static Methods
+### Métodos estáticos
 
 The `menu` class has the following static methods:
 
@@ -46,7 +46,7 @@ Generally, the `template` is just an array of `options` for constructing a [Menu
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods
+### Métodos de Instancia
 
 The `menu` object has the following instance methods:
 
@@ -80,7 +80,7 @@ Appends the `menuItem` to the menu.
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Instance Properties
+### Propiedades de Instancia
 
 `menu` objects also have the following properties:
 
@@ -90,7 +90,7 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-## Examples
+## Ejemplos
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
@@ -164,7 +164,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // Editar menú
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -176,7 +176,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // Menú de ventana
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -190,7 +190,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Proceso de renderizado
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -248,9 +248,9 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
-### Examples
+### Ejemplos
 
-Template:
+Plantilla:
 
 ```javascript
 [
@@ -271,7 +271,7 @@ Menu:
     - 5
     
 
-Template:
+Plantilla:
 
 ```javascript
 [

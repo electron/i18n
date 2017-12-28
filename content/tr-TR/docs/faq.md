@@ -20,13 +20,13 @@ Daha fazla bilgi için lütfen [güvenlik giriş](tutorial/security.md)'ine bak�
 
 Node.js'in yeni sürümü yayınlandığında, biz genellikle Electron'u güncellemek için yaklaşık 1 ay bekliyoruz. Bu sayede, yeni Node.js sürümlerinde sıklıkla karşılaşılan hataları önleyebiliyoruz.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Node.js'in yeni özellikleri genellikle V8 yükseltmeleri tarafından getirilir, Electron Chrome tarayıcısı tarafından gönderilen V8'i kullandığı için, parlak yeni JavaScript özelliği olan Yeni Node.js sürümü genellikle zaten Elektron'da mevcuttur.
 
 ## Web sayfaları arasında veri paylaşmak nasıl gerçekleştirilir?
 
 Web sayfaları arasında veri paylaşımının (işleyici işlemleri) en kolay yolu, tarayıcılarda zaten mevcut olan HTML5 API'lerini kullanmaktır. [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), ve [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) iyi adaylardır.
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Veya ana süreçte nesneleri global bir değişken olarak depolamak için Electron'a özgü IPC sistemini kullanabilirsiniz ve daha sonra bunlara oluşturuculardan `electron` modülünün `uzak` özelliği ile erişmek için:
 
 ```javascript
 // Ana süreç içerisinde.
@@ -77,9 +77,9 @@ app.on('ready', () => {
 
 ## Electron'da jQuery/RequireJS/Meteor/AngularJS kullanamıyorum.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Electron'un Node.js entegrasyonu nedeniyle bazı fazladan semboller `modül`, `dışa aktarır`, `gerektirir` gibi DOM'a eklenir. Bu, bazı kütüphaneler aynı isimlerdeki sembolleri eklemek istedikleri için sorunlara neden olur.
 
-To solve this, you can turn off node integration in Electron:
+Bunu çözmek için Electron'daki node entegrasyonunu kapatabilirsiniz:
 
 ```javascript
 // Ana süreç içerisinde.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Ancak, Node.js ve Electron API'lerini kullanma yeteneklerini korumak istiyorsanız, diğer kitaplıkları içermeden önce sayfadaki sembolleri yeniden adlandırmanız gerekir:
 
 ```html
 <head>
@@ -108,32 +108,32 @@ delete window.module;
 
 ## `require('electron').xxx` geçersiz.
 
-When using Electron's built-in module you might encounter an error like this:
+Electron'un yerleşik modülünü kullanırken böyle bir hatayla karşılaşabilirsiniz:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Yakalanmamış TipHatası: Geçersiz 'setZoomLevel' değeri okunamıyor
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Bunun nedeni, daha önceden Electron'un yerleşik modülünü geçersiz kılan [npm`electron`modül](https://www.npmjs.com/package/electron)'ünün yerleşik veya global olarak daha önceden yüklemiş olmanızdır.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Doğru yerleşik modülü kullanıp kullanmadığınızı doğrulamak için, ` electron ` modülünün yolunu yazdırabilirsiniz:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+ve sonra aşağıdaki biçimde olup olmadığını kontrol edin:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Eğer `node_modules/electron/index.js` gibi birşey ise, npm`electron` modülünü ya kaldırmalı ya da yeniden isimlendirmelisiniz.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Bununla birlikte, yerleşik modülü kullanıyorsanız ancak yine de bu hatayı alıyorsanız büyük bir ihtimalle modülü yanlış süreç ile kullanıyorsunuzdur. Örneğin ` electron.app ` yalnızca ana süreçte kullanılabilirken, ` electron.webFrame ` yalnızca oluşturucu süreçlerinde kullanılabilir.

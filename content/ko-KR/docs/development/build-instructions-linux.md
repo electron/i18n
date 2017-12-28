@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### 환경 변수
 
-`CC`와 `CXX`와는 별개로, 빌드 구성을 변경하기 위해 다음 환경 변수들을 사용할 수 있습니다:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`

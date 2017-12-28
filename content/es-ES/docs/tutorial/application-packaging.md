@@ -1,18 +1,17 @@
 # Empaquetado de la aplicación
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Para mitigar los [problemas](https://github.com/joyent/node/issues/6960) relacionados con los nombres de ruta largas en Windows, acelere ligeramente y `exija` que su código fuente se inspeccione rápidamente, puede optar por empaquetar su aplicación en un archivo [asar](https://github.com/electron/asar) con pocos cambios en su código fuente.
 
-## Generating `asar` Archive
+## Generando Archivo `asar`
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Un archivo [asar](https://github.com/electron/asar) es un formato simple similar a un alquitrán que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios sin desempaquetar todo el archivo. 
 
-Steps to package your app into an `asar` archive:
+Pasos para empaquetar su aplicación en un archivo `asar< 0>:</p>
 
-### 1. Install the asar Utility
+<h3>1. Install the asar Utility</h3>
 
-```sh
-$ npm install -g asar
-```
+<pre><code class="sh">$ npm install -g asar
+`</pre> 
 
 ### 2. Package with `asar pack`
 
@@ -20,25 +19,24 @@ $ npm install -g asar
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Usando archivos `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+En Electron hay dos conjuntos de API: API de nodo proporcionadas por Node.js y API Web proporcionadas por Chromium. Ambas API admiten la lectura de archivos de `asar`.
 
-### Node API
+### Nodo de API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Con parches especiales en Electron, las API de nodo como `fs.readFile` y ` requieren` tratar archivos `asar` como directorios virtuales, y los archivos en él como normales en el sistema de archivos.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Por ejemplo, supongamos que tenemos un archivo `ejemplo.asar` en `/ruta/a</ 0>:</p>
 
-```sh
-$ asar list /path/to/example.asar
+<pre><code class="sh">$ asar list /path/to/example.asar
 /app.js
 /file.txt
 /dir/module.js
 /static/index.html
 /static/main.css
 /static/jquery.min.js
-```
+`</pre> 
 
 Read a file in the `asar` archive:
 

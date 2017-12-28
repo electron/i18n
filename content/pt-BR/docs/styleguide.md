@@ -1,4 +1,4 @@
-# Estilo da Documentação do Electron
+# Guia de Estilo da Documentação Electron
 
 Estas são as diretrizes para escrever a documentação do Electron.
 

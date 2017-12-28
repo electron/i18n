@@ -1,36 +1,35 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> 自定义渲染当前网页
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+将当前页缩放到200% 的示例。
 
 ```javascript
 const {webFrame} = require('electron')
-
 webFrame.setZoomFactor(2)
 ```
 
 ## 方法
 
-The `webFrame` module has the following methods:
+`webFrame`模块包含以下方法：
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - 缩放比例
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+更改缩放比例。缩放比例是缩放百分比除以 100，如 300% = 3.0。
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Returns `Number` - 当前的缩放比例。
 
 ### `webFrame.setZoomLevel(level)`
 
 * `level` Number - Zoom level
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `webFrame.getZoomLevel()`
 

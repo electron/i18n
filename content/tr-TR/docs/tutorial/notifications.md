@@ -1,8 +1,8 @@
-# Notifications (Windows, Linux, macOS)
+# Bildirimler (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+All three operating systems provide means for applications to send notifications to the user. Elektron, geliştiricilerin [ HTML5 Bildirim API'sı ](https://notifications.spec.whatwg.org/), ile halihazırda çalışan işletim sistemlerinin yerel bildirim API'sini görüntüleme için kullanarak bildirim göndermeleri için elverişlidir.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+** Not: ** Bu bir HTML5 API'sı olduğundan, yalnızca oluşturucu işleminde kullanılabilir. Eğer ana süreç içerisinde bildirimleri göstermek istiyorsanız lütfen [Notification](../api/notification.md) modülünü inceleyin.
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,44 +14,44 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+İşletim sistemlerinde kod ve kullanıcı deneyimi benzer olduğu halde ince farklılıklar vardır.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
+* Windows 10'da, bildirimler "sadece çalışır".
+* Windows 8.1 ve Windows 8'de, uygulamanızın bir kısayolu [ Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) ile, başlangıç ​​ekranına yüklenmelidir. Not, ancak başlangıç ekranına tutturulmasına gerek yoktur.
 * On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+Ayrıca, Windows 8'de bildirim gövdesi için maksimum uzunluk 250 karakterken, Windows ekibi, bildirimlerin 200 karakterde tutulması gerektiğini önermektedir. Yani, Windows ekibi geliştiriciler için makul olmak isteyerek bu limiti Windows 10 ile birlikte kaldırıldığını söyledi. API'ya dev miktarlarda metin göndermek (binlerce karakter) dengesizlik yaratabilir.
 
-### Advanced Notifications
+### Gelişmiş bildirimler
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Windows'un daha sonraki sürümleri, gelişmiş bildirimlere, özel şablonlara, görüntüler ve diğer esnek öğelere izin verir. Bu bildirimleri göndermek için (ana işlemde yada oluşturucu işleminde), göndermek için yerel düğüm eklentilerini `ToastNotification` ve `TileNotification` objelerini kullanan userland modülünü kullanın [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications).
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
-### Quiet Hours / Presentation Mode
+### Sessiz Saatler / Sunum modu
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Bir bildirim gönderme izninizin olup olmadığını saptamak için, userland modülünü kullanın [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Bu, Windows'un bildirimi sessizce atıp atmayacağını önceden belirlemenizi sağlar.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Bildirimler MacOS'ta açıktır; ancak [ Apple'ın İnsan Arayüzü yönerge bildirimlerinin](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) farkında olmalısınız.
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Not, bu bildirimler 256 byte ile sınırlıdır ve bu sınırı aşarsa kesilecektir.
 
-### Advanced Notifications
+### Gelişmiş bildirimler
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+MacOS'un daha sonraki sürümleri, kullanıcılara bildirimlere hızlıca cevap verebilmeleri için bildirimler ile bir girdi alanına izin verir. Bildirimleri bir girdi alanıyla göndermek için userland modülünü kullanın [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Bir bildirim gönderme izninizin olup olmadığını saptamak için, userland modülünü kullanın [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Bu, bildirimin görüntülenip görüntülenmeyeceğini önceden tespit etmenize olanak tanır.
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Bildirimler, ` libnotify ` kullanılarak gönderilir; bunlar herhangi birinde bildirim gösterebilir [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), Cinnamon, Enlightenment, Unity, GNOME, KDE.

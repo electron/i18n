@@ -1,4 +1,4 @@
-# Cookie Object
+# Çerez objesi
 
 * `name` Dizisi - Çerezin adı.
 * `value` Dizisi - Çerezin değeri.

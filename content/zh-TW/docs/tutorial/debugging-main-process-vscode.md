@@ -28,10 +28,10 @@ $ code electron-quick-start
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**注意:** 在 Windows 下，將使用 `"${workspaceRoot}/node_modules/.bin/electron.cmd"` 為 `runtimeExecutable`。
 
 ### 3. Debug
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+在 `main.js` 中設定一些中斷點，然後在 [Debug 視景](https://code.visualstudio.com/docs/editor/debugging) 中啟動 Debug。你應該能看到程式執行到中斷點時停下來。
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+這裡有一個預先設定好的專案，你可以直接下載並在 VSCode 中 Debug: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

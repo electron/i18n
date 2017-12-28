@@ -10,7 +10,7 @@ Follow the guidelines below for building Electron on Linux.
 * [clang](https://clang.llvm.org/get_started.html) 3.4 或之後的版本。
 * Development headers of GTK+ and libnotify.
 
-On Ubuntu, install the following libraries:
+在 Ubuntu 上，安將下列程式庫:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+在 RHEL / CentOS 上，安將下列程式庫:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+在 Fedora 上，安將下列程式庫:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### 環境變數
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`

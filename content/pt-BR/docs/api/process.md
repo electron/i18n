@@ -1,16 +1,16 @@
 # process
 
-> Extensions to process object.
+> Extensões para objeto process.
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+O objeto `process` do Electron estende do [objeto `process` do Node.js](https://nodejs.org/api/process.html). Ele adiciona os seguintes eventos, propriedades e métodos:
 
 ## Eventos
 
-### Event: 'loaded'
+### Evento: 'loaded'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Emitido quando o Electron já carregou seu script de inicialização interno e começa a carregar a página da web ou o script principal.
 
 It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
 
@@ -24,19 +24,19 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Propriedades
 
 ### `process.defaultApp`
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Um `Boolean`. Quando o aplicativo é iniciado, sendo passado como parâmetro para o aplicativo padrão, essa propriedade é `true` no processo principal, caso contrário é `undefined`.
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Um `Boolean`. Para compilação para Mac App Store, esta propriedade é `true`, para outras compilações é `undefined`.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Um `Boolean` que controla suporte ASAR dentro de seu aplicativo. Definindo essa configuração para `true` irá desativar o suporte para arquivos de `asar` em módulos internos do Node.
 
 ### `process.noDeprecation`
 

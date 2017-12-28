@@ -4,9 +4,9 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Messages sent from a renderer will be emitted to this module.
 
-## Sending Messages
+## Mesaj gönderiliyor
 
 It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
 
@@ -17,7 +17,7 @@ It is also possible to send messages from the main process to the renderer proce
 An example of sending and handling messages between the render and main processes:
 
 ```javascript
-// In main process.
+// Ana süreç içinde.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg)  // prints "ping"
@@ -72,7 +72,7 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 Removes listeners of the specified `channel`.
 
-## Event object
+## Etkinlik objesi
 
 The `event` object passed to the `callback` has the following methods:
 

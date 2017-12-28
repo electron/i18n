@@ -5,109 +5,111 @@
 Anda dapat menggunakan [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) untuk menambahkan mereka di app's script utama sebelum acara [siap](app.md#event-ready) modul [app](app.md) dibunyikan:
 
 ```javascript
-const {app} = require('electron')
-app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+const {app} = require ('electron')
+app.commandLine.appendSwitch ('remote-debugging-port', '8315')
+app.commandLine.appendSwitch ('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // Your code here
+app.on ('siap', () = > {
+   // kode kamu disini
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## --ignore-connections-limit = ` domain `
 
-Ignore the connections limit for `domains` list separated by `,`.
+Abaikan batas koneksi untuk ` domain ` yang dipisahkan oleh `, `.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Menonaktifkan cache disk untuk permintaan HTTP.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Nonaktifkan protokol HTTP / 2 dan SPDY / 3.1.
 
-## --inspect=`port` and --inspect-brk=`port`
+## periksa =` port ` dan --inspect-brk =` port `</0>
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Bendera yang terkait dengan Debug, lihat panduan [ Debugging Main Process ](../tutorial/debugging-main-process.md) untuk rinciannya.
 
-## --remote-debugging-port=`port`
+## --remote-debugging-port = ` port `
 
-Enables remote debugging over HTTP on the specified `port`.
+Mengaktifkan debugging jarak jauh melalui HTTP pada port ` yang ditentukan `.
 
-## --disk-cache-size=`size`
+## --disk-cache-size =`ukuran`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Memaksa ruang disk maksimum yang akan digunakan oleh cache disk, dalam bytes.
 
-## --js-flags=`flags`
+## --js-flags =`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Menentukan bendera yang dilewatkan ke mesin Node JS. Itu harus berlalu ketika mulai Electron jika Anda ingin mengaktifkan ` bendera </ 0> dalam proses utama.</p>
 
-```bash
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
-```
+<pre><code class="bash">$ electron --js-flags = "- harmony_proxies --harmony_collections" your-app
+`</pre> 
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Lihat dokumentasi[Node](https://nodejs.org/api/cli.html)atau jalankan`node --help `di terminal Anda untuk daftar flag yang tersedia. Selain itu, jalan `node --v8-options`untuk melihat daftar flag yang secara khusus merujuk ke mesin JavaScript Vtp Node.
 
-## --proxy-server=`address:port`
+## --proxy-server =`alamat: port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Gunakan server proxy tertentu, yang menggantikan pengaturan sistem. Saklar ini hanya memengaruhi permintaan dengan protokol HTTP, termasuk HTTPS dan WebSocket permintaan. Perlu dicatat juga bahwa tidak semua server proxy mendukung HTTPS dan Permintaan WebSocket.
 
-## --proxy-bypass-list=`hosts`
+## --proxy-bypass-list =`host`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Instruksikan Elektron untuk memotong server proxy untuk semi-colon-separated yang diberikan daftar host Bendera ini hanya memiliki efek jika digunakan bersamaan ` - proxy-server `.
 
-For example:
+Sebagai contoh:
 
 ```javascript
-const {app} = require('electron')
-app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
+const {app} = require ('electron')
+app.commandLine.appendSwitch ('proxy-bypass-list', '<local>; * google.com; * foo.com; 1.2.3.4: 5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+Akan menggunakan server proxy untuk semua host kecuali untuk alamat lokal (` localhost `, ` 127.0.0.1` dll.), ` google.com` subdomain, host yang berisi akhiran ` foo.com ` dan apa saja di `1.2.3.4:5678`.
 
-## --proxy-pac-url=`url`
+## --proxy-pac-url =`url`
 
-Uses the PAC script at the specified `url`.
+Menggunakan script PAC di`url`yang ditentukan.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+Jangan menggunakan server proxy dan selalu melakukan koneksi langsung. Menimpa yang lain flag server proxy yang dilewatkan.
 
-## --host-rules=`rules`
+## --host-rules =` rules `
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Daftar aturan`yang dipisahkan koma yang mengontrol bagaimana nama host dipetakan.
+ .</p>
 
-For example:
+<p>Sebagai contoh:</p>
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+<ul>
+<li><code> MAP * 127.0.0.1`Memaksa semua nama host yang akan dipetakan ke 127.0.0.1</li> 
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+* `MAP *.google.com proxy ` Memaksa semua subdomain google.com untuk dipecahkan "proxy".
+* `MAP test.com [:: 1]: 77 ` Memaksa "test.com" untuk mengatasi loopback IPv6. Akan Juga paksa port dari alamat soket yang dihasilkan menjadi 77.
+* `MAP * baz, EXCLUDE www.google.com`Kembalikan semuanya ke "baz", kecuali untuk "www.google.com".</ul> 
 
-## --host-resolver-rules=`rules`
+Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP dan resolver host dalam koneksi langsung, dan ` CONNECT ` di proxy HTTP koneksi, dan host titik akhir dalam koneksi proxy ` SOCKS `).
+
+## aturan host-resolver = ``
 
 Like `--host-rules` but these `rules` only apply to the host resolver.
 
-## --auth-server-whitelist=`url`
+## --auth-server-whitelist =`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Daftar server yang dipisahkan koma yang otentikasinya telah diaktifkan.
 
-For example:
+Sebagai contoh:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
+    --auth-server-whitelist = '* example.com, * foobar.com, * baz'
     
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+maka setiap`url` yang diakhiri dengan `example.com `,` foobar.com `,` baz`akan dipertimbangkan untuk otentikasi terpadu. Tanpa awalan`*`url harus sesuai persis.  .
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Daftar server yang dipisahkan koma yang diperlukan oleh pendelegasian mandat pengguna. Tanpa awalan `*` url harus sesuai persis.
 
-## --ignore-certificate-errors
+## -- kesalahan sertifikat-kesalahan
 
-Ignores certificate related errors.
+Mengabaikan kesalahan terkait sertifikat
 
 ## --ppapi-flash-path=`path`
 
@@ -119,30 +121,32 @@ Sets the `version` of the pepper flash plugin.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Mengaktifkan aktivitas log bersih untuk disimpan dan menuliskannya ke ` path </ 0> .</p>
 
-## --disable-renderer-backgrounding
+<h2>--disable-renderer-backgrounding</h2>
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+<p>Mencegah Chromium menurunkan prioritas proses perender halaman yang tak terlihat.</p>
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+<p>Flag ini bersifat global untuk semua proses renderer, jika Anda hanya ingin menonaktifkan throttling dalam satu jendela, Anda bisa melakukan hack
+ <a href="https://github.com/atom/atom/pull/9485/files"> bermain audio sunyi </ 0> .</p>
 
-## --enable-logging
+<h2>--enable-logging</h2>
 
-Prints Chromium's logging into console.
+<p>Mencetak Chrome masuk ke konsol.</p>
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+<p>Peralihan ini tidak dapat digunakan di <code> app.commandLine.appendSwitch </ 0> karena diurai lebih awal dari aplikasi pengguna yang dimuat, namun Anda dapat mengatur 
+variabel lingkungan <code> ELECTRON_ENABLE_LOGGING </ 0> untuk mencapai efek yang sama. .</p>
 
-## --v=`log_level`
+<h2>--v=<code>log_level`</h2> 
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Memberikan level maximum V-logging default maksimal; 0 adalah default Biasanya nilai positif digunakan untuk tingkat V-logging.
 
 This switch only works when `--enable-logging` is also passed.
 
 ## --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Memberikan level maksimal V-logging per modul untuk mengesampingkan nilai yang diberikan oleh `-v `. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Setiap pola yang mengandung garis miring ke depan atau ke belakang akan diuji terhadap seluruh pathname dan bukan hanya modulnya. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-This switch only works when `--enable-logging` is also passed.
+Peralihan ini hanya berfungsi saat`- enable-logging `juga dilewatkan.

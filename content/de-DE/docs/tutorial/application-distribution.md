@@ -1,8 +1,8 @@
 # Veröffentlichung der Anwendung
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist. Achten Sie darauf, dass das Verzeichnis der vorgefertigten Electron-Dateien in den Beispielen mit `electron/` angegeben ist.
 
-On macOS:
+Unter macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -11,7 +11,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Unter Windows und Linux:
 
 ```text
 electron/resources/app
@@ -20,48 +20,48 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Danach führen Sie `Electron.app` (oder `electron` unter Linux, `electron.exe` unter Windows) aus, und Electron wird als Ihre App starten. Das `electron`-Verzeichnis wird dann Ihre Distribution sein, die Sie an die Endnutzer weitergeben.
 
-## Packaging Your App into a File
+## App in eine Datei packen
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Unabhängig vom Verbreiten Ihrer App durch das Kopieren aller Quelldateien können Sie Ihre App auch in ein [asar](https://github.com/electron/asar)-Archiv packen, um zu vermeiden, dass der Nutzer Zugriff auf den Quellcode Ihrer Anwendung erhält.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Um ein `asar`-Archiv zu nutzen, um den `app` Ordner zu ersetzen, müssen Sie das Archiv in `app.asar` umbenennen und, wie unten, in das Resources-Verzeichnis von Electron verschieben. Erst dann wird Electron versuchen das Archiv zu lesen und daraus starten.
 
-On macOS:
+Unter macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Unter Windows und Linux:
 
 ```text
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Mehr Details finden Sie unter [Anwendungspakete](application-packaging.md) in der Dokumentation.
 
-## Rebranding with Downloaded Binaries
+## Änderung des Namens in Downloaddateien
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Nachdem Sie Ihre App in Electron gebündelt haben, sollten Sie Electron umbennen, bevor Sie es an Ihre Nutzer weiterreichen.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Sie können `electron.exe` einen beliebigen Namen geben und das Icon der App bzw. weitere Metadaten mit Tools wie [rcedit](https://github.com/atom/rcedit) bearbeiten.
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Sie können `Electron.app` einen beliebigen Namen geben, aber Sie müssen zusätzlich die Felder `CFBundleDisplayName`, `CFBundleIdentifier` und `CFBundleName` in den folgenden Dateien umbenennen:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Sie können desweiteren die 'Helper App' von Electron umbenennen um das Auftauchen von `Electron Helper` im Activity Monitor zu vermeiden. Stellen Sie dabei sicher, dass Sie die ausführbare Datei der 'Helper App' umbenannt haben.
 
-The structure of a renamed app would be like:
+Die Struktur der umbenannten App könnte so aussehen:
 
 ```text
 MyApp.app/Contents
@@ -85,31 +85,31 @@ MyApp.app/Contents
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Sie können der ausführbaren `electron`-Datei einen beliebigen Namen geben.
 
-## Packaging Tools
+## Paket-Tools
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Unabhängig davon, Ihre App manuell zu packen, können Sie sich für Paket-Tools von Drittanbietern entscheiden, die Ihnen die Arbeit abnehmen:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Änderung des Names durch Neukompilieren des Quellcodes von Electron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Es ist weiterhin möglich Electron umzubennen in dem Sie den Produktnamen ändern und es erneut kompilieren. Um dies zu erreichen, modifizieren Sie die `atom.gyp`-Datei und rekompilieren das Projekt.
 
-### Creating a Custom Electron Fork
+### Erstellen eines angepassten Electron Forks
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Einen benutzerdefinierten Fork von Electron zu erstellen ist mit großer Sicherheit nicht das, was Sie tun möchten wenn Sie Ihre App erstellen, auch nicht bei "Producton Level" Anwendungen. Das Verwenden eines Tools wie `electron-packager` oder `electron-forge` ermöglicht Ihnen Electron einen neuen Namen zu geben, ohne diese Schritte durchführen zu müssen.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefiniertem C++ Code direkt in Electron arbeiten, der entweder nicht vorgeschalten werden kann oder durch die offizielle Version von Electron abgelehnt wird. Als Maintainer von Electron würden wir es sehr begrüßen, wenn Sie Ihren Plan umsetzen können. Also versuchen Sie das Beste, um Ihre Änderungen an Electron in die offizielle Version einfließen zu lassen. Dadurch wird es um Einiges leichter für Sie. Wir schätzen Hilfe jeglicher Art.
 
-#### Creating a Custom Release with surf-build
+#### Erstellen einer angepassten Version mit surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Installieren Sie [Surf](https://github.com/surf-build/surf) mit npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Erstellen Sie einen neuen S3 bucket und nutzen Sie die folgende leere Verzeichnis-Struktur:
     
     ```sh
 - atom-shell/
@@ -117,18 +117,18 @@ You need to fork Electron when you have custom C++ code that you have patched di
   - dist/
 ```
 
-3. Set the following Environment Variables:
+3. Setzen Sie die folgenden Umgebungsvariablen:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64`
+* `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - der Ort an dem Sie node.js header und Symbole hochladen werden
+* `ELECTRON_RELEASE` - Auf `true` setzen und der Upload-Teil wird funktionieren, ungesetzt lassen und `surf-build` wird nur CI-type checks ausführen, angemessen um für jeden Pull-Request ausgeführt zu werden.
+* `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
+* `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen
+* `SURF_TEMP` - auf `C:\Temp` unter Windows setzen um zu langen Pfaden vorzubeugen
+* `TARGET_ARCH` - auf `ia32` oder `x64` setzen
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. In der `script/upload.py` *müssen* Sie `ELECTRON_REPO` in Ihren Fork (z.B. `MYORG/electron`) ändern, vor allem, wenn sie ein Mitwirkender am Electron-Eigentum sind.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Warten sie eine halbe Ewigkeit bis der Build abgeschlossen ist.

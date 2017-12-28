@@ -5,10 +5,10 @@
 プロセス: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// メインプロセス
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// または、レンダラープロセスから `remote`を使用してください。
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,14 +16,14 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// リモートURLをロードする
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// または、ローカルファイルをロードする
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## フレーム無しウィンドウ
 
 To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
 
-### Setting `backgroundColor`
+### `backgroundColor`を設定する
 
 For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
@@ -58,7 +58,7 @@ win.loadURL('https://github.com')
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
-## Parent and child windows
+## 親ウィンドウと子ウィンドウ
 
 By using `parent` option, you can create child windows:
 
@@ -73,7 +73,7 @@ top.show()
 
 The `child` window will always show on top of the `top` window.
 
-### Modal windows
+### モーダルウィンドウ
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### プラットフォーム通知
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -106,27 +106,27 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## クラス: BrowserWindow
 
 > Create and control browser windows.
 
 プロセス: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` は [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) です。
 
 It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (optional) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `width` Integer (optional) - ウィンドウの幅（ピクセル単位）。デフォルトは`800`です。
+  * `height` Integer (optional) - ウィンドウの高さ（ピクセル単位）。デフォルトは`600`です。
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
+  * `minWidth` Integer (optional) - ウィンドウの最小の幅。デフォルトは``です。
+  * `minHeight` Integer (optional) - ウィンドウの最小の高さ。デフォルトは``です。
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
   * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
@@ -215,7 +215,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### インスタンスイベント
 
 Objects created with `new BrowserWindow` emit the following events:
 

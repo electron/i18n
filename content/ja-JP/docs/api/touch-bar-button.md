@@ -10,10 +10,10 @@
   * `label` String (optional) - Button text.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String - Can be `left`, `right` or `overlay`.
+  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
 
-### Instance Properties
+### インスタンスプロパティ
 
 The following properties are available on instances of `TouchBarButton`:
 

@@ -1,4 +1,4 @@
-## Class: Debugger
+## Klasa: debuger
 
 > An alternate transport for Chrome's remote debugging protocol.
 

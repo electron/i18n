@@ -131,11 +131,11 @@
 </tr>
 <tr>
   <td>es-419</td>
-  <td>Spanish (Latin America)</td>
+  <td>Spanyol (Amerika Latin)</td>
 </tr>
 <tr>
   <td>et</td>
-  <td>Estonian</td>
+  <td>Estonia</td>
 </tr>
 <tr>
   <td>eu</td>
@@ -143,35 +143,35 @@
 </tr>
 <tr>
   <td>fa</td>
-  <td>Persian</td>
+  <td>Persia</td>
 </tr>
 <tr>
   <td>fi</td>
-  <td>Finnish</td>
+  <td>Finlandia</td>
 </tr>
 <tr>
   <td>fil</td>
-  <td>Filipino</td>
+  <td>Orang Filipina</td>
 </tr>
 <tr>
-  <td>fo</td>
-  <td>Faroese</td>
+  <td>untuk</td>
+  <td>Orang Farisi</td>
 </tr>
 <tr>
   <td>fr</td>
-  <td>French</td>
+  <td>Perancis</td>
 </tr>
 <tr>
   <td>fr-CA</td>
-  <td>French (Canada)</td>
+  <td>Perancis (Kanada)</td>
 </tr>
 <tr>
   <td>fr-CH</td>
-  <td>French (Switzerland)</td>
+  <td>Perancis (Swiss)</td>
 </tr>
 <tr>
   <td>fr-FR</td>
-  <td>French (France)</td>
+  <td>Perancis (Prancis)</td>
 </tr>
 <tr>
   <td>fy</td>
@@ -187,7 +187,7 @@
 </tr>
 <tr>
   <td>gl</td>
-  <td>Galician</td>
+  <td>Galicia</td>
 </tr>
 <tr>
   <td>gn</td>
@@ -198,32 +198,32 @@
   <td>Gujarati</td>
 </tr>
 <tr>
-  <td>ha</td>
+  <td>telah</td>
   <td>Hausa</td>
 </tr>
 <tr>
   <td>haw</td>
-  <td>Hawaiian</td>
+  <td>Hawaii</td>
 </tr>
 <tr>
-  <td>he</td>
-  <td>Hebrew</td>
+  <td>dia</td>
+  <td>Ibrani</td>
 </tr>
 <tr>
   <td>hi</td>
-  <td>Hindi</td>
+  <td>Tidak</td>
 </tr>
 <tr>
-  <td>hr</td>
-  <td>Croatian</td>
+  <td>jam</td>
+  <td>Orang Kroasia</td>
 </tr>
 <tr>
   <td>hu</td>
-  <td>Hungarian</td>
+  <td>Hongaria</td>
 </tr>
 <tr>
-  <td>hy</td>
-  <td>Armenian</td>
+  <td>dia</td>
+  <td>Orang Armenia</td>
 </tr>
 <tr>
   <td>ia</td>
@@ -331,7 +331,7 @@
 </tr>
 <tr>
   <td>mt</td>
-  <td>Maltese</td>
+  <td>Malta</td>
 </tr>
 <tr>
   <td>nb</td>

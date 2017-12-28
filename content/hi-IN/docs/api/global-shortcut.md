@@ -1,4 +1,4 @@
-# globalShortcut
+# वैश्विक शॉर्टकट
 
 > Detect keyboard events when the application does not have keyboard focus.
 

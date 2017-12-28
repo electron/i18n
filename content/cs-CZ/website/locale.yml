@@ -15,6 +15,11 @@ docs:
   guides: Návody
   api_reference: API Reference
   advanced: Pokročilé
+  footer:
+    propose_change: Improve this doc
+    version_history: Version history
+    translate: Translate this doc
+    view_all_docs: All Docs on One Page
 languages:
   choose_language: Zvolte jazykovou mutaci
   translation_progress: Zpracování překladů
@@ -54,11 +59,7 @@ get_started:
   description: Chcete-li začít s Electronem, podívejte se na níže uvedené zdroje. Zjistěte, jak obalit váši web. stránku Electronem, komunikovat přes API a generovat instalátory.
 explore:
   title: Prozkoumat Electron API
-  description:
-    - <a href="https://github.com/electron/electron-api-demos"> Electron API ukázky</a>
-    - interaktivně předvést nejdůležitější části Electron API.
-    - Zjistěte, co je možné s Electronen s pomocí ukázkových kódů a užitečnými tipy
-    - sestvení vaší aplikace.
+  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Stáhnout z GitHubu
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Zobrazit všechny releasy</a> na GitHubu
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Lokalizovaný obsah z naší úžasné globální vývojářské komunity.
 help_translate: "Pomozte s překladem"
 footer:
-  see_something: Vidíte něco, co potřebuje nápravu?
-  propose_change: Navrhnout změnu ve zdrojovém kódu.
-  need_different_version: Potřebujete jinou verzi dokumentace?
-  see_available_versions: Seznam dostupných verzí.
-  want_something_searchable: Want something searchable?
-  view_all_docs: View all docs on one page
   see_the_faq: Prozkoumejte nejčastěji kladené otázky
 apps:
   title: Aplikace postavené na Electronu
@@ -95,7 +90,7 @@ clipboard:
   copy: Kopírovat
   copy_to_clipboard: Kopírovat do schránky
   copied: Zkopírováno
-or: nebo
+or: or
 pages:
   '/':
     title: Electron | Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.

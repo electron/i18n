@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### インスタンスメソッド
 
 #### `debugger.attach([protocolVersion])`
 
@@ -57,7 +57,7 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
-### Instance Events
+### インスタンスイベント
 
 #### Event: 'detach'
 

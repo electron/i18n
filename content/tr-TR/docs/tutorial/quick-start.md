@@ -8,7 +8,7 @@ This doesn't mean Electron is a JavaScript binding to graphical user interface (
 
 In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
 
-### Renderer Process
+### Oluşturucu işlemi
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
@@ -156,7 +156,7 @@ $ .\node_modules\.bin\electron .
 #### Node v8.2.0 and later
 
 ```sh
-$ npx electron .
+$ npx electron.
 ```
 
 ### Manually Downloaded Electron Binary
@@ -183,11 +183,11 @@ $ .\electron\electron.exe your-app\
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Bir dağıtım çalıştırmak
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### Bu örneği deneyin
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 

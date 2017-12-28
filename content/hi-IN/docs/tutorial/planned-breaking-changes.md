@@ -4,7 +4,7 @@ The following list includes the APIs that will be removed in Electron 2.0.
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
-## `app`
+## `एप्प`
 
 ```js
 // Deprecated
@@ -13,7 +13,7 @@ app.getAppMemoryInfo()
 app.getAppMetrics()
 ```
 
-## `BrowserWindow`
+## `ब्राउज़र विंडो`
 
 ```js
 // Deprecated
@@ -33,7 +33,7 @@ let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `क्लिपबोर्ड`
 
 ```js
 // Deprecated
@@ -57,7 +57,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+## `क्रेश रिपोर्टर`
 
 ```js
 // Deprecated
@@ -83,7 +83,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
-## `nativeImage`
+## `मूल छवि`
 
 ```js
 // Deprecated
@@ -115,7 +115,7 @@ process.versions.electron
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
-## `session`
+## `सत्र`
 
 ```js
 // Deprecated
@@ -128,7 +128,7 @@ ses.setCertificateVerifyProc(function (request, callback) {
 })
 ```
 
-## `Tray`
+## `ट्रे`
 
 ```js
 // Deprecated
@@ -142,7 +142,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+## `वेबसामग्री`
 
 ```js
 // Deprecated
@@ -158,7 +158,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+## `वेबफ्रेम`
 
 ```js
 // Deprecated

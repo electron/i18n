@@ -1,103 +1,103 @@
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+कृपया सुनिश्चित करें कि आप अपने इलेक्ट्रॉन संस्करण से मेल खाने वाले दस्तावेज़ों का उपयोग कर रहे हैं । संस्करण संख्या, पेज यूआरएल का एक भाग होना चाहिए । यदि ऐसा नहीं है, तो शायद आप एक ऐसी विकास शाखा के दस्तावेज़ीकरण का इस्तेमाल कर रहे हैं, जिसमे मौजूद ऐपीआई परिवर्तन आपके इलेक्ट्रॉन संस्करण के अनुकूल नहीं हैं | दस्तावेज़ीकरण के पुराने संस्करण देखने के लिए, आप गिटहब पर [टैग के द्वारा ढूंढ](https://github.com/electron/electron/tree/v1.4.0) सकते हैं | इसके लिए आप "स्विच ब्रांचेज/टैग्स" ड्रापडाउन खोलें और उस टैग को चुनें जो आपके संस्करण से मिलता है|
 
-## FAQ
+## अक्सर पूछे जाने वाले सवाल
 
-There are questions that are asked quite often. Check this out before creating an issue:
+यह वे सवाल हैं जो की अक्सर पूछे जाते हैं | नयी समस्या जमा करने से पहले इन्हें जरूर पढ़ें:
 
-* [Electron FAQ](faq.md)
+* [इलेक्ट्रॉन के अकसर पूछे जाने वाले सवाल](faq.md)
 
-## Guides
+## गाइड्स
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [शब्दों की शब्दावली](glossary.md)
+* [समर्थित प्लेटफ़ॉर्म](tutorial/supported-platforms.md)
+* [सुरक्षा](tutorial/security.md)
+* [संस्करण](tutorial/electron-versioning.md)
+* [एप्लीकेशन वितरण](tutorial/application-distribution.md)
+* [मैक एप्प स्टोर सबमिशन गाइड](tutorial/mac-app-store-submission-guide.md)
+* [विंडोज स्टोर गाइड](tutorial/windows-store-guide.md)
+* [एप्लीकेशन पैकेजिंग](tutorial/application-packaging.md)
+* [मूल नोड मोड्यूल का इस्तेमाल](tutorial/using-native-node-modules.md)
+* [मुख्य प्रक्रिया दोषमुक्ति](tutorial/debugging-main-process.md)
+* [सेलेनियम और वेबड्राईवर का इस्तेमाल](tutorial/using-selenium-and-webdriver.md)
+* [डेवटूल्स एक्सटेंशन](tutorial/devtools-extension.md)
+* [पेप्पर फ़्लैश प्लगइन का इस्तेमाल](tutorial/using-pepper-flash-plugin.md)
+* [वाइडवाइन सीडीएम प्लगइन का इस्तेमाल](tutorial/using-widevine-cdm-plugin.md)
+* [हेडलेस सीआई सिस्टम (ट्रेविस, जेनकिंस) पर परिक्षण](tutorial/testing-on-headless-ci.md)
+* [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
+* [कीबोर्ड शोर्टकट्स](tutorial/keyboard-shortcuts.md)
+* [एप्लीकेशन अपडेट](tutorial/updates.md)
 
-## Tutorials
+## ट्यूटोरियल
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
-* [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [त्वरित प्रारंम्भ](tutorial/quick-start.md)
+* [डेस्कटॉप वातावरण एकीकरण](tutorial/desktop-environment-integration.md)
+* [ऑनलाइन/ऑफलाइन ईवेंट का पता लगाना](tutorial/online-offline-events.md)
+* [आरईपीएल](tutorial/repl.md)
+* [मूल सूचनायें](tutorial/notifications.md)
 
-## API References
+## ऐपीआई रेफरेंस
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [सार](api/synopsis.md)
+* [प्रक्रिया ऑब्जेक्ट](api/process.md)
+* [समर्थित क्रोम आदेश पंक्ति स्विचेस](api/chrome-command-line-switches.md)
+* [वातावरण वेरिएबल्स](api/environment-variables.md)
 
-### Custom DOM Elements:
+### विशिष्ट डीओएम तत्व:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`फाइल` ऑब्जेक्ट](api/file-object.md)
+* [`<webview>` टैग](api/webview-tag.md)
+* [`विंडो.ओपन` फंक्शन](api/window-open.md)
 
-### Modules for the Main Process:
+### मुख्य प्रक्रिया के लिए मोड्यूलस:
 
-* [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
-* [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
-* [net](api/net.md)
-* [powerMonitor](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
-* [session](api/session.md)
-* [systemPreferences](api/system-preferences.md)
-* [Tray](api/tray.md)
-* [webContents](api/web-contents.md)
+* [एप्प](api/app.md)
+* [स्वतः अपडेटर](api/auto-updater.md)
+* [ब्राउज़र व्यू](api/browser-view.md)
+* [ब्राउज़र विंडो](api/browser-window.md)
+* [कंटेंट ट्रेसिंग](api/content-tracing.md)
+* [डायलॉग](api/dialog.md)
+* [वैश्विक शॉर्टकट](api/global-shortcut.md)
+* [आईपीसी मुख्य](api/ipc-main.md)
+* [मेन्यु](api/menu.md)
+* [मेन्युआइटम](api/menu-item.md)
+* [नेट](api/net.md)
+* [पॉवर मॉनिटर](api/power-monitor.md)
+* [पॉवर सेवब्लॉकर](api/power-save-blocker.md)
+* [प्रोटोकॉल](api/protocol.md)
+* [सत्र](api/session.md)
+* [सिस्टम प्रैफरेंसेज](api/system-preferences.md)
+* [ट्रे](api/tray.md)
+* [वेबसामग्री](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### रेंदेरेर प्रकिया (वेबपेज) हेतु मोड्यूलस
 
-* [desktopCapturer](api/desktop-capturer.md)
-* [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
-* [webFrame](api/web-frame.md)
+* [डेस्कटॉप कैप्चरर](api/desktop-capturer.md)
+* [आईपीसी रेंदेरेर](api/ipc-renderer.md)
+* [दूरस्थ](api/remote.md)
+* [वेबफ्रेम](api/web-frame.md)
 
-### Modules for Both Processes:
+### दोनो प्रक्रियाओं के लिए मोड्यूलस:
 
-* [clipboard](api/clipboard.md)
-* [crashReporter](api/crash-reporter.md)
-* [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
-* [shell](api/shell.md)
+* [क्लिपबोर्ड](api/clipboard.md)
+* [क्रेश रिपोर्टर](api/crash-reporter.md)
+* [मूल छवि](api/native-image.md)
+* [स्क्रीन](api/screen.md)
+* [शैल](api/shell.md)
 
-## Development
+## विकास
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [कोडिंग शैली](development/coding-style.md)
+* [सी++ कोड पर क्लैंग-फॉर्मेट इस्तेमाल करना](development/clang-format.md)
+* [स्रोत कोड निर्देशिका संरचना](development/source-code-directory-structure.md)
+* [एनडब्ल्यू.जेएस (पूर्व में नोड-वेबकिट) से तकनीकी अंतर](development/atom-shell-vs-node-webkit.md)
+* [सिस्टम अवलोकन बिल्ड](development/build-system-overview.md)
+* [बिल्ड निर्देश (मैकओएस)](development/build-instructions-osx.md)
+* [बिल्ड निर्देश (विंडोज)](development/build-instructions-windows.md)
+* [बिल्ड निर्देश (लिनक्स)](development/build-instructions-linux.md)
+* [दोषमुक्ति निर्देश (मैकओएस)](development/debugging-instructions-macos.md)
+* [दोषमुक्ति निर्देश (विंडोज)](development/debug-instructions-windows.md)
+* [डीबग्गर में सिंबल सर्वर सेट करना](development/setting-up-symbol-server.md)
+* [प्रलेखन स्टाइलगाइड](styleguide.md)
+* [क्रोम को अपडेट करना](development/upgrading-chrome.md)
+* [क्रोमियम विकास](development/chromium-development.md)
+* [वी8 विकास](development/v8-development.md)

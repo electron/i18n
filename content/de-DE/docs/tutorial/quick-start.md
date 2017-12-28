@@ -1,32 +1,32 @@
 # Schnellstart
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron ermöglicht Ihnen Desktop-Applikationen mittels reinem JavaScript zu erstellen. Es wird eine Laufzeitumgebung mit umfangreichen nativen (auf Betriebssystemebene) APIs bereitgestellt. Sie können sich Electron als eine Variante der Node.js-Runtime vorstellen, die sich auf Desktop-Apps anstatt auf Webserver fokussiert.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafische Oberfläche (GUI) gebunden ist. Anstattdessen benutzt Electron Webseiten als GUI. Man könnte es auch als eine Art abgespeckten Chromium Browser ansehen, welcher durch JavaScript gesteuert wird.
 
-### Hautprozess
+### Hauptprozess
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Der Prozess, der das `main`-Skript der `package.json`-Datei ausführt, wird in Electron als **Hauptprozess** bezeichnet. Das im Hauptprozess laufende Skript kann durch das Erstellen von Webseiten eine grafische Oberfläche generieren.
 
-### Renderer Process
+### Renderer-Prozess
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Dadurch, dass Electron für die Darstellung der Webseiten Chromium nutzt, wird auch Chromium's Multi-Prozess-Architektur verwendet. Jede Webseite in Electron läuft in ihrem eigenen Prozess, welcher **Renderer-Prozess** genannt wird.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
 
-### Differences Between Main Process and Renderer Process
+### Unterschiede zwischen Hauptprozess und Renderer-Prozess
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Der Hauptprozess erschafft Webseiten durch die Verwendung von Instanzen der Klasse `BrowserWindow`. Jede dieser `BrowserWindow`-Instanzen lässt die Webseite in ihrem eigenen Renderer-Prozess laufen. Wird eine Instanz von `BrowserWindow` zerstört, so wird auch der zugehörige Renderer-Prozess beendet.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Der Hauptprozess verwaltet alle Webseiten und die zugehörigen Renderer-Prozesse. Jeder Renderer-Prozess ist abgekapselt und kümmert sich nur um die Webseite die von ihm ausgeführt wird.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Auf Webseiten ist das Aufrufen von APIs, die auf native GUI-Elemente zugreifen, nicht erlaubt. Die Verwaltung dieser Elemente ist sehr gefährlich und stellt ein Sicherheitsrisiko da. Wenn Sie GUI-Operationen auf einer Website ausführen wollen, dann muss der Renderer-Prozess der Webseite eine Anfrage an den Hauptprozess weiterleiten, damit letzterer diese Operationen ausführen kann.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+In Electron existieren verschiedene Möglichkeiten zwischen dem Hauptprozess und den Renderer-Prozessen zu kommunizieren. Zum Beispiel die [`ipcRenderer`](../api/ipc-renderer.md) und [`ipcMain`](../api/ipc-main.md)-Module für das senden von einfachen Nachrichten und das [remote](../api/remote.md)-Modul für RPC-ähnliche Kommunikation. Passend dazu gibt es in den FAQ einen Eintrag zum [Teilen von Daten zwischen Webseiten](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Ihre erste Electron-App
 
-Generally, an Electron app is structured like this:
+Im Allgemeinen ist eine Electron-App wie folgt aufgebaut:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+Das Format der `package.json`-Datei ist genau das Gleiche wie das des Node-Moduls und das Script, welches durch das `main`-Feld angegeben wird ist das Einstiegsskript für Ihre App. Dieses führt den Hauptprotess aus. Ihre `package.json`-Datei könnte zum Beispiel so aussehen:
 
 ```json
 {
@@ -45,69 +45,71 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Bemerkung**: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron versuchen eine `index.js`-Datei zu laden.
 
-The `main.js` should create windows and handle system events, a typical example being:
+Das `main.js`-Skript sollte typischerweise Fenster erschaffen und Systemevents behandeln:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Behalten Sie eine globale Referenz auf das Fensterobjekt. 
+// Wenn Sie dies nicht tun, wird das Fenster automatisch geschlossen, 
+// sobald das Objekt dem JavaScript-Garbagekollektor übergeben wird.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Erstellen des Browser-Fensters.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // und Laden der index.html der App.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Öffnen der DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Ausgegeben, wenn das Fenster geschlossen wird.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Dereferenzieren des Fensterobjekts, normalerweise würden Sie Fenster
+    // in einem Array speichern, falls Ihre App mehrere Fenster unterstützt. 
+    // Das ist der Zeitpunkt, an dem Sie das zugehörige Element löschen sollten.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Diese Methode wird aufgerufen, wenn Electron mit der
+// Initialisierung fertig ist und Browserfenster erschaffen kann.
+// Einige APIs können nur nach dem Auftreten dieses Events genutzt werden.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Verlassen, wenn alle Fenster geschlossen sind.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // Unter macOS ist es üblich für Apps und ihre Menu Bar
+  // aktiv zu bleiben bis der Nutzer explizit mit Cmd + Q die App beendet.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // Unter macOS ist es üblich ein neues Fenster der App zu erstellen, wenn
+  // das Dock Icon angeklickt wird und keine anderen Fenster offen sind.
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// In dieser Datei können Sie den Rest des App-spezifischen 
+// Hauptprozess-Codes einbinden. Sie können den Code auch 
+// auf mehrere Dateien aufteilen und diese hier einbinden.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 
 ```html
 <!DOCTYPE html>
@@ -125,21 +127,21 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## Ihre App ausführen
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Sobald Sie Ihre anfänglichen `main.js`, `index.html`, und `package.json`-Dateien erstellt haben, möchten Sie wahrscheinlich versuchen Ihre App lokal zu testen, um zu schauen ob sie wie geplant funktioniert.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) ist ein `npm`-Modul, dass vorkompilierte Versionen von Electron enthält.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Wenn Sie es global mit `npm` installiert haben, dann müssen Sie lediglich das Folgende im Souce-Verzeichnis Ihrer App ausführen:
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+Wenn Sie es lokal installiert haben, dann führen Sie Folgendes aus:
 
 #### macOS / Linux
 
@@ -153,50 +155,50 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 und Neuere
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### Electron manuell heruntergeladen
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Wenn Sie Electron manuell heruntergeladen haben, können Sie auch die beiliegende Binary nutzen um Ihre App direkt auszuführen.
 
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron ihre-app/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron ihre-app/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe ihre-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` ist hier Teil des Electron-Releases. Sie können es [hier](https://github.com/electron/electron/releases) herunterladen.
 
-### Run as a distribution
+### Als Distribution ausführen
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Nachdem Sie Ihre App fertig geschrieben haben, können Sie eine Distribution erstellen indem Sie der Anleitung "[Veröffentlichung der Anwendung](./application-distribution.md)" folgen und dann die gepackte Anwendung ausführen.
 
-### Try this Example
+### Beispiel-Anwendung
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Klonen und führen sie den Code für dieses Tutorial mithilfe folgendem Repository aus: [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Bemerkung**: Das Ausführen benötigt [Git](https://git-scm.com) und [Node.js](https://nodejs.org/en/download/) (welches [npm](https://npmjs.org) enthält) auf Ihrem System.
 
 ```sh
-# Clone the repository
+# Klonen des Repositorys
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# Verzeichniswechsel in das Repository
 $ cd electron-quick-start
 # Install dependencies
 $ npm install
@@ -204,4 +206,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Für weitere Beispiele, sehen Sie sich die [Liste der Boilerplates](https://electronjs.org/community#boilerplates) an, die von der großartigen Electron-Community entwickelt wurde.

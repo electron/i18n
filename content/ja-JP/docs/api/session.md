@@ -56,7 +56,7 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### インスタンスイベント
 
 The following events are available on instances of `Session`:
 
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### インスタンスメソッド
 
 The following methods are available on instances of `Session`:
 
@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### インスタンスプロパティ
 
 The following properties are available on instances of `Session`:
 

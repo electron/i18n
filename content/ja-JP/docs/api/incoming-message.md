@@ -6,7 +6,7 @@
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Instance Events
+### インスタンスイベント
 
 #### Event: 'data'
 
@@ -24,7 +24,7 @@ Indicates that response body has ended.
 
 Emitted when a request has been canceled during an ongoing HTTP transaction.
 
-#### Event: 'error'
+#### イベント: ' エラー '
 
 戻り値：
 
@@ -32,7 +32,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Instance Properties
+### インスタンスプロパティ
 
 An `IncomingMessage` instance has the following readable properties:
 

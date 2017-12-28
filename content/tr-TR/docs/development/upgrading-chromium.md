@@ -1,4 +1,4 @@
-# Upgrading Chromium
+# Chromium yükseltme
 
 This is an overview of the steps needed to upgrade Chromium in Electron.
 
@@ -6,19 +6,19 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 - Make Electron code compatible with the new libcc
 - Update Electron dependencies (crashpad, NodeJS, etc.) if needed
 - Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- Gerekirse Electron dokümanlarını güncelleyin
 
 ## Upgrade `libcc` to a new Chromium version
 
 1. Get the code and initialize the project: 
-  -     sh
-        $ git clone git@github.com:electron/libchromiumcontent.git
-        $ cd libchromiumcontent
-        $ ./script/bootstrap -v
+      sh
+      $ git clone git@github.com:electron/libchromiumcontent.git
+      $ cd libchromiumcontent
+      $ ./script/bootstrap -v
 
 2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
+  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `VERSION` Bu dosya ile 
+    - Bu, tarayıcıda manuel olarak OmahaProxy'yi ziyaret ederek veya otomatik olarak yapılabilir:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - run `$ ./script/update` 
@@ -30,21 +30,21 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
   - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
+6. When the build succeeds, create a `dist` Electron hakkında 
   - `$ ./script/create-dist  --no_zip` 
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. Bunlar gerekmez.)
 
 ## Update Electron's code
 
-1. Get the code: 
-  -     sh
-        $ git clone git@github.com:electron/electron.git
-        $ cd electron
+1. Kod al: 
+      sh
+      $ git clone git@github.com:electron/electron.git
+      $ cd electron
 
 2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
-  -     sh
-        $ ./script/bootstrap.py -v \
+      sh
+      $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
@@ -61,7 +61,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
     - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
+6. Electron kurmak. 
   - Try to build Debug version first: `$ ./script/build.py -c D`
   - You will need it to run tests
 7. Fix compilation and linking errors
@@ -88,13 +88,13 @@ Follow all the steps above to fix Electron code on all supported platforms.
 
 If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
 
-## Updating NodeJS
+## NodeJS güncelleniyor
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
 See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
 
-## Verify ffmpeg support
+## Ffmpeg desteği doğrulama
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
@@ -128,7 +128,7 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Useful links
+## Faydalı bağlantılar
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)

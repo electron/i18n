@@ -1,41 +1,41 @@
-## Class: Cookies
+## Clase: Cookies
 
 > Query and modify a session's cookies.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+Por ejemplo:
 
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// Busca todas las cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// Busca todas las cookies asociadas con un url específico.
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Establecer una cookie con la información de cookie ofrecida;
+// puede sobreescribir cookies equivalentes si existen.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
 ```
 
-### Instance Events
+### Eventos de Instancia
 
 The following events are available on instances of `Cookies`:
 
 #### Event: 'changed'
 
-* `event` Event
+* `evento` Evento
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.
@@ -47,7 +47,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### Métodos de Instancia
 
 The following methods are available on instances of `Cookies`:
 

@@ -1,17 +1,17 @@
-## Class: BrowserView
+## Sınıf: BrowserView
 
-> Create and control views.
+> Görünüm yaratın ve kontrol edin.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView`, `BrowserWindow`'a ek ağ içeriği gömmek için kullanılır. Çocuk pencere gibidir ama sahibi pencereye göre göreceli konumlandırılır. `webview` etiketine bir alternatif olarak düşünülebilir.
 
-## Example
+## Örnek
 
 ```javascript
-// In the main process.
+// Ana süreçte.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -29,47 +29,47 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *Deneysel*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `options` Obje (opsiyonel) 
+  * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
-### Static Methods
+### Statik Metodlar
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Tamsayı
 
-Returns `BrowserView` - The view with the given `id`.
+`BrowserView` döner - `id` ile birlikte girilen view.
 
-### Instance Properties
+### Örnek Özellikleri
 
-Objects created with `new BrowserView` have the following properties:
+`new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Deneysel*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
 
-#### `view.id` *Experimental*
+#### `view.id` *Deneysel*
 
-A `Integer` representing the unique ID of the view.
+View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
-### Instance Methods
+### Sınıf örneği metodları
 
-Objects created with `new BrowserView` have the following instance methods:
+`new BrowserView` ile yaratılan objeler aşağıdaki metodlara sahiptir:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Deneysel*
 
-* `options` Nesne 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+* `options` Obje 
+  * `width` Boolean - `true` ise, view'in uzunluğu pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
+  * `height` Boolean - `true` ise, view'in yüksekliği pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Deneysel*
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Dikdörtgen](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Verilen sınırlarla görünümü göreceli olarak yeniden şekillendirir ve taşır.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Deneysel*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` Katar - `#aarrggbb` ya da `#argb` formunda renk kodu. Alfa kanalı opsiyonel.

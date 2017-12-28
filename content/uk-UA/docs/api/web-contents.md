@@ -55,7 +55,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -67,7 +67,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -84,7 +84,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -100,7 +100,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -115,7 +115,7 @@ Emitted when a redirect is received while requesting a resource.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Emitted when the document in the given frame is loaded.
 
@@ -123,7 +123,7 @@ Emitted when the document in the given frame is loaded.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
@@ -132,7 +132,7 @@ Emitted when page receives favicon urls.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `url` String
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
@@ -159,7 +159,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -174,7 +174,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `url` String
 
 Emitted when a navigation is done.
@@ -185,7 +185,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `url` String
 * `isMainFrame` Boolean
 
@@ -197,7 +197,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
@@ -235,7 +235,7 @@ Emitted when the renderer process crashes or is killed.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `name` String
 * `version` String
 
@@ -249,7 +249,7 @@ Emitted when `webContents` is destroyed.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -288,13 +288,13 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Подія: 'certificate-error'
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `url` String
-* `error` String - The error code
+* `error` String - Код помилки
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
@@ -303,25 +303,25 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Подія: 'select-client-certificate'
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Відбувається коли запитується сертифікат клієнта.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Подія: 'login'
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `request` Object 
   * `method` String
   * `url` URL
@@ -336,7 +336,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Відбуваєтся коли `webContents` робить базову автентифікацію.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
@@ -344,7 +344,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -374,7 +374,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
@@ -383,7 +383,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -398,7 +398,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -440,7 +440,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
@@ -470,7 +470,7 @@ app.on('ready', () => {
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -494,7 +494,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -504,12 +504,12 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Методи Екземпляра
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -790,7 +790,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -848,7 +848,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -933,7 +933,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -977,7 +977,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// In the main process.
+// В головному процесі.
 const {app, BrowserWindow} = require('electron')
 let win = null
 

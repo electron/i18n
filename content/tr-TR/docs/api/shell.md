@@ -24,7 +24,7 @@ The `shell` module has the following methods:
 
 Returns `Boolean` - Whether the item was successfully shown
 
-Show the given file in a file manager. If possible, select the file.
+Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı seçin.
 
 ### `shell.openItem(fullPath)`
 
@@ -37,7 +37,7 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
-* `options` Object (optional) *macOS* 
+* `options` Obje (isteğe bağlı) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error

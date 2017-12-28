@@ -1,12 +1,12 @@
 # remote
 
-> Use main process modules from the renderer process.
+> Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Süreç:[Renderer](../glossary.md#renderer-process)
 
-The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
+`remote` modülü ana işlem ve oluşturucu işlem (web sayfası) arasında kolay bir süreçler arası iletişim yolu (IPC) sunar.
 
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+Electron'da, GUI ile ilgili modüller (` iletişim kutusu `, ` menü ` vb.) Yalnızca ana süreçte kullanılabilir, oluşturucu işlemi içinde değil. Onları oluşturucu işleminde kullanmak için `ipc` modülü ana işleme işlemler arası iletileri göndermek için gereklidir. ` remote ` modülüyle, ana işlem obje metotlarını açıkça süreçler arası mesaj atmadan çağırabilirsiniz. Tıpkı Java'nın [ RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation)'si gibi. Bir tarayıcı penceresi oluşturmak için bir örnek: Oluşturucu süreci:
 
 ```javascript
 const {BrowserWindow} = require('electron').remote
@@ -14,33 +14,33 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Not:**Tersi durumda (işleyiciye ana işlemden erişin),[webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback) kullanabilirsiniz.
 
-## Remote Objects
+## Uzak nesneler
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+` remote ` modülü tarafından döndürülen her nesne (işlevler dahil), bir ana işlemdeki nesneyi temsil eder. (Bunu uzaktaki nesne veya uzaktaki fonksiyon olarak adlandırırız). Bir uzak nesne metodu çağırarak, bir uzak fonksiyon çağırdığınızda yada uzaktan oluşturucu (fonksiyon) ile yeni bir obje oluşturduğunuzda, aslında senkron süreçler arası mesajlar gönderirsiniz.
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+Yukarıdaki örnekte, hem ` BrowserWindow ` hem de ` win ` uzak nesnelerdir ve ` new BrowserWindow ` işleyicide ` BrowserWindow ` nesnesi oluşturmaz. Bunun yerine ana süreçte ` BrowserWindow ` nesnesi oluşturdu ve ilgili uzaktaki nesneyi oluşturucu işleminde, diğer bir deyişle ` win` nesnesi.
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+** Not: ** Yalnızca [ numaralandırılabilir özellikler ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) mevcut Uzak nesneye ilk başvurulduğunda uzaktan erişilebilir.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+** Not: ** ` remote ` modülü üzerinden erişildiğinde, Diziler ve Tamponlar IPC üzerinden kopyalanır. Onları oluşturucu işleminde değiştirmek, onları ana işlemde değiştirmez yada tam tersi ana işlemde değiştirmek, oluşturucu işleminde değiştirmez.
 
-## Lifetime of Remote Objects
+## Uzak Nesnelerin Ömrü
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Elektron, oluşturucu işlemindeki uzak nesne işlem süresince yaşar (başka bir deyişle, çöp toplanmamıştır), karşılık gelen nesne ana süreçte serbest bırakılmayacaktır. Uzak nesne çöp topladığında, karşılık gelen nesne ana işlemde geri alınacaktır.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Eğer uzak nesne, oluşturucu işleminde sızdırılmışsa (örn. Bir haritada depolanır ancak asla serbest bırakılmaz), ana süreçteki ilgili nesne de sızacaktır, bu nedenle uzak nesneleri sızdırmamaya özen göstermelisiniz.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Birincil değer türleri dizeler ve satırlar gibidir oysa metin halinde gönderilirler.
 
-## Passing callbacks to the main process
+## Geri dönüşleri ana sürece iletme
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Ana süreçteki kod, oluşturucudan geri bildirimleri kabul edebilir - örneğin ` remote ` modülü - ancak bu özelliği kullanırken son derece dikkatli olmalısınız.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+İlk olarak, kilitlenmelerden kaçınmak için, ana işleme iletilen geridönüşler eşzamansız olarak çağrılır. Ana süreçten, geçen geridönüşlerin dönüş değerini öğrenmesini bekleyemezsiniz.
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Örneğin ana işlemde `Array.map` olarak adlandırılan bir fonksiyonu işlev işleyici işleminde kullanamazsınız:
 
 ```javascript
 // main process mapNumbers.js

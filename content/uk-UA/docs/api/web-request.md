@@ -28,7 +28,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Instance Methods
+### Методи Екземпляра
 
 The following methods are available on instances of `WebRequest`:
 

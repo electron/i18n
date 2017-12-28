@@ -2,9 +2,9 @@
 
 Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Bu bölüm, uygulamanızı masaüstü ortamınıza entegre etmek için Electron API'lerinin nasıl kullanılacağını açıklayacaktır.
 
-## Notifications
+## Bildirimler
 
 See [Notifications](notifications.md)
 
@@ -16,7 +16,7 @@ Windows and macOS provide easy access to a list of recent documents opened by th
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Uygulama kesinti menüsü:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
@@ -34,7 +34,7 @@ const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Windows notları
 
 In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
@@ -70,7 +70,7 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Kullanıcı görevleri (windows)
 
 On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
 
@@ -80,7 +80,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 
 **Internet Explorer'ın görevi:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
 Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
 
@@ -109,7 +109,7 @@ app.setUserTasks([])
 
 The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
 
-## Thumbnail Toolbars
+## Küçük resim araç çubukları
 
 On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
 
@@ -173,7 +173,7 @@ MacOS üzerinde ilerleme çubuğu dock simgesinin bir parçası olarak görünt�
 
 Unity DE aynı zamanda başlatıcıda ki ilerleme çubuğunu belirlemenizi sağlayan benzer bir özelliğe sahiptir.
 
-**Progress bar in taskbar button:**
+**ilerleme çubuğu düğmesindeki görev çubuğu düğmesi:**
 
 ![Görev çubuğu ilerleme çubuğu](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
@@ -243,7 +243,7 @@ win.setDocumentEdited(true)
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+Web sayfasında:
 
 ```html
 <a href="#" id="drag">item</a>

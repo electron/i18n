@@ -6,9 +6,9 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
 
 * Ít nhất là 25GB ổ cứng và 8GB bộ nhớ RAM.
 * Python phiên bản 2.7.x. Một số bản phân phối như CentOS 6.x vẫn sử dụng Python 2.6.x vì vậy bạn có thể cần phải kiểm tra phiên bản Python của bạn với `python -V`.
-* Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Bộ phát triển tiên đề GTK+ và libnotify.
+* Node.js. Có rất nhiều cách khác nhau để cài đặt Node.js. Bạn có thể tải mã nguồn từ [nodejs.org](http://nodejs.org), sau đó compile. Làm như vậy cho phép cài đặt Node.js của riêng của bạn trên thư mục như một người dùng tiêu chuẩn. Hoặc thử các repository chẳng hạn như [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 hoặc mới hơn.
+* Header của GTK+ và libnotify.
 
 Trên Ubuntu, cài đặt các thư viện sau đây:
 
@@ -40,66 +40,66 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Trên các bản phân phối khác có thể cung cấp cá gói tương tự cho việc cài đặt thông qua các phần mềm quản lý gói như pacman. Hoặc cũng có thể biên dịch từ mã nguồn của các gói đó.
 
-## Getting the Code
+## Lấy mã nguồn
 
 ```sh
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Khởi tạo dự án
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Mã khởi tạo dự án sẽ tải tất cả các file phụ thuộc cần thiết và tạo các file dự án. Bạn phải có Python 2.7.x để chạy được mã khởi tạo. Quá trình tải một số file có thể mất nhiều thời gian. Chú ý, chúng tôi sử dụng `ninja` để build Electron, do đó không có `Makefile` được tạo ra.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Biên soạn đa nền tảng
+### Compile đa nền tảng
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Nếu bạn muốn build cho nền tảng `arm` bạn cần cài thêm những phần phụ thuộc sau:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Tương tự cho `arm64`, cài thêm như sau:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+Đồng thời để compile cho `arm` hoặc `ia32`, bạn nên thêm `--target_arch` cho `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Xây dựng
+## Build
 
-Nếu bạn nhắm tới mong muốn xây dựng cả hai phiên bản là `Bản phát hành chính thức` và `Bản debug`:
+Nếu bạn muốn build cả hai phiên bản là `Release` và `Debug`, hãy chạy:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Sau khi chạy file code này sẽ tạo ra file thực thi Electron rất lớn trong thư mục `out/R`. Kích thước file vượt 1,3 GB. Đó là do file thực thi Release cũng chứa thông tin debug. Để giảm kích thước file, hãy chạy `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Nó sẽ giúp đặt các file phụ thuộc có kích thước nhỏ hơn nhiều vào thư mục `dist`. Sau khi chạy `create-dist.py`, bạn có thể xóa file thực thi nặng hơn 1,3GB vẫn còn nằm trong thư mục `out/R`.
 
-You can also build the `Debug` target only:
+Bạn cũng có thể chỉ build `bản Debug` như sau:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Sau khi build xong, bạn sẽ tìm thấy file thực thi debug `electron` trong `out/D`.
 
 ## Dọn dẹp
 
@@ -109,19 +109,19 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Để chỉ dọn thư mục `out` và `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Chú ý:** Cả hai lệnh dọn dẹp trên yêu cầu chạy `khởi tạo dự án` lại trước khi build.
 
 ## Xử lý sự cố
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+Bản build sẵn của `clang` sẽ tìm cách link tới `libtinfo.so.5`. Phụ thuộc vào kiến trúc của máy chủ, symlink tới `libncurses` tương ứng:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Các biến môi trường
 
-Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`

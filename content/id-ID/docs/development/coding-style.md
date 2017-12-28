@@ -1,34 +1,34 @@
-# Coding Style
+# Gaya coding
 
-These are the style guidelines for coding in Electron.
+Berikut adalah pedoman gaya untuk penulisan coding di Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Anda dapat menjalankan `npm run lint` untuk menunjukkan macam gaya yang terdeteksi oleh `cpplint` dan `eslint`.
 
-## C++ and Python
+## C ++ dan Python
 
-For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Untuk C ++ dan Python, kita mengikuti [Gaya coding](http://www.chromium.org/developers/coding-style) Chromium. Anda dapat menggunakan [clang-format](clang-format.md) untuk memformat kode C ++ secara otomatis. Ada juga script `script/cpplint.py` untuk memeriksa apakah semua file sesuai.
 
-The Python version we are using now is Python 2.7.
+Versi Python yang kita gunakan sekarang adalah Python 2.7.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Kode C ++ menggunakan banyak abstraksi dan tipe Chromium, jadi disarankan untuk berkenalan dengan mereka. Tempat yang baik untuk memulai adalah dokumen Chromium 's [Struktur Data dan Abstraksi penting ](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures). Dokumen tersebut menyebutkan beberapa jenis khusus, lingkup jenis-jenis (yang secara otomatis melepaskan ingatan mereka saat berada diluar lingkup), mekanisme logging dll.
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+* Menulis [standar](http://npm.im/standard) gaya JavaScript.
+* Nama file harus dihubungkan dengan `-` bukan `_`, misalnya `nama-file.js` bukannya `nama_file.js`, karena di [github/atom](https://github.com/github/atom) nama-nama modul biasanya dalam bentuk berupa `nama-modul`. Aturan ini hanya berlaku untuk file-file `.js`.
+* Gunakan sintaks ES6 / ES2015 yang lebih baru yang tepat 
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) untuk persyaratan dan konstanta lainnya
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) untuk mendefinisikan variabel
+  * [Fungsi panah](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) daripada fungsi `() { } `
+  * [Template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) daripada penggabungan string menggunakan `+`
 
-## Naming Things
+## Penamaan Sesuatu
 
-Electron APIs uses the same capitalization scheme as Node.js:
+API electron menggunakan skema kapitalisasi yang sama dengan Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Ketika modul itu sendiri adalah sebuah kelas seperti `BrowserWindow`, menggunakan `CamelCase`.
+* Ketika modul adalah seperangkat API, seperti `globalShortcut`, menggunakan `mixedCase`.
+* Ketika API adalah sebuah properti dari objek, dan cukup kompleks untuk berada di bab terpisah seperti `win.webContents`, menggunakan `mixedCase`.
+* Untuk API bukan-modul lain, menggunakan judul alami, seperti `<webview>Tag` atau `Objek Proses`.
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Saat membuat API baru, lebih disukai menggunakan getter dan setter daripada gaya satu-fungsi jQuery. Sebagai contoh, `.getText()` dan `.setText(text)` lebih diutamakan untuk `.text([text])`. Demikianlah sebuah [diskusi](https://github.com/electron/electron/issues/46) pada hal ini.

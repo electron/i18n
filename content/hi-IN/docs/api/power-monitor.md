@@ -1,4 +1,4 @@
-# powerMonitor
+# पॉवर मॉनिटर
 
 > Monitor power state changes.
 

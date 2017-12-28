@@ -58,9 +58,9 @@ Electron 說明文件撰寫指導方針。
 
 ### 頁面標題
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+每一頁的標題都必須是 `require('electron')` 回傳的實際物件名稱，例如 `BrowserWindow`、`autoUpdater` 和 `session`。
 
-Under the page title must be a one-line description starting with `>`.
+頁標題後必須使用單行來描述，並以 `>` 開頭。
 
 以 `session` 為例:
 
@@ -72,7 +72,7 @@ Under the page title must be a one-line description starting with `>`.
 
 ### 模組方法和事件
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+對於類別以外的模組，其方法及事件必須條列在 `## 方法` 及 `## 事件` 章節下。
 
 以 `autoUpdater` 為例:
 
@@ -90,16 +90,16 @@ For modules that are not classes, their methods and events must be listed under 
 
 ### 類別
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### 物件屬性` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* API 類別或屬於該模組的類別，必須條列在 `## Class: 類別名稱` 章節下。
+* 同一頁裡可以有多個類別。
+* 建構式必須用 `###` 級別的標題列出。
+* [靜態方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)必須列在 `### 靜態方法` 章節下。
+* [物件方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)必須列在 `### 物件方法` 章節下。
+* 具有回傳值的方法第一行描述必須是「回傳 `[TYPE]` - 回傳內容描述」 
+  * 如果方法回傳的是 `Object`，其結構可以在冒號及分行符號後以無序的屬性清單描述，格式與函數參數相同。
+* 物件事件必須列在 `### 物件事件` 章節下。
+* 物件屬性必須列在 `### 物件屬性` 章節下。 
+  * 物件屬性必須以「一個 [屬性型別] ...」開頭。
 
 以 `Session` 及 `Cookies` 類別為例:
 
@@ -148,19 +148,19 @@ For modules that are not classes, their methods and events must be listed under 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+標題可以是 `###` 或 `####` 級別，取決於它是屬於模組還是類別的方法。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+對於模組而言，`objectName` 是模組的名稱。對於類別，則必須是類別物件的名稱，而且並且不得與模組名稱相同。
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+例如 `session` 模組下的 `Session` 類別方法必須使用 `ses` 作為 `objectName`。
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+選用的參數以方括號 `[]` 包住，如果這個選用參數跟在其他參數後面，也必須包進對應的逗號:
 
 ```sh
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+方法後接每個參數的詳細資訊。參數的類型可使用一般型別:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -169,15 +169,15 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * 或自訂類別，例如 Electron 的 [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. 可用的值有 `macOS`, `Windows` 及 `Linux`。
+如果某個參數或方法只適用某些平臺，請將這些平臺以空格分隔的斜體清單標註在資料型別之後。 可用的值有 `macOS`, `Windows` 及 `Linux`。
 
 ```markdown
 * `animate` Boolean (選用) _macOS_ _Windows_ - 使用動畫。
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` 型別的參數必須在描述中說明陣列中可能出現的元素型別。
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` 型別的參數說明應清楚說明使用方式，並列出需送進去的參數型別。
 
 ### 事件
 
@@ -193,9 +193,9 @@ The description for `Function` type arguments should make it clear how it may be
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+標題可以是 `###` 或 `####` 級別，取決於它是屬於模組還是類別的屬性。
 
-The arguments of an event follow the same rules as methods.
+事件的參數遵循跟方法相同的規則。
 
 ### 屬性
 

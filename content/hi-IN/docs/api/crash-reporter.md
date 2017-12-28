@@ -1,4 +1,4 @@
-# crashReporter
+# क्रेश रिपोर्टर
 
 > Submit crash reports to a remote server.
 

@@ -18,7 +18,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Статичні Методи
 
 The `Notification` class has the following static methods:
 
@@ -45,11 +45,11 @@ Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### Подія: 'show'
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
@@ -57,15 +57,15 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Подія: 'close'
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -75,7 +75,7 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `reply` String - The string the user entered into the inline reply field
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
@@ -84,10 +84,10 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 Повертає:
 
-* `event` Подія
+* `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Методи Екземпляра
 
 Objects created with `new Notification` have the following instance methods:
 

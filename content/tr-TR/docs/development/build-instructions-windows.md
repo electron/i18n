@@ -1,21 +1,21 @@
 # İnşaa Talimatları (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Electron'u windows üzerinde inşaa etmek için aşağıdaki yönlendirmeleri takip edin.
 
 ## Ön gereklilikler
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
+* Windows 7 / Server 2008 R2 veya üzeri
+* Visual Studio 2015 Update 3 - [ VS 2015 topluluk sürümünü ücretsiz olarak indirin](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](http://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* Tam teşekkül bir dağıtım yaratmayı düşünüyorsanız, `symstore.exe`, `.pdb` dosyalarından sembol pazarı üretmek için kullanılır.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Hali hazırda Windows kurulumunuz mevcut değilse, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) adresinde Windows'un belirli zamanlarda işaretlenmiş versiyonlarını, Electron'u inşaa etmek için kullanabilirsiniz.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Electron'u inşaa etmek tamamen komut satırı betikleri üzerinden yapılır. Visual Studio ile yapmak mümkün değildir. Electron'u herhangi bir editör ile geliştirebilirsiniz ama VisualStudio ile inşaa desteği ileride gelecek.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Not:** Visual Studio inşaa için kullanılmasa da **gerekli** çünkü Visual Studio ile gelen inşaa yardımcılarını kullanıyoruz.
 
 ## Kodu almak
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## İlk işleri halletmek
 
-Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Dikkat ederseniz Electron'u inşaa etmek için `ninja` kullandığımız için herhangi bir Visual Studio projesi yaratılmıyor.
 
 ```powershell
 $ cd electron
@@ -34,33 +34,33 @@ $ python script\bootstrap.py -v
 
 ## İnşaa
 
-Build both Release and Debug targets:
+Hem Dağıtım, hem Hata ayıklama hedefleri için:
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Sadece hata ayıklama hedeflenerek de inşaa mümkün:
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+İnşaa tamamlandıktan sonra, `electron.exe`'yi `out\D` (hata ayıklama hedefi) veya `out\R` (Sürüm hedefi) altında bulabilirsiniz.
 
-## 32bit Build
+## 32bit İnşaa
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+32bit hedefleyerek inşaa etmek için, `--target_arch=ia32` parametresini bootstrap betiğine geçmeniz gerekir:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Diğer inşaa adımları aynı bu şekilde.
 
-## Visual Studio project
+## Visual Studio projesi
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Visual Studio projesi yaratmak için `--msvs` parametresini geçin:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -90,15 +90,15 @@ Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system
 
 ### Command xxxx not found
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+`Command xxxx not found`, gibi bir hata aldıysanız inşaa betiklerini `VS2015 Command Prompt` kullanarak çalıştırmayı deneyebilirsiniz.
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Visual Studio'nun son sürümüne sahip olduğunuzdan emin olun.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Cygwin altında inşaa deniyorsanız, `bootstrap.py`'nin şöyle bir hata çıkardığını görebilirsiniz:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Bu hatanın sebebi Cygwin Python ve Win32 Node beraber kullanıldığında oluşan bir hatadır. Çözüm, Win32 Python ile boostrap betiğini çalıştırmaktır. (Python'u `C:\Python27` altına yüklediğinizi varsayarak):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -123,11 +123,11 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+32bit Node.js'i tekrardan kurmayı deneyin.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Basitçe aşağıdaki dizini oluşturmak [bu hatayı düzeltmeli](http://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
@@ -135,4 +135,4 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+İnşaa için Git Bash kullanıyorsanız, bu hatayı alabilirsiniz. Yerine Powershell veya VS2015 Komut Satırı'nı kullanmalısınız.

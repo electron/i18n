@@ -1,115 +1,117 @@
-# Distribución de la aplicación
+# Distribución de la Aplicación
 
-Para distribiur tu aplicacion con ElectronJS, necesitas descargar los binarios de Electron [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Para distribuir su aplicación con Electron, debe descargar los [binarios precompilados](https://github.com/electron/electron/releases) de Electron. Luego, la carpeta que contiene tu aplicación debe llamarse `aplicación` y colocarse en el directorio de recursos de Electron como se muestra en los siguientes ejemplos. Tenga en cuenta que la ubicación de los binarios precompilados de Electron se indican con `electron/` en los ejemplos siguientes.
 
-On macOS:
+En macOS:
 
 ```text
-electron/Electron.app/Contents/Resources/app/
+electron/Electron.aplicaciones/Contenidos/Recursos/Aplicaciones/
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-On Windows and Linux:
+En Windows y Linux:
 
 ```text
-electron/resources/app
+electron/recursos/aplicaciones
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Luego ejecute `Electron.aplicaciones` (o `electron</ 0> en Linux, <code> electron.exe </ 0> en Windows), y Electron comenzará su aplicación. El directorio <code>electron` será entonces su distribución para entregar a los usuarios finales.
 
-## Packaging Your App into a File
+## Su aplicación se ha empaquetado en un archivo
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Además de enviar su aplicación copiando todos sus archivos fuente, también puede empaquetar su aplicación en un archivo asar</ 0> para evitar exponer el código fuente de su aplicación a los usuarios.</p> 
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Para usar un archivo `asar` para reemplazar la carpeta `aplicación`, debe cambiar el nombre del archivo. archive a `app.asar`, y póngalo en el directorio de recursos de Electron como a continuación, y Electron intentará leer el archivo y comenzar desde allí.
 
-On macOS:
+En macOS:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+En Windows y Linux:
 
 ```text
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Se pueden encontrar más detalles en [Empaquetado de aplicaciones](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Cambio de marca con Binarios descargados
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Después de agrupar su aplicación en Electron, querrá cambiar la marca de Electron antes de distribuirlo a los usuarios.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Puede cambiar el nombre `electron.exe` a cualquier nombre que desee, y editar su icono y otra información con herramientas como [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Puede cambiar el nombre `Electron.ap ` a cualquier nombre que desee, y también debe cambiar el nombre de los campos `CFBundleDisplayName`, `CFBundleIdentifier` y `CFBundleName` en los siguientes archivos:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+También puede cambiar el nombre de la aplicación auxiliar para evitar mostrar `Electron Helper` en el Monitor de actividad, pero asegúrese de haber cambiado el nombre del archivo ejecutable de la aplicación auxiliar.
 
-The structure of a renamed app would be like:
+La estructura de una aplicación renombrada sería como:
 
 ```text
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     ├── MyApp Helper EH.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper EH
+    |       └── MyApp Helper EH
     ├── MyApp Helper NP.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper NP
+    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Puede cambiar el nombre del archivo ejecutable `electrón` a cualquier nombre que desee.
 
-## Packaging Tools
+## Herramientas de empaquetado
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Además de empaquetar su aplicación manualmente, también puede elegir usar herramientas de empaquetados de terceros para hacer el trabajo por usted:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [Electron-builder](https://github.com/electron-userland/electron-builder)
 * [Empaquetador de Electron](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Cambio de marca mediante la reconstrucción de la fuente de Electron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+También es posible cambiar la marca de Electron cambiando el nombre del producto y construirlo desde la fuente. Para hacer esto, necesita modificar el archivo `atom.gyp` y tener una reconstrucción limpia.
 
 ### Crear un tenedor Electronico personalizado
 
-Creando un tenedor personalizado de Electron seguramente no es algo que tendrá que hacer para compilar su aplicación, incluso para aplicaciones de "Nivel de producción". Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Creando un tenedor personalizado de Electron seguramente no es algo que tendrá que hacer para compilar su aplicación, incluso para aplicaciones de "Nivel de producción". Usar una herramienta como `electron-packager` o `electron-fragua</ > te permitirá "Remarcar" Electron sin tener que hacer estos pasos.</p>
 
-Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.
+<p>Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.</p>
 
-#### Creating a Custom Release with surf-build
+<h4>Creating a Custom Release with surf-build</h4>
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+<ol>
+<li><p>Install <a href="https://github.com/surf-build/surf">Surf</a>, via npm:
+<code>npm install -g surf-build@latest`</li> 
 
-2. Create a new S3 bucket and create the following empty directory structure:
+* Create a new S3 bucket and create the following empty directory structure:
     
     ```sh
 - atom-shell/
@@ -117,7 +119,7 @@ Necesita horquilla Electron cuando tienes el código C++ personalizado que han p
   - dist/
 ```
 
-3. Set the following Environment Variables:
+* Set the following Environment Variables:</ol> 
 
 * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols

@@ -1,4 +1,4 @@
-# Coding Style
+# कोडिंग शैली
 
 These are the style guidelines for coding in Electron.
 

@@ -91,7 +91,7 @@ Anda dapat mengubah executable `electron` ke nama apapun yang anda suka.
 
 Selain Kemasan aplikasi anda secara manual, Anda juga dapat memilih untuk menggunakan alat pengemas pihak ketiga untuk melakukan pekerjaan untuk anda:
 
-* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [elektron-penempa](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
@@ -101,7 +101,7 @@ Anda juga dapat mengubah citra electron dengan mengubah nama produk dan membangu
 
 ### Membuat Custom Fork Electron
 
-Menciptakan sebuah kustom fork Electron ini hampir bukan sesuatu yang anda perlu lakukan untuk membangun aplikasi anda, bahkan untuk "Tingkat produksi" aplikasi. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Menciptakan sebuah kustom fork Electron ini hampir bukan sesuatu yang anda perlu lakukan untuk membangun aplikasi anda, bahkan untuk "Tingkat produksi" aplikasi. Dengan menggunakan alat seperti ` electron -packager ` atau ` electron-forge ` akan memungkinkan Anda untuk "Rebrand" Electron tanpa harus melakukan langkah-langkah ini.
 
 Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda patch langsung ke Electron, yang tidak dapat upstreamed atau ditolak dari versi resmi. Sebagai pengelola Electron, kita sangat ingin membuat skenario pekerjaan, silakan coba sesulit yang anda bisa untuk mendapatkan perubahan ke versi resmi Electron, itu akan semakin mudah untuk anda, dan kami menghargai bantuan anda.
 
@@ -131,4 +131,4 @@ Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda pa
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Tunggu waktu yang sangat lama sampai selesai di bangun.
+3. Tunggu waktu yang sangat, sangat lama untuk membangun sampai selesai.

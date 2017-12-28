@@ -1,10 +1,10 @@
-## Class: TouchBarGroup
+## Kelas: TouchBarGroup
 
-> Create a group in the touch bar for native macOS applications
+> Buat grup di bilah sentuh untuk aplikasi macOS asli
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `baru TouchBarGroup(options)` *Experimental*
 
-* `pilihan` Object 
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+* `pilihan` Obyek 
+  * `item` [TouchBar](touch-bar.md) - item untuk menampilkan sebagai sebuah kelompok.

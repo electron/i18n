@@ -41,11 +41,11 @@ app.on('will-quit', () => {
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Функція
+* `callback` Function
 
 Реєструє глобальне сполучення клавіш `accelerator`. `callback` буде викликаний коли зареєстроване сполучення клавіш буде натиснуте користувачем.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Коли акселератор вже зайнятий іншою програмою, виклик просто не вдасться. Така поведінка призначена операційними системами, оскільки вони не хочуть, щоб програми конфліктували через глобальні комбінації клавіш.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
@@ -53,7 +53,7 @@ When the accelerator is already taken by other applications, this call will sile
 
 Повертає `Boolean` - Якщо додаток має зареєстрований `accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Коли акселератор вже зайнятий іншою програмою, виклик поверне `false`. Така поведінка призначена операційними системами, оскільки вони не хочуть, щоб програми конфліктували через глобальні комбінації клавіш.
 
 ### `globalShortcut.unregister(accelerator)`
 

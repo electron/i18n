@@ -1,8 +1,8 @@
-## Class: ClientRequest
+## Clase: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Hace solicitudes HTTP/HTTPS.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 `ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -34,17 +34,17 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Eventos de Instancia
 
-#### Event: 'response'
+#### Evento: 'response'
 
-Returns:
+Devuelve:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Evento: 'login'
 
-Returns:
+Devuelve:
 
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -91,9 +91,9 @@ Emitted just after the last chunk of the `request`'s data has been written into 
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### Evento: 'error'
 
-Returns:
+Devuelve:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Returns:
+Devuelve:
 
 * `statusCode` Integer
 * `method` String
@@ -114,7 +114,7 @@ Returns:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Propiedades de Instancia
 
 #### `request.chunkedEncoding`
 
@@ -122,7 +122,7 @@ A `Boolean` specifying whether the request will use HTTP chunked transfer encodi
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### Métodos de Instancia
 
 #### `request.setHeader(name, value)`
 

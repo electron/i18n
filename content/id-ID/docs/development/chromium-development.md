@@ -1,65 +1,65 @@
-# Chromium Development
+# Pengembangan Chromium
 
-> A collection of resources for learning about Chromium and tracking its development
+> Kumpulan sumber daya untuk belajar tentang Chromium dan melacak perkembangannya
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- [chromiumdev](https://chromiumdev-slack.herokuapp.com) pada Slack
+- [@ChromiumDev](https://twitter.com/ChromiumDev) pada Twitter
+- [@googlechrome](https://twitter.com/googlechrome) pada Twitter
 - [Blog](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
-- [Source Code](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
+- [Pencarian Kode](https://cs.chromium.org/)
+- [Kode sumber](https://cs.chromium.org/chromium/src/)
+- [Kalender Pengembangan dan Info Pelepasan](https://www.chromium.org/developers/calendar)
+- [Kelompok Diskusi](http://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+Lihat juga [V8 Pengembangan ](v8-development.md)
 
-# Chromium development with Electron
+# Chromium pengembangan dengan Elektron
 
-It is possible to debug Chromium with Electron by passing `--build_debug_libcc` to the bootstrap script:
+Hal ini dimungkinkan untuk debug Chromium dengan Electron dengan melewati `--build_debug_libcc ` ke skrip bootstrap:
 
 ```sh
 $ ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-This will download and build libchromiumcontent locally, similarly to the `--build_release_libcc`, but it will create a shared library build of libchromiumcontent and won't strip any symbols, making it ideal for debugging.
+Ini akan mendownload dan membangun libchromiumcontent secara lokal, serupa dengan ` - build_release_libcc `, tapi akan membuat shared library build libchromiumcontent dan tidak akan strip simbol apapun, sehingga ideal untuk debugging.
 
-When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
+Saat dibangun seperti ini, Anda bisa membuat perubahan pada file ` vendor / libchromiumcontent / src ` dan segera membangun kembali dengan cepat:
 
 ```sh
 $ ./script/build.py -c D --libcc
 ```
 
-When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+Saat mengembangkan di linux dengan gdb, disarankan untuk menambahkan indeks gdb ke kecepatan up loading simbol. Ini tidak perlu dijalankan pada setiap bangunan, tapi memang begitu disarankan untuk melakukannya setidaknya sekali untuk mengindeks perpustakaan yang paling banyak dibagikan:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+Membangun konten libchromium memerlukan mesin yang kuat dan membutuhkan waktu lama (meskipun penambahan komponen perpustakaan bersama secara bertahap semakin cepat). Dengan sebuah 8-core / 16-thread Ryzen 1700 CPU clock pada 3ghz, SSD cepat dan 32GB RAM, itu harus memakan waktu sekitar 40 menit. Tidak disarankan untuk membangun dengan kurang dari 16GB dari RAM.
 
 ## Chromium git cache
 
-`depot_tools` has an undocumented option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
+` depot_tools ` memiliki opsi tidak terdokumentasi yang memungkinkan pengembang menetapkan cache global untuk semua objek git dari Chromium + dependensi. Adalah pilihan penggunaan `git clone --shared` untuk menyimpan bandwidth/spasi pada beberapa klon yang sama repositori.
 
-On electron/libchromiumcontent, this option is exposed through the `LIBCHROMIUMCONTENT_GIT_CACHE` environment variable. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. For example:
+Pada elektron/libchromium, pilihan ini terpapar melalui `LIBCHROMIUMCONTENT_GIT_CACHE` variabel lingkungan. Jika Anda berniat untuk memiliki beberapa libchromiumcontent membangun pohon di mesin yang sama (untuk bekerja pada berbeda cabang misalnya), disarankan untuk mengatur variabel untuk mempercepat download sumber Chromium. Sebagai contoh:
 
 ```sh
-$ mkdir ~/.chromium-git-cache
-$ LIBCHROMIUMCONTENT_GIT_CACHE=~/.chromium-git-cache ./script/bootstrap.py -d --build_debug_libcc
+$ mkdir ~ / .chromium-git-cache
+$ LIBCHROMIUMCONTENT_GIT_CACHE = ~ / .chromium-git-cache ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, delete the files ending in `.lock`:
+Jika script bootstrap terganggu saat menggunakan cache git, itu akan pergi cache terkunci Untuk menghapus kunci, hapus file yang diakhiri dengan `.lock`:
 
 ```sh
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 ```
 
-It is possible to share this directory with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+Adalah mungkin untuk berbagi direktori ini dengan mesin lain dengan mengekspornya sebagai Bagian SMB di linux, tapi hanya satu proses / mesin yang bisa menggunakan cache di a waktu. Kunci yang dibuat dengan skrip git-cache akan mencoba untuk mencegah hal ini, tapi mungkin saja tidak bekerja sempurna dalam jaringan.
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+Pada Windows, SMBv2 memiliki cache direktori yang akan menimbulkan masalah dengan git Script cache, jadi perlu untuk menonaktifkannya dengan mengatur kunci registry
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+ke 0. Informasi lebih lanjut: https://stackoverflow.com/a/9935126

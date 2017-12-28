@@ -1,6 +1,6 @@
-Pastikan Anda menggunakan dokumen yang sesuai dengan versi Elektron Anda . Versi nomor harus menjadi bagian dari halaman URL. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Pastikan Anda menggunakan dokumen yang sesuai dengan versi Elektron Anda . Versi nomor harus menjadi bagian dari halaman URL. Jika tidak, Anda mungkin menggunakan dokumentasi cabang pengembangan yang mungkin berisi perubahan API yang tidak kompatibel dengan versi Elektron Anda . Untuk melihat yang lebih tua versi dokumentasi, Anda bisa [telusuri menurut tag](https://github.com/electron/electron/tree/v1.4.0) di GitHub dengan membuka drop-down "Switch branches/tags" dan memilih tag yang cocok dengan versimu.
 
-## FAQ
+## Pertanyaan Umum
 
 Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
@@ -44,60 +44,60 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
 ### Elemen DOM Khusus:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`File` Objek](api/file-object.md)
+* [`<webview>`Tag](api/webview-tag.md)
+* [`window.open` fungsi](api/window-open.md)
 
 ### Modul untuk Proses Utama:
 
 * [aplikasi](api/app.md)
 * [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
+* [TampilanBrowser](api/browser-view.md)
+* [JendelaBrowser](api/browser-window.md)
+* [pelacakan konten](api/content-tracing.md)
 * [dialog](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
-* [ipcMain](api/ipc-main.md)
+* [jalan pintas global](api/global-shortcut.md)
+* [ipc Utama](api/ipc-main.md)
 * [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
+* [ItemMenu](api/menu-item.md)
 * [bersih](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
-* [session](api/session.md)
-* [systemPreferences](api/system-preferences.md)
-* [Tray](api/tray.md)
-* [webContents](api/web-contents.md)
+* [protokol](api/protocol.md)
+* [sesi](api/session.md)
+* [preferensiSistem](api/system-preferences.md)
+* [Nampan](api/tray.md)
+* [kontenWeb](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Modul untuk proses Renderer (halaman Web):
 
-* [desktopCapturer](api/desktop-capturer.md)
+* [penangkapDesktop](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
-* [webFrame](api/web-frame.md)
+* [remot](api/remote.md)
+* [webBingkai](api/web-frame.md)
 
-### Modules for Both Processes:
+### Modul untuk kedua proses:
 
 * [clipboard](api/clipboard.md)
-* [crashReporter](api/crash-reporter.md)
-* [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
-* [shell](api/shell.md)
+* [kerusakanReporter](api/crash-reporter.md)
+* [gambarasli](api/native-image.md)
+* [layar](api/screen.md)
+* [kulit](api/shell.md)
 
-## Development
+## Pengembangan
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
-* [Chromium Development](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [Model coding](development/coding-style.md)
+* [Menggunakan dentang-format pada kode C++ Code](development/clang-format.md)
+* [Struktur direktori sumber kode](development/source-code-directory-structure.md)
+* [Perbedaan teknis untuk NW.js (sebelumnya node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Membangun sistem Tinjauan](development/build-system-overview.md)
+* [Membangun petunjuk (macOS)](development/build-instructions-osx.md)
+* [Membangun petunjuk (Windows)](development/build-instructions-windows.md)
+* [Membangun petunjuk (Linux)](development/build-instructions-linux.md)
+* [Debug petunjuk (macOS)](development/debugging-instructions-macos.md)
+* [Debug petunjuk (Windows)](development/debug-instructions-windows.md)
+* [Setting Up Server simbol di debugger](development/setting-up-symbol-server.md)
+* [Dokumentasi Styleguide](styleguide.md)
+* [Meningkatkan Chrome](development/upgrading-chrome.md)
+* [Kromium pengembangan](development/chromium-development.md)
+* [Pengembangan V8](development/v8-development.md)

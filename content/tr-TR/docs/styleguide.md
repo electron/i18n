@@ -6,7 +6,7 @@ Electron belgeleri yazmak için rehberler.
 
 * Her sayfa en yukarıda `#` seviyesinde bir başlığa sahip olmalıdır.
 * Aynı sayfadaki bölümler `##` seviyesinde başlığa sahip olmalıdır.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
+* Alt bölümler başlığın iç içe derinliğine göre `#` sayısını arttırmak zorundadır.
 * "ve", "ile" gibi bağlaçlar dışında sayfanın başlığındaki tüm kelimeler büyük harfle başlamalıdır.
 * Bölüm başlıklarının sadece ilk harfi büyük harfli olmalıdır.
 
@@ -44,37 +44,37 @@ API referansları için bazı istisnalar mevcut.
 
 * Kod bloklarında `sh` yerine `cmd` kullanın. (Sözdizimi işaretleyicisinden dolayı).
 * Satırlar 80. karakterde bitmelidir.
-* No nesting lists more than 2 levels (due to the markdown renderer).
+* İç içe listeleri 2'den fazla kademeyi listelemez (indirim işleyici nedeniyle).
 * Tüm `js` ve `javascript` kod blokları [standard-markdown](http://npm.im/standard-markdown) ile kontrol edilir.
 
 ## Kelime seçimi
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Çıktıları tanımlarken "would" yerine "will" kullanın.
+* "in the process" yerine "on" 'u tercih edin.
 
-## API references
+## API başvuruları
 
-The following rules only apply to the documentation of APIs.
+Aşağıdaki kurallar yalnızca API'ların belge işlemi için geçerlidir.
 
-### Page title
+### Sayfa başlığı
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Her sayfa başlık olarak `('electron') gerektirir`, tarafından döndürülen gerçek nesne adını kullanmalıdır `BrowserWindow`, `autoUpdater` ve `session` gibi.
 
-Under the page title must be a one-line description starting with `>`.
+Sayfa başlığı altında `>` ile başlayan tek satırlık bir açıklama olmalıdır.
 
-Using `session` as example:
+Örnek olarak `session` kullanma:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Tarayıcı oturumlarını, çerezleri, önbelleği, proxy ayarlarını vb. Yönetin.
 ```
 
-### Module methods and events
+### Modül yöntem ve etkinlikleri
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` ve `##Events` bölümlerinin altında listelenmelidir.
 
-Using `autoUpdater` as an example:
+`autoUpdater` ögesini örnek olarak kullanmak:
 
 ```markdown
 # autoUpdater
@@ -88,20 +88,20 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Sınıflar
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* API sınıfları veya modüllerin bir parçası olan sınıflar bir `## Class: TheClassName` bölümü.
+* Bir sayfa birden fazla sınıfa sahip olabilir.
+* Kurucular `###` düzeyinde başlıklarla listelenmelidir.
+* [tatic Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) `### Static Methods` bölümünün altında listelenmelidir.
+* [nstance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) bir `### Instance Methods` bölümünün altında listelenmelidir.
+* Bir getiri değeri olan tüm yöntemlerin açıklamalarını "getiriler ile başlatması gerekir `[TYPE]` -Getiri tanımı" 
+  * Eğer yöntem `Nesne`'ye dönerse, yapısı iki noktadan sonra bir satır sonu karakteriyle, ardından da işlev parametreleriyle aynı tarzda sırasız bir özellik listesi kullanarak belirlenebilir.
+* Örnek Olayları `### Instance Events` bölümünün altında listelenmelidir.
+* Örnek Özellikler aşağısında listelenmelidir `### Instance Properties` bölüm. 
+  * Örnek özellikleri "Bir [Özellik Türü]..." ile başlamalıdır
 
-Using the `Session` and `Cookies` classes as an example:
+Örnek olarak `Session` ve `Cookies` sınıflarını kullanmak:
 
 ```markdown
 # session
@@ -142,42 +142,42 @@ Metodların bölümü aşağıdaki formda olmak zorundadır:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `required` String - Parametre açıklaması
+* `optional` Integer (isteğe bağlı) - Başka bir parametre açıklaması
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Bir modülün veya bir sınıfın bir metodu olup olmadığına bağlı olarak başlık `###` veya `####` olabilir.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Modüller için `objectName` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Örneğin, `Session`modülü altındaki `session` oturum sınıfının yöntemleri `objectName` olarak `ses` kullanmalıdır.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+İsteğe bağlı bağımsız değişkenler isteğe bağlı bağımsız değişkeni çevreleyen köşeli parantezler `[]` ile ve isteğe bağlı bağımsız değişkenin başka bir bağımsız değişkeni izlemesi durumunda gerekli virgülle gösterilir:
 
 ```sh
-required[, optional]
+gerekli[, isteğe bağlı]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Yöntemin altında her değişken hakkında daha ayrıntılı bilgi var. Bağımsız değişken türü, ortak türlerle belirtilir:
 
 * [`Dize`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Sayı`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Nesne`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Dizi`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boole değeri`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Ya da Electron'un [`WebContent`](api/web-contents.md) gibi özel bir tür
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Bir bağımsız değişken veya yöntem belirli platformlara özgü ise, bu platformalar veri türünün ardında boşlukla sınırlanmış italikleşmiş bir liste kullanılarak ifade edilir. Değer `macOS`, `Windows` veya `Linux` olabilir.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animasyon ekle.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` tür bağımsız değişkenleri, dizilimin hangi açıklayıcı öğeye dahil edilebileceğini belirtmelidir.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` tür bağımsız değişkenleri için açıklamanın, nasıl çağrılabileceğini açıklığa kavuşturması ve ona iletilecek parametrelerin türlerini listelemesi gerekir.
 
 ### Olaylar
 
@@ -193,7 +193,7 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Başlık bir modülün veya bir sınıfın bir etkinliğinin olup olmadığına bağlı olan `###` `####` düzeyleri olabilir.
 
 Bir olayda ki argümanlar metodların takip ettiği kurallar ile aynıdır.
 
@@ -207,8 +207,8 @@ Metodların bölümü aşağıdaki formda olmak zorundadır:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Başlığın bir modülün veya bir sınıfın özelliği olup olmadığına bağlı olan `###` `####` düzeyleri olabilir.
 
 ## Belge Çevirileri
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Bakınız [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)

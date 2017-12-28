@@ -34,15 +34,15 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Örnek etkinlikler
 
-#### Event: 'response'
+#### Etkinlik: 'tepki'
 
 Returns:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Etkinlik: 'giriş'
 
 Returns:
 
@@ -83,11 +83,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Etkinlik: 'bitiş'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### Etkinlik: 'iptal etmek'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
@@ -99,11 +99,11 @@ Returns:
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
-#### Event: 'close'
+#### Etkinlik: 'kapalı'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### Etkinlik: 'yönlendirme'
 
 Returns:
 
@@ -114,15 +114,15 @@ Returns:
 
 Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
 
-### Instance Properties
+### Örnek özellikleri
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Varsayılan yanlış. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
-### Instance Methods
+### Örnek yöntemleri
 
 #### `request.setHeader(name, value)`
 

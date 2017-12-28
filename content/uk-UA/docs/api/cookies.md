@@ -35,7 +35,7 @@ The following events are available on instances of `Cookies`:
 
 #### Event: 'changed'
 
-* `event` Подія
+* `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.
@@ -47,7 +47,7 @@ The following events are available on instances of `Cookies`:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instance Methods
+### Методи Екземпляра
 
 The following methods are available on instances of `Cookies`:
 

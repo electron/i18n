@@ -23,7 +23,7 @@ Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. On Windows and 
 
 In most cases, you should just do everything in the `ready` event handler.
 
-### Event: 'ready'
+### Etkinlik: 'hazır'
 
 Returns:
 
@@ -47,7 +47,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-### Event: 'will-quit'
+### Etkinlik: 'çıkış-yapılacak'
 
 Returns:
 
@@ -57,7 +57,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
-### Event: 'quit'
+### Etkinlik: 'çıkış'
 
 Returns:
 
@@ -128,7 +128,7 @@ Returns:
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### olay: 'tarayıcı-pencere-odak'
 
 Returns:
 
@@ -207,13 +207,13 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Etkinlik: 'giriş'
 
 Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Nesne 
+* `istek` Nesne 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -256,7 +256,7 @@ Returns:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Emitted when Chrome's accessibility support changes. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Metodlar
 
@@ -280,7 +280,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `args` String[] - (optional)
   * `execPath` String (optional)
 
@@ -349,7 +349,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `size` Dize 
     * `small` - 16x16
     * `normal` - 32x32
@@ -610,7 +610,7 @@ Returns `String` - The type of the currently running activity.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `kimlik` dizesi
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
@@ -670,7 +670,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -696,7 +696,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Örneğin:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -787,11 +787,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Dock simgesini gizler.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Dock simgesini gösterir.
 
 ### `app.dock.isVisible()` *macOS*
 

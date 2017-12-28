@@ -1,6 +1,6 @@
-# `sandbox` Option
+# `sanal alan` Seçeneği
 
-> Create a browser window with a renderer that can run inside Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
+> Chromium OS sanal alanında çalışabilen oluşturucuya sahip bir tarayıcı penceresi oluşturun. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
 
 One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
 
@@ -14,7 +14,7 @@ A sandboxed renderer doesn't have a node.js environment running and doesn't expo
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
-## Example
+## Örnek
 
 To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
 

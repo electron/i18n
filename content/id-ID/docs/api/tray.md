@@ -1,169 +1,141 @@
-## Kelas: Baki
+## Kelas: nampan
 
 > Tambahkan ikon dan menu konteks ke area pemberitahuan sistem.
 
 Proses:  Utama </ 0></p> 
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
-
-let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
-  ])
-  tray.setToolTip('This is my application.')
-  tray.setContextMenu(contextMenu)
-})
+const {app, Menu, Tray} = require('electron') Biarkan nampan = null app.on ('siap', () = > {nampan = baru Tray('/path/to/my/icon') const contextMenu = tray.setToolTip Menu.buildFromTemplate ([{label: 'Item1', type: 'radio'}, {label: 'Item2', type: 'radio'}, {label: 'Item3', type: 'radio', checked: true}, {label: 'Item4', type: 'radio'}]) (' Inilah saya  aplikasi.')   tray.setContextMenu(contextMenu)})
 ```
 
-**Keterbatasan platform**
+**Keterbatasan platform:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* Indikator aplikasi hanya akan ditampilkan bila memiliki menu konteks.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Pada Linux indikator app akan digunakan jika didukung, sebaliknya `GtkStatusIcon` akan digunakan sebagai gantinya.
+* Pada distribusi Linux yang hanya memiliki indikator app mendukung, Anda harus menginstal `libappindicator1` untuk membuat ikon tray yang bekerja.
+* Indikator App akan hanya ditampilkan ketika itu mempunyai menu konteks.
+* Ketika app indikator yang digunakan pada Linux, acara `Klik` akan diabaikan.
+* Pada Linux dalam rangka untuk perubahan yang dibuat ke setiap `MenuItem` s untuk mengambil efek, Anda harus memanggil `setContextMenu` lagi. Sebagai contoh:
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
-
-let appIcon = null
-app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'}
-  ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+const {app, Menu, Tray} = require('electron') Biarkan appIcon = null app.on ('siap', () = > {appIcon = baru Tray('/path/to/my/icon') const contextMenu = Menu.buildFromTemplate ([{label: 'Item1', type: 'radio'}, {label: 'Item2', type: 'radio'}]) / / membuat perubahan konteks menu contextMenu.items[1].checked = false / / menyebutnya lagi untuk Linux karena kami diubah konteks menu appIcon.setContextMenu(contextMenu)})
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Pada Windows disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tidak harus bergantung pada acara `Klik` dan selalu lampirkan menu konteks ke tray icon.
 
-### `new Tray(image)`
+### `tray baru(image)`
 
 * ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
 </ul>
 
-<p>Creates a new tray icon associated with the <code>image`.</p> 
+<p>Buatlah sebuah ikon tray baru yang terkait dengan <code>image`.</p> 
   ### Instance Events
   
-  The `Tray` module emits the following events:
+  Modul `Tray` memancarkan peristiwa berikut:
   
   #### Acara : 'klik'
-  
-  * `event` Event 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-  
-  Emitted when the tray icon is clicked.
-  
-  #### Event: 'right-click' *macOS* *Windows*
-  
-  * `event` Event 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
-  
-  Dibunyikan ketika ikon tray benar diklik.
-  
-  #### Event: 'double-click' *macOS* *Windows*
   
   * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
-  * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
   
-  Emitted when the tray icon is double clicked.
+  Emitted saat ikon baki diklik.
   
-  #### Event: 'balloon-show' *Windows*
+  #### Event: klik 'kanan' *macOS* *Windows*
   
-  Emitted when the tray balloon shows.
+  * `peristiwa` Peristiwa 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
   
-  #### Event: 'balloon-click' *Windows*
+  Dibunyikan ketika ikon tray benar diklik.
   
-  Emitted when the tray balloon is clicked.
+  #### Event: 'Klik dua kali' *macOS* *Windows*
   
-  #### Event: 'balloon-closed' *Windows*
+  * `peristiwa` Peristiwa 
+    * `altKey` Boolean
+    * `shiftKey` Boolean
+    * `ctrlKey` Boolean
+    * `metaKey` Boolean
+  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
   
-  Emitted when the tray balloon is closed because of timeout or user manually closes it.
+  Dipancarkan saat ikon baki diklik dua kali.
   
-  #### Event: 'drop' *macOS*
+  #### Event: 'balon-show' *Windows*
   
-  Emitted when any dragged items are dropped on the tray icon.
+  Emitted saat balon baki menunjukkan.
   
-  #### Event: 'drop-files' *macOS*
+  #### Event: 'klik-balloon' *Windows*
+  
+  Emitted saat balon nampan diklik.
+  
+  #### Event: 'balon-tertutup' *Windows*
+  
+  Dipancarkan ketika balon nampan ditutup karena timeout atau pengguna secara manual menutup itu.
+  
+  #### Event: 'turun' *macOS*
+  
+  Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
+  
+  #### Event: 'drop-file' *macOS*
   
   * ` event </ 0>  Acara</li>
-<li><code>files` String[] - The paths of the dropped files.
+<li><code>file` String [] - path file menjatuhkan.
   
   Disuarakan saat file terseret dijatuhkan di ikon baki.
   
-  #### Event: 'drop-text' *macOS*
+  #### Event: 'drop-teks' *macOS*
   
   * ` event </ 0>  Acara</li>
-<li><code>text` String - the dropped text string
+<li><code>teks` String - string teks menjatuhkan
   
-  Emitted when dragged text is dropped in the tray icon.
+  Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
   
-  #### Event: 'drag-enter' *macOS*
+  #### Event: 'Masukkan tarik' *macOS*
   
-  Emitted when a drag operation enters the tray icon.
+  Dibunyikan apabila operasi drag yang memasuki ikon tray.
   
-  #### Event: 'drag-leave' *macOS*
+  #### Event: 'drag-meninggalkan' *macOS*
   
-  Emitted when a drag operation exits the tray icon.
+  Dibunyikan apabila operasi tarik keluar ikon tray.
   
   #### Event: 'drag-end' *macOS*
   
-  Emitted when a drag operation ends on the tray or ends at another location.
+  Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi lain.
   
-  #### Event: 'mouse-enter' *macOS*
+  #### Event: 'masuk mouse' *macOS*
   
-  * `event` Event 
+  * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
-  * `position` [Point](structures/point.md) - The position of the event
+  * `posisi` [Point](structures/point.md) - posisi acara
   
-  Emitted when the mouse enters the tray icon.
+  Dibunyikan apabila operasi drag yang memasuki ikon tray.
   
-  #### Event: 'mouse-leave' *macOS*
+  #### Acara: 'pindah' *macOS*
   
-  * `event` Event 
+  * `peristiwa` Peristiwa 
     * `altKey` Boolean
     * `shiftKey` Boolean
     * `ctrlKey` Boolean
     * `metaKey` Boolean
-  * `position` [Point](structures/point.md) - The position of the event
+  * `posisi` [Point](structures/point.md) - posisi acara
   
-  Emitted when the mouse exits the tray icon.
+  Dibunyikan apabila operasi drag yang memasuki ikon tray.
   
   ### Metode Instance
   
-  The `Tray` class has the following methods:
+  Itu `net` modul memiliki metode berikut:
   
   #### `tray.destroy()`
   
@@ -189,22 +161,22 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
       
       #### `tray.setTitle(title)` *macOS*
       
-      * `title` String
-      
-      Sets the title displayed aside of the tray icon in the status bar.
-      
-      #### `tray.setHighlightMode(mode)` *macOS*
-      
-      * `mode` String - Highlight mode with one of the following values: 
-        * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-        * `always` - Always highlight the tray icon.
-        * `never` - Never highlight the tray icon.
-      
-      Sets when the tray's icon background becomes highlighted (in blue).
-      
-      **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-      
-      ```javascript
+      * ` title </ 0>  String</li>
+</ul>
+
+<p>Sets the title displayed aside of the tray icon in the status bar.</p>
+
+<h4><code>tray.setHighlightMode(mode)` *macOS*</h4> 
+        * `modus` String - Highlight mode with one of the following values: 
+          * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+          * `always` - Always highlight the tray icon.
+          * `never` - Never highlight the tray icon.
+        
+        Sets when the tray's icon background becomes highlighted (in blue).
+        
+        **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+        
+        ```javascript
 const {BrowserWindow, Tray} = require('electron')
 
 const win = new BrowserWindow({width: 800, height: 600})
@@ -220,37 +192,37 @@ win.on('hide', () => {
   tray.setHighlightMode('never')
 })
 ```
-  
-  #### `tray.displayBalloon(options)` *Windows*
-  
-  * `pilihan` Object 
-    * `icon` ([NativeImage](native-image.md) | String) - (optional)
-    * `title` String - (optional)
-    * `content` String - (optional)
-  
-  Displays a tray balloon.
-  
-  #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-  
-  * `menu` Menu (optional)
-  * `position` [Point](structures/point.md) (optional) - The pop up position.
-  
-  Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
-  
-  The `position` is only available on Windows, and it is (0, 0) by default.
-  
-  #### `tray.setContextMenu(menu)`
-  
-  * ` menu </ 0> Menu</li>
+    
+    #### `tray.displayBalloon(options)` *Windows*
+    
+    * `pilihan` Obyek 
+      * `icon` ([NativeImage](native-image.md) | String) - (optional)
+      * `title` String - (optional)
+      * `content` String - (optional)
+    
+    Displays a tray balloon.
+    
+    #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+    
+    * ` teks ` String (opsional)
+    * `position` [Point](structures/point.md) (optional) - The pop up position.
+    
+    Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+    
+    The `position` is only available on Windows, and it is (0, 0) by default.
+    
+    #### `tray.setContextMenu(menu)`
+    
+    * ` menu </ 0> Menu</li>
 </ul>
 
 <p>Sets the context menu for this icon.</p>
 
 <h4><code>tray.getBounds()` *macOS* *Windows*</h4> 
-    Returns [`Rectangle`](structures/rectangle.md)
-    
-    The `bounds` of this tray icon as `Object`.
-    
-    #### `tray.isDestroyed()`
-    
-    Returns `Boolean` - Whether the tray icon is destroyed.
+      Returns [`Rectangle`](structures/rectangle.md)
+      
+      The `bounds` of this tray icon as `Object`.
+      
+      #### `tray.isDestroyed()`
+      
+      Returns `Boolean` - Whether the tray icon is destroyed.

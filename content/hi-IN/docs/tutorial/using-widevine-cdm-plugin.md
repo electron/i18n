@@ -1,4 +1,4 @@
-# Using Widevine CDM Plugin
+# वाइडवाइन सीडीएम प्लगइन का इस्तेमाल
 
 In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
 

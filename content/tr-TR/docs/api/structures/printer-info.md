@@ -1,11 +1,11 @@
-# PrinterInfo Object
+# Yazıcı bilgi nesnesi
 
 * `name` String
 * `description` String
 * `status` Number
 * `isDefault` Boolean
 
-## Example
+## Örnek
 
 Below is an example of some of the additional options that may be set which may be different on each platform.
 

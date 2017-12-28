@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Процес: [Renderer](../glossary.md#renderer-process)
 
 An example of zooming current page to 200%.
 
@@ -97,7 +97,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (optional) 
+* `options` Object (опціонально) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
@@ -134,7 +134,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Повертає `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)

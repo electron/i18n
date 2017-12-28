@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Variáveis de ambiente
 
-Além de `CC` e `CXX`, você também pode personalizar a configuração de compilação após a configuração das variáveis de ambiente:
+Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`

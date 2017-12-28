@@ -1,17 +1,17 @@
-## Class: BrowserView
+## Clase: BrowserView
 
-> Create and control views.
+> Crear y controlar vistas.
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-## Example
+## Ejemplo
 
 ```javascript
-// In the main process.
+// En el proceso principal.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -38,11 +38,11 @@ view.webContents.loadURL('https://electron.atom.io')
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Íntegro
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Instance Properties
+### Propiedades de Instancia
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -54,7 +54,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### Métodos de Instancia
 
 Objects created with `new BrowserView` have the following instance methods:
 

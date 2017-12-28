@@ -1,10 +1,10 @@
-# Notification
+# Notificación
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
-## Using in the renderer process
+## Usando el proceso de renderizado
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
@@ -12,13 +12,13 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Métodos Estáticos
 
 The `Notification` class has the following static methods:
 
@@ -39,7 +39,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
 
-### Instance Events
+### Eventos de Instancia
 
 Objects created with `new Notification` emit the following events:
 
@@ -47,25 +47,25 @@ Objects created with `new Notification` emit the following events:
 
 #### Event: 'show'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
 #### Event: 'click'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when the notification is clicked by the user.
 
 #### Event: 'close'
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -73,21 +73,21 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' *macOS*
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `reply` String - The string the user entered into the inline reply field
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
 #### Event: 'action' *macOS*
 
-Returns:
+Devuelve:
 
-* `event` Event
+* `evento` Evento
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Métodos de Instancia
 
 Objects created with `new Notification` have the following instance methods:
 

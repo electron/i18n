@@ -8,7 +8,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## Örnek
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -38,7 +38,7 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## CSS Styling Notes
+## CSS stil notları
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
@@ -57,7 +57,7 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## Etiket özellikleri
 
 The `webview` tag has the following attributes:
 
@@ -89,7 +89,7 @@ When this attribute is present the `webview` container will automatically resize
 
 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
-### `plugins`
+### `eklentiler`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -227,7 +227,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**Örnek**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -239,7 +239,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -264,7 +264,7 @@ Returns `Boolean` - Whether guest page is still loading resources.
 
 Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
 
-### `<webview>.stop()`
+### `<webview>.dur()`
 
 Stops any pending navigation.
 
@@ -361,8 +361,8 @@ Returns `Boolean` - Whether DevTools window of guest page is focused.
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 
 Starts inspecting element at position (`x`, `y`) of guest page.
 
@@ -374,25 +374,25 @@ Opens the DevTools for the service worker context present in the guest page.
 
 * `muted` Boolean
 
-Set guest page muted.
+Misafir sayfası sessiz.
 
 ### `<webview>.isAudioMuted()`
 
 Returns `Boolean` - Whether guest page has been muted.
 
-### `<webview>.undo()`
+### `<webview>.geri almak()`
 
 Executes editing command `undo` in page.
 
-### `<webview>.redo()`
+### `<webview>.yeniden yapmak()`
 
 Executes editing command `redo` in page.
 
-### `<webview>.cut()`
+### `<webview>.kes()`
 
 Executes editing command `cut` in page.
 
-### `<webview>.copy()`
+### `<webview>.kopyala()`
 
 Executes editing command `copy` in page.
 
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -457,7 +457,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -536,22 +536,22 @@ Returns:
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### Olay: 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### Olay: 'did-fail-load'
 
 Returns:
 
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* `errorCode` Tamsayı
+* `errorDescription` Koşul
+* `validatedURL` Koşul
 * `isMainFrame` Boolean
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### Olay: 'did-frame-finish-load'
 
 Returns:
 
@@ -559,40 +559,40 @@ Returns:
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Olay: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Olay: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Olay: 'did-get-response-details'
 
 Returns:
 
 * `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
+* `newURL` Dize
+* `originalURL` Dize
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
 * `referrer` String
-* `headers` Object
-* `resourceType` String
+* `headers` Nesne
+* `resourceType` Dize
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Olay: 'did-get-redirect-request'
 
 Returns:
 
-* `oldURL` String
-* `newURL` String
+* `oldURL` Dize
+* `newURL` Dize
 * `isMainFrame` Boolean
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### Olay: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -605,7 +605,7 @@ Returns:
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### Olay: 'page-favicon-updated'
 
 Returns:
 
@@ -641,11 +641,11 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Etkinlik: 'sayfa içinde kurmak'
 
 Returns:
 
-* `result` Nesne 
+* `sonuç` Nesne 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -664,13 +664,13 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Olay: 'new-window'
 
 Returns:
 
 * `url` String
-* `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `frameName` Dize
+* `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
@@ -689,13 +689,13 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Olay: 'will-navigate'
 
 Returns:
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -703,28 +703,28 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### Olay: 'did-navigate'
 
 Returns:
 
 * `url` String
 
-Emitted when a navigation is done.
+Bir gezinme yapıldığında ortaya çıkar.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
-### Event: 'did-navigate-in-page'
+### Olay: 'did-navigate-in-page'
 
 Returns:
 
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
-### Event: 'close'
+### Etkinlik: 'kapat'
 
 Fired when the guest page attempts to close itself.
 
@@ -766,11 +766,11 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Etkinlik: 'çöktü'
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### Etkinlik: 'gpu-çöktü'
 
 Fired when the gpu process is crashed.
 
@@ -783,7 +783,7 @@ Returns:
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### Etkinlik: 'yıkıldı'
 
 Fired when the WebContents is destroyed.
 
@@ -791,7 +791,7 @@ Fired when the WebContents is destroyed.
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Etkinlik: 'medya-duraklatıldı'
 
 Emitted when media is paused or done playing.
 

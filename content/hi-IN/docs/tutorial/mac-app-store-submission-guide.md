@@ -1,4 +1,4 @@
-# Mac App Store Submission Guide
+# मैक एप्प स्टोर सबमिशन गाइड
 
 Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
@@ -144,8 +144,8 @@ After these steps, you can [submit your app for review](https://developer.apple.
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
-* `crashReporter`
-* `autoUpdater`
+* `क्रेश रिपोर्टर`
+* `स्वतः अपडेटर`
 
 and the following behaviors have been changed:
 

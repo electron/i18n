@@ -12,51 +12,51 @@ Biasanya ini bukan masalah untuk aplikasi desktop karena kode selalu bisa diperc
 
 Perender sandbox tidak memiliki sebuah lingkungan node.js yang berjalan dan tidak mengekspos API node.js JavaScript ke kode klien. Satu-satunya pengecualian adalah skrip yang sudah termuat (preload), yang memiliki akses ke sebuah subset dari API perender elektron.
 
-Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+Perbedaan lainnya adalah perender yang disanbox tidak memodifikasi API bawaan JavaScript yang manapun. Konsekwensinya, beberapa API seperti `window.open` akan bekerja sebagaimana mereka lakukan di chromium (contohnya mereka tidak mengembalikan nilai `BrowserWindowProxy`).
 
 ## Contoh
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+Untuk membuat jendela yang disanbox, secara sederhana saja lewatkan nilai `sandbox: true` ke `webPreferences`:
 
 ```js
-let win
+let win 
 app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      sandbox: true
-    }
-  })
-  w.loadURL('http://google.com')
+   win = new BrowserWindow({     
+     webPreferences: {       
+        sandbox: true     
+      }   
+    })   
+   w.loadURL('http://google.com') 
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+Dalam kode di atas `BrowserWindow` yang dibuat mempunyai node.js yang tidak aktif dan berkomunikasi hanya melalui IPC. Kegunaan dari opsi ini adalah menghentikan electron dari membuat sebuah runtime node.js di dalam perender. Juga, di jendela baru ini `window.open` mengikuti perilaku asli (secara bawaan electron menciptakan sebuah `BrowserWindow` dan mengembalikan nilai proxy kepadanya melalui `window.open`).
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+Penting untuk dicatat bahwa opsi ini saja sendiri tidak akan mengaktifkan sanbox yang dipaksa oleh OS. Untuk mengaktifkan fitur ini, argumen baris perintah `--enable-sandbox` harus dilewatkan ke electron, yang akan memaksa `sandbox: true` untuk semua kejadian `BrowserWindow`.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+Untuk mengaktifkan sandbox yang dipaksa oleh OS pada `BrowserWindow` atau `webview` yang diproses dengan `sandbox:true` tanpa menyebabkan keseluruhan aplikasi untuk berada di sandbox, `--enable-mixed-sandbox` argumen baris perintah harus dilewatkan ke electron. Opsi tersebut pada saat sekarang hanya didukung pada platform macOS dan Windows.
 
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // tidak perlu untuk melewatkan `sandbox: true` karena `--enable-sandbox` diaktifkan.
   win = new BrowserWindow()
   w.loadURL('http://google.com')
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+Perhatikan bahwa tidak cukup untuk memanggil `app.commandLine.appendSwitch('--enable-sandbox')`, karena kode startup elektron/node yang berjalan setelahnya memungkinkan untuk melakukan perubahan pada pengaturan kotak sandbox chromium. Pergantian harus dilewatkan ke elektron pada baris-perintah:
 
     electron --enable-sandbox app.js
     
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
+Adalah tidak mungkin untuk memiliki OS sandbox yang aktif hanya untuk beberapa perender, jika `--enable-sandbox` diaktifkan, jendela elektron normal tidak dapat dibuat.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+Jika Anda perlu mencampur peranti yang disandbox dan yang tidak-disandboxed dalam satu aplikasi, cukup hilangkan argumen `--enable-sandbox`. Tanpa argumen ini, jendela yang dibuat dengan `sandbox: true` masih akan memiliki node.js yang dinonaktifkan dan berkomunikasi hanya melalui IPC, yang mana dengan sendirinya sudah mendapatkan keuntungan dari keamanan POV.
 
-## Preload
+## Pemuatan Awal
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Sebuah aplikasi dapat membuat penyesuaian pada perender yang disandbox menggunakan skrip pramuat. Berikut adalah contohnya:
 
 ```js
 let win
@@ -71,16 +71,14 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+dan preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// File ini dimuat kapanpun sebuah konteks javascript diciptakan. Ini dijalankan dalam sebuah // lingkup privat yang dapat mengakses sebuah subset API perender electron. Kita harus // berhati-hati untuk tidak membocorkan obyek apapun ke dalam lingkup global!
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
-// read a configuration file using the `fs` module
+// membaca file konfigurasi menggunakan modul `fs`
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -97,40 +95,40 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Hal penting untuk dicatat dalam skrip pramuat:
 
-- Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
+- Meskipun perender yang disandbox tidak memiliki node.js yang berjalan, ia tetap memiliki akses ke lingkungan mirip-node yang terbatas: `Buffer `, `process `, `setImmediate` dan `require` tersedia.
+- Skrip pramuat dapat mengakses secara langsung seluruh API dari proses utama melalui modul `remote` dan `ipcRenderer`. Ini adalah bagaimana `fs` (yang digunakan di atas) dan modul-modul lain diimplementasikan. Mereka adalah proxy-proxy untuk mengendalikan rekanan dalam proses utama.
+- Skrip pramuat harus dimuat dalam satu skrip tunggal, namun memungkinkan untuk memiliki kode pramuat kompleks yang disusun dengan beberapa modul dengan menggunakan alat seperti browserify, seperti yang dijelaskan di bawah ini. Pada kenyataanya, browserify sudah digunakan oleh electron untuk menyediakan lingkungan mirip-node untuk skrip pramuat.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Untuk membuat bundel browserify dan menggunakannya sebagai skrip pramuat, sesuatu seperti berikut ini harus digunakan:
 
     browserify preload/index.js \
       -x electron \
       -x fs \
-      --insert-global-vars=__filename,__dirname -o preload.js
+      --insert-global-vars=__filena,__dirname -o preload.js
     
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+Bendera `-x` harus digunakan bersama modul yang dibutuhkan yang sudah terekspos dalam lingkup pramuat, dan memberitahukan browserify untuk menggunakan fungsi `require` terlampir, untuknya. `--insert-global-vars` akan memastikan bahwa `proses`, `Buffer` dan `setImmediate` juga diambil dari lingkup yang melekat (biasanya browserify menyuntikkan kode untuk mereka).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Saat ini fungsi `require` yang disediakan dalam lingkup pramuat memaparkan modul sebagai berikut:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `elektron` (crashReporter, remote dan ipcRenderer)
 - `fs`
 - `os`
-- `timers`
+- `timer`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+Lebih lanjut boleh ditambahkan lagi sesuai dengan kebutuhan untuk mengekspos lebih banyak API elektron di sandbox, namun setiap modul dalam proses utama sudah dapat digunakan melalui `electron.remote.require`.
 
 ## Status
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Silahkan gunakan opsi `sandbox` dengan hati-hati, karena fitur ini masih fitur percobaan. Kami masih belum mengetahui implikasi keamanan dari pengeksposan beberapa API perender electron terhadap skrip pramuat, namun berikut ini beberapa hal yang perlu dipertimbangkan sebelum melakukan render terhadap konten yang tidak terpercaya:
 
-- A preload script can accidentaly leak privileged APIs to untrusted code.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
+- Skrip pramuat dapat secara tidak sengaja membocorkan API istimewa ke kode yang tidak terpercaya.
+- Beberapa bug pada mesin V8 memungkinkan kode berbahaya mengakses API pramuat perender, yang secara efektif memberikan akses penuh ke sistem melalui modul `remote`.
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+Karena merender konten yang tidak tepercaya di wilayah elektron masih belum dipetakan, API yang terpapar pada skrip pramuat sandbox harus dianggap lebih tidak stabil daripada API elektron lainnya, dan mungkin telah melanggar perubahan untuk memperbaiki masalah keamanan.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Satu peningkatan yang direncanakan yang akan sangat meningkatkan keamanan adalah dengan memblokir pesan IPC dari perender yang disandbox secara bawaan, memungkinkan proses utama menentukan secara eksplisit serangkaian pesan yang diizinkan dikirim oleh perender.

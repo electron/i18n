@@ -6,7 +6,7 @@
 
 The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
-## Sending Messages
+## メッセージ送信
 
 It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
 
@@ -17,31 +17,31 @@ It is also possible to send messages from the main process to the renderer proce
 An example of sending and handling messages between the render and main processes:
 
 ```javascript
-// In main process.
+// メインプロセス
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // "ping"を表示
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
+  console.log(arg)  // "ping"を表示
   event.returnValue = 'pong'
 })
 ```
 
 ```javascript
-// In renderer process (web page).
+// レンダラープロセス（ウェブページ）
 const {ipcRenderer} = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // "pong"を表示
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // "pong"を表示
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Methods
+## メソッド
 
 The `ipcMain` module has the following method to listen for events:
 
@@ -72,7 +72,7 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 Removes listeners of the specified `channel`.
 
-## Event object
+## イベントオブジェクト
 
 The `event` object passed to the `callback` has the following methods:
 

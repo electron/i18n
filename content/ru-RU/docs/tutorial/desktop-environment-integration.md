@@ -80,7 +80,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 
 **Задачи Internet Explorer:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
 Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
 

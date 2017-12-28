@@ -15,6 +15,11 @@ docs:
   guides: Guides
   api_reference: Références de l'API
   advanced: Avancé
+  footer:
+    propose_change: Améliorer ce document
+    version_history: Historique des versions
+    translate: Traduire ce document
+    view_all_docs: Toute la documentation sur une seule page
 languages:
   choose_language: Choisissez votre langue
   translation_progress: Progression de la traduction
@@ -54,11 +59,7 @@ get_started:
   description: Pour commencer avec Electron, consultez les ressources ci-dessous. Vous apprendrez comment développer votre app web avec Electron, accéder aux APIs et générer des installateurs.
 explore:
   title: Découvrir les APIs d'Electron
-  description:
-    - L'application <a href="https://github.com/electron/electron-api-demos">Electron API Demos</a>
-    - démontre de façon interactive les caractéristiques les plus importantes de l'API Electron.
-    - Voyez ce qui est possible avec Electron avec des exemples et des conseils utiles pour
-    - développer votre app.
+  description: "L'application <a href='https://github.com/electron/electron-api-demos'>démo de l'API Electron</a> présente de façon interactive les caractéristiques les plus importantes de l'API Electron. Voir ce qui est possible avec Electron avec un exemple de code et des conseils utiles pour construire votre application."
 download_from_github: Télécharger depuis GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Voir toutes les versions</a> sur GitHub
 quick_start:
@@ -77,12 +78,6 @@ taglines:
   languages: Contenu multilingue de notre fantastique communauté mondiale de développeurs.
 help_translate: "Aider à traduire"
 footer:
-  see_something: Vous voyez quelque chose qui a besoin d'être corrigé ?
-  propose_change: Proposez des modifications au fichier source.
-  need_different_version: Besoin d'une version différente de la documentation ?
-  see_available_versions: Voir les versions disponibles.
-  want_something_searchable: Vous voulez quelque chose de consultable ?
-  view_all_docs: Voir toute la documentation sur une seule page
   see_the_faq: Consulter la foire aux questions
 apps:
   title: Apps développées sur Electron

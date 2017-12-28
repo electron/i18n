@@ -1,23 +1,23 @@
-## Class: WebRequest
+## Sınıf: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> İsteğin içeriğini, ömrünün çeşitli aşamalarında kesip değiştirin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
+`WebRequest` sınıfının örneklerine `Session`'nın `webRequest` özelliği kullanılarak erişilir.
 
-The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+`WebRequest`'in metodları isteğe bağlı bir `filter` ve `listener` kabul eder. API'nin event'ı olduğunda `listener` `listener(details)` ile birlikte çağırılmış olacak. `details` nesnesi isteği açıklar. `listener` gibi `null` göndermek event'ı iptal edecektir.
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
+`filtre` nesnesi, URL kalıplarının bir dizisi olan URL ile eşleşmeyen istekleri filtrelemek için kullanılacak kalıpların `urls` özelliğine sahiptir. Eğer `filter` eksikse, tüm istekler eşleştirilmiş olacaktır.
 
-For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+Bazı durumlar için `listener` işini bitirdiği zaman bir `callback` ile aktarılan `listener`, bir `response` nesnesi ile çağırılmış olmalıdır.
 
-An example of adding `User-Agent` header for requests:
+İsteklere `User-Agent` başlığı ekleme örneği:
 
 ```javascript
 const {session} = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// Aşağıdaki Url'ler için tüm istekleri kullanıcı aracına değiştirin.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -28,136 +28,136 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Instance Methods
+### Örnek Metodlar
 
-The following methods are available on instances of `WebRequest`:
+Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `response` Nesne 
-      * `cancel` Boolean (optional)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+    * `response` Object 
+      * `cancel` Boolean (isteğe bağlı)
+      * `redirectURL` String (isteğe bağlı) - Orijinal istek gönderilmesinden veya tamamlanmasına engel olunur ve bunun yerine belirtilen URL'ye yönlendirilir.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile birlikte çağırılmış olacak.
 
-The `uploadData` is an array of `UploadData` objects.
+`uploadData`, `UploadData` nesnelerinin bir dizisidir.
 
-The `callback` has to be called with an `response` object.
+`callback` bir `response` nesnesi ile birlikte çağırılacak.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `filter` Object 
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `listener` `listener(details, callback)` ile birlikte çağırılacak. Bu, bir sunucuya TCP bağlantısı yapıldığında ortaya çıkabilir ancak öncesinde herhangi bir http verisi gönderilmiştir.
 
 * `details` Nesne 
   * `id` Integer
   * `url` String
   * `method` String
-  * `resourceType` String
+  * `resourceType` Dize
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Function 
-  * `response` Nesne 
-    * `cancel` Boolean (optional)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+  * `cevap` Nesne 
+    * `cancel` Boolean (isteğe bağlı)
+    * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu başlıklarla birlikte yapılacaktır.
 
-The `callback` has to be called with an `response` object.
+`callback` bir `response` nesnesi ile birlikte çağırılacak.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `requestHeaders` Object
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` ile birlikte çağırılacak. `onBeforeSendHeaders` yanıtlarının önceki değişiklikleri bu listener'ın işi bitinceye kadar görülür.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
 
 * `details` Nesne 
-  * `id` String
+  * `kimlik` dizesi
   * `url` String
   * `method` String
-  * `resourceType` String
+  * `resourceType` Dize
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
 * `callback` Function 
-  * `response` Nesne 
+  * `response` Object 
     * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+    * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu başlıklara cevap verecektir.
+    * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
-The `callback` has to be called with an `response` object.
+`callback` bir `response` nesnesi ile birlikte çağırılacak.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu, durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` String
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `listener(details)` ile birlikte çağırılacaktır.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
@@ -170,20 +170,20 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when a request is completed.
+Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağırılacaktır.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Nesne 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Dize
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - Hata açıklaması.
 
-The `listener` will be called with `listener(details)` when an error occurs.
+Bir hata oluştuğunda `listener` `listener(details)` ile birlikte çağırılacaktır.

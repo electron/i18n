@@ -1,98 +1,92 @@
-## Class: Cookies
+## Kelas: Cookie
 
-> Query and modify a session's cookies.
+> Permintaan dan modifikasi cookie sesi.
 
 Proses:  Utama </ 0></p> 
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> properti dari <code> Sesi </ 0> .</p>
 
-For example:
+<p>Sebagai contoh:</p>
 
-```javascript
-const {session} = require('electron')
-
-// Query all cookies.
-session.defaultSession.cookies.get({}, (error, cookies) => {
-  console.log(error, cookies)
-})
-
-// Query all cookies associated with a specific url.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
-  console.log(error, cookies)
-})
-
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
-session.defaultSession.cookies.set(cookie, (error) => {
-  if (error) console.error(error)
-})
-```
+<pre><code class="javascript">const {session} = require ('electron') // Query semua cookies.
+session.defaultSession.cookies.get ({}, (error, cookies) = & gt; {
+   console.log (error, cookies)}) // Query semua cookies yang terkait dengan url tertentu.
+session.defaultSession.cookies.get ({url: 'http://www.github.com'}, (kesalahan, cookie) = & gt; {
+   console.log (error, cookies)}) // Setel cookie dengan diberi data cookie; // dapat menimpa cookie yang setara jika ada.
+const cookie = {url: 'http://www.github.com', nama: 'dummy_name', nilai: 'dummy'} session.defaultSession.cookies.set (cookie, (error) = & gt; {
+   if (error ) console.error (error)})
+`</pre> 
 
 ### Instance Events
 
-The following events are available on instances of `Cookies`:
+Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
-#### Event: 'changed'
+<h4>Acara: 'berubah'</h4>
 
-* ` event </ 0>  Acara</li>
-<li><code>cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+<ul>
+<li><code> event </ 0>  Acara</li>
+<li><code>cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah</li> 
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+* `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
+  * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
+<li><code> menimpa </ 0> - Cookie dihapus secara otomatis karena operasi insert yang overwrote itu.</li>
+<li><code> kadaluarsa </ 0> - Kuki dihapus secara otomatis karena kadaluarsa.</li>
+<li><code> diusir </ 0> - Cookie secara otomatis digusur saat pengumpulan sampah.</li>
+<li><code> kadaluarsa-menimpa </ 0> - Kuki ditimpa dengan tanggal kadaluarsa yang telah kedaluwarsa.</li>
+</ul></li>
+<li><code> dihapus </ 0>  Boolean - <code> true </ 0> jika cookie dihapus, <code> false </ 0> sebaliknya.</li>
+</ul>
 
-### Metode Instance
+<p>Emitted ketika cookie diubah karena ditambahkan, diedit, dihapus, atau kadaluarsa.</p>
 
-The following methods are available on instances of `Cookies`:
+<h3>Metode Instance</h3>
 
-#### `cookies.get(filter, callback)`
+<p>Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
-* `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Fungsi 
-  * ` error </ 0> Kesalahan</li>
-<li><code>cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+<h4><code>cookies.get (filter, callback)`</h4> 
+    * `menyaring` Obyek 
+      * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
+ <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
+<li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
+<li><code> domain </ 0>  String (opsional) - Mengambil cookie yang domainnya cocok atau merupakan subdomain dari <code> domain </ 0></li>
+<li><code> path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
+<li><code>aman`Boolean (opsional) - Filter cookie oleh properti Aman mereka.
+      * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
+    * `callback` Fungsi 
+      * ` error </ 0> Kesalahan</li>
+<li><code>cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
+    
+    Mengirimkan permintaan agar semua cookie yang cocok dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error, cookies) </ 0> secara lengkap.</p>
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
-
-#### `cookies.set(details, callback)`
-
-* `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Fungsi 
-  * ` error </ 0> Kesalahan</li>
+<h4><code>cookies.set (rincian, callback)`</h4> 
+    
+    * `rincian` Obyek 
+      * `url`String - Url untuk mengaitkan cookie dengan.
+      * `nama` String (opsional) - Nama cookie. Kosongkan secara default jika dihilangkan.
+      * `value ` String (opsional) - Nilai cookie. Kosongkan secara default jika dihilangkan.
+      * `domain`String (opsional) - Domain cookie. Kosongkan secara default jika dihilangkan.
+      * ` path </ 0> String (opsional) - Jalur cookie. Kosongkan secara default jika dihilangkan.</li>
+<li><code> aman </ 0>  Boolean (opsional) - Apakah cookie harus ditandai sebagai Secure. Default ke false</li>
+<li><code> httpOnly </ 0>  Boolean (opsional) - Apakah kuki tersebut hanya ditandai sebagai HTTP saja. Default ke false</li>
+<li><code> kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. Jika dihilangkan maka cookie menjadi cookie sesi dan tidak akan disimpan di antara sesi.</li>
+</ul></li>
+<li><code>callback` Fungsi 
+        * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Sets a cookie with <code>details`, `callback` will be called with `callback(error)` on complete.</p> 
-    #### `cookies.remove(url, name, callback)`
-    
-    * `url` String - The URL associated with the cookie.
-    * `name` String - The name of cookie to remove.
-    * `callback ` Fungsi
-    
-    Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
-    
-    #### `cookies.flushStore(callback)`
-    
-    * `callback ` Fungsi
-    
-    Tulis data cookie yang tidak tertulis ke disk.
+<p>Menetapkan cookie dengan <code> detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error) </ 0> secara 
+lengkap.</p>
+
+<h4><code>cookies.remove (url, nama, callback)`</h4> 
+          * `url`String - URL yang terkait dengan cookie.
+          * `name` String - The name of cookie to remove.
+          * `callback ` Fungsi
+          
+          Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+          
+          #### `cookies.flushStore(callback)`
+          
+          * `callback ` Fungsi
+          
+          Tulis data cookie yang tidak tertulis ke disk.

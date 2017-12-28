@@ -1,7 +1,7 @@
 # GPUFeatureStatus オブジェクト
 
-* `2d_canvas`文字列 - Canvas
-* `flash_3d`文字列 - Flash
+* `2d_canvas` String - キャンバス
+* `flash_3d` String - フラッシュ
 * `flash_stage3d`文字列 - Flash Stage3D
 * `flash_stage3d_baseline`文字列 - Flash Stage3D Baseline profile
 * `gpu_compositing` String - Compositing

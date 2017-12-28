@@ -4,7 +4,7 @@
 
 ### ASAR
 
-ASAR это Atom Shell Archive Format. [Asar](https://github.com/electron/asar) это простой архив `tar`-like формата, который содержит в себе все файлы проекта. Electron может работать с файлами в архиве без распаковки оного.
+ASAR это Atom Shell Archive Format. [Asar](https://github.com/electron/asar) это простой архив `tar`-подобного формата, который содержит в себе все файлы проекта. Electron может работать с файлами в архиве без распаковки оного.
 
 ASAR был создан для повышения производительности в среде Windows
 
@@ -14,7 +14,7 @@ Brightray [была](https://github.com/electron-archive/brightray) статич
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Библиотека C времени выполнения (CRT) является частью стандартной библиотеки C ++, которая включает стандартную библиотеку ISO C99. Библиотеки Visual C++, которые реализуют CRT поддерживают развитие машинного кода и смешанного собственного и управляемого кода и чисто управляемого кода для разработки .NET.
 
 ### DMG
 
@@ -22,11 +22,11 @@ Apple Disk Image (DMG) это пакетный формат, который ис
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Эта программа позволяет пользователям вводить символы, которые отсутствуют на клавиатуре. Например, это позволяет пользователям Латинской клавиатуры вводить Китайские, Японские, Корейские и Хинди символы.
 
 ### IPC
 
-IPC стенды для взаимодействия между процессами. Electron использует IPC для отправки сериализованных сообщений JSON, между [основными](#main-process) и [визуализационными](#renderer-process) процессами.
+IPC стенды для взаимодействия между процессами. Electron использует IPC для отправки сериализованных сообщений JSON, между [main](#main-process) и [renderer](#renderer-process) процессами.
 
 ### libchromiumcontent
 
@@ -34,27 +34,27 @@ IPC стенды для взаимодействия между процесса
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### Главный (Main) процесс
+### основной (main) процесс
 
-Основной процесс, обычно в файл с именем `main.js`, является точкой входа для каждого приложения Electron. Он контролирует жизнь приложения, от его открытия до закрытия. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Основной процесс, обычно файл с именем `main.js`, является точкой входа для каждого приложения Electron. Он контролирует жизнь приложения, от его открытия до закрытия. Также управляет нативными элементами, такими как Menu, Menu Bar, Dock, Tray, и др. Основной процесс отвечает за создание каждого нового процесса в приложение. Полностью встроено Node API.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Каждый файл основного процесса приложения указывается в свойство `main` в `package.json`. Так `electron .` узнает какой файл выполнять при запуске.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+В хром этот процесс называется «процесс browser». Он переименовывается в Electron, чтобы избежать путаницы с renderer процессами.
 
-См. также: [process](#process), [renderer process](#renderer-process)
+См. также: [процесс](#process), [renderer процесс](#renderer-process)
 
 ### MAS
 
-Акроним к Apple's Mac App Store. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Акроним к Mac App Store компании Apple. Для более подробных сведений см. [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
-### собственные модули
+### нативные модули
 
-Собственные модули (также называемые [addons](https://nodejs.org/api/addons.html) в Node.js) являются модули, написанные на C или C++, которые могут быть загружены в Node.js или Electron с помощью функции require() и используется, как обычные модули Node.js. Они используются главным образом для предоставления интерфейса между скриптов JavaScript, выполняющийся в Node.js и C/C++ библиотеках.
+Нативными модулями (также называемые [addons](https://nodejs.org/api/addons.html) в Node.js) являются модули, написанные на C или C++, которые могут быть загружены в Node.js или Electron с помощью функции require() и используются, как обычные модули Node.js. Они используются главным образом для предоставления интерфейса между скриптами JavaScript, выполняющихся в Node.js и C/C++ библиотеках.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Нативные модуля Node поддерживаются в Electron, но учитывая, что Electron предпочитает использовать разные версии V8 для Node установленного на Вашем компьютере, вы должны вручную указать расположение заголовков Electron'а, когда собираете нативные модули.
 
-См. также [Using Native Node Modules](tutorial/using-native-node-modules.md).
+См. также [Использование нативных модулей Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
@@ -62,27 +62,27 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (закадровый рендеринг) может использоваться для загрузки тяжелых страниц в фоновом режиме и затем отобразит её после (это будет намного быстрее). Это позволяет Вам рендерить страницу без отображения на экране.
 
 ### процесс
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Процесс является экземпляром компьютерной программы, который выполняется. Electron приложения используют [main](#main-process) процесс и один или более [renderer](#renderer-process) процессы, на самом деле работает несколько программ одновременно.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+В Node.js и Electron, каждый запущенный процесс имеет объект `process`. Этот объект является глобальным, предоставляющий информацию о текущем процессе и контроль над ним. Он всегда доступен глобально в приложение без использования require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+См. также: [основной (main) процесс](#main-process), [renderer процесс](#renderer-process)
 
-### renderer process
+### renderer процесс
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Renderer процесс является окном браузера в Вашем приложении. В отличие основного процесса, их может быть несколько и каждый запускается в отдельном процессе. Они также могут быть скрыты.
 
-В нормальных браузерах, веб-страницы обычно выполняются в изолированной среде и им не разрешается доступ к нативным ресурсам. Electron пользователей, однако, имеют право использовать API Node.js на веб-страницах, позволяя взаимодействия нижнего уровня операционной системы.
+В нормальных браузерах, веб-страницы обычно выполняются в изолированной среде и им не разрешается доступ к нативным ресурсам. Electron пользователи, однако, имеют право использовать API Node.js на веб-страницах, позволяя взаимодействовать на нижнем уровне операционной системы.
 
-See also: [process](#process), [main process](#main-process)
+См. также: [процесс](#process), [основной (main) процесс](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel является фреймворком с открытым исходным кодом, который позволяет Electron приложениям автоматически обновляться, когда выпустится новая версия. См. [autoUpdated](api/auto-updater.md) API для информации о начале работы с Squirrel.
 
 ### пользовательское пространство
 

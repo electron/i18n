@@ -10,7 +10,7 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Tu código aquí
 })
 ```
 
@@ -56,7 +56,7 @@ Use a specified proxy server, which overrides the system setting. This switch on
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-For example:
+Por ejemplo:
 
 ```javascript
 const {app} = require('electron')
@@ -77,7 +77,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
-For example:
+Por ejemplo:
 
 * `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
@@ -94,7 +94,7 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-For example:
+Por ejemplo:
 
     --auth-server-whitelist='*example.com, *foobar.com, *baz'
     

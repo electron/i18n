@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -67,14 +67,14 @@ app.on('ready', () => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String (optional)
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
@@ -89,14 +89,14 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
@@ -119,14 +119,14 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` String (optional)
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `String` as a response.
@@ -137,7 +137,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -147,10 +147,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -164,7 +164,7 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
@@ -181,14 +181,14 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -197,14 +197,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` String (optional)
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
@@ -213,14 +213,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` Buffer (optional)
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
@@ -229,7 +229,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Nesne 
+  * `istek` Nesne 
     * `url` String
     * `referrer` String
     * `method` String
@@ -239,10 +239,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -250,7 +250,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (optional) 
+* `completion` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.

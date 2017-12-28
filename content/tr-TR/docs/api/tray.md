@@ -1,10 +1,10 @@
-## Class: Tray
+## Sınıf: Tray
 
 > Add icons and context menus to the system's notification area.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dir.
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**Platform sınırlamaları:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### Örnek Events
 
 The `Tray` module emits the following events:
 
@@ -71,7 +71,7 @@ The `Tray` module emits the following events:
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
 Emitted when the tray icon is clicked.
 
@@ -82,7 +82,7 @@ Emitted when the tray icon is clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
 Emitted when the tray icon is right clicked.
 
@@ -93,7 +93,7 @@ Emitted when the tray icon is right clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
 Emitted when the tray icon is double clicked.
 
@@ -116,14 +116,14 @@ Emitted when any dragged items are dropped on the tray icon.
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - Düşürülen dosyaların yolları.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string
+* `text` String - Düşürülen yazı stringi
 
 Emitted when dragged text is dropped in the tray icon.
 
@@ -146,7 +146,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - event'ın pozisyonu
 
 Emitted when the mouse enters the tray icon.
 
@@ -157,11 +157,11 @@ Emitted when the mouse enters the tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - event'ın pozisyonu
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Örnek Metodlar
 
 The `Tray` class has the following methods:
 
@@ -241,13 +241,13 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menü
 
 Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+[`Rectangle`](structures/rectangle.md) döndürür
 
 The `bounds` of this tray icon as `Object`.
 

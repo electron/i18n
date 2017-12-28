@@ -93,7 +93,7 @@ To mark an image as a template image, its filename should end with the word `Tem
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
-## Methods
+## Métodos
 
 The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
 
@@ -141,7 +141,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Instance Methods
+### Métodos de Instancia
 
 The following methods are available on instances of the `NativeImage` class:
 

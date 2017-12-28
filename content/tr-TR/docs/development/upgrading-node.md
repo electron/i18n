@@ -1,114 +1,115 @@
-# Upgrading Node
+# Node Yükseltmesi
 
-## Discussion
+## Tartışma
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. This is important because upstream Node and [libchromiumcontent](upgrading-chrome.md) both use their own versions of V8.
+Bir yükseltme sorunu, uyumluluğu sağlamak için tüm Elektronları V8'in tek bir kopyasıyla oluşturuyor. Bu önemlidir çünkü upstream Node ve [libchromiumcontent](upgrading-chrome.md) her ikisi de kendi V8 sürümlerini kullanır.
 
-Upgrading Node is much easier than upgrading libchromiumcontent, so fewer conflicts arise if one upgrades libchromiumcontent first, then chooses the upstream Node release whose V8 is closest to it.
+Node'u Yükseltme, libchromiumcontent'i yükseltmekten çok daha kolaydır; bu nedenle birincisi libchromiumcontenti yükseltir ve daha sonra V8'ine en yakın olan upstream Node sürümünü seçerse daha az çatışma ortaya çıkar.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Elektron'un yukarıda bahsedilen V8 yapım detayları için değişikliklerle ve Electron'un ihtiyaç duyduğu API'yı göstermesi için kendi [Node fork](https://github.com/electron/node) 'u vardır. Bir upstream Node çıkışı seçildiğinde, Electron'un Node 'u bir dala yerleştirilir ve orada herhangi bir Electron Node yaması uygulanır.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+Bir diğer faktör, Node projesinin V8 sürümünü yamalamasıdır. Yukarıda belirtildiği gibi, Electron her şeyi tek bir V8 kopyasıyla oluşturur, bu nedenle Node 'un V8 yamaları bu kopyaya taşınmalıdır.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+Electron'un bağımlılıklarının tamamı V8'in aynı kopyasını oluşturup kullandıktan sonra, bir sonraki adım Node yükseltmesinin neden olduğu herhangi bir Elektron kodu sorununu gidermektir.
 
-[FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
+[FIXME] Atom 'da (ör. Deepak) kullanan ve onaylamamız gereken bir Node hata ayıklayıcı hakkında bir şey Node güncellemesi ile sorunları çözemez mı?
 
-So in short, the primary steps are:
+Özetle, ana adımlar şunlardır:
 
-1. Update Electron's Node fork to the desired version
-2. Backport Node's V8 patches to our copy of V8
-3. Update Electron to use new version of Node 
-  - Update submodules
-  - Update Node.js build configuration
+1. Elektron 'un Node fork sürümünü istediğiniz sürüme güncelleyin
+2. Backport Node 'un V8 yamalarını kendi V8 'inize kopyalayın
+3. Node 'un yeni sürümünü kullanmak için Electron 'u güncelleyin 
+  - Alt modülleri güncelleştirin
+  - Node.js yapılandırmasını güncelleyin
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Electron Node' unu [fork](https://github.com/electron/node) güncelleme
 
-1. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` 
-  - `vX.X.X` Must use a version of node compatible with our current version of chromium
-2. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
+1. `electron/node` üzerindeki `master` öğesinin `nodejs/node` adresindeki yayın etiketlerinin güncellendiğinden emin olun
+2. Https://github.com/electron/node 'da bir dal oluşturun: `electron-node-vX.X.X` burada oluşturduğunuz dal tabanı, istenen güncelleme için etikettir 
+  - `vX.X.X` Mevcut chromium versiyonuyla uyumlu bir node sürümünü kullanmalısınız
+3. Kabullerimizi kullandığımız önceki düğüm sürümünden yeniden uygulayın (`vY.Y.Y`) dan `v.X.X.X` 
+  - Yayın etiketini kontrol edin ve tekrar uygulamak için gereken taahhüt aralığını seçin
+  - Cherry-pick seçme aralığı: 
+    1. İkisine birden bakın `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
+  - Karşılaşılan her dosyada birleştirme çakışmalarını çözmek, şöyle: 
     1. `git add <conflict-file>`
     2. `git cherry-pick --continue`
-    3. Repeat until finished
+    3. Bitene kadar tekrarlayın
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## [V8](https://github.com/electron/node/src/V8) Yamalarını Güncelleştirme
 
-We need to generate a patch file from each patch applied to V8.
+V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
 
-1. Get a copy of Electron's libcc fork 
+1. Electron'un libcc fork 'unun bir kopyasını edinin 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
-  - This will be time-consuming
-3. Remove our copies of the old Node v8 patches 
-  - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
-  - Remove those files from `patches/v8/`: 
-    - `git rm` the patchfiles
-    - edit `patches/v8/README.md`
-    - commit these removals
-4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
+2. Çalıştır `script/update` en yeni libcc 'yi almak için 
+  - Bu biraz zaman alacaktır
+3. Eski Node v8 yamalarınızın kopyalarını kaldırın 
+  - (In libchromiumcontent repo) Son güncelleme sırasında hangi patchfile'lerin oluşturulduğunu görmek için `patches/v8/README.md` 'i okuyun
+  - Şu dosyaları kaldırın `patches/v8/`: 
+    - `git rm` düzeltme ek dosyaları
+    - değiştir `patches/v8/README.md`
+    - bu kaldırma işlemlerini tamamla
+4. Node 'u inceleyin [repo](https://github.com/electron/node) node'un versiyonuyla çakıştıktan sonra v8'lerinde hangi yamalar kullandığını görmek için 
   - `git log --oneline deps/V8`
-5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
-6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
-  - Delete each patchfile referenced in `patches/v8/README.md`
-7. For each patch, do: 
+5. Yamalar için bir kontrol listesi oluşturun. Bu, çalışmalarınızı izlemek ve aşağıda kullanılacak `git diff-tree` tamamlama karmalarına hızlı bir referans sağlamak için kullanışlıdır.
+6. Oku `patches/v8/README.md` hangi düzeltme eki dosyalarının V8'in önceki sürümünden geldiğini ve bu nedenle kaldırılması gerektiğini görmek için. 
+  - `patches/v8/README.md` 'de başvurulan her bir düzeltme eki dosyasını silin
+7. Her yama için şunları yapın: 
   - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` is an incremented three-digit number (to force patch order)
-    - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
-  - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
-    - If a diff section has no instances of `deps/V8`, remove it altogether. 
-      - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8`/filename.ext`with`a/filename.ext` 
-      - This is needed because upstream Node keeps its V8 files in a subdirectory
-  - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
-  - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Create a new copy of the patch: 
+    - `xxx` artan üç haneli bir sayıdır (yama sırasını güçlendirmek için)
+    - `patch_name` taahhüt edilen node iletileriyle biraz olsun eşleşmelidir, Node gönderme iletisi "cherry-pick cc55747" ise Ör. `030-cherry_pick_cc55747,patch`
+  - (libchromium repo'daki adımların geri kalan kısmı) `.patch` upstream V8 'in dosya eşleme rehberi: 
+    - Bir fark bölümünde örnek yoksa `deps/V8`, tamamen kaldırın. 
+      - Bu yamaları yapmak istemiyoruz çünkü yalnızca V8'e yama yapıyoruz.
+    - Örneklerini değiştir `a/deps/v8/filename.ext` ile `a/filename.ext` 
+      - Node upstream, V8 dosyalarını bir alt dizinde tutar, çünkü bu gereklidir
+  - Lokal durumun temiz olduğundan emin olun: aşamasız değişiklikler olmadığından emin olmak için `git status`.
+  - Yamanın `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch` ile düzgün şekilde uygulandığını onaylayın
+  - Düzeltme ekinin yeni bir kopyasını oluşturun: 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - This is needed because the first patch has Node commit checksums that we don't want
-  - Confirm that checksums are the only difference between the two patches: 
+    - İlk yamanın Node 'u istemediğimiz tamamlama sağlama toplamı olmaması için bu gereklidir
+  - Sağlama toplamlarının iki düzeltme eki arasındaki tek fark olduğunu doğrulayın: 
     - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Replace the old patch with the new: 
+  - Eski yamayı yenisiyle değiştirin: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Add the patched code to the index *without* committing: 
+  - Düzeltme eklenmiş kodu dizine ekleyin *işleme* olmadan: 
     - `cd src/v8 && git add . && cd ../..`
-    - We don't want to commit the changes (they're kept in the patchfiles) but need them locally so that they don't show up in subsequent diffs while we iterate through more patches
-  - Add the patch file to the index: 
+    - Değişiklikleri tamamlamak istemiyoruz (patchfile'lerde tutuluyorlar), ancak daha fazla yamayla iterasyon yaparken sonraki diff'lerde görünmemeleri için yerel olarak onlara ihtiyaç duyuyoruz
+  - Düzeltme eklenmiş kodu dizine ekleyin: 
     - `git add a patches/v8/`
-  - (Optionally) commit each patch file to ensure you can back up if you mess up a step: 
+  - (İsteğe bağlı olarak), Eğer bir adımda yanlış yaptıysanız, yedekleyebilmeniz için her düzeltme eki dosyasına taahhütte bulunun: 
     - `git commit patches/v8/`
-8. Update `patches/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
-9. Update Electron's submodule references: 
-  -     sh
-         cd electron/vendor/node
-         electron/vendor/node$ git fetch
-         electron/vendor/node$ git checkout electron-node-vA.B.C
-         electron/vendor/node$ cd ../libchromiumcontent
-         electron/vendor/libchromiumcontent$ git fetch
-         electron/vendor/libchromiumcontent$ git checkout upgrade-to-chromium-X
-         electron/vendor/libchromiumcontent$ cd ../..
-         electron$ git add vendor
-         electron$ git commit -m "update submodule referefences for node and libc"
-         electron$ git pso upgrade-to-chromium-62
-         electron$ script/bootstrap.py -d
-         electron$ script/build.py -c -D
+8. Bir sonraki kişinin hangi yamanın kaldırılması gerektiğini bilmesi için, `patches/v8/README.md` 'yi eklenen tüm yeni yamalara yapılan başvuruları güncelleyin.
+9. Electron 'un alt modül başvurularını güncelleyin: 
+      sh
+      $ cd electron/vendor/node
+      electron/vendor/node$ git fetch
+      electron/vendor/node$ git checkout electron-node-vA.B.C
+      electron/vendor/node$ cd ../libchromiumcontent
+      electron/vendor/libchromiumcontent$ git fetch
+      electron/vendor/libchromiumcontent$ git checkout upgrade-to-chromium-X
+      electron/vendor/libchromiumcontent$ cd ../..
+      electron$ git add vendor
+      electron$ git commit -m "update submodule referefences for node and libc"
+      electron$ git pso upgrade-to-chromium-62
+      electron$ script/bootstrap.py -d
+      electron$ script/build.py -c -D
 
-## Notes
+## Notlar
 
-- libcc and V8 are treated as a single unit
-- Node maintains its own fork of V8 
-  - They backport a small amount of things as needed
-  - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of electron 
-  - E.g electron, libcc, and node
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a node version bump in electron.
-- libcc is large and time-consuming to update, so we typically choose the node version based on which of its releases has a version of V8 that’s closest to the version in libcc that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
-  - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
-    - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
+- libcc ve V8, tek bir birim olarak değerlendirilir
+- Node kendi V8 çatısını tutar 
+  - Gereksinim duyulduğunda küçük bir miktarı geri göndermektedirler
+  - Node 'daki belgeler nasıl yapılacağı hakkında [they work with V8](https://nodejs.org/api/v8.html)
+- Kodu güncelleyerek sadece elektron genelinde V8 'in bir kopyasını kullanacağız 
+  - Ör. electron, libcc, and node
+- Upstream 'ı biçimsel nedenlerle yakından takip etmiyoruz: 
+  - Upstream birden çok repo kullanır ve bu nedenle tek bir repoya dönüştürülürse geçmişin kaybolmasına neden olur. Bu yüzden, sadece electron 'da bir node versiyonu planladığımızda güncelliyoruz.
+- libcc güncellemesi çok büyük ve zaman alıcıdır, bu nedenle hangi node 'ların hangi libcc 'de en çok kullandığımız sürüm olan V8 sürümüne dayanan node sürümünü kullanıyoruz. 
+  - Yeni libcc'deki V8 sürümüyle daha yakın bir şekilde senkronize olacağından, bazen bir sonraki periyodik Node sürümünü beklemek zorundayız
+  - Elektron, tüm yamalarını libcc'de tutar çünkü her upstream projesi için yamalar için farklı repolar sürdürmekten daha kolaydır. 
+    - Crashpad, node, libcc, vb. Yamalar hepsi aynı yerde saklanır
+  - Node Yapılandırması: 
+    - Yapı değişikliklerimizi, node 'un istediği yapı bayraklarıyla eşleşecek şekilde değiştirmek için bir şansımız var `node/common.gypi`

@@ -1,11 +1,11 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Tarayıcı pencereleri kontrol etme ve oluşturma.
 
 Süreç: [Ana](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// Ana süreçte.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -23,17 +23,17 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Çerçevesiz pencere
 
 To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Zarif pencere görüntüsü
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı görür; bu, iyi bir yerel uygulama deneyimi değildir. Daha fazla görüntü ve resmi hazır hale getirmek için iki farklı çözüm bulunmaktadır.
 
 ### Using `ready-to-show` event
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Sayfa görünürlüğü
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Tarayıcı pencereleri kontrol etme ve oluşturma.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -118,7 +118,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -155,7 +155,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Olası değerler şunlar: 
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.
@@ -170,7 +170,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
-    * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
+    * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. Düğüm entegrasyonu kapatıldığında, önceden yüklenmiş komut dosyası düğümün genel başvuru bayrağını genel kapsamdan yeniden başlatır. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
@@ -215,7 +215,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instance Events
+### Örnek etkinlikler
 
 Objects created with `new BrowserWindow` emit the following events:
 
@@ -230,7 +230,7 @@ Returns:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### Etkinlik: 'kapalı'
 
 Returns:
 
@@ -238,7 +238,7 @@ Returns:
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Örneğin:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -252,7 +252,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-#### Event: 'closed'
+#### Etkinlik: 'kapatıldı'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
@@ -260,31 +260,31 @@ Emitted when the window is closed. After you have received this event you should
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Etkinlik: 'tepkisiz'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Etkinlik: 'duyarlılık'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Etkinlik: 'bulanık'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Etkinlik: 'odak'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Etkinlik: 'göster'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Etkinlik: 'gizle'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Etkinlik: 'gösterilmeye-hazır'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
@@ -300,15 +300,15 @@ Emitted when the window exits from a maximized state.
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Etkinlik: 'onarmak'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Etkinlik: 'yeniden boyutlandırma'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Etkinlik: 'hareket ettir'
 
 Emitted when the window is being moved to a new position.
 
@@ -389,7 +389,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Statik yöntemler
 
 The `BrowserWindow` class has the following static methods:
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Örnek özellikleri
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Örnek yöntemleri
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -509,11 +509,11 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Pencerenin üzerine odaklanır.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Odak penceresinden kaldırır.
 
 #### `win.isFocused()`
 
@@ -571,7 +571,7 @@ Returns `Boolean` - Whether the window is minimized.
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Pencerenin tam ekran modunda olup olmadığını ayarlar.
 
 #### `win.isFullScreen()`
 
@@ -599,25 +599,25 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Dikdörtgen](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+[`Rectangle`](structures/rectangle.md) döndürür
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` [Dikdörtgen](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+[`Rectangle`](structures/rectangle.md) döndürür
 
 #### `win.setSize(width, height[, animate])`
 
@@ -669,7 +669,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Pencerenin kullanıcı tarafından manuel olarak yeniden boyutlandırılacağını tanımlar.
 
 #### `win.isResizable()`
 
@@ -679,7 +679,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Linux için bir önemi yoktur.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -715,7 +715,7 @@ On Linux always returns `true`.
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Yakınlaştırma düğmesinin tam ekran modunu değiştirip değiştirmeyeceğini veya pencereyi en yükseğe çıkarıp büyütüp büyütmediğini belirtir.
 
 #### `win.isFullScreenable()`
 
@@ -725,7 +725,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Pencerenin kullanıcı tarafından el ile kapatılıp bırakılmayacağını tanımlar. Linux'ta önemi yok.
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -751,8 +751,8 @@ Moves window to the center of the screen.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Integer
-* `y` Integer
+* `x` tamsayı
+* `x` tamsayı
 * `animate` Boolean (optional) *macOS*
 
 Moves window to `x` and `y`.
@@ -874,7 +874,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Obje (isteğe bağlı) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -921,8 +921,8 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 
 #### `win.setProgressBar(progress[, options])`
 
-* `progress` Double
-* `options` Object (optional) 
+* `ilerleme` çift
+* `options` Obje (isteğe bağlı) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1012,13 +1012,13 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Pencere simgesi değiştirme.
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Set penceresinin menü çubuğu otomatik olarak gizlenir. Ayar yaptıktan sonra, menü çubuğu yalnızca kullanıcı ` Alt` tuşu bastığında görüntülenir.
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
@@ -1030,7 +1030,7 @@ Returns `Boolean` - Whether menu bar automatically hides itself.
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Menü çubuğu görünür olarak ayarlanırsa, menü çubuğu otomatik olarak gizlenirken`Alt` tuşuna basarak menü çubuğu görüntülenmeye devam edebilir.
 
 #### `win.isMenuBarVisible()`
 
@@ -1110,4 +1110,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.

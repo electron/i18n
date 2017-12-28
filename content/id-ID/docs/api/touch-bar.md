@@ -1,32 +1,32 @@
 ## Class: TouchBar
 
-> Create TouchBar layouts for native macOS applications
+> Buatlah TouchBar layout untuk aplikasi asli macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### `new TouchBar(options)` *Experimental*
+### `baru TouchBar(options)` *Experimental*
 
-* `pilihan` Object 
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
+* `pilihan` Obyek 
+  * `item` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) []
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (opsional)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+Buatlah bar sentuhan baru dengan item tertentu. Gunakan `BrowserWindow.setTouchBar` untuk menambahkan `TouchBar` ke jendela.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Tip:** Jika Anda tidak memiliki sebuah MacBook dengan bar sentuhan, Anda dapat menggunakan [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) untuk menguji penggunaan bar sentuhan dalam aplikasi Anda.
 
 ### Instance Properties
 
-The following properties are available on instances of `TouchBar`:
+Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+`TouchBarButton` akan menggantikan tombol "esc" pada panel sentuhan ketika diatur. Atur ke `null` untuk mengembalikan default "esc" tombol. Mengubah nilai segera update item keluar di bar sentuhan.
 
-## Examples
+## Contoh
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Berikut adalah contoh sederhana bar sentuhan pada mesin slot permainan dengan tombol dan beberapa label.
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -48,12 +48,12 @@ const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### Menjalankan contoh di atas
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+Untuk menjalankan contoh di atas, Anda memerlukan (asumsi Anda sudah punya akses terminal di direktori yang Anda ingin untuk menjalankan contoh):
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. Simpan file di atas ke komputer Anda sebagai `touchbar.js`
+2. Instal elektron melalui `npm menginstal elektron`
+3. Jalankan contoh di dalam elektron: `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Anda harus melihat jendela baru elektron dan aplikasi yang berjalan di bar sentuhan Anda (atau bar sentuhan emulator).

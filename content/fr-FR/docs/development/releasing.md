@@ -4,8 +4,8 @@ Ce document décrit le processus pour créer une nouvelle version d’Electron.
 
 ## Determine which branch to release from
 
-- **If releasing beta,** create a new branch from `master`.
-- **If releasing a stable version,** create a new branch from the beta branch you're stabilizing.
+- **If releasing beta,** run the scripts below from `master`.
+- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
 
 ## Find out what version change is needed
 
@@ -13,7 +13,9 @@ Run `npm run prepare-release -- --notesOnly` to view auto generated release note
 
 ## Run the prepare-release script
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes 5. Push the release branch so that the release builds get built. Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+
+Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
 Par exemple :
 
@@ -49,11 +51,10 @@ npm run prepare-release -- --stable
 
 ## Attendre pendant la compilation :hourglass_flowing_sand:
 
-La présence du mot [`Bump`](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild-linux#L3-L6) dans le message du commit est réalisée par le script `bump-version` qui va [déclencher le processus de versionnage](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/cibuild#L82-L96).
+The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
-Pour surveiller la progression de la compilation, allez voir les pages suivantes :
-
-- [208.52.191.140:8080/view/All/builds](http://208.52.191.140:8080/view/All/builds) for Mac
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
 - [circleci.com/gh/electron](https://circleci.com/gh/electron) pour Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
 

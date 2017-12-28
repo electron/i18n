@@ -50,7 +50,7 @@ Don't attach to the current console session.
 
 Don't use the global menu bar on Linux.
 
-## Development Variables
+## 開発変数
 
 The following environment variables are intended primarily for development and debugging purposes.
 

@@ -6,13 +6,13 @@ Process: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
-### Instance Methods
+### Örnek yöntemleri
 
 The `BrowserWindowProxy` object has the following instance methods:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Odağı alt penceresinden kaldır.
 
 #### `win.close()`
 
@@ -41,7 +41,7 @@ Sends a message to the child window with the specified origin or `*` for no orig
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instance Properties
+### Örnek özellikleri
 
 The `BrowserWindowProxy` object has the following instance properties:
 

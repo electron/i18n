@@ -1,65 +1,65 @@
-## Class: IncomingMessage
+## Sınıf: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> HTTP/HTTPS isteklerininin cevaplarını halleder.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage`, [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) arayüzünü gerçekler, bundan dolayı bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dır.
 
-### Instance Events
+### Örnek olayları
 
-#### Event: 'data'
+#### Olay: 'data'
 
-Returns:
+Döndürür:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Tampon - Cevap içeriğınin bir kısmı.
 
-The `data` event is the usual method of transferring response data into applicative code.
+`data` olayı, dönen cevabi uygulanabilir koda geçirmek için kullanılan yöntemdir.
 
-#### Event: 'end'
+#### Olay: 'end'
 
-Indicates that response body has ended.
+Dönen cevabının içeriğinin bittiğini belirtir.
 
-#### Event: 'aborted'
+#### Olay: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Devam eden bir HTTP işleminde, isteğin iptal edildiği durumda çagırılır.
 
-#### Event: 'error'
+#### Olay: 'error'
 
-Returns:
+Döndürür:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Hata - Tipik olarak hatanın ana sebebini belirten bir katar tutar.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Dönen cevabın veri olaylarını işlerken hata gelirse işleme girer. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Instance Properties
+### Örnek özellikleri
 
-An `IncomingMessage` instance has the following readable properties:
+Bir `IncomingMessage` örneğinde aşağıdaki okunabilir özellikler bulunur:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+HTTP yanıt durum kodu belirten bir `Integer`.
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+HTTP yanıt mesajı temsil eden bir `Katar`.
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+HTTP başlıklarını temsil eden bir `Obje`. `headers` objesi aşağıdaki gibi formatlanır:
 
-* All header names are lowercased.
+* Tüm başlıklar küçük harflerde olmalıdır.
 * Each header name produces an array-valued property on the headers object.
 * Each header value is pushed into the array associated with its header name.
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+HTTP protokolü versiyon numarasını belirten bir `Katar`. Genelde değerler '1.0', '1.1' gibi olur. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+HTTP prokotolünün büyük versiyon numarasını belirten bir `Katar`.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+HTTP prokotolünün minik versiyon numarasını belirten bir `Katar`.
