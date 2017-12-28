@@ -111,21 +111,21 @@ Menghapus data penyimpanan web.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Menulis data DOMStorage yang tidak tertulis ke disk.
 
-#### `ses.setProxy(config, callback)`
+#### `ses.setProxy(config, panggilan kembali)`
 
-* `config` Object 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `konfigurasi` Objek 
+  * `pacScript` Senar - URL yang terkait dengan file PAC.
+  * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
+  * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
+* `callback` Fungsi - Disebut saat operasi selesai.
 
-Sets the proxy settings.
+Mengatur pengaturan proxy.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+Ketika `pacScript` dan `proxyRules` disediakan bersama, `proxyRules` pilihan diabaikan dan `pacScript` konfigurasi diterapkan.
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` harus mengikuti aturan di bawah ini:
 
     proxyRules = schemeProxies[";"<schemeProxies>]
     schemeProxies = [<urlScheme>"="]<proxyURIList>
@@ -134,10 +134,10 @@ The `proxyRules` has to follow the rules below:
     proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
     
 
-For example:
+Sebagai contoh:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80` - GunakanHTTP proxy `foopy:80` untuk semua URLs.
 * `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
 * `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
 * `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
