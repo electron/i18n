@@ -68,15 +68,15 @@ El OSR (renderizado fuera de la pantalla) se puede utilizar para cargar un fondo
 
 Un proceso es una instancia en un programa de computadora que está siendo ejecutado. Aplicaciones de Electron que hacen usan de la [main](#main-process) y uno o muchos procesos [renderer](#renderer-process) están ejecutando varios programas simultáneamente.
 
-En Node.js y Electron, cada proceso en ejecución tiene un objeto de `process`. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+En Node.js y Electron, cada proceso en ejecución tiene un objeto de `process`. Este objeto es un global que proporciona información sobre, y control sobre, el proceso actual. Como un global, siempre está disponible para aplicaciones sin utilizar require().
 
 Véase también: [proceso principal](#main-process), [proceso de renderizado](#renderer-process)
 
 ### proceso de renderizado
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+El proceso de renderizado es una ventana del navegador en tu aplicación. A diferencia del proceso principal, pueden existir varios de estos y cada uno se ejecutan en un proceso separado. También pueden ser ocultadas.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
+En los navegadores normales, las páginas web generalmente se ejecutan en espacio aislado y no se les permite el acceso a recursos nativos. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
 Véase también: [proceso](#process), [proceso principal](#main-process)
 
@@ -86,7 +86,7 @@ Squirrel es un marco de código abierto que permite a aplicaciones de Electron a
 
 ### entorno
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Este término que se originó en la comunidad Unix, donde "userland" o "userspace" se refiere a programas que se ejecutan afuera del kernel del sistema operativo. Más recientemente, el término se ha popularizado en la comunidad Node y npm para distinguir entre las características disponibles en el "núcleo Node" versus los paqutes publicados por el registro npm por la comunidad de "usuarios" mucho más grande.
 
 Como nodo, Electron se centra en tener un pequeño conjunto de APIs que proporcionan a todas las primitivas necesarias para el desarrollo de aplicaciones de escritorio multiplataformas. Esta filosofía de diseño permite Electron a seguir siendo una herramienta flexible sin ser excesivamente prescriptivas sobre cómo deben utilizarse. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
