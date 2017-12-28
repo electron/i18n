@@ -36,11 +36,11 @@ Una biblioteca compartida que incluye el [módulo de contenido de Chromium](http
 
 ### proceso principal
 
-El proceso principal, comúnmente un archivo llamado `main.js`, es el punto de entrada a la aplicación de cada Electron. Controla la vida de la aplicación, de abrir a cerrar. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+El proceso principal, comúnmente un archivo llamado `main.js`, es el punto de entrada a la aplicación de cada Electron. Controla la vida de la aplicación, de abrir a cerrar. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. El proceso principal es responsable de crear cada proceso nuevo de renderizado en la aplicación. Todo el nodo API está construido.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Cada archivo de proceso principal de la aplicación está especificada en la propieda `main` en `package.json`. Así es cómo `electron.` sabe qué archivo a ejecutar al inicio.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+En Chromium, este proceso se conoce como el "proceso de navegador". Se renombra en Electron para evitar la confusión con el proceso de renderizado.
 
 Véase también: [proceso](#process), [proceso de renderizado](#renderer-process)
 
