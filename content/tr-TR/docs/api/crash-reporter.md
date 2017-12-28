@@ -96,7 +96,7 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
-## Crash Report Payload
+## Çökme Raporu verisi
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
