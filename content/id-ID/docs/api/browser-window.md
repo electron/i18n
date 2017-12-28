@@ -801,7 +801,7 @@ win.setSheetOffset(toolbarRect.height)
                     
                     * `skip` Boolean
                     
-                    Makes the window not show in the taskbar.
+                    Membuat jendela tidak tampil di taskbar.
                     
                     #### `win.setKiosk(flag)`
                     
@@ -965,7 +965,7 @@ win.loadURL(url)
                           
                           Returns `Boolean` - Whether the buttons were added successfully
                           
-                          Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+                          Tambahkan toolbar thumbnail dengan serangkaian tombol yang ditentukan ke gambar thumbnail sebuah jendela di tata letak tombol taskbar. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
                           
                           Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena terbatasnya ruang. Setelah Anda menyiapkan toolbar thumbnail, toolbar tidak dapat dihapus karena keterbatasan platform. Tapi Anda bisa memanggil API dengan array kosong untuk membersihkan tombol.
                           
@@ -993,13 +993,13 @@ win.loadURL(url)
 <h4><code>win.setThumbnailClip(region)` *Windows*</h4> 
                               * `region` [Rectangle](structures/rectangle.md) - Region of the window
                               
-                              Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+                              Mengatur area jendela untuk ditampilkan saat gambar thumbnail ditampilkan saat melayang di atas jendela di taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
                               
                               #### `win.setThumbnailToolTip(toolTip)` *Windows*
                               
                               * `toolTip` String
                               
-                              Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+                              Menetapkan toolTip yang ditampilkan saat melayang di atas thumbnail jendela di taskbar.
                               
                               #### `win.setAppDetails(options)` *Windows*
                               
@@ -1050,7 +1050,7 @@ win.loadURL(url)
                                 
                                 * `visible` Boolean
                                 
-                                Sets whether the window should be visible on all workspaces.
+                                Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
                                 
                                 **Note:** This API does nothing on Windows.
                                 
