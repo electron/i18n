@@ -65,7 +65,7 @@ The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p>
 * Pada semua platform, negara visibilitas melacak apakah jendela tersembunyi / diminimalkan atau tidak.
 * Selain itu, di macOS , status visibilitas juga melacak keadaan oklusi jendela. Jika jendela ditutup (yaitu tertutup sepenuhnya) oleh jendela lain, status visibilitas akan ` tersembunyi </ 0> . Pada platform lain, status visibilitas hanya <code> tersembunyi </ 0> hanya jika jendela diminimalkan atau secara eksplisit disembunyikan dengan <code> menyembunyikan () </ 0> .</li>
 <li>Jika <code> Browser Window </ 0> dibuat dengan <code> show: false </ 0> , status visibilitas awal akan <code> terlihat </ 0> meskipun jendela benar-benar tersembunyi.</li>
-<li>Jika <code> backgroundThrottling </ 0> dinonaktifkan, status visibilitas akan tetap
+<li>Jika <code> pelambatan latar belakang </ 0> dinonaktifkan, status visibilitas akan tetap
  <code> terlihat </ 0> meskipun jendela diminimalkan, tersumbat, atau tersembunyi</li>
 </ul>
 
