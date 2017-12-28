@@ -1034,35 +1034,35 @@ win.loadURL(url)
                                 
                                 #### `win.isMenuBarAutoHide()`
                                 
-                                Returns `Boolean` - Whether menu bar automatically hides itself.
+                                Kembali `Boolean` - Apakah bilah menu secara otomatis menyembunyikan dirinya sendiri.
                                 
                                 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
                                 
-                                * `visible` Boolean
+                                * `terlihat` Boolean
                                 
-                                Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+                                Menetapkan apakah menu bar harus terlihat. Jika auto-Sembunyikan menu bar, pengguna dapat masih memunculkan bilah menu dengan menekan tombol `Alt` tunggal.
                                 
                                 #### `win.isMenuBarVisible()`
                                 
-                                Returns `Boolean` - Whether the menu bar is visible.
+                                Kembali `Boolean` - Apakah menu bar terlihat.
                                 
                                 #### `win.setVisibleOnAllWorkspaces(visible)`
                                 
-                                * `visible` Boolean
+                                * `terlihat` Boolean
                                 
                                 Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
                                 
-                                **Note:** This API does nothing on Windows.
+                                **Catatan:** API ini tidak apa-apa pada Windows.
                                 
                                 #### `win.isVisibleOnAllWorkspaces()`
                                 
-                                Returns `Boolean` - Whether the window is visible on all workspaces.
+                                Kembali `Boolean` - Apakah jendela terlihat pada semua workspace.
                                 
-                                **Note:** This API always returns false on Windows.
+                                **Catatan:** API ini selalu kembali palsu pada Windows.
                                 
                                 #### `win.setIgnoreMouseEvents(ignore)`
                                 
-                                * `ignore` Boolean
+                                * `mengabaikan` Boolean
                                 
                                 Membuat jendela mengabaikan semua kejadian mouse.
                                 
@@ -1084,7 +1084,7 @@ win.loadURL(url)
                                 
                                 #### `win.setParentWindow(parent)` *Linux* *macOS*
                                 
-                                * `parent` BrowserWindow
+                                * `orang tua` BrowserWindow
                                 
                                 Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
                                 
@@ -1094,7 +1094,7 @@ win.loadURL(url)
                                 
                                 #### `win.getChildWindows()`
                                 
-                                Returns `BrowserWindow[]` - All child windows.
+                                Kembali `[BrowserWindow]` - semua jendela anak.
                                 
                                 #### `win.setAutoHideCursor(autoHide)` *macOS*
                                 
@@ -1104,15 +1104,15 @@ win.loadURL(url)
                                 
                                 #### `win.setVibrancy(type)` *macOS*
                                 
-                                * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
+                                * `jenis` String - dapat `berbasis penampilan`, `terang`, `gelap`, `titlebar`, `pilihan`, `menu`, `popover`, `sidebar`, `menengah-cahaya` atau `ultra gelap`. Lihat [dokumentasi macOS](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) untuk rincian lebih lanjut.
                                 
-                                Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+                                Menambahkan efek semangat ke jendela browser. Melewati `null` atau string kosong akan menghapus semangat efek pada jendela.
                                 
                                 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
                                 
                                 * `touchBar` TouchBar
                                 
-                                Mengatur tata letak touchBar untuk jendela aktif. Specifying `null` or `undefined` clears the touch bar. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
+                                Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
                                 
                                 **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
                                 
