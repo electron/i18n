@@ -71,11 +71,11 @@ console.log(dialog)
 * `browserWindow` BrowserWindow (可选)
 * `options` Object 
   * `title` String (可选)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
+  * `message` String (可选) * macOS *-显示在对话框上的消息。
+  * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
 * `callback` Function (可选) 
   * `filename` String
