@@ -40,13 +40,13 @@ Untuk membuat sebuah `Sesi` dengan `pilihan`, Anda harus memastikan `Sesi` denga
 
 Modul `sesi` terdapat properti sebagai berikut:
 
-### `session.defaultSession`
+### `sesi.sisibawaan`
 
-A `Session` object, the default session object of the app.
+Sebuah `Sesi` objek, objek sesi bawaan pada aplikasi.
 
-## Class: Session
+## Tingkat: Sesi
 
-> Get and set properties of a session.
+> Dapatkan dan atur peralatan dari sebuah sesi.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -160,46 +160,46 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Mencocokkan URL yang literal alamat IP.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Contoh: "127.0.1", "[0:0::1]", "[:: 1]", "http://[::1]:99"
 
-* `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+* `IP_LITERAL PREFIX_LENGHT_IN_BITS "/"`
   
   Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Contoh: "192.168.1.1/16", "fefe:13::abc / 33".
 
 * `<local>`
   
   Perhitingan lokal address. Pengertian dari `<local>` adalah diantaranya perhitungan host satu: "127.0.0.1", "::1", "localhost".
 
-#### `ses.resolveProxy(url, callback)`
+#### `ses.resolveProxy (url, callback)`
 
 * ` url </ 0> URL</li>
 <li><code>callback` Fungsi 
   * `proxy` String
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `callback(proxy)` ketika permintaan dilakukan.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `jalan` String - lokasi download
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `pilihan` Obyek 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `offline` Boolean (opsional) - Apakah untuk meniru jaringan listrik. Default ke false.
+  * `latensi` Kamar Double (opsional) - RTT di ms. default untuk 0 yang akan menonaktifkan latency throttling.
   * `downloadThroughput` Double (opsional) - Kecepatan download di Bps. Default ke 0 yang akan menonaktifkan download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `uploadThroughput` Kamar Double (opsional) - Upload tingkat di Bps. defaultnya adalah 0 yang akan menonaktifkan upload throttling.
 
 Emulasikan jaringan dengan konfigurasi yang diberikan untuk `sesi`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+Untuk meniru sambungan GPRS dengan 50kbps throughput dan 500 ms latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
@@ -223,11 +223,11 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
 <li><code>error` String - Verification result from chromium.
   * `callback` Fungsi 
     * `verificationResult` Integer - Nilai bisa menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+      * `` - menunjukkan keberhasilan dan menonaktifkan verifikasi sertifikat Transperancy.
+      * `-2` - menunjukkan kegagalan.
+      * `-3` - menggunakan hasil verifikasi dari kromium.
 
-Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc(request, callback)` setiap kali ada sertifikat server verifikasi diminta. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc(request, callback)` setiap kali ada sertifikat server verifikasi diminta. Memanggil `callback(0)` menerima sertifikat, panggilan `callback(-2)` menolak itu.
 
 Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
@@ -248,12 +248,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Fungsi 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
-  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+  * `webContents` [WebContents](web-contents.md) - WebContents meminta izin.
+  * `izin` String - Enum 'media', 'geolocation', 'pemberitahuan', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Fungsi 
-    * `permissionGranted` Boolean - Allow or deny the permission
+    * `permissionGranted` Boolean - mengizinkan atau menolak izin
 
-Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya.
 
 ```javascript
 const {session} = require('electron')
@@ -274,7 +274,7 @@ Menghapus cache resolver host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domain` String - daftar dipisahkan koma server untuk otentikasi Terpadu yang diaktifkan.
 
 Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
 
