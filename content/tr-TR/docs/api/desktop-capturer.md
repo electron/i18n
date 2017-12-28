@@ -2,12 +2,12 @@
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Süreç:[ İşleyici](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+Aşağıdaki örnek, ` Electron` isimli masaüstü penceresinden nasıl ekran kaydedilebileceğini göstermektedir:
 
 ```javascript
-// In the renderer process.
+// İşleme sürecinde.
 const {desktopCapturer} = require('electron')
 
 desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
