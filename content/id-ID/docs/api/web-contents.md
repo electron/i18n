@@ -976,7 +976,7 @@ win.webContents.on('devtools-opened', () => {
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Kirim pesan asinkron ke proses renderer melalui <code>saluran`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
+<p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
       The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
       
       Contoh pengiriman pesan dari proses utama ke proses renderer:
