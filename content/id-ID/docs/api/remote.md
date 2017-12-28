@@ -129,7 +129,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web ini berada.
+Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web ini milik.
 
 ### `remote.getCurrentWebContents()`
 
@@ -140,7 +140,7 @@ Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 * ` nama </ 0>  String</li>
 </ul>
 
-<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) dalam proses utama.</p> 
+<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p> 
     ## properti
     
     ### `remote.process`
