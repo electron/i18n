@@ -101,15 +101,17 @@ También es posible cambiar la marca de Electron cambiando el nombre del product
 
 ### Crear un tenedor Electronico personalizado
 
-Creando un tenedor personalizado de Electron seguramente no es algo que tendrá que hacer para compilar su aplicación, incluso para aplicaciones de "Nivel de producción". Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Creando un tenedor personalizado de Electron seguramente no es algo que tendrá que hacer para compilar su aplicación, incluso para aplicaciones de "Nivel de producción". Usar una herramienta como `electron-packager` o `electron-fragua</ > te permitirá "Remarcar" Electron sin tener que hacer estos pasos.</p>
 
-Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.
+<p>Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.</p>
 
-#### Creating a Custom Release with surf-build
+<h4>Creating a Custom Release with surf-build</h4>
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+<ol>
+<li><p>Install <a href="https://github.com/surf-build/surf">Surf</a>, via npm:
+<code>npm install -g surf-build@latest`</li> 
 
-2. Create a new S3 bucket and create the following empty directory structure:
+* Create a new S3 bucket and create the following empty directory structure:
     
     ```sh
 - atom-shell/
@@ -117,7 +119,7 @@ Necesita horquilla Electron cuando tienes el código C++ personalizado que han p
   - dist/
 ```
 
-3. Set the following Environment Variables:
+* Set the following Environment Variables:</ol> 
 
 * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
