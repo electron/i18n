@@ -227,20 +227,10 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
 
 Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc(request, callback)` setiap kali ada sertifikat server verifikasi diminta. Memanggil `callback(0)` menerima sertifikat, panggilan `callback(-2)` menolak itu.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+Memanggil `setCertificateVerifyProc(null)` akan kembali kembali ke default sertifikat verifikasi proc.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-
-win.webContents.session.setCertificateVerifyProc((request, callback) => {
-  const {hostname} = request
-  if (hostname === 'github.com') {
-    callback(0)
-  } else {
-    callback(-2)
-  }
-})
+const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webContents.session.setCertificateVerifyProc BrowserWindow() baru ((request, callback) = > {const {hostname} = permintaan jika (hostname === 'github.com') {callback(0)} lain {callback(-2)}})
 ```
 
 #### `ses.setPermissionRequestHandler(handler)`
@@ -254,14 +244,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya.
 
 ```javascript
-const {session} = require('electron')
-session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
-  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
-  }
-
-  callback(true)
-})
+const {session} = require('electron') session.fromPartition('some-partition').setPermissionRequestHandler ((webContents, izin, callback) = > {jika (webContents.getURL() === 'beberapa-host' & & izin === 'pemberitahuan') {}     kembali callback(false) / / ditolak.
+  } callback(true)})
 ```
 
 #### `ses.clearHostResolverCache([callback])`
@@ -277,12 +261,8 @@ Menghapus cache resolver host.
 Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
 
 ```javascript
-const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
-session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
-
-// consider all urls for integrated authentication.
+const {session} = require('electron') / / mempertimbangkan setiap url yang diakhiri dengan 'example.com', 'foobar.com', 'baz' / / untuk otentikasi Terpadu.
+session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz') / / mempertimbangkan semua Url untuk otentikasi Terpadu.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
@@ -299,15 +279,15 @@ Ini tidak akan mempengaruhi yang ada `WebContents`, dan setiap `WebContents` dap
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Mengembalikan `String` - user agent untuk sesi ini.
 
-#### `ses.getBlobData(identifier, callback)`
+#### `ses.getBlobData (pengenal, callback)`
 
-* `identifier` String - Valid UUID.
+* `pengenal` String - UUID berlaku.
 * `callback` Fungsi 
-  * `result` Buffer - Blob data.
+  * `hasil` Luapan penyangga - gumpalan data.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+Mengembalikan `gumpalan` - gumpalan data yang terkait dengan `pengenal`.
 
 #### `ses.createInterruptedDownload(options)`
 
