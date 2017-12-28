@@ -49,13 +49,13 @@ Detaches the debugger from the `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
+* ` method `String - 方法名称, 应该是由远程调试协议定义的方法之一。
+* ` commandParams ` Object (optional) - 具有请求参数的 JSON 对象。
 * `callback` Function (optional) - Response 
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
-Send given command to the debugging target.
+向调试目标发送给定的命令。
 
 ### 事件
 
@@ -64,7 +64,7 @@ Send given command to the debugging target.
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+在调试会话终止时发出。当关闭 ` webContents ` 或 ` the attached  webContents ` 调用 devtools 时, 都会发生这种情况。
 
 #### Event: 'message'
 
