@@ -184,32 +184,31 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 #### dialog.showSaveDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-write</key>
-<true/>
+<key>com.apple.security.files.user-selected.read-write</key> <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) untuk lebih jelasnya.
 
-## Known issues
+## Masalah dikenal
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Ini akan gagal saat aplikasi masuk untuk didistribusikan di Mac App Store. Berlangganan [#9005](https://github.com/electron/electron/issues/9005) untuk pembaruan.
 
-#### Workaround
+#### Solusi
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+`shell.openExternal('file://' + filePath)` akan membuka file dalam aplikasi default selama ekstensi dikaitkan dengan aplikasi yang terpasang.
 
-## Cryptographic Algorithms Used by Electron
+## Algoritma Kriptografi yang Digunakan oleh Elektron
 
 Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
 
-Electron uses following cryptographic algorithms:
+Elektron menggunakan algoritma kriptografi berikut:
 
-* AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
+* AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [ RFC 3394 ](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
-* ECDSA - ANS X9.62–2005
-* ECDH - ANS X9.63–2001
+* ECDSA - ANS X9.62-2005
+* ECDH - ANS X9.63-2001
 * HKDF - [NIST SP 800-56C](http://csrc.nist.gov/publications/nistpubs/800-56C/SP-800-56C.pdf)
 * PBKDF2 - [RFC 2898](https://tools.ietf.org/html/rfc2898)
 * RSA - [RFC 3447](http://www.ietf.org/rfc/rfc3447)
