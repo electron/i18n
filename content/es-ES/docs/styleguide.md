@@ -90,16 +90,16 @@ Usando `autoUpdater` como ejemplo:
 
 ### Clases
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Las clases API o las clases que forman parte de los módulos también deben ser listadas bajo el capítulo `## clase: TheClassName`.
+* Una página puede tener múltiples clases.
+* Los constructores deben ser listrados con títulos de nivel `#`-.
+* Los [Métodos Estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) deben ser listados bajo un capítulo de`### Métodos Estáticos`.
+* Los [Métodos de Instancia](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) deben ser listados bajo un capítulo de `### Métodos de Instancia`.
+* Todos los métodos que tengan un valor de retorno deben empezar su descripción con "Retornos `[TYPE]` - Descripción de retorno" 
+  * Si el método devuelve un `Objeto`, su estructura puede ser especificada usando una coma seguida de un salto de línea y luego una lista desordenada de propiedades en el mismo estilo como parámetros de la función.
+* Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
+* Las Propiedades de Instancia deben ser listados bajo un `capítulo de` ### Propiedades de Instancia. 
+  * Las propiedades de instancia deben empezar con "Un [Tipo de Propiedad]..."
 
 Usando las clases `Session` y `Cookies` como ejemplo:
 
@@ -154,7 +154,7 @@ For modules, the `objectName` is the module's name. For classes, it must be the 
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Los argumentos opcionales son escritos por corchetes `[]` alrededor del argumento opcional, así como la coma requerida si este argumento opcional sigue otro argumento:
 
 ```sh
 required[, optional]
