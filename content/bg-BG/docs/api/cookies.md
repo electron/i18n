@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Можете да достъпите инстанция на класът `Cookies` с помощта на свойството `cookies` на класът `Session`.
+Инстанция на класа `Cookies` можете да достъпите с помощта на свойството `cookies` на класа `Session`.
 
 Например:
 
@@ -36,10 +36,10 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### Събитие: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - кукито което е променено
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
+* `cookie` [Cookie](structures/cookie.md) - бисквитката, която е променена
+* `cause` String - Причината за промяната, една от следните стойности: 
+  * `explicit` - Бисквитката е променена директно чрез действие на потребителя.
+  * `overwrite` - Бисквитката е изтрита автоматично поради действие 'Insert', което я е презаписало.
   * `expired` - The cookie was automatically removed as it expired.
   * `evicted` - The cookie was automatically evicted during garbage collection.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
