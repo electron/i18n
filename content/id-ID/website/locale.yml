@@ -16,10 +16,10 @@ docs:
   api_reference: Referensi API
   advanced: Maju
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: Meningkatkan doc ini
+    version_history: Riwayat Versi
+    translate: Terjamahkan Aplikasi ini
+    view_all_docs: Semua dokumen pada satu halaman
 languages:
   choose_language: Pilih Bahasa Situs Anda
   translation_progress: Perkembangan Penerjemahan
@@ -59,7 +59,7 @@ get_started:
   description: Untuk memulai dengan elektron, Lihat sumber daya di bawah ini. Pelajari cara untuk membungkus aplikasi web Anda dengan elektron, mengakses semua api, dan menghasilkan installer.
 explore:
   title: Jelajahi API Elektron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'> app elektron API demo</a> interaktif menunjukkan fitur yang paling penting dari API elektron. Melihat apa yang mungkin dengan elektron dengan sampel kode dan tips untuk membangun aplikasi Anda."
 download_from_github: Unduh dari GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Lihat semua rilis</a> di GitHub
 quick_start:
