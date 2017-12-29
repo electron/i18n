@@ -6,7 +6,7 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
-## Events
+## इवेंट्स
 
 ### Event: 'loaded'
 
