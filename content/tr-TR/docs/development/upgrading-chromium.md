@@ -26,16 +26,16 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
     - It will probably fail applying patches.
 3. Klasör`*.patch` files in the `patches/` and `patches-mas/` düzenleme.
 4. (Tercihe bağlı) `komut/güncelleme` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
+  - İkinci bir senaryo var, `script/patch.py` that may be useful. Read `./script/patch.py -h` daha fazla bilgi için.
+5. Tüm yamalar hatasız uygulandığında derlemeyi çalıştırın 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
+  - Bazı yamalar Chromium kodu ile uyumlu değilse, Derleme hatalarını düzeltin.
 6. When the build succeeds, create a `dist` Electron hakkında 
   - `$ ./script/create-dist  --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. Bunlar gerekmez.)
+    - Libcc repo'nun kökünde bir ` dist /main ` klasörü oluşturacaktır. Electron'u oluşturmak için buna ihtiyacınız olacak.
+7. (İsteğe bağlı) Dosyalardan kaynaklanan hatalar varsa komut dosyası içeriğini güncelleyin kaldırıldı veya yeniden adlandırıldı. (`--no_zip` prevents script from create `dist` Arşivler. Bunlar gerekmez.)
 
-## Update Electron's code
+## Electron kodunu güncelleyin
 
 1. Kod al: 
       sh
