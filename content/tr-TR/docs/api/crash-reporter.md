@@ -78,24 +78,24 @@ Tüm yüklenmiş çökme raporlarını döndürür. Her rapor ilgili tarih ve nu
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+`Boolean` döndürür - Raporların sunucuya gönderilip gönderilmesiyle ilgilidir. `start` metodu ile ya da `setUploadToServer` metodu ile değerini değiştirin.
 
-**Note:** This API can only be called from the main process.
+**Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - Raporlar sunucuya gönderilsin mi
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start` çağrılmışsa herhangi bir etkisi yoktur.
 
-**Note:** This API can only be called from the main process.
+**Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
 ### `crashReporter.setExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+* `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
+* `value` Katar - Parametre değeri, 64 karakterden az olmalıdır. `null` veya `undefined` girildiği durumda ek parametrelerden anahtar silinir.
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. Burada verilmiş değerler, `start` çağırıldığında `ekstra` tarafından belirlenir ve ek olarak yollanır. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ## Çökme Raporu verisi
 
