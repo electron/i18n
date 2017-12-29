@@ -36,15 +36,15 @@ app.clearRecentDocuments()
 
 ### Notas de Windows
 
-Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. Puedes encontrar todo al registrar su aplicación en [Registro de solicitud](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Cuando un usuario hace clic en un archivo de JumpList, una nueva instancia de su aplicación se iniciará con la ruta del archivo agregado como un argumento de línea de comando.
 
-### macOS Notes
+### notas de macOS
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Cuando se solicita un archivo del menú de documentos recientes, el evento `archivo abierto` de `aplicación` se emitirá para él.
 
-## Custom Dock Menu (macOS)
+## Menú de base personalizada (macOS)
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
