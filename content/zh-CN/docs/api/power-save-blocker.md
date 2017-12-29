@@ -1,6 +1,6 @@
-# powerSaveBlocker
+# 省电拦截器 | powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> 阻止系统进入低功耗 (休眠) 模式。
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -17,13 +17,13 @@ powerSaveBlocker.stop(id)
 
 ## 方法
 
-The `powerSaveBlocker` module has the following methods:
+` powerSaveBlocker ` 模块具有以下方法:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type. 
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+* `type` String 拦截器类型 
+  * ` prevent-app-suspension `-防止应用程序被挂起。保持系统处于活动状态, 但允许关闭屏幕。 示例用例: 下载文件或播放音频。
+  * ` prevent-display-sleep `-防止显示器进入休眠状态。保持系统和屏幕处于活动状态。 示例用例: 播放视频。
 
 Returns `Integer` - The blocker ID that is assigned to this power blocker
 
