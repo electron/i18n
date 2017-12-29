@@ -2,22 +2,22 @@
 
 Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasviridir.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
+- Libcc'yi yeni bir Chromium sürümüne yükseltin
+- Electron kodunu yeni libcc ile uyumlu hale getirin
+- Gerekirse Electron bağımlılıklarını (crashpad, NodeJS, etc.) Güncelleyin
+- Libcc ve electronun iç yapılarını oluşturun
 - Gerekirse Electron dokümanlarını güncelleyin
 
-## Upgrade `libcc` to a new Chromium version
+## `libcc` ürünü yeni bir Chromium sürümüne yükseltin
 
-1. Get the code and initialize the project: 
+1. Kodu alın ve projeyi başlatın: 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `VERSION` Bu dosya ile 
+2. Chromium anlık görüntüsünü güncelle 
+  - Bir sürüm numarası seçin [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `SÜRÜM` Bu dosya ile 
     - Bu, tarayıcıda manuel olarak OmahaProxy'yi ziyaret ederek veya otomatik olarak yapılabilir:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
