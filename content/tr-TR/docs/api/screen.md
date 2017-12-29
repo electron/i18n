@@ -55,7 +55,7 @@ The `screen` module emits the following events:
 
 ### Etkinlik: 'görünüm-eklendi'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -64,7 +64,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -73,7 +73,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `display` [Display](structures/display.md)
