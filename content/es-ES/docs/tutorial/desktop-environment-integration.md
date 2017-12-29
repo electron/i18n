@@ -1,16 +1,16 @@
 # Integración del entorno de escritorio
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Diferentes sistemas operativos proporcionan diferentes funciones para integrar al escritorio aplicaciones en sus entornos. Por ejemplo, en Windows, las aplicaciones pueden poner accesos directos en JumpList de la barra de tareas, y en Mac, las aplicaciones pueden poner un menú personalizado en el menú de base.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Esta guía explica cómo integrar su aplicación en los entornos de esas computadoras de escritorio con las APIs de Electron.
 
-## Notifications
+## Notificaciones
 
-See [Notifications](notifications.md)
+Ver [Notificaciones](notifications.md)
 
-## Recent documents (Windows & macOS)
+## Documentos recientes (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows y macOS brindan fácil acceso a una lista de documentos recientes abiertos por la aplicación a través de JumpList o menú de base, respectivamente.
 
 **JumpList:**
 
@@ -34,9 +34,9 @@ const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Notas de Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
