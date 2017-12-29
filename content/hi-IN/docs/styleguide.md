@@ -10,39 +10,28 @@
 * "की" और "और" जैसे संयोजनों को छोड़कर, पेज के शीर्षक में मौज़ूद सभी शब्दों को कैपिटल में होना चाहिए ।
 * अध्याय शीर्षक का केवल पहला शब्द ही कैपिटल में होना चाहिये |
 
-Using `Quick Start` as example:
+उदहारण के रूप में `त्वरित प्रारंभ` का उपयोग:
 
 ```markdown
-# Quick Start
-
+# त्वरित प्रारंभ 
+... 
+## मुख्य प्रक्रिया
+... 
+## रेंदेरेर प्रक्रिया
+... 
+## अपनी एप्प चलायें 
+... 
+### वितरण की तरह चलायें 
 ...
-
-## Main process
-
-...
-
-## Renderer process
-
-...
-
-## Run your app
-
-...
-
-### Run as a distribution
-
-...
-
-### Manually downloaded Electron binary
-
+ ### इलेक्ट्रॉन बाइनरी मैन्युअली डाउनलोड की गयी
 ...
 ```
 
-For API references, there are exceptions to this rule.
+ऐपीआई रेफरेन्सेस के लिए, इस नियम के कुछ अपवाद हैं |
 
-## Markdown rules
+## मार्कडाउन नियम
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* कोड खण्डों में `cmd` की जगह `sh` का प्रयोग करें (सिंटेक्स हाइलाइटर के कारण) |
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
