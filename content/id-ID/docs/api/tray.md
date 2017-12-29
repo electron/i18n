@@ -208,22 +208,22 @@ win.on('hide', () => {
         * ` teks ` String (opsional)
         * `position` [Point](structures/point.md) (optional) - The pop up position.
         
-        Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+        Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
         
-        The `position` is only available on Windows, and it is (0, 0) by default.
+        Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
         
-        #### `tray.setContextMenu(menu)`
+        #### `tray.setContextMenu (menu)`
         
-        * ` menu </ 0> Menu</li>
-</ul>
-
-<p>Sets the context menu for this icon.</p>
-
-<h4><code>tray.getBounds()` *macOS* *Windows*</h4> 
-          Returns [`Rectangle`](structures/rectangle.md)
-          
-          The `bounds` of this tray icon as `Object`.
-          
-          #### `tray.isDestroyed()`
-          
-          Returns `Boolean` - Whether the tray icon is destroyed.
+        * `menu` Menu
+        
+        Menetapkan menu konteks untuk ikon ini.
+        
+        #### `tray.getBounds()` *macOS * * Windows*
+        
+        Kembali [`Rectangle`](structures/rectangle.md)
+        
+        `Batas` dari ikon baki ini sebagai `Objek`.
+        
+        #### `tray.isDestroyed()`
+        
+        Returns `Boolean` - Whether the tray icon is destroyed.
